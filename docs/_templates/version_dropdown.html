@@ -1,0 +1,20 @@
+
+<div class="version-dropdown">
+    
+    <select id="version-selector" onchange="window.location.href=this.value">
+        {% for version, url in get_versions().items() %}
+            <option value="{{ url }}/{{ pagename }}">{{ version }}</option>
+        {% endfor %}
+    </select>
+</div>
+
+
+<div class="module-dropdown">
+
+    <select id="module-selector" onchange="window.location.href=this.value" >
+        {% for module, url in get_modules().items() %}
+            <option value="{{ url }}/{{ pagename }}">{{ module }}</option>
+        {% endfor %}
+    </select>
+</div>
+

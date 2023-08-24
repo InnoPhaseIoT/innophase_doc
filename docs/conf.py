@@ -34,6 +34,7 @@ html_static_path = ["_static"]
 def get_versions():
     return {
         'Version': 'latest',
+        '1.0.0': 'https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/v1.0/',
     }
 
 

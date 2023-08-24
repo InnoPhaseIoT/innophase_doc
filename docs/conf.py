@@ -5,7 +5,7 @@ sys.path.insert(0, os.path.abspath('..'))
 project = 'InnoPhase'
 copyright = '2023, InnoPhase'
 author = 'InnoPhase'
-release = '1.0.0'
+release = '1.0.1'
 
 extensions = [
     'sphinx.ext.viewcode',
@@ -33,11 +33,7 @@ html_static_path = ["_static"]
 
 def get_versions():
     return {
-        'Version': 'Stable',
-        '2.4': 'https://innophase.com/docs/v1.0',
-        '2.5': 'https://innophase.com/docs/v2.0',
-        '2.6': 'https://innophase.com/docs/v2.0',
-        '2.7': 'https://innophase.com/docs/v2.0',
+        'Version': 'latest',
     }
 
 

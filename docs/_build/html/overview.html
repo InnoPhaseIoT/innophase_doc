@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Overview &mdash; InnoPhase 1.0.1 documentation</title>
@@ -11,11 +11,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -30,60 +30,65 @@
 
 
 <style>
+#rtd-search-form {
+    margin-top: 50px;
+}
 /* Style for the container of the "Download PDF" button */
 #download-pdf-button {
-  background-color: #2980b9;
+  /*background-color: #2980b9;*/
   margin-left: 344px;
   margin-top: 3px;
   z-index: 10;
-  border-radius: 3px;
+  /*border-radius: 3px;*/
   position: relative;
   bottom: 40px;
   left: 225px;
-  border: 1px solid #2980b9;
+  /*border: 1px solid #2980b9;*/
   padding: 5px 1px;
   text-align: center;
   font-size: 16px;
   font-weight: bold;
-  color: white;
+  /*color: white;*/
   text-decoration: none;
   transition: 0.3s;
+    display: flex;
+    align-items: center;
 }
 
 #download-pdf-button:hover {
-  background-color: #3498db;
+  /*background-color: #3498db;*/
 }
 
-#download-pdf-button:active {
-  background-color: #2980b9;
-  box-shadow: 0 5px 10px #2980b9;
-}
+/*#download-pdf-button:active {*/
+/*  !*background-color: #2980b9;*!*/
+/*  box-shadow: 0 5px 10px #2980b9;*/
+/*}*/
 
 #download-pdf-button i {
   padding-right: 10px;
 }
 
 </style>
-
 <div class="version-dropdown">
-    
+
     <select id="version-selector" onchange="window.location.href=this.value">
         
-            <option value="latest/overview">Version</option>
+        <option value="latest/overview">Version</option>
         
-            <option value="https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/v1.0//overview">1.0.0</option>
+        <option value="https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/v1.0//overview">1.0.0</option>
         
     </select>
+
 </div>
 
-
+<br/>
 <div class="module-dropdown">
 
-    <select id="module-selector" onchange="window.location.href=this.value" >
+    <select id="module-selector" onchange="window.location.href=this.value">
         
-            <option value="#/overview">Module</option>
+        <option value="#/overview">Module</option>
         
-            <option value="https://innophase.com/docs/v1.0/overview">Talaria-TWO</option>
+        <option value="https://innophase.com/docs/v1.0/overview">Talaria-TWO</option>
         
     </select>
 </div>
@@ -92,18 +97,20 @@
 <style>
   .wy-side-nav-search a.icon-home {
     display: inline-block; /* Make the anchor a block element to hold the background image */
-    width: 70%; /* Set the width to the width of your logo image */
-    height: 40px; /* Set the height to the height of your logo image */
+    width: 100%; /* Set the width to the width of your logo image */
+    height: 64px; /* Set the height to the height of your logo image */
     background: url("_static/logo.png") no-repeat center center;
     background-size: cover; /* Make the background image cover the entire anchor */
     text-indent: -9999px; /* Hide the text using negative text indent */
+    overflow: hidden; /* Hide the text by clipping it */
+    white-space: nowrap; /* Prevent wrapping of the text */
   }
 
 </style>
 
 <style>
   .wy-side-nav-search {
-  background-color: rgb(184, 196, 215);
+  background-color: white;
   position: relative;
   z-index: 1;
 }
@@ -114,8 +121,8 @@
 <style>
   .version-dropdown {
     position: absolute;
-    top: 63px;
-    left: 70px;
+    top: 80px;
+    left: 20px;
     display: flex;
     align-items: center;
     z-index: 9999 !important;
@@ -131,32 +138,33 @@
     font-size: 12px;
     padding: 1px;
     height:25px;
-    width:65px;
+    width:262px;
     border: none;
-    background-color: #70a0eda6;
+    background-color: lightgray;
     border-radius: 5px;
-    
+
   }
 
   .module-dropdown select {
-    font-size: 12px; /* Adjust the font size to make it smaller */
-    padding: 1px; /* Adjust the padding to make the dropdown box smaller */
-    width: 67px;
+    font-size: 12px;
+    padding: 1px;
+    height:25px;
+    width:262px;
     border: none;
-    background-color: #70a0eda6;
+    background-color: lightgray;
     border-radius: 5px;
-    height: 25px;
   }
 
   .module-dropdown {
     position: absolute;
-    top: 63px; /* Adjust top position as needed */
-    left: 146px; /* Adjust left position */
+    top: 110px; /* Adjust top position as needed */
+    left: 20px; /* Adjust left position */
     display: flex;
     align-items: center;
     z-index: 9999 !important;
     float: right;
     position: fixed;
+    padding-bottom: 10px;
   }
 
   .module-dropdown label {
@@ -178,7 +186,6 @@
     border-radius: 50px;
     padding: 6px 12px;
     border-color: #2472a4;
-    margin-top: 32px;
 }
 
  
@@ -192,11 +199,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> InnoPhase
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            InnoPhase
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -247,8 +258,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Overview</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Overview</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/overview.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -261,10 +272,6 @@
   <section id="overview">
 <span id="id1"></span><h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h1>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 41%" />
-<col style="width: 59%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td></td>
 <td><p><a class="reference internal" href="media/image1.jpeg"><img alt="Graphical user interface Description automatically generated with medium confidence" src="media/image1.jpeg" style="width: 3.97014in; height: 1.5in;" /></a></p></td>
@@ -278,11 +285,6 @@
 <p>Release: 11-18-2022</p>
 <p>Revision History</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 7%" />
-<col style="width: 13%" />
-<col style="width: 79%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>**
 Ver
@@ -560,9 +562,6 @@ INP_T2_Demo_Linux is for the Linux OS.</p>
 example:</p></li>
 </ol>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>sudo
 /home/
@@ -581,9 +580,6 @@ feature. Execute the following steps:</p>
 <p><strong>Libusb_T2.rules:</strong></p>
 </div></blockquote>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>SUBSYSTEMS==”usb”, ATTRS{idVendor}==”0403”, ATTRS{idProduct}==”6011”,
 GROUP=”users”, MODE=”0666”</p></td>
@@ -597,9 +593,6 @@ GROUP=”users”, MODE=”0666”</p></td>
 permissions to the selected folder and its files.</p>
 </div></blockquote>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>sudo chmod -R a+rwx /Path/to/sdk folder</p></td>
 </tr>
@@ -616,10 +609,6 @@ COM ports in Windows OS which does not take advantage of the MPSEE
 capabilities of the FTDI device. The usage of these ports in the
 evaluation board is given in Table 1.</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 19%" />
-<col style="width: 81%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><strong>Port</strong></p></td>
 <td><p><strong>Usage</strong></p></td>
@@ -932,12 +921,6 @@ are shown in Table 2. Depending on the user’s choice of the scanning
 scheme, respective default values will be set to corresponding
 parameters.</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 22%" />
-<col style="width: 22%" />
-<col style="width: 22%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><strong>Default Value</strong></p></td>
 <td></td>
@@ -1112,9 +1095,6 @@ write it to the device as the new serial number.</p>
 <p>Figure 26: Serial number updated</p>
 <p>Format of the serial number:</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>&lt;year_stamp&gt;-&lt;integer&gt;</p></td>
 </tr>
@@ -1220,11 +1200,37 @@ acknowledged.</p>
 
            </div>
           </div>
-          <div class="footer"><footer>
-  <p >&#169; Copyrigth 2023, InnoPhase IoT, Inc.</p>
-  <button id="download-pdf-button" onclick="downloadPDF()">Download PDF</button>
+          <div class="footer">
+    <footer>
+        <p>&#169; Copyrigth 2023, InnoPhase IoT, Inc.</p>
+        <a id="download-pdf-button" href="#" onclick="downloadPDF()">
+            <svg width="18px" height="18px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier"><title></title>
+                    <g id="Complete">
+                        <g id="download">
+                            <g>
+                                <path d="M3,12.3v7a2,2,0,0,0,2,2H19a2,2,0,0,0,2-2v-7" fill="none" stroke="#000000"
+                                      stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                                <g>
+                                    <polyline data-name="Right" fill="none" id="Right-2"
+                                              points="7.9 12.3 12 16.3 16.1 12.3" stroke="#000000"
+                                              stroke-linecap="round" stroke-linejoin="round"
 
-</footer></div>
+
+                                              stroke-width="2"></polyline>
+                                    <line fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"
+                                          stroke-width="2" x1="12" x2="12" y1="2.7" y2="14.2"></line>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </svg>&nbsp; Download
+        </a>
+    </footer>
+</div>
   
         </div>
       </div>

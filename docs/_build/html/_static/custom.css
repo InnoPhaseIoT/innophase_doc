@@ -2,3 +2,7 @@
 .wy-side-nav-search a.icon-home {
     background-color: black;
 }
+
+.edit-on-github-button {
+    display: none;
+}

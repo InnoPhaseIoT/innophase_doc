@@ -1,8 +1,3 @@
-InnoPhase IoT Programming Guide
-================================
-
-Welcome to the InnoPhase IoT Programming Guide. This guide provides information on programming for InnoPhase IoT devices. The Overview section provides a high-level introduction to InnoPhase IoT devices and the programming guide's structure.
-
 Getting Started
 ===============
 
@@ -47,10 +42,3 @@ Linux CPU-based (Hosted CPU):
 * Linux host for data application, and Talaria TWO for low power/sleep, and router and cloud keep alive mechanism.
 * UART (2W/4W), SDIO and SPI interface.
 * Wi-Fi/BLE User Space C library (HAPI) host package.
-
-
-Advanced Topics
-===============
-
-* :ref:`Overview <overview>`
-

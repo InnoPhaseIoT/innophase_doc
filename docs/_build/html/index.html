@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to InnoPhase’s documentation! &mdash; InnoPhase 1.0.1 documentation</title>
+  <title>InnoPhase IoT Programming Guide &mdash; InnoPhase 1.0.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -30,60 +30,65 @@
 
 
 <style>
+#rtd-search-form {
+    margin-top: 50px;
+}
 /* Style for the container of the "Download PDF" button */
 #download-pdf-button {
-  background-color: #2980b9;
+  /*background-color: #2980b9;*/
   margin-left: 344px;
   margin-top: 3px;
   z-index: 10;
-  border-radius: 3px;
+  /*border-radius: 3px;*/
   position: relative;
   bottom: 40px;
   left: 225px;
-  border: 1px solid #2980b9;
+  /*border: 1px solid #2980b9;*/
   padding: 5px 1px;
   text-align: center;
   font-size: 16px;
   font-weight: bold;
-  color: white;
+  /*color: white;*/
   text-decoration: none;
   transition: 0.3s;
+    display: flex;
+    align-items: center;
 }
 
 #download-pdf-button:hover {
-  background-color: #3498db;
+  /*background-color: #3498db;*/
 }
 
-#download-pdf-button:active {
-  background-color: #2980b9;
-  box-shadow: 0 5px 10px #2980b9;
-}
+/*#download-pdf-button:active {*/
+/*  !*background-color: #2980b9;*!*/
+/*  box-shadow: 0 5px 10px #2980b9;*/
+/*}*/
 
 #download-pdf-button i {
   padding-right: 10px;
 }
 
 </style>
-
 <div class="version-dropdown">
-    
+
     <select id="version-selector" onchange="window.location.href=this.value">
         
-            <option value="latest/index">Version</option>
+        <option value="latest/index">Version</option>
         
-            <option value="https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/v1.0//index">1.0.0</option>
+        <option value="https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/v1.0//index">1.0.0</option>
         
     </select>
+
 </div>
 
-
+<br/>
 <div class="module-dropdown">
 
-    <select id="module-selector" onchange="window.location.href=this.value" >
+    <select id="module-selector" onchange="window.location.href=this.value">
         
-            <option value="#/index">Module</option>
+        <option value="#/index">Module</option>
         
-            <option value="https://innophase.com/docs/v1.0/index">Talaria-TWO</option>
+        <option value="https://innophase.com/docs/v1.0/index">Talaria-TWO</option>
         
     </select>
 </div>
@@ -92,18 +97,20 @@
 <style>
   .wy-side-nav-search a.icon-home {
     display: inline-block; /* Make the anchor a block element to hold the background image */
-    width: 70%; /* Set the width to the width of your logo image */
-    height: 40px; /* Set the height to the height of your logo image */
+    width: 100%; /* Set the width to the width of your logo image */
+    height: 64px; /* Set the height to the height of your logo image */
     background: url("_static/logo.png") no-repeat center center;
     background-size: cover; /* Make the background image cover the entire anchor */
     text-indent: -9999px; /* Hide the text using negative text indent */
+    overflow: hidden; /* Hide the text by clipping it */
+    white-space: nowrap; /* Prevent wrapping of the text */
   }
 
 </style>
 
 <style>
   .wy-side-nav-search {
-  background-color: rgb(184, 196, 215);
+  background-color: white;
   position: relative;
   z-index: 1;
 }
@@ -114,8 +121,8 @@
 <style>
   .version-dropdown {
     position: absolute;
-    top: 63px;
-    left: 70px;
+    top: 80px;
+    left: 20px;
     display: flex;
     align-items: center;
     z-index: 9999 !important;
@@ -131,32 +138,33 @@
     font-size: 12px;
     padding: 1px;
     height:25px;
-    width:65px;
+    width:262px;
     border: none;
-    background-color: #70a0eda6;
+    background-color: lightgray;
     border-radius: 5px;
-    
+
   }
 
   .module-dropdown select {
-    font-size: 12px; /* Adjust the font size to make it smaller */
-    padding: 1px; /* Adjust the padding to make the dropdown box smaller */
-    width: 67px;
+    font-size: 12px;
+    padding: 1px;
+    height:25px;
+    width:262px;
     border: none;
-    background-color: #70a0eda6;
+    background-color: lightgray;
     border-radius: 5px;
-    height: 25px;
   }
 
   .module-dropdown {
     position: absolute;
-    top: 63px; /* Adjust top position as needed */
-    left: 146px; /* Adjust left position */
+    top: 110px; /* Adjust top position as needed */
+    left: 20px; /* Adjust left position */
     display: flex;
     align-items: center;
     z-index: 9999 !important;
     float: right;
     position: fixed;
+    padding-bottom: 10px;
   }
 
   .module-dropdown label {
@@ -178,7 +186,6 @@
     border-radius: 50px;
     padding: 6px 12px;
     border-color: #2472a4;
-    margin-top: 32px;
 }
 
  
@@ -192,11 +199,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="#" class="icon icon-home"> InnoPhase
+
+          
+          
+          <a href="#" class="icon icon-home">
+            InnoPhase
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -204,9 +215,17 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Welcome to InnoPhase’s documentation!</a></li>
-<li><a class="reference internal" href="#overview">Overview</a></li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+<li><a class="reference internal" href="#">InnoPhase IoT Programming Guide</a></li>
+<li><a class="reference internal" href="#getting-started">Getting Started</a><ul>
+<li><a class="reference internal" href="#hostless-stand-alone-solution">Hostless (Stand-alone) Solution:</a></li>
+<li><a class="reference internal" href="#hosted-solution">Hosted Solution:</a><ul>
+<li><a class="reference internal" href="#mcu-based-hosted-mcu">MCU-based (Hosted MCU):</a></li>
+<li><a class="reference internal" href="#linux-cpu-based-hosted-cpu">Linux CPU-based (Hosted CPU):</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#advanced-topics">Advanced Topics</a></li>
 </ul>
 </div>
         </div>
@@ -222,8 +241,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
-      <li>Welcome to InnoPhase’s documentation!</li>
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">InnoPhase IoT Programming Guide</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -233,16 +252,68 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="welcome-to-innophase-s-documentation">
-<h1>Welcome to InnoPhase’s documentation!<a class="headerlink" href="#welcome-to-innophase-s-documentation" title="Permalink to this heading"></a></h1>
-<div class="toctree-wrapper compound">
-</div>
+  <section id="innophase-iot-programming-guide">
+<h1>InnoPhase IoT Programming Guide<a class="headerlink" href="#innophase-iot-programming-guide" title="Permalink to this heading"></a></h1>
+<p>Welcome to the InnoPhase IoT Programming Guide. This guide provides information on programming for InnoPhase IoT devices. The Overview section provides a high-level introduction to InnoPhase IoT devices and the programming guide’s structure.</p>
 </section>
-<section id="overview">
-<span id="id1"></span><h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h1>
+<section id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h1>
+<p>InnoPhase IoT is a fabless wireless semiconductor platform company specializing in extreme low power wireless radio solutions. InnoPhase IoT is focused on developing wireless semiconductor SoCs and Modules for high volume, battery-based consumer, commercial, medical, and industrial wireless IoT products.
+InnoPhase offers two types of solution architectures:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Hostless</span> <span class="pre">(Stand-alone)</span> <span class="pre">Solution</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Hosted</span> <span class="pre">Solution</span></code></p></li>
+</ul>
+</div></blockquote>
+<section id="hostless-stand-alone-solution">
+<h2>Hostless (Stand-alone) Solution:<a class="headerlink" href="#hostless-stand-alone-solution" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>In this case, there is no external host involved and the application runs on the internal MCU of the Talaria TWO.</p></li>
+<li><p>Available as part of the SDK release package. For example: sdk_x.y.zip.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">Note</span></code>: x and y in sdk_x.y refers to the SDK version of the release package.
+* Beneficial for development of integrated applications on Talaria TWO with InnoOS RTOS, lwIP network stack and GCC compiler-based SDK.
+* Enables application, networking and wireless (BLE/Wi-Fi) functionality on Talaria TWO.</p>
 </section>
-<section id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h1>
+<section id="hosted-solution">
+<h2>Hosted Solution:<a class="headerlink" href="#hosted-solution" title="Permalink to this heading"></a></h2>
+<dl class="simple">
+<dt>Talaria TWO works by communicating with a host application through a series of message exchanges back and forth. In this case, the host application contains the logic to execute a sequence of the events. There are two variants of the Hosted architecture:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MCU-based</span> <span class="pre">(Hosted</span> <span class="pre">MCU)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Linux</span> <span class="pre">CPU-based</span> <span class="pre">(Hosted</span> <span class="pre">CPU)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<section id="mcu-based-hosted-mcu">
+<h3>MCU-based (Hosted MCU):<a class="headerlink" href="#mcu-based-hosted-mcu" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Available as part of the ST and LPS release packages.
+The release package for ST (MCU from STM) is available on the website. Contact InnoPhase for the LPS solution (Low Power Sensor – MCU from Nuvoton). These packages contain the required libraries and examples that run on the host MCU and communicate with Talaria TWO.</p></li>
+<li><p>MCU serves as the master and sends commands to Talaria TWO to perform any of the following operations: Wi-Fi, BLE, Socket, FoTA, Provisioning and so on).</p></li>
+<li><p>Talaria TWO provides all Wi-Fi, BLE, Socket, MQTT/HTTP, TLS, FoTA, Provisioning.</p></li>
+<li><p>Supported interfaces:</p></li>
+<li><p>AT Commands: UART</p></li>
+<li><p>HAPI (STM): UART, SPI</p></li>
+<li><p>Wi-Fi/BLE C library (HAPI) host package or AT Commands (native on Talaria TWO).</p></li>
+<li><p>BLE can also be supported via HCI interface.</p></li>
+</ul>
+</section>
+<section id="linux-cpu-based-hosted-cpu">
+<h3>Linux CPU-based (Hosted CPU):<a class="headerlink" href="#linux-cpu-based-hosted-cpu" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>The host package can be run on a Linux based platform</p></li>
+<li><p>The package can be made available on request (proprietary).</p></li>
+<li><p>Low Power, Dual-Stack architecture.</p></li>
+<li><p>Linux host for data application, and Talaria TWO for low power/sleep, and router and cloud keep alive mechanism.</p></li>
+<li><p>UART (2W/4W), SDIO and SPI interface.</p></li>
+<li><p>Wi-Fi/BLE User Space C library (HAPI) host package.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="advanced-topics">
+<h1>Advanced Topics<a class="headerlink" href="#advanced-topics" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p><a class="reference internal" href="overview.html#overview"><span class="std std-ref">Overview</span></a></p></li>
 </ul>
@@ -251,11 +322,37 @@
 
            </div>
           </div>
-          <div class="footer"><footer>
-  <p >&#169; Copyrigth 2023, InnoPhase IoT, Inc.</p>
-  <button id="download-pdf-button" onclick="downloadPDF()">Download PDF</button>
+          <div class="footer">
+    <footer>
+        <p>&#169; Copyrigth 2023, InnoPhase IoT, Inc.</p>
+        <a id="download-pdf-button" href="#" onclick="downloadPDF()">
+            <svg width="18px" height="18px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier"><title></title>
+                    <g id="Complete">
+                        <g id="download">
+                            <g>
+                                <path d="M3,12.3v7a2,2,0,0,0,2,2H19a2,2,0,0,0,2-2v-7" fill="none" stroke="#000000"
+                                      stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                                <g>
+                                    <polyline data-name="Right" fill="none" id="Right-2"
+                                              points="7.9 12.3 12 16.3 16.1 12.3" stroke="#000000"
+                                              stroke-linecap="round" stroke-linejoin="round"
 
-</footer></div>
+
+                                              stroke-width="2"></polyline>
+                                    <line fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"
+                                          stroke-width="2" x1="12" x2="12" y1="2.7" y2="14.2"></line>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </svg>&nbsp; Download
+        </a>
+    </footer>
+</div>
   
         </div>
       </div>

@@ -219,7 +219,7 @@ Tables
 `Table 2: Default values for Standard Wi-Fi and Low-Power Wi-Fi
 Scan `__ `23 <#_Ref88476954>`__
 
-Terms & Definitions 
+Terms & Definitions
 ====================
 
 AP Access Point
@@ -283,7 +283,7 @@ This GUI is intended for use with the INP3010 and INP3011 Talaria TWO
 evaluation boards to enable easy programming and accelerated
 evaluations.
 
-Prerequisites 
+Prerequisites
 ==============
 
 Each release of the Demo Tool is equipped with binaries for Windows and
@@ -650,7 +650,7 @@ Figure 14: PROG RAM alert message
 
 Figure 15: Error communicating with FTDI device
 
-MPD 
+MPD
 ----
 
 1. Enter the APs SSID and passphrase where, DTIM in the AP is set to 1.
@@ -674,7 +674,7 @@ can be used, refer document: UG_Demo_Tool_Part_2_MPD.pdf
 
 **Note**: x and y in sdk_x.y refer to the SDK release version.
 
-iPerf3 
+iPerf3
 -------
 
 The iperf.exe application can be downloaded from the following link:

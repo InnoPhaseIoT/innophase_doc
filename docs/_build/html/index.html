@@ -4,9 +4,10 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>InnoPhase IoT Programming Guide &mdash; InnoPhase 1.0.1 documentation</title>
+  <title>InnoPhase IoT Programming Guide &mdash; InnoPhase 1.0.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -17,183 +18,13 @@
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-
-<script src="_static/download_pdf.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="next" title="Overview" href="overview.html" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
-
-
-
-
-<style>
-#rtd-search-form {
-    margin-top: 50px;
-}
-.wy-breadcrumbs-aside a {
-    display: none;
-}
-/* Style for the container of the "Download PDF" button */
-#download-pdf-button {
-  /*background-color: #2980b9;*/
-  margin-left: 344px;
-  margin-top: 3px;
-  z-index: 10;
-  /*border-radius: 3px;*/
-  position: relative;
-  bottom: 40px;
-  left: 225px;
-  /*border: 1px solid #2980b9;*/
-  padding: 5px 1px;
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-  /*color: white;*/
-  text-decoration: none;
-  transition: 0.3s;
-    display: flex;
-    align-items: center;
-}
-
-#download-pdf-button:hover {
-  /*background-color: #3498db;*/
-}
-
-/*#download-pdf-button:active {*/
-/*  !*background-color: #2980b9;*!*/
-/*  box-shadow: 0 5px 10px #2980b9;*/
-/*}*/
-
-#download-pdf-button i {
-  padding-right: 10px;
-}
-
-</style>
-<div class="version-dropdown">
-
-    <select id="version-selector" onchange="window.location.href=this.value">
-        
-        <option value="latest/index">Version</option>
-        
-        <option value="https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/v1.0//index">1.0.0</option>
-        
-    </select>
-
-</div>
-
-<br/>
-<div class="module-dropdown">
-
-    <select id="module-selector" onchange="window.location.href=this.value">
-        
-        <option value="#/index">Module</option>
-        
-        <option value="https://innophase.com/docs/v1.0/index">Talaria-TWO</option>
-        
-    </select>
-</div>
-
-
-<style>
-  .wy-side-nav-search a.icon-home {
-    display: inline-block; /* Make the anchor a block element to hold the background image */
-    width: 100%; /* Set the width to the width of your logo image */
-    height: 64px; /* Set the height to the height of your logo image */
-    background: url("_static/logo.png") no-repeat center center;
-    background-size: cover; /* Make the background image cover the entire anchor */
-    text-indent: -9999px; /* Hide the text using negative text indent */
-    overflow: hidden; /* Hide the text by clipping it */
-    white-space: nowrap; /* Prevent wrapping of the text */
-  }
-
-</style>
-
-<style>
-  .wy-side-nav-search {
-  background-color: white;
-  position: relative;
-  z-index: 1;
-}
-</style>
-
-
-
-<style>
-  .version-dropdown {
-    position: absolute;
-    top: 80px;
-    left: 20px;
-    display: flex;
-    align-items: center;
-    z-index: 9999 !important;
-    padding: 1px;
-    position: fixed;
-}
-
-
-  .version-dropdown label {
-    margin-right: 5px;
-  }
-  .version-dropdown select {
-    font-size: 12px;
-    padding: 1px;
-    height:25px;
-    width:262px;
-    border: none;
-    background-color: lightgray;
-    border-radius: 5px;
-
-  }
-
-  .module-dropdown select {
-    font-size: 12px;
-    padding: 1px;
-    height:25px;
-    width:262px;
-    border: none;
-    background-color: lightgray;
-    border-radius: 5px;
-  }
-
-  .module-dropdown {
-    position: absolute;
-    top: 110px; /* Adjust top position as needed */
-    left: 20px; /* Adjust left position */
-    display: flex;
-    align-items: center;
-    z-index: 9999 !important;
-    float: right;
-    position: fixed;
-    padding-bottom: 10px;
-  }
-
-  .module-dropdown label {
-    margin-right: 5px;
-  }
-
-  .module-dropdown select {
-    padding: 2px;
-  }
-  .local-toc{
-    position: relative;
-
-  }
-  .footer{
-    height:1px;
-  }
-  .wy-side-nav-search input[type=text] {
-    width: 100%;
-    border-radius: 50px;
-    padding: 6px 12px;
-    border-color: #2472a4;
-}
-
- 
-</style>
-
+<script src="_static/js/custom.js" defer></script>
 
 </head>
 
@@ -216,21 +47,27 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">InnoPhase IoT Programming Guide</a></li>
-<li><a class="reference internal" href="#getting-started">Getting Started</a><ul>
-<li><a class="reference internal" href="#hostless-stand-alone-solution">Hostless (Stand-alone) Solution:</a></li>
-<li><a class="reference internal" href="#hosted-solution">Hosted Solution:</a><ul>
-<li><a class="reference internal" href="#mcu-based-hosted-mcu">MCU-based (Hosted MCU):</a></li>
-<li><a class="reference internal" href="#linux-cpu-based-hosted-cpu">Linux CPU-based (Hosted CPU):</a></li>
+              <p class="caption" role="heading"><span class="caption-text">Overviews</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#contents">Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#figures">Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#tables">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#terms-definitions">Terms &amp; Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#introduction">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#block-diagram">Block Diagram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#gui">GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#appendix">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#references">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#support">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#disclaimers">Disclaimers</a></li>
 </ul>
-</li>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#advanced-topics">Advanced Topics</a></li>
-</ul>
-</div>
+
         </div>
       </div>
     </nav>
@@ -320,50 +157,31 @@ The release package for ST (MCU from STM) is available on the website. Contact I
 <ul class="simple">
 <li><p><a class="reference internal" href="overview.html#overview"><span class="std std-ref">Overview</span></a></p></li>
 </ul>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
 
            </div>
           </div>
-          <div class="footer">
-    <footer>
-        <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-            <a href="#previous" class="btn btn-neutral float-right" title="Step 3: Keeping Documentation Up to Date"
-               accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-            <a href="#next" class="btn btn-neutral" title="Step 1: Getting started with RST" accesskey="p"
-               rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-        </div>
-        <hr>
-        <div class="rst-footer-buttons" sty aria-label="footer navigation">
-            <p>&#169; Copyrigth 2023, InnoPhase IoT, Inc.</p>
-            <a id="download-pdf-button" href="#" onclick="downloadPDF()">
-                <svg width="18px" height="18px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                    <g id="SVGRepo_iconCarrier"><title></title>
-                        <g id="Complete">
-                            <g id="download">
-                                <g>
-                                    <path d="M3,12.3v7a2,2,0,0,0,2,2H19a2,2,0,0,0,2-2v-7" fill="none" stroke="#000000"
-                                          stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-                                    <g>
-                                        <polyline data-name="Right" fill="none" id="Right-2"
-                                                  points="7.9 12.3 12 16.3 16.1 12.3" stroke="#000000"
-                                                  stroke-linecap="round" stroke-linejoin="round"
-                                                  stroke-width="2"></polyline>
-                                        <line fill="none" stroke="#000000" stroke-linecap="round"
-                                              stroke-linejoin="round"
-                                              stroke-width="2" x1="12" x2="12" y1="2.7" y2="14.2"></line>
-                                    </g>
-                                </g>
-                            </g>
-                        </g>
-                    </g>
-                </svg>&nbsp; Download
-            </a>
-        </div>
-    </footer>
-</div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="overview.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, InnoPhase IoT, Inc.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
     </section>
@@ -372,8 +190,7 @@ The release package for ST (MCU from STM) is available on the website. Contact I
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
+  </script> 
 
 </body>
 </html>

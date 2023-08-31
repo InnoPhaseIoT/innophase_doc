@@ -1,0 +1,62 @@
+.tight-table td {
+    white-space: normal !important;
+}
+
+.wy-side-nav-search a.icon-home {
+    background-color: black;
+}
+
+.wy-breadcrumbs-aside {
+    display: none !important;
+}
+
+.wy-side-nav-search a.icon-home {
+    display: inline-block; /* Make the anchor a block element to hold the background image */
+    width: 100%; /* Set the width to the width of your logo image */
+    height: 74px; /* Set the height to the height of your logo image */
+    background: url("../logo.png") no-repeat center center;
+    background-size: cover; /* Make the background image cover the entire anchor */
+    text-indent: -9999px; /* Hide the text using negative text indent */
+    overflow: hidden; /* Hide the text by clipping it */
+    white-space: nowrap; /* Prevent wrapping of the text */
+}
+
+.wy-side-nav-search {
+    background-color: white;
+    position: relative;
+    z-index: 1;
+}
+
+#version-selector,
+#module-dropdown
+{
+    font-size: 10px;
+    width: 100%;
+    height: 24px;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    background-color: lightgray;
+    border-radius: 15px;
+    margin: 0px 0px 7px 0px;
+  }
+
+  /* #version-selector{
+    width: 100%;
+    border-radius: 50px;
+    padding: 6px 12px;
+    border-color: #2472a4 ;
+    margin: inherit;
+  }
+
+  #module-dropdown  {
+    width: 100%;
+    border-radius: 50px;
+    padding: 6px 12px;
+    border-color: #2472a4 ;
+    margin: inherit;
+  } */
+
+  div[role="contentinfo"] {
+    display: flex;
+    justify-content: space-between;
+  }

@@ -31,7 +31,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'InnoPhase'
-copyright = '2023, InnoPhase IoT, Inc'
+copyright = '2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary & Confidential'
 author = 'InnoPhase'
 release = '1.0.0'
 
@@ -95,14 +95,14 @@ texinfo_documents = [(master_doc, 'InnoPhase IoT', 'InnoPhase IoT Programming Gu
 def get_versions():
     return {
         'Version': 'latest',
-        '1.0.0': 'https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/v1.0/',
+        'stable': 'https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/stable/',
     }
 
 
 def get_modules():
     return {
         "Module": "#",
-        'Talaria-TWO': 'https://innophase.com/docs/v1.0',
+        'Talaria-TWO': 'https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/stable/',
     }
 
 html_context = {

@@ -21,7 +21,7 @@ def convert_docx_to_rst(docx_file: str, rst_file: str) -> None:
     :param rst_file: The path of the output RST file.
     :return: None
     """
-    path = f"{str(abc)}/docs/_build/html/media"
+    path = f"{str(abc)}/docs/media"
     try:
         if not os.path.exists(path):
             os.makedirs(path)

@@ -14,19 +14,13 @@ def remove_link(rst_file):
 
 
 def convert_docx_to_rst(docx_file: str, rst_file: str) -> None:
-    """
-    Convert a DOCX file to RST format.
-
-    :param docx_file: The path of the input DOCX file.
-    :param rst_file: The path of the output RST file.
-    :return: None
-    """
+    images_path = os.path.dirname(rst_file)
     path = f"{str(abc)}/docs/media"
     try:
         if not os.path.exists(path):
             os.makedirs(path)
         pypandoc.convert_file(docx_file, "rst", outputfile=rst_file)
-        _ = docx2txt.process(docx_file, path)
+        _ = docx2txt.process(docx_file, images_path)
     except Exception as err:
         print("Error during conversion:")
         raise err

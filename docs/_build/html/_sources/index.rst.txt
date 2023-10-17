@@ -1,3 +1,8 @@
+.. Sphinx documentation website example documentation master file, created by
+   sphinx-quickstart on Fri Sep 19 12:07:00 2023.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
 InnoPhase IoT Programming Guide
 ================================
 
@@ -48,27 +53,77 @@ Linux CPU-based (Hosted CPU):
 * UART (2W/4W), SDIO and SPI interface.
 * Wi-Fi/BLE User Space C library (HAPI) host package.
 
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+   :caption: Contents
 
-Advanced Topics
-===============
+   Getting_Started_Landing_page
 
-* :ref:`Overview <overview>`
+.. toctree::
+   :hidden:
+   :maxdepth: 2
 
+   Hardware-Reference
 
 
 .. toctree::
-   :maxdepth: 2
    :hidden:
-   :caption: Overviews
+   :maxdepth: 2
 
-   overview
+   Porting-Guide
 
 
 .. toctree::
-   :maxdepth: 2
    :hidden:
+   :maxdepth: 2
+
+   Software_Reference/Prerequisites/libusbK_driver-Zadig
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+
+   Development_Environments/Development_Environments
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+
+   Tools/Tools_Landing
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+
+   Applications/Applications-Landing_Page
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+
+   Regulatory Notices/Regulatory Notices
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+
+   Security/Security - Landing Page
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+
+   Backend Files - for cross referencing/Backend File Landing
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
    :caption: About
 
    about
-
-

@@ -1,16 +1,16 @@
 const searchElement = document.getElementsByClassName("icon icon-home")[0];
 
 const VersionsList = {
-    Version: "latest",
-    "stable":
-        "https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/stable",
-    "1.0.0":
-        "https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/stable",
+    Version: "InnoOS-2.7",
+    "FreeRTOS-3.0":
+        "https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/freertos-3.0",
+    "InnoOS-2.7":
+        "https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/innoos-2.7",
 };
 
 const ModulesList = {
     Module: "#",
-    "Talaria-TWO": "https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/stable",
+    "Talaria-TWO": "https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/latest",
 };
 
 var selectList = document.createElement("select");

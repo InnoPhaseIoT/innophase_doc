@@ -2,7 +2,7 @@ import os
 import shutil
 
 folders_to_ignore = ['_images', '_sources', '_static']
-static_source_folder = '/Users/amq/Documents/innophase_doc/docs/_static'
+static_source_folder = 'innophase_doc/docs/_static'
 
 
 def copy_static_files(root_folder):
@@ -19,4 +19,4 @@ def copy_static_files(root_folder):
                 shutil.copy(item_path, os.path.join(static_folder, item))
 
 
-copy_static_files("/Users/amq/Documents/innophase_doc/docs/_build/html")
+copy_static_files("innophase_doc/docs/_build/html")

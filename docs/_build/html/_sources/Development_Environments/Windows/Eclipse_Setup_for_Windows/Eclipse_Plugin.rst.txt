@@ -402,87 +402,87 @@ Figure 35: InnoPhase IoT Software Development Tool – Debug start
       visible on the console window InnoPhase IoT T2 Device Monitor as
       shown in Figure 30.
 
-.. |image1| image:: media/image1.png
+.. |image1| image:: ../media/image1.png
    :width: 3.93701in
    :height: 4.81331in
-.. |A screenshot of a computer Description automatically generated| image:: media/image2.png
+.. |A screenshot of a computer Description automatically generated| image:: ../media/image2.png
    :width: 6.88976in
    :height: 5.45572in
-.. |image2| image:: media/image3.png
+.. |image2| image:: ../media/image3.png
    :width: 6.88976in
    :height: 5.44521in
-.. |image3| image:: media/image4.png
+.. |image3| image:: ../media/image4.png
    :width: 6.88976in
    :height: 5.4504in
-.. |image4| image:: media/image5.png
+.. |image4| image:: ../media/image5.png
    :width: 6.88976in
    :height: 5.45116in
-.. |image5| image:: media/image6.png
+.. |image5| image:: ../media/image6.png
    :width: 6.88976in
    :height: 4.16328in
-.. |image6| image:: media/image7.png
+.. |image6| image:: ../media/image7.png
    :width: 6.88976in
    :height: 3.3733in
-.. |image7| image:: media/image8.png
+.. |image7| image:: ../media/image8.png
    :width: 6.88976in
    :height: 4.25634in
-.. |A screenshot of a computer error message Description automatically generated| image:: media/image9.png
+.. |A screenshot of a computer error message Description automatically generated| image:: ../media/image9.png
    :width: 6.88976in
    :height: 2.97571in
-.. |A screen shot of a computer Description automatically generated| image:: media/image10.png
+.. |A screen shot of a computer Description automatically generated| image:: ../media/image10.png
    :width: 6.88976in
    :height: 0.74912in
-.. |A screenshot of a software update Description automatically generated| image:: media/image11.png
+.. |A screenshot of a software update Description automatically generated| image:: ../media/image11.png
    :width: 6.88976in
    :height: 1.95793in
-.. |image8| image:: media/image12.png
+.. |image8| image:: ../media/image12.png
    :width: 6.88976in
    :height: 1.49444in
-.. |image9| image:: media/image13.png
+.. |image9| image:: ../media/image13.png
    :width: 4.72441in
    :height: 1.53398in
-.. |image10| image:: media/image14.png
+.. |image10| image:: ../media/image14.png
    :width: 6.88976in
    :height: 2.89731in
-.. |A screenshot of a message Description automatically generated| image:: media/image15.png
+.. |A screenshot of a message Description automatically generated| image:: ../media/image15.png
    :width: 6.88976in
    :height: 2.00514in
-.. |Graphical user interface, application Description automatically generated| image:: media/image16.png
+.. |Graphical user interface, application Description automatically generated| image:: ../media/image16.png
    :width: 3.93701in
    :height: 4.04292in
-.. |Graphical user interface, text, application, email Description automatically generated| image:: media/image17.tmp
+.. |Graphical user interface, text, application, email Description automatically generated| image:: ../media/image17.tmp
    :width: 4.72441in
    :height: 4.29633in
-.. |image11| image:: media/image18.png
+.. |image11| image:: ../media/image18.png
    :width: 4.37917in
    :height: 5.16181in
-.. |image12| image:: media/image19.png
+.. |image12| image:: ../media/image19.png
    :width: 6.49606in
    :height: 7.28281in
-.. |image13| image:: media/image20.png
+.. |image13| image:: ../media/image20.png
    :width: 6.49606in
    :height: 3.99296in
-.. |image14| image:: media/image21.png
+.. |image14| image:: ../media/image21.png
    :width: 6.49606in
    :height: 4.24553in
-.. |image15| image:: media/image22.png
+.. |image15| image:: ../media/image22.png
    :width: 5.90551in
    :height: 1.14204in
-.. |image16| image:: media/image23.png
+.. |image16| image:: ../media/image23.png
    :width: 5.90551in
    :height: 1.48737in
-.. |image17| image:: media/image24.png
+.. |image17| image:: ../media/image24.png
    :width: 5.90551in
    :height: 6.74598in
-.. |image18| image:: media/image25.png
+.. |image18| image:: ../media/image25.png
    :width: 6.49606in
    :height: 4.51372in
-.. |image19| image:: media/image26.png
+.. |image19| image:: ../media/image26.png
    :width: 6.49606in
    :height: 3.59747in
-.. |image20| image:: media/image27.png
+.. |image20| image:: ../media/image27.png
    :width: 5.51181in
    :height: 2.64963in
-.. |image21| image:: media/image28.png
+.. |image21| image:: ../media/image28.png
    :width: 5.90551in
    :height: 2.49125in

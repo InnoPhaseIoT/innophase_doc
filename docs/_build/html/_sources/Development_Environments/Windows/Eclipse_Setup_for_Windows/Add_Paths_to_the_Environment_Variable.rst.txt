@@ -38,6 +38,6 @@ C:\\Users\\innop\\AppData\\Roaming\\xPacks\\@xpack-dev-tools\\arm-none-eabi-gcc\
 
 6. Click OK.
 
-.. |Graphical user interface, application Description automatically generated| image:: media/image1.png
+.. |Graphical user interface, application Description automatically generated| image:: ../media/image1.png
    :width: 5.90551in
    :height: 2.69191in

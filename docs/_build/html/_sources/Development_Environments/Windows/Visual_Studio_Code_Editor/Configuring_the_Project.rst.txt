@@ -53,21 +53,21 @@ Figure 20: Building the application
 
 Figure 21: Out directory generation - Terminal window
 
-.. |image1| image:: media/image1.png
+.. |image1| image:: ../media/image1.png
    :width: 3.14961in
    :height: 3.97527in
-.. |A screenshot of a computer Description automatically generated| image:: media/image2.png
+.. |A screenshot of a computer Description automatically generated| image:: ../media/image2.png
    :width: 5.51181in
    :height: 3.0405in
-.. |A screen shot of a computer Description automatically generated| image:: media/image3.png
+.. |A screen shot of a computer Description automatically generated| image:: ../media/image3.png
    :width: 5.51181in
    :height: 1.2629in
-.. |A screenshot of a computer program Description automatically generated| image:: media/image4.png
+.. |A screenshot of a computer program Description automatically generated| image:: ../media/image4.png
    :width: 3.14961in
    :height: 3.25067in
-.. |image2| image:: media/image5.png
+.. |image2| image:: ../media/image5.png
    :width: 5.51181in
    :height: 4.58803in
-.. |image3| image:: media/image6.png
+.. |image3| image:: ../media/image6.png
    :width: 5.51181in
    :height: 2.22428in

@@ -17,6 +17,6 @@ Eclipse IDE Version: 2021-09 (4.25). However, Eclipse IDE Version of
 
 Figure 10: Windows-Eclipse IDE installer
 
-.. |A screenshot of a computer Description automatically generated| image:: media/image1.png
+.. |A screenshot of a computer Description automatically generated| image:: ../media/image1.png
    :width: 7.48031in
    :height: 4.03991in

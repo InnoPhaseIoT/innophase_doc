@@ -15,6 +15,6 @@ exclusively for the projects related to the GCC toolchain. The workspace
 selected should not have a path name that is excessively long, and it is
 best to avoid spaces in the path name.
 
-.. |image1| image:: media/image1.png
+.. |image1| image:: ../media/image1.png
    :width: 5.90551in
    :height: 2.57755in

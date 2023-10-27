@@ -38,9 +38,9 @@ III. Select any of the example folder
 
 IV.  Click on Select Folder option
 
-.. |image1| image:: media/image1.png
+.. |image1| image:: ../media/image1.png
    :width: 2.75591in
    :height: 4.81657in
-.. |image2| image:: media/image2.png
+.. |image2| image:: ../media/image2.png
    :width: 5.90551in
    :height: 4.42886in

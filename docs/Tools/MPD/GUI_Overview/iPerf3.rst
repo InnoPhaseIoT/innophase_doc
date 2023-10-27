@@ -27,6 +27,6 @@ Figure 17: Selecting iPerf3
 3. Work around for error with CLEAR Flash option: Click Reset before
    clicking on CLEAR Flash again.
 
-.. |A screenshot of a computer Description automatically generated| image:: media/image1.png
+.. |A screenshot of a computer Description automatically generated| image:: ../media/image1.png
    :width: 7.5in
    :height: 1.73056in

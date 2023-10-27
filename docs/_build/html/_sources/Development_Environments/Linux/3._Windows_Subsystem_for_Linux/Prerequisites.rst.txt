@@ -247,35 +247,35 @@ Console output:
 +=======================================================================+
 +-----------------------------------------------------------------------+
 
-.. |image1| image:: media/image1.png
+.. |image1| image:: ../media/image1.png
    :width: 4.72441in
    :height: 4.46017in
-.. |image2| image:: media/image2.png
+.. |image2| image:: ../media/image2.png
    :width: 4.72441in
    :height: 4.20901in
-.. |image3| image:: media/image3.png
+.. |image3| image:: ../media/image3.png
    :width: 4.72441in
    :height: 3.91847in
-.. |image4| image:: media/image4.png
+.. |image4| image:: ../media/image4.png
    :width: 4.72441in
    :height: 3.22075in
-.. |image5| image:: media/image5.png
+.. |image5| image:: ../media/image5.png
    :width: 5.90551in
    :height: 3.4203in
-.. |Text Description automatically generated with low confidence| image:: media/image6.png
+.. |Text Description automatically generated with low confidence| image:: ../media/image6.png
    :width: 1.00082in
-.. |image6| image:: media/image7.png
+.. |image6| image:: ../media/image7.png
    :width: 5.90551in
    :height: 4.19781in
-.. |image7| image:: media/image8.png
+.. |image7| image:: ../media/image8.png
    :width: 4.72441in
    :height: 1.32292in
-.. |image8| image:: media/image9.png
+.. |image8| image:: ../media/image9.png
    :width: 5.90551in
    :height: 0.64947in
-.. |image9| image:: media/image10.png
+.. |image9| image:: ../media/image10.png
    :width: 4.72441in
    :height: 0.37327in
-.. |image10| image:: media/image11.png
+.. |image10| image:: ../media/image11.png
    :width: 5.51181in
    :height: 2.89434in

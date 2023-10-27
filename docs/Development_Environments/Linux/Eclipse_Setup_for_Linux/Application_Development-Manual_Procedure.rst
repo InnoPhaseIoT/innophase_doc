@@ -273,69 +273,69 @@ Figure 60: Setting breakpoint
 
 Figure 61: Step run output in console
 
-.. |Graphical user interface, application Description automatically generated| image:: media/image1.png
+.. |Graphical user interface, application Description automatically generated| image:: ../media/image1.png
    :width: 6.49606in
    :height: 3.48102in
-.. |Properties for test| image:: media/image2.png
+.. |Properties for test| image:: ../media/image2.png
    :width: 5.90556in
    :height: 3.77292in
-.. |A screenshot of a computer Description automatically generated| image:: media/image3.png
+.. |A screenshot of a computer Description automatically generated| image:: ../media/image3.png
    :width: 5.90551in
    :height: 2.53479in
-.. |image1| image:: media/image4.png
+.. |image1| image:: ../media/image4.png
    :width: 6.49606in
    :height: 2.78827in
-.. |image2| image:: media/image5.png
+.. |image2| image:: ../media/image5.png
    :width: 6.49606in
    :height: 2.78827in
-.. |Graphical user interface, text, application Description automatically generated| image:: media/image6.png
+.. |Graphical user interface, text, application Description automatically generated| image:: ../media/image6.png
    :width: 3.93681in
    :height: 2.92083in
-.. |image3| image:: media/image7.png
+.. |image3| image:: ../media/image7.png
    :width: 6.29921in
    :height: 3.07599in
-.. |image4| image:: media/image8.png
+.. |image4| image:: ../media/image8.png
    :width: 6.29921in
    :height: 3.37775in
-.. |image5| image:: media/image9.png
+.. |image5| image:: ../media/image9.png
    :width: 6.29921in
    :height: 3.39331in
-.. |Graphical user interface, text, application, email Description automatically generated| image:: media/image10.png
+.. |Graphical user interface, text, application, email Description automatically generated| image:: ../media/image10.png
    :width: 6.29921in
    :height: 3.5096in
-.. |Debug Configurations| image:: media/image11.png
+.. |Debug Configurations| image:: ../media/image11.png
    :width: 6.69291in
    :height: 3.30845in
-.. |image6| image:: media/image12.png
+.. |image6| image:: ../media/image12.png
    :width: 6.69291in
    :height: 0.96168in
-.. |image7| image:: media/image13.png
+.. |image7| image:: ../media/image13.png
    :width: 6.69291in
    :height: 3.75807in
-.. |image8| image:: media/image14.png
+.. |image8| image:: ../media/image14.png
    :width: 7.47888in
    :height: 2.4875in
-.. |image9| image:: media/image15.png
+.. |image9| image:: ../media/image15.png
    :width: 6.29921in
    :height: 4.63552in
-.. |image10| image:: media/image16.png
+.. |image10| image:: ../media/image16.png
    :width: 4.72441in
    :height: 2.01427in
-.. |image11| image:: media/image17.png
+.. |image11| image:: ../media/image17.png
    :width: 6.29921in
    :height: 3.37775in
-.. |image12| image:: media/image18.png
+.. |image12| image:: ../media/image18.png
    :width: 0.14792in
    :height: 0.2in
-.. |image13| image:: media/image19.png
+.. |image13| image:: ../media/image19.png
    :width: 0.16667in
    :height: 0.12639in
-.. |image14| image:: media/image20.png
+.. |image14| image:: ../media/image20.png
    :width: 6.29921in
    :height: 3.3896in
-.. |image15| image:: media/image19.png
+.. |image15| image:: ../media/image19.png
    :width: 0.16667in
    :height: 0.12639in
-.. |image16| image:: media/image21.png
+.. |image16| image:: ../media/image21.png
    :width: 6.69291in
    :height: 3.73249in

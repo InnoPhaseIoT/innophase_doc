@@ -51,18 +51,18 @@ the Talaria TWO SDK.
 
 Figure 5: Extension installed successfully
 
-.. |A screenshot of a computer Description automatically generated| image:: media/image1.png
+.. |A screenshot of a computer Description automatically generated| image:: ../media/image1.png
    :width: 6.69291in
    :height: 3.61455in
-.. |image1| image:: media/image2.png
+.. |image1| image:: ../media/image2.png
    :width: 5.90551in
    :height: 3.16835in
-.. |image2| image:: media/image3.png
+.. |image2| image:: ../media/image3.png
    :width: 2.75591in
    :height: 3.5773in
-.. |image3| image:: media/image4.png
+.. |image3| image:: ../media/image4.png
    :width: 5.90551in
    :height: 1.40277in
-.. |image4| image:: media/image5.png
+.. |image4| image:: ../media/image5.png
    :width: 5.90551in
    :height: 1.54344in

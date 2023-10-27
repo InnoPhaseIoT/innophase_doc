@@ -37,12 +37,12 @@ Figure 13: Eclipse IDE for Embedded C/C++ developers launch window
 4. After completing the installation, the Eclipse installer prompts for
    permission to launch. Click on LAUNCH.
 
-.. |Graphical user interface, text, application Description automatically generated| image:: media/image1.png
+.. |Graphical user interface, text, application Description automatically generated| image:: ../media/image1.png
    :width: 3.93681in
    :height: 3.00486in
-.. |Eclipse Installer| image:: media/image2.png
+.. |Eclipse Installer| image:: ../media/image2.png
    :width: 3.93681in
    :height: 3.2125in
-.. |Graphical user interface, application, Teams Description automatically generated| image:: media/image3.png
+.. |Graphical user interface, application, Teams Description automatically generated| image:: ../media/image3.png
    :width: 3.93681in
    :height: 3.03125in

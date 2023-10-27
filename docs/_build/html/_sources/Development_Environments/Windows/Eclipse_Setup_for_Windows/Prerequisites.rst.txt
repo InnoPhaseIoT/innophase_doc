@@ -145,27 +145,27 @@ following location: C:\\Users\\<User name>\\AppData\\Roaming.
 
 Ensure to check the XPM output for the actual location.
 
-.. |A screenshot of a computer Description automatically generated| image:: media/image1.png
+.. |A screenshot of a computer Description automatically generated| image:: ../media/image1.png
    :width: 7.48031in
    :height: 4.02342in
-.. |Graphical user interface, website Description automatically generated| image:: media/image2.png
+.. |Graphical user interface, website Description automatically generated| image:: ../media/image2.png
    :width: 7.48031in
    :height: 3.98117in
-.. |Node.js command prompt| image:: media/image3.png
+.. |Node.js command prompt| image:: ../media/image3.png
    :width: 6.88976in
    :height: 0.8993in
-.. |Text Description automatically generated| image:: media/image4.png
+.. |Text Description automatically generated| image:: ../media/image4.png
    :width: 6.88976in
    :height: 0.88229in
-.. |image1| image:: media/image5.png
+.. |image1| image:: ../media/image5.png
    :width: 7.48031in
    :height: 0.70106in
-.. |image2| image:: media/image6.png
+.. |image2| image:: ../media/image6.png
    :width: 7.48031in
    :height: 1.36545in
-.. |image3| image:: media/image7.png
+.. |image3| image:: ../media/image7.png
    :width: 7.48031in
    :height: 1.10424in
-.. |image4| image:: media/image8.png
+.. |image4| image:: ../media/image8.png
    :width: 7.48031in
    :height: 1.5886in

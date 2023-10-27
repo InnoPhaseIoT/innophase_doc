@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction" href="HTTP%20Client.html" />
+    <link rel="prev" title="Introduction" href="GPIO.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Getting_Started_Landing_page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Software_Reference/Prerequisites/libusbK_driver-Zadig.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Development_Environments/Development_Environments.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Tools/Tools_Landing.html">Tools</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="Applications-Landing_Page.html">Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#alarm">1.  Alarm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#analog-to-digital-converter">2.  Analog to Digital Converter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#audio-over-i2s">3.  Audio over I2S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-5-0">4.  BLE 5.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-beacons">3.  BLE Beacons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-wi-fi-bridge">4.  BLE Wi-Fi Bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#chip-monitor">5.  Chip Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#crash-handling">6.  Crash Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#custom-atcmdlib">6.  Custom ATCMDLIB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#filesystem">7.  Filesystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#firmware-over-the-air-upgrade">8.  Firmware Over the Air Upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#gpio">9.  GPIO</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="Applications-Landing_Page.html#host-interface-protocol">10. Host Interface Protocol</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hio-protocol-overview">HIO Protocol Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sample-host-application-hio-query">Sample Host application: hio_query</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#programming-talaria-two">Programming Talaria TWO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#building-the-host-application">Building the host application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-hio-query">Run hio_query</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expected-host-application-output">Expected host application output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sending-an-hio-message-from-host-to-talaria-two">Sending an HIO message from host to Talaria TWO</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-custom-hio-group-and-commands">Creating custom HIO group and commands</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#host-side-application">Host side application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#talaria-two-application">Talaria TWO Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-custom-hio-sample-applications">Run custom HIO Sample applications</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#http-client">11. HTTP Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#i2c">12. I2C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ifttt">13. IFTTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#iot-aws">14. IoT AWS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#iot-azure">15. IoT Azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#low-power-scan">16. Low Power Scan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#low-power-uart">17. Low Power UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#mdns">18. mDNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#memory-management-and-error-handling">19.  Memory Management and Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#message-queues">20.  Message Queues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#mqtt">21.  MQTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#provisioning">22.  Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#pulse-width-modulation">23.  Pulse Width Modulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#radio-and-module-parameters">24. Radio and Module Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#secure-files">25. Secure Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#simple-network-time-protocol">26.  Simple Network Time Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#sleep-enable-disable">27.  Sleep Enable Disable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#socket-wakeup">28. Socket Wakeup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#software-spi-master">29. Software SPI Master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#spi-flash">30. SPI Flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ssbl">31. SSBL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#thread-and-semaphores">32.  Thread and Semaphores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#throughput-measurement">32.  Throughput Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#timers-and-callouts">33. Timers and Callouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#unassociated-mode">34. Unassociated Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#using-wi-fi">35. Using Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#watchdog-timer">36. Watchdog Timer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#websocket-client">37. Websocket Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#wi-fi-connection-manager-multi-ap">38. Wi-Fi Connection Manager Multi-AP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#wi-fi-power-management">39. Wi-Fi Power Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#work-queues">40. Work Queues</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Regulatory%20Notices/Regulatory%20Notices.html">Regulatory Notice</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Backend%20Files%20-%20for%20cross%20referencing/Backend%20File%20Landing.html">Backend Files - for cross referencing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="Applications-Landing_Page.html">Applications</a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Applications/Host Interface Protocol.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h1>
+<p>The Host Interface Protocol (HIO) is a frame-based protocol between a
+host and the Talaria TWO device. This protocol can be used over UART or
+SPI transports. This application note covers the fundamentals of
+developing HIO based application on both host and the Talaria TWO EVK.</p>
+</section>
+<section id="hio-protocol-overview">
+<h1>HIO Protocol Overview<a class="headerlink" href="#hio-protocol-overview" title="Permalink to this heading"></a></h1>
+<p>There are three types of messages:</p>
+<ol class="arabic simple">
+<li><p>A request sent from host to device.</p></li>
+<li><p>A response message sent form device to host.</p></li>
+<li><p>An indication message sent from device to host for asynchronous
+information such as Wi-Fi scan results or device wake-up
+notifications.</p></li>
+</ol>
+<p>All requests are preceded by a header:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>struct hio_msghdr {</p>
+<p>uint8_t group;</p>
+<p>uint8_t msgid;</p>
+<p>uint16_t trxid;</p>
+<p>};</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>where,</p>
+<ol class="arabic simple">
+<li><p>group: group identifier</p></li>
+<li><p>msgid: message identifier</p></li>
+<li><p>trxid: a number that can be used by the host to sequence requests (it
+is just returned in response messages)</p></li>
+</ol>
+<p>The message header and body are preceded by a two-byte (little endian)
+length of the header and body (excluding the length).</p>
+<p><a class="reference internal" href="../_images/image1.png"><img alt="Graphical user interface Description automatically generated with low confidence" src="../_images/image1.png" style="width: 7.08661in; height: 1.28436in;" /></a></p>
+<p>Figure 1: HIO message framing</p>
+</section>
+<section id="sample-host-application-hio-query">
+<h1>Sample Host application: hio_query<a class="headerlink" href="#sample-host-application-hio-query" title="Permalink to this heading"></a></h1>
+<p>This basic application sends a hio_query_req to Talaria TWO and prints
+the output of the response of Talaria TWO.</p>
+<section id="programming-talaria-two">
+<h2>Programming Talaria TWO<a class="headerlink" href="#programming-talaria-two" title="Permalink to this heading"></a></h2>
+<p>For this sample application any existing Talaria TWO app with HIO
+enabled such as the STW application is used:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py –device /dev/ttyUSB2 –reset=evk42_bl –speed
+921600 ./apps/stw/bin/stw.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="building-the-host-application">
+<h2>Building the host application<a class="headerlink" href="#building-the-host-application" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>cd sdk/examples/using_hio/hio_host</p>
+<p>make</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>This generated the hio_query among other sample host applications.</p>
+</section>
+<section id="run-hio-query">
+<h2>Run hio_query<a class="headerlink" href="#run-hio-query" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./hio_query /dev/ttyUSB2</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="expected-host-application-output">
+<h2>Expected host application output<a class="headerlink" href="#expected-host-application-output" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Status: 0</p>
+<p>Version: 0</p>
+<p>Ngroups: 4</p>
+<p>maxsize: 1020</p>
+<p>fw_version: $Id: git-</p>
+<p>patch_rev: $Patch: g</p>
+<p>nmsg: 7 528 1288 2310</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sending-an-hio-message-from-host-to-talaria-two">
+<h2>Sending an HIO message from host to Talaria TWO<a class="headerlink" href="#sending-an-hio-message-from-host-to-talaria-two" title="Permalink to this heading"></a></h2>
+<p>To send a HIO message, send_command which is defined in hio_transport.c
+is used:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int send_command(int group_id, int msg_id, void *data, int size, int
+transid)</p>
+<p>{</p>
+<p>int len;</p>
+<p>char actual_pay_load[512] = {0,};</p>
+<p>struct hio_header_info header = { 0, };</p>
+<p>header.groupid = group_id;</p>
+<p>header.msgid = msg_id;</p>
+<p>header.trandid = transid;</p>
+<p>len = sizeof(header) + size;</p>
+<p>header.len = len - 2;</p>
+<p>if (data)</p>
+<p>memcpy(actual_pay_load + sizeof(header), data, size);</p>
+<p>memcpy(actual_pay_load, &amp;header, sizeof(header));</p>
+<p>return write_hio_message(actual_pay_load, len);</p>
+<p>}</p>
+<p>int write_hio_message(char *message, int msg_len) {</p>
+<p>int bytes_written = 0;</p>
+<p>while (bytes_written &lt; msg_len) {</p>
+<p>bytes_written += write(gfd, message + bytes_written, 1);</p>
+<p>}</p>
+<p>return bytes_written;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>hio_query.c</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>…</p>
+<p>struct hio_query_req query_req;</p>
+<p>send_command(HIO_GROUP_HIO, HIO_QUERY_REQ, &amp;query_req,
+sizeof(query_req), 0);</p>
+<p>…</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Here, send_command is used and the HIO group, msgid, size of HIO req
+structure, and trxid are specified.</p>
+<p>After receiving this HIO message, Talaria TWO responds with another HIO
+message to the host which has the same header as above. This header can
+be used to identify the next action with the HIO message.</p>
+<p>To handle the returning HIO message, a thread that reads the serial port
+waiting for a valid HIO message is created.</p>
+<p>hio_query.c</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static void* hio_response_reader(void *p) {</p>
+<p>uint32_t msg_count = 0;</p>
+<p>while (!gExit) {</p>
+<p>int read_count = 0;</p>
+<p>uint32_t res_len;</p>
+<p>char msg_len[4] = {0,};</p>
+<p>while(read_count &lt; 2)</p>
+<p>{</p>
+<p>read_count += read_hio_message(msg_len+read_count, 2-read_count);</p>
+<p>}</p>
+<p>msg_len[2] = 0x00;</p>
+<p>msg_len[3] = 0x00;</p>
+<p>res_len = msg_len[0] &amp; 0x000000FF;</p>
+<p>if (msg_len[1] != 0) {</p>
+<p>res_len = ((uint8_t)msg_len[0]&amp;0xFF) + (msg_len[1]&lt;&lt;8) &amp; 0xFFFF;</p>
+<p>}</p>
+<p>sleep(0.2);</p>
+<p>if(res_len &gt; 0)</p>
+<p>{</p>
+<p>char *res_payload = malloc(res_len+1);</p>
+<p>read_count = 0;</p>
+<p>while(read_count &lt; res_len)</p>
+<p>{</p>
+<p>read_count += read_hio_message((res_payload)+read_count,
+res_len-read_count);</p>
+<p>}</p>
+<p>process_response(res_len, res_payload);</p>
+<p>}</p>
+<p>}</p>
+<p>return NULL;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>There is also a function called process_response() that parses the
+received response by its groupid and msgid.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static void process_response(uint32_t res_len, char* res_payload)</p>
+<p>{</p>
+<p>struct hio_res_header res_header = {0,};</p>
+<p>memcpy(&amp;res_header, res_payload, sizeof(struct hio_res_header));</p>
+<p>uint32_t payloadLength = res_len - sizeof(struct hio_res_header);</p>
+<p>char* payload = malloc(payloadLength);</p>
+<p>if(res_header.group_id == HIO_GROUP_HIO)</p>
+<p>{</p>
+<p>switch(res_header.res_code)</p>
+<p>{</p>
+<p>case 0x80:</p>
+<p>{</p>
+<p>struct hio_query_rsp *rsp = malloc(sizeof(struct hio_query_rsp));</p>
+<p>memcpy(rsp, res_payload+sizeof(struct hio_res_header), sizeof(struct
+hio_query_rsp));</p>
+<p>printf(“Status: %d\n”, rsp-&gt;status);</p>
+<p>printf(“Version: %d\n”, rsp-&gt;version);</p>
+<p>printf(“Ngroups: %d\n”, rsp-&gt;ngroups);</p>
+<p>printf(“maxsize: %d\n”, rsp-&gt;maxsize);</p>
+<p>printf(“fw_version: %s\n”, rsp-&gt;fw_rev);</p>
+<p>printf(“patch_rev: %s\n”, rsp-&gt;patch_rev);</p>
+<p>uint16_t nmsg[rsp-&gt;ngroups];</p>
+<p>memcpy(nmsg, (res_payload+sizeof(struct hio_res_header)+sizeof(struct
+hio_query_rsp)), (rsp-&gt;ngroups)*2);</p>
+<p>printf(“nmsg: “);</p>
+<p>for(int i = 0; i &lt; rsp-&gt;ngroups; i++)</p>
+<p>{</p>
+<p>printf(“%d “, nmsg[i]);</p>
+<p>}</p>
+<p>printf(”\n”);</p>
+<p>break;</p>
+<p>}</p>
+<p>default:</p>
+<p>break;</p>
+<p>}</p>
+<p>}</p>
+<p>else</p>
+<p>{</p>
+<p>printf(“Group Code: 0x%X\n”, res_header.group_id);</p>
+<p>printf(“Response Code: 0x%X\n”, res_header.res_code);</p>
+<p>printf(“payload length: %d\n”, payloadLength);</p>
+<p>printf(“Payload: \n” );</p>
+<p>for(int i = 0; i &lt; payloadLength; i ++)</p>
+<p>{</p>
+<p>printf(“%X”, *(payload+i));</p>
+<p>}</p>
+<p>printf(”\n”);</p>
+<p>}</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="creating-custom-hio-group-and-commands">
+<h1>Creating custom HIO group and commands<a class="headerlink" href="#creating-custom-hio-group-and-commands" title="Permalink to this heading"></a></h1>
+<section id="host-side-application">
+<h2>Host side application<a class="headerlink" href="#host-side-application" title="Permalink to this heading"></a></h2>
+<p>To create custom set of commands, select an available groupid. The
+highest possible groupid value is 0xFF. Each HIO message request,
+response, and indication will need its own msgid. An appropriate
+reference for this is: hio_custom_def.h</p>
+<p>For this sample application, custom HIO command group with a single
+request, response, and indication structure is created.</p>
+<p>The sample application sends a ping message from the host and Talaria
+TWO will send a HIO message response pong back to the host. An
+indication to the host is sent every 5 seconds.</p>
+<p>hio_custom_def.h</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>#define HIO_GROUP_CUSTOM 0xFF</p>
+<p>#define CUSTOM_PING_REQ 0x00</p>
+<p>#define CUSTOM_PING_RSP 0x80</p>
+<p>#define CUSTOM_PING_IND 0xC0</p>
+<p>struct custom_ping_req {</p>
+<p>uint32_t msg_length;</p>
+<p>char msg[0]; };</p>
+<p>struct custom_ping_rsp {</p>
+<p>uint32_t cpr_status;</p>
+<p>uint32_t msg_length;</p>
+<p>char msg[0]; };</p>
+<p>struct custom_ping_ind {</p>
+<p>uint32_t msg_len;</p>
+<p>char msg[0]; };</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Here, custom HIO group with a single req, rsp, and ind structure is
+created.</p>
+<p>hio_custom.c</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>…</p>
+<p>int main(int argc, char *argv[])</p>
+<p>{</p>
+<p>int ping_req_count = 0;</p>
+<p>if (init_hio_transport(argv[1]) &lt; 0) {</p>
+<p>printf(“Failed to open serial device %s\n”, argv[1]);</p>
+<p>return -1;</p>
+<p>}</p>
+<p>pthread_t thread_id;</p>
+<p>pthread_create(&amp;thread_id, NULL, hio_response_reader, NULL);</p>
+<p>uint16_t trxid = 0;</p>
+<p>char* msg = “ping”;</p>
+<p>uint32_t index = 0;</p>
+<p>for(ping_req_count = 0;ping_req_count &lt; 10;ping_req_count++)</p>
+<p>{</p>
+<p>struct custom_ping_req *ping_req = malloc(sizeof(struct
+custom_ping_req) + strlen(msg) + 1);</p>
+<p>ping_req-&gt;msg_length = strlen(msg);</p>
+<p>memset(ping_req-&gt;msg,0, ping_req-&gt;msg_length+1);</p>
+<p>memcpy(ping_req-&gt;msg, msg, ping_req-&gt;msg_length);</p>
+<p>send_command(HIO_GROUP_CUSTOM, CUSTOM_PING_REQ, ping_req,
+sizeof(struct custom_ping_req) + strlen(msg), trxid++);</p>
+<p>printf(”***Sending ping request from host:%u*******\r\n”,index);</p>
+<p>index++;</p>
+<p>sleep(1);</p>
+<p>free(ping_req);</p>
+<p>sleep(2);</p>
+<p>…</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Like the hio_query example, send_command()is used to send a HIO message
+to Talaria TWO.</p>
+<p>To process the HIO message response from Talaria TWO, the groupid and
+msgid are added to process_response method which processes the HIO
+messages.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>…</p>
+<p>else if(res_header.group_id == HIO_GROUP_CUSTOM)</p>
+<p>{</p>
+<p>switch(res_header.res_code)</p>
+<p>{</p>
+<p>case 0x80:</p>
+<p>{</p>
+<p>struct custom_ping_rsp *ping_rsp = malloc(payloadLength);</p>
+<p>memcpy(ping_rsp, res_payload+sizeof(struct hio_res_header),
+payloadLength);</p>
+<p>printf(“Status: %u\n”, ping_rsp-&gt;cpr_status);</p>
+<p>printf(“Message: %s\n\n”, ping_rsp-&gt;msg);</p>
+<p>free(ping_rsp);</p>
+<p>break;</p>
+<p>}</p>
+<p>case 0xC0:</p>
+<p>{</p>
+<p>struct custom_ping_ind *ping_ind = malloc(payloadLength);</p>
+<p>memcpy(ping_ind, res_payload+sizeof(struct hio_res_header),
+payloadLength);</p>
+<p>printf(”***Received custom_ping_ind***\n”);</p>
+<p>printf(“Message: %s\n\n”, ping_ind-&gt;msg);</p>
+<p>free(ping_ind);</p>
+<p>break;</p>
+<p>}</p>
+<p>case 0xC2:</p>
+<p>{</p>
+<p>struct custom_datafromt2_ind *t2data_ind = malloc(payloadLength);</p>
+<p>memcpy(t2data_ind, res_payload+sizeof(struct hio_res_header),
+payloadLength);</p>
+<p>printf(”***Received t2data_ind***\n”);</p>
+<p>printf(“Message: %s\n\n”, t2data_ind-&gt;msg);</p>
+<p>free(t2data_ind);</p>
+<p>break;</p>
+<p>}</p>
+<p>default:</p>
+<p>break;</p>
+<p>}</p>
+<p>}</p>
+<p>…</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="talaria-two-application">
+<h2>Talaria TWO Application<a class="headerlink" href="#talaria-two-application" title="Permalink to this heading"></a></h2>
+<p>As with the host side application, there is also a need to specify the
+grpid and msgid to create custom set of commands and the req, rsp, ind
+structures. They are defined in hio_custom_def.h.</p>
+<p>Before using any HIO commands, first register them using hio_api_init
+and create custom hio_api stuct.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>…</p>
+<p>static const struct hio_api custom_api = {</p>
+<p>.group = HIO_GROUP_CUSTOM,</p>
+<p>.num_handlers = 2,</p>
+<p>.handler = {</p>
+<p>custom_ping,</p>
+<p>custom_datafromhost,</p>
+<p>NULL,</p>
+<p>}</p>
+<p>};</p>
+<p>…</p>
+<p>int</p>
+<p>int main(void)</p>
+<p>{</p>
+<p>os_printf(“Custom HIO api\n”);</p>
+<p>if(hio_api_register(&amp;custom_api, NULL) == 0){</p>
+<p>os_printf(“Successfully registered HIO message group\r\n”);</p>
+<p>}else{</p>
+<p>os_printf(“Failed to register HIO message group\r\n”);</p>
+<p>}</p>
+<p>while (true) {</p>
+<p>os_msleep(5000);</p>
+<p>os_printf(“Available heap:%d\r\n”,os_avail_heap());</p>
+<p>}</p>
+<p>return 0;</p>
+<p>}</p>
+<p>…</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>In this code, the struct custom_api contains the handlers for each of
+the HIO message request to be received. The first handler, custom_ping,
+coincides with HIO message req with msgid = 0x00 and if there is a
+second one it will be msgid= 0x01.</p>
+<p>Since each handler coincides with a HIO message request, this is also
+where HIO message response would be sent back. This can be done with
+hio_write_msg or hio_response_status if status value needs to be
+returned.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static struct packet* custom_ping(void *ctx, struct packet *msg)</p>
+<p>{ uint32_t status = 0;</p>
+<p>struct custom_ping_req* ping_req = packet_data(msg);</p>
+<p>uint32_t msg_length = ping_req-&gt;msg_length;</p>
+<p>struct pfrag *frag = NULL;</p>
+<p>os_printf(“Got ping req: %.*s \n”,msg_length, ping_req-&gt;msg);</p>
+<p>char* pong = “pong”;</p>
+<p>uint32_t pong_length = strlen(pong);</p>
+<p>struct packet *rsp;</p>
+<p>frag = pfrag_alloc(pong_length);</p>
+<p>memcpy(pfrag_insert_tail(frag,pong_length), pong, pong_length);</p>
+<p>rsp = create_custom_ping_rsp(pong_length, status);</p>
+<p>packet_add_frag(rsp, frag);</p>
+<p>hio_write_msg(rsp, HIO_GROUP_CUSTOM , CUSTOM_PING_RSP, 0);</p>
+<p>return NULL;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="run-custom-hio-sample-applications">
+<h2>Run custom HIO Sample applications<a class="headerlink" href="#run-custom-hio-sample-applications" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Build Talaria TWO sample application</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>cd sdk/examples/using_hio</p>
+<p>make</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>This should generate t2_hio_custom.elf.</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Programming the Talaria TWO</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>cd sdk</p>
+<p>./script/boot.py –device /dev/ttyUSB2 –reset=evk42_bl –speed
+921600 ./examples/using_hio/bin/t2_hio_custom.elf</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="3">
+<li><p>Build the Host application</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>cd sdk/examples/using_hio/hio_host</p>
+<p>make</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="4">
+<li><p>Run the Host application</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./hio_custom /dev/ttyUSB2</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="5">
+<li><p>Expected Output</p></li>
+</ol>
+<ol class="loweralpha simple">
+<li><p>Talaria TWO output:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Got ping req: ping</p>
+<p>Sent ping Response</p>
+<p>Got data: InnoPhase is a fabless semiconductor company specializing
+in extreme low power wireless solutions. The company s developed the
+industry’s first digital PolaRFusion radio architecture to shatter
+the low power barrier of wireless communications. Combining this
+groundbreaking RF signal processing Technology with embedded
+processing will enable our company to revolutionize the IoT
+edge-computing industry. …</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="loweralpha simple" start="2">
+<li><p>Host application output:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Received custom_ping_rsp</p>
+<p>Status: 0</p>
+<p>Message: pong</p>
+<p>Received custom_ping_rsp</p>
+<p>Status: 0</p>
+<p>Message: pong</p>
+<p>Received custom_ping_rsp</p>
+<p>Status: 0</p>
+<p>Message: pong</p>
+<p>Received custom_ping_rsp</p>
+<p>Status: 0</p>
+<p>Message: pong</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="GPIO.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="HTTP%20Client.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

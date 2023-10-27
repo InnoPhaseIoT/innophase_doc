@@ -1,0 +1,24 @@
+.. _Applications_Landing:
+
+
+Applications
+=============
+
+Low Power Scan 
+-----------
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+
+   Low_Power_Scan.rst
+
+
+Low Power Scan 
+-----------
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+
+   Low_Power_Scan.rst
+
+

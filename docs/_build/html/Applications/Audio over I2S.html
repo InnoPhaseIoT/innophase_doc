@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Getting_Started_Landing_page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Software_Reference/Prerequisites/libusbK_driver-Zadig.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Development_Environments/Development_Environments.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Tools/Tools_Landing.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Applications-Landing_Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Regulatory%20Notices/Regulatory%20Notices.html">Regulatory Notice</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Backend%20Files%20-%20for%20cross%20referencing/Backend%20File%20Landing.html">Backend Files - for cross referencing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Applications/Audio over I2S.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h1>
+<p>This application note describes using the I2S peripheral of
+INP1010/INP1011/INP1012/INP1013 Talaria TWO modules for playing audio.</p>
+</section>
+<section id="i2s">
+<h1>I2S<a class="headerlink" href="#i2s" title="Permalink to this heading"></a></h1>
+<p>I2S is one of the peripherals on Talaria TWO used for transmitting audio
+data. The I2S peripheral supports HD and dual channel stereo audio
+formats. A maximum sampling rate of 48kHz is supported. I2S can be
+designed to be configured on any of the Talaria TWO GPIOs except GPIO17.
+A separate I2S-to-Analog convertor along with Audio Amplifier must be
+used along with Talaria TWO. In the given example MAX98357A
+I2S-to-Analog convertor used,as indicated in Figure 1.</p>
+<p><a class="reference internal" href="../_images/image1.jpeg"><img alt="Diagram Description automatically generated" src="../_images/image1.jpeg" style="width: 5.90556in; height: 2.92014in;" /></a></p>
+<p>Figure 1: Block Diagram</p>
+<p>Application Reference Diagram: DAC used MAX98357A along with Talaria TWO
+I2S peripheral.</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Table 1: I2S specification with details</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>I2S Specification</strong></p></th>
+<th class="head"><p><strong>Details</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Modes of operation</p></td>
+<td><p>Master, Slave</p></td>
+</tr>
+<tr class="row-odd"><td><p>Audio formats supports</p></td>
+<td><p>Up to HD audio, Dual channel
+stereo</p></td>
+</tr>
+<tr class="row-even"><td><p>Supported sampling rates</p></td>
+<td><p>11025, 12000,22050,
+24000,44100,48000</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="required-dependencies-on-ubuntu-host">
+<h1>Required dependencies on Ubuntu host<a class="headerlink" href="#required-dependencies-on-ubuntu-host" title="Permalink to this heading"></a></h1>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>sudo apt update</p>
+<p>sudo apt install python3.8</p>
+<p>sudo apt install python3-pip</p>
+<p>pip install numpy</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Install the dependencies - python3, numpy, mpg123 on the ubuntu host
+machine:</p>
+</section>
+<section id="source-code-walkthrough">
+<h1>Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permalink to this heading"></a></h1>
+<section id="directory-structure">
+<h2>Directory structure<a class="headerlink" href="#directory-structure" title="Permalink to this heading"></a></h2>
+<p>Figure : Directory structure</p>
+<ol class="arabic simple">
+<li><p><strong>i2s_audio_flash.c -</strong> The i2s_audio_flash.c file present in this
+directory contains the logic to configure the i2s and reads the audio
+file stored in file system and plays the audio over I2S.</p></li>
+<li><p><strong>sound.c -</strong> The sound.c file contains the sample audio data array.</p></li>
+<li><p><strong>sound.h -</strong> This header file contains structure definitions
+required to initialize the sample audio data buffer.</p></li>
+<li><p><strong>i2s_audio_wifi</strong></p>
+<ol class="loweralpha simple">
+<li><p><strong>audio_server.c -</strong> The audio_server.c file present in this
+directory contains the logics to build and start a TCP/UDP server
+port, create an audio stream, receive the audio packets, and write
+the packets over I2S.</p></li>
+<li><p><strong>audio_server.h</strong> – The audio_server.h header file contains the
+functions to build and start a TCP server port, create an audio
+stream, receive the audio packets, and write the packets over I2S.</p></li>
+<li><p><strong>i2s_audio_wifi.c -</strong> The i2s_audio_wifi.c file contains logics
+to create Wi-Fi connectivity and starting an audio server.</p></li>
+<li><p><strong>tcp_server.c -</strong> The tcp_server.c file contains the logics to
+set up a TCP server and sends and receives data over Wi-Fi after
+successfully connecting to the network.</p></li>
+<li><p><strong>tcp_server.h</strong> - The header file contains all the function
+prototypes need to create a TCP server.</p></li>
+<li><p><strong>udp_server.c</strong> - The udp_server.c file contains the logic to set
+up a UDP server and sends and receives data over Wi-Fi after
+successfully connecting to the network.</p></li>
+<li><p><strong>udp_server.h -</strong> The header file contains all the function
+prototypes need to create a UDP server.</p></li>
+</ol>
+</li>
+</ol>
+<p>There are two examples to demonstrate the audio transmission over I2S of
+Talaria TWO:</p>
+<ol class="arabic simple">
+<li><p>i2s_audio_flash example that plays the audio stored in Talaria TWO’s
+file system.</p></li>
+<li><p>i2s_audio_wifi example that receives the raw audio data over Wi-Fi
+and plays it over I2S.</p></li>
+</ol>
+</section>
+<section id="i2s-apis">
+<h2>I2S APIs<a class="headerlink" href="#i2s-apis" title="Permalink to this heading"></a></h2>
+<ol class="loweralpha simple">
+<li><p>Enabling I2S interface</p></li>
+</ol>
+<blockquote>
+<div><p>The audio_open() function Initializes an audio stream using the
+specified mode. I2S interface is set in this example.</p>
+</div></blockquote>
+<ol class="loweralpha simple">
+<li><p>Registering an audio call back function</p></li>
+</ol>
+<blockquote>
+<div><p>The audio_set_callback()function registers a call back function that
+is invoked upon the completion of writing the packet containing the
+audio data.</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li><p>Disabling I2S interface</p></li>
+</ol>
+<blockquote>
+<div><p>The audio_close() API releases the audio stream and shuts the audio
+device down. This invalidates the audio device.</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="3">
+<li><p>Playing a file descriptor</p></li>
+</ol>
+<blockquote>
+<div><p>The audio_play() API reads the buffers the contents of the file
+descriptor and sends it to the DMA controller to play the audio.</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="4">
+<li><p>Playing sample buffer</p></li>
+</ol>
+<blockquote>
+<div><p>The audio_play_buffer() plays the sample audio data available in
+buffer.</p>
+</div></blockquote>
+</section>
+<section id="code-walkthrough-i2s-audio-flash-example">
+<h2>Code walkthrough – I2s_audio_flash example<a class="headerlink" href="#code-walkthrough-i2s-audio-flash-example" title="Permalink to this heading"></a></h2>
+<p><strong>i2s_audio_flash.c</strong></p>
+<p>The application sets the pin mux for the selected I2S pins based on the
+values of boot arguments. utils_mount_rootfs() function mounts the file
+system to be able to read the wav file from the file system.</p>
+<p>audio_open() function returns a pointer to the audio stream.
+audio_play() API will play the audio from the .wav file stored in
+Talaria TWO’s filesystem and the audio_play_buffer() will play the audio
+from the sample audio buffer of the application.</p>
+<p>The function os_gpio_mux_sel() configures the GPIO to be used as the
+peripheral pin required for I2S functionality.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>audio_pins = BIT(audio_gpio0) | BIT(audio_gpio1) |
+BIT(audio_gpio2);</p>
+<p>os_gpio_mux_sel(GPIO_MUX_SEL_I2S_SCK, I2S_CLK_PIN);</p>
+<p>os_gpio_mux_sel(GPIO_MUX_SEL_I2S_WS, I2S_WS_PIN);</p>
+<p>os_gpio_mux_sel(GPIO_MUX_SEL_I2S_SD, I2S_DATA_PIN);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>If the file is available in specified location, then the fseek() seeks
+to end of file to get file size.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>fseek(file, 0, SEEK_END);</p>
+<p>long file_size = ftell(file);</p>
+<p>fseek(file, 0, SEEK_SET);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>After this, the pulse code modulation header and the audio data is
+extracted.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void* file_bytes = os_alloc(header_size);</p>
+<p>size_t n = fread(file_bytes, 1, header_size, file);</p>
+<p>pr_debug(“Read %d bytes of (%ld)\n”, n, file_size_inc_hdr);</p>
+<p>wav = (struct wave_file*)file_bytes;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The data_len is audio data length which is file length minus a potential
+audio header.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>size_t header_size = sizeof(struct wave_file);</p>
+<p>data_len = file_size_inc_hdr - header_size;</p>
+<p>assert(file_size_inc_hdr &gt;= header_size);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The audio_open() function initializes an audio stream using the
+specified mode, I2S in this example.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>struct audio *stream = audio_open(AUDIO_OUT_I2S, playback_rate, 0);</p>
+<p>if(!stream) {</p>
+<p>pr_err(“Failed to open audio stream.\n”);</p>
+<p>return 0;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>This loop starts the playback of audio signal through I2S. The
+audio_play()reads and buffers the contents of the file descriptor and
+sends it in chunks directly to the DMA controller. The
+audio_play_buffer() plays the sample buffer. The buffer must contain
+samples of signed 16-bit values with the left and right channel
+interleaved.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>pr_info(“Starting playback.\n”);</p>
+<p>int err = 0;</p>
+<p>for(int i = 0; i &lt; loops; i++) {</p>
+<p>if (file) {</p>
+<p>// Make sure the file is seeked to audio data position</p>
+<p>fseek(file, sizeof(struct wave_file), SEEK_SET);</p>
+<p>err = audio_play(stream, file, data_len);</p>
+<p>} else {</p>
+<p>err = audio_play_buffer(stream, sine_wave_size, sine_wave);</p>
+<p>}</p>
+<p>if (err != 0) {</p>
+<p>pr_err(“Failed to play audio.\n”);</p>
+<p>break;</p>
+<p>}</p>
+<p>} pr_info(“Playback finished.\n”);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The audio_close() releases the audio stream and shuts down the audio
+device by invalidating the struct audio pointer.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>audio_close(stream);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="evaluating-i2s-audio-flash-example-application">
+<h2>Evaluating i2s_audio_flash Example Application<a class="headerlink" href="#evaluating-i2s-audio-flash-example-application" title="Permalink to this heading"></a></h2>
+<p>The i2s_audio_flash example application reads the audio file stored in
+Talaria TWO’s file system and plays the audio over I2S. Hence, it is
+required to flash an audio file in .wav format to Talaria TWO’s
+filesystem before flashing the i2s_audio_flash.elf.</p>
+<p>This example can also read the wave file from an audio buffer with a
+valid wave header and signed 16-bit data. Depending upon the value of a
+boot argument audio.playback_mode (0: File, 1, static buffer), this
+example either reads the audio data from a wave file stored in Talaria
+TWO’s filesystem or from the audio buffer of the i2s_audio_flash
+application.</p>
+<section id="flashing-sample-wave-file-to-talaria-twos-filesystem">
+<h3>Flashing Sample Wave File to Talaria TWO’s Filesystem<a class="headerlink" href="#flashing-sample-wave-file-to-talaria-twos-filesystem" title="Permalink to this heading"></a></h3>
+<p>Program i2s_audio_flash.elf(sdk_x.y\examples\i2s_audio\bin) using the
+Download tool:</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool provided with InnoPhase Talaria TWO SDK.</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down.</p></li>
+<li><p>ELF Input: Load the i2s_audio_flash.elf by clicking on Select ELF
+File.</p></li>
+<li><p>Boot Arguments: Pass the following boot arguments:</p></li>
+</ol>
+</li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>audio.filename=/data/&lt;file.wav&gt;, audio.mode=1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="loweralpha simple" start="4">
+<li><p>File System:</p>
+<ol class="lowerroman simple">
+<li><p>Select the \data\ folder from the path
+(sdk_x.y\examples\i2s_audio) that contains the sample .wav file
+in Save Files to a Directory.</p></li>
+<li><p>Write this file to Talaria TWO.</p></li>
+</ol>
+</li>
+<li><p>Programming: Click on Prog Flash.</p></li>
+<li><p>Show File System Contents: Click on Show File System Contents to
+check if the file is loaded. This writes the audio file to Flash.</p></li>
+</ol>
+<p>For more details on using the Download tool, refer to the document:
+UG_Download_Tool.pdf (path: <em>sdk_x.y/pc_tools/Download_Tool/doc</em>).</p>
+<p><strong>Note</strong>:</p>
+<ol class="arabic simple">
+<li><p>x and y refer to the SDK release version. For example: sdk_2.5/doc.</p></li>
+<li><p>Audio file should be less than 900KB.</p></li>
+</ol>
+<p><a class="reference internal" href="../_images/image21.png"><img alt="image1" src="../_images/image21.png" style="width: 5.90551in; height: 4.5838in;" /></a></p>
+<p>Figure : Loading i2s_audio_flash.elf</p>
+<p>Console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:P</p>
+<p>UART:SNWWWWAE</p>
+<p>Build $Id: git-8ea03e991 $</p>
+<p>hio.baudrate=921600</p>
+<p>flash: Gordon ready!</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWAE</p>
+<p>Build $Id: git-8ea03e991 $</p>
+<p>audio.filename=/data/plong.wav, audio.mode=1</p>
+<p>[0.098,586] Wav Samples: 22546</p>
+<p>[0.098,618] Wav Frames: 11273</p>
+<p>[0.098,650] Wav Chunk: 16</p>
+<p>[0.098,680] Wav sample rate 44100</p>
+<p>[0.098,712] Wav Duration: 0.5114</p>
+<p>[0.098,903] Starting playback.</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Audio begins to play.</p>
+</section>
+</section>
+<section id="code-walkthrough-i2s-audio-wifi-example">
+<h2>Code Walkthrough – i2s_audio_wifi Example<a class="headerlink" href="#code-walkthrough-i2s-audio-wifi-example" title="Permalink to this heading"></a></h2>
+<p>The i2s_audio_wifi example works by receiving the audio data over Wi-Fi
+by starting a TCP or a UDP server. The client (PC in this case) sends
+the audio data over TCP/UDP socket.</p>
+<p>In the following code walkthrough, the flow of creating a Wi-Fi
+interface, starting a TCP/UDP server, receiving the audio data packets,
+and writing the audio data to an I2S port is described.</p>
+<p><strong>i2s_audio_wifi.c</strong></p>
+<p>The main function starts with reading the boot argument values of SSID
+and passphrase that are required to connect with the Wi-Fi network. The
+wcm_handle starts creating the Wi-Fi network interface.
+wcm_notify_enable() enables the callback function and IP address
+changes.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>const char *ssid = os_get_boot_arg_str(“ssid”) ?: “”;</p>
+<p>my_wcm_handle = wcm_create(NULL);</p>
+<p>wcm_notify_enable(my_wcm_handle, my_wcm_notify_cb, NULL);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>network_profile adds a network profile to Wi-Fi Connection Manager. The
+np_conf_path pointer variable contains the path to network configuration
+file on Talaria TWO’s file system. File and the path to the network
+configuration file is provided through the boot arguments.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>/*”/sys/nprofile.json”*/</p>
+<p>const char *np_conf_path = os_get_boot_arg_str(“np_conf_path”)?:
+NULL;</p>
+<p>struct network_profile *profile;</p>
+<p>if (np_conf_path != NULL) {</p>
+<p>/* Create a Network Profile from a configuration file in</p>
+<p>*the file system*/</p>
+<p>rval = network_profile_new_from_file_system(&amp;profile, np_conf_path);</p>
+<p>} else {</p>
+<p>/* Create a Network Profile using BOOT ARGS*/</p>
+<p>rval = network_profile_new_from_boot_args(&amp;profile);</p>
+<p>}</p>
+<p>if (rval &lt; 0) {</p>
+<p>pr_err(“could not create network profile %d\n”, rval);</p>
+<p>return 0;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The wcm_add_network_profile() adds the network profile to WCM.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>rval = wcm_add_network_profile(my_wcm_handle, profile);</p>
+<p>if (rval &lt; 0) {</p>
+<p>pr_err(“could not associate network profile to wcm %d\n”, rval);</p>
+<p>return 0;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>wcm_auto_connect() starts the auto connection with Wi-Fi network.
+os_suspend_enable() enables the device deep sleep mode via boot
+argument.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>if(wcm_auto_connect(my_wcm_handle, 1) == 0)</p>
+<p>if (os_get_boot_arg_int(“suspend”, 0) != 0)</p>
+<p>os_suspend_enable();</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>os_gpio_mux_sel() selects the GPIOs for I2S communication. The
+audio_server() initiates the audio server on port 9999.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>os_gpio_mux_sel(GPIO_MUX_SEL_I2S_SCK, I2S_CLK_PIN);</p>
+<p>os_gpio_mux_sel(GPIO_MUX_SEL_I2S_WS, I2S_WS_PIN);</p>
+<p>os_gpio_mux_sel(GPIO_MUX_SEL_I2S_SD, I2S_DATA_PIN);</p>
+<p>audio_server(9999);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>struct wcm_handle handles the Wi-Fi Connection Manager. This handle is
+an opaque representation of an interface managed by the Wi-Fi Connection
+Manager. The memory for this opaque struct is allocated in wcm_create
+and freed in wcm_destroy. The my_wcm_notify_cb() is a Wi-Fi Connection
+Manager callback function.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>struct wcm_handle *my_wcm_handle;</p>
+<p>static void my_wcm_notify_cb(void *ctx, struct os_msg *msg)</p>
+<p>os_msg_release(msg);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>audio_server.c</strong></p>
+<p>This file contains the functions to build and start a TCP/UDP server
+port, create an audio stream, receive the audio packets, and write the
+packets over Wi-Fi.</p>
+<p>The function server_t*build_server() starts TCP/UDP server on initiated
+port according to the defined transport mode.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static inline server_t* build_server(int port)</p>
+<p>{</p>
+<p>#ifdef TRANSPORT_TCP</p>
+<p>return tcp_server(port);</p>
+<p>#else</p>
+<p>return udp_server(port);</p>
+<p>#endif</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The server_accept() function allows the connection request from remote
+host i.e, the client. server_rx() function initiates the TCP/UDP server
+data reception, by executing the
+tcp_server_rx()/udp_server_rx()functions.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static inline void server_accept(server_t *srv)</p>
+<p>{</p>
+<p>#ifdef TRANSPORT_TCP</p>
+<p>tcp_server_accept(srv);</p>
+<p>#endif</p>
+<p>}</p>
+<p>static inline int server_rx(server_t *srv, void *ptr, size_t len)</p>
+<p>{</p>
+<p>#ifdef TRANSPORT_TCP</p>
+<p>os_printf(“tcp_server_rx\r\n”);</p>
+<p>return tcp_server_rx(srv, ptr, len);</p>
+<p>#else</p>
+<p>return udp_server_rx(srv, ptr, len);</p>
+<p>#endif</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>server_cleanup() function frees the resources allocated, by executing
+the tcp_ server_cleanup ()/udp_ server_cleanup () functions.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static inline void server_cleanup(server_t *srv)</p>
+<p>{</p>
+<p>#ifdef TRANSPORT_TCP</p>
+<p>return tcp_server_cleanup(srv);</p>
+<p>#else</p>
+<p>return udp_server_cleanup(srv);</p>
+<p>#endif</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The function build_server() binds the TCP/UDP server connection to a
+specific port, accepts the connections from the client by calling
+server_accept().</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>server_t *server = build_server(port);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>audio_open() initializes an audio stream using the specified mode and
+the audio_set_callback()function registers a call back function that is
+invoked upon the completion of writing the packet containing audio data.
+If the audio is not enabled, it returns the start_time, which is a
+current system time in microseconds.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>#ifdef PWM_AUDIO_EN</p>
+<p>struct audio *stream = audio_open(AUDIO_OUT_I2S, 11025, 0X1);</p>
+<p>assert(stream);</p>
+<p>audio_set_callback(stream, packet_played);</p>
+<p>num_queued = 0;</p>
+<p>#else</p>
+<p>uint64_t start_time = os_systime64();</p>
+<p>uint64_t bytes = 0;</p>
+<p>#endif</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>server_rx() function receives the audio data packets from the client and
+inserts the packet to the packet linked list.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>server_rx(server, pfrag_insert_tail(frg, PACKET_SIZE), PACKET_SIZE)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>After receiving the audio data packets, audio_write_packet() writes the
+chunk of samples available in packet to the audio device over i2s.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>audio_write_packet(stream, pkt);</p>
+<p>num_queued++;</p>
+<p>os_printf(“.%d”, num_queued);</p>
+<p>while (num_queued&gt;100);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>audio_close() release the audio stream and shuts down the audio device.
+The server_cleanup() cleans the server.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>#ifdef PWM_AUDIO_EN</p>
+<p>audio_close(stream);</p>
+<p>#endif</p>
+<p>server_cleanup(server);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>tcp_server.h</strong>: This header file which contains all the function
+prototypes need to create a TCP server in Talaria TWO.</p>
+<p><strong>tcp_server.c:</strong> This application sets up a tcp_server and sends and
+receives data over Wi-Fi after successfully connecting to the network.
+TCP server accepts audio data using tcp_server_get_bytes() function. It
+receives a data with a maximum value of 16-bit data and stores it into
+the buffer.</p>
+<p>The audio_server (int port) API receives raw data over TCP and plays the
+audio over I2S by writing the audio data using audio_write_packet() API.</p>
+<p>The struct tcp_server is declared with the all the parameter data needed
+to create a TCP server. The memory for this opaque struct is allocated
+in tcp_server.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>struct tcp_server</p>
+<p>{</p>
+<p>struct netconn *listen;</p>
+<p>struct netconn *conn;</p>
+<p>struct netbuf *buf;</p>
+<p>void *data;</p>
+<p>uint16_t len;</p>
+<p>uint8_t *status;</p>
+<p>};</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The struct tcp_server * tcp_server() creates the TCP server with the
+initialized port which will be the port used to created connection with
+clients.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>os_printf(“Starting tcp-Server &#64; port %d\n”, port);</p>
+<p>struct tcp_server *server = os_zalloc(sizeof *server);</p>
+<p>assert(server);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The netconn_new() creates a new connection with the clients.
+netconn_bind() binds the connection to a specific local IP address and
+port post which netconn_listen()puts the TCP connection into listen
+state.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>server-&gt;listen = netconn_new(NETCONN_TCP);</p>
+<p>assert(server-&gt;listen != NULL);</p>
+<p>netconn_bind(server-&gt;listen, IP_ADDR_ANY, port);</p>
+<p>netconn_listen(server-&gt;listen);</p>
+<p>return server;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>tcp_server_accept() function creates the TCP server and netconn_accept()
+waits for a new incoming connection. This function blocks the process
+until a connection request from the remote host arrives.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void tcp_server_accept(struct tcp_server *srv)</p>
+<p>{</p>
+<p>netconn_accept(srv-&gt;listen, &amp;srv-&gt;conn);</p>
+<p>os_printf(“TCP server: Accepted new connection %p\n”, srv-&gt;conn);</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>tcp_server_cleanup() function cleans up the TCP server and
+netconn_delete() closes a net connection functions connection and frees
+the resources allocated .</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void tcp_server_cleanup(struct tcp_server *srv)</p>
+<p>{ netconn_delete(srv-&gt;conn);</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>tcp_server_get_bytes() function receives data over TCP, processes the
+data and stores it in the buffer.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static int tcp_server_get_bytes(struct tcp_server *srv, void *ptr,
+uint16_t n)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>tcp_server_tx() function sends the TCP server data by calling.
+netconn_write()to send data over a TCP connection.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int tcp_server_tx(struct tcp_server *srv, const void *ptr, size_t
+len)</p>
+<p>{</p>
+<p>netconn_write(srv-&gt;conn, ptr, len, NETCONN_COPY);</p>
+<p>return 0;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>tcp_server_rx() function initiates the TCP server data reception by
+calling tcp_server_get_bytes() function to receive the data over TCP,
+processes the data and store it in the buffer.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int tcp_server_rx(struct tcp_server *srv, void *ptr, size_t len)</p>
+<p>{</p>
+<p>return tcp_server_get_bytes(srv, ptr, len);</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>udp_server.h</strong>: This header file contains all the function prototypes
+need to create a UDP server in Talaria TWO.</p>
+<p><strong>udp_server.c</strong>: This application sets up a udp_server and sends and
+receives data over Wi-Fi after successfully connecting to the network.
+UDP server accepts audio data using udp_server_get_bytes()function. It
+receives data with a maximum value of 16-bit data and stores it in the
+buffer. audio_server (int port) API receives raw data over UDP and plays
+the audio over I2S by writing the audio data using audio_write_packet()
+API.</p>
+<p>The struct udp_server is declared with the all the parameter data need
+to create a UDP server. The memory for this opaque struct is allocated
+in udp_server.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>struct udp_server</p>
+<p>{</p>
+<p>struct netconn *conn;</p>
+<p>struct netbuf *buf;</p>
+<p>void *data;</p>
+<p>uint16_t len;</p>
+<p>uint8_t *status;</p>
+<p>};</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The struct udp_server *udp_server() creates the UDP server with the
+initialized port which will be the port used to create connection with
+clients.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>os_printf(“Starting udp-Server &#64; port %d\n”, port);</p>
+<p>struct udp_server *srv = os_zalloc(sizeof *srv);</p>
+<p>assert(srv);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>netconn_new() creates a new connection with the clients through UDP.
+netconn_bind() binds a connection to a specific local IP address and
+port.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>srv-&gt;conn = netconn_new(NETCONN_UDP);</p>
+<p>assert(srv-&gt;conn);</p>
+<p>netconn_bind(srv-&gt;conn, IP_ADDR_ANY, port);</p>
+<p>return srv;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The udp_server_cleanup() calls the netconn_delete()API to close a
+connection and frees the resources allocated by calling os_free() .</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void udp_server_cleanup(struct udp_server *srv)</p>
+<p>{</p>
+<p>if(srv-&gt;buf)</p>
+<p>netbuf_delete(srv-&gt;buf);</p>
+<p>netconn_delete(srv-&gt;conn);</p>
+<p>os_free(srv);</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>udp_server_get_bytes() function receives the data over UDP, processes
+the data and stores it in the buffer.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static int udp_server_get_bytes(struct udp_server *srv, void *ptr,
+uint16_t n)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>udp_server_rx() function initiates the UDP server data reception by
+calling the udp_server_get_bytes() function to receive the data over
+UDP, processes it and store it in the buffer.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int udp_server_rx(struct udp_server *srv, void *ptr, size_t len)</p>
+<p>{</p>
+<p>return udp_server_get_bytes(srv, ptr, len);</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple">
+<li></li>
+</ol>
+</section>
+<section id="evaluating-the-i2s-audio-wifi-example-app">
+<h2>Evaluating the i2s_audio_wifi example app<a class="headerlink" href="#evaluating-the-i2s-audio-wifi-example-app" title="Permalink to this heading"></a></h2>
+<p>The i2s_audio_wifi application contains by receiving the audio date over
+Wi-Fi by starting a TCP or a UDP server. The client (PC in this case)
+sends the audio data over TCP/UDP socket.</p>
+<section id="flashing-a-file-to-talaria-twos-filesystem">
+<h3>Flashing a file to Talaria TWO’s Filesystem<a class="headerlink" href="#flashing-a-file-to-talaria-twos-filesystem" title="Permalink to this heading"></a></h3>
+<p>Program i2s_audio_wifi.elf (sdk_x.y\examples\i2s_audio\bin) using the
+Download tool:</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool provided with InnoPhase Talaria TWO SDK.</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down.</p></li>
+<li><p>ELF Input: Load the i2s_audio_wifi.elf by clicking on Select ELF
+File.</p></li>
+<li><p>AP Options: Provide the SSID and Passphrase under AP Options to
+connect to an Access Point.</p></li>
+<li><p>Programming: Click on Prog Flash.</p></li>
+</ol>
+</li>
+</ol>
+<p>For more details on using the Download tool, refer to the document:
+UG_Download_Tool.pdf (path: <em>sdk_x.y/pc_tools/Download_Tool/doc</em>).</p>
+<p><strong>Note</strong>: x and y refer to the SDK release version. For example:
+sdk_2.5/doc.</p>
+<p>Run the python script from the host PC to stream the audio raw data:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/audio_client.py &lt;T2’s IP address&gt;
+sample_audio/Happy_Birthday_song_50k.mp3</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWAE</p>
+<p>Build $Id: git-8ea03e991 $</p>
+<p>hio.baudrate=921600</p>
+<p>flash: Gordon ready!</p>
+<p>UART:SNWWWWWAE</p>
+<p>Build $Id: git-8ea03e991 $</p>
+<p>np_conf_path=/data/nprofile.json ssid=InnoPhase passphrase=43083191</p>
+<p>addr e0:69:3a:00:13:90</p>
+<p>Connecting to added network : InnoPhase</p>
+<p>Starting WiFi-Com-Server &#64; port 9999</p>
+<p>Starting udp-Server &#64; port 9999</p>
+<p>[2.081,471] CONNECT:00:5f:67:cd:c5:a6 Channel:11 rssi:-57 dBm</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS</p>
+<p>[2.914,129] MYIP 192.168.0.106</p>
+<p>[2.914,176] IPv6 [fe80::e269:3aff:fe00:1390]-link</p>
+<p>.1.2.3.4.5.6.7.8.9.10.11.12.13.14.15.16.17.18.19.20.21.
+22.23.24.25.26.27.28.29.30.31.32.33.34.35.36.37.38.39.40.40.41.42.43.
+44.45.46.47.48.49.50.51.52.53.54.55.56.57.58.59.60.61.62.63.64.65.66.
+67.68.69.70.71.72.73.74.75.76.77.78.79.80.81.82.83.84.85.86.87.88.89.</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

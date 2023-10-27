@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Availability &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction" href="Low%20Power%20Scan.html" />
+    <link rel="prev" title="Introduction" href="IoT%20AWS.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Getting_Started_Landing_page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Software_Reference/Prerequisites/libusbK_driver-Zadig.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Development_Environments/Development_Environments.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Tools/Tools_Landing.html">Tools</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="Applications-Landing_Page.html">Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#alarm">1.  Alarm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#analog-to-digital-converter">2.  Analog to Digital Converter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#audio-over-i2s">3.  Audio over I2S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-5-0">4.  BLE 5.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-beacons">3.  BLE Beacons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-wi-fi-bridge">4.  BLE Wi-Fi Bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#chip-monitor">5.  Chip Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#crash-handling">6.  Crash Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#custom-atcmdlib">6.  Custom ATCMDLIB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#filesystem">7.  Filesystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#firmware-over-the-air-upgrade">8.  Firmware Over the Air Upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#gpio">9.  GPIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#host-interface-protocol">10. Host Interface Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#http-client">11. HTTP Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#i2c">12. I2C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ifttt">13. IFTTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#iot-aws">14. IoT AWS</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="Applications-Landing_Page.html#iot-azure">15. IoT Azure</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Availability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#repository">Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sample-applications">Sample Applications</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#low-power-scan">16. Low Power Scan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#low-power-uart">17. Low Power UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#mdns">18. mDNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#memory-management-and-error-handling">19.  Memory Management and Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#message-queues">20.  Message Queues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#mqtt">21.  MQTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#provisioning">22.  Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#pulse-width-modulation">23.  Pulse Width Modulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#radio-and-module-parameters">24. Radio and Module Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#secure-files">25. Secure Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#simple-network-time-protocol">26.  Simple Network Time Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#sleep-enable-disable">27.  Sleep Enable Disable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#socket-wakeup">28. Socket Wakeup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#software-spi-master">29. Software SPI Master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#spi-flash">30. SPI Flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ssbl">31. SSBL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#thread-and-semaphores">32.  Thread and Semaphores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#throughput-measurement">32.  Throughput Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#timers-and-callouts">33. Timers and Callouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#unassociated-mode">34. Unassociated Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#using-wi-fi">35. Using Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#watchdog-timer">36. Watchdog Timer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#websocket-client">37. Websocket Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#wi-fi-connection-manager-multi-ap">38. Wi-Fi Connection Manager Multi-AP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#wi-fi-power-management">39. Wi-Fi Power Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#work-queues">40. Work Queues</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Regulatory%20Notices/Regulatory%20Notices.html">Regulatory Notice</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Backend%20Files%20-%20for%20cross%20referencing/Backend%20File%20Landing.html">Backend Files - for cross referencing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="Applications-Landing_Page.html">Applications</a></li>
+      <li class="breadcrumb-item active">Availability</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Applications/IoT Azure.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="availability">
+<h1>Availability<a class="headerlink" href="#availability" title="Permalink to this heading"></a></h1>
+<p>Talaria TWO port of Azure IoT SDK C available at the github repo:</p>
+<p><a class="reference external" href="https://github.com/InnoPhaseIoT/talaria_two_azure">https://github.com/InnoPhaseIoT/talaria_two_azure</a>.</p>
+</section>
+<section id="repository">
+<h1>Repository<a class="headerlink" href="#repository" title="Permalink to this heading"></a></h1>
+<p>Detailed instructions for cloning the repo for downloading sample device
+code, setting up the development environment, compiling, programming,
+and running the sample applications, are provided in the following
+location:
+<a class="reference external" href="https://github.com/InnoPhaseIoT/talaria_two_azure/blob/main/README.md">https://github.com/InnoPhaseIoT/talaria_two_azure/blob/main/README.md</a>.</p>
+<p>Sample applications covering the Device to Cloud, Cloud to Device,
+Device Twin, Direct Methods and Device Provisioning Service are
+available in the repo.</p>
+</section>
+<section id="sample-applications">
+<h1>Sample Applications<a class="headerlink" href="#sample-applications" title="Permalink to this heading"></a></h1>
+<ol class="arabic simple">
+<li><p>Azure IoT HUB Client Sample</p></li>
+</ol>
+<blockquote>
+<div><p>Sample Application ‘iothub_client_sample_mqtt’ demonstrates Device to
+Cloud (D2C) and Cloud to Device (C2D) functionality using Azure IoT
+Hub.</p>
+<p>Detailed instructions are provided in the link below for setting this
+up and running the sample on EVB-A to achieve these functionalities:</p>
+<p><a class="reference external" href="https://github.com/InnoPhaseIoT/talaria_two_azure/blob/main/examples/iothub_client_sample_mqtt/README.md">https://github.com/InnoPhaseIoT/talaria_two_azure/blob/main/examples/iothub_client_sample_mqtt/README.md</a></p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Azure IoT HUB Device Twin and Direct Method Sample</p></li>
+</ol>
+<blockquote>
+<div><p>Sample Application ‘iothub_client_device_twin_and_methods_sample’
+demonstrates Device Twin and Direct Methods functionalities of Azure
+IoT Hub.</p>
+<p>Detailed instructions are provided in the link below for setting this
+up and running the sample on EVB-A to achieve these functionalities:</p>
+<p><a class="reference external" href="https://github.com/InnoPhaseIoT/talaria_two_azure/blob/main/examples/iothub_devicetwin_and_methods_sample/README.md">https://github.com/InnoPhaseIoT/talaria_two_azure/blob/main/examples/iothub_devicetwin_and_methods_sample/README.md</a></p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>Azure IoT Hub Device Provisioning Service Sample</p></li>
+</ol>
+<blockquote>
+<div><p>Sample Application ‘prov_dev_client_ll_sample’ demonstrates the
+working of Talaria TWO devices with Device Provisioning Service (DPS)
+for Azure IoT Hub.</p>
+<p>Detailed instructions are provided in the link below for setting this
+up and running the sample on EVB-A to achieve the provisioning using
+Device Provisioning Service (DPS):</p>
+<p><a class="reference external" href="https://github.com/InnoPhaseIoT/talaria_two_azure/blob/main/examples/prov_dev_client_ll_sample/README.md">https://github.com/InnoPhaseIoT/talaria_two_azure/blob/main/examples/prov_dev_client_ll_sample/README.md</a></p>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>Integration with Azure IoT Explorer</p></li>
+</ol>
+<blockquote>
+<div><p>‘Integration with Azure IoT Explorer’ is covered in detail in the
+document ‘Getting Started with Azure IoT Hub on Talaria TWO
+Platform.pdf’, which is available from the link below:</p>
+<p><a class="reference external" href="https://github.com/InnoPhaseIoT/talaria_two_azure/tree/main/doc/getting_started">https://github.com/InnoPhaseIoT/talaria_two_azure/tree/main/doc/getting_started</a></p>
+</div></blockquote>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="IoT%20AWS.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Low%20Power%20Scan.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction" href="Using%20Wi-Fi.html" />
+    <link rel="prev" title="Introduction" href="Throughput%20Measurement.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Getting_Started_Landing_page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Software_Reference/Prerequisites/libusbK_driver-Zadig.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Development_Environments/Development_Environments.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Tools/Tools_Landing.html">Tools</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="Applications-Landing_Page.html">Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#alarm">1.  Alarm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#analog-to-digital-converter">2.  Analog to Digital Converter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#audio-over-i2s">3.  Audio over I2S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-5-0">4.  BLE 5.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-beacons">3.  BLE Beacons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-wi-fi-bridge">4.  BLE Wi-Fi Bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#chip-monitor">5.  Chip Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#crash-handling">6.  Crash Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#custom-atcmdlib">6.  Custom ATCMDLIB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#filesystem">7.  Filesystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#firmware-over-the-air-upgrade">8.  Firmware Over the Air Upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#gpio">9.  GPIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#host-interface-protocol">10. Host Interface Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#http-client">11. HTTP Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#i2c">12. I2C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ifttt">13. IFTTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#iot-aws">14. IoT AWS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#iot-azure">15. IoT Azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#low-power-scan">16. Low Power Scan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#low-power-uart">17. Low Power UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#mdns">18. mDNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#memory-management-and-error-handling">19.  Memory Management and Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#message-queues">20.  Message Queues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#mqtt">21.  MQTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#provisioning">22.  Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#pulse-width-modulation">23.  Pulse Width Modulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#radio-and-module-parameters">24. Radio and Module Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#secure-files">25. Secure Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#simple-network-time-protocol">26.  Simple Network Time Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#sleep-enable-disable">27.  Sleep Enable Disable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#socket-wakeup">28. Socket Wakeup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#software-spi-master">29. Software SPI Master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#spi-flash">30. SPI Flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ssbl">31. SSBL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#thread-and-semaphores">32.  Thread and Semaphores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#throughput-measurement">32.  Throughput Measurement</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="Applications-Landing_Page.html#timers-and-callouts">33. Timers and Callouts</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timers-in-talaria-two">Timers in Talaria TWO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#callouts-in-talaria-two">Callouts in Talaria TWO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timer-and-callout-apis">Timer and Callout APIs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#timer-apis">Timer APIs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#callout-apis">Callout APIs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#code-walkthrough">Code Walkthrough</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#timer-example">Timer Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#callout-basics-example-1">Callout Basics Example 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#callout-basics-example-2">Callout Basics Example 2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#unassociated-mode">34. Unassociated Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#using-wi-fi">35. Using Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#watchdog-timer">36. Watchdog Timer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#websocket-client">37. Websocket Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#wi-fi-connection-manager-multi-ap">38. Wi-Fi Connection Manager Multi-AP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#wi-fi-power-management">39. Wi-Fi Power Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#work-queues">40. Work Queues</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Regulatory%20Notices/Regulatory%20Notices.html">Regulatory Notice</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Backend%20Files%20-%20for%20cross%20referencing/Backend%20File%20Landing.html">Backend Files - for cross referencing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="Applications-Landing_Page.html">Applications</a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Applications/Timers and Callouts.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h1>
+<p>This application note provides a brief about the Timer and Callout
+functionalities available in the SDK, the benefit of Callouts as
+compared to Timers, and their corresponding APIs.</p>
+<p>Example codes are accompanied with this application note, for showcasing
+various Timer and Callout-related APIs available in the Talaria TWO SDK,
+explaining how to create, start, handle, and stop timers and callouts.</p>
+</section>
+<section id="timers-in-talaria-two">
+<h1>Timers in Talaria TWO<a class="headerlink" href="#timers-in-talaria-two" title="Permalink to this heading"></a></h1>
+<p>Talaria TWO device has four 64-bit hardware timer counters.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>enum timer_base {</p>
+<p>TIMER_BASE_US, /**&lt; System clock (1 MHz) */</p>
+<p>TIMER_BASE_BT, /**&lt; Bluetooth clock (1.6384 MHz) */</p>
+<p>TIMER_BASE_APP, /**&lt; Application use */</p>
+<p>TIMER_BASE_HFC /**&lt; Hardware clock (80 MHz) */</p>
+<p>};</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Time counter TIMER_BASE_US is dedicated as a system timer and is
+configured to count at a frequency of 1MHz. The counter TIMER_BASE_BT is
+set up to count at a frequency suitable for the Bluetooth protocol stack
+(using 1.6384 MHz).</p>
+<p>The third counter TIMER_BASE_APP is available for application use with a
+configurable counter frequency. The fourth counter TIMER_BASE_HFC is
+fixed at the core frequency; 80MHz.</p>
+<p>In addition to the four counters, there are 16 timer match units. Each
+of these units can be set up to generate an interrupt when one specific
+counter reaches a certain value. The match-unit values are only 32-bit
+wide, so it is only the lower 32-bits of each counter that are
+considered when generating the match.</p>
+<p>The kernel provides API functions for allocating any of these match
+units for application use. The caller can choose which available counter
+and time unit to use for the allocated timer.</p>
+<p>The calling code can specify a pointer to a callback function, to be
+invoked when the match-unit signals an interrupt. The callback will be
+invoked in the hardware interrupt context. No blocking calls may be
+performed in this callback.</p>
+<p>Then this timer can be started, stopped, can be made capable to wake up
+the device from suspend, the lower 32 bits or full 64 bits value of the
+hardware linked to the timer can be read, can be set, reset, or released
+through various Timer APIs available. Few APIs are demonstrated in the
+example code.</p>
+<p>But instead of using this low-level Timer interface, it is recommended
+to use the callout interface which is explained in the next section.</p>
+</section>
+<section id="callouts-in-talaria-two">
+<h1>Callouts in Talaria TWO<a class="headerlink" href="#callouts-in-talaria-two" title="Permalink to this heading"></a></h1>
+<p>Callouts are objects representing a callback function to be invoked at
+some point in the future when a specified timeout expires.</p>
+<p>Callouts are a better-managed way to use OS Timers as they internally
+work in a less power-consuming manner and have features, such as they
+can be differed to be invoked in a way that we can minimize the number
+of wakeups from suspend state of the system. The expiration time of a
+particular callout at init (or expiration time of all the pending
+callouts at once), can be moved to the closest non-soft timer, later
+than requested, and this could lead to savings in power consumption.</p>
+<p>Invocation to the callback function can be scheduled either after a
+specified number of microseconds elapsed or at an absolute time.</p>
+<p>The initialization function used for callout decides it is a soft or
+hard deadline callout.</p>
+<p>The callbacks will be invoked in an interrupt context. All the Callouts
+interrupt the device from the suspended system state.</p>
+<p>Various operations are possible for managing the callouts, for example,
+querying the status of the callout if it’s scheduled or not, stopping
+the callout timer and removing it from the list of pending callouts, and
+so on.</p>
+<p>Few of these callout APIs are demonstrated in the example code.</p>
+</section>
+<section id="timer-and-callout-apis">
+<h1>Timer and Callout APIs<a class="headerlink" href="#timer-and-callout-apis" title="Permalink to this heading"></a></h1>
+<section id="timer-apis">
+<h2>Timer APIs<a class="headerlink" href="#timer-apis" title="Permalink to this heading"></a></h2>
+<section id="os-timer-allocate">
+<h3>os_timer_allocate()<a class="headerlink" href="#os-timer-allocate" title="Permalink to this heading"></a></h3>
+<p>Used to allocate one of the sixteen hardware match-units.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>os_timer_id_t</p>
+<p>os_timer_allocate(enum timer_base base, unsigned idx,
+timer_callback_t callback, void *userdata)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Following parameters are passed as arguments to this API:</p>
+<ol class="arabic simple">
+<li><p>The hardware counter to use from the four available counters in enum
+timer_base as listed earlier in the document</p></li>
+<li><p>The timer ID to allocate (or TIMER_ANY for any free timer available)</p></li>
+<li><p>The Function to be called when a timer match occurs</p></li>
+<li><p>The userdata passed to this callback</p></li>
+</ol>
+<p>API returns an ID representing the timer, or TIMER_INVALID if one of the
+arguments is incorrect or if there is no free timer.</p>
+</section>
+<section id="os-timer-set">
+<h3>os_timer_set()<a class="headerlink" href="#os-timer-set" title="Permalink to this heading"></a></h3>
+<p>Sets the timer match value in absolute time ticks. The timer will match
+when the counter reaches the value specified.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void os_timer_set(os_timer_id_t timer, uint32_t ticks)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="os-timer-reset">
+<h3>os_timer_reset()<a class="headerlink" href="#os-timer-reset" title="Permalink to this heading"></a></h3>
+<p>Clears the timer match and prevents the timer from generating an
+interrupt.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void os_timer_reset(os_timer_id_t timer)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="os-timer-read">
+<h3>os_timer_read ()<a class="headerlink" href="#os-timer-read" title="Permalink to this heading"></a></h3>
+<p>Reads the lower 32-bit value of the hardware counter linked to the
+timer.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>uint32_t os_timer_read(os_timer_id_t timer)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="os-timer-read64">
+<h3>os_timer_ read64()<a class="headerlink" href="#os-timer-read64" title="Permalink to this heading"></a></h3>
+<p>Reads the full 64-bit value of the hardware counter linked to the timer.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>uint32_t os_timer_read64(os_timer_id_t timer)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="os-timer-release">
+<h3>os_timer_release()<a class="headerlink" href="#os-timer-release" title="Permalink to this heading"></a></h3>
+<p>Frees a previously allocated match unit.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void os_timer_release(os_timer_id_t timer)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="os-timer-wakeup-enable">
+<h3>os_timer_wakeup_enable()<a class="headerlink" href="#os-timer-wakeup-enable" title="Permalink to this heading"></a></h3>
+<p>Makes a specified timer capable of waking up the device from suspension
+when expired.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void os_timer_wakeup_enable(os_timer_id_t timer)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="os-timer-wakeup-disable">
+<h3>os_timer_wakeup_disable()<a class="headerlink" href="#os-timer-wakeup-disable" title="Permalink to this heading"></a></h3>
+<p>Restores the specified timer’s capability to the default state that it
+will not cause the device to wake-up from suspension.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void os_timer_wakeup_disable(os_timer_id_t timer)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="callout-apis">
+<h2>Callout APIs<a class="headerlink" href="#callout-apis" title="Permalink to this heading"></a></h2>
+<section id="callout-init">
+<h3>callout_init()<a class="headerlink" href="#callout-init" title="Permalink to this heading"></a></h3>
+<p>Takes a pointer to the callout object and a pointer to the callback
+function to be invoked on this callout as input parameters and
+initializes the callout object.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static inline void callout_init(struct callout *co, void
+(*fn)(struct callout *))</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="callout-schedule">
+<h3>callout_schedule()<a class="headerlink" href="#callout-schedule" title="Permalink to this heading"></a></h3>
+<p>Schedules callback function to be invoked after the specified number of
+microseconds.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int callout_schedule(struct callout *co, uint32_t time)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Returns True if the callout was previously pending, false otherwise.</p>
+</section>
+<section id="callout-schedule-at">
+<h3>callout_schedule_at()<a class="headerlink" href="#callout-schedule-at" title="Permalink to this heading"></a></h3>
+<p>Schedules callback function to be invoked at a specified absolute time.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int callout_schedule_at(struct callout *co, uint32_t time)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Returns True if the callout was previously pending, false otherwise.
+Passed parameter time is matched against the lower 32-bits of the system
+time.</p>
+</section>
+<section id="callout-pending">
+<h3>callout_pending()<a class="headerlink" href="#callout-pending" title="Permalink to this heading"></a></h3>
+<p>Checks the state of a callout object if this callout is scheduled or
+not.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static inline int callout_pending(const struct callout *co)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Returns True if the specified callout object is scheduled.</p>
+</section>
+<section id="callout-init-soft">
+<h3>callout_init_soft()<a class="headerlink" href="#callout-init-soft" title="Permalink to this heading"></a></h3>
+<p>Initializes callout object with a soft deadline.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static inline void callout_init_soft(struct callout *co,
+void(*fn)(struct callout *))</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>A soft callout timeout accepts the timeout to be invoked later than
+requested if this could lead to savings in power consumption.</p>
+<p>A soft callout expiration will be aligned to the closest non-soft one
+when entering suspend.</p>
+</section>
+<section id="callout-stop">
+<h3>callout_stop()<a class="headerlink" href="#callout-stop" title="Permalink to this heading"></a></h3>
+<p>Used to stop the callout timer and remove it from the list of pending
+callouts.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int callout_stop(struct callout *co)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Returns True if the callout object was stopped while pending, false
+otherwise.</p>
+</section>
+</section>
+</section>
+<section id="code-walkthrough">
+<h1>Code Walkthrough<a class="headerlink" href="#code-walkthrough" title="Permalink to this heading"></a></h1>
+<p><strong>Note</strong>: All the applicable ELFs are available in the following
+location of the SDK release package: sdk_x.y\examples\
+innoos_timers_callouts\bin).</p>
+<p>x and y in sdk_x.y refer to the SDK release version. For example:
+<em>sdk_2.4\examples\</em> <em>innoos_timers_callouts\bin</em>.</p>
+<section id="timer-example">
+<h2>Timer Example<a class="headerlink" href="#timer-example" title="Permalink to this heading"></a></h2>
+<section id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h3>
+<p>The sample code in the path:
+examples/innoos_timers_callouts/timer/main.c showcases:</p>
+<ol class="arabic simple">
+<li><p>Functionality of allocating and filling timer user data</p></li>
+<li><p>Setting the timer callback</p></li>
+<li><p>Setting user data</p></li>
+<li><p>Starting the timer for the required timeout</p></li>
+<li><p>Creating a timer for demonstrating of canceling the timer</p></li>
+<li><p>Clearing the timer or setting it again from the timer callback</p></li>
+</ol>
+<p>In this sample, one-timer is created for 2 seconds, and a callback is
+received after the timer elapses. A second timer is created and stopped
+before it elapses.</p>
+</section>
+<section id="sample-code-walkthrough">
+<h3>Sample Code Walkthrough<a class="headerlink" href="#sample-code-walkthrough" title="Permalink to this heading"></a></h3>
+<p>Header file for the timer functions is kernel/timer.h</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>#include &lt;kernel/timer.h&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<section id="defining-timer-context-data">
+<h4>Defining Timer Context Data<a class="headerlink" href="#defining-timer-context-data" title="Permalink to this heading"></a></h4>
+<p>Upon timer elapse, to understand the context of the timer, the user can
+set a context or user data. As a first step, a data structure for the
+user data must be defined (optional).</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>/*timer context data structure*/</p>
+<p>typedefstruct timer_user_data_t</p>
+<p>{</p>
+<p>unsignedint timer_created_at;</p>
+<p>unsignedint timeout;</p>
+<p>os_timer_id_t timer_id;</p>
+<p>}timer_user_data;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="defining-the-timer-callback-function">
+<h4>Defining the Timer Callback function<a class="headerlink" href="#defining-the-timer-callback-function" title="Permalink to this heading"></a></h4>
+<p>After the timer’s timeout elapses, the timer callback function will be
+invoked. Timer and user context data must be released in this callback.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static void on_timer_event_callback(void *user_data);</p>
+<p>/*creating a timer*/</p>
+<p>/*allocating and filling timer user data*/</p>
+<p>timer_user_data *ptimer_user_data;</p>
+<p>ptimer_user_data = os_alloc(sizeof(timer_user_data));</p>
+<p>ptimer_user_data-&gt;timer_created_at = os_systime();</p>
+<p>ptimer_user_data-&gt;timeout =
+os_systime()+(TIMER_SAMPLE_TIMEOUT_2_SEC_IN_MICRO);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The Timer can be repeated from the callback. To do that, instead of
+calling os_timer_release() to free up the user data, use os_timer_set()
+with a new timeout.</p>
+</section>
+<section id="creating-and-starting-timer">
+<h4>Creating and Starting Timer<a class="headerlink" href="#creating-and-starting-timer" title="Permalink to this heading"></a></h4>
+<p>Here, the user data is allocated and filled. Then the timer is created
+using os_timer_allocate(). This will associate the timer callback and
+user data for the timer. Using os_timer_set(), timer is set for the
+required timeout value. The timeout value is in microseconds.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>/*allocating and filling timer user data*/</p>
+<p>timer_user_data *ptimer_user_data;</p>
+<p>ptimer_user_data = os_alloc(sizeof(timer_user_data));</p>
+<p>ptimer_user_data-&gt;timer_created_at = os_systime();</p>
+<p>ptimer_user_data-&gt;timeout =
+os_systime()+(TIMER_SAMPLE_TIMEOUT_2_SEC_IN_MICRO);</p>
+<p>/*setting the timer callback and user data*/</p>
+<p>ptimer_user_data-&gt;timer_id = os_timer_allocate(TIMER_BASE_US,</p>
+<p>TIMER_ANY, on_timer_event_callback, ptimer_user_data);</p>
+<p>/*starting the timer for required timeout. timeout time is in
+microseconds*/</p>
+<p>os_timer_set(ptimer_user_data-&gt;timer_id, ptimer_user_data-&gt;timeout);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="creating-another-timer-checking-the-remaining-time-and-canceling-the-timer">
+<h4>Creating another timer, checking the remaining time, and canceling the timer<a class="headerlink" href="#creating-another-timer-checking-the-remaining-time-and-canceling-the-timer" title="Permalink to this heading"></a></h4>
+<p>A timer is created with 5 seconds as the timeout and we intend to cancel
+it before the timeout. Timer callback and timer user data are not set
+since even if timer call back is set, it will not be called in case the
+timer has been stopped before the timeout.</p>
+<p>A timer’s time to timeout can be checked using os_timer_read(). Timer
+can be reset by os_timer_reset(). Release the timer when the timer is no
+longer required using os_timer_release(). After calling
+os_timer_release(), timer is no longer valid.</p>
+<p>os_timer_read64() can be used to get 64-bit resolution timer reading.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>/*create a timer for demonstrating cancelling a timer*/</p>
+<p>os_timer_id_t timer_id;</p>
+<p>timer_id = os_timer_allocate(TIMER_BASE_US,</p>
+<p>TIMER_ANY, NULL, NULL);</p>
+<p>os_timer_set(timer_id,
+os_systime()+(TIMER_SAMPLE_TIMEOUT_5_SEC_IN_MICRO));</p>
+<p>/* at timeout, if the device in suspend mode,</p>
+<p>* below function will wakeup the device*/</p>
+<p>os_timer_wakeup_enable(timer_id);</p>
+<p>int nTimerReader = 3;</p>
+<p>while (nTimerReader–)</p>
+<p>{</p>
+<p>os_printf (”\nTimer read current ticks:%u”,
+os_timer_read(timer_id));</p>
+<p>os_msleep(1000);</p>
+<p>}</p>
+<p>/*clearing the timer.*/</p>
+<p>os_timer_reset(timer_id);</p>
+<p>os_timer_release(timer_id);</p>
+<p>os_printf (”\nTimer canceled. Timer call back will not be called”);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="running-the-application">
+<h3>Running the Application<a class="headerlink" href="#running-the-application" title="Permalink to this heading"></a></h3>
+<p>Program timer.elf using the Download tool:</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool provided with InnoPhase Talaria TWO SDK.</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down.</p></li>
+<li><p>ELF Input: Load the timer.elf by clicking on Select ELF File.</p></li>
+<li><p>Programming: Prog RAM or Prog Flash as per requirement.</p></li>
+</ol>
+</li>
+</ol>
+<p>For more details on using the Download tool, refer to the document:
+UG_Download_Tool.pdf (path: <em>sdk_x.y/pc_tools/Download_Tool/doc</em>).</p>
+<p><strong>Note</strong>: x and y refer to the SDK release version. For example:
+sdk_2.4/doc.</p>
+</section>
+<section id="expected-output">
+<h3>Expected Output<a class="headerlink" href="#expected-output" title="Permalink to this heading"></a></h3>
+<p>timer.elf is created when compiling the code mentioned in section 6.1.2
+and gives the following console output when programmed to Talaria TWO.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:NWWWWWAE4 DWT comparators, range 0x8000</p>
+<p>Build $Id: git-7e2fd6a94 $</p>
+<p>app=gordon</p>
+<p>flash: Gordon ready!</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWAEBuild $Id: git-65f6c1f46 $</p>
+<p>$App:git-46e2bea7</p>
+<p>SDK Ver: sdk_2.4</p>
+<p>Innos Timer Demo App</p>
+<p>b2ee0:Timer started. current time:[84929]</p>
+<p>Timer read current ticks:34651392</p>
+<p>Timer read current ticks:34651392</p>
+<p>be768:First Timer: Timer Event occured. Current time[2084930] timer
+created at[84927]</p>
+<p>Timer read current ticks:34651392</p>
+<p>Timer canceled. Timer call back will not be called</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="callout-basics-example-1">
+<h2>Callout Basics Example 1<a class="headerlink" href="#callout-basics-example-1" title="Permalink to this heading"></a></h2>
+<section id="overview-1">
+<span id="id1"></span><h3>Overview<a class="headerlink" href="#overview-1" title="Permalink to this heading"></a></h3>
+<p>The sample code in the path /examples/innoos_timers_callouts/src/
+callout_basics_1.c showcases:</p>
+<ol class="arabic simple">
+<li><p>Creating and forming the application context for the callout</p></li>
+<li><p>Initializing the callout with a callback function</p></li>
+<li><p>Scheduling the callout after the given time</p></li>
+<li><p>Checking the callout status</p></li>
+<li><p>Confirming that the callout has occurred using waitq</p></li>
+<li><p>Scheduling a callout at a specific absolute time.</p></li>
+</ol>
+<p>In this example, callouts are initiated and scheduled one after another.
+The first one is scheduled relatively while the second one is scheduled
+in an absolute way.</p>
+</section>
+<section id="sample-code-walkthrough-1">
+<span id="id2"></span><h3>Sample Code Walkthrough<a class="headerlink" href="#sample-code-walkthrough-1" title="Permalink to this heading"></a></h3>
+<p>Header file for the callout functions is kernel/callout.h</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>#include &lt;kernel/callout.h&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<section id="initializing-an-os-waitq-and-a-static-flag">
+<h4>Initializing an os_waitq and a static flag<a class="headerlink" href="#initializing-an-os-waitq-and-a-static-flag" title="Permalink to this heading"></a></h4>
+<p>To programmatically confirm that the callout call-back has occurred, a
+waitq is used and the program flow blocks on it after resetting a flag
+gf_callout_occurred.</p>
+<p>Later from the callback, this flag is set and waitq API
+os_wakeup_all(&amp;waitq) is called for waitq to unblock the flow.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static struct os_waitq waitq = OS_WAITQ_INITIALIZER(waitq);</p>
+<p>static int gf_callout_occurred = 0;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="defining-the-callout-context-data">
+<h4>Defining the Callout Context Data<a class="headerlink" href="#defining-the-callout-context-data" title="Permalink to this heading"></a></h4>
+<p>The callback is invoked with a pointer to the callout objects for the
+function. This pointer can be used by the callback function to obtain
+its context. This is achieved by embedding the struct callout object
+within another struct, that represents the context or state on which the
+callback should operate. Data structure for this is defined.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>typedef struct co_msg_info_t</p>
+<p>{</p>
+<p>struct callout timeout;</p>
+<p>/*application specific info*/</p>
+<p>char callout_reason_str[64];</p>
+<p>int index;</p>
+<p>unsigned int created_at;</p>
+<p>}callout_msg_info;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="defining-the-callout-call-back-function">
+<h4>Defining the Callout Call-back Function<a class="headerlink" href="#defining-the-callout-call-back-function" title="Permalink to this heading"></a></h4>
+<p>After the callout timeout elapses, the call-back function will be
+invoked. The callout pointer passed to this callback is stored in member
+timeout. This pointer is used by the callback function to obtain its
+context.</p>
+<p>This is achieved by using the macro container_of(ptr, type,member) which
+takes three arguments:</p>
+<ol class="arabic simple">
+<li><p>A pointer</p></li>
+<li><p>Type of the container</p></li>
+<li><p>Name of the member the pointer refers to.</p></li>
+</ol>
+<p>The macro will then expand to a new address pointing to the container
+which accommodates the respective member.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static void on_callout_callback_fn(struct callout *co)</p>
+<p>{</p>
+<p>struct co_msg_info_t *co_msg;</p>
+<p>co_msg = container_of(co, struct co_msg_info_t, timeout);</p>
+<p>/*apply the business logic*/</p>
+<p>os_printf(”\n%x:%u:Timeout occured [%s] index[%d] created at[%u]”,</p>
+<p>CALLOUT_SAMPLE_CURRENT_THREAD_ID,</p>
+<p>os_systime(),co_msg-&gt;callout_reason_str,</p>
+<p>co_msg-&gt;index,</p>
+<p>co_msg-&gt;created_at);</p>
+<p>gf_callout_occurred = 1;</p>
+<p>os_wakeup_all(&amp;waitq);</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>This way, we can access all the members of the struct created and get
+the context or state on which the callback should operate. This
+structure was originally initialized in
+/examples/innoos_timers_callouts/timer/main.c as shown in section 6.2.2.</p>
+</section>
+<section id="creating-initializing-and-scheduling-the-callout-with-relative-time">
+<h4>Creating, Initializing and Scheduling the Callout with Relative Time<a class="headerlink" href="#creating-initializing-and-scheduling-the-callout-with-relative-time" title="Permalink to this heading"></a></h4>
+<p>Here, the co_msg_info_t struct is allocated and filled. A callout reason
+string, an index, and the time it got created are filled in as the
+context. Then the callout is initialized with the function
+callout_init()and a callback is associated through this API.</p>
+<p>Before a callout object is used, it must be initialized via a call to
+either callout_init() or callout_init_soft(). The flag
+gf_callout_occurred is reset and callout is scheduled with
+callout_schedule(). Its status is checked using callout_pending() before
+and after the sleep gave equivalent to the timeout scheduled.</p>
+<p>struct co_msg_info_t *co_msg creates and formats the application
+context for the callout.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>struct co_msg_info_t *co_msg = NULL;</p>
+<p>co_msg = os_alloc(sizeof(struct co_msg_info_t));</p>
+<p>sn
+printf(co_msg-&gt;callout_reason_str,sizeof(co_msg-&gt;callout_reason_str),</p>
+<p>“Callout sample data. Created at[%u]”, os_systime());</p>
+<p>co_msg-&gt;index = 1;</p>
+<p>co_msg-&gt;created_at = os_systime();</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>callout_init()initiates the callout with a callback function.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>callout_init(&amp;co_msg-&gt;timeout, on_callout_callback_fn);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>callout_schedule()schedules the callout for the given time.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>gf_callout_occurred = 0;</p>
+<p>callout_schedule(&amp;co_msg-&gt;timeout,
+CALLOUT_SAMPLE_2SEC_IN_MICRO_SECONDS);</p>
+<p>os_printf(”\n%x:%u:callout created for [%d]”,</p>
+<p>CALLOUT_SAMPLE_CURRENT_THREAD_ID,os_systime(),</p>
+<p>CALLOUT_SAMPLE_2SEC_IN_MICRO_SECONDS);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>callout_pending()checks the status of the callout.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>os_printf(”\n%x:%u:callout pending status
+[%s]”,CALLOUT_SAMPLE_CURRENT_THREAD_ID,</p>
+<p>os_systime(),</p>
+<p>callout_pending(&amp;co_msg-&gt;timeout)?”Pending”:”Completed”);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>os_wait_event()function ensures the callout has occurred.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>os_wait_event(&amp;waitq, gf_callout_occurred);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>os_free()releases the context data.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>os_free(co_msg);</p>
+<p>co_msg = NULL;</p>
+<p>…</p>
+<p>…</p>
+<p>…</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>By using waitq, the occurrence of the callback is doubly confirmed, and
+co_msg is freed.</p>
+</section>
+<section id="creating-initializing-and-scheduling-the-callout-with-absolute-time">
+<h4>Creating, Initializing and Scheduling the Callout with Absolute Time<a class="headerlink" href="#creating-initializing-and-scheduling-the-callout-with-absolute-time" title="Permalink to this heading"></a></h4>
+<p>Sequence similar to the one mentioned in section 6.2.2.4 is followed
+except callout_schedule_at()is used instead of the previously used
+callout_schedule().</p>
+</section>
+</section>
+<section id="running-the-application-1">
+<span id="id3"></span><h3>Running the Application<a class="headerlink" href="#running-the-application-1" title="Permalink to this heading"></a></h3>
+<p>Program callout_basics_1.elf using the Download tool:</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool provided with InnoPhase Talaria TWO SDK.</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down.</p></li>
+<li><p>ELF Input: Load the callout_basics_1.elf by clicking on Select ELF
+File.</p></li>
+<li><p>Programming: Prog RAM or Prog Flash as per requirement.</p></li>
+</ol>
+</li>
+</ol>
+<p>For more details on using the Download tool, refer to the document:
+UG_Download_Tool.pdf (path: <em>sdk_x.y/pc_tools/Download_Tool/doc</em>).</p>
+<p><strong>Note</strong>: x and y refer to the SDK release version. For example:
+sdk_2.4/doc.</p>
+</section>
+<section id="expected-output-1">
+<span id="id4"></span><h3>Expected Output<a class="headerlink" href="#expected-output-1" title="Permalink to this heading"></a></h3>
+<p>callout_basics_1.elf is created when compiling which provides the
+following console output when programmed to Talaria TWO.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:NWWWWWAE4 DWT comparators, range 0x8000</p>
+<p>Build $Id: git-7e2fd6a94 $</p>
+<p>app=gordon</p>
+<p>flash: Gordon ready!</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWAEBuild $Id: git-65f6c1f46 $</p>
+<p>$App:git-46e2bea7</p>
+<p>SDK Ver: sdk_2.4</p>
+<p>Callout Basic App 1</p>
+<p>b2ee0:84999:callout created for [2000000]</p>
+<p>b2ee0:85045:callout pending status [Pending]</p>
+<p>be768:2085000:Timeout occured [Callout sample data. Created
+at[84865]] index[1] created at[84995]</p>
+<p>b2ee0:2085100:callout pending status [Completed]</p>
+<p>b2ee0:2085173:callout schedule at [6085173]</p>
+<p>be768:6085175:Timeout occured [This is a scheduled timer created at
+[2085154]] index[999] created at[2085170]</p>
+<p>Callout example completed</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="callout-basics-example-2">
+<h2>Callout Basics Example 2<a class="headerlink" href="#callout-basics-example-2" title="Permalink to this heading"></a></h2>
+<section id="overview-2">
+<span id="id5"></span><h3>Overview<a class="headerlink" href="#overview-2" title="Permalink to this heading"></a></h3>
+<p>The sample code in the path /examples/innoos_timers_callouts/src/
+callout_basics_2.c showcases callout functionality of repeat and cancel.</p>
+</section>
+<section id="sample-code-walkthrough-2">
+<span id="id6"></span><h3>Sample Code Walkthrough<a class="headerlink" href="#sample-code-walkthrough-2" title="Permalink to this heading"></a></h3>
+<p>In this example, a callout is programmed to be scheduled at 1 second and
+the callback rescheduled for every 1 second. A global flag is toggled in
+every callout call-back.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static void on_callout_callback_fn(struct callout *co)</p>
+<p>{</p>
+<p>callout_sample_msg_info *co_msg;</p>
+<p>co_msg = container_of(co, callout_sample_msg_info, timeout);</p>
+<p>os_printf(”\n%x:%u:callout event occured”,</p>
+<p>CALLOUT_SAMPLE_CURRENT_THREAD_ID,os_systime());</p>
+<p>/*toggle the value*/</p>
+<p>gbToggleValue = !gbToggleValue;</p>
+<p>/*repeating or resetting the callout*/</p>
+<p>callout_schedule(&amp;co_msg-&gt;timeout,
+CALLOUT_SAMPLE_1SEC_IN_MICRO_SECONDS);</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The main thread sleeps for 10 seconds after which the callout is
+stopped. While main sleep, callouts still occur as they are called from
+the other context. One thread is created which wakes up every 100
+milliseconds, checks, and prints the toggle flag.</p>
+<p>Hence, ten such prints can be passed before a toggle event occurs
+through the callout which is periodic at 1 second.</p>
+<p>This continues until another flag called terminate is toggled from main,
+in which case this thread stops printing and returns. This termination
+happens after 20 seconds.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static void* gh_application_logic_thread(void *p)</p>
+<p>{</p>
+<p>while (!gfTerminate)</p>
+<p>{</p>
+<p>os_printf(”\n%x:%u:Current state of toggle value[%s]”,
+CALLOUT_SAMPLE_CURRENT_THREAD_ID,os_systime(),</p>
+<p>gbToggleValue==true?”ON”:”OFF”);</p>
+<p>os_msleep(100);</p>
+<p>}</p>
+<p>os_printf(”\n%x:%u:Current state of toggle value[%s]”,</p>
+<p>CALLOUT_SAMPLE_CURRENT_THREAD_ID,os_systime(),</p>
+<p>gbToggleValue==true?”ON”:”OFF”);</p>
+<p>return NULL;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Overall output in console is ten consecutive toggles ON or OFF prints
+per 100 milliseconds until toggle event happens per second. These toggle
+events happen ten times and then stop. The other thread keeps printing
+the fixed last toggle flag value until it terminated after another 10
+seconds.</p>
+</section>
+<section id="running-the-application-2">
+<span id="id7"></span><h3>Running the Application<a class="headerlink" href="#running-the-application-2" title="Permalink to this heading"></a></h3>
+<p>Program callout_basics_2.elf using the Download tool:</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool provided with InnoPhase Talaria TWO SDK.</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down.</p></li>
+<li><p>ELF Input: Load the call_out_basics_2.elf by clicking on Select
+ELF File.</p></li>
+<li><p>Programming: Prog RAM or Prog Flash as per requirement.</p></li>
+</ol>
+</li>
+</ol>
+<p>For more details on using the Download tool, refer to the document:
+UG_Download_Tool.pdf (path: <em>sdk_x.y/pc_tools/Download_Tool/doc</em>).</p>
+<p><strong>Note</strong>: x and y refer to the SDK release version. For example:
+sdk_2.4/doc.</p>
+</section>
+<section id="expected-output-2">
+<span id="id8"></span><h3>Expected Output<a class="headerlink" href="#expected-output-2" title="Permalink to this heading"></a></h3>
+<p>callout_basics_2.elf is created when compiling which gives a console
+output as follows when programmed to Talaria TWO.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>WWWWAE4 DWT comparators, range 0x8000</p>
+<p>Build $Id: git-7e2fd6a94 $</p>
+<p>app=gordon</p>
+<p>flash: Gordon ready!</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWAEBuild $Id: git-65f6c1f46 $</p>
+<p>$App:git-46e2bea7</p>
+<p>SDK Ver: sdk_2.4</p>
+<p>Callout Basic App 2</p>
+<p>b2de0:85021:callout created for [1000000]</p>
+<p>bf780:85074:Current state of toggle value[OFF]</p>
+<p>bf780:185130:Current state of toggle value[OFF]</p>
+<p>bf780:285187:Current state of toggle value[OFF]</p>
+<p>bf780:385244:Current state of toggle value[OFF]</p>
+<p>bf780:485301:Current state of toggle value[OFF]</p>
+<p>bf780:585358:Current state of toggle value[OFF]</p>
+<p>bf780:685415:Current state of toggle value[OFF]</p>
+<p>bf780:785472:Current state of toggle value[OFF]</p>
+<p>bf780:885529:Current state of toggle value[OFF]</p>
+<p>bf780:985586:Current state of toggle value[OFF]</p>
+<p>bfe68:1085022:callout event occured</p>
+<p>bf780:1085643:Current state of toggle value[ON]</p>
+<p>bf780:1185700:Current state of toggle value[ON]</p>
+<p>bf780:1285757:Current state of toggle value[ON]</p>
+<p>bf780:1385814:Current state of toggle value[ON]</p>
+<p>bf780:1485871:Current state of toggle value[ON]</p>
+<p>bf780:1585928:Current state of toggle value[ON]</p>
+<p>bf780:1685985:Current state of toggle value[ON]</p>
+<p>bf780:1786042:Current state of toggle value[ON]</p>
+<p>bf780:1886099:Current state of toggle value[ON]</p>
+<p>bf780:1986156:Current state of toggle value[ON]</p>
+<p>bfe68:2085064:callout event occured</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>bf780:16894649:Current state of toggle value[ON]</p>
+<p>bf780:16994706:Current state of toggle value[ON]</p>
+<p>bf780:17094763:Current state of toggle value[ON]</p>
+<p>bf780:17194820:Current state of toggle value[ON]</p>
+<p>bf780:17294877:Current state of toggle value[ON]</p>
+<p>bf780:17394934:Current state of toggle value[ON]</p>
+<p>bf780:17494991:Current state of toggle value[ON]</p>
+<p>bf780:17595048:Current state of toggle value[ON]</p>
+<p>bf780:17695105:Current state of toggle value[ON]</p>
+<p>bf780:17795162:Current state of toggle value[ON]</p>
+<p>bf780:17895219:Current state of toggle value[ON]</p>
+<p>bf780:17995276:Current state of toggle value[ON]</p>
+<p>bf780:18095333:Current state of toggle value[ON]</p>
+<p>bf780:18195390:Current state of toggle value[ON]</p>
+<p>bf780:18295447:Current state of toggle value[ON]</p>
+<p>bf780:18395504:Current state of toggle value[ON]</p>
+<p>bf780:18495561:Current state of toggle value[ON]</p>
+<p>bf780:18595618:Current state of toggle value[ON]</p>
+<p>bf780:18695675:Current state of toggle value[ON]</p>
+<p>bf780:18795732:Current state of toggle value[ON]</p>
+<p>bf780:18895789:Current state of toggle value[ON]</p>
+<p>bf780:18995846:Current state of toggle value[ON]</p>
+<p>bf780:19095903:Current state of toggle value[ON]</p>
+<p>bf780:19195960:Current state of toggle value[ON]</p>
+<p>bf780:19296017:Current state of toggle value[ON]</p>
+<p>bf780:19396074:Current state of toggle value[ON]</p>
+<p>bf780:19496131:Current state of toggle value[ON]</p>
+<p>bf780:19596188:Current state of toggle value[ON]</p>
+<p>bf780:19696245:Current state of toggle value[ON]</p>
+<p>bf780:19796302:Current state of toggle value[ON]</p>
+<p>bf780:19896359:Current state of toggle value[ON]</p>
+<p>bf780:19996416:Current state of toggle value[ON]</p>
+<p>Callout example completed</p>
+<p>bf780:20096472:Current state of toggle value[ON]</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Throughput%20Measurement.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Using%20Wi-Fi.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

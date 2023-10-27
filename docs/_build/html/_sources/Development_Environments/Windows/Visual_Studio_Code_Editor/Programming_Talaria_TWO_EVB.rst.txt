@@ -1,0 +1,36 @@
+.. _Development_Environments/Windows/Visual_Studio_Code_Editor/Programming_Talaria_TWO_EVB:
+
+Programming Talaria TWO EVB
+===========================
+
+Flash the ELF using the Download Tool:
+
+1. Launch the Download tool provided with InnoPhase Talaria TWO SDK.
+
+2. In the GUI window:
+
+   a. Boot Target: Select the appropriate EVK from the drop-down.
+
+   b. ELF Input: Load the appropriate ELF by clicking on Select ELF
+      File.
+
+   c. AP Options: Provide the appropriate SSID and Passphrase of the
+      Access Point.
+
+   d. Programming: Click on PROG Flash.
+
+**Note**:
+
+1. To flash the application over the JTAG/SWD, refer
+      Programming_using_INP3000
+
+Ensure that the output is as shown in Figure 22. If not, Click on Clear
+Flash on the Download Tool and program the ELF onto Talaria TWO again.
+
+|image1|
+
+Figure 22: Programming the ELF - Download Tool console output
+
+.. |image1| image:: media/image1.png
+   :width: 5.90551in
+   :height: 5.36448in

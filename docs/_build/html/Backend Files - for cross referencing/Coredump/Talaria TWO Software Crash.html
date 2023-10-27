@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talaria TWO Software Crash &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Connecting JTAG/SWD to Talaria TWO module" href="../Debugging%20using%20GDB/Connecting%20JTAG%20and%20SWD%20to%20Talaria%20TWO%20module.html" />
+    <link rel="prev" title="Coredump Generation &amp; Analysis" href="Coredump%20Generation%20-%20Landing.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Getting_Started_Landing_page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Software_Reference/Prerequisites/libusbK_driver-Zadig.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Development_Environments/Development_Environments.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Tools/Tools_Landing.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Applications/Applications-Landing_Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">Regulatory Notice</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../Backend%20File%20Landing.html">Backend Files - for cross referencing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Backend%20File%20Landing.html#cli">CLI</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../Backend%20File%20Landing.html#coredump">Coredump</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Analyzing%20the%20Coredump.html">Analyzing the Coredump</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Coredump%20Generation%20-%20Landing.html">Coredump Generation &amp; Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Coredump%20Generation%20-%20Landing.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Talaria TWO Software Crash</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#generate-coredump-from-within-gdb">Generate Coredump from within GDB</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Backend%20File%20Landing.html#debugging-using-gdb">Debugging using GDB</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../Backend%20File%20Landing.html">Backend Files - for cross referencing</a></li>
+      <li class="breadcrumb-item active">Talaria TWO Software Crash</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Backend Files - for cross referencing/Coredump/Talaria TWO Software Crash.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="talaria-two-software-crash">
+<h1>Talaria TWO Software Crash<a class="headerlink" href="#talaria-two-software-crash" title="Permalink to this heading"></a></h1>
+<p>When the application on Talaria TWO crashes, a coredump file can be
+generated. Coredump captures the working memory of the application and
+firmware and generates a coredump file that is used for analyzing the
+cause of the crash.</p>
+<p>Following method is used to collect the coredump:</p>
+<p>Assuming Talaria TWO has already crashed for a particular reason and is
+currently in a crashed state, open a new terminal window in Linux and
+execute the commands mentioned in the following section to collect core
+dump.</p>
+<section id="generate-coredump-from-within-gdb">
+<h2>Generate Coredump from within GDB<a class="headerlink" href="#generate-coredump-from-within-gdb" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Execute the following command in VM UBUNTU Linux shell</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>echo “set auto-load safe-path /” &gt; ~/.gdbinit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="2">
+<li><p>Change directory to conf folder in SDK</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>cd ~/sdks/sdk_x.y</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="3">
+<li><p>Execute the following command from the same shell as mentioned in
+step 2</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>openocd -s ./conf -f ftdi.cfg -f t2.cfg</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="4">
+<li><p>Let the openocd run in the current shell and open a new Linux shell
+to execute the following. The output of the openocd execution is
+shown in Figure 1.</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image112.png"><img alt="Text Description automatically generated" src="../../_images/image112.png" style="width: 4.33071in; height: 2.76947in;" /></a></p>
+<p>Figure 1: Terminal output</p>
+<ol class="arabic simple" start="5">
+<li><p>Execute the following command from apps folder</p></li>
+</ol>
+<p><strong>Note</strong>: The default elf given with the SDK package under bin will be a
+stripped one and this cannot be used for coredump analysis. Hence, do a
+make for the application which needs to be tested and use the elf from
+the out folder.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>gdb-multiarch ./my_test.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="6">
+<li><p>gdb session will start now and execute the command ocd in GDB
+session.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>(gdb) ocd</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="7">
+<li><p>Collect the core dump using the following command:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>(gdb) coredump coredump_any_filename.bin</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="8">
+<li><p>Core dump is collected in coredump_any_filename.bin.</p></li>
+<li><p>Core dump file can be opened using xxd editor to check the content\
+from the Linux shell.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>xxd coredump_any_filename.bin</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Output for the sample elf is as shown in Figure 2.</p>
+<p><a class="reference internal" href="../../_images/image213.png"><img alt="image1" src="../../_images/image213.png" style="width: 5.11811in; height: 3.21041in;" /></a></p>
+<p>Figure 2: Opening the coredump file</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Coredump%20Generation%20-%20Landing.html" class="btn btn-neutral float-left" title="Coredump Generation &amp; Analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../Debugging%20using%20GDB/Connecting%20JTAG%20and%20SWD%20to%20Talaria%20TWO%20module.html" class="btn btn-neutral float-right" title="Connecting JTAG/SWD to Talaria TWO module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

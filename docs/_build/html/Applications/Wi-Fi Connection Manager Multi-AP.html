@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction" href="Wi-Fi%20Power%20Management.html" />
+    <link rel="prev" title="Introduction" href="Websocket%20Client.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Getting_Started_Landing_page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Software_Reference/Prerequisites/libusbK_driver-Zadig.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Development_Environments/Development_Environments.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Tools/Tools_Landing.html">Tools</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="Applications-Landing_Page.html">Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#alarm">1.  Alarm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#analog-to-digital-converter">2.  Analog to Digital Converter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#audio-over-i2s">3.  Audio over I2S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-5-0">4.  BLE 5.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-beacons">3.  BLE Beacons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-wi-fi-bridge">4.  BLE Wi-Fi Bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#chip-monitor">5.  Chip Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#crash-handling">6.  Crash Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#custom-atcmdlib">6.  Custom ATCMDLIB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#filesystem">7.  Filesystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#firmware-over-the-air-upgrade">8.  Firmware Over the Air Upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#gpio">9.  GPIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#host-interface-protocol">10. Host Interface Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#http-client">11. HTTP Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#i2c">12. I2C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ifttt">13. IFTTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#iot-aws">14. IoT AWS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#iot-azure">15. IoT Azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#low-power-scan">16. Low Power Scan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#low-power-uart">17. Low Power UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#mdns">18. mDNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#memory-management-and-error-handling">19.  Memory Management and Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#message-queues">20.  Message Queues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#mqtt">21.  MQTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#provisioning">22.  Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#pulse-width-modulation">23.  Pulse Width Modulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#radio-and-module-parameters">24. Radio and Module Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#secure-files">25. Secure Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#simple-network-time-protocol">26.  Simple Network Time Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#sleep-enable-disable">27.  Sleep Enable Disable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#socket-wakeup">28. Socket Wakeup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#software-spi-master">29. Software SPI Master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#spi-flash">30. SPI Flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ssbl">31. SSBL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#thread-and-semaphores">32.  Thread and Semaphores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#throughput-measurement">32.  Throughput Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#timers-and-callouts">33. Timers and Callouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#unassociated-mode">34. Unassociated Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#using-wi-fi">35. Using Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#watchdog-timer">36. Watchdog Timer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#websocket-client">37. Websocket Client</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="Applications-Landing_Page.html#wi-fi-connection-manager-multi-ap">38. Wi-Fi Connection Manager Multi-AP</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wi-fi-connection-with-multi-ap-functionalities">Wi-Fi Connection with Multi-AP Functionalities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview-of-wcm-multi-ap">Overview of wcm_multi_ap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overview-of-wcm">Overview of WCM</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#code-walkthrough-wcm-multi-ap">Code Walkthrough WCM_MULTI_AP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#application-flow">Application Flow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sample-code-walkthrough">Sample code walkthrough</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-application">Running the Application</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#expected-output">Expected Output</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#wi-fi-power-management">39. Wi-Fi Power Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#work-queues">40. Work Queues</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Regulatory%20Notices/Regulatory%20Notices.html">Regulatory Notice</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Backend%20Files%20-%20for%20cross%20referencing/Backend%20File%20Landing.html">Backend Files - for cross referencing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="Applications-Landing_Page.html">Applications</a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Applications/Wi-Fi Connection Manager Multi-AP.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h1>
+<p>This application note demonstrates the wcm_multi_ap example which
+performs the connection and disconnections with multiple access points
+based on the priority of the access point. The priority of the access
+point to connect to is set by the application based on the order that
+the SSID and passphrase details of the access point are provided through
+the boot arguments and also on the Access Point’s entry in Talaria TWO’s
+scan results.</p>
+</section>
+<section id="wi-fi-connection-with-multi-ap-functionalities">
+<h1>Wi-Fi Connection with Multi-AP Functionalities<a class="headerlink" href="#wi-fi-connection-with-multi-ap-functionalities" title="Permalink to this heading"></a></h1>
+<section id="overview-of-wcm-multi-ap">
+<h2>Overview of wcm_multi_ap<a class="headerlink" href="#overview-of-wcm-multi-ap" title="Permalink to this heading"></a></h2>
+<p>wcm_multi_ap takes user entry for APs (SSID and passphrase) the priority
+of which is decided depending on the order of the provided AP details,
+in the form of boot arguments. It utilizes the functionalities provided
+by WCM on the Wi-Fi connection management and provides the following
+features:</p>
+<ol class="arabic simple">
+<li><p>Configuration and management of user-entered, multiple APs.</p></li>
+<li><p>Priority-oriented list for AP connection choice.</p></li>
+</ol>
+</section>
+<section id="overview-of-wcm">
+<h2>Overview of WCM<a class="headerlink" href="#overview-of-wcm" title="Permalink to this heading"></a></h2>
+<p>The Wi-Fi connection manager (WCM) contains functions for establishing
+and tearing down associations to Wi-Fi access points. It initiates a
+four-way handshake for encrypted connections and starts the DHCP client
+from LWIP for getting an allocation of the IP address.</p>
+<p>Following functionalities are achieved through these APIs:</p>
+<ol class="arabic simple">
+<li><p>Creating and destroying interfaces.</p></li>
+<li><p>Scanning with different scan parameters and their indication
+structure.</p></li>
+<li><p>Connecting and disconnecting.</p></li>
+<li><p>Adding network to connect asynchronously and removing network.</p></li>
+<li><p>Querying connection information.</p></li>
+</ol>
+<p>Accompanying sample code provides more details on how to achieve some of
+the listed functionalities.</p>
+<blockquote>
+<div><p>WCM APIs used in wcm_multi_ap</p>
+</div></blockquote>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li><p>wcm_auto_connect() - Starts or stops auto connect.</p></li>
+</ol>
+<blockquote>
+<div><p>A network must first be added with reference to wcm_add_network.</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>wcm_delete_network_profile () - Deletes the currently active network
+profile that was previously added .</p></li>
+<li><p>wifi_init_scan_default() - Gets the default parameters for scan
+operation.</p></li>
+</ol>
+<blockquote>
+<div><p>The wifi_scan_param will be updated with the default values for the
+scan operation. This function is used to get the default values and
+alter the parameters which need to have values other than the default
+ones. Finally, provide this parameter when calling wcm_scan.</p>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>wifi_netinfo_get_ssid() - Gets SSID from netinfo.</p></li>
+<li><p>wifi_netinfo_get_chan() - Gets channel from netinfo</p></li>
+<li><p>wcm_free_scanresult() - Frees the memory allocated by wcm_scan</p></li>
+<li><p>os_free() - Frees allocated memory.</p></li>
+</ol>
+<blockquote>
+<div><p>Returns allocated memory to the heap. If the memory has more than one
+reference, the count is simply dropped by one.</p>
+</div></blockquote>
+<ol class="arabic simple" start="8">
+<li><p>os_msg_release() - Frees an allocated message.</p></li>
+</ol>
+<blockquote>
+<div><p>Frees a message previously allocated using os_msg_alloc().</p>
+</div></blockquote>
+<ol class="arabic simple" start="9">
+<li><p>wcm_scan() - Scans for Wi-Fi networks.</p></li>
+</ol>
+<blockquote>
+<div><p>Initiates a network scan procedure on the specified Wi-Fi Connection
+Manager interface.</p>
+</div></blockquote>
+<ol class="arabic simple" start="10">
+<li><p>Wcm_create() - Creates a Wi-Fi network interface.</p></li>
+</ol>
+<blockquote>
+<div><p>Only one wcm_handle instance is supported at the time of writing</p>
+</div></blockquote>
+<ol class="arabic simple" start="11">
+<li><p>wcm_add_network_profile() - Adds a network profile to wcm.</p></li>
+</ol>
+</section>
+</section>
+<section id="code-walkthrough-wcm-multi-ap">
+<h1>Code Walkthrough WCM_MULTI_AP<a class="headerlink" href="#code-walkthrough-wcm-multi-ap" title="Permalink to this heading"></a></h1>
+<section id="application-flow">
+<h2>Application Flow<a class="headerlink" href="#application-flow" title="Permalink to this heading"></a></h2>
+<p>When the app starts, the following sequence of initializations happens
+in wcm_multi_ap:</p>
+<ol class="arabic simple">
+<li><p>User provides the boot arguments consisting of a list of AP entries
+in the form of SSID and the passphrase for each AP. The order of the
+AP as they are entered indicates the priority of the connection.</p></li>
+<li><p>App reads the boot arguments and saves them into the buffer - AP
+manager.</p></li>
+<li><p>App starts a thread with the following functionality:</p>
+<ol class="loweralpha simple">
+<li><p>Create a Wi-Fi network interface.</p></li>
+<li><p>Pass to the WCM, the list of user-entered SSID’s.</p></li>
+<li><p>Register the call-back function with the WCM notification.</p></li>
+<li><p>Start a connection with the most recently used or most recently
+added AP in the list.</p></li>
+</ol>
+</li>
+<li><p>Enters the loop with the detection for reconnection.</p></li>
+</ol>
+</section>
+<section id="sample-code-walkthrough">
+<h2>Sample code walkthrough<a class="headerlink" href="#sample-code-walkthrough" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>User Data Struct: AP Manager</p></li>
+</ol>
+<blockquote>
+<div><p>A user-defined data struct is created to store the data of the multi
+APs:</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>#define AP_CNT 5</p>
+<p>#define MAX_RETRY 3</p>
+<p>#define MRU_RETRY 3</p>
+<p>#define MAX_NETS 16</p>
+<p>#define AP_DISCONNECTED 0</p>
+<p>#define AP_CONNECTED 1</p>
+<p>#define AP_CONNECTING 2</p>
+<p>struct ap_param</p>
+<p>{</p>
+<p>char ssid[32];</p>
+<p>uint8_t bssid[6];</p>
+<p>char passphrase[64];</p>
+<p>};</p>
+<p>struct ap_manager</p>
+<p>{</p>
+<p>struct ap_param ap_param[AP_CNT];</p>
+<p>int priority[AP_CNT];</p>
+<p>int mru; //index of MRU AP</p>
+<p>int rescan_interval;</p>
+<p>int cnt;</p>
+<p>int index;</p>
+<p>int mru_retries;</p>
+<p>int connect_retries;</p>
+<p>} ap_manager;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="2">
+<li><p>How the AP List is Created and Maintained</p></li>
+</ol>
+<blockquote>
+<div><p>When the AP manager is populated with a list of SSID from the boot
+arguments, the AP manager starts to use the AP’s order as the initial
+priority order (in ascending order) of selection for Wi-Fi connection
+with the AP of the highest number (number 0) as the starting
+connection.</p>
+</div></blockquote>
+<ol class="loweralpha simple">
+<li><p>AP Addition and Initialization of the List</p></li>
+</ol>
+<blockquote>
+<div><p>The priority variable is initialized with the order of the AP in the
+function wcma_add_network().</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int wcma_add_network(struct wcm_handle *handle, const char
+ssid[32],const char bssid[17], const char passphrase[64], struct
+ap_manager *manager)</p>
+<p>.</p>
+<p>.</p>
+<p>for(int i = 0; i &lt; AP_CNT; i++)</p>
+<p>{</p>
+<p>if(manager-&gt;ap_param[i].ssid[0] == 0)</p>
+<p>{</p>
+<p>os_printf(“adding %s to list\n”, ssid);</p>
+<p>memcpy(manager-&gt;ap_param[i].ssid, ssid, ssid_len);</p>
+<p>if(bssid != NULL)</p>
+<p>{</p>
+<p>os_printf(“BSSID: %s\n”, bssid);</p>
+<p>parse_macaddr(bssid, manager-&gt;ap_param[i].bssid);</p>
+<p>}</p>
+<p>else</p>
+<p>{</p>
+<p>memset(manager-&gt;ap_param[i].bssid, 0, 6);</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="3">
+<li><p>Update of the Priority Numbers of APs</p></li>
+</ol>
+<p>The priority order of the AP determines which AP from the AP list will
+be chosen for the next connection to be made. This list is managed
+automatically by the app.</p>
+<p>The order of APs can be changed from time to time. For instance, based
+on the change of status of the connection with the current AP, if the
+connection gets dropped , the AP manager will attempt to connect to the
+AP that is next on the priority list. The priority list of APs in the AP
+manager will be updated accordingly in the manager based on the index
+variable value.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>/* perform scan */</p>
+<p>wcma_scan_retry(handle, 3, manager);</p>
+<p>/* get AP with highest priority */</p>
+<p>int highest_priority = manager-&gt;cnt+1;</p>
+<p>manager-&gt;index = -1;</p>
+<p>for(int i = 0; i &lt; manager-&gt;cnt; i++)</p>
+<p>{</p>
+<p>if((manager-&gt;priority[i] &gt;=0) &amp;&amp; (manager-&gt;priority[i] &lt;
+highest_priority))</p>
+<p>{</p>
+<p>highest_priority = manager-&gt;priority[i];</p>
+<p>manager-&gt;index = i;</p>
+<p>}</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="4">
+<li><p>Last Used Entry (LRU)</p></li>
+</ol>
+<blockquote>
+<div><p>AP manager uses the ap_mamager,mru variable as the index of LRU AP.</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static void my_wcm_notify_cb(void *ctx, struct os_msg *msg)</p>
+<p>{</p>
+<p>switch(msg-&gt;msg_type)</p>
+<p>.</p>
+<p>.</p>
+<p>{</p>
+<p>case(WCM_NOTIFY_MSG_ADDRESS):</p>
+<p>os_printf(“wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS\n”);</p>
+<p>// set most recently used AP and updated priority in list</p>
+<p>ap_manager.mru = ap_manager.index;</p>
+<p>ap_manager.priority[ap_manager.index] = 0;</p>
+<p>ap_manager.connect_retries = 0;</p>
+<p>ap_manager.mru_retries = MRU_RETRY;</p>
+<p>connection_status = AP_CONNECTED;</p>
+<p>last_connect_time = os_systime();</p>
+<p>break;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>It is set when the call-back from WCM is received indicating that the
+connection to the AP has been made. It is used to set the AP entry as
+the AP to connect to.</p>
+<ol class="arabic simple" start="5">
+<li><p>Selection of AP to Connect to</p></li>
+</ol>
+<blockquote>
+<div><p>The selection for an AP to connect to is decided based on the index
+and mru variable values in the AP manager:</p>
+</div></blockquote>
+<ol class="loweralpha simple">
+<li><p>ap_manager: index contains the index to the AP that the next
+connection will be made to.</p></li>
+<li><p>ap_manager: mru contains the index to the entry of used last time, or
+the retry attempts.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void wcma_auto_connect(struct wcm_handle *handle, struct ap_manager
+*manager)</p>
+<p>{</p>
+<p>reconnect_next_ap = false;</p>
+<p>last_disconnect_time = 0xFFFFFFFF;</p>
+<p>if(manager-&gt;cnt &gt; 0)</p>
+<p>{</p>
+<p>if((manager-&gt;mru &gt;= 0) &amp;&amp; manager-&gt;mru_retries &gt;= 0)</p>
+<p>{</p>
+<p>os_printf(“connecting to most recently used AP, SSID: %s PASS:
+%s\n”, manager-&gt;ap_param[manager-&gt;mru].ssid,
+manager-&gt;ap_param[manager-&gt;mru].passphrase);</p>
+<p>if(manager-&gt;ap_param[manager-&gt;mru].passphrase[0] == 0)</p>
+<p>{</p>
+<p>rval = network_profile_new_from_ssid_bssid_pw(&amp;profile,
+manager-&gt;ap_param[manager-&gt;mru].ssid, NULL, NULL);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>wcm_add_network_profile()API is used to add the network.</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>if (rval &lt; 0) {</p>
+<p>pr_err(“could not create network profile %d\n”, rval);</p>
+<p>return 0;</p>
+<p>}</p>
+<p>add_ntwk = wcm_add_network_profile(handle, profile);</p>
+<p>}</p>
+<p>else if(manager-&gt;ap_param[manager-&gt;mru].bssid[0] != 0)</p>
+<p>{</p>
+<p>rval =
+<a href="#id1"><span class="problematic" id="id2">network_profile_</span></a>
+new_from_ssid_bssid_pw(&amp;profile,manager-&gt;ap_param[manager-&gt;mru].ssid,
+(uint8_t *)manager-&gt;ap_param[manager-&gt;mru].bssid,
+manager-&gt;ap_param[manager-&gt;mru].passphrase);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="running-the-application">
+<h1>Running the Application<a class="headerlink" href="#running-the-application" title="Permalink to this heading"></a></h1>
+<p>Program wcma.elf (sdk_x.y\examples\wcm_multi_ap\bin) using the
+Download tool:</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool provided with InnoPhase Talaria TWO SDK.</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down</p></li>
+<li><p>ELF Input: Load the wcma.elf by clicking on Select ELF File.</p></li>
+<li><p>Boot arguments: Pass the following boot arguments:</p></li>
+</ol>
+</li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>hssid1=Asus_Qos_2G,passphrase1=99999999,ssid2=
+manasvi,passphrase2=manasvi123,hssid3=TP-Link_2G,passphrase3=12345678</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="loweralpha simple" start="4">
+<li><p>Programming: Prog RAM or Prog Flash as per requirement.</p></li>
+</ol>
+<p>For more details on using the Download tool, refer to the document:
+UG_Download_Tool.pdf (path: <em>sdk_x.y/pc_tools/Download_Tool/doc</em>).</p>
+<p><strong>Note</strong>: x and y refer to the SDK release version. For example:
+sdk_2.4/doc.</p>
+<section id="expected-output">
+<h2>Expected Output<a class="headerlink" href="#expected-output" title="Permalink to this heading"></a></h2>
+<p>wcma.elf is created when compiling this code and gives the following
+console output when programmed to Talaria TWO.</p>
+<p>Initially, the Talaria TWO app connects with the AP mentioned in
+“ssid1”. If the AP with “ssid1” goes down, then the Talaria TWO app
+retries to reconnect with the same, after which it connects with the
+next in the list “ssid2”.</p>
+<p>If AP is in hidden network, SSID should be mentioned as “hssid1” and
+passphrase as “hpassphrase1”.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:NWWWWWAEBuild $Id: git-b664be2af $</p>
+<p>app=gordon</p>
+<p>flash: Gordon ready!</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWWAEBuild $Id: git-b664be2af $</p>
+<p>hssid1=Asus_Qos_2G passphrase1=99999999 ssid2=manasvi
+passphrase2=manasvi123 hssid3=TP-Link_2G passphrase3=12345678</p>
+<p>$App:git-6e423223</p>
+<p>SDK Ver: sdk_2.4</p>
+<p>Wifi Multi AP Demo App</p>
+<p>adding Asus_Qos_2G(*) to list</p>
+<p>passphrase is NULL!!!</p>
+<p>adding manasvi to list</p>
+<p>adding TP-Link_2G(*) to list</p>
+<p>passphrase is NULL!!!</p>
+<p>AP 0, SSID: Asus_Qos_2G Passphrase:</p>
+<p>AP 1, SSID: manasvi Passphrase: manasvi123</p>
+<p>AP 2, SSID: TP-Link_2G Passphrase:</p>
+<p>addr e0:69:3a:00:00:dc</p>
+<p>Found 3 nets:</p>
+<p>3c:84:6a:f4:4e:b0 on channel 5 &#64; -31 ‘manasvi’</p>
+<p>b4:43:26:4b:4c:d4 on channel 10 &#64; -64 ‘Ananth Krishna’</p>
+<p>5c:f9:fd:6b:e9:09 on channel 5 &#64; -79 ‘manasvi’</p>
+<p>Found 2 nets:</p>
+<p>3c:84:6a:f4:4e:b0 on channel 5 &#64; -30 ‘manasvi’</p>
+<p>b4:43:26:4b:4c:d4 on channel 10 &#64; -61 ‘Ananth Krishna’</p>
+<p>Found 3 nets:</p>
+<p>3c:84:6a:f4:4e:b0 on channel 5 &#64; -32 ‘manasvi’</p>
+<p>b4:43:26:4b:4c:d4 on channel 10 &#64; -62 ‘Ananth Krishna’</p>
+<p>a0:ab:1b:27:99:4c on channel 9 &#64; -67 ‘Vinoth_room2.4g’</p>
+<p>Hidden network: Asus_Qos_2G</p>
+<p>Hidden network: TP-Link_2G</p>
+<p>Found 4 nets:</p>
+<p>3c:84:6a:f4:4e:b0 on channel 5 &#64; -30 ‘manasvi’</p>
+<p>b4:43:26:4b:4c:d4 on channel 10 &#64; -63 ‘Ananth Krishna’</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Websocket%20Client.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Wi-Fi%20Power%20Management.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

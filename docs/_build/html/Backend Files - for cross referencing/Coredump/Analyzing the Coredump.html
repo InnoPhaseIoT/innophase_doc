@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analyzing the Coredump &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Coredump Generation &amp; Analysis" href="Coredump%20Generation%20-%20Landing.html" />
+    <link rel="prev" title="Use Cases" href="../CLI/Use%20Cases.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Getting_Started_Landing_page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Software_Reference/Prerequisites/libusbK_driver-Zadig.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Development_Environments/Development_Environments.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Tools/Tools_Landing.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Applications/Applications-Landing_Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">Regulatory Notice</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../Backend%20File%20Landing.html">Backend Files - for cross referencing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Backend%20File%20Landing.html#cli">CLI</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../Backend%20File%20Landing.html#coredump">Coredump</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Analyzing the Coredump</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#capturing-a-back-trace">Capturing a Back Trace</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Coredump%20Generation%20-%20Landing.html">Coredump Generation &amp; Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Coredump%20Generation%20-%20Landing.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Talaria%20TWO%20Software%20Crash.html">Talaria TWO Software Crash</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Backend%20File%20Landing.html#debugging-using-gdb">Debugging using GDB</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../Backend%20File%20Landing.html">Backend Files - for cross referencing</a></li>
+      <li class="breadcrumb-item active">Analyzing the Coredump</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Backend Files - for cross referencing/Coredump/Analyzing the Coredump.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="analyzing-the-coredump">
+<h1>Analyzing the Coredump<a class="headerlink" href="#analyzing-the-coredump" title="Permalink to this heading"></a></h1>
+<p>The coredump analysis will be done after capturing the coredump file to
+identify the section of the code that caused the crash. The following
+procedure describes the core dump analysis.</p>
+<ol class="arabic simple">
+<li><p>Start GDB server with the coredump file from the SDK directory:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/gdbremote.py –core coredump.bin</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>and the GDB will start listening on port 3333.</p>
+<p><a class="reference internal" href="../../_images/image112.png"><img alt="image1" src="../../_images/image112.png" style="width: 6.53543in; height: 0.53943in;" /></a></p>
+<p>Figure 3: GDB listening on port 3333</p>
+<ol class="arabic simple" start="2">
+<li><p>Start GDB to inspect the coredump in a separate terminal from the SDK
+directory:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>gdb-multiarch apps/my-program.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>and the GDB prompt is observed.</p>
+<ol class="arabic simple" start="3">
+<li><p>In the GDB prompt execute the following command:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>(gdb) target remote localhost:3333</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The following output is observed once the remote debugging has started.</p>
+<p><a class="reference internal" href="../../_images/image213.png"><img alt="image2" src="../../_images/image213.png" style="width: 5.51181in; height: 2.76363in;" /></a></p>
+<p>Figure 4: Remote debugging</p>
+<section id="capturing-a-back-trace">
+<h2>Capturing a Back Trace<a class="headerlink" href="#capturing-a-back-trace" title="Permalink to this heading"></a></h2>
+<p>Backtrace shows the point of crash which helps identify the problem. It
+shows the contents of the stack. In this section, the analysis of the
+coredump is done for two applications that has crashed for different
+reasons.</p>
+<p><strong>Sample application-1:</strong></p>
+<ol class="arabic simple">
+<li><p>Execute the following instruction:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>(gdb) bt</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The bt instructions prints the content of the stack.</p>
+<p><a class="reference internal" href="../../_images/image310.png"><img alt="Text Description automatically generated" src="../../_images/image310.png" style="width: 6.29921in; height: 1.89035in;" /></a></p>
+<p>Figure 5: Contents of the stack</p>
+<ol class="arabic simple" start="2">
+<li><p>Execute the instruction list_thread to display the address of the
+thread and the last thread executed prior to the crash. In the sample
+app sensor.elf, a thread with the name app is executed prior to the
+crash. The thread app is indicated with * mark as shown in Figure 6
+when the list_thread instruction is executed.</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image410.png"><img alt="Text Description automatically generated with medium confidence" src="../../_images/image410.png" style="width: 4.72441in; height: 2.1846in;" /></a></p>
+<p>Figure 6: app - list_thread instruction</p>
+<ol class="arabic simple" start="3">
+<li><p>The address of the app thread of the sensor application as shown in
+Figure 6 is 0xb9738. Now, resolve thread &lt;address of the thread&gt;
+instruction is executed to point to the location of the instruction
+in the code that was executed just before the crash.</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image510.png"><img alt="image3" src="../../_images/image510.png" style="width: 6.53543in; height: 1.35468in;" /></a></p>
+<p>Figure 7: Resolve thread instruction</p>
+<ol class="arabic simple" start="4">
+<li><p>Last instruction executed was from the file sensor/main.c at line
+number 525. An assert function was called to crash the application at
+this point.</p></li>
+</ol>
+<p>This helps identify the problem by pointing to the last instruction
+executed prior to the crash that could be the reason for the crash.</p>
+<p><strong>Sample application 2:</strong></p>
+<ol class="arabic simple">
+<li><p>The coredump for the sample application 2 is captured using the same
+procedure described in section: <em>Generate Coredump from within GDB</em>.</p></li>
+<li><p>The output of list_threads instruction for the sample application 2
+displays the following:</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image65.png"><img alt="Shape, rectangle Description automatically generated" src="../../_images/image65.png" style="width: 5.90551in; height: 1.91888in;" /></a></p>
+<p>Figure 8: list_threads output</p>
+<ol class="arabic simple" start="3">
+<li><p>The last thread executed just before the crash is wifi as shown in
+Figure 8. However, when the restore_thread command is executed, the
+following output is observed:</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image72.png"><img alt="image4" src="../../_images/image72.png" style="width: 5.90551in; height: 0.41391in;" /></a></p>
+<p>Figure 9: restore_thread output</p>
+<p>Looking back at the crash log captured in the download tool’s console,
+The PC and BFAR values shows that address 0x60dbc (callback from the
+app) tries to access address 0xc0073 (outside RAM area). This is done in
+an interrupt context and is the reason why the list_threads do not
+provide the right information running in process context.</p>
+<p><a class="reference internal" href="../../_images/image82.png"><img alt="Table Description automatically generated" src="../../_images/image82.png" style="width: 3.93701in; height: 3.07432in;" /></a></p>
+<p>Figure 10: Download tool - crash log</p>
+<ol class="arabic simple" start="4">
+<li><p>When the restore_thread is executed for a different thread – mqttcli,
+the following output is observed:</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image92.png"><img alt="image5" src="../../_images/image92.png" style="width: 5.90551in; height: 1.43585in;" /></a></p>
+<p>Figure 11: restore_thread for - mqttcli</p>
+<p>It is observed that there is no message Thread stack does not seem to
+have a pushed exception frame when the restore_thread command is
+executed. This is checked on the mqttcli thread as this thread is
+receiving the data from a callouts handler that is executing in the
+interrupt context. After checking the mqttcli thread, it is observed
+that the reason for the crash is because a pointer is accessed and freed
+with out allocating any memory for it.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../CLI/Use%20Cases.html" class="btn btn-neutral float-left" title="Use Cases" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Coredump%20Generation%20-%20Landing.html" class="btn btn-neutral float-right" title="Coredump Generation &amp; Analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

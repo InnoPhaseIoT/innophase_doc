@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction" href="SPI%20Flash.html" />
+    <link rel="prev" title="Introduction" href="Sleep%20Enable%20Disable.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Getting_Started_Landing_page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Software_Reference/Prerequisites/libusbK_driver-Zadig.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Development_Environments/Development_Environments.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Tools/Tools_Landing.html">Tools</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="Applications-Landing_Page.html">Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#alarm">1.  Alarm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#analog-to-digital-converter">2.  Analog to Digital Converter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#audio-over-i2s">3.  Audio over I2S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-5-0">4.  BLE 5.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-beacons">3.  BLE Beacons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-wi-fi-bridge">4.  BLE Wi-Fi Bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#chip-monitor">5.  Chip Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#crash-handling">6.  Crash Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#custom-atcmdlib">6.  Custom ATCMDLIB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#filesystem">7.  Filesystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#firmware-over-the-air-upgrade">8.  Firmware Over the Air Upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#gpio">9.  GPIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#host-interface-protocol">10. Host Interface Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#http-client">11. HTTP Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#i2c">12. I2C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ifttt">13. IFTTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#iot-aws">14. IoT AWS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#iot-azure">15. IoT Azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#low-power-scan">16. Low Power Scan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#low-power-uart">17. Low Power UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#mdns">18. mDNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#memory-management-and-error-handling">19.  Memory Management and Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#message-queues">20.  Message Queues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#mqtt">21.  MQTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#provisioning">22.  Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#pulse-width-modulation">23.  Pulse Width Modulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#radio-and-module-parameters">24. Radio and Module Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#secure-files">25. Secure Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#simple-network-time-protocol">26.  Simple Network Time Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#sleep-enable-disable">27.  Sleep Enable Disable</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="Applications-Landing_Page.html#socket-wakeup">28. Socket Wakeup</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#system-sleep-enable-disable">System Sleep Enable &amp; Disable</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#system-sleep-apis">System Sleep APIs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#code-walkthrough">Code Walkthrough</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sock-wake-c">Sock_wake.c</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="Applications-Landing_Page.html#software-spi-master">29. Software SPI Master</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#system-sleep-enable-disable">System Sleep Enable &amp; Disable</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#system-sleep-apis">System Sleep APIs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#code-walkthrough">Code Walkthrough</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sock-wake-c">Sock_wake.c</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#spi-flash">30. SPI Flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ssbl">31. SSBL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#thread-and-semaphores">32.  Thread and Semaphores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#throughput-measurement">32.  Throughput Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#timers-and-callouts">33. Timers and Callouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#unassociated-mode">34. Unassociated Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#using-wi-fi">35. Using Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#watchdog-timer">36. Watchdog Timer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#websocket-client">37. Websocket Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#wi-fi-connection-manager-multi-ap">38. Wi-Fi Connection Manager Multi-AP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#wi-fi-power-management">39. Wi-Fi Power Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#work-queues">40. Work Queues</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Regulatory%20Notices/Regulatory%20Notices.html">Regulatory Notice</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Backend%20Files%20-%20for%20cross%20referencing/Backend%20File%20Landing.html">Backend Files - for cross referencing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="Applications-Landing_Page.html">Applications</a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Applications/Socket Wakeup.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h1>
+<p>This application note describes the basics of sleep management in
+InnoOS™ with an example illustrating Talaria TWO wake-up from sleep
+mode.</p>
+</section>
+<section id="system-sleep-enable-disable">
+<h1>System Sleep Enable &amp; Disable<a class="headerlink" href="#system-sleep-enable-disable" title="Permalink to this heading"></a></h1>
+<section id="system-sleep-apis">
+<h2>System Sleep APIs<a class="headerlink" href="#system-sleep-apis" title="Permalink to this heading"></a></h2>
+<section id="os-suspend-enable">
+<h3>os_suspend_enable()<a class="headerlink" href="#os-suspend-enable" title="Permalink to this heading"></a></h3>
+<p>Suspends the system when idle.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void os_suspend_enable(void)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Calling os_suspend_enable() will suspend the system or enable deep
+sleep, when the processor is idle. Enabling and disabling suspend mode
+takes additional time, which will affect the real-time response of the
+system. When an interrupt occurs, the system will wake up even if it is
+in a suspended state. However, the latency will be more as compared to
+when the system operates in a non-suspended mode.</p>
+</section>
+<section id="os-suspend-disable">
+<h3>os_suspend_disable()<a class="headerlink" href="#os-suspend-disable" title="Permalink to this heading"></a></h3>
+<p>Disables system suspend.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void os_suspend_disable(void)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>When the system is idle, the kernel will place the CPU in low-power
+mode, ready to swiftly resume execution if an interrupt occurs.</p>
+</section>
+<section id="os-avail-heap">
+<h3>os_avail_heap()<a class="headerlink" href="#os-avail-heap" title="Permalink to this heading"></a></h3>
+<p>Returns size of the remaining heap.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>size_t os_avail_heap(void)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>This is the total size including internal overhead. However, this may
+not represent the amount that can be allocated by an application.</p>
+</section>
+</section>
+</section>
+<section id="code-walkthrough">
+<h1>Code Walkthrough<a class="headerlink" href="#code-walkthrough" title="Permalink to this heading"></a></h1>
+<section id="sock-wake-c">
+<h2>Sock_wake.c<a class="headerlink" href="#sock-wake-c" title="Permalink to this heading"></a></h2>
+<section id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h3>
+<p>The sample code is the path: examples/socket_wakeup/src/sock_wake.c is a
+simple application which demonstrates sleep mode.</p>
+</section>
+<section id="sample-code-walkthrough">
+<h3>Sample Code Walkthrough<a class="headerlink" href="#sample-code-walkthrough" title="Permalink to this heading"></a></h3>
+<p>While programming the ELF to Talaria TWO using boot.py, bootargs is used
+to pass the SSID and Passphrase parameters to the program:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ssid = os_get_boot_arg_str(“ssid”);</p>
+<p>passphrase = os_get_boot_arg_str(“passphrase”) ?: “”;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="connect-to-a-wi-fi-network">
+<h3>Connect to a Wi-Fi network<a class="headerlink" href="#connect-to-a-wi-fi-network" title="Permalink to this heading"></a></h3>
+<p>To connect to a Wi-Fi network the following APIs from the Wi-Fi
+Connection Manager are used:</p>
+<ol class="arabic simple">
+<li><p>wcm_create()</p></li>
+</ol>
+<blockquote>
+<div><p>This function creates the Wi-Fi network interface using the
+wcm_handle pointer.</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>wcm_notify_enable()</p></li>
+</ol>
+<blockquote>
+<div><p>Enables callbacks of the link and IP address changes.</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>wcm_add_network_profile ()</p></li>
+</ol>
+<blockquote>
+<div><p>Asynchronously adds a Wi-Fi network to connect. Currently only one
+network can be added.</p>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>wcm_auto_connect ()</p></li>
+</ol>
+<blockquote>
+<div><p>Enables start or stop auto connection of the device with Wi-Fi.</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>my_wcm_handle = wcm_create(NULL);</p>
+<p>if(my_wcm_handle != NULL)</p>
+<p>{</p>
+<p>wcm_notify_enable(my_wcm_handle, my_wcm_notify_cb, NULL);</p>
+<p>if (np_conf_path != NULL) {</p>
+<p>/* Create a Network Profile from a configuration file in</p>
+<p>*the file system*/</p>
+<p>rval = network_profile_new_from_file_system(&amp;profile, np_conf_path);</p>
+<p>} else {</p>
+<p>/* Create a Network Profile using BOOT ARGS*/</p>
+<p>rval = network_profile_new_from_boot_args(&amp;profile);</p>
+<p>}</p>
+<p>if (rval &lt; 0) {</p>
+<p>pr_err(“could not create network profile %d\n”, rval);</p>
+<p>return 0;</p>
+<p>}</p>
+<p>rval = wcm_add_network_profile(my_wcm_handle, profile);</p>
+<p>if (rval &lt; 0) {</p>
+<p>pr_err(“could not associate network profile to wcm %d\n”, rval);</p>
+<p>return 0;</p>
+<p>}</p>
+<p>wcm_cnt = wcm_auto_connect(my_wcm_handle, 1);</p>
+<p>os_sem_wait(&amp;connect_lock);</p>
+<p>os_sleep_us(1000000, OS_TIMEOUT_WAKEUP);</p>
+<p>if (wcm_cnt == WCM_SUCCESS) {</p>
+<p>auot_sucss = 1; }</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="wi-fi-connection-callback-function">
+<h3>Wi-Fi Connection Callback Function<a class="headerlink" href="#wi-fi-connection-callback-function" title="Permalink to this heading"></a></h3>
+<p>The app_wcm_notify_cb() function enables the callbacks of link and IP
+address.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>switch(msg-&gt;msg_type) {</p>
+<p>case(WCM_NOTIFY_MSG_LINK_UP):</p>
+<p>break;</p>
+<p>case(WCM_NOTIFY_MSG_LINK_DOWN):</p>
+<p>os_sem_post(&amp;app_wcm_lock);</p>
+<p>break;</p>
+<p>case(WCM_NOTIFY_MSG_ADDRESS):</p>
+<p>break;</p>
+<p>case WCM_NOTIFY_MSG_CONNECTED:</p>
+<p>wcm_connect_success = 1;</p>
+<p>os_sem_post(&amp;app_wcm_lock);</p>
+<p>break;</p>
+<p>}</p>
+<p>os_msg_release(msg);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="server-socket-function">
+<h3>Server Socket Function<a class="headerlink" href="#server-socket-function" title="Permalink to this heading"></a></h3>
+<p>On successfully connecting to the Wi-Fi, the device creates a UDP server
+in Talaria TWO with server port number 8000. The server will initially
+be in sleep mode. Here, we register a call- back function to wake up
+Talaria TWO from sleep mode.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static bool add_server_socket(struct hiosock *hsock, struct
+hiosock_uri</p>
+<p>*hs_uri)</p>
+<p>{</p>
+<p>os_printf(“add_server_socket\n”); bool status = false;</p>
+<p>hsock-&gt;conn = netconn_new_with_callback(NETCONN_UDP, sock_event_cb);
+os_printf(“conn created\n”);</p>
+<p>if(hsock-&gt;conn != NULL)</p>
+<p>{</p>
+<p>if (hs_uri-&gt;tos != -1) {</p>
+<p>conn-&gt;pcb.tcp-&gt;tos = hs_uri-&gt;tos;</p>
+<p>}</p>
+<p>if (hsock-&gt;type == SOCK_STREAM) {
+netconn_set_nonblocking(hsock-&gt;conn, 1);</p>
+<p>}</p>
+<p>IP_SET_TYPE_VAL(hs_uri-&gt;rem_addr, IPADDR_TYPE_ANY);</p>
+<p>if (netconn_bind(hsock-&gt;conn, &amp;hs_uri-&gt;rem_addr, hs_uri-&gt;port) ==
+ERR_OK) {</p>
+<p>if (hsock-&gt;type == SOCK_STREAM) {</p>
+<p>if (netconn_listen(hsock-&gt;conn) == ERR_OK) { status = true;</p>
+<p>//rsp-&gt;status = 0;</p>
+<p>//rsp-&gt;socket = hsock-&gt;fd; hsock-&gt;state = HIOSOCK_LISTEN;</p>
+<p>list_add_tail(&amp;hsock_tbl, &amp;hsock-&gt;list);</p>
+<p>}</p>
+<p>} else {</p>
+<p>status = true;</p>
+<p>//rsp-&gt;status = 0;</p>
+<p>//rsp-&gt;socket = hsock-&gt;fd; hsock-&gt;state = HIOSOCK_RD_WRT;</p>
+<p>netconn_set_nonblocking(hsock-&gt;conn, 1); list_add_tail(&amp;hsock_tbl,
+&amp;hsock-&gt;list);</p>
+<p>}</p>
+<p>}</p>
+<p>if (status == false) {</p>
+<p>//rsp-&gt;status = ERR_VAL; netconn_delete(hsock-&gt;conn);</p>
+<p>os_printf(“server at %s failed\n”, ipaddr_ntoa(&amp;hs_uri-</p>
+<p>&gt;rem_addr));</p>
+<p>} else {</p>
+<p>os_printf(“%s server at %s port %d\n”,</p>
+<p>(hsock-&gt;type == SOCK_STREAM)? “tcp”: “udp”,
+ipaddr_ntoa(&amp;hs_uri-&gt;rem_addr), hs_uri-&gt;port);</p>
+<p>} } }</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="socket-wake-up-function">
+<h3>Socket Wake-up Function<a class="headerlink" href="#socket-wake-up-function" title="Permalink to this heading"></a></h3>
+<p>The thread will be in sleep mode. If any message is sent to the UDP
+server from any client, Talaria TWO will wake up for 500ms and go back
+to sleep mode.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static void* sock_wake_thread(void* arg)</p>
+<p>{</p>
+<p>os_printf(“sock wake thread\n”); while(1)</p>
+<p>{</p>
+<p>os_msleep(1000);</p>
+<p>}</p>
+<p>return NULL;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The os_avail_heap() function reveals the amount of space available on
+the heap.</p>
+</section>
+<section id="socket-event-callback-function">
+<h3>Socket Event Callback Function<a class="headerlink" href="#socket-event-callback-function" title="Permalink to this heading"></a></h3>
+<p>This is the callback function, where Talaria TWO is enabled from sleep
+and put back to sleep after a brief period of 500ms.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static void</p>
+<p>sock_event_cb(struct netconn *conn, enum netconn_evt event, u16_t
+len)</p>
+<p>{</p>
+<p>if (event == NETCONN_EVT_RCVPLUS/* || event ==
+NETCONN_EVT_SENDPLUS*/){</p>
+<p>//int evt = SOCK_EVT_RECVPLUS;</p>
+<p>os_printf(“NETCONN_EVT_RCVPLUS\n”);</p>
+<p>os_printf(“Waking up\n”);</p>
+<p>os_suspend_disable();</p>
+<p>os_sleep_us(500000, OS_TIMEOUT_WAKEUP);</p>
+<p>os_printf(“sleeping\n”);</p>
+<p>os_suspend_enable();</p>
+<p>}</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="running-the-application">
+<h3>Running the Application<a class="headerlink" href="#running-the-application" title="Permalink to this heading"></a></h3>
+<p>Program sock_wake.elf (sdk_x.y\examples\socket_wakeup\bin) using the
+Download tool:</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool provided with InnoPhase Talaria TWO SDK.</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down</p></li>
+<li><p>ELF Input: Load the sock_wake.elf by clicking on Select ELF File.</p></li>
+<li><p>AP Options: Provide the SSID and Passphrase under AP Options to
+connect to an Access Point.</p></li>
+<li><p>Programming: Prog RAM or Prog Flash as per requirement.</p></li>
+</ol>
+</li>
+</ol>
+<p>For more details on using the Download tool, refer to the document:
+UG_Download_Tool.pdf (path: <em>sdk_x.y/pc_tools/Download_Tool/doc</em>).</p>
+<p><strong>Note</strong>: x and y refer to the SDK release version. For example:
+sdk_2.5/doc.</p>
+<p>Launch the Hercules tool for Windows and provide the port number along
+with the IP address and send the data.</p>
+<p><a class="reference internal" href="../_images/image1.png"><img alt="Graphical user interface, application Description automatically generated" src="../_images/image1.png" style="width: 5.90551in; height: 5.13578in;" /></a></p>
+<p>Figure : Hercules Tool - Data transfer</p>
+</section>
+<section id="expected-output">
+<h3>Expected Output<a class="headerlink" href="#expected-output" title="Permalink to this heading"></a></h3>
+<p>sock_wake.elf is created when compiling the code which provides the
+following console output when programmed to Talaria TWO.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWWAEBuild $Id: git-ba65998b7 $</p>
+<p>np_conf_path=/data/nprofile.json ssid=InnoPhase passphrase=43083191</p>
+<p>$App:git-73e7f910</p>
+<p>SDK Ver: sdk_2.5</p>
+<p>Wake From Sock App</p>
+<p>addr e0:69:3a:00:13:90</p>
+<p>[2.077,676] CONNECT:00:5f:67:cd:c5:a6 Channel:11 rssi:-45 dBm</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS</p>
+<p>[2.808,043] MYIP 192.168.0.102</p>
+<p>[2.808,207] IPv6 [fe80::e269:3aff:fe00:1390]-link</p>
+<p>ip:192.168.0.102</p>
+<p>URI: udp://192.168.0.102:8000</p>
+<p>hiosock_alloc</p>
+<p>add_server_socket</p>
+<p>udp server at 192.168.0.102 port 8000</p>
+<p>conn created</p>
+<p>sock wake thread</p>
+<p>NETCONN_EVT_RCVPLUS</p>
+<p>Waking up</p>
+<p>sleeping</p>
+<p>NETCONN_EVT_RCVPLUS</p>
+<p>Waking up</p>
+<p>sleeping</p>
+<p>NETCONN_EVT_RCVPLUS</p>
+<p>Waking up</p>
+<p>sleeping</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Sleep%20Enable%20Disable.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="SPI%20Flash.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

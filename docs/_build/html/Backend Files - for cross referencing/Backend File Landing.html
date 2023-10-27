@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Backend Files - for cross referencing &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Command Line Interface" href="CLI/Command%20Line%20Interface%20-%20Landing.html" />
+    <link rel="prev" title="Secureboot" href="../Security/Secureboot/Secureboot.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Getting_Started_Landing_page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Software_Reference/Prerequisites/libusbK_driver-Zadig.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Development_Environments/Development_Environments.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Tools/Tools_Landing.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Applications/Applications-Landing_Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Regulatory%20Notices/Regulatory%20Notices.html">Regulatory Notice</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Backend Files - for cross referencing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cli">CLI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="CLI/Command%20Line%20Interface%20-%20Landing.html">Command Line Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CLI/Device%20Interface%20on%20Host%20Machine.html">Device Interface on Host Machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CLI/Primary%20Scripts%20for%20CLI%20Operations.html">Primary Scripts for CLI Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CLI/Syntax%20and%20List%20Parameters.html">CLI Command Syntax and List Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CLI/Use%20Cases.html">Use Cases</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#coredump">Coredump</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Coredump/Analyzing%20the%20Coredump.html">Analyzing the Coredump</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Coredump/Coredump%20Generation%20-%20Landing.html">Coredump Generation &amp; Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Coredump/Coredump%20Generation%20-%20Landing.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Coredump/Talaria%20TWO%20Software%20Crash.html">Talaria TWO Software Crash</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#debugging-using-gdb">Debugging using GDB</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Debugging%20using%20GDB/Connecting%20JTAG%20and%20SWD%20to%20Talaria%20TWO%20module.html">Connecting JTAG/SWD to Talaria TWO module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Debugging%20using%20GDB/Debugging%20using%20GDB%20-%20Landing.html">Debugging using GDB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Debugging%20using%20GDB/Debugging%20using%20GDB%20-%20Landing.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Debugging%20using%20GDB/Procedure%20to%20Debug%20using%20GDB%20in%20Windows%20CMD.html">Procedure to Debug using GDB in Windows CMD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Debugging%20using%20GDB/Procedure%20to%20Debug%20using%20GDB.html">Procedure to Debug using GDB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Debugging%20using%20GDB/VM%20versus%20Non%20VM%20based%20application.html">VM versus Non VM based application</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Backend Files - for cross referencing</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Backend Files - for cross referencing/Backend File Landing.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="backend-files-for-cross-referencing">
+<span id="backend-files-for-cross-referencing-backend-file-landing-rst"></span><h1>Backend Files - for cross referencing<a class="headerlink" href="#backend-files-for-cross-referencing" title="Permalink to this heading"></a></h1>
+<section id="cli">
+<h2>CLI<a class="headerlink" href="#cli" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="CLI/Command%20Line%20Interface%20-%20Landing.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CLI/Device%20Interface%20on%20Host%20Machine.html">Device Interface on Host Machine</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CLI/Device%20Interface%20on%20Host%20Machine.html#device-port-identification-on-linux-os">Device Port Identification on Linux OS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CLI/Device%20Interface%20on%20Host%20Machine.html#device-port-identification-on-windows-os">Device Port Identification on Windows OS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CLI/Primary%20Scripts%20for%20CLI%20Operations.html">Primary Scripts for CLI Operations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CLI/Primary%20Scripts%20for%20CLI%20Operations.html#boot-py">boot.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CLI/Primary%20Scripts%20for%20CLI%20Operations.html#flash-py">flash.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CLI/Primary%20Scripts%20for%20CLI%20Operations.html#storage-py">storage.py</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CLI/Syntax%20and%20List%20Parameters.html">CLI Command Syntax and List Parameters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CLI/Syntax%20and%20List%20Parameters.html#using-boot-py">Using boot.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CLI/Syntax%20and%20List%20Parameters.html#using-flash-py">Using flash.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CLI/Syntax%20and%20List%20Parameters.html#using-storage-py">Using storage.py</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CLI/Use%20Cases.html">Use Cases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CLI/Use%20Cases.html#linux-platform">Linux Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CLI/Use%20Cases.html#windows-platform-libusbk-installed">Windows Platform – libusbK Installed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CLI/Use%20Cases.html#windows-platform-with-com-port">Windows Platform – With COM Port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CLI/Use%20Cases.html#write-new-app-to-device-with-factory-loaded-image">Write New App to Device with Factory Loaded Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CLI/Use%20Cases.html#flash-new-app-to-device-with-an-existing-app">Flash New App to Device with an Existing App</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="coredump">
+<h2>Coredump<a class="headerlink" href="#coredump" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Coredump/Analyzing%20the%20Coredump.html">Analyzing the Coredump</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Coredump/Analyzing%20the%20Coredump.html#capturing-a-back-trace">Capturing a Back Trace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Coredump/Coredump%20Generation%20-%20Landing.html">Coredump Generation &amp; Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Coredump/Coredump%20Generation%20-%20Landing.html#prerequisites">Prerequisites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Coredump/Coredump%20Generation%20-%20Landing.html#install-talaria-two-sdk">Install Talaria TWO SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Coredump/Coredump%20Generation%20-%20Landing.html#required-software">Required Software</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Coredump/Talaria%20TWO%20Software%20Crash.html">Talaria TWO Software Crash</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Coredump/Talaria%20TWO%20Software%20Crash.html#generate-coredump-from-within-gdb">Generate Coredump from within GDB</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="debugging-using-gdb">
+<h2>Debugging using GDB<a class="headerlink" href="#debugging-using-gdb" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Debugging%20using%20GDB/Connecting%20JTAG%20and%20SWD%20to%20Talaria%20TWO%20module.html">Connecting JTAG/SWD to Talaria TWO module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Debugging%20using%20GDB/Connecting%20JTAG%20and%20SWD%20to%20Talaria%20TWO%20module.html#procedure-to-debug-using-gdb-through-jtag">Procedure to Debug using GDB through JTAG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debugging%20using%20GDB/Connecting%20JTAG%20and%20SWD%20to%20Talaria%20TWO%20module.html#procedure-to-debug-using-gdb-through-swd">Procedure to Debug using GDB through SWD</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Debugging%20using%20GDB/Debugging%20using%20GDB%20-%20Landing.html">Debugging using GDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Debugging%20using%20GDB/Debugging%20using%20GDB%20-%20Landing.html#prerequisites">Prerequisites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Debugging%20using%20GDB/Debugging%20using%20GDB%20-%20Landing.html#install-talaria-two-sdk">Install Talaria TWO SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debugging%20using%20GDB/Debugging%20using%20GDB%20-%20Landing.html#required-software">Required Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debugging%20using%20GDB/Debugging%20using%20GDB%20-%20Landing.html#installing-necessary-packages">Installing necessary packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debugging%20using%20GDB/Debugging%20using%20GDB%20-%20Landing.html#installing-arm-toolchain">Installing ARM toolchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debugging%20using%20GDB/Debugging%20using%20GDB%20-%20Landing.html#installing-python3-and-dependencies">Installing Python3 and dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debugging%20using%20GDB/Debugging%20using%20GDB%20-%20Landing.html#installing-openocd">Installing OpenOCD</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Debugging%20using%20GDB/Procedure%20to%20Debug%20using%20GDB%20in%20Windows%20CMD.html">Procedure to Debug using GDB in Windows CMD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Debugging%20using%20GDB/Procedure%20to%20Debug%20using%20GDB%20in%20Windows%20CMD.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debugging%20using%20GDB/Procedure%20to%20Debug%20using%20GDB%20in%20Windows%20CMD.html#openocd-setup">OpenOCD Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debugging%20using%20GDB/Procedure%20to%20Debug%20using%20GDB%20in%20Windows%20CMD.html#gdb-multiarch">GDB-Multiarch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debugging%20using%20GDB/Procedure%20to%20Debug%20using%20GDB%20in%20Windows%20CMD.html#procedure-to-debug-using-gdb">Procedure to Debug using GDB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Debugging%20using%20GDB/Procedure%20to%20Debug%20using%20GDB%20in%20Windows%20CMD.html#start-a-gdb-session">Start a GDB session</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Debugging%20using%20GDB/Procedure%20to%20Debug%20using%20GDB.html">Procedure to Debug using GDB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Debugging%20using%20GDB/Procedure%20to%20Debug%20using%20GDB.html#start-the-gdb-session">Start the GDB Session</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Debugging%20using%20GDB/VM%20versus%20Non%20VM%20based%20application.html">VM versus Non VM based application</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Security/Secureboot/Secureboot.html" class="btn btn-neutral float-left" title="Secureboot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="CLI/Command%20Line%20Interface%20-%20Landing.html" class="btn btn-neutral float-right" title="Command Line Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

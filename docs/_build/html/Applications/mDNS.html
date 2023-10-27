@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction" href="Memory%20Management%20and%20Error%20Handling.html" />
+    <link rel="prev" title="Introduction" href="Low%20Power%20UART.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Getting_Started_Landing_page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Software_Reference/Prerequisites/libusbK_driver-Zadig.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Development_Environments/Development_Environments.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Tools/Tools_Landing.html">Tools</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="Applications-Landing_Page.html">Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#alarm">1.  Alarm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#analog-to-digital-converter">2.  Analog to Digital Converter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#audio-over-i2s">3.  Audio over I2S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-5-0">4.  BLE 5.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-beacons">3.  BLE Beacons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-wi-fi-bridge">4.  BLE Wi-Fi Bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#chip-monitor">5.  Chip Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#crash-handling">6.  Crash Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#custom-atcmdlib">6.  Custom ATCMDLIB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#filesystem">7.  Filesystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#firmware-over-the-air-upgrade">8.  Firmware Over the Air Upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#gpio">9.  GPIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#host-interface-protocol">10. Host Interface Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#http-client">11. HTTP Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#i2c">12. I2C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ifttt">13. IFTTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#iot-aws">14. IoT AWS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#iot-azure">15. IoT Azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#low-power-scan">16. Low Power Scan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#low-power-uart">17. Low Power UART</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="Applications-Landing_Page.html#mdns">18. mDNS</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code-walkthrough-for-mdns">Code Walkthrough for mDNS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#application-flow">Application Flow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-application">Running the Application</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#programming-talaria-two-board-with-certificates">Programming Talaria TWO Board with Certificates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#programming-talaria-two-board-with-elf">Programming Talaria TWO board with ELF</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-application">Using the Application</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example-bootargs-for-mdns-service-register-and-announce">Example Bootargs for mDNS Service Register and Announce</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-bootargs-for-mdns-service-discovery">Example Bootargs for mDNS Service Discovery</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#memory-management-and-error-handling">19.  Memory Management and Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#message-queues">20.  Message Queues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#mqtt">21.  MQTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#provisioning">22.  Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#pulse-width-modulation">23.  Pulse Width Modulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#radio-and-module-parameters">24. Radio and Module Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#secure-files">25. Secure Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#simple-network-time-protocol">26.  Simple Network Time Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#sleep-enable-disable">27.  Sleep Enable Disable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#socket-wakeup">28. Socket Wakeup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#software-spi-master">29. Software SPI Master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#spi-flash">30. SPI Flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ssbl">31. SSBL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#thread-and-semaphores">32.  Thread and Semaphores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#throughput-measurement">32.  Throughput Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#timers-and-callouts">33. Timers and Callouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#unassociated-mode">34. Unassociated Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#using-wi-fi">35. Using Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#watchdog-timer">36. Watchdog Timer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#websocket-client">37. Websocket Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#wi-fi-connection-manager-multi-ap">38. Wi-Fi Connection Manager Multi-AP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#wi-fi-power-management">39. Wi-Fi Power Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#work-queues">40. Work Queues</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Regulatory%20Notices/Regulatory%20Notices.html">Regulatory Notice</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Backend%20Files%20-%20for%20cross%20referencing/Backend%20File%20Landing.html">Backend Files - for cross referencing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="Applications-Landing_Page.html">Applications</a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Applications/mDNS.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h1>
+<p>This document describes using the mDNS APIs provided by the mDNS module
+in: sdk_x.y/components/mdns. This application demonstrates using these
+APIs to advertise and discover the services on the local network.</p>
+<p>For more details regarding the features and limitations of mDNS
+implementation and APIs, refer document in the following location:
+components/mdns/doc/mdns_apiref.pdf.</p>
+</section>
+<section id="code-walkthrough-for-mdns">
+<h1>Code Walkthrough for mDNS<a class="headerlink" href="#code-walkthrough-for-mdns" title="Permalink to this heading"></a></h1>
+<section id="application-flow">
+<h2>Application Flow<a class="headerlink" href="#application-flow" title="Permalink to this heading"></a></h2>
+<p>mDNS is a protocol that provides DNS like facility to advertise and
+discover services in a local area network.</p>
+<p>Following are the steps:</p>
+<ol class="arabic simple">
+<li><p>Connects to a Wi-fi network.</p></li>
+<li><p>Registers to the hostname and services.</p></li>
+<li><p>Acts as a mDNS announce or discovery according to the boot arguments
+passed.</p></li>
+</ol>
+</section>
+<section id="sample-code-walkthrough">
+<h2>Sample Code Walkthrough<a class="headerlink" href="#sample-code-walkthrough" title="Permalink to this heading"></a></h2>
+<p>A user-defined data struct is created to store the data of the mDNS:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>#define APP_NAME “mDNS application”</p>
+<p>#define APP_VERSION “2.0”</p>
+<p>OS_APPINFO {.stack_size = 4096};</p>
+<p>#define INPUT_PARAMETER_SSID “ssid”</p>
+<p>#define INPUT_PARAMETER_PASSPHRASE “passphrase”</p>
+<p>#define INPUT_PARAMETER_HOST “host”</p>
+<p>#define INPUT_PARAMETER_URL “url”</p>
+<p>#define INPUT_PARAMETER_PATH “path”</p>
+<p>#define INPUT_PARAMETER_PORT “port”</p>
+<p>#define INPUT_PARAMETER_SECURED “secured”</p>
+<p>#define INPUT_PARAMETER_METHOD “method”</p>
+<p>#define INPUT_PARAMETER_CA “ca_cert”</p>
+<p>#define INPUT_PARAMETER_POST_LEN “post_len”</p>
+<p>#define INPUT_PARAMETER_CLIENT_CERT “client_cert”</p>
+<p>#define INPUT_PARAMETER_CLIENT_KEY “client_key”</p>
+<p>#define INPUT_PARAMETER_TEST_ITER “test_iterations”</p>
+<p>#define INPUT_PARAMETER_USE_CA_BUNDLE “use_ca_bundle”</p>
+<p>#define NULL_STR “”</p>
+<p>struct param_t {</p>
+<p>const char *ssid;</p>
+<p>const char *passphrase;</p>
+<p>const char *url;</p>
+<p>const char *host;</p>
+<p>const char *path;</p>
+<p>const char *port;</p>
+<p>const char *secured;</p>
+<p>const char *ca_cert;</p>
+<p>const char *client_cert;</p>
+<p>const char *client_key;</p>
+<p>const char *test_iterations;</p>
+<p>const char *use_ca_bundle;</p>
+<p>};</p>
+<p>/*CA certificate bundle*/</p>
+<p>extern uint8_t ca_bundle_start[] asm(”_binary_ca_bundle_start”);</p>
+<p>extern uint8_t ca_bundle_end[] asm(”_binary_ca_bundle_end”);</p>
+<p>struct param_t param;</p>
+<p>char default_port[8];</p>
+<p>char default_secured[8];</p>
+<p>struct os_semaphore app_wcm_lock;</p>
+<p>int wcm_connect_success = 0;</p>
+<p>static char host[128];</p>
+<p>static char path[128];</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The following boot arguments are passed in this application:</p>
+<ol class="arabic simple">
+<li><p>SSID and passphrase to connect to the Wi-Fi network.</p></li>
+<li><p>Hostname, service name, service type, proto, port, text key and
+value.</p></li>
+<li><p>SD service type and proto, and action.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static int</p>
+<p>parse_boot_args(void)</p>
+<p>{</p>
+<p>int ret = 0;</p>
+<p>param.ssid= os_get_boot_arg_str(INPUT_PARAMETER_SSID);</p>
+<p>param.passphrase= os_get_boot_arg_str(INPUT_PARAMETER_PASSPH);</p>
+<p>param.hostname= os_get_boot_arg_str(INPUT_PARAMETER_HOST_NAME);</p>
+<p>param.servicename= os_get_boot_arg_str(INPUT_PARAMETER_SRVC_NAME);</p>
+<p>param.service_type= os_get_boot_arg_str(INPUT_PARAMETER_SRVC_TYPE);</p>
+<p>param.proto= os_get_boot_arg_str(INPUT_PARAMETER_PROTO);</p>
+<p>param.port = os_get_boot_arg_str(INPUT_PARAMETER_PORT);</p>
+<p>param.txt_key = os_get_boot_arg_str(INPUT_PARAMETER_TXT_KEY);</p>
+<p>param.txt_val = os_get_boot_arg_str(INPUT_PARAMETER_TXT_VAL);</p>
+<p>param.sd_srvc_type =
+os_get_boot_arg_str(INPUT_PARAMETER_SD_SRVC_TYPE);</p>
+<p>param.sd_srvc_proto =
+os_get_boot_arg_str(INPUT_PARAMETER_SD_SRVC_PROTO);</p>
+<p>param.action = os_get_boot_arg_str(INPUT_PARAMETER_ACTION);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>app_wcm_notify_cb() function enables the callbacks.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>switch(msg-&gt;msg_type) {</p>
+<p>case(WCM_NOTIFY_MSG_LINK_UP):</p>
+<p>break;</p>
+<p>case(WCM_NOTIFY_MSG_LINK_DOWN):</p>
+<p>os_sem_post(&amp;app_wcm_lock);</p>
+<p>break;</p>
+<p>case(WCM_NOTIFY_MSG_ADDRESS):</p>
+<p>break;</p>
+<p>case WCM_NOTIFY_MSG_CONNECTED:</p>
+<p>wcm_connect_success = 1;</p>
+<p>os_sem_post(&amp;app_wcm_lock);</p>
+<p>break;</p>
+<p>}</p>
+<p>os_msg_release(msg);</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>To connect to a Wi-Fi network, wcm_create()API from the Wi-Fi Connection
+Manager is used. Initially, the Wi-Fi network interface is created using
+wcm_create().</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>h = wcm_create(NULL);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>wifi_connect_to_network()API, from components library, connects to
+the Wi-Fi network using the AP credentials provided.</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>rval = wifi_connect_to_network(&amp;h, WCM_CONN_WAIT_INFINITE,
+&amp;wcm_connect_success);</p>
+<p>if(rval &lt; 0) {</p>
+<p>os_printf(”\nError: Unable to connect to network\n”);</p>
+<p>return 0;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Here, the data structure mdns_srvc_info_t is used to pass information
+about the discovered service such as service instance, protocol, type,
+port and IP address. Information is passed through the callback function
+provided while calling the mdns_service_discover API from main function.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void app_dns_sd_cb(void *data_ptr,</p>
+<p>const mdns_srvc_info_t *srvinfo,</p>
+<p>uint32_t status)</p>
+<p>{</p>
+<p>os_print
+f(”\n————————————————————“);</p>
+<p>os_printf(”\n[APP]%s:Discovered service info:”, __FUNCTION__);</p>
+<p>os_printf(”\n\tInstance = %s \n\tservice type = %s \n\tprotocol
+= %s\n\t”</p>
+<p>“txt info = %s \n\tport = %d \n\tipaddr = %x\n”,</p>
+<p>srvinfo-&gt;instance, srvinfo-&gt;srvc_type, srvinfo-&gt;protocol,</p>
+<p>srvinfo-&gt;txtInfo, srvinfo-&gt;port, srvinfo-&gt;ipaddr);</p>
+<p>os_printf(”\n”);</p>
+<p>os_print
+f(”\n————————————————————“);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>If the action parameter is set to 0, mDNS will register and advertise
+the service.</p>
+<p>The data structure mdns_hnreg_param_t is used to pass parameters while
+registering the Host Name. Set a unique host name for a device by using
+mac address. Add domain name as MDNS_LOCAL_DOMAIN and IP address in
+little endian format.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>mdns_hnreg_param_t hn_reg_prm = {0};</p>
+<p>hn_reg_prm.hostname = (!param.hostname)?</p>
+<p>(uint8_t *)”InnophaseDev” : (uint8_t *)param.hostname;</p>
+<p>hn_reg_prm.domain = (uint8_t *)MDNS_LOCAL_DOMAIN;</p>
+<p>hn_reg_prm.ipaddr = ntohl(ipaddr);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The function mdns_hostname_reg is used for registering the host name of
+the interface.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>mdns_hostname_reg(mc, &amp;hn_reg_prm);</p>
+<p>os_printf(”\n[APP]Host name Reg done”);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The data structure mdns_srvreg_param_t is used to pass the parameters
+while registering a service.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>mdns_srvreg_param_t srv_reg = {0};</p>
+<p>srv_reg.srvc_name = (uint8_t *)param.servicename;</p>
+<p>srv_reg.srvc_type = (uint8_t *)param.service_type;</p>
+<p>srv_reg.srvc_proto = (!param.proto) ?</p>
+<p>(uint8_t *)”_tcp”: (uint8_t *)param.proto;</p>
+<p>srv_reg.port = (!param.port)? 80 : atoi(param.port);</p>
+<p>srv_reg.domain = (uint8_t *)MDNS_LOCAL_DOMAIN;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The function mdns_service_register is used for registering the service.
+Once registered, response for any matching query will be given
+internally.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>mdns_service_register(mc, &amp;srv_reg);</p>
+<p>os_printf(”\n[APP]Service Reg done”);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The following section provides information on how the discovery of the
+service happens when the action parameter is not set to 0.</p>
+<p>The data structure mdns_srvcdisc_param_t is used for passing the
+parameters while discovering for service of specific type.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>os_printf(”\n[APP]Discovering Service”);</p>
+<p>mdns_srvcdisc_param_t sd_param = {0};</p>
+<p>sd_param.srvc_sub_type = NULL;</p>
+<p>sd_param.srvc_type = (!param.sd_srvc_type)?</p>
+<p>(uint8_t *)”_http”: (uint8_t *)param.sd_srvc_type;</p>
+<p>sd_param.srvc_proto =(!param.sd_srvc_proto)?</p>
+<p>(uint8_t *)”_tcp”: (uint8_t *)param.sd_srvc_proto;</p>
+<p>sd_param.domain = (uint8_t *)MDNS_LOCAL_DOMAIN;</p>
+<p>sd_param.scope = MDNS_SCOPE_IPV4_LOCAL;</p>
+<p>sd_param.cb = app_dns_sd_cb;</p>
+<p>mdns_service_discover(mc, &amp;sd_param);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="running-the-application">
+<h1>Running the Application<a class="headerlink" href="#running-the-application" title="Permalink to this heading"></a></h1>
+<section id="programming-talaria-two-board-with-certificates">
+<h2>Programming Talaria TWO Board with Certificates<a class="headerlink" href="#programming-talaria-two-board-with-certificates" title="Permalink to this heading"></a></h2>
+<section id="show-file-system-contents">
+<h3>Show File System Contents<a class="headerlink" href="#show-file-system-contents" title="Permalink to this heading"></a></h3>
+<p>Click on Show File System Contents to see the current available files in
+the file system.</p>
+<p><a class="reference internal" href="../_images/image1.png"><img alt="image1" src="../_images/image1.png" style="width: 6.41744in; height: 2.7899in;" /></a></p>
+<p>Figure 1: Show File System Content</p>
+</section>
+<section id="write-files">
+<h3>Write Files<a class="headerlink" href="#write-files" title="Permalink to this heading"></a></h3>
+<p>Before writing the file(s) into Talaria TWO, user must create a folder
+with the name data and place the certificate either directly into the
+data or they can create multiple subfolders (for example: data/ or
+data/certs/https_client/app ) and place the certificates inside the
+sub-directory. The certificate shall be present in the data fs with the
+same name as in the boot arguments.</p>
+<p>To write files into Talaria TWO File System, use the Download Tool as
+shown in Figure 2. After clicking on “Select Path to Write Files”,
+select the data directory from the host in which the certificate is
+stored and then click on “Write Files” to write the certificate into the
+File System.</p>
+<p><strong>Note:</strong> When trying to access a secured web server, keep only the CA
+certificate specific to that server in data fs. Do not use bundle of CA
+certificates intended for a browser.</p>
+<p><a class="reference internal" href="../_images/image21.png"><img alt="image2" src="../_images/image21.png" style="width: 5.11811in; height: 4.02276in;" /></a></p>
+<p>Figure 2: Write certificates to Talaria TWO</p>
+</section>
+</section>
+<section id="programming-talaria-two-board-with-elf">
+<h2>Programming Talaria TWO board with ELF<a class="headerlink" href="#programming-talaria-two-board-with-elf" title="Permalink to this heading"></a></h2>
+<p>Execute make command to generate out/ folder.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>sdk_x.y/examples/mdns$ make</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Program app_mdns.elf (examples/mdns/out/app_mdns.elf) using the Download
+tool:</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool provided with InnoPhase Talaria TWO SDK.</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down.</p></li>
+<li><p>ELF Input: Load the app_mdns.elf by clicking on Select ELF File.</p></li>
+<li><p>AP Options: Pass the SSID and Passphrase to connect to an Access
+Point.</p></li>
+<li><p>Boot Arguments: Pass the appropriate boot arguments.</p></li>
+<li><p>Programming: Prog RAM or Prog Flash as per requirement.</p></li>
+</ol>
+</li>
+</ol>
+<p>For more details on using the Download tool, refer to the document:
+UG_Download_Tool.pdf (path: <em>sdk_x.y/pc_tools/Download_Tool/doc</em>).</p>
+<p><strong>Note</strong>: x and y refer to the SDK release version. For example:
+sdk_2.5/doc.</p>
+</section>
+</section>
+<section id="using-the-application">
+<h1>Using the Application<a class="headerlink" href="#using-the-application" title="Permalink to this heading"></a></h1>
+<p>Following are the list of boot arguments:</p>
+<ol class="arabic simple">
+<li><p>ssid: SSID of the Wi-Fi network to connect to.</p></li>
+<li><p>passphrase: Passphrase of the network.</p></li>
+<li><p>hostname: Hostname of the device. For example: “InnoDev”.</p></li>
+<li><p>service_name: Service name. For example: “Prov”.</p></li>
+<li><p>service_type: Type of service. For example: “_http”.</p></li>
+<li><p>proto: Protocol type. For example: “_tcp” / “_udp”.</p></li>
+<li><p>port: Get/Post.</p></li>
+<li><p>txt_key: “key” part of the one key-val pair of txt data.</p></li>
+<li><p>txt_val: “val” part of the one key-val pair of txt data. Only one
+Key-val pair can be set.</p></li>
+<li><p>sd_srvc_type: Type of service to discover.</p></li>
+<li><p>sd_srvc_proto: Type of protocol to discover.</p></li>
+<li><p>action:</p>
+<ol class="loweralpha simple">
+<li><p>0 – Register and Advertise a service.</p></li>
+<li><p>1 – Discover a service. The combination of sd_srvc_type and
+sd_srvc_proto are used for discovering the service. Providing
+both the parameters is a must for discovering a service.</p></li>
+</ol>
+</li>
+</ol>
+<section id="example-bootargs-for-mdns-service-register-and-announce">
+<h2>Example Bootargs for mDNS Service Register and Announce<a class="headerlink" href="#example-bootargs-for-mdns-service-register-and-announce" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ssid=&lt;ssid&gt;,passphrase=&lt;passphrase&gt;,host=Innodev, service_name =Prov,
+serv
+ice_type=_http,proto=_tcp,port=80,txt_key=path,txt_val=/data,action=0</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWWAEBuild $Id: git-34e3eddb8 $</p>
+<p>host=Innodev service_name=Prov service_type=_http proto=_tcp port=80
+txt_key=path txt_val=/data action=0 np_conf_path=/data/nprofile.json
+ssid=InnoPhase_AE <a class="reference external" href="mailto:passphrase=Inno&#37;&#52;&#48;1234">passphrase=Inno<span>&#64;</span>1234</a></p>
+<p>$App:git-fc1c5cb4</p>
+<p>SDK Ver: sdk_2.5</p>
+<p>MDNS Demo App</p>
+<p>Application Information:</p>
+<p>Name : MDNS application</p>
+<p>Version : 1.0</p>
+<p>Build Date : Jul 23 2022</p>
+<p>Build Time : 03:55:09</p>
+<p>Heap Available: 333 KB (341912 Bytes)</p>
+<p>[APP]Bootparams:</p>
+<p>hostname=&lt;null&gt;</p>
+<p>port = 80</p>
+<p>servicename = Prov</p>
+<p>service_type = _http</p>
+<p>proto = _tcp</p>
+<p>key = path</p>
+<p>val = /data</p>
+<p>sd_service_type = &lt;null&gt;</p>
+<p>sd_service_proto = &lt;null&gt;</p>
+<p>[APP]Bootparams check done….ret = 0</p>
+<p>addr e0:69:3a:00:2c:3c</p>
+<p>Connecting to added network : InnoPhase_AE</p>
+<p>[0.814,996] CONNECT:98:da:c4:73:b7:76 Channel:11 rssi:-35 dBm</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS</p>
+<p>[0.878,041] MYIP 192.168.0.130</p>
+<p>[0.878,320] IPv6 [fe80::e269:3aff:fe00:2c3c]-link</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED</p>
+<p>Connected to added network : InnoPhase_AE</p>
+<p>[APP]Starting Mdns</p>
+<p>[APP]Mdns init done</p>
+<p>[APP]Advertising Service</p>
+<p>[APP]WCM interface ip addr = 8200a8c0</p>
+<p>[APP]Host name Reg done</p>
+<p>[APP]Service Reg done</p>
+<p>[APP]Hostname and Service Announce done</p>
+<p>[APP]Service is Now discoverable by other devices in the N/w</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Once mDNS Service Register and Announce is started, start any of the
+discovery apps and scan for the services that are announced by Talaria
+TWO. Following are some of the options for the user for the service
+discovery:</p>
+<p><strong>Option 1:</strong> Mobile application: mDNS Discovery</p>
+<ol class="arabic simple">
+<li><p>Install and launch the mDNS Discovery app on the mobile.</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../_images/image31.png"><img alt="image3" src="../_images/image31.png" style="width: 3.14961in; height: 6.39128in;" /></a></p>
+</div></blockquote>
+<p>Figure : mDNS Discovery app</p>
+<ol class="arabic simple" start="2">
+<li><p>Add the service type i.e., HTTP in the search option, enable TCP
+which is the proto and click on Search.</p></li>
+</ol>
+<p><a class="reference internal" href="../_images/image41.png"><img alt="image4" src="../_images/image41.png" style="width: 3.14961in; height: 6.54135in;" /></a></p>
+<p>Figure : Add service type</p>
+<ol class="arabic simple" start="3">
+<li><p>Now the announced service from Talaria TWO can be found as shown in
+Figure 5.</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../_images/image51.png"><img alt="image5" src="../_images/image51.png" style="width: 3.14961in; height: 6.0702in;" /></a></p>
+</div></blockquote>
+<p>Figure : Discovered service</p>
+<p><strong>Option 2</strong>: Command line on Windows OS</p>
+<p>Prerequisite: Install the Bonjour Browser from the following link to run
+the command line on Windows OS:
+<a class="reference external" href="https://hobbyistsoftware.com/bonjourbrowser">https://hobbyistsoftware.com/bonjourbrowser</a>.</p>
+<ol class="arabic simple">
+<li><p>Service discovery can be done from a Windows command line, using the
+dns-sd command to browse for services that are being broadcast on the
+local network by Talaria TWO.</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../_images/image6.png"><img alt="image6" src="../_images/image6.png" style="width: 5.90551in; height: 1.65893in;" /></a></p>
+</div></blockquote>
+<p>Figure : Service discovery from Windows command line</p>
+<p><strong>Option 3</strong>: User can also use two Talaria TWO modules: One for service
+register and announce from section 6.1 and one more for service
+discovery from section 6.2 to load the application. On the service
+discovery console, the announced service can be observed.</p>
+</section>
+<section id="example-bootargs-for-mdns-service-discovery">
+<h2>Example Bootargs for mDNS Service Discovery<a class="headerlink" href="#example-bootargs-for-mdns-service-discovery" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ssid=&lt;ssid&gt;,passphrase=&lt;passphrase&gt;, sd_srvc_type=_http,
+sd_srvc_proto=_tcp, action=1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWAE</p>
+<p>4 DWT comparators, range 0x8000</p>
+<p>Build $Id: git-f072f2582 $</p>
+<p>hio.baudrate=921600</p>
+<p>flash: Gordon ready!</p>
+<p>UART:SNWWWWWAE4 DWT comparators, range 0x8000</p>
+<p>Build $Id: git-f072f2582 $</p>
+<p>sd_srvc_type=_http sd_srvc_proto=_tcp action=1
+np_conf_path=/data/nprofile.json ssid=InnoPhase passphrase=43083191</p>
+<p>$App:git-9cd56f11</p>
+<p>SDK Ver: sdk_2.5alpha</p>
+<p>MDNS Demo App</p>
+<p>Application Information:</p>
+<p>Name : MDNS application</p>
+<p>Version : 1.0</p>
+<p>Build Date : Jul 4 2022</p>
+<p>Build Time : 11:29:41</p>
+<p>Heap Available: 329 KB (337304 Bytes)</p>
+<p>[APP]Bootparams:</p>
+<p>hostname=&lt;null&gt;</p>
+<p>port = &lt;null&gt;</p>
+<p>servicename = &lt;null&gt;</p>
+<p>service_type = &lt;null&gt;</p>
+<p>proto = &lt;null&gt;</p>
+<p>key = &lt;null&gt;</p>
+<p>val = &lt;null&gt;</p>
+<p>sd_service_type = _http</p>
+<p>sd_service_proto = _tcp</p>
+<p>[APP]Bootparams check done….ret = 0</p>
+<p>addr e0:69:3a:00:13:90</p>
+<p>Connecting to added network : InnoPhase</p>
+<p>[2.239,308] CONNECT:00:5f:67:cd:c5:a6 Channel:11 rssi:-50 dBm</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS</p>
+<p>[2.976,703] MYIP 192.168.0.106</p>
+<p>[2.976,751] IPv6 [fe80::e269:3aff:fe00:1390]-link</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED</p>
+<p>Connected to added network : InnoPhase</p>
+<p>[APP]Starting Mdns</p>
+<p>[APP]Mdns init done</p>
+<p>[APP]Discovering Service</p>
+<p>[APP]app_dns_sd_cb:Discovered service info:</p>
+<p>Instance = HP Smart Tank 530 series [F66927]</p>
+<p>service type = _http</p>
+<p>protocol = _tcp</p>
+<p>txt info =</p>
+<p>port = 80</p>
+<p>ipaddr = 0</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Low%20Power%20UART.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Memory%20Management%20and%20Error%20Handling.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

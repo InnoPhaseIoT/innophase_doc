@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction" href="Firmware%20Over%20the%20Air%20Upgrade.html" />
+    <link rel="prev" title="Introduction" href="Custom%20ATCMDLIB.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Getting_Started_Landing_page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Software_Reference/Prerequisites/libusbK_driver-Zadig.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Development_Environments/Development_Environments.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Tools/Tools_Landing.html">Tools</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="Applications-Landing_Page.html">Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#alarm">1.  Alarm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#analog-to-digital-converter">2.  Analog to Digital Converter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#audio-over-i2s">3.  Audio over I2S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-5-0">4.  BLE 5.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-beacons">3.  BLE Beacons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-wi-fi-bridge">4.  BLE Wi-Fi Bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#chip-monitor">5.  Chip Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#crash-handling">6.  Crash Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#custom-atcmdlib">6.  Custom ATCMDLIB</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="Applications-Landing_Page.html#filesystem">7.  Filesystem</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sample-code-walkthrough">Sample Code Walkthrough</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#using-filesystem">Using_filesystem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#read-and-write">Read and Write</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#flashing-running-the-application">Flashing &amp; Running the Application</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#generate-flash-a-filesystem-manually-for-factory-setup">Generate &amp; Flash a Filesystem Manually for Factory Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#writing-into-the-filesystem-programmatically">Writing into the Filesystem Programmatically</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#firmware-over-the-air-upgrade">8.  Firmware Over the Air Upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#gpio">9.  GPIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#host-interface-protocol">10. Host Interface Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#http-client">11. HTTP Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#i2c">12. I2C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ifttt">13. IFTTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#iot-aws">14. IoT AWS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#iot-azure">15. IoT Azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#low-power-scan">16. Low Power Scan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#low-power-uart">17. Low Power UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#mdns">18. mDNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#memory-management-and-error-handling">19.  Memory Management and Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#message-queues">20.  Message Queues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#mqtt">21.  MQTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#provisioning">22.  Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#pulse-width-modulation">23.  Pulse Width Modulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#radio-and-module-parameters">24. Radio and Module Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#secure-files">25. Secure Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#simple-network-time-protocol">26.  Simple Network Time Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#sleep-enable-disable">27.  Sleep Enable Disable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#socket-wakeup">28. Socket Wakeup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#software-spi-master">29. Software SPI Master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#spi-flash">30. SPI Flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ssbl">31. SSBL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#thread-and-semaphores">32.  Thread and Semaphores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#throughput-measurement">32.  Throughput Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#timers-and-callouts">33. Timers and Callouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#unassociated-mode">34. Unassociated Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#using-wi-fi">35. Using Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#watchdog-timer">36. Watchdog Timer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#websocket-client">37. Websocket Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#wi-fi-connection-manager-multi-ap">38. Wi-Fi Connection Manager Multi-AP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#wi-fi-power-management">39. Wi-Fi Power Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#work-queues">40. Work Queues</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Regulatory%20Notices/Regulatory%20Notices.html">Regulatory Notice</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Backend%20Files%20-%20for%20cross%20referencing/Backend%20File%20Landing.html">Backend Files - for cross referencing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="Applications-Landing_Page.html">Applications</a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Applications/Filesystem.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h1>
+<p>Talaria TWO EVK has a 2MB SPI Flash for storing user data. This
+application note describes using the APIs to show case the filesystem
+read, write and remove functionalities on the Talaria TWO EVK.</p>
+</section>
+<section id="sample-code-walkthrough">
+<h1>Sample Code Walkthrough<a class="headerlink" href="#sample-code-walkthrough" title="Permalink to this heading"></a></h1>
+<section id="using-filesystem">
+<h2>Using_filesystem<a class="headerlink" href="#using-filesystem" title="Permalink to this heading"></a></h2>
+<p>The using_filesystem application illustrates performing the following
+basic filesystem operations. To mount the file system,
+utils_mount_rootfs() is called.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>/* Mount FS */</p>
+<p>os_printf(“Mounting file system\n”);</p>
+<p>ret_code = utils_mount_rootfs();</p>
+<p>if(ret_code != 0){</p>
+<p>os_printf(“Failed to mount file system\n”);</p>
+<p>return 0;</p>
+<p>}</p>
+<p>else</p>
+<p>{</p>
+<p>os_printf(“File system mounted\n”);</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="read-and-write">
+<h2>Read and Write<a class="headerlink" href="#read-and-write" title="Permalink to this heading"></a></h2>
+<p>To read and write, the application uses the C library APIs - fputs() and
+fgets().</p>
+<p>In this example, a new file named /data/sample_text.txt is written in
+the DATA partition of the filesystem.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>/* Write file */</p>
+<p>sample_file = fopen(configfile, “w”);</p>
+<p>fputs(“This is testing for file system…\n”, sample_file);</p>
+<p>fclose(sample_file);</p>
+<p>os_printf(“Write Done.\n\n”);</p>
+<p>/* Read file */</p>
+<p>sample_file = fopen(configfile, “r”);</p>
+<p>fgets(str, 50, sample_file);</p>
+<p>os_printf(“file data = %s \n”, str);</p>
+<p>fclose(sample_file);</p>
+<p>os_printf(“Read Done.\n\n”);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>Fetching the File into a Buffer</p>
+</div></blockquote>
+<hr class="docutils" />
+<p>The utils_file_get() API is used to get the content of a file into a
+buffer.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>char *file_buf = utils_file_get(configfile, &amp;size);</p>
+<p>os_printf(“File Data = %s \n”, file_buf);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="flashing-running-the-application">
+<h1>Flashing &amp; Running the Application<a class="headerlink" href="#flashing-running-the-application" title="Permalink to this heading"></a></h1>
+<p>In Talaria TWO module, there are two ways of writing into the file
+system:</p>
+<ol class="arabic simple">
+<li><p>Manually for factory setup</p></li>
+<li><p>Programmatically</p></li>
+</ol>
+<section id="generate-flash-a-filesystem-manually-for-factory-setup">
+<h2>Generate &amp; Flash a Filesystem Manually for Factory Setup<a class="headerlink" href="#generate-flash-a-filesystem-manually-for-factory-setup" title="Permalink to this heading"></a></h2>
+<p>To create a file system manually and write the file image using the
+scripts available in SDK, execute the following steps:</p>
+<ol class="loweralpha simple">
+<li><p>Generate an image file using the mklittlefs tool. Go to
+<em>sdk_x.y\tools\mklittlefs</em> folder and execute the following
+command:</p></li>
+</ol>
+<blockquote>
+<div><p><strong>Note</strong>: x and y in sdk_x.y refers to the SDK release version. For
+example: <em>sdk_2.4\tools\</em>.</p>
+<p><strong>Note</strong>: The flash.img will contain the file(s) present in the data
+folder of current directory where this binary (mklittlefs) is
+executed.</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./mklittlefs -s 0x40000 -c ../../examples/using_filesystem/data
+../../examples/using_filesystem/flash.img</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="loweralpha simple" start="2">
+<li><p>From the SDK folder, execute the remaining commands:</p></li>
+</ol>
+<blockquote>
+<div><p>Ensure to have a partition table containing allocation for DATA as a
+prerequisite. To manually flash an image file to a specific location,
+execute the following steps:</p>
+</div></blockquote>
+<ol class="lowerroman simple">
+<li><p>Load gordon.elf onto the Talaria TWO module.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py –device /dev/ttyUSB2 –reset=evk42_bl
+./apps/gordon/bin/gordon.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p><a class="reference internal" href="../_images/image1.png"><img alt="image1" src="../_images/image1.png" style="width: 5.51181in; height: 0.47244in;" /></a></p>
+</div></blockquote>
+<p>Figure 1: Loading gordon.elf</p>
+<ol class="lowerroman simple" start="2">
+<li><p>Flash the image file to the desired location on the filesystem.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/flash.py –device /dev/ttyUSB2 part_write DATA
+./examples/using_filesystem/flash.img</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p><a class="reference internal" href="../_images/image21.png"><img alt="image2" src="../_images/image21.png" style="width: 5.11811in; height: 0.35667in;" /></a></p>
+</div></blockquote>
+<p>Figure 2: Flashing the image</p>
+<ol class="lowerroman simple" start="3">
+<li><p>Fetch the file(s) which was flashed.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/storage.py ls /data/</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p><a class="reference internal" href="../_images/image31.png"><img alt="image3" src="../_images/image31.png" style="width: 5.11811in; height: 0.61072in;" /></a></p>
+</div></blockquote>
+<p>Figure 3: Fetching files from data partition</p>
+</section>
+<section id="writing-into-the-filesystem-programmatically">
+<h2>Writing into the Filesystem Programmatically<a class="headerlink" href="#writing-into-the-filesystem-programmatically" title="Permalink to this heading"></a></h2>
+<section id="running-the-application">
+<h3>Running the Application<a class="headerlink" href="#running-the-application" title="Permalink to this heading"></a></h3>
+<p>Program using_filesystem.elf using the Download tool:</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool provided with InnoPhase Talaria TWO SDK.</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down.</p></li>
+<li><p>ELF Input: Load the using_filesystem.elf by clicking on Select ELF
+File.</p></li>
+</ol>
+</li>
+<li><p>Programming: Prog RAM or Prog Flash as per requirement.</p></li>
+</ol>
+<p>For more details on using the Download tool, refer to the document:
+UG_Download_Tool.pdf (path: <em>sdk_x.y\pc_tools\Download_Tool\doc</em>).</p>
+<p>As mentioned in section 4.2, a new file named \data\sample_text.txt is
+written in the DATA partition of the filesystem.</p>
+</section>
+<section id="expected-output">
+<h3>Expected Output<a class="headerlink" href="#expected-output" title="Permalink to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWAEBuild $Id: git-ba65998b7 $</p>
+<p>$App:git-d6262fda</p>
+<p>SDK Ver: sdk_2.5</p>
+<p>Using File System Demo App</p>
+<p>Mounting file system</p>
+<p>File system mounted</p>
+<p>Write Done.</p>
+<p>File Data = This is testing for file system…</p>
+<p>Read Done.</p>
+<p>File Data = This is testing for file system…</p>
+<p>—————-Program Exit ——————–</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>After execution, for evaluation purposes, use the download tool Show
+File System Contents option. Click on Show File System Contents. The
+pop-up window displays the file written by the application.</p>
+<p><a class="reference internal" href="../_images/image41.png"><img alt="image4" src="../_images/image41.png" style="width: 4.33071in; height: 1.48795in;" /></a></p>
+<p>Figure 4: Download Tool - Show File System Contents</p>
+<p><a class="reference internal" href="../_images/image51.png"><img alt="image5" src="../_images/image51.png" style="width: 4.33071in; height: 0.87719in;" /></a></p>
+<p>Figure 5: Filename and size</p>
+<p>The file size is also equal to the read value from the application.</p>
+<p>Using the Read Files option available in the Download Tool to retrieve
+the files and check the contents.</p>
+<p><a class="reference internal" href="../_images/image6.png"><img alt="image6" src="../_images/image6.png" style="width: 5.11811in; height: 1.60124in;" /></a></p>
+<p>Figure 6: Download Tool - File System: Read files</p>
+<p>Contents are extracted into the folder specified in the Download Tool.</p>
+<p><a class="reference internal" href="../_images/image7.png"><img alt="image7" src="../_images/image7.png" style="width: 3.54331in; height: 2.16719in;" /></a></p>
+<p>Figure 7: Extracted files</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Custom%20ATCMDLIB.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Firmware%20Over%20the%20Air%20Upgrade.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

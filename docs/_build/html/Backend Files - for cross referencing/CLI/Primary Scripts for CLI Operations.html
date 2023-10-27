@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Primary Scripts for CLI Operations &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="CLI Command Syntax and List Parameters" href="Syntax%20and%20List%20Parameters.html" />
+    <link rel="prev" title="Device Interface on Host Machine" href="Device%20Interface%20on%20Host%20Machine.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Getting_Started_Landing_page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Software_Reference/Prerequisites/libusbK_driver-Zadig.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Development_Environments/Development_Environments.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Tools/Tools_Landing.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Applications/Applications-Landing_Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">Regulatory Notice</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../Backend%20File%20Landing.html">Backend Files - for cross referencing</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../Backend%20File%20Landing.html#cli">CLI</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Command%20Line%20Interface%20-%20Landing.html">Command Line Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Device%20Interface%20on%20Host%20Machine.html">Device Interface on Host Machine</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Primary Scripts for CLI Operations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#boot-py">boot.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#flash-py">flash.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#storage-py">storage.py</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Syntax%20and%20List%20Parameters.html">CLI Command Syntax and List Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Use%20Cases.html">Use Cases</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Backend%20File%20Landing.html#coredump">Coredump</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Backend%20File%20Landing.html#debugging-using-gdb">Debugging using GDB</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../Backend%20File%20Landing.html">Backend Files - for cross referencing</a></li>
+      <li class="breadcrumb-item active">Primary Scripts for CLI Operations</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Backend Files - for cross referencing/CLI/Primary Scripts for CLI Operations.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="primary-scripts-for-cli-operations">
+<h1>Primary Scripts for CLI Operations<a class="headerlink" href="#primary-scripts-for-cli-operations" title="Permalink to this heading"></a></h1>
+<p>Written in the Python language, three script files for executing CLI
+operations are provided in the SDK for the user’s convenience that can
+be used for evaluation, testing, and development of Talaria TWO based
+systems.</p>
+<ol class="arabic simple">
+<li><p>sdk/script/boot.py</p></li>
+<li><p>sdk/script/flash.py</p></li>
+<li><p>sdk/script/storage.py</p></li>
+</ol>
+<p>Based on the arguments provided command line, the scripts performs
+various functions.</p>
+<section id="boot-py">
+<h2>boot.py<a class="headerlink" href="#boot-py" title="Permalink to this heading"></a></h2>
+<p>Following are the basic functionalities of boot.py:</p>
+<ol class="arabic simple">
+<li><p>Load app to memory (RAM) on Talaria TWO module:</p></li>
+</ol>
+<p>This script reads the application (in ELF format) provided in command
+line, along with the arguments to load the app to Talaria TWO in its
+memory, via the host and device interface. USB is used only in the
+evaluation, development or testing phase.</p>
+<ol class="arabic simple" start="2">
+<li><p>Write app to flash on Talaria TWO module:</p></li>
+</ol>
+<p>This script reads the application (in ELF format) provided in command
+line, along with the arguments to write the app to Talaria TWO in its
+flash, with the default handling by the script, via the host and device
+interface. USB is used only in the evaluation, development or testing
+phase.</p>
+<ol class="arabic simple" start="3">
+<li><p>Create .img file from ELF file</p></li>
+</ol>
+<p>This script reads the name of the app file (in ELF format) provided in
+command line to generate the .img file for flash download.</p>
+<p><strong>Note</strong>: Refer section <a class="reference external" href="#_Using_boot.py">Using boot.py</a> for more
+details.</p>
+</section>
+<section id="flash-py">
+<h2>flash.py<a class="headerlink" href="#flash-py" title="Permalink to this heading"></a></h2>
+<p>Script to read and write to the flash, which requires gordon.elf
+application.</p>
+<p>This section provides details on script usage and prerequisites.</p>
+<p><strong>Note</strong>: Refer section <a class="reference external" href="#_Using_flash.py">Using flash.py</a> for more
+details.</p>
+<p><strong>Prerequisite/precondition to run flash.py</strong>:</p>
+<ol class="arabic simple" start="4">
+<li><p>Program Talaria TWO with the Gordon app (gordon.elf)</p></li>
+<li><p>gordon.elf application is available from the following folder:
+sdk/apps/gordon/bin/gordon.</p></li>
+<li><p>Gordon is an application that enables access to Talaria TWO’s flash
+over Host I/O, including partitioning and filesystem access and raw
+reads/writes to flash.</p></li>
+<li><p>Boot.py script is used to program the gordon.elf onto Talaria TWO.
+Execute the following command to accomplish the same:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py [device] &lt;path&gt;/gordon.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image110.png"><img alt="image1" src="../../_images/image110.png" style="width: 6.88976in; height: 0.82407in;" /></a></p>
+<blockquote>
+<div><p>Figure 1: gordon.elf - teminal output</p>
+</div></blockquote>
+<p><a class="reference internal" href="../../_images/image210.png"><img alt="Text Description automatically generated" src="../../_images/image210.png" style="width: 6.88976in; height: 1.32043in;" /></a></p>
+<blockquote>
+<div><p>Figure 2: gordon.elf - console output</p>
+</div></blockquote>
+<p><strong>Load app .img file to flash on Talaria TWO module:</strong></p>
+<p>This script reads the name of the app file (in .img format) provided in
+command line, along with the arguments to write the app to Talaria TWO
+in its flash with the write command and user-specified location (in
+hex), via the host and device interface (USB/Serial).</p>
+<p>Create image file (.img) from the ELF file of an application:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py –output &lt;output_path&gt;/app.img &lt;elf_path&gt;/app.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Read/Write Partition Table on module:</strong></p>
+<p>This script reads from/writes the partition table on the device (in the
+json file).</p>
+</section>
+<section id="storage-py">
+<h2>storage.py<a class="headerlink" href="#storage-py" title="Permalink to this heading"></a></h2>
+<p>Storage file access utility. Following are the basic file system access
+functionalities of storage.py:</p>
+<ol class="arabic simple">
+<li><p>Display the file system contents</p></li>
+<li><p>Read file from the device to store in the location on host</p></li>
+<li><p>Write file from the host to the device</p></li>
+<li><p>Write the network config file (<strong>.json file</strong>) into Talaria TWO file
+system to configure L2 parameters such as SSID, passphrase, BSSID,
+security type and certificates for EAP authentication</p></li>
+</ol>
+<p>Refer section <a class="reference external" href="#_Storage_Data_&amp;">Storage Data &amp; File: Read/Write</a> for
+the details.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Device%20Interface%20on%20Host%20Machine.html" class="btn btn-neutral float-left" title="Device Interface on Host Machine" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Syntax%20and%20List%20Parameters.html" class="btn btn-neutral float-right" title="CLI Command Syntax and List Parameters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

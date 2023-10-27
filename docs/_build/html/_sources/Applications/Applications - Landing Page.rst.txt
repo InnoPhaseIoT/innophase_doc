@@ -1,0 +1,89 @@
+Demo/sample applications which can be run on Talaria TWO firmware.
+
+1.  Alarm
+
+2.  Analog to Digital Converter
+
+3.  AT Custom Command
+
+4.  Audio over I2S
+
+5.  BLE 5.0
+
+6.  BLE Beacons
+
+7.  BLE Wi-Fi Bridge
+
+8.  Chip Monitor
+
+9.  Crash Handling
+
+10. Filesystem
+
+11. Firmware Over the Air Upgrade
+
+12. GPIO
+
+13. Host Interface Protocol
+
+14. HTTP Client
+
+15. I2C
+
+16. IFTTT
+
+17. IoT AWS
+
+18. IoT Azure
+
+19. Low Power Scan
+
+20. Low Power UART
+
+21. mDNS
+
+22. Memory Management and Error Handling
+
+23. Message Queues
+
+24. MQTT
+
+25. Provisioning
+
+26. Pulse Width Modulation
+
+27. Radio and Module Parameters
+
+28. Secure Files
+
+29. Simple Network Time Protocol
+
+30. Sleep Enable\\Disable
+
+31. Socket Wakeup
+
+32. Software SPI Master
+
+33. SPI Flash
+
+34. SSBL
+
+35. Thread and Semaphores
+
+36. Throughput Measurement
+
+37. Timers and Callouts
+
+38. Unassociated Mode
+
+39. Using Wi-Fi
+
+40. Watchdog Timer
+
+41. Websocket Client
+
+42. Wi-Fi Connection Manager Multi-AP
+
+43. Wi-Fi Power Management
+
+44. Work Queues

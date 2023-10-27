@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checking and Validating the Partition Table &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../../about.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="New Serial Number to Device – Manual Method" href="New_Serial_Number_to_Device.html" />
+    <link rel="prev" title="Resetting the EVB-A in BL Mode" href="../Download_Tool_Usage/Resetting_the_EVB-A_in_BL_Mode.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Getting_Started_Landing_page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Software_Reference/Prerequisites/libusbK_driver-Zadig.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development_Environments/Development_Environments.html">Development Environments</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../Tools_Landing.html">Tools</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../Tools_Landing.html#download-tool">Download Tool</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Prerequisites/Prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GUI_Overview/GUI_Overview.html">Download Tool GUI Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Download_Tool_Usage/AP_Options.html">AP Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Download_Tool_Usage/Boot_Arguments.html">Boot Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Download_Tool_Usage/Boot_Target.html">Boot Target</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Download_Tool_Usage/ELF_Input.html">ELF Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Download_Tool_Usage/File_System.html">File System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Download_Tool_Usage/Help.html">Help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Download_Tool_Usage/Programming_to_Flash.html">Programming to Flash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Download_Tool_Usage/Programming_to_RAM.html">Programming to RAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Download_Tool_Usage/Resetting_the_EVB-A_in_BL_Mode.html">Resetting the EVB-A in BL Mode</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Checking and Validating the Partition Table</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#standard-programming">Standard Programming</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ssbl-programming">SSBL Programming</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="New_Serial_Number_to_Device.html">New Serial Number to Device – Manual Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Update_Driver_from_libusbK_to_COM_Port.html">Update Driver from libusbK to COM Port</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Tools_Landing.html#mpd">MPD</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Applications/Applications-Landing_Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Regulatory%20Notices/Regulatory%20Notices.html">Regulatory Notice</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Backend%20Files%20-%20for%20cross%20referencing/Backend%20File%20Landing.html">Backend Files - for cross referencing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../Tools_Landing.html">Tools</a></li>
+          <li class="breadcrumb-item"><a href="../DL_Tool_Landing_Page.html">&lt;no title&gt;</a></li>
+      <li class="breadcrumb-item active">Checking and Validating the Partition Table</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/Tools/Download_Tool/Appendix/Checking_and_Validating_the_Partition_Table.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="checking-and-validating-the-partition-table">
+<h1>Checking and Validating the Partition Table<a class="headerlink" href="#checking-and-validating-the-partition-table" title="Permalink to this heading"></a></h1>
+<section id="standard-programming">
+<h2>Standard Programming<a class="headerlink" href="#standard-programming" title="Permalink to this heading"></a></h2>
+<p>Download tool will validate the existing partition table in the EVB, for
+the following condition:</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Table 1: Standard programming: Partition Table – Condition</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Partition Name</strong></p></th>
+<th class="head"><p><strong>Sector Start</strong></p></th>
+<th class="head"><p><strong>Sector Count</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BOOT</p></td>
+<td><p>1</p></td>
+<td><p>63</p></td>
+</tr>
+<tr class="row-odd"><td><p>VIRT</p></td>
+<td><p>64</p></td>
+<td><p>&gt;=65</p></td>
+</tr>
+<tr class="row-even"><td><p>SYSFS</p></td>
+<td><p>496</p></td>
+<td><p>16</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Case 1: Existing partition matches SSBL programming partition</strong></p>
+<p>If the existing partition does not satisfy the condition mentioned in
+Table 1, but matches with the SSBL programming partition, the user is
+notified by a pop-up message. The user will then have the option
+(Yes/No) to either flash the default partition table or terminate the
+action (i.e., correct the deviation manually and try again).</p>
+<p><a class="reference internal" href="../../../_images/image125.png"><img alt="image1" src="../../../_images/image125.png" style="width: 0.7874in;" /></a><a class="reference internal" href="../../../_images/image225.png"><img alt="image2" src="../../../_images/image225.png" style="width: 7.48031in; height: 3.70968in;" /></a></p>
+<p>Figure 34: Deviation from the standard programming partition – matches
+SSBL programming partition</p>
+<p>If the user selects ‘No’ and chooses not to back-up to the local system,
+action is terminated requiring the user to manually correct the
+deviation to proceed further as shown in Figure 35.</p>
+<p><a class="reference internal" href="../../../_images/image125.png"><img alt="image3" src="../../../_images/image125.png" style="width: 0.98425in;" /></a><a class="reference internal" href="../../../_images/image318.png"><img alt="A screenshot of a computer Description automatically generated" src="../../../_images/image318.png" style="width: 7.48031in; height: 3.69218in;" /></a></p>
+<p>Figure 35: Standard programming - action terminated</p>
+<p><strong>Case 2: Existing partition neither satisfies Standard programming
+partition, nor SSBL programming partition</strong></p>
+<p>If the existing partition neither satisfies the condition mentioned in
+Table 1, nor the SSBL programming partition, the user is notified by a
+pop-up message. The user will then have the option (Yes/No) to either
+flash the default partition table or terminate the action (i.e., correct
+the deviation manually and try again).</p>
+<p><a class="reference internal" href="../../../_images/image418.png"><img alt="A black rectangle with red border Description automatically generated" src="../../../_images/image418.png" style="width: 2.49375in; height: 1.21319in;" /></a><a class="reference internal" href="../../../_images/image125.png"><img alt="image4" src="../../../_images/image125.png" style="width: 0.98425in;" /></a><a class="reference internal" href="../../../_images/image518.png"><img alt="image5" src="../../../_images/image518.png" style="width: 7.48031in; height: 3.70068in;" /></a></p>
+<p>Figure 36: Deviation from the standard programming partition - no match</p>
+<p><strong>Note</strong>: In case the user-defined partition table meets the condition
+mentioned in Table 1, but with VIRT partition less than the application
+VM image size, a pop-up message notifies the same to the user with an
+option of overwriting existing partition with default partition table,
+as shown in Figure 37.</p>
+<p><a class="reference internal" href="../../../_images/image613.png"><img alt="Graphical user interface, text, application Description automatically generated" src="../../../_images/image613.png" style="width: 4.33071in; height: 1.63567in;" /></a></p>
+<p>Figure 37: VM image does not fit in partition</p>
+<ol class="arabic simple">
+<li><p>If the user chooses to flash the default partition (option: Yes):</p></li>
+</ol>
+<p>Download tool will back-up the contents of SYSFS and DATA partition of
+existing partition table. Once the default partition is flashed
+successfully, the backed-up contents of SYSFS and DATA partitions are
+re-flashed to the corresponding new location as per the default
+partition table.</p>
+<ol class="loweralpha simple">
+<li><p>In case the backed-up contents of SYSFS does not fit into the
+corresponding new location as per the default partition table
+(regarding size), user will have an option (Yes/No) to either back-up
+the content to local system and clear the data in EVB or correct the
+deviation manually and try again.</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../../_images/image125.png"><img alt="image6" src="../../../_images/image125.png" style="width: 0.98425in;" /></a><a class="reference internal" href="../../../_images/image78.png"><img alt="image7" src="../../../_images/image78.png" style="width: 6.69291in; height: 3.34609in;" /></a></p>
+</div></blockquote>
+<p>Figure 38: Backed-up contents of SYSFS</p>
+<ol class="lowerroman simple">
+<li><p>If the user chooses to back-up to local system (option: Yes):</p></li>
+</ol>
+<blockquote>
+<div><p>The contents will be saved in the local system and the user will be
+notified with the folder path through a popup message.</p>
+<p><a class="reference internal" href="../../../_images/image125.png"><img alt="image8" src="../../../_images/image125.png" style="width: 0.75833in;" /></a><a class="reference internal" href="../../../_images/image87.png"><img alt="image9" src="../../../_images/image87.png" style="width: 5.90551in; height: 2.93909in;" /></a></p>
+<p>Figure 39: Contents saved in the local system</p>
+</div></blockquote>
+<ol class="lowerroman simple" start="2">
+<li><p>If the user does not choose to back-up to local system (option: No):</p></li>
+</ol>
+<blockquote>
+<div><p>The action will be terminated, and user will be required to correct
+the deviation manually to proceed further.</p>
+<p><a class="reference internal" href="../../../_images/image125.png"><img alt="image10" src="../../../_images/image125.png" style="width: 0.75833in;" /></a><a class="reference internal" href="../../../_images/image97.png"><img alt="image11" src="../../../_images/image97.png" style="width: 5.90551in; height: 2.93909in;" /></a></p>
+<p>Figure 40: Action terminated requiring to correct the deviation
+manually</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li><p>In case the back-up contents of DATA partition do not fit the
+corresponding location in the default partition, the contents will be
+saved in the local system and the user will be notified with the
+folder path through a pop-up message. Also, the user will be
+intimated to write the new certification file to DATA partition using
+Write Files option.</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../../_images/image125.png"><img alt="image12" src="../../../_images/image125.png" style="width: 0.81667in;" /></a><a class="reference internal" href="../../../_images/image105.png"><img alt="image13" src="../../../_images/image105.png" style="width: 6.29921in; height: 3.13502in;" /></a></p>
+</div></blockquote>
+<p>Figure 41: Back-up contents of DATA partition</p>
+<ol class="loweralpha simple" start="3">
+<li><p>However, if the user does not choose to flash the default partition
+(option: No):</p></li>
+</ol>
+<blockquote>
+<div><p>The action will be terminated, and the user will be required to
+correct the deviation manually to proceed further.</p>
+<p><a class="reference internal" href="../../../_images/image125.png"><img alt="image14" src="../../../_images/image125.png" style="width: 0.81667in;" /></a><a class="reference internal" href="../../../_images/image1110.png"><img alt="image15" src="../../../_images/image1110.png" style="width: 6.29921in; height: 2.83056in;" /></a></p>
+</div></blockquote>
+<p>Figure 42: User does not choose to flash default partition – action
+terminated</p>
+</section>
+<section id="ssbl-programming">
+<h2>SSBL Programming<a class="headerlink" href="#ssbl-programming" title="Permalink to this heading"></a></h2>
+<p>Download tool will validate the existing partition table in the EVB, for
+the following condition:</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Table 2: SSBL programming: Partition Table – Condition</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Partition Name</strong></p></th>
+<th class="head"><p><strong>Sector Start</strong></p></th>
+<th class="head"><p><strong>Sector Count</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BOOT</p></td>
+<td><p>1</p></td>
+<td><p>31</p></td>
+</tr>
+<tr class="row-odd"><td><p>BOOT</p></td>
+<td><p>32</p></td>
+<td><p>352</p></td>
+</tr>
+<tr class="row-even"><td><p>DATA</p></td>
+<td><p>384</p></td>
+<td><p>112</p></td>
+</tr>
+<tr class="row-odd"><td><p>SYSFS</p></td>
+<td><p>496</p></td>
+<td><p>16</p></td>
+</tr>
+</tbody>
+</table>
+<p>If the existing partition does not satisfy the condition mentioned in
+Table 2, but matches with the default programming partition, the user is
+notified by a pop-up message.</p>
+<p>The user will then have the option (Yes/No) to either flash the default
+partition table or terminate the action (i.e., correct the deviation
+manually and try again).</p>
+<p><a class="reference internal" href="../../../_images/image125.png"><img alt="image16" src="../../../_images/image125.png" style="width: 0.98403in;" /></a><a class="reference internal" href="../../../_images/image125.png"><img alt="image17" src="../../../_images/image125.png" style="width: 0.98403in;" /></a><a class="reference internal" href="../../../_images/image126.png"><img alt="image18" src="../../../_images/image126.png" style="width: 7.48031in; height: 3.68752in;" /></a></p>
+<p>Figure 43: Deviation from the SSBL programming partition – matches
+default programming partition</p>
+<p>If the user selects ‘No’ and chooses not to flash the default SSBL
+partition table, action is terminated requiring the user to manually
+correct the deviation to proceed further as shown in Figure 44.</p>
+<p><a class="reference internal" href="../../../_images/image125.png"><img alt="image19" src="../../../_images/image125.png" style="width: 0.98403in;" /></a><a class="reference internal" href="../../../_images/image125.png"><img alt="image20" src="../../../_images/image125.png" style="width: 0.98403in;" /></a><a class="reference internal" href="../../../_images/image135.png"><img alt="image21" src="../../../_images/image135.png" style="width: 7.48031in; height: 3.69722in;" /></a></p>
+<p>Figure 44: SSBL programming - action terminated</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Download_Tool_Usage/Resetting_the_EVB-A_in_BL_Mode.html" class="btn btn-neutral float-left" title="Resetting the EVB-A in BL Mode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="New_Serial_Number_to_Device.html" class="btn btn-neutral float-right" title="New Serial Number to Device – Manual Method" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

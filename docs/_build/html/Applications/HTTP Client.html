@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction" href="I2C.html" />
+    <link rel="prev" title="Introduction" href="Host%20Interface%20Protocol.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Getting_Started_Landing_page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Software_Reference/Prerequisites/libusbK_driver-Zadig.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Development_Environments/Development_Environments.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Tools/Tools_Landing.html">Tools</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="Applications-Landing_Page.html">Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#alarm">1.  Alarm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#analog-to-digital-converter">2.  Analog to Digital Converter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#audio-over-i2s">3.  Audio over I2S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-5-0">4.  BLE 5.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-beacons">3.  BLE Beacons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-wi-fi-bridge">4.  BLE Wi-Fi Bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#chip-monitor">5.  Chip Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#crash-handling">6.  Crash Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#custom-atcmdlib">6.  Custom ATCMDLIB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#filesystem">7.  Filesystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#firmware-over-the-air-upgrade">8.  Firmware Over the Air Upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#gpio">9.  GPIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#host-interface-protocol">10. Host Interface Protocol</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="Applications-Landing_Page.html#http-client">11. HTTP Client</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#features-and-limitations">Features and Limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#http-s-apis">HTTP/S APIs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#http-s-open">HTTP/S Open:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#http-s-get">HTTP/S Get:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#http-s-post">HTTP/S Post:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setting-the-header">Setting the header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#closing-the-connection">Closing the connection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-application">Running the Application</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#programming-talaria-two-board-with-certificates">Programming Talaria TWO board with certificates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#programming-talaria-two-board-with-elf">Programming Talaria TWO board with ELF</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-application">Using the Application</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example-boot-args-for-http-get-non-secure">Example boot args for HTTP Get (non-secure)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-boot-args-for-https-get-without-server-verification">Example boot args for HTTPS Get (without server verification)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-boot-args-for-https-get-with-server-certificate-validation">Example boot args for HTTPS Get (with server certificate validation)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-boot-args-for-http-post-non-secure">Example boot args for HTTP Post (non-secure)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-boot-args-for-https-post-without-server-verification">Example boot args for HTTPS Post (without server verification)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-boot-args-for-https-post-with-server-certificate-validation">Example boot args for HTTPS Post (with server certificate validation)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#i2c">12. I2C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ifttt">13. IFTTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#iot-aws">14. IoT AWS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#iot-azure">15. IoT Azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#low-power-scan">16. Low Power Scan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#low-power-uart">17. Low Power UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#mdns">18. mDNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#memory-management-and-error-handling">19.  Memory Management and Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#message-queues">20.  Message Queues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#mqtt">21.  MQTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#provisioning">22.  Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#pulse-width-modulation">23.  Pulse Width Modulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#radio-and-module-parameters">24. Radio and Module Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#secure-files">25. Secure Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#simple-network-time-protocol">26.  Simple Network Time Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#sleep-enable-disable">27.  Sleep Enable Disable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#socket-wakeup">28. Socket Wakeup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#software-spi-master">29. Software SPI Master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#spi-flash">30. SPI Flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ssbl">31. SSBL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#thread-and-semaphores">32.  Thread and Semaphores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#throughput-measurement">32.  Throughput Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#timers-and-callouts">33. Timers and Callouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#unassociated-mode">34. Unassociated Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#using-wi-fi">35. Using Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#watchdog-timer">36. Watchdog Timer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#websocket-client">37. Websocket Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#wi-fi-connection-manager-multi-ap">38. Wi-Fi Connection Manager Multi-AP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#wi-fi-power-management">39. Wi-Fi Power Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#work-queues">40. Work Queues</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Regulatory%20Notices/Regulatory%20Notices.html">Regulatory Notice</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Backend%20Files%20-%20for%20cross%20referencing/Backend%20File%20Landing.html">Backend Files - for cross referencing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="Applications-Landing_Page.html">Applications</a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Applications/HTTP Client.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h1>
+<p>This document provides details on using the HTTP client APIs provided by
+the HTTP module under components. This application demonstrates using
+these APIs to connect to HTTP servers in secured (HTTPS) and non-secured
+way.</p>
+<p>The document also discusses about the GET and POST of HTTP methods and
+ways of executing it.</p>
+</section>
+<section id="features-and-limitations">
+<h1>Features and Limitations<a class="headerlink" href="#features-and-limitations" title="Permalink to this heading"></a></h1>
+<p>The HTTP/S implementation supports:</p>
+<ol class="arabic simple">
+<li><p>HTTP 1.1 version. Both HTTP and HTTPS</p></li>
+<li><p>HTTP client connection to the server specified by the IP address or
+Host name)</p></li>
+<li><p>HTTP GET and POST methods</p></li>
+<li><p>Setting of headers by the application. Only the Host header is
+implicitly set</p></li>
+<li><p>Supports receiving the response with Transfer encoding Chunked.</p></li>
+</ol>
+<p>Following are the limitations:</p>
+<ol class="arabic simple">
+<li><p>CA certificate must be in the PEM format.</p></li>
+<li><p>HTTP redirection is not supported</p></li>
+</ol>
+</section>
+<section id="http-s-apis">
+<h1>HTTP/S APIs<a class="headerlink" href="#http-s-apis" title="Permalink to this heading"></a></h1>
+<section id="http-s-open">
+<h2>HTTP/S Open:<a class="headerlink" href="#http-s-open" title="Permalink to this heading"></a></h2>
+<p>This is performed using the following API:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>http_client_handle_t</p>
+<p>http_client_open(http_client_config_t *cfg)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>This API connects to the remote HTTP server. The configuration needed
+for the connection is passed using the following data structure:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>typedef struct {</p>
+<p>char *hostname;/**&lt;Host name or the IP address of the server*/</p>
+<p>int port;/**&lt;Server port*/</p>
+<p>int secured; /** 0 – HTTP (non secure),</p>
+<p>1 - HTTPS without server verification</p>
+<p>2 – HTTPS with server certificate validation*/</p>
+<p>ssl_wrap_cfg_t ssl_cfg;/**&lt;SSL configuration*/</p>
+<p>int time_out;/**&lt;Connect timeout in seconds*/</p>
+<p>} http_client_config_t;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="http-s-get">
+<h2>HTTP/S Get:<a class="headerlink" href="#http-s-get" title="Permalink to this heading"></a></h2>
+<p>Once the connection is established using http_client_open(), GET is
+performed using the following API:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>http_client_get(http_client_handle_t handle, char *uri,</p>
+<p>http_client_resp_cb cb, void *cb_ctx,</p>
+<p>int time_out)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The HTTP response is provided through the call back. The call back is
+called multiple times until the response. Following is the call back
+definition and the data structure passed to call back:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>typedef struct {</p>
+<p>int status_code;/**&lt; HTTP response status code*/</p>
+<p>char **resp_hdrs;/*&lt; Response headers. Array of strings*/</p>
+<p>char *resp_body; /**&lt; Response body len*/</p>
+<p>int resp_len; /**&lt; Resp len, currently availabe in the resp_body*/</p>
+<p>unsigned int resp_total_len;/**&lt; Total length of the response body.
+If 0,</p>
+<p>No total length available before hand as the body</p>
+<p>may be sent using chunked or multipart encoding*/</p>
+<p>int more_data;</p>
+<p>} http_client_resp_info_t;</p>
+<p>/*This is the call back called when the response is received*/</p>
+<p>typedef void http_client_resp_cb(void *ctx, http_client_resp_info_t
+*resp);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="http-s-post">
+<h2>HTTP/S Post:<a class="headerlink" href="#http-s-post" title="Permalink to this heading"></a></h2>
+<p>Once the connection is performed using http_client_open(), data can be
+posted to HTTP server using the following API:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>http_client_post(http_client_handle_t handle, char *uri,</p>
+<p>char *buff, int buff_len,</p>
+<p>http_client_resp_cb cb, void *cb_ctx,</p>
+<p>int time_out);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The response is provided using the call back. Setting content length
+header is a must before using this API.</p>
+</section>
+<section id="setting-the-header">
+<h2>Setting the header<a class="headerlink" href="#setting-the-header" title="Permalink to this heading"></a></h2>
+<p>User application can set the header using the following API:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>http_client_set_req_hdr(http_client_handle_t handle,</p>
+<p>const char *hdrname, const char *hdrval);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="closing-the-connection">
+<h2>Closing the connection<a class="headerlink" href="#closing-the-connection" title="Permalink to this heading"></a></h2>
+<p>The connection can be closed using the following API:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>http_client_close(http_client_handle_t handle);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="running-the-application">
+<h1>Running the Application<a class="headerlink" href="#running-the-application" title="Permalink to this heading"></a></h1>
+<section id="programming-talaria-two-board-with-certificates">
+<h2>Programming Talaria TWO board with certificates<a class="headerlink" href="#programming-talaria-two-board-with-certificates" title="Permalink to this heading"></a></h2>
+<p>For HTTPS secure applications, CA certificates need to be provided. For
+Testing with httpbin.org, the certificate - httpbin_ca.pem which is
+present in the location: examples/http_client/cert can be used. This
+file can be written into the Talaria TWO File System using the Download
+Tool as mentioned in the subsequent sections. The default path for
+httpbin_ca.pem in the File System should be:
+/data/certs/https_client/app.</p>
+<section id="show-file-system-contents">
+<h3>Show File System Contents<a class="headerlink" href="#show-file-system-contents" title="Permalink to this heading"></a></h3>
+<p>Click on Show File System Contents to see the current available files in
+the file system.</p>
+<p><a class="reference internal" href="../_images/image1.png"><img alt="image1" src="../_images/image1.png" style="width: 6.49606in; height: 2.81055in;" /></a></p>
+<p>Figure : Show File System Content</p>
+</section>
+<section id="write-files">
+<h3>Write Files<a class="headerlink" href="#write-files" title="Permalink to this heading"></a></h3>
+<p>Before writing the file(s) into Talaria TWO, user must create a folder
+with the name data and place the certificate either directly into the
+data or they can create multiple subfolders (for example: data/ or
+data/certs/https_client/app ) and place the certificates inside the
+sub-directory. The certificate shall be present in the data fs with the
+same name as in the boot arguments.</p>
+<p>To write files into Talaria TWO File System, use the Download Tool as
+shown in Figure 2. After clicking on “Select Path to Write Files”,
+select the data directory from the host in which the certificate is
+stored and then click on “Write Files” to write the certificate into the
+File System.</p>
+<p><strong>Note:</strong> When trying to access a secured web server, keep only the CA
+certificate specific to that server in data fs. Do not use bundle of CA
+certificates intended for a browser. Use use_ca_bundle=1 if bundled
+certificates are used.</p>
+<p><a class="reference internal" href="../_images/image21.png"><img alt="image2" src="../_images/image21.png" style="width: 6.49606in; height: 2.82163in;" /></a></p>
+<p>Figure : Write certificates to Talaria TWO</p>
+</section>
+</section>
+<section id="programming-talaria-two-board-with-elf">
+<h2>Programming Talaria TWO board with ELF<a class="headerlink" href="#programming-talaria-two-board-with-elf" title="Permalink to this heading"></a></h2>
+<p>Program http_client.elf(sdk_x.y\examples\http_client\bin) using the
+Download tool:</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool provided with InnoPhase Talaria TWO SDK.</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down</p></li>
+<li><p>ELF Input: Load the http_client.elf by clicking on Select ELF
+File.</p></li>
+<li><p>AP Options: Provide the SSID and Passphrase under AP Options to
+connect to an Access Point.</p></li>
+<li><p>Boot arguments: Pass the following boot arguments:</p></li>
+</ol>
+</li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>h
+ost=httpbin.org,path=/json,port=80,secured=0,method=get,post_len=3000</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="loweralpha simple" start="5">
+<li><p>Programming: Prog RAM or Prog Flash as per requirement.</p></li>
+</ol>
+<p>For more details on using the Download tool, refer to the document:
+UG_Download_Tool.pdf (path: <em>sdk_x.y/pc_tools/Download_Tool/doc</em>).</p>
+<p><strong>Note</strong>: x and y refer to the SDK release version. For example:
+sdk_2.5/doc.</p>
+</section>
+</section>
+<section id="using-the-application">
+<h1>Using the Application<a class="headerlink" href="#using-the-application" title="Permalink to this heading"></a></h1>
+<p>The list of boot arguments are as follows:</p>
+<ol class="arabic simple">
+<li><p>ssid: SSID of the Wi-Fi network to connect to</p></li>
+<li><p>passphrase: Passphrase of the network</p></li>
+<li><p>host: Domain name of the server or the IP address (dotted decimal
+format)</p></li>
+<li><p>path: path of the file</p></li>
+<li><p>port: Server port. 80 in case of non-secured (HTTP), 443 in case of
+secured (HTTPS)</p></li>
+<li><p>secured:</p></li>
+</ol>
+<blockquote>
+<div><p>0 - HTTP,</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>HTTPS without server verification</p></li>
+<li><p>HTTPS with server certificate validation</p></li>
+</ol>
+<ol class="arabic simple" start="7">
+<li><p>method: Get/Post</p></li>
+<li><p>ca_cert: Certificate path in data FS in case of HTTPS</p></li>
+<li><p>post_len: Number of bytes to be sent as part of post data. The post
+data is internally generated</p></li>
+</ol>
+<section id="example-boot-args-for-http-get-non-secure">
+<h2>Example boot args for HTTP Get (non-secure)<a class="headerlink" href="#example-boot-args-for-http-get-non-secure" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ssid=&lt;ssid&gt;,passphrase=
+&lt;passphrase&gt;,host=httpbin.org,path=/json,port=80,secured=0,method=get</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWWAEBuild $Id: git-e8e189c6a $</p>
+<p>host=httpbin.org path=/json port=80 secured=0 method=get
+np_conf_path=/data/nprofile.json ssid=InnoPhase_AE_AP
+passphrase=innophaseae</p>
+<p>$App:git-24f563c7</p>
+<p>SDK Ver: sdk_2.5</p>
+<p>Http Client Demo App</p>
+<p>Application Information:</p>
+<p>Name : HTTP application</p>
+<p>Version : 2.0</p>
+<p>Build Date : Jun 30 2022</p>
+<p>Build Time : 03:57:06</p>
+<p>Heap Available: 333 KB (341400 Bytes)</p>
+<p>[APP]Bootparams :</p>
+<p>url=&lt;null&gt;</p>
+<p>host= httpbin.org</p>
+<p>port=80</p>
+<p>path= /json</p>
+<p>secured= 0</p>
+<p>method= get</p>
+<p>ca_cert=&lt;null&gt;</p>
+<p>post_len=&lt;null&gt;</p>
+<p>test_iterations = &lt;null&gt;</p>
+<p>use_ca_bundle = &lt;null&gt;</p>
+<p>hdr1_name= &lt;null&gt; hdr1_val= &lt;null&gt;</p>
+<p>hdr2_name= &lt;null&gt; hdr2_val= &lt;null&gt;</p>
+<p>hdr3_name= &lt;null&gt; hdr3_val= &lt;null&gt;</p>
+<p>post_data= &lt;null&gt;</p>
+<p>post_data_file= &lt;null&gt;</p>
+<p>[APP]Bootparams end here….</p>
+<p>[APP]Bootparams check done….ret = 0</p>
+<p>addr e0:69:3a:00:13:90</p>
+<p>Connecting to added network : InnoPhase_AE_AP</p>
+<p>[2.268,551] CONNECT:98:da:c4:73:b7:76 Channel:2 rssi:-34 dBm</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS</p>
+<p>[4.141,896] MYIP 192.168.0.164</p>
+<p>[4.142,290] IPv6 [fe80::e269:3aff:fe00:1390]-link</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED</p>
+<p>Connected to added network : InnoPhase_AE_AP</p>
+<p>** Test Iterations = 1 **</p>
+<p>[APP]Calling http_client_open(). heap size = 267064</p>
+<p>[APP]Succes: HTTP connection done</p>
+<p>[APP]HTTP Get</p>
+<p>[APP]Response:</p>
+<p>429 ———————-</p>
+<p>200</p>
+<p>Date: Thu, 30 Jun 2022 11:00:36 GMT</p>
+<p>Content-Type: application/json</p>
+<p>Server: gunicorn/19.9.0</p>
+<p>Access-Control-Allow-Origin: *</p>
+<p>Access-Control-Allow-Credentials: true</p>
+<p>Accept-Ranges: none</p>
+<p>Content-Length: 429</p>
+<p>Via: HTTP/1.1 forward.http.proxy:3128</p>
+<p>Connection: keep-alive</p>
+<p>[APP]Body:</p>
+<p>{</p>
+<p>“slideshow”: {</p>
+<p>“author”: “Yours Truly”,</p>
+<p>“date”: “date of publication”,</p>
+<p>“slides”: [</p>
+<p>{</p>
+<p>“title”: “Wake up to WonderWidgets!”,</p>
+<p>“type”: “all”</p>
+<p>},</p>
+<p>{</p>
+<p>“items”: [</p>
+<p>“Why &lt;em&gt;WonderWidgets&lt;/em&gt; are great”,</p>
+<p>“Who &lt;em&gt;buys&lt;/em&gt; WonderWidgets”</p>
+<p>],</p>
+<p>“title”: “Overview”,</p>
+<p>“type”: “all”</p>
+<p>}</p>
+<p>],</p>
+<p>“title”: “Sample Slide Show”</p>
+<p>}</p>
+<p>}</p>
+<p>[APP]Success: http_client_get(), rval = 0</p>
+<p>[APP]—— Program Exit————-</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="example-boot-args-for-https-get-without-server-verification">
+<h2>Example boot args for HTTPS Get (without server verification)<a class="headerlink" href="#example-boot-args-for-https-get-without-server-verification" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ssid=&lt;ssid&gt;,passphrase=&lt;passphras
+e&gt;,host=httpbin.org,path=/json,port=443,secured=1,method=get,ca_cert=
+/data/httpbin_ca.pem</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWWAEBuild $Id: git-e8e189c6a $</p>
+<p>host=httpbin.org path=/json port=443 secured=1 method=get
+ca_cert=/data/httpbin_ca.pem np_conf_path=/data/nprofile.json
+ssid=InnoPhase_AE_AP passphrase=innophaseae</p>
+<p>$App:git-24f563c7</p>
+<p>SDK Ver: sdk_2.5</p>
+<p>Http Client Demo App</p>
+<p>Application Information:</p>
+<p>Name : HTTP application</p>
+<p>Version : 2.0</p>
+<p>Build Date : Jun 30 2022</p>
+<p>Build Time : 03:57:06</p>
+<p>Heap Available: 333 KB (341400 Bytes)</p>
+<p>[APP]Bootparams :</p>
+<p>url=&lt;null&gt;</p>
+<p>host= httpbin.org</p>
+<p>port=443</p>
+<p>path= /json</p>
+<p>secured= 1</p>
+<p>method= get</p>
+<p>ca_cert=/data/httpbin_ca.pem</p>
+<p>post_len=&lt;null&gt;</p>
+<p>test_iterations = &lt;null&gt;</p>
+<p>use_ca_bundle = &lt;null&gt;</p>
+<p>hdr1_name= &lt;null&gt; hdr1_val= &lt;null&gt;</p>
+<p>hdr2_name= &lt;null&gt; hdr2_val= &lt;null&gt;</p>
+<p>hdr3_name= &lt;null&gt; hdr3_val= &lt;null&gt;</p>
+<p>post_data= &lt;null&gt;</p>
+<p>post_data_file= &lt;null&gt;</p>
+<p>[APP]Bootparams end here….</p>
+<p>[APP]Bootparams check done….ret = 0</p>
+<p>addr e0:69:3a:00:13:90</p>
+<p>Connecting to added network : InnoPhase_AE_AP</p>
+<p>[2.257,011] CONNECT:98:da:c4:73:b7:76 Channel:2 rssi:-35 dBm</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS</p>
+<p>[4.167,747] MYIP 192.168.0.164</p>
+<p>[4.168,026] IPv6 [fe80::e269:3aff:fe00:1390]-link</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED</p>
+<p>Connected to added network : InnoPhase_AE_AP</p>
+<p>** Test Iterations = 1 **</p>
+<p>[APP]Calling http_client_open(). heap size = 267480</p>
+<p>. [SSL_WRAP]Checking input configurations…</p>
+<p>. [SSL_WRAP]Seeding the random number generator…</p>
+<p>. [SSL_WRAP]Connecting to tcp httpbin.org:443…</p>
+<p>. [SSL_WRAP]Setting up the SSL/TLS structure…</p>
+<p>. [SSL_WRAP]setting configurations..</p>
+<p>&gt;auth mode = 0 (0- skip, 1- optional, 2- required</p>
+<p>&gt;max fragment len = 0</p>
+<p>&gt;Handshake timeout = 30 Sec</p>
+<p>. [SSL_WRAP]Performing the SSL/TLS handshake…</p>
+<p>. [SSL_WRAP] Handshake done. ok</p>
+<p>. [SSL_WRAP]Verifying peer X.509 certificate.</p>
+<p>[APP]Succes: HTTP connection done</p>
+<p>[APP]HTTP Get</p>
+<p>[APP]Response:</p>
+<p>429 ———————-</p>
+<p>200</p>
+<p>Date: Thu, 30 Jun 2022 11:03:39 GMT</p>
+<p>Content-Type: application/json</p>
+<p>Content-Length: 429</p>
+<p>Connection: keep-alive</p>
+<p>Server: gunicorn/19.9.0</p>
+<p>Access-Control-Allow-Origin: *</p>
+<p>Access-Control-Allow-Credentials: true</p>
+<p>[APP]Body:</p>
+<p>{</p>
+<p>“slideshow”: {</p>
+<p>“author”: “Yours Truly”,</p>
+<p>“date”: “date of publication”,</p>
+<p>“slides”: [</p>
+<p>{</p>
+<p>“title”: “Wake up to WonderWidgets!”,</p>
+<p>“type”: “all”</p>
+<p>},</p>
+<p>{</p>
+<p>“items”: [</p>
+<p>“Why &lt;em&gt;WonderWidgets&lt;/em&gt; are great”,</p>
+<p>“Who &lt;em&gt;buys&lt;/em&gt; WonderWidgets”</p>
+<p>],</p>
+<p>“title”: “Overview”,</p>
+<p>“type”: “all”</p>
+<p>}</p>
+<p>],</p>
+<p>“title”: “Sample Slide Show”</p>
+<p>}</p>
+<p>}</p>
+<p>[APP]Success: http_client_get(), rval = 0</p>
+<p>[APP]—— Program Exit————-</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="example-boot-args-for-https-get-with-server-certificate-validation">
+<h2>Example boot args for HTTPS Get (with server certificate validation)<a class="headerlink" href="#example-boot-args-for-https-get-with-server-certificate-validation" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ssid=&lt;ssid&gt;,passphrase=&lt;passphrase&gt;,
+host=httpbin.org,path=/json,port=443,secured=2,method=get,ca_cert=
+/data/certs/https_client/app/httpbin_ca.pem, post_len=3000</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWAE</p>
+<p>Build $Id: git-e8e189c6a $</p>
+<p>hio.baudrate=921600</p>
+<p>flash: Gordon ready!</p>
+<p>UART:SNWWWWWAEBuild $Id: git-e8e189c6a $</p>
+<p>host=httpbin.org path=/json port=443 secured=2 method=get
+ca_cert=/data/certs/https_client/app/httpbin_ca.pem post_len=3000
+np_conf_path=/data/nprofile.json ssid=InnoPhase_AE_AP
+passphrase=innophaseae</p>
+<p>$App:git-24f563c7</p>
+<p>SDK Ver: sdk_2.5</p>
+<p>Http Client Demo App</p>
+<p>Application Information:</p>
+<p>Name : HTTP application</p>
+<p>Version : 2.0</p>
+<p>Build Date : Jun 30 2022</p>
+<p>Build Time : 03:57:06</p>
+<p>Heap Available: 333 KB (341400 Bytes)</p>
+<p>[APP]Bootparams :</p>
+<p>url=&lt;null&gt;</p>
+<p>host= httpbin.org</p>
+<p>port=443</p>
+<p>path= /json</p>
+<p>secured= 2</p>
+<p>method= get</p>
+<p>ca_cert=/data/certs/http_client/app/httpbin_ca.pem</p>
+<p>post_len=3000</p>
+<p>test_iterations = &lt;null&gt;</p>
+<p>use_ca_bundle = &lt;null&gt;</p>
+<p>hdr1_name= &lt;null&gt; hdr1_val= &lt;null&gt;</p>
+<p>hdr2_name= &lt;null&gt; hdr2_val= &lt;null&gt;</p>
+<p>hdr3_name= &lt;null&gt; hdr3_val= &lt;null&gt;</p>
+<p>post_data= &lt;null&gt;</p>
+<p>post_data_file= &lt;null&gt;</p>
+<p>[APP]Bootparams end here….</p>
+<p>[APP]Bootparams check done….ret = 0</p>
+<p>addr e0:69:3a:00:13:90</p>
+<p>Connecting to added network : InnoPhase_AE_AP</p>
+<p>[2.243,095] CONNECT:98:da:c4:73:b7:76 Channel:2 rssi:-28 dBm</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS</p>
+<p>[2.292,167] MYIP 192.168.0.164</p>
+<p>[2.292,445] IPv6 [fe80::e269:3aff:fe00:1390]-link</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED</p>
+<p>Connected to added network : InnoPhase_AE_AP</p>
+<p>** Test Iterations = 1 **</p>
+<p>[APP]Calling http_client_open(). heap size = 262352</p>
+<p>. [SSL_WRAP]Checking input configurations…</p>
+<p>. [SSL_WRAP]Seeding the random number generator…</p>
+<p>. [SSL_WRAP]Loading the CA root certificate …Cert Len = 4755</p>
+<p>. [SSL_WRAP]Connecting to tcp httpbin.org:443…</p>
+<p>. [SSL_WRAP]Setting up the SSL/TLS structure…</p>
+<p>. [SSL_WRAP]setting configurations..</p>
+<p>&gt;auth mode = 2 (0- skip, 1- optional, 2- required</p>
+<p>&gt;max fragment len = 0</p>
+<p>&gt;Handshake timeout = 30 Sec</p>
+<p>. [SSL_WRAP]Performing the SSL/TLS handshake…</p>
+<p>. [SSL_WRAP] Handshake done. ok</p>
+<p>. [SSL_WRAP]Verifying peer X.509 certificate.</p>
+<p>[APP]Succes: HTTP connection done</p>
+<p>[APP]HTTP Get</p>
+<p>[APP]Response:</p>
+<p>429 ———————-</p>
+<p>200</p>
+<p>Date: Thu, 30 Jun 2022 11:10:28 GMT</p>
+<p>Content-Type: application/json</p>
+<p>Content-Length: 429</p>
+<p>Connection: keep-alive</p>
+<p>Server: gunicorn/19.9.0</p>
+<p>Access-Control-Allow-Origin: *</p>
+<p>Access-Control-Allow-Credentials: true</p>
+<p>[APP]Body:</p>
+<p>{</p>
+<p>“slideshow”: {</p>
+<p>“author”: “Yours Truly”,</p>
+<p>“date”: “date of publication”,</p>
+<p>“slides”: [</p>
+<p>{</p>
+<p>“title”: “Wake up to WonderWidgets!”,</p>
+<p>“type”: “all”</p>
+<p>},</p>
+<p>{</p>
+<p>“items”: [</p>
+<p>“Why &lt;em&gt;WonderWidgets&lt;/em&gt; are great”,</p>
+<p>“Who &lt;em&gt;buys&lt;/em&gt; WonderWidgets”</p>
+<p>],</p>
+<p>“title”: “Overview”,</p>
+<p>“type”: “all”</p>
+<p>}</p>
+<p>],</p>
+<p>“title”: “Sample Slide Show”</p>
+<p>}</p>
+<p>}</p>
+<p>[APP]Success: http_client_get(), rval = 0</p>
+<p>[APP]—— Program Exit————-</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="example-boot-args-for-http-post-non-secure">
+<h2>Example boot args for HTTP Post (non-secure)<a class="headerlink" href="#example-boot-args-for-http-post-non-secure" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ssid=&lt;ssid&gt;,passphrase=&lt;passp
+hrase&gt;,host=httpbin.org,path=/anything,port=80,secured=0,method=post,
+post_len=100</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>:</p>
+<ol class="arabic simple">
+<li><p>If only post_len is provided, internally generated data of specified
+length is posted.</p></li>
+<li><p>Use post_data boot param to send a specific data. This data length is
+limited by the boot param max length.</p></li>
+<li><p>To send a file content as post data, place the file in the data fs
+and provide the file name using post_data_file boot param. Example,
+/data/postdata.txt. postdata.txt mist be part of the data fs</p></li>
+</ol>
+<p>Console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWAE</p>
+<p>Build $Id: git-e8e189c6a $</p>
+<p>hio.baudrate=921600</p>
+<p>flash: Gordon ready!</p>
+<p>UART:SNWWWWWAEBuild $Id: git-e8e189c6a $</p>
+<p>host=httpbin.org path=/anything port=80 secured=0 method=post
+post_len=100 np_conf_path=/data/nprofile.json ssid=InnoPhase_AE_AP
+passphrase=innophaseae</p>
+<p>$App:git-24f563c7</p>
+<p>SDK Ver: sdk_2.5</p>
+<p>Http Client Demo App</p>
+<p>Application Information:</p>
+<p>Name : HTTP application</p>
+<p>Version : 2.0</p>
+<p>Build Date : Jun 30 2022</p>
+<p>Build Time : 03:57:06</p>
+<p>Heap Available: 333 KB (341400 Bytes)</p>
+<p>[APP]Bootparams :</p>
+<p>url=&lt;null&gt;</p>
+<p>host= httpbin.org</p>
+<p>port=80</p>
+<p>path= /anything</p>
+<p>secured= 0</p>
+<p>method= post</p>
+<p>ca_cert=&lt;null&gt;</p>
+<p>post_len=100</p>
+<p>test_iterations = &lt;null&gt;</p>
+<p>use_ca_bundle = &lt;null&gt;</p>
+<p>hdr1_name= &lt;null&gt; hdr1_val= &lt;null&gt;</p>
+<p>hdr2_name= &lt;null&gt; hdr2_val= &lt;null&gt;</p>
+<p>hdr3_name= &lt;null&gt; hdr3_val= &lt;null&gt;</p>
+<p>post_data= &lt;null&gt;</p>
+<p>post_data_file= &lt;null&gt;</p>
+<p>[APP]Bootparams end here….</p>
+<p>[APP]Bootparams check done….ret = 0</p>
+<p>addr e0:69:3a:00:13:90</p>
+<p>Connecting to added network : InnoPhase_AE_AP</p>
+<p>[2.227,701] CONNECT:98:da:c4:73:b7:76 Channel:2 rssi:-22 dBm</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS</p>
+<p>[4.159,469] MYIP 192.168.0.164</p>
+<p>[4.159,632] IPv6 [fe80::e269:3aff:fe00:1390]-link</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED</p>
+<p>Connected to added network : InnoPhase_AE_AP</p>
+<p>** Test Iterations = 1 **</p>
+<p>[APP]Calling http_client_open(). heap size = 266264</p>
+<p>[APP]Succes: HTTP connection done</p>
+<p>[APP]HTTP Post</p>
+<p>[APP]Response:</p>
+<p>417 ———————-</p>
+<p>200</p>
+<p>Date: Thu, 30 Jun 2022 11:16:21 GMT</p>
+<p>Content-Type: application/json</p>
+<p>Server: gunicorn/19.9.0</p>
+<p>Access-Control-Allow-Origin: *</p>
+<p>Access-Control-Allow-Credentials: true</p>
+<p>Accept-Ranges: none</p>
+<p>Content-Length: 417</p>
+<p>Via: HTTP/1.1 forward.http.proxy:3128</p>
+<p>Connection: keep-alive</p>
+<p>[APP]Body:</p>
+<p>{</p>
+<p>“args”: {},</p>
+<p>“data”:
+“aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa”,</p>
+<p>“files”: {},</p>
+<p>“form”: {},</p>
+<p>“headers”: {</p>
+<p>“Content-Length”: “100”,</p>
+<p>“Host”: “httpbin.org”,</p>
+<p>“X-Amzn-Trace-Id”: “Root=1-62bd8605-3b2457fc69b14f6a4a57b854”</p>
+<p>},</p>
+<p>“json”: null,</p>
+<p>“method”: “POST”,</p>
+<p>“origin”: “106.51.65.237”,</p>
+<p>“url”: “<a class="reference external" href="http://httpbin.org/anything">http://httpbin.org/anything</a>”</p>
+<p>}</p>
+<p>[APP]Success: http_client_post(), rval = 0</p>
+<p>[APP]—— Program Exit————-</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="example-boot-args-for-https-post-without-server-verification">
+<h2>Example boot args for HTTPS Post (without server verification)<a class="headerlink" href="#example-boot-args-for-https-post-without-server-verification" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ssid=&lt;ssid&gt;,p
+assphrase=&lt;passphrase&gt;,host=httpbin.org,path=/anything,port=443,secur
+ed=1,method=post,ca_cert=/data/certs/https_client/app/httpbin_ca.pem,
+post_len=100</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWAE</p>
+<p>Build $Id: git-e8e189c6a $</p>
+<p>hio.baudrate=921600</p>
+<p>flash: Gordon ready!</p>
+<p>UART:SNWWWWWAEBuild $Id: git-e8e189c6a $</p>
+<p>host=httpbin.org path=/anything port=443 secured=1 method=post
+ca_cert=/data/certs/https_client/app/httpbin_ca.pem post_len=100
+np_conf_path=/data/nprofile.json ssid=InnoPhase_AE_AP
+passphrase=innophaseae</p>
+<p>$App:git-24f563c7</p>
+<p>SDK Ver: sdk_2.5</p>
+<p>Http Client Demo App</p>
+<p>Application Information:</p>
+<p>Name : HTTP application</p>
+<p>Version : 2.0</p>
+<p>Build Date : Jun 30 2022</p>
+<p>Build Time : 03:57:06</p>
+<p>Heap Available: 333 KB (341400 Bytes)</p>
+<p>[APP]Bootparams :</p>
+<p>url=&lt;null&gt;</p>
+<p>host= httpbin.org</p>
+<p>port=443</p>
+<p>path= /anything</p>
+<p>secured= 1</p>
+<p>method= post</p>
+<p>ca_cert=/data/certs/https_client/app/httpbin_ca.pem</p>
+<p>post_len=100</p>
+<p>test_iterations = &lt;null&gt;</p>
+<p>use_ca_bundle = &lt;null&gt;</p>
+<p>hdr1_name= &lt;null&gt; hdr1_val= &lt;null&gt;</p>
+<p>hdr2_name= &lt;null&gt; hdr2_val= &lt;null&gt;</p>
+<p>hdr3_name= &lt;null&gt; hdr3_val= &lt;null&gt;</p>
+<p>post_data= &lt;null&gt;</p>
+<p>post_data_file= &lt;null&gt;</p>
+<p>[APP]Bootparams end here….</p>
+<p>[APP]Bootparams check done….ret = 0</p>
+<p>addr e0:69:3a:00:13:90</p>
+<p>Connecting to added network : InnoPhase_AE_AP</p>
+<p>[2.202,306] CONNECT:98:da:c4:73:b7:76 Channel:2 rssi:-23 dBm</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS</p>
+<p>[2.256,650] MYIP 192.168.0.164</p>
+<p>[2.256,929] IPv6 [fe80::e269:3aff:fe00:1390]-link</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED</p>
+<p>Connected to added network : InnoPhase_AE_AP</p>
+<p>** Test Iterations = 1 **</p>
+<p>[APP]Calling http_client_open(). heap size = 267480</p>
+<p>. [SSL_WRAP]Checking input configurations…</p>
+<p>. [SSL_WRAP]Seeding the random number generator…</p>
+<p>. [SSL_WRAP]Connecting to tcp httpbin.org:443…</p>
+<p>. [SSL_WRAP]Setting up the SSL/TLS structure…</p>
+<p>. [SSL_WRAP]setting configurations..</p>
+<p>&gt;auth mode = 0 (0- skip, 1- optional, 2- required</p>
+<p>&gt;max fragment len = 0</p>
+<p>&gt;Handshake timeout = 30 Sec</p>
+<p>. [SSL_WRAP]Performing the SSL/TLS handshake…</p>
+<p>. [SSL_WRAP] Handshake done. ok</p>
+<p>. [SSL_WRAP]Verifying peer X.509 certificate.</p>
+<p>[APP]Succes: HTTP connection done</p>
+<p>[APP]HTTP Post</p>
+<p>[APP]Response:</p>
+<p>418 ———————-</p>
+<p>200</p>
+<p>Date: Thu, 30 Jun 2022 11:20:33 GMT</p>
+<p>Content-Type: application/json</p>
+<p>Content-Length: 418</p>
+<p>Connection: keep-alive</p>
+<p>Server: gunicorn/19.9.0</p>
+<p>Access-Control-Allow-Origin: *</p>
+<p>Access-Control-Allow-Credentials: true</p>
+<p>[APP]Body:</p>
+<p>{</p>
+<p>“args”: {},</p>
+<p>“data”:
+“aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa”,</p>
+<p>“files”: {},</p>
+<p>“form”: {},</p>
+<p>“headers”: {</p>
+<p>“Content-Length”: “100”,</p>
+<p>“Host”: “httpbin.org”,</p>
+<p>“X-Amzn-Trace-Id”: “Root=1-62bd8700-447fdf8419d52d3223976937”</p>
+<p>},</p>
+<p>“json”: null,</p>
+<p>“method”: “POST”,</p>
+<p>“origin”: “106.51.65.237”,</p>
+<p>“url”: “<a class="reference external" href="https://httpbin.org/anything">https://httpbin.org/anything</a>”</p>
+<p>}</p>
+<p>[APP]Success: http_client_post(), rval = 0</p>
+<p>[APP]—— Program Exit————-</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="example-boot-args-for-https-post-with-server-certificate-validation">
+<h2>Example boot args for HTTPS Post (with server certificate validation)<a class="headerlink" href="#example-boot-args-for-https-post-with-server-certificate-validation" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ssid=&lt;ssid&gt;,p
+assphrase=&lt;passphrase&gt;,host=httpbin.org,path=/anything,port=443,secur
+ed=2,method=post,ca_cert=/data/certs/https_client/app/httpbin_ca.pem,
+post_len=100</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWAE</p>
+<p>Build $Id: git-e8e189c6a $</p>
+<p>hio.baudrate=921600</p>
+<p>flash: Gordon ready!</p>
+<p>UART:SNWWWWWAEBuild $Id: git-e8e189c6a $</p>
+<p>host=httpbin.org path=/anything port=443 secured=2 method=post
+ca_cert=/data/certs/http_client/app/httpbin_ca.pem post_len=100
+np_conf_path=/data/nprofile.json ssid=InnoPhase_AE_AP
+passphrase=innophaseae</p>
+<p>$App:git-24f563c7</p>
+<p>SDK Ver: sdk_2.5</p>
+<p>Http Client Demo App</p>
+<p>Application Information:</p>
+<p>Name : HTTP application</p>
+<p>Version : 2.0</p>
+<p>Build Date : Jun 30 2022</p>
+<p>Build Time : 03:57:06</p>
+<p>Heap Available: 333 KB (341400 Bytes)</p>
+<p>[APP]Bootparams :</p>
+<p>url=&lt;null&gt;</p>
+<p>host= httpbin.org</p>
+<p>port=443</p>
+<p>path= /anything</p>
+<p>secured= 2</p>
+<p>method= post</p>
+<p>ca_cert=/data/certs/http_client/app/httpbin_ca.pem</p>
+<p>post_len=100</p>
+<p>test_iterations = &lt;null&gt;</p>
+<p>use_ca_bundle = &lt;null&gt;</p>
+<p>hdr1_name= &lt;null&gt; hdr1_val= &lt;null&gt;</p>
+<p>hdr2_name= &lt;null&gt; hdr2_val= &lt;null&gt;</p>
+<p>hdr3_name= &lt;null&gt; hdr3_val= &lt;null&gt;</p>
+<p>post_data= &lt;null&gt;</p>
+<p>post_data_file= &lt;null&gt;</p>
+<p>[APP]Bootparams end here….</p>
+<p>[APP]Bootparams check done….ret = 0</p>
+<p>addr e0:69:3a:00:13:90</p>
+<p>Connecting to added network : InnoPhase_AE_AP</p>
+<p>[2.234,811] CONNECT:98:da:c4:73:b7:76 Channel:2 rssi:-32 dBm</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS</p>
+<p>[2.279,255] MYIP 192.168.0.164</p>
+<p>[2.279,534] IPv6 [fe80::e269:3aff:fe00:1390]-link</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED</p>
+<p>Connected to added network : InnoPhase_AE_AP</p>
+<p>** Test Iterations = 1 **</p>
+<p>[APP]Calling http_client_open(). heap size = 262416</p>
+<p>. [SSL_WRAP]Checking input configurations…</p>
+<p>. [SSL_WRAP]Seeding the random number generator…</p>
+<p>. [SSL_WRAP]Loading the CA root certificate …Cert Len = 4755</p>
+<p>. [SSL_WRAP]Connecting to tcp httpbin.org:443…</p>
+<p>. [SSL_WRAP]Setting up the SSL/TLS structure…</p>
+<p>. [SSL_WRAP]setting configurations..</p>
+<p>&gt;auth mode = 2 (0- skip, 1- optional, 2- required</p>
+<p>&gt;max fragment len = 0</p>
+<p>&gt;Handshake timeout = 30 Sec</p>
+<p>. [SSL_WRAP]Performing the SSL/TLS handshake…</p>
+<p>. [SSL_WRAP] Handshake done. ok</p>
+<p>. [SSL_WRAP]Verifying peer X.509 certificate.</p>
+<p>[APP]Succes: HTTP connection done</p>
+<p>[APP]HTTP Post</p>
+<p>[APP]Response:</p>
+<p>418 ———————-</p>
+<p>200</p>
+<p>Date: Thu, 30 Jun 2022 11:58:20 GMT</p>
+<p>Content-Type: application/json</p>
+<p>Content-Length: 418</p>
+<p>Connection: keep-alive</p>
+<p>Server: gunicorn/19.9.0</p>
+<p>Access-Control-Allow-Origin: *</p>
+<p>Access-Control-Allow-Credentials: true</p>
+<p>[APP]Body:</p>
+<p>{</p>
+<p>“args”: {},</p>
+<p>“data”:
+“aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa”,</p>
+<p>“files”: {},</p>
+<p>“form”: {},</p>
+<p>“headers”: {</p>
+<p>“Content-Length”: “100”,</p>
+<p>“Host”: “httpbin.org”,</p>
+<p>“X-Amzn-Trace-Id”: “Root=1-62bd8fdc-05a5d68d133b62c8333f28b7”</p>
+<p>},</p>
+<p>“json”: null,</p>
+<p>“method”: “POST”,</p>
+<p>“origin”: “106.51.65.237”,</p>
+<p>“url”: “<a class="reference external" href="https://httpbin.org/anything">https://httpbin.org/anything</a>”</p>
+<p>}</p>
+<p>[APP]Success: http_client_post(), rval = 0</p>
+<p>[APP]—— Program Exit————-</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Host%20Interface%20Protocol.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="I2C.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

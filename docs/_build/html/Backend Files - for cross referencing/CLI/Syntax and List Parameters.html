@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLI Command Syntax and List Parameters &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Use Cases" href="Use%20Cases.html" />
+    <link rel="prev" title="Primary Scripts for CLI Operations" href="Primary%20Scripts%20for%20CLI%20Operations.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Getting_Started_Landing_page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Software_Reference/Prerequisites/libusbK_driver-Zadig.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Development_Environments/Development_Environments.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Tools/Tools_Landing.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Applications/Applications-Landing_Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">Regulatory Notice</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../Backend%20File%20Landing.html">Backend Files - for cross referencing</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../Backend%20File%20Landing.html#cli">CLI</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Command%20Line%20Interface%20-%20Landing.html">Command Line Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Device%20Interface%20on%20Host%20Machine.html">Device Interface on Host Machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Primary%20Scripts%20for%20CLI%20Operations.html">Primary Scripts for CLI Operations</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">CLI Command Syntax and List Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#using-boot-py">Using boot.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-flash-py">Using flash.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-storage-py">Using storage.py</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Use%20Cases.html">Use Cases</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Backend%20File%20Landing.html#coredump">Coredump</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Backend%20File%20Landing.html#debugging-using-gdb">Debugging using GDB</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../Backend%20File%20Landing.html">Backend Files - for cross referencing</a></li>
+      <li class="breadcrumb-item active">CLI Command Syntax and List Parameters</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Backend Files - for cross referencing/CLI/Syntax and List Parameters.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cli-command-syntax-and-list-parameters">
+<h1>CLI Command Syntax and List Parameters<a class="headerlink" href="#cli-command-syntax-and-list-parameters" title="Permalink to this heading"></a></h1>
+<p>All commands with arguments are entered in a space-separated fashion.</p>
+<p>Positional and Optional Arguments</p>
+<p>Arguments should be passed on to the app to be loaded into the Talaria
+TWO device with the script. There are two different types of arguments:</p>
+<ol class="arabic simple">
+<li><p>Positional Arguments</p></li>
+</ol>
+<p>Positional arguments must be included in the right order. Their
+positions in the sequence should be correct.</p>
+<ol class="arabic simple" start="2">
+<li><p>Optional Arguments</p></li>
+</ol>
+<p>Optional arguments are optional. Defaults will be used when the
+arguments are not specified in the command line.</p>
+<section id="using-boot-py">
+<h2>Using boot.py<a class="headerlink" href="#using-boot-py" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Command syntax to run boot.py</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>&lt;path_script&gt;/boot.py [device] &lt;path_app_elf&gt;/app.elf [boot_args]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="2">
+<li><p>where,</p>
+<ol class="loweralpha simple">
+<li><p>&lt;path_script&gt;: Path to the script file. Default: Current folder</p></li>
+<li><p>[device]: Communication device ID with path.</p>
+<ol class="lowerroman simple">
+<li><p>If there is only one Talaria TWO device with USB interface
+connected:</p></li>
+<li><p>Examples: COMn(Windows), /dev/ttyUSBn(Linux),
+ftdi://ftdi:xxxxxx(Windows libusbK installed).</p></li>
+<li><p>If there are multiple Talaria TWO devices where each of them
+has their own peripheral port connected to the host via the
+USB interface:</p></li>
+<li><p>The device specifier must be expanded with the serial ID of
+the device in the command line. This is accomplished with the
+keyword –SN. Execute the following:</p></li>
+<li><p>Command for device ID to the device port as shown above with
+the string is as follows:</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py –device /dev/ttyUSB2 –SN 15100010 –reset=evk42
+apps/iperf3/bin/iperf3.elf ssid=InnoPhase <a class="reference external" href="mailto:passphrase=Inno&#37;&#52;&#48;9070">passphrase=Inno<span>&#64;</span>9070</a></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>Refer section <a class="reference external" href="#_Device_Interface_on">Device Interface on Host
+Machine</a> for information on multiple device
+connection on the host machine (Linux and Windows).</p>
+<p>Default: Windows-none, Linux-/dev/ttyUSB2</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>&lt;path_app_elf&gt;: Path to the app ELF file</p></li>
+<li><p>[boot_args]: Bootargs. Examples: ssid=InnoPhase, <a class="reference external" href="mailto:passphrase=Inno&#37;&#52;&#48;9070">passphrase=Inno<span>&#64;</span>9070</a></p></li>
+</ol>
+<p>Examples:</p>
+<ol class="arabic simple">
+<li><p>If there is only one Talaria TWO device with USB interface connected:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Note: A single line command</p>
+<p>./script/boot.py –device /dev/ttyUSB2 –reset=evk42
+apps/iperf3/bin/iperf3.elf ssid=InnoPhase <a class="reference external" href="mailto:passphrase=Inno&#37;&#52;&#48;9070">passphrase=Inno<span>&#64;</span>9070</a></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="2">
+<li><p>If there are multiple Talaria TWO devices connected:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Note: A single line command</p>
+<p>./script/boot.py –device /dev/ttyUSB2 –SN 15100010 –reset=evk42
+apps/iperf3/bin/iperf3.elf ssid=InnoPhase <a class="reference external" href="mailto:passphrase=Inno&#37;&#52;&#48;9070">passphrase=Inno<span>&#64;</span>9070</a></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>List Parameters (Manual in Script)</p>
+<p>Type boot.py –help to bring up the manual of the boot.py command list:</p>
+<p><a class="reference internal" href="../../_images/image110.png"><img alt="Text Description automatically generated" src="../../_images/image110.png" style="width: 5.90551in; height: 5.8465in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image210.png"><img alt="A computer screen with white text Description automatically generated" src="../../_images/image210.png" style="width: 5.90694in; height: 1.94028in;" /></a></p>
+<p>Figure 13: boot.py - command list</p>
+</section>
+<section id="using-flash-py">
+<h2>Using flash.py<a class="headerlink" href="#using-flash-py" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Command syntax to run flash.py</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>&lt;path_script&gt;/flash.py [device] &lt;pos_arg&gt; [boot_args]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>where:</p>
+<ol class="loweralpha simple">
+<li><p>&lt;path_script&gt;: Path to the script file. Default: Current folder</p></li>
+<li><p>[device]: Communication device ID with path.</p></li>
+</ol>
+<blockquote>
+<div><p>For example: COMn(Windows), /dev/ttyUSBn(Linux),
+ftdi://ftdi:xxxxxx(Windows libusbK installed).</p>
+<p>Default: Windows-none, Linux-/dev/ttyUSB2</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="3">
+<li><p>&lt;pos_arg&gt;: Positional argument</p></li>
+<li><p>[boot_args]: Bootargs</p></li>
+</ol>
+<p>Example:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/flash.py –device /dev/ttyUSB2 to_json ./brd_0183_part.json</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="2">
+<li><p>List Parameters (Manual in Script)</p></li>
+</ol>
+<p>Type flash.py –help to bring up the manual of the flash.py command
+list:</p>
+<p><a class="reference internal" href="../../_images/image32.png"><img alt="image1" src="../../_images/image32.png" style="width: 5.84648in; height: 5.83038in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image42.png"><img alt="A screenshot of a computer program Description automatically generated" src="../../_images/image42.png" style="width: 5.86736in; height: 2.00694in;" /></a></p>
+<p>Figure 14: flash.py - command list</p>
+</section>
+<section id="using-storage-py">
+<h2>Using storage.py<a class="headerlink" href="#using-storage-py" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Command syntax to run storage.py</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>&lt;path_script&gt;/storage.py [device] &lt;pos_arg&gt; [boot_args]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>where:</p>
+<ol class="loweralpha simple">
+<li><p>&lt;path_script&gt;: Path to the script file. Default: Current folder</p></li>
+<li><p>[device]: Communication device ID with path.</p></li>
+</ol>
+<blockquote>
+<div><p>For example: COMn, /dev/ttyUSBn, ftdi://ftdi:xxxxxx. Default:
+Windows-none, Linux-/dev/ttyUSB2</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="3">
+<li><p>&lt;pos_arg&gt;: Positional argument</p></li>
+<li><p>[boot_args]: Bootargs</p></li>
+</ol>
+<p>Example:</p>
+<p>Connect to the Access Point configured in your <strong>nprofile.json</strong> as</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/storage.py write nprofile.json /data/ nprofile.json</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="2">
+<li><p>List Parameters (Manual in Script)</p></li>
+</ol>
+<p>Type storage.py –help to bring up the manual of the storage.py command
+list:</p>
+<p><a class="reference internal" href="../../_images/image52.png"><img alt="image2" src="../../_images/image52.png" style="width: 5.90551in; height: 5.04929in;" /></a></p>
+<p>Figure 15: storage.py command script</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Primary%20Scripts%20for%20CLI%20Operations.html" class="btn btn-neutral float-left" title="Primary Scripts for CLI Operations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Use%20Cases.html" class="btn btn-neutral float-right" title="Use Cases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

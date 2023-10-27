@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Overview" href="Analog%20to%20Digital%20Converter.html" />
+    <link rel="prev" title="Applications" href="Applications-Landing_Page.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Getting_Started_Landing_page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Software_Reference/Prerequisites/libusbK_driver-Zadig.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Development_Environments/Development_Environments.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Tools/Tools_Landing.html">Tools</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="Applications-Landing_Page.html">Applications</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="Applications-Landing_Page.html#alarm">1.  Alarm</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#relevant-apis">Relevant APIs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#alarm-init">alarm_init()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alarm-set-time">alarm_set_time ()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sntp-setservername">sntp_setservername ()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sntp-init">sntp_init()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sntp-stop">sntp_stop ()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uart-puts">uart_puts ()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uart-flush">uart_flush()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uart-close">uart_close()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uart-getchar">uart_getchar()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uart-putchar">uart_putchar()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uart-set-event-callback">uart_set_event_callback()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#code-walkthrough">Code Walkthrough</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#connecting-to-a-wi-fi-network">Connecting to a Wi-Fi network</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#validating-date">Validating Date</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#validating-time">Validating Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-ntp-time">Get NTP time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#read-input-string-from-uart">Read Input String from UART</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alarm-callback">Alarm Callback</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alarm-display-callback">Alarm Display Callback</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#suspend-the-system">Suspend the System</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cases-supporting-the-alarm-menu">Cases Supporting the Alarm Menu</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#case-0-sleep-mode">Case 0: Sleep Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#case-1-wi-fi-connection-status">Case 1: Wi-Fi Connection Status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#case-2-system-time">Case 2: System Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#case-3-system-date-and-time">Case 3: System Date and Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#case-4-set-system-time">Case 4: Set System Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#case-5-set-system-time-in-seconds">Case 5: Set System Time in Seconds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#case-6-set-the-alarm">Case 6: Set the Alarm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#case-7-delete-the-alarm">Case 7: Delete the Alarm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#case-8-display-configured-alarm">Case 8: Display Configured Alarm</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-application">Running the Application</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#programming-talaria-two">Programming Talaria TWO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expected-output">Expected Output</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#evaluating-the-application">Evaluating the Application</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#put-system-in-sleep-mode">Put System in Sleep Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-ntp-time-1">Get NTP Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-system-time">Get System Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-system-date-and-time">Get System Date and Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#set-system-time-with-ntp-time">Set System Time with NTP Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#set-system-time-seconds">Set System Time (Seconds)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#set-alarm">Set Alarm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#delete-alarm">Delete Alarm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#display-all-alarms">Display All Alarms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alarm-expiry">Alarm Expiry</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#analog-to-digital-converter">2.  Analog to Digital Converter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#audio-over-i2s">3.  Audio over I2S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-5-0">4.  BLE 5.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-beacons">3.  BLE Beacons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ble-wi-fi-bridge">4.  BLE Wi-Fi Bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#chip-monitor">5.  Chip Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#crash-handling">6.  Crash Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#custom-atcmdlib">6.  Custom ATCMDLIB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#filesystem">7.  Filesystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#firmware-over-the-air-upgrade">8.  Firmware Over the Air Upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#gpio">9.  GPIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#host-interface-protocol">10. Host Interface Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#http-client">11. HTTP Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#i2c">12. I2C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ifttt">13. IFTTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#iot-aws">14. IoT AWS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#iot-azure">15. IoT Azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#low-power-scan">16. Low Power Scan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#low-power-uart">17. Low Power UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#mdns">18. mDNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#memory-management-and-error-handling">19.  Memory Management and Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#message-queues">20.  Message Queues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#mqtt">21.  MQTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#provisioning">22.  Provisioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#pulse-width-modulation">23.  Pulse Width Modulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#radio-and-module-parameters">24. Radio and Module Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#secure-files">25. Secure Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#simple-network-time-protocol">26.  Simple Network Time Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#sleep-enable-disable">27.  Sleep Enable Disable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#socket-wakeup">28. Socket Wakeup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#software-spi-master">29. Software SPI Master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#spi-flash">30. SPI Flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#ssbl">31. SSBL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#thread-and-semaphores">32.  Thread and Semaphores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#throughput-measurement">32.  Throughput Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#timers-and-callouts">33. Timers and Callouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#unassociated-mode">34. Unassociated Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#using-wi-fi">35. Using Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#watchdog-timer">36. Watchdog Timer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#websocket-client">37. Websocket Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#wi-fi-connection-manager-multi-ap">38. Wi-Fi Connection Manager Multi-AP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#wi-fi-power-management">39. Wi-Fi Power Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Applications-Landing_Page.html#work-queues">40. Work Queues</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Regulatory%20Notices/Regulatory%20Notices.html">Regulatory Notice</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Backend%20Files%20-%20for%20cross%20referencing/Backend%20File%20Landing.html">Backend Files - for cross referencing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="Applications-Landing_Page.html">Applications</a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Applications/Alarm.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h1>
+<p>Alarm provides the mechanism to schedule activities for the future which
+occur periodically or are executed at once. This application note
+demonstrates the alarm functionality in Talaria TWO.</p>
+</section>
+<section id="relevant-apis">
+<h1>Relevant APIs<a class="headerlink" href="#relevant-apis" title="Permalink to this heading"></a></h1>
+<section id="alarm-init">
+<h2>alarm_init()<a class="headerlink" href="#alarm-init" title="Permalink to this heading"></a></h2>
+<p>Initializes the alarm.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>alarm_init();</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="alarm-set-time">
+<h2>alarm_set_time ()<a class="headerlink" href="#alarm-set-time" title="Permalink to this heading"></a></h2>
+<p>Sets the system time.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>alarm_set_time ();</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sntp-setservername">
+<h2>sntp_setservername ()<a class="headerlink" href="#sntp-setservername" title="Permalink to this heading"></a></h2>
+<p>Initializes one of the NTP servers via the IP address of the Talaria TWO
+module.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>sntp_setservername ();</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sntp-init">
+<h2>sntp_init()<a class="headerlink" href="#sntp-init" title="Permalink to this heading"></a></h2>
+<p>Initializes the SNTP of the Talaria TWO module. It sends out a request
+instantly or after sntp_startup_delay(func).</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>sntp_init ();</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sntp-stop">
+<h2>sntp_stop ()<a class="headerlink" href="#sntp-stop" title="Permalink to this heading"></a></h2>
+<p>Stops the Talaria TWO module.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>sntp_stop ();</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="uart-puts">
+<h2>uart_puts ()<a class="headerlink" href="#uart-puts" title="Permalink to this heading"></a></h2>
+<p>Writes a string to the serial port.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>uart_puts ();</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="uart-flush">
+<h2>uart_flush()<a class="headerlink" href="#uart-flush" title="Permalink to this heading"></a></h2>
+<p>Flushes the output buffer.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>uart_flush();</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="uart-close">
+<h2>uart_close()<a class="headerlink" href="#uart-close" title="Permalink to this heading"></a></h2>
+<p>Closes the serial port.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>uart_close();</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="uart-getchar">
+<h2>uart_getchar()<a class="headerlink" href="#uart-getchar" title="Permalink to this heading"></a></h2>
+<p>Reads one character from the serial port.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>uart_getchar ();</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="uart-putchar">
+<h2>uart_putchar()<a class="headerlink" href="#uart-putchar" title="Permalink to this heading"></a></h2>
+<p>Writes one character to the serial port.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>uart_putchar();</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="uart-set-event-callback">
+<h2>uart_set_event_callback()<a class="headerlink" href="#uart-set-event-callback" title="Permalink to this heading"></a></h2>
+<p>Sets event callback.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>uart_set_event_callback();</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="code-walkthrough">
+<h1>Code Walkthrough<a class="headerlink" href="#code-walkthrough" title="Permalink to this heading"></a></h1>
+<section id="connecting-to-a-wi-fi-network">
+<h2>Connecting to a Wi-Fi network<a class="headerlink" href="#connecting-to-a-wi-fi-network" title="Permalink to this heading"></a></h2>
+<p>To connect to a Wi-Fi network, wcm_create()API from the Wi-Fi Connection
+Manager are used. Initially, the Wi-Fi network interface is created
+using wcm_create().</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>h = wcm_create(NULL);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>wcm_connect_to_network()reads the configurations and connects to
+network.</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>rval = wifi_connect_to_network(&amp;h, WCM_CONN_WAIT_INFINITE,
+&amp;wcm_connect_success);</p>
+<p>if(rval &lt; 0) {</p>
+<p>os_printf(”\nError: Unable to connect to network\n”);</p>
+<p>return 0;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="validating-date">
+<h2>Validating Date<a class="headerlink" href="#validating-date" title="Permalink to this heading"></a></h2>
+<p>validdate_date() validates the date in month, year, and date, and
+returns informing whether the parameters which are set are valid or not.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void sntp_setservername(u8_t idx, char *server);</p>
+<p>uint8_t validdate_date(uint32_t yy,uint32_t mm,uint32_t dd)</p>
+<p>{</p>
+<p>//check year</p>
+<p>if(yy&gt;=1900 &amp;&amp; yy&lt;=9999)</p>
+<p>{</p>
+<p>//check month</p>
+<p>if(mm&gt;=1 &amp;&amp; mm&lt;=12)</p>
+<p>{</p>
+<p>//check days</p>
+<p>if((dd&gt;=1 &amp;&amp; dd&lt;=31) &amp;&amp; (mm==1 || mm==3 || mm==5 || mm==7 ||
+mm==8 || mm==10 || mm==12))</p>
+<p>os_printf(“Date is valid.\n”);</p>
+<p>else if((dd&gt;=1 &amp;&amp; dd&lt;=30) &amp;&amp; (mm==4 || mm==6 || mm==9 ||
+mm==11))</p>
+<p>os_printf(“Date is valid.\n”);</p>
+<p>else if((dd&gt;=1 &amp;&amp; dd&lt;=28) &amp;&amp; (mm==2))</p>
+<p>os_printf(“Date is valid.\n”);</p>
+<p>else if(dd==29 &amp;&amp; mm==2 &amp;&amp; (yy%400==0 ||(yy%4==0 &amp;&amp; yy%100!=0)))</p>
+<p>os_printf(“Date is valid.\n”);</p>
+<p>else</p>
+<p>{</p>
+<p>os_printf(“Day is invalid.\n”);</p>
+<p>return 1;</p>
+<p>}</p>
+<p>}</p>
+<p>else</p>
+<p>{</p>
+<p>printf(“Month is not valid.\n”);</p>
+<p>return 1;</p>
+<p>}</p>
+<p>}</p>
+<p>else</p>
+<p>{</p>
+<p>return 1;</p>
+<p>}</p>
+<p>return 0;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="validating-time">
+<h2>Validating Time<a class="headerlink" href="#validating-time" title="Permalink to this heading"></a></h2>
+<p>validdate_time() validates the time in hour, minute, and seconds.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>uint8_t validdate_time(int32_t hh, int32_t mi, int32_t se)</p>
+<p>{</p>
+<p>if((hh &lt; 0 || hh &gt;23 ) || (mi &lt; 0 || mi &gt; 59) ||(se &lt; 0 ||
+se &gt; 59)) {</p>
+<p>os_printf(“Time is Not valid.\n”);</p>
+<p>return 1;</p>
+<p>}</p>
+<p>else {</p>
+<p>os_printf(“Time is valid.\n”);</p>
+<p>return 0;</p>
+<p>}</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="get-ntp-time">
+<h2>Get NTP time<a class="headerlink" href="#get-ntp-time" title="Permalink to this heading"></a></h2>
+<p>ntp_time_get()is used to get the NTP time. Here, sntp_setservername()
+initializes one of the NTP servers via the IP address of the Talaria TWO
+module and then sntp_init() initializes the SNTP of the Talaria TWO
+module.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>unsigned int ntp_time_get()</p>
+<p>{</p>
+<p>int times = 0;</p>
+<p>unsigned int time_now;</p>
+<p>if(NULL != ntp_srv_name)</p>
+<p>sntp_setservername(0, (char *)ntp_srv_name);</p>
+<p>sntp_init();</p>
+<p>do {</p>
+<p>os_printf(“waiting for sntp, times=%d\n”, times++);</p>
+<p>time_now = sntp_time();</p>
+<p>if(time_now == 0 &amp;&amp; times &lt; 16) {</p>
+<p>os_sleep_us(2000000, OS_TIMEOUT_NO_WAKEUP);</p>
+<p>continue;</p>
+<p>}</p>
+<p>else</p>
+<p>break;</p>
+<p>} while(time_now == 0 &amp;&amp; times &lt; 10);</p>
+<p>sntp_stop();</p>
+<p>return time_now;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="read-input-string-from-uart">
+<h2>Read Input String from UART<a class="headerlink" href="#read-input-string-from-uart" title="Permalink to this heading"></a></h2>
+<p>uart_getchar() and uart_putchar()reads and writes one character from
+serial port.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void get_string(uint8_t *buffer, uint32_t len)</p>
+<p>{</p>
+<p>int ch;</p>
+<p>int chindex = 0;</p>
+<p>uint8_t *ptr = buffer;</p>
+<p>while(chindex &lt; len) {</p>
+<p>ch = uart_getchar(uarthandle);</p>
+<p>if(ch == ‘\r’ || ch == ‘\n’) {</p>
+<p>ptr[chindex++] = ‘\0’;</p>
+<p>return;</p>
+<p>}</p>
+<p>else if(ch == ‘\b’)</p>
+<p>{</p>
+<p>uart_putchar(uarthandle, ch);</p>
+<p>uart_putchar(uarthandle, ‘ ‘);</p>
+<p>uart_putchar(uarthandle, ch);</p>
+<p>chindex–;</p>
+<p>}</p>
+<p>else {</p>
+<p>uart_putchar(uarthandle, ch);</p>
+<p>ptr[chindex++] = ch;</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="alarm-callback">
+<h2>Alarm Callback<a class="headerlink" href="#alarm-callback" title="Permalink to this heading"></a></h2>
+<p>User defined function alarm_user_cb()is used to set the alarm ID and the
+argument. It prints the alarm ID and name, once the alarm is set.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void</p>
+<p>alarm_user_cb(uint32_t id , uint8_t *arg)</p>
+<p>{</p>
+<p>char buffer[128];</p>
+<p>os_printf(“alarm_user_cb”);</p>
+<p>snprintf(buffer, 256, “\r\n *****Alarm:Id-%d:Name=%s *****”, id,
+arg);</p>
+<p>uart_puts(uarthandle, buffer);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="alarm-display-callback">
+<h2>Alarm Display Callback<a class="headerlink" href="#alarm-display-callback" title="Permalink to this heading"></a></h2>
+<p>User defined function alarm_display_cd() is used to display the alarm
+information by printing the following:</p>
+<ol class="arabic simple">
+<li><p>Alarm ID</p></li>
+<li><p>Name</p></li>
+<li><p>Time</p></li>
+<li><p>Type</p></li>
+<li><p>If it is a repeating alarm or not.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void</p>
+<p>alarm_display_cb(struct alarm_info *ainfo)</p>
+<p>{</p>
+<p>os_printf(“alarm_display_cb”);</p>
+<p>snprintf((char *)buffer, 256,” \r\nAlarm ID:%d
+\r\nnName:%s\r\nAlarm Time:%s\r\nAlarm
+Type:%s\r\nRepeat:%s\r\n”,</p>
+<p>ainfo-&gt;alarm_id, ainfo-&gt;alarm_name, time_tostr((time_t
+*)&amp;ainfo-&gt;alarm_timesec),</p>
+<p>(ainfo-&gt;alarm_type == ALARM_TYPE_DAILY) ?”DAILY”:”WEEKLY”,</p>
+<p>(ainfo-&gt;alarm_repeat == 1) ? “Yes”:”No”);</p>
+<p>uart_puts(uarthandle, buffer);</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="suspend-the-system">
+<h2>Suspend the System<a class="headerlink" href="#suspend-the-system" title="Permalink to this heading"></a></h2>
+<p>uart_suspend_enable()enables suspend and waits for the system to wakeup,
+where os_sleep_us() suspends execution for the specified number of
+microseconds and uart_flush() flushes the output buffer.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static void</p>
+<p>uart_suspend_wait(struct uart *u)</p>
+<p>{</p>
+<p>suspend=1;</p>
+<p>uart_suspend_enable(uarthandle);</p>
+<p>while(suspend)</p>
+<p>{</p>
+<p>os_sem_wait(&amp;suspend_lock);</p>
+<p>if(suspend)</p>
+<p>uart_suspend_enable(uarthandle);</p>
+<p>};</p>
+<p>os_sleep_us(100000, OS_TIMEOUT_NO_WAKEUP);</p>
+<p>uart_flush(uarthandle);</p>
+<p>uart_close(uarthandle);</p>
+<p>uarthandle = uart_open(115200);</p>
+<p>uart_puts(uarthandle, “Out of Sleep !!\r\n”);</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="cases-supporting-the-alarm-menu">
+<h1>Cases Supporting the Alarm Menu<a class="headerlink" href="#cases-supporting-the-alarm-menu" title="Permalink to this heading"></a></h1>
+<section id="case-0-sleep-mode">
+<h2>Case 0: Sleep Mode<a class="headerlink" href="#case-0-sleep-mode" title="Permalink to this heading"></a></h2>
+<p>Puts Talaria TWO in sleep mode.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>case 0: /*Sleep*/</p>
+<p>{</p>
+<p>uart_flush(uarthandle);</p>
+<p>uart_set_event_callback(uarthandle, handle_event, NULL);</p>
+<p>uart_suspend_wait(uarthandle);</p>
+<p>break;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="case-1-wi-fi-connection-status">
+<h2>Case 1: Wi-Fi Connection Status<a class="headerlink" href="#case-1-wi-fi-connection-status" title="Permalink to this heading"></a></h2>
+<p>Checks for Wi-Fi connection status. If the link is up, then by using
+ntp_time_get() NTP time in seconds will be printed. However, if the
+Wi-Fi link is down, ntp_time_get() fails.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>case 1: /*Get NTP time*/</p>
+<p>{</p>
+<p>/*check wifi connection status*/</p>
+<p>wcm_get_status(alarm_wcm_handle, &amp;wcmstat);</p>
+<p>if(wcmstat.link_up) {</p>
+<p>tim_now = ntp_time_get();</p>
+<p>os_printf(”\r\n Ntp time:%d Sec”, tim_now);</p>
+<p>snprintf(buffer, 256, “\r\n NTP Time:%d sec\r\n”, tim_now);</p>
+<p>uart_puts(uarthandle, buffer);</p>
+<p>}</p>
+<p>else {</p>
+<p>snprintf(buffer, 256, “\r\n WIFI link down: Ntp time get failed”);</p>
+<p>os_printf(“%s”, buffer);</p>
+<p>uart_puts(uarthandle, buffer);</p>
+<p>}</p>
+<p>break;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="case-2-system-time">
+<h2>Case 2: System Time<a class="headerlink" href="#case-2-system-time" title="Permalink to this heading"></a></h2>
+<p>gettimeofday()gets system time in seconds.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>case 2: /*Get System time Seconds*/</p>
+<p>gettimeofday(&amp;now, NULL);</p>
+<p>os_printf(”\r\n time:%lld”, now.tv_sec);</p>
+<p>snprintf(buffer, 256, “\r\n System Time:%lld sec\r\n”,
+now.tv_sec);</p>
+<p>uart_puts(uarthandle, buffer);</p>
+<p>break;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="case-3-system-date-and-time">
+<h2>Case 3: System Date and Time<a class="headerlink" href="#case-3-system-date-and-time" title="Permalink to this heading"></a></h2>
+<p>gettimeofday() gets system date and time, prints the date, day, time in
+hour minute and seconds as per local time.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>case 3: /*Get System Date and time*/</p>
+<p>{</p>
+<p>struct tm *tm;</p>
+<p>gettimeofday(&amp;now, NULL);</p>
+<p>os_printf(”\r\n time:%lld”, now.tv_sec);</p>
+<p>tm = localtime(&amp;now.tv_sec);</p>
+<p>os_printf(”\r\n timew:%d”, tm-&gt;tm_hour);</p>
+<p>strftime(buffer, 64, “%a %b %e %T %Y\n”, tm);</p>
+<p>uart_puts(uarthandle, buffer);</p>
+<p>os_printf(”\r\n Date:%s”,time_tostr(&amp;now.tv_sec));</p>
+<p>break;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="case-4-set-system-time">
+<h2>Case 4: Set System Time<a class="headerlink" href="#case-4-set-system-time" title="Permalink to this heading"></a></h2>
+<p>Here, wcm_get_status()checks the Wi-Fi connection status. If the link is
+up, ntp_time_get() gets the NTP time. If the link is down,
+ntp_time_get()fails to get the NTP time.</p>
+<p>Only if the NTP time is captured, the alarm can be set using
+alarm_init(), after which alarm_set_time() will replace the system time
+with the NTP time. This helps set the alarm for present date and time.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>case 4: /*Set Sytem time with NTP time*/</p>
+<p>{</p>
+<p>/*check wifi connection status*/</p>
+<p>wcm_get_status(alarm_wcm_handle, &amp;wcmstat);</p>
+<p>if(wcmstat.link_up) {</p>
+<p>tim_now = ntp_time_get();</p>
+<p>/*initilaise the alarm only after setting the time*/</p>
+<p>if(0 != tim_now) {</p>
+<p>alarm_init();</p>
+<p>alarm_set_time((uint64_t)tim_now);</p>
+<p>}</p>
+<p>}</p>
+<p>else {</p>
+<p>snprintf(buffer, 256, “\r\n WIFI link down: Ntp time get failed”);</p>
+<p>os_printf(“%s”, buffer);</p>
+<p>uart_puts(uarthandle, buffer);</p>
+<p>}</p>
+<p>break;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="case-5-set-system-time-in-seconds">
+<h2>Case 5: Set System Time in Seconds<a class="headerlink" href="#case-5-set-system-time-in-seconds" title="Permalink to this heading"></a></h2>
+<p>Sets system time in seconds. alarm_init() initializes the alarm and
+alarm time is set using alarm_set_time().</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>case 5: /*Set Sytem time in seconds*/</p>
+<p>{</p>
+<p>snprintf(buffer, 256, “\r\n Time(seconds):”);</p>
+<p>uart_puts(uarthandle, buffer);</p>
+<p>tim_now= get_num((uint8_t *)buffer, 256, &amp;status);</p>
+<p>if(status &lt; 0)</p>
+<p>break;</p>
+<p>/*Initiliase alarm*/</p>
+<p>alarm_init();</p>
+<p>/*Set Time*/</p>
+<p>alarm_set_time((uint64_t)tim_now);</p>
+<p>break;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="case-6-set-the-alarm">
+<h2>Case 6: Set the Alarm<a class="headerlink" href="#case-6-set-the-alarm" title="Permalink to this heading"></a></h2>
+<p>Sets the alarm with an option to add the following:</p>
+<ol class="arabic simple">
+<li><p>alarm_time.tm_year – Year</p></li>
+<li><p>alarm_time.tm_mon – Month (1-12)</p></li>
+<li><p>alarm_time.tm_mday – Day (1-31)</p></li>
+<li><p>alarm_time.tm_hour – Hour (0-23)</p></li>
+<li><p>alarm_time.tm_min – Minute (0-59)</p></li>
+<li><p>alarm_time.tm_sec – Second (0-59)</p></li>
+<li><p>alarm_type – Can be set for:</p>
+<ol class="loweralpha simple">
+<li><p>DAILY (0) or WEEKLY (1)</p></li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<div><p>If the alarm is set for daily, on the configured time, the alarm will
+be notified to the user on the serial console with a string
+containing the alarm ID and name, every day at the same time.</p>
+<p>If the alarm is set for weekly, on the configured time, the alarm
+will be notified to the user on the serial console with a string
+containing the alarm ID and name, every week at the same time.</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li><p>Shot (0) or Repeat (1)</p></li>
+</ol>
+<blockquote>
+<div><p>If the alarm should be notified to the user only once on a DAILY or
+WEEKLY basis, then the “Shot” option should be selected.</p>
+<p>If the alarm should be periodically notified to the user on a DAILY
+or WEEKLY basis, then the “Repeat” option should be selected.</p>
+</div></blockquote>
+<p>If the user enters a wrong value for the prompted options, an ‘Invalid’
+followed by the option is printed on the terminal.</p>
+<p>For example: ‘Invalid date, time’ is printed on the terminal.</p>
+<p>If configuring of the alarm is not successful, ‘Alarm set failed’ is
+printed. Else, the alarm ID is printed on the terminal.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>case 6: /*Set Alarm*/</p>
+<p>{ struct alarm_tm alarm_time;</p>
+<p>uint8_t alarm_type;</p>
+<p>uint8_t periodic;</p>
+<p>snprintf(buffer, 256, “\r\n Year:”);</p>
+<p>uart_puts(uarthandle, buffer);</p>
+<p>alarm_time.tm_year = get_num((uint8_t *)buffer, 256, &amp;status);</p>
+<p>if(status &lt; 0)</p>
+<p>break;</p>
+<p>snprintf(buffer, 256, “\r\n Month(1-12):”);</p>
+<p>uart_puts(uarthandle, buffer);</p>
+<p>alarm_time.tm_mon = get_num((uint8_t *)buffer,256, &amp;status);</p>
+<p>if(status &lt; 0)</p>
+<p>break;</p>
+<p>snprintf(buffer, 256, “\r\n Day(1-31):”);</p>
+<p>uart_puts(uarthandle, buffer);</p>
+<p>alarm_time.tm_mday = get_num((uint8_t *)buffer, 256, &amp;status);</p>
+<p>if(status &lt; 0)</p>
+<p>break;</p>
+<p>if(validdate_date(alarm_time.tm_year, alarm_time.tm_mon,
+alarm_time.tm_mday))</p>
+<p>{</p>
+<p>snprintf(buffer, 256, “\r\n Invalid Date”);</p>
+<p>uart_puts(uarthandle, buffer);</p>
+<p>break;</p>
+<p>}</p>
+<p>snprintf(buffer, 256, “\r\n Hour(0-23):”);</p>
+<p>uart_puts(uarthandle, buffer);</p>
+<p>alarm_time.tm_hour = get_num((uint8_t *)buffer, 256, &amp;status);</p>
+<p>if(status &lt; 0)</p>
+<p>break;</p>
+<p>snprintf(buffer, 256, “\r\n Min(0-59):”);</p>
+<p>uart_puts(uarthandle, buffer);</p>
+<p>alarm_time.tm_min = get_num((uint8_t *)buffer, 256, &amp;status);</p>
+<p>if(status &lt; 0)</p>
+<p>break;</p>
+<p>snprintf(buffer, 256, “\r\n Sec(0-59):”);</p>
+<p>uart_puts(uarthandle, buffer);</p>
+<p>alarm_time.tm_sec = get_num((uint8_t *)buffer, 256, &amp;status);</p>
+<p>if(status &lt; 0)</p>
+<p>break;</p>
+<p>if(validdate_time((int32_t)alarm_time.tm_hour,
+(int32_t)alarm_time.tm_min, (int32_t)alarm_time.tm_sec))</p>
+<p>{</p>
+<p>snprintf(buffer, 256, “\r\n Invalid Time”);</p>
+<p>uart_puts(uarthandle, buffer);</p>
+<p>break;</p>
+<p>}</p>
+<p>snprintf(buffer, 256, “\r\n Alarm Type(DAILY(0)/WEEKLY(1):”);</p>
+<p>uart_puts(uarthandle, buffer);</p>
+<p>alarm_type = get_num((uint8_t *)buffer, 256, &amp;status);</p>
+<p>if((status &lt; 0 ) || (alarm_type &lt; 0 || alarm_type &gt; 1))</p>
+<p>{</p>
+<p>status =-1;</p>
+<p>break;</p>
+<p>}</p>
+<p>snprintf(buffer, 256, “\r\n Repeat(One shot(0)/Repeat(1):”);</p>
+<p>uart_puts(uarthandle, buffer);</p>
+<p>periodic = get_num((uint8_t *)buffer, 256, &amp;status);</p>
+<p>if((status &lt; 0)|| (periodic &lt; 0 || periodic &gt; 1) )</p>
+<p>{</p>
+<p>status =-1;</p>
+<p>break;</p>
+<p>}</p>
+<p>snprintf(buffer, 256, “\r\n Name:”);</p>
+<p>uart_puts(uarthandle, buffer);</p>
+<p>get_string((uint8_t *)buffer, 256);</p>
+<p>os_printf(”\r\n alarm:%d:%d:%d:%d:%d:%d”,alarm_time.tm_year,
+alarm_time.tm_mon, alarm_time.tm_mday,</p>
+<p>alarm_time.tm_hour, alarm_time.tm_min, alarm_time.tm_sec);</p>
+<p>alarm_id = alarm_set(&amp;alarm_time, alarm_type, periodic,
+(uint32_t)alarm_user_cb,</p>
+<p>(uint8_t *)buffer);</p>
+<p>if(alarm_id &lt; 0) {</p>
+<p>snprintf(buffer, 256, “\r\n Alarm set failed:%d\r\n”, alarm_id);</p>
+<p>}</p>
+<p>else {</p>
+<p>snprintf(buffer, 256, “\r\n Alarm ID:%d\r\n”, alarm_id);</p>
+<p>}</p>
+<p>uart_puts(uarthandle, buffer);</p>
+<p>break;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="case-7-delete-the-alarm">
+<h2>Case 7: Delete the Alarm<a class="headerlink" href="#case-7-delete-the-alarm" title="Permalink to this heading"></a></h2>
+<p>Deletes the alarm. On checking the alarm ID, if it is more than 0, alarm
+is deleted. However, if the alarm ID is less than 0, alarm deletion
+fails.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>case 7: /*Delete Alarm*/</p>
+<p>{ snprintf(buffer, 256, “\r\n Alarm ID to Delete:”);</p>
+<p>uart_puts(uarthandle, buffer);</p>
+<p>alarm_id = get_num((uint8_t *)buffer, 256, &amp;status);</p>
+<p>if(status &lt; 0)</p>
+<p>break;</p>
+<p>if(alarm_delete(alarm_id) &lt; 0) {</p>
+<p>snprintf(buffer, 256, “\r\n Alarm Delete failed:%d\r\n”,
+alarm_id);</p>
+<p>}</p>
+<p>else {</p>
+<p>snprintf(buffer, 256, “\r\n Alarm Deleted\r\n”);</p>
+<p>}</p>
+<p>uart_puts(uarthandle, buffer);</p>
+<p>break; }</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="case-8-display-configured-alarm">
+<h2>Case 8: Display Configured Alarm<a class="headerlink" href="#case-8-display-configured-alarm" title="Permalink to this heading"></a></h2>
+<p>Displays the configured alarm.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>case 8: /*Display Alarm*/</p>
+<p>{ alram_display((uint32_t)alarm_display_cb);</p>
+<p>break; }</p>
+<p>default:</p>
+<p>break;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="running-the-application">
+<h1>Running the Application<a class="headerlink" href="#running-the-application" title="Permalink to this heading"></a></h1>
+<section id="programming-talaria-two">
+<h2>Programming Talaria TWO<a class="headerlink" href="#programming-talaria-two" title="Permalink to this heading"></a></h2>
+<p>Program alarm.elf (<em>sdk_x.y\apps\alarm\bin</em>) using the Download tool:</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool provided with InnoPhase Talaria TWO SDK.</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down</p></li>
+<li><p>ELF Input: Load the alarm.elf by clicking on Select ELF File.</p></li>
+<li><p>AP Options: Provide the SSID and Passphrase under AP Options to
+connect to an Access Point.</p></li>
+<li><p>Programming: Prog RAM or Prog Flash as per requirement.</p></li>
+</ol>
+</li>
+</ol>
+<p>For more details on using the Download tool, refer to the document:
+UG_Download_Tool.pdf (path: <em>sdk_x.y\pc_tools\Download_Tool\doc</em>).</p>
+<p><strong>Note</strong>: x and y refer to the SDK release version. For example:
+<em>sdk_2.5\doc</em>.</p>
+</section>
+<section id="expected-output">
+<h2>Expected Output<a class="headerlink" href="#expected-output" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWWAEBuild $Id: git-34e3eddb8 $</p>
+<p>np_conf_path=/data/nprofile.json ssid=InnoPhase_AE
+<a class="reference external" href="mailto:passphrase=Inno&#37;&#52;&#48;1234">passphrase=Inno<span>&#64;</span>1234</a></p>
+<p>$App:git-fc1c5cb4</p>
+<p>SDK Ver: sdk_2.5</p>
+<p>Alarm Demo App</p>
+<p>addr e0:69:3a:00:2c:3c</p>
+<p>Adding network: ssid = InnoPhase_AE : passphrase = <a class="reference external" href="mailto:Inno&#37;&#52;&#48;1234">Inno<span>&#64;</span>1234</a></p>
+<p>Connecting to added network : InnoPhase_AE[0.961,039]
+CONNECT:98:da:c4:73:b7:76 Channel:11 rssi:-32 dBm</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS</p>
+<p>[1.102,314] MYIP 192.168.0.130</p>
+<p>[1.102,479] IPv6 [fe80::e269:3aff:fe00:2c3c]-link</p>
+<p>Connected to &lt; InnoPhase_AE &gt; network</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="evaluating-the-application">
+<h1>Evaluating the Application<a class="headerlink" href="#evaluating-the-application" title="Permalink to this heading"></a></h1>
+<p>For this menu-driven application, UART is used as the interface to input
+the menu options. Launch any of the serial terminal for example GTK term
+or minicom with the following configurations:</p>
+<p><strong>Note</strong>: This application is supported on both Windows and Linux.</p>
+<ol class="arabic simple">
+<li><p>Baud Rate: 115200bps</p></li>
+<li><p>Select the required port.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>/dev/ttyUSB*</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../_images/image1.png"><img alt="image1" src="../_images/image1.png" style="width: 4.72441in; height: 1.98766in;" /></a></p>
+<p>Figure : Configuring the serial terminal</p>
+<p>Once the application is flashed, reset the board, and observe the
+following outputs on the console:</p>
+<p><a class="reference internal" href="../_images/image21.png"><img alt="image2" src="../_images/image21.png" style="width: 5.51181in; height: 2.84442in;" /></a></p>
+<p>Figure : Menu options - UART terminal</p>
+<p>Subsequent sections show the different menu option configurations.</p>
+<section id="put-system-in-sleep-mode">
+<h2>Put System in Sleep Mode<a class="headerlink" href="#put-system-in-sleep-mode" title="Permalink to this heading"></a></h2>
+<p>To put the system in sleep mode, set the option to 0. To wake Talaria
+TWO up from sleep, send break(Clt+Shift+b).</p>
+<p><a class="reference internal" href="../_images/image31.png"><img alt="image3" src="../_images/image31.png" style="width: 5.51181in; height: 1.83991in;" /></a></p>
+<p>Figure : Put system in sleep mode</p>
+</section>
+<section id="get-ntp-time-1">
+<span id="id1"></span><h2>Get NTP Time<a class="headerlink" href="#get-ntp-time-1" title="Permalink to this heading"></a></h2>
+<p>To get NTP time in seconds, set the option to 1.</p>
+<p><a class="reference internal" href="../_images/image41.png"><img alt="image4" src="../_images/image41.png" style="width: 5.51181in; height: 1.95in;" /></a></p>
+<p>Figure : Get NTP time</p>
+</section>
+<section id="get-system-time">
+<h2>Get System Time<a class="headerlink" href="#get-system-time" title="Permalink to this heading"></a></h2>
+<p>To get system time in seconds, set the option to 2.</p>
+<p><a class="reference internal" href="../_images/image51.png"><img alt="image5" src="../_images/image51.png" style="width: 5.51181in; height: 1.91937in;" /></a></p>
+<p>Figure : Get system time</p>
+</section>
+<section id="get-system-date-and-time">
+<h2>Get System Date and Time<a class="headerlink" href="#get-system-date-and-time" title="Permalink to this heading"></a></h2>
+<p>To get system date and time, set option to 3.</p>
+<p><a class="reference internal" href="../_images/image6.png"><img alt="image6" src="../_images/image6.png" style="width: 5.51181in; height: 1.9265in;" /></a></p>
+<p>Figure : Get system date and time</p>
+</section>
+<section id="set-system-time-with-ntp-time">
+<h2>Set System Time with NTP Time<a class="headerlink" href="#set-system-time-with-ntp-time" title="Permalink to this heading"></a></h2>
+<p>To set system time with NTP time, set the option to 4. Use option 3 to
+check if the time is set correctly.</p>
+<p><a class="reference internal" href="../_images/image7.png"><img alt="image7" src="../_images/image7.png" style="width: 5.51181in; height: 3.55704in;" /></a></p>
+<p>Figure : Set system time with NTP time</p>
+</section>
+<section id="set-system-time-seconds">
+<h2>Set System Time (Seconds)<a class="headerlink" href="#set-system-time-seconds" title="Permalink to this heading"></a></h2>
+<p>To set system time in seconds, set the option to 5.</p>
+<p><strong>Note</strong>: If the user needs to get back to the default system time, then
+set the Time(seconds): to 0.</p>
+<p><a class="reference internal" href="../_images/image8.png"><img alt="image8" src="../_images/image8.png" style="width: 5.51181in; height: 1.93677in;" /></a></p>
+<p>Figure : Set system time in seconds</p>
+</section>
+<section id="set-alarm">
+<h2>Set Alarm<a class="headerlink" href="#set-alarm" title="Permalink to this heading"></a></h2>
+<p>To set the alarm, set the option to 6. Once the alarm is successfully
+set, the Alarm ID is generated. Multiple alarms can be set using this
+option.</p>
+<p>For more information on setting the alarm, refer section 6.7.</p>
+<p><a class="reference internal" href="../_images/image9.png"><img alt="image9" src="../_images/image9.png" style="width: 5.51181in; height: 3.22292in;" /></a></p>
+<p>Figure : Set alarm</p>
+</section>
+<section id="delete-alarm">
+<h2>Delete Alarm<a class="headerlink" href="#delete-alarm" title="Permalink to this heading"></a></h2>
+<p>To delete the alarm, set the option to 7.</p>
+<p><a class="reference internal" href="../_images/image10.png"><img alt="image10" src="../_images/image10.png" style="width: 5.51181in; height: 2.29625in;" /></a></p>
+<p>Figure : Delete the alarm</p>
+</section>
+<section id="display-all-alarms">
+<h2>Display All Alarms<a class="headerlink" href="#display-all-alarms" title="Permalink to this heading"></a></h2>
+<p>To display all the configured alarms, set the option to 8.</p>
+<p><a class="reference internal" href="../_images/image11.png"><img alt="image11" src="../_images/image11.png" style="width: 5.51181in; height: 3.06389in;" /></a></p>
+<p>Figure : Display all alarms</p>
+</section>
+<section id="alarm-expiry">
+<h2>Alarm Expiry<a class="headerlink" href="#alarm-expiry" title="Permalink to this heading"></a></h2>
+<p>Once the alarm expires , the alarm ID and name is displayed on the
+terminal, depending upon the configured time added in section 8.7.</p>
+<p><a class="reference internal" href="../_images/image12.png"><img alt="image12" src="../_images/image12.png" style="width: 5.51181in; height: 1.9833in;" /></a></p>
+<p>Figure : Alarm expiry</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Applications-Landing_Page.html" class="btn btn-neutral float-left" title="Applications" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Analog%20to%20Digital%20Converter.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

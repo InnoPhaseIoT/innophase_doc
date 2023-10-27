@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting Started &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Evaluation &amp; Developement" href="Evaluation%26Developement-Landing.html" />
+    <link rel="prev" title="InnoPhase IoT Programming Guide" href="index.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#key-features">Key Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hardware-prerequisites">Hardware-Prerequisites</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#inp301x-package-contents">INP301x Package Contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#description-of-the-board">Description of the Board</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#block-diagram">Block Diagram</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#software-prerequisites">Software-Prerequisites</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#evaluation-kit-evk">Evaluation Kit (EVK)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#download-the-evaluation-software-package-evk">Download the Evaluation Software Package (EVK)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#evaluation-and-developement">Evaluation and Developement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Evaluation%26Developement-Landing.html">Evaluation &amp; Developement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Programming_Basic_Applications-Dev.html">Programming Basic Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Programming_Talaria_TWO-Eval.html">Programming Talaria TWO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Software_Reference/Prerequisites/libusbK_driver-Zadig.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Development_Environments/Development_Environments.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Tools/Tools_Landing.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Applications/Applications-Landing_Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Regulatory%20Notices/Regulatory%20Notices.html">Regulatory Notice</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Backend%20Files%20-%20for%20cross%20referencing/Backend%20File%20Landing.html">Backend Files - for cross referencing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Getting Started</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Getting_Started_Landing_page.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h1>
+<p>Hostless or Standalone solution is one of the solution architectures
+offered by InnoPhase IoT. In this case, there is no external host
+involved and the application runs on the internal MCU of the Talaria
+TWO.</p>
+<p>This solution is available as part of the SDK release package. For
+example: sdk_x.y.zip.</p>
+<p>Note: x and y in sdk_x.y refers to the SDK version of the release
+package.</p>
+<p>The standalone solution is beneficial for development of integrated
+applications on Talaria TWO with InnoOS RTOS, lwIP network stack and GCC
+compiler-based SDK. It helps enable applications, networking and
+wireless (BLE/Wi-Fi) functionality on Talaria TWO.</p>
+<section id="key-features">
+<h2>Key Features<a class="headerlink" href="#key-features" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Ultra-low power 2.4GHz 802.11 b/g/n Wi-Fi connectivity</p></li>
+<li><p>Support for WPA2 (Personal &amp; Enterprise) and WPA3</p></li>
+<li><p>DTIM10 at 57uA enables Wi-Fi connected battery-based applications</p></li>
+<li><p>Full stack including MQTT, mbedTLS for supporting IoT
+Direct-to-Cloud for a variety of cloud services (AWS, Azure, Google
+Cloud, IBM Watson, etc.)</p></li>
+<li><p>BLE5.0 w/ Advanced Features LE Coding/FEC (Long-Range), 2M PHY,
+Extended Advertising</p></li>
+<li><p>Supports Wi-Fi Provisioning over BLE and local device management,
+plus BLE to Wi-Fi bridging</p></li>
+<li><p>Bluetooth GATT/GAP Profile support, and HCI interface option for
+host MCU-based BLE profile stacks</p></li>
+<li><p>Advanced security features including Secure Boot, PUF (Physically
+Unclonable Function) and hardware Crypto Engines</p></li>
+<li><p>Embedded 80MHz Arm Cortex-M3 w/ 512KB SRAM and 2MB Flash</p></li>
+<li><p>Eleven (11) configurable GPIO plus Tx Console port (on GPIO17)</p></li>
+<li><p>Dedicated ADC Input pin</p></li>
+<li><p>Integrated clocks and power management – only a single 3.3V supply
+needed</p></li>
+<li><p>PCB antenna, U.FL antenna connector, RF Pin, and ceramic antenna
+options</p></li>
+</ol>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
+<section id="hardware-prerequisites">
+<h3>Hardware-Prerequisites<a class="headerlink" href="#hardware-prerequisites" title="Permalink to this heading"></a></h3>
+<p>INP301x Talaria TWO evaluation board is designed as an evaluation
+platform for the INP101x modules.</p>
+<section id="inp301x-package-contents">
+<h4>INP301x Package Contents<a class="headerlink" href="#inp301x-package-contents" title="Permalink to this heading"></a></h4>
+<dl class="simple">
+<dt>The package contains:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">1.</span> <span class="pre">INP3010\*,</span> <span class="pre">INP3014\*,</span> <span class="pre">INP3011*\*,</span> <span class="pre">INP3015*\*,</span> <span class="pre">INP3012</span> <span class="pre">or</span> <span class="pre">INP3013</span> <span class="pre">board</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2.</span> <span class="pre">Micro</span> <span class="pre">USB</span> <span class="pre">cable</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3.</span> <span class="pre">Antenna</span> <span class="pre">(INP3011</span> <span class="pre">and</span> <span class="pre">INP3012</span> <span class="pre">boards)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4.</span> <span class="pre">Battery</span> <span class="pre">box</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<p><a href="#id1"><span class="problematic" id="id2">|</span></a>image1|bdiya</p>
+<p>Figure 1: INP301x EVB-A Board with INP101x module board installed</p>
+</section>
+<section id="description-of-the-board">
+<h4>Description of the Board<a class="headerlink" href="#description-of-the-board" title="Permalink to this heading"></a></h4>
+</section>
+<section id="block-diagram">
+<h4>Block Diagram<a class="headerlink" href="#block-diagram" title="Permalink to this heading"></a></h4>
+<p><a class="reference internal" href="_images/image3.png"><img alt="image2" src="_images/image3.png" style="width: 0.53778in; height: 0.12222in;" /></a></p>
+<p>Figure 2: Block diagram of INP301x Evaluation Board</p>
+<p>The block diagram of the INP301x Evaluation board is shown in Figure 2.
+The main component on the board is the INP101x module. Key features of
+the evaluation board are:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Standalone mode vs. Shield mode: Using the mode switch U3, either standalone mode or shield mode can be selected.</dt><dd><ol class="loweralpha simple">
+<li><p>In standalone mode, the INP101x can be accessed via micro-USB cable for programming and debugging. This mode is recommended for standalone application development.</p></li>
+<li><p>In shield mode, the INP101x module can be interfaced with any host CPU and can provide serial to Wi-Fi capabilities.</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p>A peripheral IO header (J1) is available using which all the IO’s of the INP101x module can be accessed.</p></li>
+<li><dl class="simple">
+<dt>Power supply section: Based on the mode, the power for module is derived from either USB or shield header. A battery header is available which can be used as power source as well.</dt><dd><ol class="loweralpha simple">
+<li><p>J4 at VM_3.3V for USB power</p></li>
+<li><p>J4 at VBAT and battery connect to J10 for Battery power</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p>On board sensors are available to develop sensor to cloudapplications.</p></li>
+<li><dl class="simple">
+<dt>Switch:</dt><dd><ol class="loweralpha simple">
+<li><p>Set U3 switch to V33_ARD for Shield mode</p></li>
+<li><p>Set U3 switch to V_3.3V for Standalone mode</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>INP3000</strong></p>
+<p>INP3000 programmer board provides a programming interface for Talaria TWO modules. It can be used in conjunction with the factory_loader scripts or other companion scripts found in Talaria TWO standalone solution package – SDK.
+There are three versions of the INP3000 board which could be used for different applications:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">INP3000</span> <span class="pre">Programmer</span> <span class="pre">Board</span> <span class="pre">VERSION</span> <span class="pre">4.0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INP3000</span> <span class="pre">Programmer</span> <span class="pre">Board</span> <span class="pre">VERSION</span> <span class="pre">3.0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INP3000</span> <span class="pre">Programmer</span> <span class="pre">Board</span> <span class="pre">VERSION</span> <span class="pre">2.1</span></code></p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="software-prerequisites">
+<h3>Software-Prerequisites<a class="headerlink" href="#software-prerequisites" title="Permalink to this heading"></a></h3>
+<dl class="simple">
+<dt>Following are the software prerequisites to get started with the standalone solution:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">1.</span> <span class="pre">Windows/Linux</span> <span class="pre">PC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2.</span> <span class="pre">Wi-Fi</span> <span class="pre">Access</span> <span class="pre">Point</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3.</span> <span class="pre">Minicom/TeraTerm</span> <span class="pre">VT</span> <span class="pre">Utility</span> <span class="pre">installed</span> <span class="pre">on</span> <span class="pre">PC</span> <span class="pre">(add</span> <span class="pre">a</span> <span class="pre">download</span> <span class="pre">link)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4.</span> <span class="pre">EVK</span> <span class="pre">package</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">5.</span> <span class="pre">SDK</span> <span class="pre">package</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<section id="evaluation-kit-evk">
+<h4>Evaluation Kit (EVK)<a class="headerlink" href="#evaluation-kit-evk" title="Permalink to this heading"></a></h4>
+</section>
+<section id="download-the-evaluation-software-package-evk">
+<h4>Download the Evaluation Software Package (EVK)<a class="headerlink" href="#download-the-evaluation-software-package-evk" title="Permalink to this heading"></a></h4>
+<p>The EVK package (Open_Web_SDK_x.y) includes various evaluation binaries
+and the associated programming tools for the INP301x EVB-A boards to
+enable quick evaluation of the INP101x modules.</p>
+<p>Download the software package from the InnoPhase website:
+<a class="reference external" href="https://innophaseiot.com/talaria-two-modules/#product-availability">https://innophaseiot.com/talaria-two-modules/#product-availability</a>.</p>
+<p><a class="reference internal" href="media/image1.png"><img alt="image1" src="media/image1.png" style="width: 6.29921in; height: 3.29782in;" /></a></p>
+<section id="evk-package-contents-walkthrough">
+<h5>EVK Package Contents Walkthrough<a class="headerlink" href="#evk-package-contents-walkthrough" title="Permalink to this heading"></a></h5>
+<p>The EVK package contains the following folders:</p>
+<ol class="arabic simple">
+<li><p>alexa_ready: Firmware images for Alexa_Ready application which can be
+used to understand the protocols and functionality supported on
+Talaria TWO.</p></li>
+<li><p>at: Firmware images for AT Commands application.</p></li>
+<li><p>Download_Tool: Talaria TWO programming tool (available for both
+Windows &amp; Linux platforms)</p></li>
+<li><p>I-CUBE-T2-STW-lib: STM software package for STM’s NUCLEO-STM32L4A6ZG
+or NUCLEO-STM32L433RC-P with ready-to-run firmware examples to
+support quick evaluation and development of MQTT/HTTP/AWS/AZURE and
+HTTPS IoT Cloud applications on STM32L4 Nucleo boards with InnoPhase
+Talaria TWO Wi-Fi add-on boards.</p></li>
+</ol>
+<blockquote>
+<div><p>Folder details are as follows:</p>
+</div></blockquote>
+<ol class="loweralpha simple">
+<li><p>Documentation: This folder includes all applications related to
+Talaria TWO and STMCubeL4.</p></li>
+<li><p>Drivers: This folder includes BSP files for STM32L4 Nucleo boards.
+Refer to release notes for further details</p></li>
+<li><p>Middleware: This folder includes Middleware FreeRTOS and third-Party
+Middleware InnoPhase-HAPI to act as a host interface for Talaria TWO
+Modules (INP101X) Wi-Fi devices</p></li>
+<li><p>Projects: This folder includes the applications to demonstrate the
+INP101X features such as Wi-Fi, BLE, cloud apps on modules
+32L4A6ZG-NUCLEO and 32L433RC-P-NUCLEO. Refer to release notes for
+further details.</p></li>
+<li><p>Utilities: This folder includes Download tool GUI and the firmware
+binary for Talaria TWO EVB (INP301x)</p></li>
+</ol>
+<ol class="arabic simple" start="5">
+<li><p>MPD: Multi-purpose Demo GUI for evaluating example applications and
+network protocols</p></li>
+</ol>
+<p>:mark:`
+`</p>
+<p><strong>Software Development Kit</strong></p>
+</section>
+<section id="download-the-software-development-package-sdk">
+<h5>Download the Software Development Package (SDK)<a class="headerlink" href="#download-the-software-development-package-sdk" title="Permalink to this heading"></a></h5>
+<p>To download the software development package, execute the following
+steps:</p>
+<ol class="arabic simple">
+<li><p>Go to the InnoPhase website (<a class="reference external" href="https://innophaseiot.com/">https://innophaseiot.com/</a>) and click on
+Register.</p></li>
+</ol>
+<p><a class="reference internal" href="_images/image2.png"><img alt="A screenshot of a computer Description automatically generated" src="_images/image2.png" style="width: 5.90551in; height: 2.5654in;" /></a></p>
+<ol class="arabic simple" start="2">
+<li><p>Provide the appropriate details to register onto the InnoPhase
+Customer Portal.</p></li>
+</ol>
+<p><strong>Note</strong>: InnoPhase requires a signed MNDA and Development Tool License
+Agreement (DTLA) to be signed prior to granting access to the Customer
+Portal.</p>
+<ol class="arabic simple" start="3">
+<li><p>On successfully registering to the Customer Portal, the following
+screen will appear:</p></li>
+</ol>
+<p><a class="reference internal" href="_images/image3.png"><img alt="image2" src="_images/image3.png" style="width: 0.53778in; height: 0.12222in;" /></a><a class="reference internal" href="_images/image4.png"><img alt="image3" src="_images/image4.png" style="width: 5.90551in; height: 2.55874in;" /></a></p>
+<ol class="arabic simple" start="4">
+<li><p>Navigate to the Software Tab and download the appropriate software
+package(s):</p></li>
+</ol>
+<p><a class="reference internal" href="_images/image5.png"><img alt="image4" src="_images/image5.png" style="width: 5.90551in; height: 2.65093in;" /></a></p>
+</section>
+<section id="sdk-package-contents-walkthrough">
+<h5>SDK Package Contents Walkthrough<a class="headerlink" href="#sdk-package-contents-walkthrough" title="Permalink to this heading"></a></h5>
+<p>The SDK software package (sdk_x.y.zip) provides software APIs with
+ready-to-run firmware examples to support quick evaluation and
+development of MQTT/HTTP/HTTPS/AWS and AZURE IoT Cloud applications with
+Talaria TWO.</p>
+<p>Folder details are as follows:</p>
+<ol class="arabic simple">
+<li><p><strong>pc_tools</strong>: Programming (Download), multi-purpose demo GUI and
+T2_Flasher tools. These tools are available for both Windows and
+Linux platforms.</p></li>
+<li><p><strong>binaries</strong>: Firmware images which can be used to understand the
+protocols and functionality supported on Talaria TWO. The eval folder
+consists of firmware image for MPD and Alexa_Ready application, while
+the product folder consists of the firmware image for AT commands.</p></li>
+<li><p><strong>apps</strong>: production ready example applications that the user can run
+on Talaria TWO. Following applications are available in the release
+package:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Protocol</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>alarm</p></td>
+<td><p>Describes alarm functionality in Talaria
+TWO.</p></td>
+</tr>
+<tr class="row-odd"><td><p>filesystem</p></td>
+<td><p>Contains APIs to check and mount Talaria
+TWO’s file system</p></td>
+</tr>
+<tr class="row-even"><td><p>fota</p></td>
+<td><p>Demonstrates the FOTA (Firmware Over The
+Air) process</p></td>
+</tr>
+<tr class="row-odd"><td><p>gordon</p></td>
+<td><p>Flashing utility using UART interface</p></td>
+</tr>
+<tr class="row-even"><td><p>gordon-jtag</p></td>
+<td><p>Flashing utility using JTAG / SWD
+interface</p></td>
+</tr>
+<tr class="row-odd"><td><p>helloworld</p></td>
+<td><p>Basic helloworld application</p></td>
+</tr>
+<tr class="row-even"><td><p>iot_aws</p></td>
+<td><p>Demonstrates using Talaria TWO board and
+the SDK with Amazon Web Services (AWS) IoT</p></td>
+</tr>
+<tr class="row-odd"><td><p>iot_azure</p></td>
+<td><p>Readme file containing the link to
+IoT_Azure application note present in
+Github</p></td>
+</tr>
+<tr class="row-even"><td><p>iperf3</p></td>
+<td><p>iperf3 server application on Talaria TWO</p></td>
+</tr>
+<tr class="row-odd"><td><p>ssbl</p></td>
+<td><p>Demonstrates running and switching between
+multiple applications on Talaria TWO using
+SSBL</p></td>
+</tr>
+<tr class="row-even"><td><p>stw</p></td>
+<td><p>Serial to Wi-Fi application over HIO</p></td>
+</tr>
+<tr class="row-odd"><td><p>stw_multi_proto</p></td>
+<td><p>Serial to Wi-Fi application used in hosted
+mode of operation</p></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="4">
+<li><p><strong>examples</strong>: Demo/sample applications that the user can run on
+Talaria TWO firmware. Following examples are available:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Protocol</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>adc</p></td>
+<td><p>Example for using the Analog to Digital
+Convertor (ADC) peripheral of Talaria
+TWO modules</p></td>
+</tr>
+<tr class="row-odd"><td><p>at_custom_cmd</p></td>
+<td><p>Demonstrates custom AT commands which
+the user can use apart from the standard
+commands</p></td>
+</tr>
+<tr class="row-even"><td><p>ble_beacons</p></td>
+<td><p>Example codes describing the basic
+concept of Eddystone Beacon</p>
+<ul class="simple">
+<li><p>Eddystone UID</p></li>
+<li><p>Eddystone URL</p></li>
+<li><p>Eddystone TLM</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>ble_wifi_bridge</p></td>
+<td><p>Example code for receiving a text
+message from a connected BLE client and
+publishing it to a CloudMQTT broker</p></td>
+</tr>
+<tr class="row-even"><td><p>chip_monitor</p></td>
+<td><p>Describes the application for fetching
+the changes in the values of device core
+temperature, Voltage of VBAT, external
+ADC and estimated current consumption of
+Talaria TWO device</p></td>
+</tr>
+<tr class="row-odd"><td><p>crash_handling</p></td>
+<td><p>Example code for using the crash handler
+API to handle and debug error cases</p></td>
+</tr>
+<tr class="row-even"><td><p>gpio</p></td>
+<td><p>Example codes for using the interface
+for GPIO</p></td>
+</tr>
+<tr class="row-odd"><td><p>http_client</p></td>
+<td><p>Example codes for using HTTP client APIs
+to connect to HTTP servers in secured
+(HTTPS) and non-secured way</p></td>
+</tr>
+<tr class="row-even"><td><p>i2c</p></td>
+<td><p>Demonstrates usage of I2C on Talaria TWO</p></td>
+</tr>
+<tr class="row-odd"><td><p>i2s_audio</p></td>
+<td><p>Example codes for using I2S peripheral
+of INP1010/INP1011/INP1012/INP1013
+Talaria TWO modules for playing audio</p></td>
+</tr>
+<tr class="row-even"><td><p>ifttt</p></td>
+<td><p>Example application for using Talaria
+TWO with IFTTT</p></td>
+</tr>
+<tr class="row-odd"><td><p>innoos_memory_mgmt</p></td>
+<td><p>Example code for basic memory management
+and error handling</p></td>
+</tr>
+<tr class="row-even"><td><p>innoos_msg_q</p></td>
+<td><p>Example codes describing the use of
+message queue APIs</p></td>
+</tr>
+<tr class="row-odd"><td><p>innoos_threads_semaphores</p></td>
+<td><p>Example codes describing the use of
+threads and semaphore APIs</p></td>
+</tr>
+<tr class="row-even"><td><p>innoos_timers_callouts</p></td>
+<td><p>Example codes describing the use of
+Timers and Callout APIs</p></td>
+</tr>
+<tr class="row-odd"><td><p>innoos_work_q</p></td>
+<td><p>Example codes describing the use of Work
+Queue APIs</p></td>
+</tr>
+<tr class="row-even"><td><p>lp_scan</p></td>
+<td><p>Demonstrates the basics of the Low Power
+Wi-Fi scan feature in InnoOS™</p></td>
+</tr>
+<tr class="row-odd"><td><p>lp_uart</p></td>
+<td><p>Example codes describing the use of UART
+APIs</p></td>
+</tr>
+<tr class="row-even"><td><p>mdns</p></td>
+<td><p>Demonstrates using the mDNS APIs
+provided by the mDNS module</p></td>
+</tr>
+<tr class="row-odd"><td><p>mqtt</p></td>
+<td><p>Example codes for using the
+publish/subscribe operation of MQTT in
+both secured and non-secured modes</p></td>
+</tr>
+<tr class="row-even"><td><p>prov</p></td>
+<td><p>A demo Provisioning application using
+BLE for provisioning AP credentials at
+Talaria TWO from a mobile application</p></td>
+</tr>
+<tr class="row-odd"><td><p>pwm</p></td>
+<td><p>Demonstrates usage of Pulse Width
+Modulation peripheral of
+INP1010/INP1011/INP1012/INP1013 Talaria
+TWO modules</p></td>
+</tr>
+<tr class="row-even"><td><p>radio_module_params</p></td>
+<td><p>Describes using the Radio and Module
+parameters on the Talaria TWO module</p></td>
+</tr>
+<tr class="row-odd"><td><p>sleep_enable_disable</p></td>
+<td><p>Demonstrates the basics of sleep
+management in InnoOS™
+(os_suspend_enable() and
+os_suspend_disable() functions)</p></td>
+</tr>
+<tr class="row-even"><td><p>socket_wakeup</p></td>
+<td><p>Demonstrates the basics of sleep
+management in InnoOS™ (Talaria TWO
+wake-up from sleep mode)</p></td>
+</tr>
+<tr class="row-odd"><td><p>spi</p></td>
+<td><p>Demonstrates the usage of the Software
+SPI Master (SSM) on Talaria TWO</p></td>
+</tr>
+<tr class="row-even"><td><p>spi_flash</p></td>
+<td><p>Example codes describing using of SPI
+Flash APIs for Talaria TWO EVK</p></td>
+</tr>
+<tr class="row-odd"><td><p>un-assoc</p></td>
+<td><p>Example codes describing Wi-Fi
+un-associated mode transmission APIs
+available in the SDK, call-back events,
+notifications and associated data
+structures</p></td>
+</tr>
+<tr class="row-even"><td><p>using_ble</p></td>
+<td><p>Introduction to BLE APIs through code
+samples consisting of a server and
+client application</p></td>
+</tr>
+<tr class="row-odd"><td><p>using_filesystem</p></td>
+<td><p>Demonstrates using the filesystem APIs
+to show case the filesystem
+functionalities on the Talaria TWO EVK</p></td>
+</tr>
+<tr class="row-even"><td><p>using_hio</p></td>
+<td><p>Demonstrates the fundamentals of
+developing HIO based application on both
+host and the Talaria TWO EVK</p></td>
+</tr>
+<tr class="row-odd"><td><p>using_sntp</p></td>
+<td><p>Demonstrates fetching time from NTP
+server using SNTP</p></td>
+</tr>
+<tr class="row-even"><td><p>using_wifi</p></td>
+<td><p>Example codes describing the Wi-Fi
+connection manager APIs</p></td>
+</tr>
+<tr class="row-odd"><td><p>watchdog_timer</p></td>
+<td><p>Demonstrates managing Talaria TWO
+watchdog timer using the functions
+provided by the watchdog driver</p></td>
+</tr>
+<tr class="row-even"><td><p>wcm_multi_ap</p></td>
+<td><p>Demonstrates the application example of
+Wi-Fi Connection with Multi-Access Point
+(WCM_MULTI_AP) available in the SDK</p></td>
+</tr>
+<tr class="row-odd"><td><p>wcm_pm</p></td>
+<td><p>Demonstrates the Wi-Fi Connection
+Manager power management APIs</p></td>
+</tr>
+<tr class="row-even"><td><p>websocket</p></td>
+<td><p>Demonstrates using the WebSocket client
+APIs provided by the WebSocket module</p></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="5">
+<li><p><strong>conf</strong>: Make and debugger configuration files. These files include
+Id and linker scripts and make file rules used for firmware
+configuration.</p></li>
+<li><p><strong>doc</strong>:</p></li>
+</ol>
+<p>The doc folder contains the following sub-folders:</p>
+<ol class="loweralpha simple">
+<li><p>reference_guides</p>
+<ol class="lowerroman simple">
+<li><p>api_reference_guide: API reference guide describes the
+programmers APIs.</p></li>
+<li><p>bootargs_reference_guide: Bootargs reference guide describes the
+use of Talaria TWO boot arguments (bootargs) in different
+scenarios using different feature and protocols.</p></li>
+<li><p>cli_reference_guide: CLI reference guide serves as a reference
+guide for Talaria TWO CLI commands, its usage, use case or
+examples in different scenarios supported by Talaria TWO
+modules.</p></li>
+</ol>
+</li>
+<li><p>user guides.</p>
+<ol class="lowerroman simple">
+<li><p>ug_evb_a: Talaria TWO Evaluation Board an overview of the
+evaluation board explaining its key features and functions</p></li>
+<li><p>ug_eclipse_setup_windows: Eclipse setup in Windows describes
+developing an application using Eclipse and Talaria TWO SDK</p></li>
+<li><p>ug_eclipse_setup_linux: Eclipse setup in Linux describes the
+procedure to build and debug an application on Eclipse IDE
+using Talaria TWO SDK</p></li>
+<li><p>ug_env_setup_linux: Environment set-up with Talaria TWO for
+Linux describes setting up the development environment for
+Talaria TWO<sup>TM</sup> SDK on an Ubuntu VirtualBox with a
+Windows 10 host</p></li>
+<li><p>ug_wsl: Windows Subsystem for Linux describes developing an
+application using Windows Subsystem for Linux (WSL) and Talaria
+TWO SDK</p></li>
+<li><p>ug_coredump_generation_and_anaysis: Coredump generation and
+analysis describes generating a coredump file used for
+analyzing the cause of the crash</p></li>
+<li><p>ug_debugging_using_gdb: Debugging using GDB describes the
+procedure for debugging the applications using GDB to work with
+OpenOCD</p></li>
+<li><p>porting_guide_freertos_to_innoos: Porting guide describes the
+procedure to port FreeRTOS code to InnoOS</p></li>
+<li><p>porting_guide_zephyros_to_innoos: Porting guide describes
+porting of the ZephyrOS code to InnoOS</p></li>
+<li><p>ug_firmware_sdk: Firmware SDK user guide describes developing
+applications for the Talaria TWO device</p></li>
+<li><p>ug_programming_using_black_magic_board: Black magic board user
+guide describes the Black Magic Programmer Board which provides
+a programming and debugging interface for Talaria TWO modules</p></li>
+<li><p>ug_programming_using_INP3000: The INP3000 programming user
+guide describes the INP3000 programmer board which provides a
+programming interface for Talaria TWO modules</p></li>
+<li><p>ug_visual_studio_setup_windows: Visual Studio Setup in Windows
+user guide describes the procedure to build and debug an
+application on Visual Studio Code Editor in Windows using
+Talaria TWO SDK</p></li>
+</ol>
+</li>
+</ol>
+<ol class="arabic simple" start="7">
+<li><p><strong>components</strong>: Files which serve as common components which all
+applications can make use of. It acts as a library, where an
+application like HTTP, SNTP, etc., can link to this library and
+directly use the function. The following protocols are available in
+the components folder serving as a library for applications:</p>
+<ol class="loweralpha simple">
+<li><p>alarm</p></li>
+<li><p>checksum</p></li>
+<li><p>fota</p></li>
+<li><p>http</p></li>
+<li><p>json</p></li>
+<li><p>mdns</p></li>
+<li><p>mqtt</p></li>
+<li><p>out</p></li>
+<li><p>prov</p></li>
+<li><p>sntp</p></li>
+<li><p>ssl_wrap</p></li>
+<li><p>utils</p></li>
+<li><p>websocket</p></li>
+</ol>
+</li>
+<li><p><strong>include</strong>: SDK include files (.h files) for all
+applications/examples in the release package.</p></li>
+<li><p><strong>lib</strong>: SDK library files which can be used by all
+applications/examples.</p></li>
+<li><p><strong>script</strong>: Helper scripts/utilities used to achieve multiple
+functionalities like program, read, write and so on.</p></li>
+<li><p><strong>tools</strong>: Certain tools, supporting files and scripts used for
+development on Talaria TWO. This directory further contains the
+following three directories:</p>
+<ol class="loweralpha simple">
+<li><p>fletcher32 - tool used to create checksum files for checking the
+integrity of the configuration files. Currently part.json,
+boot.json and fota_config.json files’ integrity is checked using
+the checksum.</p></li>
+<li><p>mklittlefs - tool used to create the file system image.</p></li>
+<li><p>partition_files - flash partition files used with SSBL setup
+(ssbl_part_table.json) and without SSBL setup
+(standard_part_table.json).</p></li>
+</ol>
+</li>
+<li><p><strong>root_fs</strong>: Basic files that need to be present in root_fs image as
+required for SSBL. It also contains the script to build the root_fs.</p></li>
+<li><p><strong>solutions</strong>: Contains pre-built binaries, source code for custom
+applications, library, json file and root files for Dual-Stack
+solution.</p></li>
+</ol>
+</section>
+</section>
+</section>
+</section>
+<section id="evaluation-and-developement">
+<h2>Evaluation and Developement<a class="headerlink" href="#evaluation-and-developement" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Evaluation%26Developement-Landing.html">Evaluation &amp; Developement</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Evaluation%26Developement-Landing.html#operating-systems">Operating systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Evaluation%26Developement-Landing.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Evaluation%26Developement-Landing.html#installing-python">Installing python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Evaluation%26Developement-Landing.html#installing-modules">Installing modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Evaluation%26Developement-Landing.html#installing-modflow-2005">Installing MODFLOW-2005</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Programming_Basic_Applications-Dev.html">Programming Basic Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Programming_Basic_Applications-Dev.html#hello-world-application-non-eclipse-users">Hello-World Application: Non-Eclipse Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Programming_Basic_Applications-Dev.html#downloading-firmware-to-the-talaria-two-for-test-evaluation">Downloading Firmware to the Talaria TWO for Test &amp; Evaluation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Programming_Talaria_TWO-Eval.html">Programming Talaria TWO</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="InnoPhase IoT Programming Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Evaluation%26Developement-Landing.html" class="btn btn-neutral float-right" title="Evaluation &amp; Developement" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Applications &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction" href="Alarm.html" />
+    <link rel="prev" title="Prerequisites" href="../Tools/MPD/Prerequisites/Prerequisites-Landing_Page.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Getting_Started_Landing_page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Software_Reference/Prerequisites/libusbK_driver-Zadig.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Development_Environments/Development_Environments.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Tools/Tools_Landing.html">Tools</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#alarm">1.  Alarm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Alarm.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Alarm.html#relevant-apis">Relevant APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Alarm.html#code-walkthrough">Code Walkthrough</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Alarm.html#cases-supporting-the-alarm-menu">Cases Supporting the Alarm Menu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Alarm.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Alarm.html#evaluating-the-application">Evaluating the Application</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#analog-to-digital-converter">2.  Analog to Digital Converter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Analog%20to%20Digital%20Converter.html">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Analog%20to%20Digital%20Converter.html#analog-to-digital-converter-adc">Analog to Digital Converter (ADC)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Analog%20to%20Digital%20Converter.html#source-code-walkthrough">Source Code Walkthrough</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Analog%20to%20Digital%20Converter.html#building">Building</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Analog%20to%20Digital%20Converter.html#running-the-application">Running the Application</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#audio-over-i2s">3.  Audio over I2S</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Analog%20to%20Digital%20Converter.html">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Analog%20to%20Digital%20Converter.html#analog-to-digital-converter-adc">Analog to Digital Converter (ADC)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Analog%20to%20Digital%20Converter.html#source-code-walkthrough">Source Code Walkthrough</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Analog%20to%20Digital%20Converter.html#building">Building</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Analog%20to%20Digital%20Converter.html#running-the-application">Running the Application</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ble-5-0">4.  BLE 5.0</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ble-beacons">3.  BLE Beacons</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ble-wi-fi-bridge">4.  BLE Wi-Fi Bridge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="BLE%20Wi-Fi%20Bridge.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BLE%20Wi-Fi%20Bridge.html#mq-telemetry-transport-protocol">MQ Telemetry Transport Protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BLE%20Wi-Fi%20Bridge.html#relevant-apis">Relevant APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BLE%20Wi-Fi%20Bridge.html#application-flow">Application Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BLE%20Wi-Fi%20Bridge.html#code-walk-through">Code Walk-through</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BLE%20Wi-Fi%20Bridge.html#running-the-application-using-mosquitto-projects-test-server">Running the Application using Mosquitto Project’s Test Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BLE%20Wi-Fi%20Bridge.html#evaluating-the-application-using-the-mosquitto-local-server">Evaluating the application using the Mosquitto local server</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#chip-monitor">5.  Chip Monitor</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#crash-handling">6.  Crash Handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Crash%20Handling.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Crash%20Handling.html#crash-handler">Crash Handler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Crash%20Handling.html#crash-output-debug">Crash Output Debug</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-atcmdlib">6.  Custom ATCMDLIB</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Custom%20ATCMDLIB.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Custom%20ATCMDLIB.html#atcmdlib-application">ATCMDLIB Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Custom%20ATCMDLIB.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Custom%20ATCMDLIB.html#expected-output">Expected Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#filesystem">7.  Filesystem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Filesystem.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Filesystem.html#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Filesystem.html#flashing-running-the-application">Flashing &amp; Running the Application</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#firmware-over-the-air-upgrade">8.  Firmware Over the Air Upgrade</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Firmware%20Over%20the%20Air%20Upgrade.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Firmware%20Over%20the%20Air%20Upgrade.html#topology">Topology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Firmware%20Over%20the%20Air%20Upgrade.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Firmware%20Over%20the%20Air%20Upgrade.html#list-of-apis">List of APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Firmware%20Over%20the%20Air%20Upgrade.html#features-limitations">Features &amp; Limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Firmware%20Over%20the%20Air%20Upgrade.html#dependent-talaria-two-module-information">Dependent Talaria TWO Module Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Firmware%20Over%20the%20Air%20Upgrade.html#design">Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Firmware%20Over%20the%20Air%20Upgrade.html#block-diagram">Block Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Firmware%20Over%20the%20Air%20Upgrade.html#aws-set-up">AWS Set-up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Firmware%20Over%20the%20Air%20Upgrade.html#build-and-run-fota-application">Build and Run FOTA Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Firmware%20Over%20the%20Air%20Upgrade.html#build-and-run-fota-application-with-secureboot">Build and Run FOTA Application with Secureboot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gpio">9.  GPIO</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="GPIO.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GPIO.html#demo-applications">Demo Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GPIO.html#gpio-demo-apis">GPIO Demo APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GPIO.html#source-code-walkthrough">Source Code Walkthrough</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#host-interface-protocol">10. Host Interface Protocol</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Host%20Interface%20Protocol.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Host%20Interface%20Protocol.html#hio-protocol-overview">HIO Protocol Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Host%20Interface%20Protocol.html#sample-host-application-hio-query">Sample Host application: hio_query</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Host%20Interface%20Protocol.html#creating-custom-hio-group-and-commands">Creating custom HIO group and commands</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#http-client">11. HTTP Client</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="HTTP%20Client.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HTTP%20Client.html#features-and-limitations">Features and Limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HTTP%20Client.html#http-s-apis">HTTP/S APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HTTP%20Client.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HTTP%20Client.html#using-the-application">Using the Application</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#i2c">12. I2C</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="I2C.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="I2C.html#i2c">I2C</a></li>
+<li class="toctree-l3"><a class="reference internal" href="I2C.html#i2c-sensors">I2C Sensors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="I2C.html#source-code-walk-through">Source Code Walk-through</a></li>
+<li class="toctree-l3"><a class="reference internal" href="I2C.html#building">Building</a></li>
+<li class="toctree-l3"><a class="reference internal" href="I2C.html#running-the-application">Running the Application</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ifttt">13. IFTTT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="IFTTT.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IFTTT.html#ifttt">IFTTT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IFTTT.html#creating-an-applet-for-talaria-two">Creating an Applet for Talaria TWO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IFTTT.html#code-walkthrough">Code Walkthrough</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IFTTT.html#running-the-application">Running the Application</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#iot-aws">14. IoT AWS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="IoT%20AWS.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IoT%20AWS.html#aws-iot-device-sdk-embedded-c-on-talaria-two-platform">AWS IoT Device SDK Embedded C On Talaria TWO Platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IoT%20AWS.html#overview-of-sample-applications">Overview of Sample Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IoT%20AWS.html#aws-set-up">AWS Set-up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IoT%20AWS.html#programming-vm-based-applications">Programming VM-based applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IoT%20AWS.html#mqtt-publish-and-subscribe">MQTT Publish and Subscribe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IoT%20AWS.html#device-shadow">Device Shadow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IoT%20AWS.html#running-jobs">Running Jobs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IoT%20AWS.html#id3">Sensor2Cloud – AWS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#iot-azure">15. IoT Azure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="IoT%20Azure.html">Availability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IoT%20Azure.html#repository">Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IoT%20Azure.html#sample-applications">Sample Applications</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#low-power-scan">16. Low Power Scan</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Low%20Power%20Scan.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Low%20Power%20Scan.html#system-api-functions">System / API Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Low%20Power%20Scan.html#code-walkthrough">Code Walkthrough</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#low-power-uart">17. Low Power UART</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Low%20Power%20UART.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Low%20Power%20UART.html#basic-usage-of-uart">Basic Usage of UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Low%20Power%20UART.html#recommended-protocol-for-2-wire-uart">Recommended Protocol for 2-wire UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Low%20Power%20UART.html#uart-apis">UART APIs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mdns">18. mDNS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mDNS.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mDNS.html#code-walkthrough-for-mdns">Code Walkthrough for mDNS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mDNS.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mDNS.html#using-the-application">Using the Application</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#memory-management-and-error-handling">19.  Memory Management and Error Handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Memory%20Management%20and%20Error%20Handling.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Memory%20Management%20and%20Error%20Handling.html#memory-management-and-error-handling">Memory Management and Error Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Memory%20Management%20and%20Error%20Handling.html#memory-management-and-error-handling-apis">Memory Management and Error Handling APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Memory%20Management%20and%20Error%20Handling.html#code-walkthrough">Code Walkthrough</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#message-queues">20.  Message Queues</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Message%20Queues.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Message%20Queues.html#message-queues">Message Queues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Message%20Queues.html#message-queue-apis">Message Queue APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Message%20Queues.html#code-walkthrough">Code Walkthrough</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mqtt">21.  MQTT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="MQTT.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MQTT.html#mq-telemetry-transport-protocol">MQ Telemetry Transport Protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MQTT.html#relevant-apis">Relevant APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MQTT.html#application-flow">Application Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MQTT.html#code-walkthrough">Code Walkthrough</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MQTT.html#running-the-application-using-mosquitto-projects-test-server">Running the Application using Mosquitto Project’s Test Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MQTT.html#evaluating-the-application-using-mosquitto-local-server">Evaluating the Application using Mosquitto Local Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MQTT.html#certificates-validity-assessment">Certificates Validity Assessment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#provisioning">22.  Provisioning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Provisioning.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Provisioning.html#topology">Topology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Provisioning.html#list-of-apis">List of APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Provisioning.html#code-walkthrough">Code Walkthrough</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Provisioning.html#running-the-application">Running the Application</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pulse-width-modulation">23.  Pulse Width Modulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Pulse%20Width%20Modulation.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Pulse%20Width%20Modulation.html#pwm-specifications">PWM Specifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Pulse%20Width%20Modulation.html#block-diagram">Block Diagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Pulse%20Width%20Modulation.html#building">Building</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Pulse%20Width%20Modulation.html#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Pulse%20Width%20Modulation.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Pulse%20Width%20Modulation.html#pwm-test-setup">PWM Test Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#radio-and-module-parameters">24. Radio and Module Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Radio%20and%20Module%20Parameters.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Radio%20and%20Module%20Parameters.html#radio-and-module-parameters">Radio and Module Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Radio%20and%20Module%20Parameters.html#apis-used-in-the-application">APIs used in the Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Radio%20and%20Module%20Parameters.html#source-code-walkthrough">Source Code Walkthrough</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Radio%20and%20Module%20Parameters.html#building-the-application">Building the Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Radio%20and%20Module%20Parameters.html#running-the-application">Running the Application</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#secure-files">25. Secure Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Secure%20Files.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Secure%20Files.html#description-of-operation">Description of Operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Secure%20Files.html#building-and-flashing-process">Building and Flashing Process</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#simple-network-time-protocol">26.  Simple Network Time Protocol</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Simple%20Network%20Time%20Protocol.html">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Simple%20Network%20Time%20Protocol.html#simple-network-time-protocol-sntp">Simple Network Time Protocol (SNTP)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Simple%20Network%20Time%20Protocol.html#relevant-apis">Relevant APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Simple%20Network%20Time%20Protocol.html#code-walkthrough">Code Walkthrough</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Simple%20Network%20Time%20Protocol.html#running-the-application">Running the Application</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sleep-enable-disable">27.  Sleep Enable Disable</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Sleep%20Enable%20Disable.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sleep%20Enable%20Disable.html#system-sleep-enable-disable">System Sleep Enable &amp; Disable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sleep%20Enable%20Disable.html#code-walkthrough">Code Walkthrough</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#socket-wakeup">28. Socket Wakeup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Socket%20Wakeup.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Socket%20Wakeup.html#system-sleep-enable-disable">System Sleep Enable &amp; Disable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Socket%20Wakeup.html#code-walkthrough">Code Walkthrough</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#software-spi-master">29. Software SPI Master</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Socket%20Wakeup.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Socket%20Wakeup.html#system-sleep-enable-disable">System Sleep Enable &amp; Disable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Socket%20Wakeup.html#code-walkthrough">Code Walkthrough</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#spi-flash">30. SPI Flash</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SPI%20Flash.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SPI%20Flash.html#list-of-apis">List of APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SPI%20Flash.html#using-talaria-two-spi-flash">Using Talaria TWO SPI Flash</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ssbl">31. SSBL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SSBL.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SSBL.html#description-of-operation">Description of Operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SSBL.html#building-components">Building Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SSBL.html#flashing-components">Flashing Components</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#thread-and-semaphores">32.  Thread and Semaphores</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#throughput-measurement">32.  Throughput Measurement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Throughput%20Measurement.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Throughput%20Measurement.html#iperf3-features">iPerf3 features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Throughput%20Measurement.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Throughput%20Measurement.html#throughput-testing-with-iperf3-on-talaria-two">Throughput testing with iPerf3 on Talaria TWO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Throughput%20Measurement.html#max-throughput-achieved-over-udp">Max Throughput Achieved over UDP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Throughput%20Measurement.html#factors-affecting-throughput">Factors Affecting Throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Throughput%20Measurement.html#talaria-twos-tcp-ip-stack-lwip">Talaria TWOs TCP/IP Stack (LwIP)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#timers-and-callouts">33. Timers and Callouts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Timers%20and%20Callouts.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Timers%20and%20Callouts.html#timers-in-talaria-two">Timers in Talaria TWO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Timers%20and%20Callouts.html#callouts-in-talaria-two">Callouts in Talaria TWO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Timers%20and%20Callouts.html#timer-and-callout-apis">Timer and Callout APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Timers%20and%20Callouts.html#code-walkthrough">Code Walkthrough</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#unassociated-mode">34. Unassociated Mode</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#using-wi-fi">35. Using Wi-Fi</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Using%20Wi-Fi.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Using%20Wi-Fi.html#topology">Topology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Using%20Wi-Fi.html#wi-fi-connection-manager-functionalities">Wi-Fi Connection Manager Functionalities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Using%20Wi-Fi.html#list-of-apis">List of APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Using%20Wi-Fi.html#states-and-events-of-wi-fi-connection-manager">States and Events of Wi-Fi Connection Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Using%20Wi-Fi.html#source-code-walkthrough">Source Code Walkthrough</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#watchdog-timer">36. Watchdog Timer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Watchdog%20Timer.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Watchdog%20Timer.html#watchdog-timer">Watchdog Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Watchdog%20Timer.html#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#websocket-client">37. Websocket Client</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Websocket%20Client.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Websocket%20Client.html#features-and-limitations">Features and Limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Websocket%20Client.html#websocket-s-apis">WebSocket/S APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Websocket%20Client.html#code-walkthrough">Code Walkthrough</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Websocket%20Client.html#running-the-application">Running the Application</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#wi-fi-connection-manager-multi-ap">38. Wi-Fi Connection Manager Multi-AP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Wi-Fi%20Connection%20Manager%20Multi-AP.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Wi-Fi%20Connection%20Manager%20Multi-AP.html#wi-fi-connection-with-multi-ap-functionalities">Wi-Fi Connection with Multi-AP Functionalities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Wi-Fi%20Connection%20Manager%20Multi-AP.html#code-walkthrough-wcm-multi-ap">Code Walkthrough WCM_MULTI_AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Wi-Fi%20Connection%20Manager%20Multi-AP.html#running-the-application">Running the Application</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#wi-fi-power-management">39. Wi-Fi Power Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Wi-Fi%20Power%20Management.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Wi-Fi%20Power%20Management.html#wcm-power-management">WCM Power Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Wi-Fi%20Power%20Management.html#source-code-walkthrough">Source Code Walkthrough</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Wi-Fi%20Power%20Management.html#power-management-boot-arguments">Power Management Boot Arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#work-queues">40. Work Queues</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Work%20Queues.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Work%20Queues.html#work-queue">Work Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Work%20Queues.html#work-queue-apis">Work Queue APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Work%20Queues.html#code-walkthrough">Code Walkthrough</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Regulatory%20Notices/Regulatory%20Notices.html">Regulatory Notice</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Backend%20Files%20-%20for%20cross%20referencing/Backend%20File%20Landing.html">Backend Files - for cross referencing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Applications</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Applications/Applications-Landing_Page.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="applications">
+<span id="applications-applications-landing-page"></span><h1>Applications<a class="headerlink" href="#applications" title="Permalink to this heading"></a></h1>
+<p>Demo/sample applications which can be run on Talaria TWO firmware.</p>
+<section id="alarm">
+<h2>1.  Alarm<a class="headerlink" href="#alarm" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="analog-to-digital-converter">
+<h2>2.  Analog to Digital Converter<a class="headerlink" href="#analog-to-digital-converter" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="audio-over-i2s">
+<h2>3.  Audio over I2S<a class="headerlink" href="#audio-over-i2s" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="ble-5-0">
+<h2>4.  BLE 5.0<a class="headerlink" href="#ble-5-0" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="ble-beacons">
+<h2>3.  BLE Beacons<a class="headerlink" href="#ble-beacons" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="ble-wi-fi-bridge">
+<h2>4.  BLE Wi-Fi Bridge<a class="headerlink" href="#ble-wi-fi-bridge" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="chip-monitor">
+<h2>5.  Chip Monitor<a class="headerlink" href="#chip-monitor" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="crash-handling">
+<h2>6.  Crash Handling<a class="headerlink" href="#crash-handling" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="custom-atcmdlib">
+<h2>6.  Custom ATCMDLIB<a class="headerlink" href="#custom-atcmdlib" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="filesystem">
+<h2>7.  Filesystem<a class="headerlink" href="#filesystem" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="firmware-over-the-air-upgrade">
+<h2>8.  Firmware Over the Air Upgrade<a class="headerlink" href="#firmware-over-the-air-upgrade" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="gpio">
+<h2>9.  GPIO<a class="headerlink" href="#gpio" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="host-interface-protocol">
+<h2>10. Host Interface Protocol<a class="headerlink" href="#host-interface-protocol" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="http-client">
+<h2>11. HTTP Client<a class="headerlink" href="#http-client" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="i2c">
+<h2>12. I2C<a class="headerlink" href="#i2c" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="ifttt">
+<h2>13. IFTTT<a class="headerlink" href="#ifttt" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="iot-aws">
+<h2>14. IoT AWS<a class="headerlink" href="#iot-aws" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="iot-azure">
+<h2>15. IoT Azure<a class="headerlink" href="#iot-azure" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="low-power-scan">
+<h2>16. Low Power Scan<a class="headerlink" href="#low-power-scan" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="low-power-uart">
+<h2>17. Low Power UART<a class="headerlink" href="#low-power-uart" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="mdns">
+<h2>18. mDNS<a class="headerlink" href="#mdns" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="memory-management-and-error-handling">
+<h2>19.  Memory Management and Error Handling<a class="headerlink" href="#memory-management-and-error-handling" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="message-queues">
+<h2>20.  Message Queues<a class="headerlink" href="#message-queues" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="mqtt">
+<h2>21.  MQTT<a class="headerlink" href="#mqtt" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="provisioning">
+<h2>22.  Provisioning<a class="headerlink" href="#provisioning" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="pulse-width-modulation">
+<h2>23.  Pulse Width Modulation<a class="headerlink" href="#pulse-width-modulation" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="radio-and-module-parameters">
+<h2>24. Radio and Module Parameters<a class="headerlink" href="#radio-and-module-parameters" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="secure-files">
+<h2>25. Secure Files<a class="headerlink" href="#secure-files" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="simple-network-time-protocol">
+<h2>26.  Simple Network Time Protocol<a class="headerlink" href="#simple-network-time-protocol" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="sleep-enable-disable">
+<h2>27.  Sleep Enable Disable<a class="headerlink" href="#sleep-enable-disable" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="socket-wakeup">
+<h2>28. Socket Wakeup<a class="headerlink" href="#socket-wakeup" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="software-spi-master">
+<h2>29. Software SPI Master<a class="headerlink" href="#software-spi-master" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="spi-flash">
+<h2>30. SPI Flash<a class="headerlink" href="#spi-flash" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="ssbl">
+<h2>31. SSBL<a class="headerlink" href="#ssbl" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="thread-and-semaphores">
+<h2>32.  Thread and Semaphores<a class="headerlink" href="#thread-and-semaphores" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="throughput-measurement">
+<h2>32.  Throughput Measurement<a class="headerlink" href="#throughput-measurement" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="timers-and-callouts">
+<h2>33. Timers and Callouts<a class="headerlink" href="#timers-and-callouts" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="unassociated-mode">
+<h2>34. Unassociated Mode<a class="headerlink" href="#unassociated-mode" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="using-wi-fi">
+<h2>35. Using Wi-Fi<a class="headerlink" href="#using-wi-fi" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="watchdog-timer">
+<h2>36. Watchdog Timer<a class="headerlink" href="#watchdog-timer" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="websocket-client">
+<h2>37. Websocket Client<a class="headerlink" href="#websocket-client" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="wi-fi-connection-manager-multi-ap">
+<h2>38. Wi-Fi Connection Manager Multi-AP<a class="headerlink" href="#wi-fi-connection-manager-multi-ap" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="wi-fi-power-management">
+<h2>39. Wi-Fi Power Management<a class="headerlink" href="#wi-fi-power-management" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="work-queues">
+<h2>40. Work Queues<a class="headerlink" href="#work-queues" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Tools/MPD/Prerequisites/Prerequisites-Landing_Page.html" class="btn btn-neutral float-left" title="Prerequisites" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Alarm.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

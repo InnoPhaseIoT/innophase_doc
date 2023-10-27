@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hardware-Reference &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Hibernate mode" href="Design_Guidelines-Landing.html" />
+    <link rel="prev" title="Programming Talaria TWO" href="Programming_Talaria_TWO-Eval.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Getting_Started_Landing_page.html">Getting Started</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Hardware-Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#design-guidelines">Design Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Design_Guidelines-Landing.html">Hibernate mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Design_Guidelines-Landing.html#module-peripherals">Module Peripherals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Design_Guidelines-Landing.html#module-placement-guidelines">Module Placement Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Design_Guidelines-Landing.html#power-supply-to-the-module">Power Supply to the Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Design_Guidelines-Landing.html#production-programming">Production Programming</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#inp-301x">INP 301x</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Hardware_Reference/2.INP301x/INP301x_Development_Board.html">INP301X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hardware_Reference/2.INP301x/INP301x_Development_Board.html#functional-description">Functional Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hardware_Reference/2.INP301x/INP301x_Development_Board.html#antenna">Antenna</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#inp-3000">INP 3000</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Hardware_Reference/3.INP3000/INP3000_Programmer_Board.html">INP3000_Programmer_Board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hardware_Reference/3.INP3000/INP3000_Programmer_Board_2.1.html">INP3000 Programmer Board 2.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hardware_Reference/3.INP3000/INP3000_Programmer_Board_3.0.html">INP3000 Programmer Board 3.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hardware_Reference/3.INP3000/INP3000_Programmer_Board_4.0.html">INP3000 Programmer Board 4.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hardware_Reference/3.INP3000/Installing_Dependencies_for_JTAG_SWD_Programming.html">Installing Dependencies for JTAG SWD Programming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hardware_Reference/3.INP3000/Programming_Talaria_TWO_over_JTAG.html">Programming Talaria TWO over JTAG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hardware_Reference/3.INP3000/Programming_Talaria_TWO_over_SWD.html">Programming Talaria TWO over SWD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Hardware_Reference/3.INP3000/Programming_Talaria_TWO_over_UART.html">Programming Talaria TWO over UART</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Software_Reference/Prerequisites/libusbK_driver-Zadig.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Development_Environments/Development_Environments.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Tools/Tools_Landing.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Applications/Applications-Landing_Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Regulatory%20Notices/Regulatory%20Notices.html">Regulatory Notice</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Backend%20Files%20-%20for%20cross%20referencing/Backend%20File%20Landing.html">Backend Files - for cross referencing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Hardware-Reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Hardware-Reference.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="hardware-reference">
+<span id="id1"></span><h1>Hardware-Reference<a class="headerlink" href="#hardware-reference" title="Permalink to this heading"></a></h1>
+<p>The INP1010/INP1011/INP1012/INP1013/INP1014/INP1015 Talaria TWO modules
+are complete solutions with integrated wireless connectivity plus
+microcontroller for edge-of-network IoT designs.</p>
+<p>Talaria TWO modules have either a printed PCB antenna (INP1010/INP1014),
+a U.FL antenna connector (INP1011/INP1015), an RF pin connector
+(INP1012), or a ceramic antenna (INP1013). The modules will include
+Wi-Fi Alliance, Bluetooth SIG, FCC, IC (Canada), CE, and TELEC*.</p>
+<p>Each module has an associated EVB-A evaluation board
+(INP3010/INP3011/INP3012/INP3013/INP3014/INP3015 respectively), designed
+as an evaluation platform for the INP101x modules.</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Table 1: Talaria TWO modules overview</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Module</strong></p></th>
+<th class="head"><p><strong>Antenna</strong></p></th>
+<th class="head"><p><strong>Dimensions(mm)</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>INP2045</p></td>
+<td><p>QFN42 SoC</p></td>
+<td><p>5x6</p></td>
+</tr>
+<tr class="row-odd"><td><p>INP1010</p></td>
+<td><p>Integrated PCB antenna module</p></td>
+<td><p>21.6x19.1</p></td>
+</tr>
+<tr class="row-even"><td><p>INP1011</p></td>
+<td><p>u.Fl external antenna module</p></td>
+<td><p>21.6x19.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>INP1012</p></td>
+<td><p>RF Pin external antenna mini module</p></td>
+<td><p>15x12.8</p></td>
+</tr>
+<tr class="row-even"><td><p>INP1013</p></td>
+<td><p>Integrated ceramic antenna mini
+module</p></td>
+<td><p>20x12.8</p></td>
+</tr>
+<tr class="row-odd"><td><p>INP1014</p></td>
+<td><p>Integrated PCB antenna mini module</p></td>
+<td><p>20x12.8</p></td>
+</tr>
+<tr class="row-even"><td><p>INP1015</p></td>
+<td><p>u.Fl external antenna mini module</p></td>
+<td><p>17x12.8</p></td>
+</tr>
+</tbody>
+</table>
+<p>For more details on the Talaria TWO modules and SoCs, refer: Talaria TWO
+Module and SoC Datasheet.</p>
+<p>INP3000 programmer board provides a programming interface for the
+Talaria TWO modules. It can be used with scripts provides in the Talaria
+TWO SDK package.</p>
+<section id="design-guidelines">
+<h2>Design Guidelines<a class="headerlink" href="#design-guidelines" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Design_Guidelines-Landing.html">Hibernate mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Design_Guidelines-Landing.html#module-peripherals">Module Peripherals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Module_Peripheral/Module_Peripherals_Landing.html">UART Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module_Peripheral/Module_Peripherals_Landing.html#console-uart">Console UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module_Peripheral/Module_Peripherals_Landing.html#spi-slave-interface">SPI Slave Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module_Peripheral/Module_Peripherals_Landing.html#sdio-interface">SDIO Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module_Peripheral/Module_Peripherals_Landing.html#gpio">GPIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module_Peripheral/Module_Peripherals_Landing.html#i2c-interface">I2C Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module_Peripheral/Module_Peripherals_Landing.html#adc-interface">ADC Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module_Peripheral/Module_Peripherals_Landing.html#pwm-interface">PWM Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module_Peripheral/Module_Peripherals_Landing.html#jtag-swd">JTAG/SWD</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Design_Guidelines-Landing.html#module-placement-guidelines">Module Placement Guidelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Module_Placement_Guidelines/Module_and_Antenna_Placement_Guidelines%E2%80%93INP1012.html">Module and Antenna Placement Guidelines – INP1012</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module_Placement_Guidelines/Module_Placement_Guidelines-INP1010_INP1013_INP1014.html">Module Placement Guidelines – INP1010/INP1013/INP1014</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Module_Placement_Guidelines/Module_Placement_Guidelines%E2%80%93INP1011_INP1015.html">Module Placement Guidelines – INP1011/INP1015</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Module_Placement_Guidelines/Module_Placement_Guidelines%E2%80%93INP1011_INP1015.html#thermal-ground-pad">Thermal Ground Pad</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Design_Guidelines-Landing.html#power-supply-to-the-module">Power Supply to the Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Power_Supply_to_the_Module/Power_Supply_to_the_Module.html">Power Supply to the Module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Design_Guidelines-Landing.html#production-programming">Production Programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Production_Programming/Host-based/Production_Programming-Host_based.html">Host-based Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Production_Programming/PC-based/Production_Programming-PC_based.html">PC-based Programming</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Production_Programming/PC-based/Production_Programming-PC_based.html#uart-based-programming">UART-based Programming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Production_Programming/PC-based/Production_Programming-PC_based.html#swd-based-programming">SWD-based Programming</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Production_Programming/Programming_Over_the_Air/Production_Programming-Programming_Over_the_Air.html">Programming Programming Over the Air</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="inp-301x">
+<h2>INP 301x<a class="headerlink" href="#inp-301x" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Hardware_Reference/2.INP301x/INP301x_Development_Board.html">INP301X</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/2.INP301x/INP301x_Development_Board.html#jumpers-on-the-board">Jumpers on the Board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/2.INP301x/INP301x_Development_Board.html#power-supply-and-mode-switch">Power Supply and Mode Switch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/2.INP301x/INP301x_Development_Board.html#io-header-j1">IO Header (J1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/2.INP301x/INP301x_Development_Board.html#shield-headers-jp1-to-jp4">Shield Headers (JP1 to JP4)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/2.INP301x/INP301x_Development_Board.html#on-board-sensors">On Board Sensors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Hardware_Reference/2.INP301x/INP301x_Development_Board.html#functional-description">Functional Description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/2.INP301x/INP301x_Development_Board.html#stand-alone-mode">Stand-alone Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/2.INP301x/INP301x_Development_Board.html#shield-mode">Shield Mode</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Hardware_Reference/2.INP301x/INP301x_Development_Board.html#antenna">Antenna</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/2.INP301x/INP301x_Development_Board.html#inp1010">INP1010</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/2.INP301x/INP301x_Development_Board.html#inp1011-inp1012-inp1015">INP1011/INP1012/INP1015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/2.INP301x/INP301x_Development_Board.html#inp1013">INP1013</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/2.INP301x/INP301x_Development_Board.html#inp1014">INP1014</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="inp-3000">
+<h2>INP 3000<a class="headerlink" href="#inp-3000" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Hardware_Reference/3.INP3000/INP3000_Programmer_Board.html">INP3000_Programmer_Board</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/3.INP3000/INP3000_Programmer_Board.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/3.INP3000/INP3000_Programmer_Board.html#in-windows">In Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/3.INP3000/INP3000_Programmer_Board.html#in-linux">In Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/3.INP3000/INP3000_Programmer_Board.html#generating-the-data-fs-image">Generating the Data FS Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/3.INP3000/INP3000_Programmer_Board.html#in-windows-1">In Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/3.INP3000/INP3000_Programmer_Board.html#in-linux-1">In Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Hardware_Reference/3.INP3000/INP3000_Programmer_Board_2.1.html">INP3000 Programmer Board 2.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/3.INP3000/INP3000_Programmer_Board_2.1.html#version-2-1">VERSION 2.1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Hardware_Reference/3.INP3000/INP3000_Programmer_Board_3.0.html">INP3000 Programmer Board 3.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/3.INP3000/INP3000_Programmer_Board_3.0.html#version-3-0">VERSION 3.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Hardware_Reference/3.INP3000/INP3000_Programmer_Board_4.0.html">INP3000 Programmer Board 4.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/3.INP3000/INP3000_Programmer_Board_4.0.html#version-4-0">VERSION 4.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Hardware_Reference/3.INP3000/Installing_Dependencies_for_JTAG_SWD_Programming.html">Installing Dependencies for JTAG SWD Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Hardware_Reference/3.INP3000/Programming_Talaria_TWO_over_JTAG.html">Programming Talaria TWO over JTAG</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/3.INP3000/Programming_Talaria_TWO_over_JTAG.html#in-windows">In Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/3.INP3000/Programming_Talaria_TWO_over_JTAG.html#in-linux">In Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Hardware_Reference/3.INP3000/Programming_Talaria_TWO_over_SWD.html">Programming Talaria TWO over SWD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/3.INP3000/Programming_Talaria_TWO_over_SWD.html#in-windows">In Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/3.INP3000/Programming_Talaria_TWO_over_SWD.html#in-linux">In Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Hardware_Reference/3.INP3000/Programming_Talaria_TWO_over_UART.html">Programming Talaria TWO over UART</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/3.INP3000/Programming_Talaria_TWO_over_UART.html#programming-the-application-and-data-image-over-uart">Programming the Application and Data Image over UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hardware_Reference/3.INP3000/Programming_Talaria_TWO_over_UART.html#programming-the-application-and-data-image-over-uart-1">Programming the Application and Data Image over UART</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Programming_Talaria_TWO-Eval.html" class="btn btn-neutral float-left" title="Programming Talaria TWO" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Design_Guidelines-Landing.html" class="btn btn-neutral float-right" title="Hibernate mode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -286,13 +286,13 @@ Figure 60: Setting breakpoint
 
 Figure 61: Step run output in console
 
-.. |Graphical user interface, application Description automatically generated| image:: media/image1.png
+.. |Graphical user interface, application Description automatically generated| image:: ../media/image1.png
    :width: 6.49606in
    :height: 3.48102in
-.. |Properties for test| image:: media/image2.png
+.. |Properties for test| image:: ../media/image2.png
    :width: 5.90556in
    :height: 3.77292in
-.. |A screenshot of a computer Description automatically generated| image:: media/image3.png
+.. |A screenshot of a computer Description automatically generated| image:: ../media/image3.png
    :width: 5.90551in
    :height: 2.53479in
 .. |image1| image:: media/image4.png
@@ -349,7 +349,7 @@ Figure 61: Step run output in console
 .. |image15| image:: media/image19.png
    :width: 0.16667in
    :height: 0.12639in
-.. |image16| image:: media/image21.png
+.. |image16| image:: ../media/image21.png
    :width: 6.69291in
    :height: 3.73249in
 

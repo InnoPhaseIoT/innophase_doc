@@ -1,14 +1,14 @@
 const searchElement = document.getElementsByClassName("icon icon-home")[0];
 
 const VersionsList = {
-    Version: "InnoOS-2.7",
+    Version: "freertos-3.0",
     "FreeRTOS-3.0":
         "https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/freertos-3.0",
 };
 
 const ModulesList = {
     Module: "#",
-    "Talaria-TWO": "https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/latest",
+    "Talaria-TWO": "https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/freertos-3.0",
 };
 
 var selectList = document.createElement("select");

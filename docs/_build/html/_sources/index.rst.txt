@@ -58,48 +58,67 @@ Linux CPU-based (Hosted CPU):
    :maxdepth: 2
    :caption: Contents
 
-   Getting_Started_Landing_page
+   Getting Started/Getting Started - Landing Page
 
 .. toctree::
    :hidden:
    :maxdepth: 2
 
-   Hardware-Reference
-
-
-.. toctree::
-   :hidden:
-   :maxdepth: 2
-
-   Porting-Guide
+   Hardware Reference/Hardware-Reference
 
 
 .. toctree::
    :hidden:
    :maxdepth: 2
 
-   Software_Reference/Prerequisites/libusbK_driver-Zadig
+   Porting Guide/Porting-Guide
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+
+   Disclaimers/Disclaimers
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+
+   Appendix/Appendix-Landing_Page
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+
+   Support/Support
 
 
 .. toctree::
    :hidden:
    :maxdepth: 2
 
-   Development_Environments/Development_Environments
+   Software Reference/Software_Reference_Landing_Page
 
 
 .. toctree::
    :hidden:
    :maxdepth: 2
 
-   Tools/Tools_Landing
+   Development Environments/Development Environments - Landing Page
 
 
 .. toctree::
    :hidden:
    :maxdepth: 2
 
-   Applications/Applications-Landing_Page
+   Tools/Tools-landing page
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+
+   Applications/Applications - Landing Page
+
 
 
 .. toctree::

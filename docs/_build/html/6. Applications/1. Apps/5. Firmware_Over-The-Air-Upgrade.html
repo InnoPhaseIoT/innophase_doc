@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topology &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Topology</a></li>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#list-of-apis">List of APIs</a></li>
+<li><a class="reference internal" href="#features-limitations">Features &amp; Limitations</a></li>
+<li><a class="reference internal" href="#dependent-talaria-two-module-information">Dependent Talaria TWO Module Information</a><ul>
+<li><a class="reference internal" href="#flash-layout">Flash Layout</a></li>
+<li><a class="reference internal" href="#partition-table-file-part-json">Partition Table File (part.json)</a></li>
+<li><a class="reference internal" href="#boot-index-file-boot-json">Boot Index File (boot.json)</a></li>
+<li><a class="reference internal" href="#fota-configuration-file-fota-config-json">FOTA Configuration File (fota_config.json)</a></li>
+<li><a class="reference internal" href="#secure-secondary-boot-loader-ssbl">Secure Secondary Boot Loader (SSBL)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#design">Design</a><ul>
+<li><a class="reference internal" href="#checking-for-new-updates">Checking for New Updates</a></li>
+<li><a class="reference internal" href="#selecting-image-area">Selecting Image Area</a></li>
+<li><a class="reference internal" href="#secured-connection">Secured Connection</a></li>
+<li><a class="reference internal" href="#downloading-the-firmware">Downloading the Firmware</a></li>
+<li><a class="reference internal" href="#setting-the-new-image-for-boot-and-reload">Setting the new image for boot and reload</a></li>
+<li><a class="reference internal" href="#error-handling">Error handling</a></li>
+<li><a class="reference internal" href="#flow-diagram">Flow Diagram</a></li>
+<li><a class="reference internal" href="#code-walkthrough">Code Walkthrough</a><ul>
+<li><a class="reference internal" href="#initializing-fota">Initializing FOTA</a></li>
+<li><a class="reference internal" href="#fota-perform">FOTA Perform</a></li>
+<li><a class="reference internal" href="#fota-commit">FOTA Commit</a></li>
+<li><a class="reference internal" href="#deinitialize-fota">Deinitialize FOTA</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#block-diagram">Block Diagram</a></li>
+<li><a class="reference internal" href="#aws-set-up">AWS Set-up</a></li>
+<li><a class="reference internal" href="#build-and-run-fota-application">Build and Run FOTA Application</a><ul>
+<li><a class="reference internal" href="#using-script">Using Script</a></li>
+<li><a class="reference internal" href="#using-manual-programming-discrete-commands">Using Manual Programming Discrete Commands</a><ul>
+<li><a class="reference internal" href="#build">Build</a></li>
+<li><a class="reference internal" href="#create-root-filesystem-image">Create Root Filesystem Image</a></li>
+<li><a class="reference internal" href="#flash-required-images">Flash Required Images</a><ul>
+<li><a class="reference internal" href="#id3">**</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#expected-output">Expected Output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#build-and-run-fota-application-with-secureboot">Build and Run FOTA Application with Secureboot</a><ul>
+<li><a class="reference internal" href="#flashing-and-testing">Flashing and Testing</a></li>
+<li><a class="reference internal" href="#expected-output-1">Expected Output</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Topology</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/6. Applications/1. Apps/5. Firmware_Over-The-Air-Upgrade.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>Firmware-Over-the-Air (FOTA) allows wireless delivery of firmware
+updates and/or configurations to embedded devices.</p>
+<p>This document describes the FOTA process for the Talaria TWO EVB using
+the Talaria TWO SDK with details on how to implement or trigger FOTA in
+a customer provided application.</p>
+<section id="topology">
+<h1>Topology<a class="headerlink" href="#topology" title="Link to this heading"></a></h1>
+</section>
+<section id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h1>
+<p>This implementation of FOTA provides the following features:</p>
+<ol class="arabic simple">
+<li><p>Check for the availability of new upgrades.</p></li>
+<li><p>Securely download the image into flash.</p></li>
+<li><p>Check the validity of the downloaded image.</p></li>
+<li><p>Set the new image as the boot image.</p></li>
+</ol>
+<p>In conjunction with SSBL, it enables booting the latest image
+downloaded. The firmware is downloaded into the application image
+partition in the Flash.</p>
+</section>
+<section id="list-of-apis">
+<h1>List of APIs<a class="headerlink" href="#list-of-apis" title="Link to this heading"></a></h1>
+<ol class="arabic simple">
+<li><p>fota_init(): Initializes the FOTA module.</p></li>
+<li><p>fota_perform(): Performs the FOTA update.</p></li>
+<li><dl class="simple">
+<dt>fota_commit(): After the FOTA update is done, this function is called</dt><dd><p>to set the newly updated firmware as the default.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>fota_deinit(): Releases all the resources allocated during</dt><dd><p>fota_init() and other FOTA API calls.</p>
+</dd>
+</dl>
+</li>
+</ol>
+<p>For more information on the APIs, refer: fota_apiref.pdf
+(<em>/components/fota/doc).</em></p>
+</section>
+<section id="features-limitations">
+<h1>Features &amp; Limitations<a class="headerlink" href="#features-limitations" title="Link to this heading"></a></h1>
+<p>Following are the FOTA application features:</p>
+<ol class="arabic simple">
+<li><p>FOTA over HTTP/HTTPS.</p></li>
+<li><p>Image download from Cloud or any HTTP/web server.</p></li>
+<li><p>Two copy solution. Backup copy of the correct firmware always exists.</p></li>
+<li><p>Image integrity check using sha256 hash.</p></li>
+<li><p>Error handling and recovery</p>
+<ol class="loweralpha simple">
+<li><p>In case of any error while downloading the image or updating the
+configuration files (<em>part.json/boot.json/fota_config.json</em>), the
+device will remain in the current image.</p></li>
+<li><p>In case of a reboot (due to issues like power failure) during
+image download or configuration file upgrade, the device will boot
+with the current image.</p></li>
+</ol>
+</li>
+<li><p>JSON based configuration.</p></li>
+</ol>
+</section>
+<section id="dependent-talaria-two-module-information">
+<h1>Dependent Talaria TWO Module Information<a class="headerlink" href="#dependent-talaria-two-module-information" title="Link to this heading"></a></h1>
+<p>This section provides a list of modules in Talaria TWO on which FOTA is
+dependent. It is important to understand these concepts before
+proceeding with the design aspects of the FOTA.</p>
+<section id="flash-layout">
+<h2>Flash Layout<a class="headerlink" href="#flash-layout" title="Link to this heading"></a></h2>
+<p>About Talaria TWO Flash:</p>
+<ol class="arabic simple">
+<li><p>Size: 2MB</p></li>
+<li><p>512 sectors</p></li>
+<li><p>4096 bytes/sector</p></li>
+<li><p>256-byte page</p></li>
+</ol>
+<p>Flash is divided into eight partitions. Partition table information is
+stored in the Boot sector. Each partition has a starting sector and a
+sector count, along with a type, and some control bits. No two
+partitions overlap. The reason for using sector addressing is so that
+partitions can be independently erased.</p>
+<p>Figure 2 provides the proposed layout of Flash memory when using SSBL.
+To use SSBL, Flash must at least contain SSBL, filesystem, and one
+application.</p>
+<p><a class="reference internal" href="../../_images/image1102.png"><img alt="Graphical user interface, application Description automatically generated" src="../../_images/image1102.png" style="width: 6.69291in; height: 0.85424in;" /></a></p>
+<p>Figure 2: Flash layout when using the SSBL</p>
+<p>The Boot Image is the default application that Talaria TWO’s boot ROM
+would look for when a Talaria TWO device is powered ON. To support FOTA,
+SSBL shall run as Boot image. SSBL is a special application that
+determines the final application to load. In a nutshell, on power cycle,
+the boot ROM boots the SSBL application which in turn loads the final
+application</p>
+<p>For detailed documentation on Flash layout, refer:
+Application_for_using_SSBL.pdf <em>(freertos_sdk_x.y/apps/ssbl/doc/)</em>.</p>
+<p><strong>Note</strong>: x and y in freertos_sdk_x.y refers to the FreeRTOS SDK release
+version.</p>
+</section>
+<section id="partition-table-file-part-json">
+<h2>Partition Table File (part.json)<a class="headerlink" href="#partition-table-file-part-json" title="Link to this heading"></a></h2>
+<p>This is a json file that provides the partition information of the
+application images in the Flash. The file is stored in root/user FS
+(<em>freertos_sdk_x.y/apps/fota/fs</em>). This file mainly contains an array of
+image information (represented by the name <strong>image:</strong>).</p>
+<p>Each of the image information entry in the array gives image name,
+version, starting sector and other information about the application.
+Following is the basic content:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>{</p>
+<p>“image” : [</p>
+<p>{</p>
+<p>“name” : “fota”,</p>
+<p>“version” : “1.0”,</p>
+<p>“start_sector” : 32,</p>
+<p>“bootargs_start”: 1,</p>
+<p>“ssid” : “inno_test”,</p>
+<p>“passphrase” : “1234567890”,</p>
+<p>“bootargs_end” : 1</p>
+<p>},</p>
+<p>{</p>
+<p>“name” : “test_app”,</p>
+<p>“version” : “1.0”,</p>
+<p>“start_sector” : 154,</p>
+<p>“bootargs_start”: 1,</p>
+<p>“ssid” : “inno_test”,</p>
+<p>“passphrase” : “1234567890”,</p>
+<p>“bootargs_end” : 1</p>
+<p>},</p>
+<p>{</p>
+<p>“name” : “test_app”,</p>
+<p>“version” : “0.0”,</p>
+<p>“start_sector” : 230,</p>
+<p>“bootargs_start”: 1,</p>
+<p>“ssid” : “inno_test”,</p>
+<p>“passphrase” : “1234567890”,</p>
+<p>“bootargs_end” : 1</p>
+<p>}</p>
+<p>],</p>
+<p>“baudrate” : 2560000,</p>
+<p>“timeout” : 0,</p>
+<p>“verbose” : 1</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>In the part.json file from the above example, the start sector
+computation for applications can be done as:</p>
+<p>The start sector for the first application (FOTA) in the partition table
+is 32. For the next consecutive applications (test_app), start sector
+can be calculated based on the size of ELF i.e.,</p>
+<p>For example, if the size of FOTA ELF = 519356.</p>
+<p>Start sector of FOTA application = 32.</p>
+<p>Total number of sectors needed for FOTA application: 519356/4096=122
+sectors, where 4096 is the size of one sector.</p>
+<p>The next application, “test_app” start sector can be flashed on or after
+32+122 sectors = 154th sector.</p>
+</section>
+<section id="boot-index-file-boot-json">
+<h2>Boot Index File (boot.json)<a class="headerlink" href="#boot-index-file-boot-json" title="Link to this heading"></a></h2>
+<p>This is a json file stored in root/user FS. It contains the image index.
+This is the index in the image information array present in part.json
+file. SSBL gets the index of the image to be loaded from this file.</p>
+<p>Following is the content:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>{</p>
+<p>image : 0</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fota-configuration-file-fota-config-json">
+<h2>FOTA Configuration File (fota_config.json)<a class="headerlink" href="#fota-configuration-file-fota-config-json" title="Link to this heading"></a></h2>
+<p>The FOTA configuration file fota_config.json is a json file. This file
+is stored in the root/user FS in Flash. The FOTA module gets all the
+information required to download the Firmware or a file.</p>
+<p>Each object in this file shall give information about the file to be
+downloaded. Each object will have the following tokens:</p>
+<ol class="arabic simple">
+<li><p>type: Type of the file. It can be firmware or file</p></li>
+<li><p>name: Name of the firmware image/ file</p></li>
+<li><p>hostname: Fully Qualified domain name of the server</p></li>
+<li><p>port: Server port</p></li>
+<li><p>uri: This is the location of the firmware/file in the cloud</p></li>
+<li><p>secured: Value for this token will be 2 if the connection is secure
+with server authentication, else 1</p></li>
+<li><p>ca_cert: Certificate file name</p></li>
+<li><p>hash: Hash used for checking the integrity of the firmware/file</p></li>
+</ol>
+<p>Following is the basic content of the file:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>{</p>
+<p>“package_version” : “1.0”,</p>
+<p>“files” : [</p>
+<p>{</p>
+<p>“type” : “configuration”,</p>
+<p>“name” : “fota.config”,</p>
+<p>“hostname” : “innotestota.s3.us-east-2.amazonaws.com”,</p>
+<p>“port” : 443,</p>
+<p>“secured” : 2,</p>
+<p>“uri” : “/fota_config.json”,</p>
+<p>“ca_cert” : “/data/fota_ca_cert.pem”</p>
+<p>},</p>
+<p>{</p>
+<p>“type” : “firmware”,</p>
+<p>“name” : “test_app”,</p>
+<p>“hostname” : “innotestota.s3.us-east-2.amazonaws.com”,</p>
+<p>“port” : 443,</p>
+<p>“secured” : 2,</p>
+<p>“uri” : “/test_app.elf”,</p>
+<p>“ca_cert” : “/data/fota_ca_cert.pem”</p>
+<p>}</p>
+<p>]</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The group of Firmware and files and its information present in this file
+is considered as a package. Each fota_config.json file will have a
+package version at the top. The array of objects will provide
+information about firmware and files considered as one package.</p>
+<p>The package_version provides the version of the package. There will be a
+fota_config.json file in the Cloud. If the package_version of the
+fota_config.json file present in the Cloud is greater than that of the
+file currently present in the device, FOTA needs to be done.</p>
+<p>The first object shall give the information about the fota_config.json
+file available on Cloud. Device can fetch the file and see if a package
+with a higher version is available. The Firmware will be downloaded in
+the application partition and files will be stored in root/user FS.</p>
+</section>
+<section id="secure-secondary-boot-loader-ssbl">
+<h2>Secure Secondary Boot Loader (SSBL)<a class="headerlink" href="#secure-secondary-boot-loader-ssbl" title="Link to this heading"></a></h2>
+<p>SSBL is an application that facilitates booting a specific image from
+the flash. On boot, the boot-ROM loads &amp; starts SSBL. SSBL reads the
+image index from the boot.json file. It parses the part.json file and
+picks the image info in the image info array at the index read from
+boot.json file. The SSBL then loads and runs the image at the sector
+provided by this image information.</p>
+<p>For detailed information about the SSBL design, refer:
+Application_for_using_SSBL.pdf (<em>freertos_sdk_x.y/apps/ssbl/doc/</em>).</p>
+</section>
+</section>
+<section id="design">
+<h1>Design<a class="headerlink" href="#design" title="Link to this heading"></a></h1>
+<p>FOTA process involves the following components:</p>
+<ol class="arabic simple">
+<li><p>Parsing the FOTA configuration file</p></li>
+<li><p>Checking for the new updates</p></li>
+<li><p>Selecting image area</p></li>
+<li><p>Secured connection</p></li>
+<li><p>Downloading the Firmware</p></li>
+<li><p>Error handling</p></li>
+</ol>
+<section id="checking-for-new-updates">
+<h2>Checking for New Updates<a class="headerlink" href="#checking-for-new-updates" title="Link to this heading"></a></h2>
+<p>For checking new updates, module fetches the fota_config.json file from
+the cloud. The package version of the downloaded file is compared
+against the fota_config.json file already present in the device. If the
+version is higher, FOTA needs to be done.</p>
+<p>This functionality is optional, and the step can be skipped if an
+external application like Mobile Application does the check and
+provisions the device to trigger the FOTA. The functionality is provided
+through API for the applications to be used for polling.</p>
+</section>
+<section id="selecting-image-area">
+<h2>Selecting Image Area<a class="headerlink" href="#selecting-image-area" title="Link to this heading"></a></h2>
+<p>This logic will parse the part.json file and selects the image area in
+flash for downloading the image.</p>
+<p>Each application that can be upgraded using FOTA will have a unique name
+in the image information table. Multiple image information entries for
+the same application will have the same name. That is, each such
+application will have at-least two slots in the table.</p>
+<p>For example, if there is an application called app_image, there will be
+two entries in the image information table with the same name. There
+will be a minimum of two entries for an application which can be
+upgraded using FOTA.</p>
+<p>The version field in the image information shall represent the FOTA
+version and not the application release version. The selection logic
+will go through all the entries for a given application and selects area
+(image information) with least version number.</p>
+<p>For example, if one entry for app_image has version 1 and its starting
+sector is 66 and other entry for the same application has the version 0
+and its starting sector is 166, the first entry will be selected for
+FOTA image download. The new image will be downloaded at sector 66.</p>
+<p>Each time after FOTA succeeds, the version number for the selected image
+information is changed to one more than the highest currently available
+version, so that the newer version will always have the highest version
+number.</p>
+</section>
+<section id="secured-connection">
+<h2>Secured Connection<a class="headerlink" href="#secured-connection" title="Link to this heading"></a></h2>
+<p>The fota_config.json file provides the following information for
+connection and download:</p>
+<ol class="arabic simple">
+<li><p>Server IP/ DNS</p></li>
+<li><p>Port number</p></li>
+<li><p>Firmware location on the server (URI)</p></li>
+<li><p>Root CA certificate to authenticate the server at the time of SSL
+connection</p></li>
+</ol>
+<p>If the DNS name is provided, DNS will be resolved. The root CA
+certificate as indicated in the fota_config.json file will be present in
+the root/user FS. HTTPS connection will be established with the server.
+The connection will be secured using Transport Layer Security (TLS1.2).</p>
+</section>
+<section id="downloading-the-firmware">
+<h2>Downloading the Firmware<a class="headerlink" href="#downloading-the-firmware" title="Link to this heading"></a></h2>
+<p>Once the HTTPS connection is successfully established, the image is
+downloaded using HTTP GET. The URI of the Firmware as provided in the
+fota_config.json file is used during the GET. The image is downloaded
+into flash at the location selected as detailed in section 9.2.</p>
+<p>After successful download, image is authenticated using the certificate
+indicated by ca_cert field in fota_config.json file. This will also
+ensure that the integrity of the image is intact. This certificate will
+be present in the root/user FS.</p>
+</section>
+<section id="setting-the-new-image-for-boot-and-reload">
+<h2>Setting the new image for boot and reload<a class="headerlink" href="#setting-the-new-image-for-boot-and-reload" title="Link to this heading"></a></h2>
+<p>If the image integrity of the downloaded image is found to be intact,
+version number of the selected image information in part.json file will
+be increased by one more than the highest version currently in use.
+Finally, image index in boot.json file will be updated with the index of
+the selected image information and the device is reset. After reboot,
+SSBL will automatically load the newly downloaded image.</p>
+</section>
+<section id="error-handling">
+<h2>Error handling<a class="headerlink" href="#error-handling" title="Link to this heading"></a></h2>
+<p>The FOTA alternates the image download between two application image
+area in flash. At any point of time there will at-least one proper
+application image (currently running). This acts as a backup/fallback
+image in case FOTA fails. The boot image index in boot.json file is
+changed to point to the new image only at the last step of FOTA after
+the integrity of the downloaded image is found to be intact.</p>
+<p>At any point of time if the error occurs, the procedures can be retried.
+The procedure will be retried for FOTA_MAX_RETRIES multiple times before
+giving up. If FOTA is not successful, the currently available stable
+image will run.</p>
+</section>
+<section id="flow-diagram">
+<h2>Flow Diagram<a class="headerlink" href="#flow-diagram" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="../../_images/image260.png"><img alt="image1" src="../../_images/image260.png" style="width: 5.90551in; height: 8.10291in;" /></a></p>
+<p>Figure 3: Flow Diagram</p>
+<p>Continued from the previous flow diagram:</p>
+<p><a class="reference internal" href="../../_images/image345.png"><img alt="image2" src="../../_images/image345.png" style="width: 5.90551in; height: 7.88474in;" /></a></p>
+<p>Figure 4: Flow Diagram - continued</p>
+</section>
+<section id="code-walkthrough">
+<h2>Code Walkthrough<a class="headerlink" href="#code-walkthrough" title="Link to this heading"></a></h2>
+<section id="initializing-fota">
+<h3>Initializing FOTA<a class="headerlink" href="#initializing-fota" title="Link to this heading"></a></h3>
+<p>The fota_init() API initializes the FOTA module. This will be called
+before any other FOTA APIs.</p>
+<p>fota_init_param needs to be initialized appropriately before passing it
+onto the fota_init() function. Following is the definition for
+fota_init_param:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>typedef struct {</p>
+<p>    uint32_t *cipher_key; /**cipher key used with secureboot*/</p>
+<p>}fota_init_param_t;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>cipher_key in fota_init_param will be NULL in case of non-secureboot. In
+case of secureboot, this should be initialized appropriately.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>fota_handle_t *handle;</p>
+<p>fota_init_param_t *fota_init_param;</p>
+<p>handle=fota_init(&amp;fota_init_param);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fota-perform">
+<h3>FOTA Perform<a class="headerlink" href="#fota-perform" title="Link to this heading"></a></h3>
+<p>The fota_perform() API parameter check_for_update==1 downloads the
+remote fota_config.json file, compares the package version with the
+local fota_config.json file, and only perform FOTA if the package
+version on the cloud is higher than the one present on device.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>fota_perform(fota_handle_t *f_handle, int check_for_update,</p>
+<p>int flags)</p>
+<p>{</p>
+<p>fota_files_info_t *files_info;</p>
+<p>int ret = FOTA_ERROR_NONE;</p>
+<p>int update_available;</p>
+<p>os_printf(”\n%s check_for_update = %d”,</p>
+<p>__FUNCTION__, check_for_update);</p>
+<p>if(check_for_update == 1)</p>
+<p>{</p>
+<p>ret = fota_update_check(f_handle, &amp;update_available);</p>
+<p>if(ret){</p>
+<p>os_printf(”\nError: fota_update_check”);</p>
+<p>return ret;</p>
+<p>}</p>
+<p>if(!update_available){</p>
+<p>os_printf(”\nError: No new update available”);</p>
+<p>return FOTA_ERROR_NO_NEW_UPDATE;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The fota_perform() API parameter check_for_update==2 downloads the
+remote fota_config.json file and no check is performed.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>else if(check_for_update == 2){</p>
+<p>ret = fota_config_file_download(f_handle);</p>
+<p>if(!ret){</p>
+<p>return ret;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Based on the type of the file files_info-&gt;type, FOTA is performed as
+needed.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>/* Loop through the files list*/</p>
+<p>while(files_info){</p>
+<p>os_printf(“\n type = %s”, files_info-&gt;type);</p>
+<p>if(!strcmp (files_info-&gt;type, “configuration”)){</p>
+<p>files_info = files_info-&gt;next;</p>
+<p>continue;</p>
+<p>}else if(!strcmp(files_info-&gt;type, “firmware”)){</p>
+<p>ret = fota_firmware_download(f_handle, files_info);</p>
+<p>if(ret){</p>
+<p>break;</p>
+<p>}</p>
+<p>}else if(!strcmp(files_info-&gt;type, “file”)){</p>
+<p>ret = fota_file_download(f_handle, files_info);</p>
+<p>if(!ret){</p>
+<p>break;</p>
+<p>}</p>
+<p>}</p>
+<p>files_info = files_info-&gt;next;</p>
+<p>}</p>
+<p>return ret;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fota-commit">
+<h3>FOTA Commit<a class="headerlink" href="#fota-commit" title="Link to this heading"></a></h3>
+<p>After successful FOTA update, fota_commit() is called to set the new
+firmware as the default.</p>
+<p>This function will check if the fota_config.json, part.json and
+boot.json file is updated successfully and resets the device.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>fota_commit(fota_handle_t *f_handle, int do_reset)</p>
+<p>{</p>
+<p>int rval;</p>
+<p>/*Mark that fota was in progress*/</p>
+<p>os_printf(”\n%s”, __FUNCTION__);</p>
+<p>if(utils_file_touch(FOTA_IN_PROGRESS_FILE_PATH) &lt; 0){</p>
+<p>return -1;</p>
+<p>}</p>
+<p>if(FOTA_ERROR_NONE != (rval = fota_update_config_file(f_handle))){</p>
+<p>os_printf(”\nError: updating config file failed”);</p>
+<p>return rval;</p>
+<p>}</p>
+<p>if(FOTA_ERROR_NONE != (rval = fota_update_part_file(f_handle))){</p>
+<p>os_printf(”\nError: updating part file failed”);</p>
+<p>return rval;</p>
+<p>}</p>
+<p>if(FOTA_ERROR_NONE != (rval = fota_set_boot_index(f_handle))){</p>
+<p>os_printf(”\nError: updating boot.json failed”);</p>
+<p>return rval;</p>
+<p>}</p>
+<p>/*Fota is success*/</p>
+<p>unlink(FOTA_IN_PROGRESS_FILE_PATH);</p>
+<p>os_printf(”\n\n\n\n”);</p>
+<p>/*Reboot the device*/</p>
+<p>if(do_reset == 1) {</p>
+<p>reset_device();</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="deinitialize-fota">
+<h3>Deinitialize FOTA<a class="headerlink" href="#deinitialize-fota" title="Link to this heading"></a></h3>
+<p>This API releases all the resources allocated during fota_init() and
+other FOTA API calls.</p>
+<p>It frees up memory allocated for the new configuration file
+(f_handle-&gt;recv_buff).</p>
+<p>Frees up application partition information used during the image
+download. (f_handle-&gt;image_info_list).</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void fota_deinit(fota_handle_t * f_handle)</p>
+<p>{</p>
+<p>fota_image_info_t *img_p, *prev_img;</p>
+<p>fota_files_info_t *p, *prev;</p>
+<p>if(NULL == f_handle)</p>
+<p>return;</p>
+<p>sector_cache_deinit();</p>
+<p>vPortFree(f_handle-&gt;recv_buff);</p>
+<p>if (f_handle-&gt;cipher_key != NULL)</p>
+<p>vPortFree(f_handle-&gt;cipher_key);</p>
+<p>img_p = f_handle-&gt;image_info_list;</p>
+<p>while(img_p){</p>
+<p>prev_img = img_p;</p>
+<p>img_p = img_p-&gt;next;</p>
+<p>vPortFree(prev_img);</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Frees up memory used to store the local fota_config.json
+(f_handle-&gt;cfg).</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>if(f_handle-&gt;cfg){</p>
+<p>p = f_handle-&gt;cfg-&gt;files_info_list;</p>
+<p>while(p){</p>
+<p>prev = p;</p>
+<p>p = p-&gt;next;</p>
+<p>vPortFree(prev);</p>
+<p>}</p>
+<p>vPortFree(f_handle-&gt;cfg); }</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Frees up memory used to store remote fota_config.json
+(f_handle-&gt;cfg_remote).</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>if(f_handle-&gt;cfg_remote){</p>
+<p>p = f_handle-&gt;cfg_remote-&gt;files_info_list;</p>
+<p>while(p){</p>
+<p>prev = p;</p>
+<p>p = p-&gt;next;</p>
+<p>vPortFree(prev);</p>
+<p>}</p>
+<p>vPortFree(f_handle-&gt;cfg_remote);</p>
+<p>}</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Decrement the JSON reference count of part.json, fota_cofig.json and
+remote fota_config.json and free up FOTA handle.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>json_decref(f_handle-&gt;json_part);</p>
+<p>json_decref(f_handle-&gt;json_cfg);</p>
+<p>json_decref(f_handle-&gt;json_cfg_remote);</p>
+<p>/* free f_handle*/</p>
+<p>vPortFree(f_handle);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="block-diagram">
+<h1>Block Diagram<a class="headerlink" href="#block-diagram" title="Link to this heading"></a></h1>
+<p>Figure 5 block diagram represents memory layout before SSBL executes.</p>
+<p>SSBL will initially load FOTA application present at image index=0 of
+boot.json file as shown in Figure 6.</p>
+<p>FOTA app will download the test_app.elf from the cloud based on the
+fota_config.json package version comparison. The test_app.elf on the
+cloud replaces test_app.elf (version=”0.0”) at index=2, sector 230.</p>
+<p>The boot.json gets updated to index=2. When the module gets reset, SSBL
+will boot the application at index=2.</p>
+</section>
+<section id="aws-set-up">
+<h1>AWS Set-up<a class="headerlink" href="#aws-set-up" title="Link to this heading"></a></h1>
+<p>Amazon S3 bucket must be created to upload the objects such as ELF or
+fota_config.json.</p>
+<p>Refer user guide to create bucket:
+<a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html">https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html</a></p>
+</section>
+<section id="build-and-run-fota-application">
+<h1>Build and Run FOTA Application<a class="headerlink" href="#build-and-run-fota-application" title="Link to this heading"></a></h1>
+<p>Building and running of FOTA applications can be achieved in two ways:</p>
+<section id="using-script">
+<h2>Using Script<a class="headerlink" href="#using-script" title="Link to this heading"></a></h2>
+<p>With SDK directory as the current directory, execute the following
+command:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>cd &lt;freertos_sdk&gt;</p>
+<p>cp ./apps/fota/bin/fota.elf.strip ./apps/fota/bin/fota_stripped.elf</p>
+<p>python3 ./script/program_flash.py -i apps/fota/bin/fota_stripped.elf
+-spt tools/partition_files/ssbl_part_table.json</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>where,</p>
+<ol class="arabic simple">
+<li><p>Mandatory arguments:</p></li>
+</ol>
+<blockquote>
+<div><p>-i &lt;elf_path or elf folder&gt;</p>
+<p>For example: <em>apps/fota</em> in SDK or complete ELF path (For example:
+<em>apps/fota/bin/fota_stripped.elf</em>)</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Optional arguments:</p>
+<ol class="loweralpha simple">
+<li><p>-spt &lt;ssbl ptable&gt;: provide the input path for
+ssbl_partition_table along with -spt in case the SSBL partition
+table is being considered.</p></li>
+<li><p>–no_reset: provide the –no_reset flag if there is no need to
+reset at the end. Please reset using the below command in case of
+this option</p></li>
+</ol>
+</li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py –device /dev/ttyUSB2 –reset=evk42</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>After successful programming, open miniterm at baud rate of 2457600 and
+reset the EVB either by using the above command or by pressing the reset
+button on the EVB.</p>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image444.png"><img alt="image3" src="../../_images/image444.png" style="width: 6.49606in; height: 0.37358in;" /></a></p>
+</div></blockquote>
+<p>Figure 8: Miniterm console output</p>
+<p><strong>Note</strong>:</p>
+<ol class="arabic simple">
+<li><p>The mentioned script also takes care of generating the root.img in
+the FOTA folder considering changes in fota/fs contents</p></li>
+<li><p>Edit the part.json file and fota_config.json file present in
+<em>freertos_sdk_x.y/apps/fota/fs</em> if any configuration needs to be
+changed before issuing this command.</p></li>
+</ol>
+<blockquote>
+<div><p>The SSID and passphrase of the Wi-Fi network needs to be updated in
+the part.json. Each time the above command is issued, it creates a
+new root fs image (root.img).</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>Ensure only one EVB is connected to the PC.</p></li>
+</ol>
+</section>
+<section id="using-manual-programming-discrete-commands">
+<h2>Using Manual Programming Discrete Commands<a class="headerlink" href="#using-manual-programming-discrete-commands" title="Link to this heading"></a></h2>
+<section id="build">
+<h3>Build<a class="headerlink" href="#build" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>cd &lt;freertos_sdk&gt;/apps/fota</p>
+<p>make</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Expected output:</p>
+<p><a class="reference internal" href="../../_images/image533.png"><img alt="Graphical user interface, text Description automatically generated with medium confidence" src="../../_images/image533.png" style="width: 6.29921in; height: 0.34912in;" /></a></p>
+<p>Figure 9: Build fota.img file – Output</p>
+</section>
+<section id="create-root-filesystem-image">
+<h3>Create Root Filesystem Image<a class="headerlink" href="#create-root-filesystem-image" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>cd &lt;freertos_sdk&gt;</p>
+<p>python3 ./script/build_rootfs_generic.py –folder_path apps/fota/</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="flash-required-images">
+<h3>Flash Required Images<a class="headerlink" href="#flash-required-images" title="Link to this heading"></a></h3>
+<p>Execute the following instructions to flash the different components
+into Talaria TWO EVB under the SDK directory:</p>
+<p>Load Flash Helper</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>cd &lt;freertos_sdk&gt;</p>
+<p>./script/boot.py –device /dev/ttyUSB2 –reset=evk42_bl
+./apps/gordon.elf</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Invalidate the boot image</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>dd if=/dev/zero of=./empty.img bs=1K count=1</p>
+<p>./script/flash.py –device /dev/ttyUSB2 write 0x1000 ./empty.img</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Write Partition</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/flash.py –device /dev/ttyUSB2 from_json
+./tools/partition_files/ssbl_part_table.json</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Download root fs image</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/flash.py –device /dev/ttyUSB2 write 0x180000
+./apps/fota/root.img</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Download SSBL</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/flash.py –device /dev/ttyUSB2 write 0x1000
+./apps/ssbl/fast_ssbl.img</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Download fota.img</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/flash.py –device /dev/ttyUSB2 write 0x20000
+./apps/fota/out/fota.img</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Open a miniterm at baud rate of 2457600 and reset the EVB:</p>
+<p><a class="reference internal" href="../../_images/image444.png"><img alt="image4" src="../../_images/image444.png" style="width: 6.23702in; height: 0.36226in;" /></a></p>
+<p>Figure 10: Miniterm console output</p>
+<p>Reset the board either by giving the following command or by pressing
+the reset button on the EVB:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py –device /dev/ttyUSB2 –reset=evk42</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: Since GDB does not work with SSBL, it is not possible to use
+GDB for debugging as of now.</p>
+<section id="id3">
+<h4><a href="#id1"><span class="problematic" id="id2">**</span></a><a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
+</section>
+</section>
+</section>
+<section id="expected-output">
+<h2>Expected Output<a class="headerlink" href="#expected-output" title="Link to this heading"></a></h2>
+<p>On successful execution of the steps in section 12, reset the Talaria
+TWO EVB. The following observation is made:</p>
+<ol class="arabic simple">
+<li><p>Talaria TWO loads SSBL</p></li>
+<li><p>SSBL loads FOTA test application</p></li>
+<li><p>FOTA test application modifies files in the filesystem to trigger
+FOTA, then reboots</p></li>
+<li><p>Talaria TWO reboots and loads SSBL, SSBL loads the FOTA application</p></li>
+<li><p>FOTA application downloads and flashes application from server and
+reboots</p></li>
+<li><p>Talaria TWO loads SSBL, SSBL loads the downloaded application</p></li>
+</ol>
+<p>Console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PWAE</p>
+<p>WWWWAE4 DWT comparators, range 0x8000</p>
+<p>Build $Id: git- adea113 $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff</p>
+<p>Build $Id: git- adea113 $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff</p>
+<p>Bootargs: vm.flash_location=0x0003ba00 passphrase=1234567890
+ssid=innotest</p>
+<p>Application Information:</p>
+<blockquote>
+<div><p>Name : FOTA application</p>
+<p>Version : 1.0</p>
+</div></blockquote>
+<p>Build Date : Oct 13 2023</p>
+<p>Build Time : 16:07:24</p>
+<blockquote>
+<div><p>Heap Available: 293 KB (300312 Bytes)</p>
+<p>[APP]data fs mounted</p>
+<p>[0.032,797] rfdrv: unknown module type (0)</p>
+<p>addr e0:69:3a:00:41:0c</p>
+<p>network profile created for ssid: innotest</p>
+<p>Connecting to added network : innotest</p>
+<p>[1.450,212] CONNECT:d4:da:21:54:d3:c6 Channel:13 rssi:-41 dBm</p>
+<p>wcm_notify_callback :WCM_NOTIFY_MSG_LINK_UP</p>
+<p>wcm_notify_callback :CM_NOTIFY_MSG_ADDRESS</p>
+<p>[2.097,894] MYIP 192.168.31.211</p>
+<p>[2.097,942] IPv6 [fe80::e269:3aff:fe00:410c]-link</p>
+<p>wcm_notify_callback :_NOTIFY_MSG_CONNECTED</p>
+<p>Connected to added network : innotest</p>
+<p>[APP]N/w Connection done..</p>
+<p>fota_json_init: /data/fota_config.json f = 0x000af80</p>
+<p>Parsing rootfs FOTA config file***</p>
+<p>package_version = 1.0</p>
+<p>Package version = 1.0</p>
+<p>type = configuration</p>
+<p>name = fota.config</p>
+<p>version, &lt;null&gt;</p>
+<p>protocol, &lt;null&gt;</p>
+<p>hostname = innotestota.s3.us-east-2.amazonaws.com</p>
+<p>port = 443</p>
+<p>secured = 2</p>
+<p>uri = /fota_config.json</p>
+<p>url, &lt;null&gt;</p>
+<p>hash, &lt;null&gt;</p>
+<p>ca_cert = /data/fota_ca_cert.pem</p>
+<p>type = firmware</p>
+<p>name = test_app</p>
+<p>version, &lt;null&gt;</p>
+<p>protocol, &lt;null&gt;</p>
+<p>hostname = innotestota.s3.us-east-2.amazonaws.com</p>
+<p>port = 443</p>
+<p>secured = 2</p>
+<p>uri = /test_app.elf</p>
+<p>url, &lt;null&gt;</p>
+<p>hash, &lt;null&gt;</p>
+<p>ca_cert = /data/fota_ca_cert.pem</p>
+<p>Fota Init Success: bedf0</p>
+<p>[APP]Perform Fota</p>
+<p>fota_perform check_for_update = 1</p>
+<p>fota_config_file_download 1078</p>
+<p>fota_http_connect 688getting cert:/data/fota_ca_cert.pem</p>
+<p>fota_http_connect:host=innotestota.s3.us-east-2.amazonaws.com
+port=443</p>
+<p>Calling http_client_open()</p>
+<p>. [SSL_WRAP]Checking input configurations…</p>
+<p>. [SSL_WRAP]Seeding the random number generator…</p>
+<p>. [SSL_WRAP]Loading the CA root certificate …Cert Len = 1189</p>
+<p>. [SSL_WRAP]Connecting to tcp
+innotestota.s3.us-east-2.amazonaws.com:443…</p>
+<p>. [SSL_WRAP]Setting up the SSL/TLS structure…</p>
+<p>. [SSL_WRAP]setting configurations..</p>
+<p>&gt;auth mode = 2 (0- skip, 1- optional, 2- required</p>
+<p>&gt;max fragment len = 0</p>
+<p>&gt;Handshake timeout = 30 Sec</p>
+<p>. [SSL_WRAP]Performing the SSL/TLS handshake…</p>
+<p>. [SSL_WRAP] Handshake done. ok</p>
+<p>. [SSL_WRAP]Verifying peer X.509 certificate.</p>
+<p>fota_config_file_download 1091</p>
+<p>package_version = 3.1</p>
+<p>Package version = 3.1</p>
+<p>type = configuration</p>
+<p>name = fota.config</p>
+<p>version, &lt;null&gt;</p>
+<p>protocol, &lt;null&gt;</p>
+<p>hostname = innotestota.s3.us-east-2.amazonaws.com</p>
+<p>port = 443</p>
+<p>secured = 2</p>
+<p>uri = /fota_config.json</p>
+<p>url, &lt;null&gt;</p>
+<p>hash, &lt;null&gt;</p>
+<p>ca_cert = /data/fota_ca_cert.pem</p>
+<p>type = firmware</p>
+<p>name = test_app</p>
+<p>version, &lt;null&gt;</p>
+<p>protocol, &lt;null&gt;</p>
+<p>hostname = innotestota.s3.us-east-2.amazonaws.com</p>
+<p>port = 443</p>
+<p>secured = 2</p>
+<p>uri = /test_app.elf</p>
+<p>url, &lt;null&gt;</p>
+<p>hash, &lt;null&gt;</p>
+<p>ca_cert = /data/fota_ca_cert.pem</p>
+<p>utils_num_str_cmp</p>
+<p>3</p>
+<p>1</p>
+<p>1</p>
+<p>0</p>
+<p>deci1 = 3, fracn1 = 1, deci2 = 1, fracn2 = 0</p>
+<p>Using the Remote config (Newly fetched) file</p>
+<p>type = configuration</p>
+<p>type = firmware</p>
+<p>fota_json_init: /data/part.json f = 0x000b8958</p>
+<p>Image array size = 3</p>
+<p>name = fota</p>
+<p>name = test_app</p>
+<p>version = 1.0</p>
+<p>start_sector = 165</p>
+<p>name = test_app</p>
+<p>version = 0.0</p>
+<p>start_sector = 258</p>
+<p>utils_num_str_cmp</p>
+<p>1</p>
+<p>0</p>
+<p>0</p>
+<p>0</p>
+<p>deci1 = 1, fracn1 = 0, deci2 = 0, fracn2 = 0</p>
+<p>Selected index = 2</p>
+<p>Download the new f/w &#64; sector = 258</p>
+<p>fota_http_connect 688getting cert:/data/fota_ca_cert.pem</p>
+<p>fota_http_connect:host=innotestota.s3.us-east-2.amazonaws.com
+port=443</p>
+<p>Calling http_client_open()</p>
+<p>. [SSL_WRAP]Checking input configurations…</p>
+<p>. [SSL_WRAP]Seeding the random number generator…</p>
+<p>. [SSL_WRAP]Loading the CA root certificate …Cert Len = 1189</p>
+<p>. [SSL_WRAP]Connecting to tcp
+innotestota.s3.us-east-2.amazonaws.com:443…</p>
+<p>. [SSL_WRAP]Setting up the SSL/TLS structure…</p>
+<p>. [SSL_WRAP]setting configurations..</p>
+<p>&gt;auth mode = 2 (0- skip, 1- optional, 2- required</p>
+<p>&gt;max fragment len = 0</p>
+<p>&gt;Handshake timeout = 30 Sec</p>
+<p>. [SSL_WRAP]Performing the SSL/TLS handshake…</p>
+<p>. [SSL_WRAP] Handshake done. ok</p>
+<p>. [SSL_WRAP]Verifying peer X.509 certificate.</p>
+<p>All data received</p>
+<p>Fw download complete</p>
+<p>next index = 2</p>
+<p>fota_commit</p>
+<p>utils_num_str_add</p>
+<p>0</p>
+<p>0</p>
+<p>2</p>
+<p>0</p>
+<p>deci1 = 0, fracn1 = 0, deci2 = 2, fracn2 = 0</p>
+<p>utils_num_str_add : out_str = 2.0</p>
+<p>fota_update_part_file: !!!Updated new version = 2.0</p>
+<p>fota_json_init: /data/boot.json f = 0x000a8908</p>
+<p>Setting next boot index = 2</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PWAE</p>
+<p>WWWWAE4 DWT comparators, range 0x8000</p>
+<p>Build $Id: git-adea113 $</p>
+<p>Flash detected. flash.hw.uuid:
+39483937-3207-0051-002a-ffffffffffff</p>
+<p>4 DWT comparators, range 0x8000</p>
+<p>Build $Id: git-13f33b8d7 $</p>
+<p>vm.flash_location=0x0010c300 passphrase=87654321 ssid=innotest</p>
+<p>Hello World</p>
+</div></blockquote>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>In case of any error, due to network failure or Wi-Fi disconnection, the
+program will exit. Upon resetting the EVB by pressing the reset button,
+FOTA application will be loaded again and the firmware upgrade will be
+tried again.</p>
+</section>
+</section>
+<section id="build-and-run-fota-application-with-secureboot">
+<h1>Build and Run FOTA Application with Secureboot<a class="headerlink" href="#build-and-run-fota-application-with-secureboot" title="Link to this heading"></a></h1>
+<p>FOTA application can be built with secureboot.</p>
+<p>For more details on secureboot mode, refer
+Application_for_using_SSBL.pdf (<em>freertos_sdk_x.y\apps\ssbl\doc</em>).</p>
+<p><strong>Note</strong>:</p>
+<ol class="arabic simple">
+<li><p>Enabling secureboot enables the use of encrypted files.</p></li>
+</ol>
+<section id="flashing-and-testing">
+<h2>Flashing and Testing<a class="headerlink" href="#flashing-and-testing" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Enroll keys &amp; flash SSBL components in secureboot mode (refer section
+6.2.2, and steps 1 to 5 of section: 7.2.1 in Application
+for_using_SSBL.pdf (<em>freertos_sdk_x.y\apps\ssbl\doc)</em></p></li>
+<li><p>Build the filesystem (root_secure.img)</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>cd &lt;freertos_sdk&gt;</p>
+<p>python ./script/build_rootfs_generic.py –folder_path apps/fota
+–secure True –keyfile ./apps/ssbl/enroll.json</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="3">
+<li><p>Create signed and encrypted ELF (fota.elf.enc)</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>cd &lt;freertos_sdk&gt;/apps/fota</p>
+<p>make clean</p>
+<p>make SECUREBOOT=1 KEY=&lt;freertos_sdk&gt;/apps/ssbl/enroll.json</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="4">
+<li><p>Flash application at 0x20000</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>cd &lt;freertos_sdk&gt;</p>
+<p>./script/flash.py write 0x20000 apps/fota/out/fota.elf.enc</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="5">
+<li><p>Flash the filesystem</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>cd &lt;freertos_sdk&gt;</p>
+<p>./script/flash.py write 0x180000 apps/fota/root_secure.img</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="expected-output-1">
+<span id="id4"></span><h2>Expected Output<a class="headerlink" href="#expected-output-1" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWAE</p>
+<p>FIRST:SWWWWAHE</p>
+<p>Si Build $Id: git-adea113 $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff</p>
+<p>*** Warning! Make sure to remove this code section once in
+production ***</p>
+<p>secureboot_secret:</p>
+<p>6cd
+7d2c0c1f5820b83a69b0c1bb961a3a01502ae21b198236a3013b3456bc661ac000000</p>
+<p>*** Warning! Make sure to remove this code section once in
+production ***</p>
+<p>cipher key:
+4e3b0b9792183c53ecc78a38c64a45c071b97bc40b0baba308ed76db8a46cef1</p>
+<p>public key:
+20b003d2f297be2c5e2c83a7e9f9a5b9eff49111acf4fddbcc0301480e3
+59de6dc809c49652aeb6d63329abf5a52155c766345c28fed3024741c8ed01589d28b</p>
+<p>Build $Id: git-adea113 $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff</p>
+<p>Bootargs: vm.flash_location= 0x0003be00 passphrase=1234567890
+ssid=innotest</p>
+<p>Application Information:</p>
+<p>Name       : FOTA application</p>
+<p>Version    : 1.0</p>
+<p>Build Date : Oct 13 2023</p>
+<p>Build Time : 16:07:24</p>
+<p>Heap Available: 240 KB (246040 Bytes)</p>
+<p>[APP]root fs mounted</p>
+<p>[1.716,504] rfdrv: unknown module type (0)</p>
+<p>addr f8:e9:43:c6:08:ef</p>
+<p>network profile created for ssid: innotest</p>
+<p>Connecting to added network : innotest</p>
+<p>[2.768,898] CONNECT:60:32:b1:33:b5:7b Channel:11 rssi:-38 dBm</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS</p>
+<p>[7.508,564] MYIP 192.168.1.16</p>
+<p>[7.508,612] IPv6 [fe80::fae9:43ff:fec6:8ef]-link</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED</p>
+<p>Connected to added network : innotest</p>
+<p>[APP]N/w Connection done..</p>
+<p>Parsing rootfs FOTA config file***</p>
+<p>package_version = 1.0</p>
+<p>Package version = 1.0</p>
+<p>type = configuration</p>
+<p>name = fota.config</p>
+<p>version, &lt;null&gt;</p>
+<p>protocol, &lt;null&gt;</p>
+<p>hostname = innosecuredfota.s3.amazonaws.com</p>
+<p>port = 443</p>
+<p>secured = 2</p>
+<p>uri = /fota_config.json</p>
+<p>url, &lt;null&gt;</p>
+<p>hash, &lt;null&gt;</p>
+<p>ca_cert = /data/fota_ca_cert.pem</p>
+<p>type = firmware</p>
+<p>name = wifi_scan</p>
+<p>version, &lt;null&gt;</p>
+<p>protocol, &lt;null&gt;</p>
+<p>hostname = innosecuredfota.s3.amazonaws.com</p>
+<p>port = 443</p>
+<p>secured = 2</p>
+<p>uri = /wifi_scan.elf.enc</p>
+<p>url, &lt;null&gt;</p>
+<p>hash, &lt;null&gt;</p>
+<p>ca_cert = /data/fota_ca_cert.pem</p>
+<p>Fota Init Success: b1728</p>
+<p>[APP]Perform Fota</p>
+<p>fota_perform check_for_update = 1</p>
+<p>fota_config_file_download 1078</p>
+<p>fota_http_connect 688getting cert:/data/fota_ca_cert.pem</p>
+<p>fota_http_connect:host=innosecuredfota.s3.amazonaws.com port=443</p>
+<p>Calling http_client_open()</p>
+<p>  . [SSL_WRAP]Checking input configurations…</p>
+<p>  . [SSL_WRAP]Seeding the random number generator…</p>
+<p>  . [SSL_WRAP]Loading the CA root certificate …Cert Len = 1201</p>
+<p>  . [SSL_WRAP]Connecting to tcp
+innosecuredfota.s3.amazonaws.com:443…</p>
+<p>  . [SSL_WRAP]Setting up the SSL/TLS structure…</p>
+<p>  . [SSL_WRAP]setting configurations..</p>
+<p>&gt;auth mode = 2 (0- skip, 1- optional, 2- required</p>
+<p>&gt;max fragment len = 0</p>
+<p>&gt;Handshake timeout = 30 Sec</p>
+<p>. [SSL_WRAP]Performing the SSL/TLS handshake…</p>
+<p>. [SSL_WRAP] Handshake done. ok</p>
+<p>. [SSL_WRAP]Verifying peer X.509 certificate.</p>
+<p>fota_config_file_download 1091</p>
+<p>package_version = 2.0</p>
+<p>Package version = 2.0</p>
+<p>type = configuration</p>
+<p>name = fota.config</p>
+<p>version, &lt;null&gt;</p>
+<p>protocol, &lt;null&gt;</p>
+<p>hostname = innosecuredfota.s3.amazonaws.com</p>
+<p>port = 443</p>
+<p>secured = 2</p>
+<p>uri = /fota_config.json</p>
+<p>url, &lt;null&gt;</p>
+<p>hash, &lt;null&gt;</p>
+<p>ca_cert = /data/fota_ca_cert.pem</p>
+<p>type = firmware</p>
+<p>name = wifi_scan</p>
+<p>version, &lt;null&gt;</p>
+<p>protocol, &lt;null&gt;</p>
+<p>hostname = innosecuredfota.s3.amazonaws.com</p>
+<p>port = 443</p>
+<p>secured = 2</p>
+<p>uri = /wifi_scan.elf.enc</p>
+<p>url, &lt;null&gt;</p>
+<p>hash, &lt;null&gt;</p>
+<p>ca_cert = /data/fota_ca_cert.pem</p>
+<p>utils_num_str_cmp</p>
+<p>2</p>
+<p>0</p>
+<p>1</p>
+<p>0</p>
+<p>deci1 = 2, fracn1 = 0, deci2 = 1, fracn2 = 0</p>
+<p>Using the Remote config (Newly fetched) file</p>
+<p>type = configuration</p>
+<p>type = firmware</p>
+<p>Image array size = 3</p>
+<p>name = fota</p>
+<p>name = wifi_scan</p>
+<p>version = 1.0</p>
+<p>start_sector = 200</p>
+<p>name = wifi_scan</p>
+<p>version = 2.0</p>
+<p>start_sector = 300</p>
+<p>utils_num_str_cmp</p>
+<p>1</p>
+<p>0</p>
+<p>2</p>
+<p>0</p>
+<p>deci1 = 1, fracn1 = 0, deci2 = 2, fracn2 = 0</p>
+<p>Selected index = 1</p>
+<p>Download the new f/w &#64; sector = 200</p>
+<p>fota_http_connect 688getting cert:/data/fota_ca_cert.pem</p>
+<p>fota_http_connect:host=innosecuredfota.s3.amazonaws.com port=443</p>
+<p>Calling http_client_open()</p>
+<p>  . [SSL_WRAP]Checking input configurations…</p>
+<p>  . [SSL_WRAP]Seeding the random number generator…</p>
+<p>  . [SSL_WRAP]Loading the CA root certificate …Cert Len = 1201</p>
+<p>  . [SSL_WRAP]Connecting to tcp
+innosecuredfota.s3.amazonaws.com:443…</p>
+<p>  . [SSL_WRAP]Setting up the SSL/TLS structure…</p>
+<p>  . [SSL_WRAP]setting configurations..</p>
+<p>&gt;auth mode = 2 (0- skip, 1- optional, 2- required</p>
+<p>&gt;max fragment len = 0</p>
+<p>&gt;Handshake timeout = 30 Sec</p>
+<p>. [SSL_WRAP]Performing the SSL/TLS handshake…</p>
+<p>. [SSL_WRAP] Handshake done. ok</p>
+<p>. [SSL_WRAP]Verifying peer X.509 certificate.</p>
+<p>All data received</p>
+<p>Fw download complete</p>
+<p>next index = 1</p>
+<p>fota_commit</p>
+<p>utils_num_str_add</p>
+<p>1</p>
+<p>0</p>
+<p>2</p>
+<p>0</p>
+<p>deci1 = 1, fracn1 = 0, deci2 = 2, fracn2 = 0</p>
+<p>utils_num_str_add : out_str = 3.0</p>
+<p>fota_update_part_file: !!!Updated new version = 3.0</p>
+<p>Setting next boot index = 1</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWAE</p>
+<p>FIRST:SWWWWAHE</p>
+<p>Si Build $Id: git-adea113 $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff</p>
+<p>*** Warning! Make sure to remove this code section once in
+production ***</p>
+<p>secureboot_secret:</p>
+<p>6cd
+7d2c0c1f5820b83a69b0c1bb961a3a01502ae21b198236a3013b3456bc661ac000000</p>
+<p>*** Warning! Make sure to remove this code section once in
+production ***</p>
+<p>cipher key:
+4e3b0b9792183c53ecc78a38c64a45c071b97bc40b0baba308ed76db8a46cef1</p>
+<p>public key:
+20b003d2f297be2c5e2c83a7e9f9a5b9eff49111acf4fddbcc0301480e3
+59de6dc809c49652aeb6d63329abf5a52155c766345c28fed3024741c8ed01589d28b</p>
+<p>Build $Id: git-adea113 $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff</p>
+<p>Bootargs: vm.flash_location=0x000dd400 passphrase=1234567890
+ssid=innotest</p>
+<p>SDK Ver: SDK_2.6.3master</p>
+<p>Wifi Scan Demo App</p>
+<p>[1.814,917] rfdrv: unknown module type (0)</p>
+<p>addr f8:e9:43:c6:08:ef</p>
+<p>Scan parameters:</p>
+<p>    channel_masks: 255 255 255 255 255 255 255 255</p>
+<p>    bssid: 0xFFFFFFFFFFFF</p>
+<p>    txrate: 0</p>
+<p>    waittime: 0</p>
+<p>    ie list: 0x</p>
+<p>Found 9 nets:</p>
+<p>04:42:1a:bd:6e:08 on channel  1 &#64; -38 ‘asusax55u_iop’
+‘WPA2/WPA3-Enterprise+MFPR’</p>
+<p>74:da:88:a6:9c:ea on channel  1 &#64; -39 ‘low_rssi’ ‘WPA2-PSK’</p>
+<p>58:11:22:71:ee:10 on channel  1 &#64; -40 ‘ASUS_Outside’ ‘WPA2-PSK’</p>
+<p>38:6b:1c:c0:da:38 on channel 11 &#64; -42 ‘connect_Idle_stability’
+‘WPA-PSK/WPA2-PSK Mixed Mode’</p>
+<p>d4:5d:64:d9:5c:a0 on channel 1 &#64; -45 ‘test_shetty’ ‘WPA2-PSK+MFPR’</p>
+<p>24:4b:fe:5e:fd:d8 on channel 1 &#64; -50 ‘Asus_86U_2G_iop’ ‘WPA2-PSK’</p>
+<p>62:d4:f7:bf:fe:47 on channel 10 &#64; -52 ‘’ ‘WPA2-PSK’</p>
+<p>98:da:c4:d5:89:9b on channel 11 &#64; -58 ‘TP-Link_BLE’ ‘WPA2-PSK’</p>
+<p>b0:39:56:93:83:31 on channel 6 &#64; -62 ‘innotest_open123’ ‘OPEN’</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

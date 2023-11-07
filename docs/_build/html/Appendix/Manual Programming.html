@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manual Programming &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="New Serial Number to Device – Manual Method" href="New%20Serial%20Number%20to%20Device.html" />
+    <link rel="prev" title="Legacy Mode" href="Legacy%20Mode.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="Appendix-Landing_Page.html">Appendix</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Building%20AWS%20KINESIS%20Video%20Streaming%20Application.html">Building AWS KINESIS Video Streaming Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Checking%20and%20Validating%20the%20Partition%20Table.html">Checking and Validating the Partition Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Create%20AWS%20Security%20Credentials.html">Create AWS Security Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Installation%20Instructions%20for%20libusbK%20Driver.html">Installation Instructions for libusbK Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON%20file%20format%20reference.html">JSON file format reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Legacy%20Mode.html">Legacy Mode</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Manual Programming</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#python-scripts">Python Scripts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#write-image-or-fs">Write Image or FS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#read">Read</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verify">Verify</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enroll">Enroll</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#programming-reading-partition-table">Programming &amp; Reading Partition Table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#re-flashing-the-factory-loader">Re-flashing the Factory Loader</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#building-a-filesystem">Building a Filesystem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#partition-table-partition">Partition Table Partition</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="New%20Serial%20Number%20to%20Device.html">New Serial Number to Device – Manual Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Response%20Description.html">Response Description &amp; Payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Update%20Driver%20from%20libusK%20Driver%20to%20COM%20Port.html">Update Driver from libusK Driver to COM Port</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Software%20Reference/Software_Reference_Landing_Page.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Tools/Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="Appendix-Landing_Page.html">Appendix</a></li>
+      <li class="breadcrumb-item active">Manual Programming</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Appendix/Manual Programming.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="manual-programming">
+<h1>Manual Programming<a class="headerlink" href="#manual-programming" title="Permalink to this heading"></a></h1>
+<section id="python-scripts">
+<h2>Python Scripts<a class="headerlink" href="#python-scripts" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>boot.py – used for programming Talaria TWO and generate .img file
+from application .elf files</p></li>
+<li><p>flash.py – used to flash Talaria TWO. To run the flash.py script the
+Gordon application or factory_loader application must first be loaded
+using boot.py</p></li>
+</ol>
+<section id="write-image-or-fs">
+<h3>Write Image or FS<a class="headerlink" href="#write-image-or-fs" title="Permalink to this heading"></a></h3>
+<p>Generate application .img file using boot.py.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py –output=&lt;app.img&gt; &lt;application.elf&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Use flash.py to flash image.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/flash.py write &lt;addr&gt; &lt;img file&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="read">
+<h3>Read<a class="headerlink" href="#read" title="Permalink to this heading"></a></h3>
+<p>Use flash.py to read contents of flash.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/flash.py read –output &lt;filename&gt; &lt;addr&gt; &lt;size&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="verify">
+<h3>Verify<a class="headerlink" href="#verify" title="Permalink to this heading"></a></h3>
+<p>Use flash.py to verify contents of flash.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/flash.py verify &lt;addr&gt; &lt;filename&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="enroll">
+<h3>Enroll<a class="headerlink" href="#enroll" title="Permalink to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Generate keys in json format. A sample keys.json is provided.</p></li>
+<li><p>Use flash.py to enroll keys.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/flash.py enroll –keyfile &lt;key.json&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="programming-reading-partition-table">
+<h3>Programming &amp; Reading Partition Table<a class="headerlink" href="#programming-reading-partition-table" title="Permalink to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Create/modify partition table (default partition table is provided)</p></li>
+<li><p>Program partition table using flash.py</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/flash.py from_json &lt;default.json&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="3">
+<li><p>Read partition table</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/flash.py to_json &lt;json_file&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="re-flashing-the-factory-loader">
+<h3>Re-flashing the Factory Loader<a class="headerlink" href="#re-flashing-the-factory-loader" title="Permalink to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Inhibit boot (short gpio17 to GND, press reset, unshort gpio17 and
+GND)</p></li>
+<li><p>Load Gordon application</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py apps/gordon.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="3">
+<li><p>Flash factory loader</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/flash.py write 0x1000 factory_loader.img</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="building-a-filesystem">
+<h2>Building a Filesystem<a class="headerlink" href="#building-a-filesystem" title="Permalink to this heading"></a></h2>
+<p>To build a filesystem for the user/root file system., the mklittlefs
+tool.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./mklittlefs –s 0x70000 –c ./UFS</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="partition-table-partition">
+<h2>Partition Table Partition<a class="headerlink" href="#partition-table-partition" title="Permalink to this heading"></a></h2>
+<p>The default partition table reflects the flash layout as shown in Figure
+9 using SSBL.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>{</p>
+<p>“partitions”: [</p>
+<p>{</p>
+<p>“index”: 0,</p>
+<p>“ptype”: 30,</p>
+<p>“sect_start”: 1,</p>
+<p>“sect_count”: 31,</p>
+<p>“_last”: 31,</p>
+<p>“_ptype”: “BOOT”</p>
+<p>},</p>
+<p>{</p>
+<p>“index”: 1,</p>
+<p>“ptype”: 30,</p>
+<p>“sect_start”: 32,</p>
+<p>“sect_count”: 352,</p>
+<p>“_last”: 383,</p>
+<p>“_ptype”: “BOOT”</p>
+<p>},</p>
+<p>{</p>
+<p>“index”: 2,</p>
+<p>“ptype”: 15,</p>
+<p>“sect_start”: 384,</p>
+<p>“sect_count”: 112,</p>
+<p>“_last”: 495,</p>
+<p>“_ptype”: “DATA”</p>
+<p>},</p>
+<p>{</p>
+<p>“index”: 3,</p>
+<p>“ptype”: 14,</p>
+<p>“sect_start”: 496,</p>
+<p>“sect_count”: 16,</p>
+<p>“_last”: 511,</p>
+<p>“_ptype”: “SYSFS”</p>
+<p>}</p>
+<p>],</p>
+<p>“_identify”: {</p>
+<p>“idcode”: 13133077,</p>
+<p>“num_pages”: 8192,</p>
+<p>“page_size”: 256,</p>
+<p>“sector_size”: 4096</p>
+<p>}</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Legacy%20Mode.html" class="btn btn-neutral float-left" title="Legacy Mode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="New%20Serial%20Number%20to%20Device.html" class="btn btn-neutral float-right" title="New Serial Number to Device – Manual Method" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

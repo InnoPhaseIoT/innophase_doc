@@ -1,0 +1,29 @@
+Response Description & Payload
+------------------------------
+
+.. table:: Table 4: AT Commands – Response description and payload
+
+   +-------------------------------------+---------------+----------------+
+   | **Command**                         | **Response    | **Response     |
+   |                                     | Description** | Payload**      |
+   +=====================================+===============+================+
+   | AT                                  | OK/Error      | NA             |
+   +-------------------------------------+---------------+----------------+
+   | AT+WDIS                             | OK/Error      | NA             |
+   +-------------------------------------+---------------+----------------+
+   | AT+WSCAN                            | OK/Error      | NA             |
+   +-------------------------------------+---------------+----------------+
+   | AT+SOCSRV                           | OK            | 0:CONNECT      |
+   |                                     |               | :0>>@:OK       |
+   | Example: at+socsrv=0,1,1,9000       |               |                |
+   +-------------------------------------+---------------+----------------+
+   | AT+HCSTART                          | OK            | :C             |
+   |                                     |               | ONNECT:0>>@:OK |
+   | Example: at+hcstart=192.168.1.5,80  |               |                |
+   +-------------------------------------+---------------+----------------+
+
+Running the Application 
+------------------------
+
+For more details regarding running the AT Commands application, refer:
+Run the Application in the QSG.

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Development Environments &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Software Installation" href="1.%20Linux/1.%20Environment%20Set-up/1.%20Software%20Installation.html" />
+    <link rel="prev" title="Cloud Frameworks" href="../Software%20Reference/2.%20Cloud%20Frameworks/Cloud%20Frameworks%20-%20Landing%20Page.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Software%20Reference/Software_Reference_Landing_Page.html">Software Reference</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Development Environments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#linux">Linux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#environment-set-up-for-linux">Environment Set-up for Linux</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="1.%20Linux/1.%20Environment%20Set-up/1.%20Software%20Installation.html">Software Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1.%20Linux/1.%20Environment%20Set-up/2.%20Standalone%20Ubuntu%2020.html">Standalone Ubuntu 20.04</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1.%20Linux/1.%20Environment%20Set-up/2.%20Standalone%20Ubuntu%2021.html">Standalone Ubuntu 21.04</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#eclipse-set-up-for-linux">Eclipse Set-up for Linux</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/1.%20Prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/1.%20Prerequisites.html#jdk-installation">JDK Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/1.%20Prerequisites.html#prerequisites-for-eclipse">Prerequisites for Eclipse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/2.%20Linux%20-%20Eclipse%20IDE%20installer.html">Linux - Eclipse IDE installer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/3.%20Linux%20%E2%80%93%20Eclipse%20IDE%20Installation.html">Linux – Eclipse IDE Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/4.%20Connecting%20the%20EVB.html">Connecting the EVB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/5.%20Starting%20Eclipse%20IDE.html">Starting Eclipse IDE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/6.%20Eclipse%20Plugin.html">Eclipse Plugin: InnoPhase IoT Software Development Tool for Application Development</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/7.%20Application%20Development%20-%20Manual%20Procedure.html">Application Development - Manual Procedure</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#windows-subsystem-for-linux">Windows Subsystem for Linux</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="1.%20Linux/3.%20Windows%20Subsystem/1.%20Prerequisites.html">Prerequisites</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#windows">Windows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#eclipse-set-up-for-windows">Eclipse Set-up for Windows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/1.%20Prerequisites%20.html">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/1.%20Prerequisites%20.html#jdk-installation">JDK Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/1.%20Prerequisites%20.html#prerequisites-for-eclipse">Prerequisites for Eclipse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/2.%20Add%20Paths%20to%20the%20Environment%20Variable.html">Add Paths to the Environment Variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/3.%20Windows%20-%20Eclipse%20IDE%20Installer.html">Windows - Eclipse IDE Installer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/4.%20Windows%20%E2%80%93%20Eclipse%20IDE%20Installation.html">Windows – Eclipse IDE Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/5.%20Starting%20Eclipse%20IDE.html">Starting Eclipse IDE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/6.%20Eclipse%20Plugin.html">Eclipse Plugin: InnoPhase IoT Software Development Tool for Application Development</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/7.%20Application%20Development%20-%20Manual%20Procedure%20.html">Application Development - Manual Procedure</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Tools/Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Development Environments</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Development Environments/Development Environments - Landing Page.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="development-environments">
+<h1>Development Environments<a class="headerlink" href="#development-environments" title="Permalink to this heading"></a></h1>
+<p>It is necessary to set-up the programming environment to ensure that all
+the required tools are set-up to successfully write the code, compile
+and run applications on Talaria TWO.</p>
+<section id="linux">
+<h2>Linux<a class="headerlink" href="#linux" title="Permalink to this heading"></a></h2>
+<section id="environment-set-up-for-linux">
+<h3>Environment Set-up for Linux<a class="headerlink" href="#environment-set-up-for-linux" title="Permalink to this heading"></a></h3>
+<p>Procedure to set-up the development environment for Talaria TWO SDK on
+an Ubuntu VirtualBox with a Windows 10 host.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Linux/1.%20Environment%20Set-up/1.%20Software%20Installation.html">Software Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/1.%20Environment%20Set-up/1.%20Software%20Installation.html#virtualbox-ubuntu-20-04">VirtualBox Ubuntu 20.04</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Linux/1.%20Environment%20Set-up/2.%20Standalone%20Ubuntu%2020.html">Standalone Ubuntu 20.04</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/1.%20Environment%20Set-up/2.%20Standalone%20Ubuntu%2020.html#prerequisites-for-the-user">Prerequisites for the User</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Linux/1.%20Environment%20Set-up/2.%20Standalone%20Ubuntu%2021.html">Standalone Ubuntu 21.04</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/1.%20Environment%20Set-up/2.%20Standalone%20Ubuntu%2021.html#prerequisites-for-the-user">Prerequisites for the User</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="eclipse-set-up-for-linux">
+<h3>Eclipse Set-up for Linux<a class="headerlink" href="#eclipse-set-up-for-linux" title="Permalink to this heading"></a></h3>
+<p>Procedure to build and debug an application on Eclipse IDE in Linux
+using Talaria TWO SDK.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/1.%20Prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/1.%20Prerequisites.html#jdk-installation">JDK Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/1.%20Prerequisites.html#prerequisites-for-eclipse">Prerequisites for Eclipse</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/1.%20Prerequisites.html#installing-necessary-packages">Installing Necessary Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/1.%20Prerequisites.html#install-gnu-toolchain-for-arm-embedded">Install GNU Toolchain for ARM Embedded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/1.%20Prerequisites.html#installing-gdb-in-linux">Installing GDB in Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/1.%20Prerequisites.html#installing-openocd">Installing OpenOCD</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/2.%20Linux%20-%20Eclipse%20IDE%20installer.html">Linux - Eclipse IDE installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/3.%20Linux%20%E2%80%93%20Eclipse%20IDE%20Installation.html">Linux – Eclipse IDE Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/4.%20Connecting%20the%20EVB.html">Connecting the EVB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/5.%20Starting%20Eclipse%20IDE.html">Starting Eclipse IDE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/6.%20Eclipse%20Plugin.html">Eclipse Plugin: InnoPhase IoT Software Development Tool for Application Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/6.%20Eclipse%20Plugin.html#innophase-iot-software-development-tool-installation">InnoPhase IoT Software Development Tool Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/6.%20Eclipse%20Plugin.html#download-and-configure-support-files-for-plugin">Download and Configure Support Files for Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/6.%20Eclipse%20Plugin.html#import-talaria-two-example-project">Import Talaria TWO Example Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/6.%20Eclipse%20Plugin.html#run-configuration-set-up">Run Configuration Set-up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/6.%20Eclipse%20Plugin.html#debug-configuration-set-up">Debug Configuration Set-up</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/7.%20Application%20Development%20-%20Manual%20Procedure.html">Application Development - Manual Procedure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/7.%20Application%20Development%20-%20Manual%20Procedure.html#import-talaria-two-example-project">Import Talaria TWO Example Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/7.%20Application%20Development%20-%20Manual%20Procedure.html#configuring-the-eclipse-project">Configuring the Eclipse Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/7.%20Application%20Development%20-%20Manual%20Procedure.html#building-application-in-eclipse">Building Application in Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/7.%20Application%20Development%20-%20Manual%20Procedure.html#debug-configuration-setting-up-in-eclipse">Debug Configuration Setting up in Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/7.%20Application%20Development%20-%20Manual%20Procedure.html#programming-talaria-two-evb">Programming Talaria TWO EVB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/2.%20Eclipse%20Set-up/7.%20Application%20Development%20-%20Manual%20Procedure.html#debugging-in-eclipse">Debugging in Eclipse</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="windows-subsystem-for-linux">
+<h3>Windows Subsystem for Linux<a class="headerlink" href="#windows-subsystem-for-linux" title="Permalink to this heading"></a></h3>
+<p>Procedure for developing an application using Windows Subsystem for
+Linux and Talaria TWO SDK.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Linux/3.%20Windows%20Subsystem/1.%20Prerequisites.html">Prerequisites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/3.%20Windows%20Subsystem/1.%20Prerequisites.html#windows-subsystem-for-linux">Windows Subsystem for Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/3.%20Windows%20Subsystem/1.%20Prerequisites.html#installing-linux">Installing Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/3.%20Windows%20Subsystem/1.%20Prerequisites.html#installing-necessary-packages">Installing Necessary Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/3.%20Windows%20Subsystem/1.%20Prerequisites.html#accessing-wsl-files-from-windows">Accessing WSL Files from Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/3.%20Windows%20Subsystem/1.%20Prerequisites.html#install-arm-none-eabi-toolchain">Install arm-none-eabi Toolchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/3.%20Windows%20Subsystem/1.%20Prerequisites.html#install-python3-and-packages">Install Python3 and packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/3.%20Windows%20Subsystem/1.%20Prerequisites.html#setting-execute-permissions-for-sdk-scripts">Setting Execute Permissions for SDK Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Linux/3.%20Windows%20Subsystem/1.%20Prerequisites.html#programming-talaria-two-using-download-tool">Programming Talaria TWO using Download Tool</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="windows">
+<h2>Windows<a class="headerlink" href="#windows" title="Permalink to this heading"></a></h2>
+<section id="eclipse-set-up-for-windows">
+<h3>Eclipse Set-up for Windows<a class="headerlink" href="#eclipse-set-up-for-windows" title="Permalink to this heading"></a></h3>
+<p>Procedure to build and debug an application on Eclipse IDE in Windows
+using Talaria TWO SDK.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/1.%20Prerequisites%20.html">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/1.%20Prerequisites%20.html#jdk-installation">JDK Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/1.%20Prerequisites%20.html#prerequisites-for-eclipse">Prerequisites for Eclipse</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/1.%20Prerequisites%20.html#node-js-installation">Node.js Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/1.%20Prerequisites%20.html#npm-installation">NPM Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/1.%20Prerequisites%20.html#xpm-installation">XPM Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/1.%20Prerequisites%20.html#windows-build-tools-installation">Windows-Build-Tools Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/1.%20Prerequisites%20.html#arm-tool-chain-installation">Arm Tool Chain Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/1.%20Prerequisites%20.html#openocd-installation">OpenOCD Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/2.%20Add%20Paths%20to%20the%20Environment%20Variable.html">Add Paths to the Environment Variable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/3.%20Windows%20-%20Eclipse%20IDE%20Installer.html">Windows - Eclipse IDE Installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/4.%20Windows%20%E2%80%93%20Eclipse%20IDE%20Installation.html">Windows – Eclipse IDE Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/5.%20Starting%20Eclipse%20IDE.html">Starting Eclipse IDE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/6.%20Eclipse%20Plugin.html">Eclipse Plugin: InnoPhase IoT Software Development Tool for Application Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/6.%20Eclipse%20Plugin.html#innophase-iot-software-development-tool-installation">InnoPhase IoT Software Development Tool Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/6.%20Eclipse%20Plugin.html#download-and-configure-support-files-for-plugin">Download and Configure Support Files for Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/6.%20Eclipse%20Plugin.html#import-talaria-two-example-project">Import Talaria TWO Example Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/6.%20Eclipse%20Plugin.html#run-configuration-set-up">Run Configuration Set-up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/6.%20Eclipse%20Plugin.html#debug-configuration-set-up">Debug Configuration Set-up</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/7.%20Application%20Development%20-%20Manual%20Procedure%20.html">Application Development - Manual Procedure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/7.%20Application%20Development%20-%20Manual%20Procedure%20.html#import-talaria-two-example-project">Import Talaria TWO Example Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/7.%20Application%20Development%20-%20Manual%20Procedure%20.html#configuring-the-eclipse-project">Configuring the Eclipse Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/7.%20Application%20Development%20-%20Manual%20Procedure%20.html#building-application-in-eclipse">Building Application in Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/7.%20Application%20Development%20-%20Manual%20Procedure%20.html#debug-configuration-set-up-in-eclipse">Debug Configuration Set-up in Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/7.%20Application%20Development%20-%20Manual%20Procedure%20.html#programming-talaria-two-evb">Programming Talaria TWO EVB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Windows/1.%20Eclipse%20Set-up/7.%20Application%20Development%20-%20Manual%20Procedure%20.html#debugging-in-eclipse">Debugging in Eclipse</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Software%20Reference/2.%20Cloud%20Frameworks/Cloud%20Frameworks%20-%20Landing%20Page.html" class="btn btn-neutral float-left" title="Cloud Frameworks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="1.%20Linux/1.%20Environment%20Set-up/1.%20Software%20Installation.html" class="btn btn-neutral float-right" title="Software Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

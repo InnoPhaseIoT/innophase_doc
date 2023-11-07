@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>System Sleep Enable &amp; Disable &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">System Sleep Enable &amp; Disable</a><ul>
+<li><a class="reference internal" href="#system-sleep-apis">System Sleep APIs</a><ul>
+<li><a class="reference internal" href="#os-suspend-enable">os_suspend_enable()</a></li>
+<li><a class="reference internal" href="#os-suspend-disable">os_suspend_disable()</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#code-walkthrough">Code Walkthrough</a><ul>
+<li><a class="reference internal" href="#sock-wake-c">Sock_wake.c</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#connect-to-a-wi-fi-network">Connect to a Wi-Fi network</a></li>
+<li><a class="reference internal" href="#wi-fi-connection-callback-function">Wi-Fi Connection Callback Function</a></li>
+<li><a class="reference internal" href="#server-socket-function">Server Socket Function</a></li>
+<li><a class="reference internal" href="#socket-event-callback-function">Socket Event Callback Function</a></li>
+<li><a class="reference internal" href="#running-the-application">Running the Application</a></li>
+<li><a class="reference internal" href="#expected-output">Expected Output</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">System Sleep Enable &amp; Disable</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/6. Applications/2. Examples/Example_for_Socket_Wakeup.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>This application note describes the basics of sleep management with an
+example illustrating Talaria TWO wake-up from sleep mode.</p>
+<section id="system-sleep-enable-disable">
+<h1>System Sleep Enable &amp; Disable<a class="headerlink" href="#system-sleep-enable-disable" title="Link to this heading"></a></h1>
+<section id="system-sleep-apis">
+<h2>System Sleep APIs<a class="headerlink" href="#system-sleep-apis" title="Link to this heading"></a></h2>
+<section id="os-suspend-enable">
+<h3>os_suspend_enable()<a class="headerlink" href="#os-suspend-enable" title="Link to this heading"></a></h3>
+<p>Suspends the system when idle.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void os_suspend_enable(void)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Calling os_suspend_enable() will suspend the system or enable deep
+sleep, when the processor is idle. Enabling and disabling suspend mode
+takes additional time, which will affect the real-time response of the
+system. When an interrupt occurs, the system will wake up even if it is
+in a suspended state. However, the latency will be more as compared to
+when the system operates in a non-suspended mode.</p>
+</section>
+<section id="os-suspend-disable">
+<h3>os_suspend_disable()<a class="headerlink" href="#os-suspend-disable" title="Link to this heading"></a></h3>
+<p>Disables system suspend.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void os_suspend_disable(void)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>When the system is idle, the kernel will place the CPU in low-power
+mode, ready to swiftly resume execution if an interrupt occurs.</p>
+</section>
+</section>
+</section>
+<section id="code-walkthrough">
+<h1>Code Walkthrough<a class="headerlink" href="#code-walkthrough" title="Link to this heading"></a></h1>
+<section id="sock-wake-c">
+<h2>Sock_wake.c<a class="headerlink" href="#sock-wake-c" title="Link to this heading"></a></h2>
+<section id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h3>
+<p>The sample code is the path: examples/socket_wakeup/src/sock_wake.c is a
+simple application which demonstrates socket wake-up in sleep mode.</p>
+</section>
+<section id="connect-to-a-wi-fi-network">
+<h3>Connect to a Wi-Fi network<a class="headerlink" href="#connect-to-a-wi-fi-network" title="Link to this heading"></a></h3>
+<p>To connect to a Wi-Fi network the following APIs from the Wi-Fi
+Connection Manager are used:</p>
+<ol class="arabic simple">
+<li><p>wcm_create()</p></li>
+</ol>
+<blockquote>
+<div><p>This function creates the Wi-Fi network interface using the
+wcm_handle pointer.</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>wcm_notify_enable()</p></li>
+</ol>
+<blockquote>
+<div><p>Enables callbacks of the link and IP address changes.</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>wcm_add_network_profile ()</p></li>
+</ol>
+<blockquote>
+<div><p>Asynchronously adds a Wi-Fi network to connect. Currently only one
+network can be added.</p>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>wcm_auto_connect ()</p></li>
+</ol>
+<blockquote>
+<div><p>Enables start or stop auto connection of the device with Wi-Fi.</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static int</p>
+<p>wifi_connection(void)</p>
+<p>{</p>
+<p>int rval;</p>
+<p>struct network_profile *profile;</p>
+<p>const char *np_conf_path = os_get_boot_arg_str(“np_conf_path”) ?:
+NULL;</p>
+<p>my_wcm_handle = wcm_create(NULL);</p>
+<p>if (my_wcm_handle != NULL) {</p>
+<p>wcm_notify_enable(my_wcm_handle, wcm_notifier, NULL);</p>
+<p>if (np_conf_path != NULL) {</p>
+<p>/* Create a Network Profile from a configuration file in</p>
+<p>*the file system */</p>
+<p>rval = network_profile_new_from_file_system(&amp;profile, np_conf_path);</p>
+<p>} else {</p>
+<p>/* Create a Network Profile using BOOT ARGS */</p>
+<p>rval = network_profile_new_from_boot_args(&amp;profile);</p>
+<p>}</p>
+<p>if (rval &lt; 0) {</p>
+<p>pr_err(“could not create network profile %d\n”, rval);</p>
+<p>return rval;</p>
+<p>}</p>
+<p>rval = wcm_add_network_profile(my_wcm_handle, profile);</p>
+<p>if (rval &lt; 0) {</p>
+<p>pr_err(“could not associate network profile to wcm %d\n”, rval);</p>
+<p>return rval;</p>
+<p>}</p>
+<p>rval = wcm_auto_connect(my_wcm_handle, 1);</p>
+<p>if (rval != WCM_SUCCESS) {</p>
+<p>pr_err(“could enable auto connect for wcm %d\n”, rval);</p>
+<p>return rval;</p>
+<p>}</p>
+<p>xSemaphoreTake(connect_lock, portMAX_DELAY);</p>
+<p>vTaskDelay(1000);</p>
+<p>}</p>
+<p>return WCM_SUCCESS;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="wi-fi-connection-callback-function">
+<h3>Wi-Fi Connection Callback Function<a class="headerlink" href="#wi-fi-connection-callback-function" title="Link to this heading"></a></h3>
+<p>The app_wcm_notify_cb() function enables the callbacks of link and IP
+address.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void</p>
+<p>wcm_notifier(void *ctx, struct os_msg *msg)</p>
+<p>{</p>
+<p>switch (msg-&gt;msg_type) {</p>
+<p>case WCM_NOTIFY_MSG_CONNECTED:</p>
+<p>os_printf(“wcm_notify_cb to App Layer -
+WCM_NOTIFY_MSG_CONNECTED\n”);</p>
+<p>xSemaphoreGive(connect_lock);</p>
+<p>break;</p>
+<p>default:</p>
+<p>break;</p>
+<p>}</p>
+<p>os_msg_release(msg);</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="server-socket-function">
+<h3>Server Socket Function<a class="headerlink" href="#server-socket-function" title="Link to this heading"></a></h3>
+<p>On successfully connecting to the Wi-Fi, the device creates a UDP server
+in Talaria TWO with server port number 8000. The server will initially
+be in sleep mode. Here, we register a call- back function to wake up
+Talaria TWO from sleep mode.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static void</p>
+<p>udp_server()</p>
+<p>{</p>
+<p>struct netconn *conn</p>
+<p>= netconn_new_with_callback(NETCONN_UDP, sock_event_cb);</p>
+<p>assert(conn);</p>
+<p>if (netconn_bind(conn, IP_ADDR_ANY, UDP_SERVER_PORT) == ERR_OK) {</p>
+<p>netconn_set_nonblocking(conn, 1);</p>
+<p>os_printf(“udp server started at port %d\n”, UDP_SERVER_PORT);</p>
+<p>} else {</p>
+<p>pr_err(“udp server at %d failed\n”, UDP_SERVER_PORT);</p>
+<p>}</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="socket-event-callback-function">
+<h3>Socket Event Callback Function<a class="headerlink" href="#socket-event-callback-function" title="Link to this heading"></a></h3>
+<p>This is the callback function, where Talaria TWO is enabled from sleep
+and put back to sleep after a brief period of 500ms.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static void</p>
+<p>sock_event_cb(struct netconn *conn, enum netconn_evt event, u16_t
+len)</p>
+<p>{</p>
+<p>if (event == NETCONN_EVT_RCVPLUS) {</p>
+<p>os_printf(“NETCONN_EVT_RCVPLUS\n”);</p>
+<p>os_printf(“Waking up\n”);</p>
+<p>os_suspend_disable();</p>
+<p>vTaskDelay(500);</p>
+<p>os_printf(“sleeping\n”);</p>
+<p>os_suspend_enable();</p>
+<p>} }</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="running-the-application">
+<h3>Running the Application<a class="headerlink" href="#running-the-application" title="Link to this heading"></a></h3>
+<p>Program sock_wake.elf <em>(freertos_sdk_x.y\examples\socket_wakeup\bin)</em>
+using the Download tool:</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool provided with InnoPhase Talaria TWO FreeRTOS
+SDK.</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down</p></li>
+<li><p>ELF Input: Load the sock_wake.elf by clicking on Select ELF File.</p></li>
+<li><p>AP Options: Provide the SSID and Passphrase under AP Options to
+connect to an Access Point.</p></li>
+<li><p>Programming: Prog RAM or Prog Flash as per requirement.</p></li>
+</ol>
+</li>
+</ol>
+<p>Launch the Hercules tool for Windows and provide the port number along
+with the IP address and send the data.</p>
+<p><a class="reference internal" href="../../_images/image1103.png"><img alt="Graphical user interface, application Description automatically generated" src="../../_images/image1103.png" style="width: 6.29921in; height: 5.47816in;" /></a></p>
+<p>Figure : Hercules Tool - Data transfer</p>
+</section>
+<section id="expected-output">
+<h3>Expected Output<a class="headerlink" href="#expected-output" title="Link to this heading"></a></h3>
+<p>sock_wake.elf is created when the code is compiled. Following is the
+console output when the ELF is programmed onto Talaria TWO.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PWWWWWWAE</p>
+<p>Build $Id: git-831e563 $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-0061-00a2-ffffffffffff</p>
+<p>Bootargs: ssid=test passphrase=12345678</p>
+<p>$App:git-5a9f591</p>
+<p>SDK Ver: FREERTOS_SDK_1.0</p>
+<p>Wake From Sock App</p>
+<p>addr e0:69:3a:00:15:a8</p>
+<p>network profile created for ssid: test</p>
+<p>[2.906,467] DISCONNECTED</p>
+<p>[3.020,421] CONNECT:72:d7:92:3a:8a:71 Channel:6 rssi:-41 dBm</p>
+<p>[3.070,394] MYIP 192.168.122.64</p>
+<p>[3.070,558] IPv6 [fe80::e269:3aff:fe00:15a8]-link</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED</p>
+<p>URI: udp://192.168.122.64:8000</p>
+<p>udp server started at port 8000</p>
+<p>NETCONN_EVT_RCVPLUS</p>
+<p>Waking up</p>
+<p>sleeping</p>
+<p>NETCONN_EVT_RCVPLUS</p>
+<p>Waking up</p>
+<p>sleeping</p>
+<p>NETCONN_EVT_RCVPLUS</p>
+<p>Waking up</p>
+<p>sleeping</p>
+<p>NETCONN_EVT_RCVPLUS</p>
+<p>Waking up</p>
+<p>sleeping</p>
+<p>NETCONN_EVT_RCVPLUS</p>
+<p>Waking up</p>
+<p>sleeping</p>
+<p>NETCONN_EVT_RCVPLUS</p>
+<p>Waking up</p>
+<p>sleeping</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

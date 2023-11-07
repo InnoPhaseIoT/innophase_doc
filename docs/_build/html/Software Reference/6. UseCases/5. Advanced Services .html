@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLE Provisioning &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">BLE Provisioning</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Software Reference/6. UseCases/5. Advanced Services .rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ble-provisioning">
+<h1>BLE Provisioning<a class="headerlink" href="#ble-provisioning" title="Link to this heading"></a></h1>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading"></a></h2>
+<p>This use case is to demonstrate provisioning feature using BLE interface
+and configuring Talaria TWO as BLE peripheral mode. Start GATT server.
+Configure services, add characteristics, and advertise services. Connect
+BLE central and send SSID and Passphrase of your network using write
+operation from central (device with BLE app)</p>
+<p>Talaria TWO receives credentials (SSID, Passphrase) and MCU triggers
+Wi-Fi connection manager to connect to the network using the received
+credentials.</p>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<p>Android device installed with native BLE app (BLE Scanner/nRF Connect).</p>
+</section>
+<section id="at-command-sequence">
+<h2>AT Command Sequence<a class="headerlink" href="#at-command-sequence" title="Link to this heading"></a></h2>
+<table class="docutils align-default" id="id13">
+<caption><span class="caption-text">Table 26: BLE Provisioning - AT Commands</span><a class="headerlink" href="#id13" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>AT Command</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>at</em></p></td>
+<td><p>Checks the connection state</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>at+btinit</em></p></td>
+<td><p>Initializes the BLE stack</p></td>
+</tr>
+<tr class="row-even"><td><p><em>at+blecfg=02:03:04:1f:cc:9e,0,
+InnoPhase_prov</em></p></td>
+<td><p>Configures BLE device with
+parameters,</p>
+<p>BLE mac address:
+02:03:04:1f:cc:9e</p>
+<p>BLE address type: 0 (BLE
+public address)</p>
+<p>BLE device name:
+InnoPhase_prov</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><em>at+blesrvstart</em></p></td>
+<td><p>Starts BLE GATT Server</p></td>
+</tr>
+<tr class="row-even"><td><p><em>at+bleser
+vcfg=11111111111111111111111111111111</em></p></td>
+<td><p>Creates unique custom
+service ID (32-bit long
+value)</p>
+<p>UUID:
+<em>111111
+11111111111111111111111111</em></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><em>at+blech
+radd=11111111111111111111111111111111,
+2A29,a,3</em></p></td>
+<td><p>Creates a unique custom
+characteristic ID for the
+above created custom
+service ID with parameters,</p>
+<p>Services uuid:
+<em>111111
+11111111111111111111111111</em></p>
+<p>Char uuid: <em>2A29</em></p>
+<p>Properties: <em>“a” sets read
+and write property</em></p>
+<p>Permission: <em>3</em> sets read
+and write permission</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><em>at+bleser
+vadd=11111111111111111111111111111111</em></p></td>
+<td><p>This includes the
+customized service into
+gatt server where,</p>
+<p>Custom service UUID:
+<em>111111
+11111111111111111111111111</em></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><em>at+bleadvcfg=100,0,1600,0</em></p></td>
+<td><p> This configures the
+advertisement parameters
+where,</p>
+<p>Fast adv interval: 100
+which equals 62.5ms (100 *
+625 μs)</p>
+<p>Fast adv duration: 0
+(continues advertisement)</p>
+<p>Slow adv interval: 1600,
+which equals 1000ms (1600
+* 625 μs)</p>
+<p>Slow adv duration: 0</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><em>at+bleadvstart</em></p></td>
+<td><p>Start the BLE Advertisement</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>at+blecharwrdata=2a29,14</em></p></td>
+<td><p>Acknowledges BLE
+Characteristic Write
+Request with parameters,</p>
+<p>characteristic UUID:
+<em>2a29,</em></p>
+<p>data len (in hex format):
+<em>14</em></p>
+</td>
+</tr>
+<tr class="row-even"><td><p><em>at+wcon= IP,Inno&#64;9070</em></p></td>
+<td><p>Connect to a desired AP
+from the received scan
+results</p>
+<p>Connect to WLAN Network as
+a Station with SSID= <em>IP</em>
+and</p>
+<p>Passphrase= <em>Inno&#64;9070</em></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><em>at+wstatus=0</em></p></td>
+<td><p>Get IP address of Talaria
+TWO to verify the
+connection is successful</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="procedure">
+<h2>Procedure<a class="headerlink" href="#procedure" title="Link to this heading"></a></h2>
+<p><strong>Step 1</strong>: Execute the following commands on Talaria TWO:</p>
+<table class="docutils align-default" id="id14">
+<caption><span class="caption-text">Table 27: BLE Provisioning - AT Commands</span><a class="headerlink" href="#id14" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>at</p>
+<p>at+btinit</p>
+<p>at+blecfg=02:03:04:1f:cc:9e,0,InnoPhase_prov</p>
+<p>at+blesrvstart</p>
+<p>at+bleservcfg=11111111111111111111111111111111</p>
+<p>at+blechradd=11111111111111111111111111111111,2A29,a,3</p>
+<p>at+bleservadd=11111111111111111111111111111111</p>
+<p>at+bleadvcfg=100,0,1600,0</p>
+<p>at+bleadvstart</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image1100.png"><img alt="image1" src="../../_images/image1100.png" style="width: 7.48031in; height: 4.82228in;" /></a></p>
+<p>Figure 94: BLE Provisioning- serial log</p>
+<p><strong>Step 2</strong>: Launch BLE Scanner app from the Android device and connect
+to Talaria TWO GATT Server with the BLE name: InnoPhase_Prov.</p>
+<p><a class="reference internal" href="../../_images/image258.png"><img alt="image2" src="../../_images/image258.png" style="width: 3.14961in; height: 6.54504in;" /></a></p>
+<p>Figure 95: InnoPhase_Prov-GATT server</p>
+<p><strong>Step 3</strong>: Once the BLE connection is established successfully, send
+data/Write Request by pressing W from BLE central. Here, add the SSID
+and passphrase of the network.</p>
+<p><a class="reference internal" href="../../_images/image330.png"><img alt="image3" src="../../_images/image330.png" style="width: 3.14961in; height: 6.50612in;" /></a></p>
+<p>Figure 96: BLE write to add the SSID and Passphrase</p>
+<p>Data received from the BLE central app on Talaria TWO. Send an
+acknowledgment of the write request from Talaria TWO using following
+command on serial terminal:</p>
+<table class="docutils align-default" id="id15">
+<caption><span class="caption-text">Table 28: BLE Provisioning - AT Commands</span><a class="headerlink" href="#id15" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>at+blecharwrdata=2a29,14</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image427.png"><img alt="image4" src="../../_images/image427.png" style="width: 7.48031in; height: 3.7674in;" /></a></p>
+<p>Figure 97: Acknowledgment of Write request</p>
+<p><strong>Step 4</strong>: Connect to the network with SSID=IP and
+<a class="reference external" href="mailto:Passphrase=Inno&#37;&#52;&#48;9070">Passphrase=Inno<span>&#64;</span>9070</a>.</p>
+<table class="docutils align-default" id="id16">
+<caption><span class="caption-text">Table 29: FOTA - AT commands</span><a class="headerlink" href="#id16" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>at+wcon=IP,Inno&#64;9070</p>
+<p>at+wstatus=0</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image523.png"><img alt="image5" src="../../_images/image523.png" style="width: 7.48031in; height: 4.26119in;" /></a></p>
+<p>Figure 98: WLAN connection</p>
+</section>
+</section>
+<section id="secure-ble-provisioning-passkey-method">
+<h1>Secure BLE Provisioning Passkey method<a class="headerlink" href="#secure-ble-provisioning-passkey-method" title="Link to this heading"></a></h1>
+<section id="description-1">
+<span id="id1"></span><h2>Description<a class="headerlink" href="#description-1" title="Link to this heading"></a></h2>
+<p>This use case demonstrates secure BLE provisioning Passkey Entry STK
+generation method using mobile device as central.</p>
+<p>Talaria TWO is configured as BLE peripheral which consists of
+configuring services, characteristics, SMP and advertise services.
+Initiate BLE connection from BLE central (device with BLE app) by
+entering the 6-digit passkey and send SSID and Passphrase of your
+network using write operation from central.</p>
+<p>Talaria TWO receives credentials (SSID, Passphrase) and MCU triggers
+Wi-Fi connection manager to connect to the network using the received
+credentials.</p>
+</section>
+<section id="prerequisites-1">
+<span id="id2"></span><h2>Prerequisites<a class="headerlink" href="#prerequisites-1" title="Link to this heading"></a></h2>
+<p>Android/ iOS device installed with BLE app (BLE Scanner/nRF Connect).</p>
+</section>
+<section id="at-command-sequence-1">
+<span id="id3"></span><h2>AT Command Sequence<a class="headerlink" href="#at-command-sequence-1" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>AT Command</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>at</em></p></td>
+<td><p>Checks the connection state</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>at+btinit</em></p></td>
+<td><p>Initializes the BLE stack</p></td>
+</tr>
+<tr class="row-even"><td><p><em>at
++blecfg=01:01:06:06:01:01,0,innophase</em></p></td>
+<td><p>Configures BLE device with
+parameters,</p>
+<p>BLE mac address<em>:
+01:01:06:06:01:01</em></p>
+<p>BLE address type: <em>0</em> (BLE
+public address)</p>
+<p>BLE device name:
+<em>innophase</em></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><em>at+blesrvstart</em></p></td>
+<td><p>Starts BLE GATT Server</p></td>
+</tr>
+<tr class="row-even"><td><p><em>at+bleser
+vcfg=11111111111111111111111111111111</em></p></td>
+<td><p>Creates unique custom
+service ID (32-bit long
+value)</p>
+<p>UUID:
+<em>111111
+11111111111111111111111111</em></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><em>at+blech
+radd=11111111111111111111111111111111,
+0x2a19,a,3</em></p></td>
+<td><p>Creates a unique custom
+characteristic ID for the
+above created custom
+service ID with parameters,</p>
+<p>Services uuid:
+<em>111111
+11111111111111111111111111</em></p>
+<p>Char uuid: <em>0x2a19</em></p>
+<p>Properties: <em>“a” sets read
+and write property</em></p>
+<p>Permission: <em>3</em> sets read
+and write permission</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><em>at+bleser
+vadd=11111111111111111111111111111111</em></p></td>
+<td><p>This includes the
+customized service into
+gatt server where,</p>
+<p>Custom service UUID:
+<em>111111
+11111111111111111111111111</em></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><em>at+bleadvcfg=32,0,160,480</em></p></td>
+<td><p>This configures the
+advertisement parameters
+where,</p>
+<p>Fast adv interval: 32 which
+equals 20ms (32 * 625 μs)</p>
+<p>Fast adv duration: 0
+(continues advertisement)</p>
+<p>Slow adv interval: 160,
+which equals 100ms (160 *
+625 μs)</p>
+<p>Slow adv duration: 480
+which equals 300ms (480 *
+625 μs)</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><em>at+blesmpcfg=0,0,1,1,0,0,16,1</em></p></td>
+<td><p>Configures the SMP
+(security) with parameters,</p>
+<p>io cap: 0 (display_only)</p>
+<p>oob : 0 (default)</p>
+<p>bondable: 1</p>
+<p>mitm: 1</p>
+<p>sc: 0</p>
+<p>keypress: 0</p>
+<p>key size min: 16 bytes</p>
+<p>encrypt: 1</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><em>at+bleadvstart</em></p></td>
+<td><p>Start BLE advertisement</p></td>
+</tr>
+<tr class="row-even"><td><p><em>at+blecharwrdata=2a19,1F</em></p></td>
+<td><p>Acknowledges BLE
+Characteristic Write
+Request with parameters,</p>
+<p>characteristic UUID:
+<em>2a19,</em></p>
+<p>data len(in hex format):
+<em>1F</em></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><em>at+wcon= InnoPhase_AE,Inno&#64;1234</em></p></td>
+<td><p>Connect to WLAN Network as
+a Station with SSID=
+<em>InnoPhase_AE</em> and</p>
+<p>Passphrase= <em>Inno&#64;1234</em></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>For more details on the AT command parameters, refer BT/BLE commands
+section of UG_AT_Commands.pdf
+<em>(freertos_sdk_x.y\binaries\product\at\doc)</em>.</p>
+</section>
+<section id="procedure-1">
+<span id="id4"></span><h2>Procedure<a class="headerlink" href="#procedure-1" title="Link to this heading"></a></h2>
+<p><strong>Step 1</strong>: Execute the following commands on Talaria TWO:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>at</p>
+<p>at+btinit</p>
+<p>at+blecfg=01:01:06:06:01:01,0,innophase</p>
+<p>at+blesrvstart</p>
+<p>at+bleservcfg=11111111111111111111111111111111</p>
+<p>at+blechradd=11111111111111111111111111111111, 0x2a19,a,3</p>
+<p>at+bleservadd=11111111111111111111111111111111</p>
+<p>at+bleadvcfg=32,0,160,480</p>
+<p>at+blesmpcfg=0,0,1,1,0,0,16,1</p>
+<p>at+bleadvstart</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image615.png"><img alt="image6" src="../../_images/image615.png" style="width: 7.48031in; height: 4.86623in;" /></a></p>
+<p>Figure 99: BLE Provisioning- serial log</p>
+<p><strong>Step 2</strong>: Launch nRF Connect app from the iOS device and scan. Talaria
+TWO GATT Server with the BLE name innophase will be listed. Click on
+connect.</p>
+<p><a class="reference internal" href="../../_images/image714.png"><img alt="Graphical user interface Description automatically generated" src="../../_images/image714.png" style="width: 3.45773in; height: 4.62565in;" /></a></p>
+<p>Figure 100: innophase-GATT server</p>
+<p>The passkey for pairing will be generated and shown on the AT command
+line.</p>
+<p><a class="reference internal" href="../../_images/image813.png"><img alt="image7" src="../../_images/image813.png" style="width: 7.48031in; height: 5.67299in;" /></a></p>
+<p>Figure 101: Randomly generated 6-digit Passkey</p>
+<p><strong>Step 3</strong>: Add the 6-digit passkey “707476” to the app and click on
+Pair. Now the BLE GATT connection is created.</p>
+<p><a class="reference internal" href="../../_images/image913.png"><img alt="A screenshot of a computer Description automatically generated with medium confidence" src="../../_images/image913.png" style="width: 3.14961in; height: 4.49323in;" /></a></p>
+<p>Figure 102: Pairing request</p>
+<p><strong>Step 4:</strong> Once the BLE connection is established successfully, send
+data/Write Request by pressing W from BLE central. Here, add the SSID
+and passphrase of the network.</p>
+<p><a class="reference internal" href="../../_images/image1012.png"><img alt="image8" src="../../_images/image1012.png" style="width: 3.14961in; height: 3.96416in;" /></a></p>
+<p>Figure 103: BLE write to add the SSID and Passphrase</p>
+<p>An asynchronous message on Talaria TWO will be displayed for the Write
+Request sent from the BLE central app.</p>
+<p><a class="reference internal" href="../../_images/image1116.png"><img alt="image9" src="../../_images/image1116.png" style="width: 7.48031in; height: 5.67299in;" /></a></p>
+<p>Figure 104: Async data reception from mobile app</p>
+<p>Send an acknowledgment of the write request from Talaria TWO using
+following command:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>at+blecharwrdata=2a19,1F</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image1215.png"><img alt="image10" src="../../_images/image1215.png" style="width: 7.48031in; height: 5.72366in;" /></a></p>
+<p>Figure 105: Acknowledgment of Write request</p>
+<p><strong>Step 4</strong>: Connect to the network with SSID= InnoPhase_AE and
+Passphrase= <a class="reference external" href="mailto:Inno&#37;&#52;&#48;1234">Inno<span>&#64;</span>1234</a>.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>at+wcon= InnoPhase_AE,Inno&#64;1234</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image1312.png"><img alt="image11" src="../../_images/image1312.png" style="width: 7.48031in; height: 6.09125in;" /></a></p>
+<p>Figure 106: WLAN connection</p>
+</section>
+</section>
+<section id="secure-ble-provisioning-just-works-method">
+<h1>Secure BLE Provisioning Just Works Method<a class="headerlink" href="#secure-ble-provisioning-just-works-method" title="Link to this heading"></a></h1>
+<section id="description-2">
+<span id="id5"></span><h2>Description<a class="headerlink" href="#description-2" title="Link to this heading"></a></h2>
+<p>This use case is to demonstrate secure BLE provisioning Just Works STK
+generation method using two Talaria TWO EVBs (say T1 and T2), one as
+peripheral and other as central.</p>
+<p>One Talaria TWO EVB (T1) is configured as BLE peripheral which consists
+of configuring services, characteristics, SMP and advertise services.
+Initiate BLE connection from BLE central (another Talaria TWO module)
+and send SSID and Passphrase of your network.</p>
+<p>T1 receives credentials (SSID, Passphrase) and MCU triggers Wi-Fi
+connection manager to connect to the network using the received
+credentials.</p>
+</section>
+<section id="prerequisites-2">
+<span id="id6"></span><h2>Prerequisites<a class="headerlink" href="#prerequisites-2" title="Link to this heading"></a></h2>
+<p>Two Talaria TWO devices programmed with t2_atcmds.elf</p>
+</section>
+<section id="at-command-sequence-2">
+<span id="id7"></span><h2>AT Command Sequence<a class="headerlink" href="#at-command-sequence-2" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>AT Command</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>at</em></p></td>
+<td><p>Checks the connection state</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>at+btinit</em></p></td>
+<td><p>Initializes the BLE stack</p></td>
+</tr>
+<tr class="row-even"><td><p><em>at+blec
+fg=01:01:06:06:01:01,0,innophase</em></p></td>
+<td><p>Configures BLE device with
+parameters,</p>
+<p>BLE mac address<em>:
+01:01:06:06:01:01</em></p>
+<p>BLE address type: <em>0</em> (BLE
+public address)</p>
+<p>BLE device name: <em>innophase</em></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><em>at+blesrvstart</em></p></td>
+<td><p>Starts BLE GATT Server</p></td>
+</tr>
+<tr class="row-even"><td><p><em>at+bleservcfg=
+11111111111111111111111111111111</em></p></td>
+<td><p>Creates unique custom service ID
+(32-bit long value)</p>
+<p>UUID:
+<em>1
+1111111111111111111111111111111</em></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><em>at+blechradd=
+11111111111111111111111111111111,
+0x2a19,a,3</em></p></td>
+<td><p>Creates a unique custom
+characteristic ID for the above
+created custom service ID with
+parameters,</p>
+<p>Services uuid:
+<em>1
+1111111111111111111111111111111</em></p>
+<p>Char uuid: <em>0x2a19</em></p>
+<p>Properties: <em>“a” sets read and
+write property</em></p>
+<p>Permission: <em>3</em> sets read and
+write permission</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><em>at+bleservadd=
+11111111111111111111111111111111</em></p></td>
+<td><p>This includes the customized
+service into gatt server where,</p>
+<p>Custom service UUID:
+<em>1
+1111111111111111111111111111111</em></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><em>at+bleadvcfg=32,0,160,480</em></p></td>
+<td><p>This configures the
+advertisement parameters where,</p>
+<p>Fast adv interval: 32 which
+equals 20ms (32 * 625 μs)</p>
+<p>Fast adv duration: 0 (continues
+advertisement)</p>
+<p>Slow adv interval: 160, which
+equals 100ms (160 * 625 μs)</p>
+<p>Slow adv duration: 480 which
+equals 300ms (480 * 625 μs)</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><em>at+blesmpcfg=0,0,1,1,0,0,16,1</em></p></td>
+<td><p>Configures the SMP (security)
+with parameters,</p>
+<p>io cap: 0 (display_only)</p>
+<p>oob : 0 (default)</p>
+<p>bondable: 1</p>
+<p>mitm: 1</p>
+<p>sc: 0</p>
+<p>keypress: 0</p>
+<p>key size min: 16 bytes</p>
+<p>encrypt: 1</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><em>at+bleadvstart</em></p></td>
+<td><p>Start BLE advertisement</p></td>
+</tr>
+<tr class="row-even"><td><p><em>at+blecharwrdata=2a19,1F</em></p></td>
+<td><p>Acknowledges BLE Characteristic
+Write Request with parameters,</p>
+<p>characteristic UUID: <em>2a19,</em></p>
+<p>data len(in hex format): <em>1F</em></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><em>at+wcon= InnoPhase_AE,Inno&#64;1234</em></p></td>
+<td><p>Connect to WLAN Network as a
+Station with SSID=
+<em>InnoPhase_AE</em> and</p>
+<p>Passphrase= <em>Inno&#64;1234</em></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>For more details on the AT command, refer BT/BLE commands section of
+UG_AT_Commands.pdf</p>
+</section>
+<section id="procedure-2">
+<span id="id8"></span><h2>Procedure<a class="headerlink" href="#procedure-2" title="Link to this heading"></a></h2>
+<p><strong>Step 1</strong>: On the first Talaria TWO board (BLE peripheral), execute the
+following commands:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>at</p>
+<p>at+btinit</p>
+<p>at+blecfg=02:01:04:1f:cc:9e,0,innophase</p>
+<p>at+blesrvstart</p>
+<p>at+bleservcfg=11111111111111111111111111111111</p>
+<p>at+blechradd=11111111111111111111111111111111,0x2a19,a,3</p>
+<p>at+bleservadd=11111111111111111111111111111111</p>
+<p>at+bleadvcfg=32,0,160,480</p>
+<p>at+blesmpcfg=0,0,1,1,0,0,16,1</p>
+<p>at+bleadvstart</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image1411.png"><img alt="image12" src="../../_images/image1411.png" style="width: 5.90551in; height: 4.47366in;" /></a></p>
+<p>Figure 107: BLE Peripheral- serial log</p>
+<p><strong>Step 2</strong>: Configure the second Talaria TWO board as BLE central. Scan
+for BLE devices and connect to the desired BLE device.</p>
+<p>Configure the SMP using at+bleauth with parameters connection id: 0,
+oob:0, bondable:1, Mitm: 0, sc:1 and keypress: 0.</p>
+<p>Write GATT characteristic with parameters connection id: 0, handle: 1,
+length: 51 bytes, data: 31 and Send SSID and PWD for the desired network
+using at+blecharw command.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>at</p>
+<p>at+btinit</p>
+<p>at+blescancfg=5000,96,48,96,24,1</p>
+<p>at+blecfg=02:03:05:05:03:02,0,central</p>
+<p>at+blescan</p>
+<p>at+blecon=9e-cc-1f-04-01-02,0</p>
+<p>at+bleauth=0,0,1,0,1,0</p>
+<p>at+blecharwr=0,1,51,31,SSID=InnoPhase_AE:<a class="reference external" href="mailto:PWD=Inno&#37;&#52;&#48;1234">PWD=Inno<span>&#64;</span>1234</a></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image1511.png"><img alt="image13" src="../../_images/image1511.png" style="width: 3.14961in; height: 3.97739in;" /></a></p>
+<p>Figure 108: BLE central- serial log</p>
+<p>For the data received from the BLE central device, Send an
+acknowledgment of the write request from peripheral.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>at+blecharwrdata=2a19,1f</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image1610.png"><img alt="image14" src="../../_images/image1610.png" style="width: 7.48031in; height: 6.04372in;" /></a></p>
+<p>Figure 109: Acknowledgement of Write request</p>
+<p><strong>Step 4</strong>: Issue at+wcon command to connect to an AP with SSID
+“InnoPhase_AE” and passphrase “<a class="reference external" href="mailto:Inno&#37;&#52;&#48;1234">Inno<span>&#64;</span>1234</a>” from the first EVB(T1)</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>at+wcon= InnoPhase_AE,Inno&#64;1234</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image1710.png"><img alt="image15" src="../../_images/image1710.png" style="width: 7.48031in; height: 7.48031in;" /></a></p>
+<p>Figure 110: WLAN connection</p>
+</section>
+</section>
+<section id="fota">
+<h1>FOTA<a class="headerlink" href="#fota" title="Link to this heading"></a></h1>
+<p>Firmware-Over-the-Air (FOTA) allows wireless delivery of firmware
+updates or configurations to the embedded devices.</p>
+<section id="description-3">
+<span id="id9"></span><h2>Description<a class="headerlink" href="#description-3" title="Link to this heading"></a></h2>
+<p>This use case describes the FOTA process for Talaria TWO EVB using the
+Talaria TWO AT commands with details on implementing and triggering FOTA
+feature</p>
+</section>
+<section id="prerequisites-3">
+<span id="id10"></span><h2>Prerequisites<a class="headerlink" href="#prerequisites-3" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Apache server/HFS or any HTTP server to store Talaria TWO ELF
+(t2_atcmds.elf) and FOTA configuration file (fota_config.json).</p></li>
+<li><p>Access Point configured with WPA/WPA2/WPA3 personal/enterprise
+security.</p></li>
+<li><p>Minicom Serial terminal for host interface to execute AT commands.</p></li>
+</ol>
+</section>
+<section id="at-command-sequence-3">
+<span id="id11"></span><h2>AT Command Sequence<a class="headerlink" href="#at-command-sequence-3" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>AT
+Command</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>at</em></p></td>
+<td><p>To check the connection state</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>at+wcon</em></p></td>
+<td><p>Connect to secured Access Point</p></td>
+</tr>
+<tr class="row-even"><td><p><em>a
+t+wstatus</em></p></td>
+<td><p>Get IP address of Talaria TWO to verify if the
+connection (L2+L3) is successful</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>at+f
+otacfgadd</em></p></td>
+<td><p>This command is optional and is required to update the
+configuration file present in the root filesystem of
+Talaria TWO</p></td>
+</tr>
+<tr class="row-even"><td><p><em>at+fota</em></p></td>
+<td><p>Start FOTA operation</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="procedure-3">
+<span id="id12"></span><h2>Procedure<a class="headerlink" href="#procedure-3" title="Link to this heading"></a></h2>
+<p>The FOTA demo process involves the following steps:</p>
+<ol class="arabic simple">
+<li><p>Generating hash value for atcmds.elf.</p></li>
+<li><p>Modify fota_config.json file.</p></li>
+<li><p>Server setup.</p></li>
+<li><p>Program and running the application:</p>
+<ol class="loweralpha simple">
+<li><p>Generate root filesystem and program filesystem, application
+image(t2_atcmds.elf) and partition table (ssbl_part_table.json)</p></li>
+<li><p>Issue the AT commands to connect to network and trigger FOTA.</p></li>
+</ol>
+</li>
+</ol>
+<p><strong>Generate the hash value</strong>:</p>
+<p>Execute the following command on ubuntu terminal from SDK directory to
+generate the hash value:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>sha256sum binaries/product/at/bin/atcmds.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image1810.png"><img alt="image16" src="../../_images/image1810.png" style="width: 7.5in; height: 0.79097in;" /></a></p>
+<p>Figure 111: Generate the hash value</p>
+<p><strong>Modification of fota_config.json file</strong>:</p>
+<p>Change the following fields in the fota_config.json
+(<em>freertos_sdk_x.y\binaries\product\at\fs\fota_config.json</em>):</p>
+<ol class="arabic simple">
+<li><p>“hostname” as IP address based on server IP address.</p></li>
+<li><p>“uri” with the path of the fota_config.json and t2_atcmds.elf stored
+at the Apache server.</p></li>
+<li><p>“hash” value.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>{</p>
+<p>“package_version” : “2.0”,</p>
+<p>“files” : [</p>
+<p>{</p>
+<p>“type” : “configuration”,</p>
+<p>“name” : “fota.config”,</p>
+<p>“protocol” : “http”,</p>
+<p>“hostname” : “192.168.201.233”,</p>
+<p>“port” : 80,</p>
+<p>“secured” : 0,</p>
+<p>“uri” : “/FOTA/fota_config.json”</p>
+<p>},</p>
+<p>{</p>
+<p>“type” : “firmware”,</p>
+<p>“name” : “atcmd”,</p>
+<p>“version” : “2.1”,</p>
+<p>“protocol” : “http”,</p>
+<p>“hostname” : “192.168.201.233”,</p>
+<p>“port” : 80,</p>
+<p>“secured” : 0,</p>
+<p>“uri” : “/FOTA/t2_atcmds.elf”,</p>
+<p>“hash” :
+“a93ce95fddea0f635f726311d0f8c912909858bfb8c9b4d4204ec5971d9d1aa4 “</p>
+<p>}</p>
+<p>]</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Server Setup</strong>:</p>
+<ol class="arabic simple">
+<li><p>Using Apache:</p>
+<ol class="loweralpha simple">
+<li><p>Apache server is set up in Windows OS.</p></li>
+<li><p>Download the Apache server from the following link:
+<a class="reference external" href="https://httpd.apache.org/docs/current/platform/windows.html#down">https://httpd.apache.org/docs/current/platform/windows.html#down</a></p></li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image1910.png"><img alt="Graphical user interface, text, application Description automatically generated" src="../../_images/image1910.png" style="width: 6.29921in; height: 3.35246in;" /></a></p>
+<p>Figure 112: Apache server setup link</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="3">
+<li><p>Place the modified fota_config.json and t2_atcmds.elf under the
+Apache folder htdocs by creating any default folder.</p></li>
+</ol>
+<blockquote>
+<div><p>For example: <strong>FOTA</strong>. The same path is added in the “uri” section of
+fota_config.json file.</p>
+<p><a class="reference internal" href="../../_images/image208.png"><img alt="Graphical user interface, text, application, email Description automatically generated" src="../../_images/image208.png" style="width: 5.90551in; height: 3.1661in;" /></a></p>
+<p>Figure 113: Folder to add the JSON and elf file</p>
+<p><strong>Note</strong>: If using hash to verify the image integrity, ensure to
+place the same t2_atcmds.elf in <em>\Apache24\htdocs\FOTA</em> folder for
+which hash was generated.</p>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>Using HFS (HTTP File Server):</p>
+<ol class="loweralpha simple">
+<li><p>The HTTP File Server can be downloaded from the following link:
+<a class="reference external" href="https://github.com/rejetto/hfs/releases">https://github.com/rejetto/hfs/releases</a></p></li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image2113.png"><img alt="A screenshot of a computer Description automatically generated" src="../../_images/image2113.png" style="width: 5.90551in; height: 2.7918in;" /></a></p>
+<p>Figure 114: HTTP File Server setup link</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li><p>Open the HFS tool and create a folder (for example: FOTA) and to
+this, copy the modified fota_config.json and t2_atcmds.elf. Same path
+is added in the “uri” section of fota_config.json file.</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image2211.png"><img alt="image17" src="../../_images/image2211.png" style="width: 6.29921in; height: 3.10075in;" /></a></p>
+<p>Figure 115: Folder to add the JSON and elf file</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="3">
+<li><p>Check the server accessibility by sending HTTP GET from the browser
+as shown:</p></li>
+</ol>
+<blockquote>
+<div><p>Open Browser-&gt; Enter IP address followed by resource path i.e.,
+“/<a class="reference external" href="http://192.168.1.7/FOTA">192.168.1.216/FOTA</a>“ where
+192.168.1.216 is the server IP address (IP address of the laptop) and
+80 is the server port.</p>
+<p><a class="reference internal" href="../../_images/image2310.png"><img alt="image18" src="../../_images/image2310.png" style="width: 6.29921in; height: 2.786in;" /></a></p>
+<p>Figure 116: HTTP get from browser to verify server accessibility</p>
+</div></blockquote>
+<p><strong>Programming and running the application</strong>:</p>
+<ol class="arabic simple">
+<li><p>In the ubuntu terminal, run the following command from the SDK
+directory to generate root image and flash root image, SSBL partition
+table and t2_atcmds.elf.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python3 ./script/program_flash.py –no_reset -i
+binaries/product/at/bin/atcmds.elf -spt
+tools/partition_files/ssbl_part_table.json</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image2410.png"><img alt="image19" src="../../_images/image2410.png" style="width: 6.88976in; height: 0.83124in;" /></a></p>
+<p>Figure 117 Generated root image</p>
+<p><a class="reference internal" href="../../_images/image259.png"><img alt="image20" src="../../_images/image259.png" style="width: 6.88976in; height: 2.50264in;" /></a></p>
+<p>Figure 118: Flashing the AT command ELF</p>
+<ol class="arabic simple" start="2">
+<li><p>In any terminal window, open miniterm at baud rate of 2457600 to view
+CONSOLE logs for Talaria TWO.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>miniterm.py /dev/ttyUSB3 2457600</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image266.png"><img alt="Text Description automatically generated" src="../../_images/image266.png" style="width: 6.88976in; height: 1.09677in;" /></a></p>
+<p>Figure 119: Miniterm console</p>
+<p><strong>Note:</strong> After programming Talaria TWO, it is recommended to reset the
+module either using the following command from SDK directory or press
+the reset button on the EVB.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py –device /dev/ttyUSB2 –reset=evk42</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image276.png"><img alt="image21" src="../../_images/image276.png" style="width: 6.88976in; height: 4.77046in;" /></a></p>
+<p>Figure 120: Talaria TWO reset – console</p>
+<ol class="arabic simple" start="3">
+<li><p>The module boots up with the programmed at command ELF. Issue the
+following commands on the serial terminal to perform the FOTA
+operation.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>at</p>
+<p>at+wcon=InnoPhase,Inno&#64;1234</p>
+<p>at+wstatus=0</p>
+<p>at+fota=1</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> Updating the configuration file in Talaria TWO’s root
+filesystem:</p>
+<ol class="loweralpha simple">
+<li><p>Navigate to the config file (<em>sdk_x.y\binaries\product\at\fs</em>)
+and modify the fota_config.json file.</p></li>
+<li><p>Execute the following command to update the FOTA configuration file
+in the root file system of Talaria TWO:</p></li>
+<li><p>Open the miniterm (miniterm.py /dev/ttyUSB3 2457600) to check the
+console logs on Talaria TWO</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>at+fotacfgadd=&lt;len&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>For example: at+fotacfgadd=652</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="4">
+<li><p>Transfer the updated config file from minicom.</p></li>
+</ol>
+<blockquote>
+<div><p>Press CTRL-A Z-&gt; Enter S -&gt; Select ascii -&gt; Select folder where
+config is located -&gt; select continue.</p>
+<p><a class="reference internal" href="../../_images/image286.png"><img alt="image22" src="../../_images/image286.png" style="width: 6.49606in; height: 3.14459in;" /></a></p>
+<p>Figure 121: Updated file received - Talaria TWO console</p>
+</div></blockquote>
+</section>
+<section id="serial-log">
+<h2>Serial Log<a class="headerlink" href="#serial-log" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="../../_images/image294.png"><img alt="image23" src="../../_images/image294.png" style="width: 7.48031in; height: 3.0402in;" /></a></p>
+<p>Figure 122: FOTA - serial log</p>
+<p>Talaria TWO console output when at+fota command is issued on the serial
+terminal:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>CMD:~Hexdump of uartbuf before processing, len=10</p>
+<p>7E 04 00 00 00 10 0E 00 63 00 | ~…….c.</p>
+<p>Zero arguments</p>
+<p>cmd:~:2</p>
+<p>resp-len:28</p>
+<p>CMD:atHexdump of uartbuf before processing, len=3</p>
+<p>61 74 00 | at.</p>
+<p>Zero arguments</p>
+<p>cmd:at:2</p>
+<p>Ready</p>
+<p>resp-len:9</p>
+<p>CMD:at+wcon=InnoPhase,Inno&#64;1234Hexdump of uartbuf before processing,
+len=28</p>
+<p>61 74 2B 77 63 6F 6E 3D 49 6E 6E 6F 50 68 61 73 | at+wcon=InnoPhas</p>
+<p>65 2C 49 6E 6E 6F 40 31 32 33 34 00 | e,Inno&#64;1234.</p>
+<p>cmd:at+wcon=InnoPhase,Inno&#64;1234:8</p>
+<p>arg:InnoPhase,Inno&#64;1234</p>
+<p>ssid:0x00059e2c</p>
+<p>passphrase:0x00059e36SSID:InnoPhase,timeo=0xaba9500</p>
+<p>add_network_profile:0</p>
+<p>[43.201,304] CONNECT:b0:95:75:5c:d2:8f Channel:11 rssi:-8 dBm</p>
+<p>MSG:202</p>
+<p>notify</p>
+<p>MSG:200</p>
+<p>notify[43.242,749] MYIP 192.168.0.146</p>
+<p>[43.242,913] IPv6 [fe80::e269:3aff:fe00:167e]-link</p>
+<p>MSG:204</p>
+<p>notify</p>
+<p>resp-len:9</p>
+<p>CMD:at+wstatus=0Hexdump of uartbuf before processing, len=13</p>
+<p>61 74 2B 77 73 74 61 74 75 73 3D 30 00 | at+wstatus=0.</p>
+<p>cmd:at+wstatus=0:11</p>
+<p>arg:0</p>
+<p>str:0:1</p>
+<p>string : 0 : endptr : :0</p>
+<p>IP:192.168.0.146:255.255.255.0:192.168.0.1</p>
+<p>resp-len:49</p>
+<p>resp-len:9</p>
+<p>CMD:at+fota=1Hexdump of uartbuf before processing, len=10</p>
+<p>61 74 2B 66 6F 74 61 3D 31 00 | at+fota=1.</p>
+<p>cmd:at+fota=1:8</p>
+<p>arg:1</p>
+<p>option:1:</p>
+<p>str:1:1</p>
+<p>string : 1 : endptr : :0</p>
+<p>End of command line</p>
+<p>option:&lt;null&gt;:</p>
+<p>fota_json_init: /root/fota_config.json f = 0x000be1f8</p>
+<p>Parsing rootfs FOTA config file***</p>
+<p>package_version = 1.0</p>
+<p>Package version = 1.0</p>
+<p>type = configuration</p>
+<p>name = fota.config</p>
+<p>version, &lt;null&gt;</p>
+<p>protocol = http</p>
+<p>hostname = 192.168.0.177</p>
+<p>port = 80</p>
+<p>secured = 0</p>
+<p>uri = /FOTA/fota_config.json</p>
+<p>url, &lt;null&gt;</p>
+<p>hash, &lt;null&gt;</p>
+<p>configuration</p>
+<p>fota.config</p>
+<p>http</p>
+<p>192.168.0.177</p>
+<p>80</p>
+<p>0</p>
+<p>/FOTA/fota_config.json</p>
+<p>&lt;null&gt;</p>
+<p>&lt;null&gt;</p>
+<p>type = firmware</p>
+<p>name = atcmd</p>
+<p>version = 2.2</p>
+<p>protocol = http</p>
+<p>hostname = 192.168.0.177</p>
+<p>port = 80</p>
+<p>secured = 0</p>
+<p>uri = /FOTA/t2_atcmds.elf</p>
+<p>url, &lt;null&gt;</p>
+<p>hash =
+34aadc96b19b4aff23b08400523d427435be8aa0ff82b6084820165ceadc9174</p>
+<p>firmware</p>
+<p>atcmd</p>
+<p>http</p>
+<p>192.168.0.177</p>
+<p>80</p>
+<p>0</p>
+<p>/FOTA/t2_atcmds.elf</p>
+<p>&lt;null&gt;</p>
+<p>2.2</p>
+<p>Fota Init Success: bc388</p>
+<p>Performing Fota..cc</p>
+<p>check_for_update = 1</p>
+<p>auto_reset=1</p>
+<p>fota_perform check_for_update = 1</p>
+<p>fota_config_file_download 1049</p>
+<p>fota_http_connect:host=192.168.0.177 port=80</p>
+<p>Calling http_client_open()</p>
+<p>fota_config_file_download 1062</p>
+<p>Parsing Remote FOTA config file***</p>
+<p>package_version = 2.0</p>
+<p>Package version = 2.0</p>
+<p>type = configuration</p>
+<p>name = fota.config</p>
+<p>version, &lt;null&gt;</p>
+<p>protocol = http</p>
+<p>hostname = 192.168.0.177</p>
+<p>port = 80</p>
+<p>secured = 0</p>
+<p>uri = /FOTA/fota_config.json</p>
+<p>url, &lt;null&gt;</p>
+<p>hash, &lt;null&gt;</p>
+<p>configuration</p>
+<p>fota.config</p>
+<p>http</p>
+<p>192.168.0.177</p>
+<p>80</p>
+<p>0</p>
+<p>/FOTA/fota_config.json</p>
+<p>&lt;null&gt;</p>
+<p>&lt;null&gt;</p>
+<p>type = firmware</p>
+<p>name = atcmd</p>
+<p>version = 2.1</p>
+<p>protocol = http</p>
+<p>hostname = 192.168.0.177</p>
+<p>port = 80</p>
+<p>secured = 0</p>
+<p>uri = /FOTA/t2_atcmds.elf</p>
+<p>url, &lt;null&gt;</p>
+<p>hash =
+34aadc96b19b4aff23b08400523d427435be8aa0ff82b6084820165ceadc9174</p>
+<p>firmware</p>
+<p>atcmd</p>
+<p>http</p>
+<p>192.168.0.177</p>
+<p>80</p>
+<p>0</p>
+<p>/FOTA/t2_atcmds.elf</p>
+<p>&lt;null&gt;</p>
+<p>2.1</p>
+<p>utils_num_str_cmp</p>
+<p>2</p>
+<p>0</p>
+<p>1</p>
+<p>0</p>
+<p>deci1 = 2, fracn1 = 0, deci2 = 1, fracn2 = 0</p>
+<p>Using the Remote config (Newly fetched) file</p>
+<p>type = configuration</p>
+<p>type = firmware</p>
+<p>fota_json_init: /root/part.json f = 0x000bd3c8</p>
+<p>Image array size = 2</p>
+<p>name = atcmd</p>
+<p>version = 1.0</p>
+<p>start_sector = 32</p>
+<p>1.0 :32</p>
+<p>name = atcmd</p>
+<p>version = 0.0</p>
+<p>start_sector = 232</p>
+<p>0.0 :232</p>
+<p>utils_num_str_cmp</p>
+<p>1</p>
+<p>0</p>
+<p>0</p>
+<p>0</p>
+<p>deci1 = 1, fracn1 = 0, deci2 = 0, fracn2 = 0</p>
+<p>Selected index = 1</p>
+<p>Download the new f/w &#64; sector = 232</p>
+<p>fota_http_connect:host=192.168.0.177 port=80</p>
+<p>Calling http_client_open().</p>
+<p>fota_http_cb: resp-&gt;resp_len = 1252, resp-&gt;resp_total_len = 614932
+total_rcvd_len= 1252</p>
+<p>fota_http_cb: resp-&gt;resp_len = 1460, resp-&gt;resp_total_len = 614932
+total_rcvd_len= 541452</p>
+<p>fota_http_cb: resp-&gt;resp_len = 1460, resp-&gt;resp_total_len = 614932
+total_rcvd_len= 579412</p>
+<p>fota_http_cb: resp-&gt;resp_len = 1460, resp-&gt;resp_total_len = 614932
+total_rcvd_len= 614452</p>
+<p>. fota_http_cb: resp-&gt;resp_len = 480, resp-&gt;resp_total_len = 614932
+total_rcvd_len= 614932</p>
+<p>sector_cache_flush_all</p>
+<p>Fw download complete</p>
+<p>image size = 614932</p>
+<p>image hash:
+34aadc96b19b4aff23b0840523d427435be8aa0ff82b684820165ceadc9174</p>
+<p>hash from cfg:
+34aadc96b19b4aff23b0840523d427435be8aa0ff82b684820165ceadc9174</p>
+<p>Image integity verified. ok.</p>
+<p>next index = 1</p>
+<p>Performing Fota Commit…..</p>
+<p>fota_commit</p>
+<p>utils_num_str_add</p>
+<p>0</p>
+<p>0</p>
+<p>2</p>
+<p>0</p>
+<p>deci1 = 0, fracn1 = 0, deci2 = 2, fracn2 = 0</p>
+<p>utils_num_str_add : out_str = 2.0</p>
+<p>fota_update_part_file: !!!Updated new version = 2.0</p>
+<p>fota_json_init: /root/boot.json f = 0x000b3718</p>
+<p>Setting next boot index = 1</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PWAE</p>
+<p>WWWWWAE[0.017,903] heapsize is less than requested 29952 &lt; 30000</p>
+<p>Build $Id: git-4304eac2 $Build $Id: git-4304eac2 $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff</p>
+<p>Bootargs: vm.flash_location=0x0003fc00 passphrase=123467890
+ssid=innotest</p>
+<p>Application Information:</p>
+<p>Name : atcmd</p>
+<p>Version : 2.0</p>
+<p>Build Date : Oct 25 2023</p>
+<p>Build Time : 23:34:21</p>
+<p>Heap Available: 268 KB (274456 Bytes)</p>
+<p>$App:git-6f5f99b</p>
+<p>SDK Ver: FREERTOS_SDK_1.0</p>
+<p>At Command App</p>
+<p>addr e0:69:3a:00:16:d4</p>
+<p>domain:1-11&#64;20before: magic1=0x0, val=0x0, magic2=0x0</p>
+<p>Crash detection logic initialized</p>
+<p>after: magic1=0x11223344, val=0x0, magic2=0x55667788</p>
+<p>Serial-to-Wireless: Ready</p>
+<p>starting thread-sock</p>
+<p>SSBL Application</p>
+<p>Boot indx = 1</p>
+<p>Getting Addres of first virt section, name = .virt0 offset = 16c00</p>
+<p>vm_flash_location= =fec00</p>
+<p>Elf Load OK…</p>
+<p>Boot-args:</p>
+<p>vm.flash_location=0x000fec00</p>
+<p>Build $Id: git-4304eac2 $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff</p>
+<p>Bootargs: vm.flash_location=0x0003fc00 passphrase=123467890
+ssid=innotest</p>
+<p>Application Information:</p>
+<p>Name : atcmd</p>
+<p>Version : 2.0</p>
+<p>Build Date : Oct 25 2023</p>
+<p>Build Time : 23:34:21</p>
+<p>Heap Available: 268 KB (274456 Bytes)</p>
+<p>$App:git-6f5f99b</p>
+<p>SDK Ver: FREERTOS_SDK_1.0</p>
+<p>At Command App</p>
+<p>addr e0:69:3a:00:16:d4</p>
+<p>domain:1-11&#64;20before: magic1=0x0, val=0x0, magic2=0x0</p>
+<p>Crash detection logic initialized</p>
+<p>after: magic1=0x11223344, val=0x0, magic2=0x55667788</p>
+<p>Serial-to-Wireless: Ready</p>
+<p>starting thread-sock</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

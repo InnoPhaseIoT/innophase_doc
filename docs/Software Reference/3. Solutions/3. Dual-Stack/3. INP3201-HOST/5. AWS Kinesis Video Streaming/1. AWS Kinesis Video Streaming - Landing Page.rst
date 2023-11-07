@@ -1,0 +1,24 @@
+AWS KINESIS Video Streaming
+-----------------------
+
+This document describes the steps to setup and run the AWS KINESIS video
+streaming demo application using Talaria TWO Dual-Stack solution on
+INP3201 board.
+
+GTKTerm or similar application.
+
+.. toctree::
+    :maxdepth: 2
+
+   2. Preparing the SD Card and Booting INP3201 Board.rst
+   3. INP3201 Host - Talaria TWO AWS KINESIS Video Streaming Setup.rst
+   5. Multiple Streaming.rst
+
+Enable Video Streaming
+---------------------
+
+.. toctree::
+    :maxdepth: 2
+
+    4. Enable Video Streaming/1. AWS Streaming APP.rst
+    4. Enable Video Streaming/2. Web Browser .rst

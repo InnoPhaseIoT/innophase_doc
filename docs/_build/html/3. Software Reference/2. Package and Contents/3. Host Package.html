@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Host Package &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Host Package</a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Host Package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/3. Software Reference/2. Package and Contents/3. Host Package.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="host-package">
+<h1>Host Package<a class="headerlink" href="#host-package" title="Link to this heading"></a></h1>
+<p>Download talaria_two_dual_stack host package provided by InnoPhase IoT.</p>
+<p><strong>Package Contents:</strong></p>
+<p>The package includes talaria_two_dual_stack_vx.y folder (Path:
+<em>talaria_two_dual_stack\talaria_two_dual_stack_vx.y</em>).</p>
+<p><strong>Note</strong>: x and y in <em>vx.y</em> refers to the package release version.</p>
+<p>The talaria_two_dual_stack_vx.y folder contains the following:</p>
+<ol class="arabic simple">
+<li><p>Quick Start Guide: This document</p></li>
+<li><p>apps</p></li>
+</ol>
+<p>Contains the optional binary images of common applications like iPerf.
+These applications can be executed once the Dual-Stack solution is up
+and running.</p>
+<ol class="arabic simple" start="3">
+<li><p>doc</p></li>
+</ol>
+<p>Contains documents which can be referred to for evaluating and working
+with the Dual-Stack solution:</p>
+<ol class="loweralpha simple">
+<li><p>firmware-upgrade-via-serial: Contains the Readme to flash the
+firmware upgrade related files to Talaria TWO</p></li>
+<li><p>Release notes</p></li>
+<li><p>Talaria TWO Host API Reference Guide</p></li>
+<li><p>Dual-Stack User Guide</p></li>
+<li><p>Example applications for Dual-Stack</p></li>
+<li><p>INP3201 schematics – MCU bypass and with Low Power MCU</p></li>
+<li><p>Hardware Guide</p></li>
+<li><p>MCU Firmware Flashing</p></li>
+<li><p>AWS Kinesis Video Streaming Quick Start Guide</p></li>
+</ol>
+<ol class="arabic simple" start="4">
+<li><p>dual-stack</p></li>
+</ol>
+<p>Contains the Dual-Stack solutions’ software components. It also includes
+an example code to demonstrate custom logic on top of Dual-Stack
+solution to communicate with the Talaria TWO Wi-Fi module.</p>
+<ol class="arabic simple" start="5">
+<li><p>patch</p></li>
+</ol>
+<p>Contains the patch files for the kernel and/or U-boot if it exists.
+These patch files should be applied to the kernel of the platform before
+building the kernel (optional in case of a pre-built kernel).</p>
+<ol class="arabic simple" start="6">
+<li><p>mcu</p></li>
+</ol>
+<p>Contains the MCU firmware binary and application designed to run on
+T31zx to communicate with MCU over UART to enable low-power mode while
+using video streaming capabilities.</p>
+<ol class="arabic simple" start="7">
+<li><p>t31zx_kernel</p></li>
+</ol>
+<p>Contains the binary file with bootloader, Linux kernel and root
+filesystem for T31zx CPU.</p>
+<ol class="arabic simple" start="8">
+<li><p>wlan-sdio</p></li>
+</ol>
+<p>Contains the SDIO host driver for the Talaria TWO Wi-Fi module (optional
+in case of SPI).</p>
+<ol class="arabic simple" start="9">
+<li><p>AWSIOT_certificates</p></li>
+</ol>
+<p>Contains the AWS IoT certificates for MQTT connection authentication.</p>
+<ol class="arabic simple" start="10">
+<li><p>readme:</p></li>
+</ol>
+<p>Refer the Readme file for talaria_two_dual_stack_vx.y package folder
+structure. Follow individual readme files present in the sub-folders for
+more information.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crash Handler &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Crash Handler</a></li>
+<li><a class="reference internal" href="#crash-output-debug">Crash Output Debug</a><ul>
+<li><a class="reference internal" href="#cortex-m3-crash">Cortex M3 Crash</a><ul>
+<li><a class="reference internal" href="#running-the-application">Running the Application</a></li>
+<li><a class="reference internal" href="#expected-output">Expected Output</a></li>
+<li><a class="reference internal" href="#soft-faults">Soft Faults</a></li>
+<li><a class="reference internal" href="#exceptions">Exceptions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#co-processor-crash">Co-processor Crash</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Crash Handler</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/6. Applications/2. Examples/Example_for_Crash_handling.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>This document provides details on using the crash handler API to handle
+and debug error cases and interpret the crash printout.</p>
+<section id="crash-handler">
+<h1>Crash Handler<a class="headerlink" href="#crash-handler" title="Link to this heading"></a></h1>
+<p>To register a crash handler os_set_crash_handler(void(*crash_cb)(void))
+can be used. The function crash_cb is called a crash. Note that the
+crash printout will occur before the registered functions are called.</p>
+<p>In the following sample code, we register a function to the crash
+handler and then force an assert to demonstrate the functionality of the
+crash handler:</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Table : List of soft faults</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>#include &lt;assert.h&gt;</p>
+<p>#include &lt;kernel/os.h&gt;</p>
+<p>/* for print_ver */</p>
+<p>#include “utils.h”</p>
+<p>static void __irq</p>
+<p>handle_crash_event()</p>
+<p>{</p>
+<p>os_printf(“Crash Handler…\n”);</p>
+<p>}</p>
+<p>int</p>
+<p>main(void)</p>
+<p>{</p>
+<p>print_ver(“Crash Handling Demo App”, 1, 1);</p>
+<p>// register crash handler</p>
+<p>os_set_crash_handler(handle_crash_event);</p>
+<p>os_printf(“Assert in 5 seconds…\n”);</p>
+<p>vTaskDelay(5000);</p>
+<p>assert(0);</p>
+<p>return 0;}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="6. Applications/2. Examples/media/image1.emf"><img alt="image1" src="6. Applications/2. Examples/media/image1.emf" style="width: 7.08661in; height: 6.3016in;" /></a></p>
+<p>Figure : Crash printout with crash handler</p>
+<p>As shown in Figure 1, the function registered using
+os_set_crash_handler, gets called after the crash printout.</p>
+</section>
+<section id="crash-output-debug">
+<h1>Crash Output Debug<a class="headerlink" href="#crash-output-debug" title="Link to this heading"></a></h1>
+<section id="cortex-m3-crash">
+<h2>Cortex M3 Crash<a class="headerlink" href="#cortex-m3-crash" title="Link to this heading"></a></h2>
+<p>The main CPU is an ARM Cortex-M3 and this section illustrates the
+printout from a crash in the Cortex-M3.</p>
+<p>Sample code is available at the following location of the FreeRTOS SDK
+package: <em>/examples/crash_handling/crash_debug.c</em>.</p>
+<p>Following is an example from a crash (due to a HardFault exception error
+in the application).</p>
+<section id="running-the-application">
+<h3>Running the Application<a class="headerlink" href="#running-the-application" title="Link to this heading"></a></h3>
+<p>Program crash_debug.elf
+<em>(freertos_sdk_x.y\examples\crash_handling\bin)</em> using the Download
+tool:</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool provided with InnoPhase Talaria TWO SDK.</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down.</p></li>
+<li><p>ELF Input: Load the crash_debug.elf by clicking on Select ELF
+File.</p></li>
+<li><p>Programming: Prog RAM or Prog Flash as per requirement.</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="expected-output">
+<h3>Expected Output<a class="headerlink" href="#expected-output" title="Link to this heading"></a></h3>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Table : List of exceptions</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PWWWWAE</p>
+<p>Build $Id: git-b8e2cc1 $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-00a8-0068-ffffffffffff</p>
+<p>$App:git-494766d</p>
+<p>SDK Ver: FREERTOS_SDK_1.0</p>
+<p>Crash Handling Demo App</p>
+<p>Assert in 5 seconds…</p>
+<p>ASSERTION FAILED:
+(/home/osboxes/InnoPhase/t2/freertos_t2
+/freertos_embedded_apps/examples/crash_handling/src/crash_debug.c:54)
+0</p>
+<p>OS_UNEXPECTED_EXCEPTION 0x6</p>
+<p>R0=00000000 R1=000bab6c R2=10000000 R3=00051dcc</p>
+<p>R4=00000000 R5=00000000 R6=00000000 R7=00000000</p>
+<p>R8=00000000 R9=00000000 R10=00000000 R11=00000000</p>
+<p>R12=00051dcc SP=000bb40c LR=000482b7 PC=00042eb0</p>
+<p>xPSR=61000000 CONTROL=00000000 CFSR=00010000 BFAR=e000ed38</p>
+<p>STACK:</p>
+<p>0x000bb450: 00000000 00049031 00000000 00000000</p>
+<p>0x000bb460: 77ac4780 00000000 00057bb4 1e6b71b1</p>
+<p>0x000bb470: 8c06b1e1 08e76526 3bfc4e2c 84f393a2</p>
+<p>0x000bb480: 35bea23b bac4d2b1 847e3ffa df5f7d69</p>
+<p>0x000bb490: 105bacd9 16ce2cca 44467a5c 6e2dc778</p>
+<p>0x000bb4a0: 407612ae d7eac783 d05fc5a7 633b9993</p>
+<p>0x000bb4b0: daa1d16b 167464d9 7908f26c ac99d8c3</p>
+<p>0x000bb4c0: 3302bbbd cc90eece a93216c8 73eb3672</p>
+<p>0x000bb4d0: 99a3db76 bdeff812 89612ba6 718a31ec</p>
+<p>0x000bb4e0: 7e0735a5 fc67ac19 09d183b5 12bd0905</p>
+<p>0x000bb4f0: 97b4e4a6 1d2e41d8 b7b650f0 84b336c0</p>
+<p>0x000bb500: 2ba44aa1 bf81fe55 d7683a9a 81db3f24</p>
+<p>0x000bb510: 58e5f08c de1052d6 658daa4d c54c1814</p>
+<p>0x000bb520: d44711f8 2d8aac46 31ba27f6 fdce8201</p>
+<p>0x000bb530: 2b6b6cd9 58bc224a 0d6a984d 262aa518</p>
+<p>0x000bb540: 2ee0f187 998eccf1 ef9284af c70d857c</p>
+<p>Crash Handler…</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="soft-faults">
+<h3>Soft Faults<a class="headerlink" href="#soft-faults" title="Link to this heading"></a></h3>
+<p>OS_ERROR N indicates that there is a crash due to a fault detected by
+the OS, i.e. a soft fault. The following soft faults exist:</p>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-text">Table : COPx descriptions</span><a class="headerlink" href="#id3" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Soft
+Fault</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0x00</p></td>
+<td><p>Error in application</p></td>
+</tr>
+<tr class="row-odd"><td><p>0x01</p></td>
+<td><p>Heap is out of memory (actually printed explicitly as
+“OS_ERROR: HEAP EXHAUSTED”)</p></td>
+</tr>
+<tr class="row-even"><td><p>0x02</p></td>
+<td><p>Failed to initialize virtual memory</p></td>
+</tr>
+<tr class="row-odd"><td><p>0xfa</p></td>
+<td><p>Invalid argument in the os function call</p></td>
+</tr>
+<tr class="row-even"><td><p>0xfb</p></td>
+<td><p>An event is detected, for which there is no handler
+(callback) registered</p></td>
+</tr>
+<tr class="row-odd"><td><p>0xfc</p></td>
+<td><p>OS internal error</p></td>
+</tr>
+<tr class="row-even"><td><p>0xfd</p></td>
+<td><p>Timer callback missing</p></td>
+</tr>
+<tr class="row-odd"><td><p>0xfe</p></td>
+<td><p>Assertion failure (printed explicitly as “ASSERTION
+FAILED: …”)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="exceptions">
+<h3>Exceptions<a class="headerlink" href="#exceptions" title="Link to this heading"></a></h3>
+<p>OS_UNEXPECTED_EXCEPTION M indicates that there is an exception that the
+OS cannot resolve.</p>
+<p>For detailed information, please refer the following link:
+<a class="reference external" href="https://developer.arm.com/documentation/dui0203/h/handling-cortex-m3-processor-exceptions/about-cortex-m3-processor-exceptions/exceptionnumbers">https://developer.arm.com/documentation/dui0203/h/handling-cortex-m3-processor-exceptions/about-cortex-m3-processor-exceptions/exceptionnumbers</a></p>
+<p>Following are a list of valid exceptions:</p>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-text">Table : Exception code</span><a class="headerlink" href="#id4" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Exceptions</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Reset</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>NMI</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>HardFault</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>MemManage</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>BusFault</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>UsageFault</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>SVCall</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>Debug Monitor</p></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p>PendSV</p></td>
+</tr>
+<tr class="row-odd"><td><p>15</p></td>
+<td><p>SysTick</p></td>
+</tr>
+<tr class="row-even"><td><p>16</p></td>
+<td><p>External Interrupt(0)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Registers in the crash dump are explained in the following link:
+<a class="reference external" href="https://developer.arm.com/documentation/dui0552/a/the-cortex-m3-processor/programmers-model/core-registers">https://developer.arm.com/documentation/dui0552/a/the-cortex-m3-processor/programmers-model/core-registers</a></p>
+</section>
+</section>
+<section id="co-processor-crash">
+<h2>Co-processor Crash<a class="headerlink" href="#co-processor-crash" title="Link to this heading"></a></h2>
+<p>There are three co-processors that handle Wi-Fi, Bluetooth, and Host
+Interface, and this section describes the printout from a crash in a
+co-processor.</p>
+<p>Following is an example printout from a crash (due to a watchdog timeout
+in the Wi-Fi coprocessor):</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>COP0 EXCEPTION 0x8</p>
+<p>COP0 REGDUMP:</p>
+<p>000bbb38 00000008 00000004 00fc2a39</p>
+<p>000bbb08 000bbb38 8000000c 00fc2a3b</p>
+<p>00000000 00000000 00000000 00000000</p>
+<p>00fc2a39 000a57d8 0005e152 0005dac0</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>COPx provides information on the coprocessor that crashed:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>C
+o-processor</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>COP0</p></td>
+<td><p>Wi-Fi coprocessor</p></td>
+</tr>
+<tr class="row-odd"><td><p>COP1</p></td>
+<td><p>Bluetooth coprocessor</p></td>
+</tr>
+<tr class="row-even"><td><p>COP2</p></td>
+<td><p>Host interface coprocessor</p></td>
+</tr>
+</tbody>
+</table>
+<p>The exception code is a bitmask of the following bits:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Exception
+Code</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bit0</p></td>
+<td><p>Idle (not an error)</p></td>
+</tr>
+<tr class="row-odd"><td><p>bit1</p></td>
+<td><p>Invalid instruction</p></td>
+</tr>
+<tr class="row-even"><td><p>bit2</p></td>
+<td><p>Stopped via regwrite (not an error)</p></td>
+</tr>
+<tr class="row-odd"><td><p>bit3</p></td>
+<td><p>Watchdog timeout</p></td>
+</tr>
+<tr class="row-even"><td><p>bit4</p></td>
+<td><p>Alignment fault</p></td>
+</tr>
+<tr class="row-odd"><td><p>bit5</p></td>
+<td><p>Stack overflow</p></td>
+</tr>
+<tr class="row-even"><td><p>bit6</p></td>
+<td><p>Watchpoint</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: The REGDUMP for COPx uses an internal structure. For further
+debugging share the same with InnoPhase at the contact information
+provided in section 7.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

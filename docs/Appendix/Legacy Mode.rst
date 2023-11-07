@@ -1,0 +1,13 @@
+Legacy Mode
+---------------
+
+
+Some boards have a slightly older version of the factory_loader which
+does not support auto detection of SPI and UART. In this case, legacy
+mode needs to be used by using --mode=legacy.
+
++-----------------------------------------------------------------------+
+| ./script/factory_loader.py /dev/ttyUSB2 --mode=legacy                 |
+| helloworld_config.json                                                |
++=======================================================================+
++-----------------------------------------------------------------------+

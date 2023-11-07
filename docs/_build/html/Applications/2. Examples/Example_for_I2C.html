@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I2C &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="LPS Scan" href="Example_for_LPScan.html" />
+    <link rel="prev" title="Crash Handling" href="Example_for_Crash_handling.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Software%20Reference/Software_Reference_Landing_Page.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Tools/Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../Applications%20-%20Landing%20Page.html">Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Applications%20-%20Landing%20Page.html#apps">Apps</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../Applications%20-%20Landing%20Page.html#examples">Examples</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Analog_to_Digital_Converter.html">Analog to Digital Converter (ADC)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Audio_over_I2S.html">Audio Over I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_BLE_WiFi_Bridge.html">BLE WiFi Bridge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Crash_handling.html">Crash Handling</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">I2C</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">I2C</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#i2c-sensors">I2C Sensors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#source-code-walkthrough">Source Code Walkthrough</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#directory-structure">Directory Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#application-flow">Application Flow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#i2c-apis">I2C APIs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#source-files">Source Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#i2c-sensor-c">i2c_sensor.c</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sensor-c">sensor.c</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sensor-delay-c">sensor_delay.c</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bmp388-c-pressure-sensor">bmp388.c (Pressure sensor)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sensirion-hw-i2c-implementation-c-temperature-humidity">sensirion_hw_i2c_implementation.c (Temperature/Humidity)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shtc1-c-temperature-humidity">shtc1.c (Temperature/Humidity)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#building">Building</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-application">Running the Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#programming-talaria-two">Programming Talaria TWO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expected-output">Expected Output</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_LPScan.html">LPS Scan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_MQTT.html">MQTT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Pulse_Width_Modulation.html">Pulse Width Modulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Radio_and_Module_Parameters.html">Radio and Module Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Secure_Files.html">Secure Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Socket_Wakeup.html">Socket Wakeup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Software_SPI_Master.html">Software SPI Master</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_Chip_Monitor.html">Chip Monitor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_Filesystem.html">Filesystem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_GPIO.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_SNTP.html">SNTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_WiFi.html">WIFI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_WiFi_Power_Management.html">WiFi Power Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_BLE_5_0.html">BLE 5.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_BLE_Beacons.html">BLE Beacon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Custom_ATCMDLIB.html">Custom ATCMDLIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_HTTP_Client.html">HTTP Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_IFTTT.html">IFTTT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Low_Power_UART.html">Low Power UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_mDNS.html">mDNS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html">Provisioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#scan-data">Scan Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#configuration-data-format">Configuration Data Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#service">Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#characteristics">Characteristics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#application-flow">Application Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#write-the-provisioning-file-into-talaria-two-filesystem">Write the Provisioning File into Talaria TWO Filesystem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#programming-talaria-two-board-with-elf">Programming Talaria TWO board with ELF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#running-the-application-using-android-or-ios-app">Running the Application using Android or iOS App</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Unassociated_Mode.html">Unassociated Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Watchdog_Timer.html">Watchlog Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_WCM_Multi_AP.html">WCM Multi AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Websock_Client.html">Websock Client</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../Applications%20-%20Landing%20Page.html">Applications</a></li>
+      <li class="breadcrumb-item active">I2C</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Applications/2. Examples/Example_for_I2C.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="i2c">
+<h1>I2C<a class="headerlink" href="#i2c" title="Permalink to this heading"></a></h1>
+<p>This application note describes the usage of I2C on Talaria TWO using
+sensors integrated in the EVB board.</p>
+<section id="id1">
+<h2>I2C<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<p>Talaria TWO modules include I2C bus interface that can serve as an I2C
+master or slave. The SCL and SDA lines can be individually programmed
+for use on any GPIO. Internal pull-up resistors are available for
+SCL/SDA on all GPIOs except for GPIO18.</p>
+<p><strong>Note</strong>: GPIO18 only has internal pull-down resistors.</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Table 1: I2C specifications</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>I2C Specification</strong></p></th>
+<th class="head"><p><strong>Details</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Data Rates</p></td>
+<td><p>100Kbps, 400Kbps, 1Mbps</p></td>
+</tr>
+<tr class="row-odd"><td><p>Address Modes</p></td>
+<td><p>7-bit, 10-bit</p></td>
+</tr>
+<tr class="row-even"><td><p>Other Features</p></td>
+<td><p>Send STOP at End</p>
+<p>NOSTART Before Msg</p>
+<p>IGNORE NAK From Slave</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="i2c-sensors">
+<h2>I2C Sensors<a class="headerlink" href="#i2c-sensors" title="Permalink to this heading"></a></h2>
+<p>The INP301x board has the following sensors available on board for quick
+prototyping/testing:</p>
+<ol class="arabic simple">
+<li><p>Temperature/Humidity (Sensirion SHTC3)</p></li>
+<li><p>Pressure (Bosch BMP388)</p></li>
+<li><p>Light (TI OPT3002)</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image1.jpeg"><img alt="A picture containing text, electronics, circuit Description automatically generated" src="../../_images/image1.jpeg" style="width: 5.90551in; height: 4.24709in;" /></a></p>
+<p>Figure : On-board I2C sensors</p>
+<p><strong>Note :</strong> To use the sensors on I2C bus the jumpers J7, J8 and pins 1 &amp;
+2 of J1 should be connected as shown in the picture below. This enables
+the I2C clock, I2C data and power connection to the sensors on board.</p>
+<p><a class="reference internal" href="../../_images/image2.jpeg"><img alt="image1" src="../../_images/image2.jpeg" style="width: 3.93661in; height: 5.46339in;" /></a></p>
+<p>Figure 2: I2C sensor jumper connection</p>
+<p>This application enables I2C supported sensors available on the EVB. It
+measures and displays the real-time values of pressure, temperature,
+humidity and light using the on-board sensors.</p>
+</section>
+<section id="source-code-walkthrough">
+<h2>Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permalink to this heading"></a></h2>
+</section>
+<section id="directory-structure">
+<h2>Directory Structure<a class="headerlink" href="#directory-structure" title="Permalink to this heading"></a></h2>
+<p>Figure 3: File directory tree</p>
+<ol class="arabic simple">
+<li><p><strong>i2c_sensor</strong>: The i2c_sensor.c file present in this directory
+contains the logic to configure the i2c bus, read and display the
+readings from the sensors periodically.</p></li>
+<li><p><strong>include</strong>: contains header files with the structure variables,
+unions, and prototypes of the functions to initialize, read and write
+corresponding each of the sensors.</p></li>
+<li><p><strong>sensor</strong>:</p>
+<ol class="loweralpha simple">
+<li><p><strong>bmp388</strong></p></li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<div><p>The bmp388.c file in this directory contains the function definitions
+to initialize, configure and read the data from bmp388 pressure
+sensor.</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li><p><strong>sensor_delay</strong></p></li>
+</ol>
+<blockquote>
+<div><p>It contains routines to generate delay in milli seconds.</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="3">
+<li><p><strong>opt3002</strong></p></li>
+</ol>
+<blockquote>
+<div><p>The opt3002.c file in this directory contains function definitions to
+initialize, configure and read opt3002 Light to Digital Sensor.</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="4">
+<li><p><strong>sensor.h</strong></p></li>
+</ol>
+<blockquote>
+<div><p>This header file contains structure definitions required to
+initialize and read the sensor readings.</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="5">
+<li><p><strong>shtc1-4.1.0</strong></p></li>
+</ol>
+<blockquote>
+<div><p>The shtc1-4.1.0.c file in this directory contains function
+definitions for i2c abstraction layer and commonly shared code.</p>
+</div></blockquote>
+</section>
+<section id="application-flow">
+<h2>Application Flow<a class="headerlink" href="#application-flow" title="Permalink to this heading"></a></h2>
+<p>In this application, Talaria TWO is programmed to enable I2C
+communication with the sensors integrated in the EVB board. This
+application read the on-board sensor readings and print it to the
+console.</p>
+<p>Following are the steps to achieve this as per the i2c_sensor.c:</p>
+<ol class="arabic simple">
+<li><p>This application creates a thread to initializes i2c bus.</p></li>
+<li><p>Initializes the sensors available in EVB.</p></li>
+<li><p>Reads the sensor ids from the sensors.</p></li>
+<li><p>Starts fetching the readings from sensors.</p></li>
+<li><p>Prints the sensor readings in console.</p></li>
+</ol>
+</section>
+<section id="i2c-apis">
+<h2>I2C APIs<a class="headerlink" href="#i2c-apis" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>i2c_bus_init - Return a handle for the specified bus.</p></li>
+</ol>
+<blockquote>
+<div><p>This function is the first one to call when working with I2C devices.
+This call will initialize the bus driver and returns a handle for the
+new bus. The Talaria TWO device provides a single I2C interface,
+therefor the bus no must be set to 0.</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>i2c_acquire_bus() - Take ownership of the bus.</p></li>
+</ol>
+<blockquote>
+<div><p>Called to claim ownership of the I2C bus. If another thread is
+currently operating the bus, the function will block until the bus
+becomes available.</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>i2c_release_bus() - Release ownership of the bus.</p></li>
+</ol>
+<blockquote>
+<div><p>Not normally used since the i2c_transfer() function handles this. See
+rationale in i2c_acquire_bus().</p>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>i2c_create_device() - Create a new I2 C device on the specified bus.</p></li>
+</ol>
+<blockquote>
+<div><p>This function will create an object representing an I2C device
+attached to the specified bus. The device is specified using its
+address on this bus. The maximum frequency this device can handle is
+also specified in this call.</p>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li><p>i2c_destroy_device() - Free an I2 C device.</p></li>
+</ol>
+<blockquote>
+<div><p>This function will release and free the resources claimed by a
+previously initialized i2c_device.</p>
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li><p>i2c_set_address() - Change the I2 C address for an i2c_device.</p></li>
+</ol>
+<blockquote>
+<div><p>Some devices require certain messages to be address to a different
+address (For example: while performing a device reset). This function
+will assist in temporarily changing the device address.</p>
+</div></blockquote>
+<ol class="arabic simple" start="7">
+<li><p>i2c_transfer()- Perform one I2 C transfer.</p></li>
+</ol>
+<blockquote>
+<div><p>An I2C transfer consists of several messages. Each message has a
+direction, READ (from slave to master) or WRITE (from master to
+slave). The msg parameter is a pointer to an array of messages and
+the len parameter specifies the number of messages that make up the
+transfer.</p>
+</div></blockquote>
+<ol class="arabic simple" start="8">
+<li></li>
+</ol>
+</section>
+<section id="source-files">
+<h2>Source Files<a class="headerlink" href="#source-files" title="Permalink to this heading"></a></h2>
+</section>
+<section id="i2c-sensor-c">
+<h2>i2c_sensor.c<a class="headerlink" href="#i2c-sensor-c" title="Permalink to this heading"></a></h2>
+<p>This section describes the sample application used to read the sensor
+values over I2C. The sensor_app_init() creates a thread called
+sensor_app_main that initializes the I2C bus. Sensors fetch the sensor
+IDs, reads and prints the sensor data.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>/* Create a thread to handle the i2c sensor */</p>
+<p>xTaskCreate(sensor_app_main, /* The function that implements the
+task. */</p>
+<p>“sens_thread”, /* The text name assigned to the task - for debug
+only as</p>
+<p>* it is not used by the kernel. */</p>
+<p>APP_THREAD_STACK_SIZE</p>
+<p>/ 4, /* The size of the stack to allocate to the task. */</p>
+<p>NULL, /* The parameter passed to the task - not used in this case.
+*/</p>
+<p>(APP_THREAD_PRIO), /* The priority assigned to the task. */</p>
+<p>&amp;app_thread);</p>
+<p>if (app_thread == NULL) {</p>
+<p>os_printf(” thread creation failed\n”);</p>
+<p>return;</p>
+<p>}</p>
+<p>vTaskSuspend(NULL);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>xTaskCreate routine initializes the given thread pointed to the argument
+and puts the thread on an active queue. This app thread allows the user
+to implement concurrent functions at the same time.</p>
+<p>The sensor_app_main thread initiates the I2C bus by calling the init_i2c
+thread post which it starts fetching the sensor ID and prints the
+readings to the console.</p>
+<p>init_i2c will initialize the bus driver after enabling the internal
+pull-ups on SCL and SDA pins of Talaria TWO module. It routes the SCL
+and SDA pins to the corresponding GPIOs.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>os_gpio_set_pull(GPIO_PIN(SCL_PIN) | GPIO_PIN(SDA_PIN));</p>
+<p>os_gpio_mux_sel(GPIO_MUX_SEL_SCL, SCL_PIN);</p>
+<p>os_gpio_mux_sel(GPIO_MUX_SEL_SDA, SDA_PIN);</p>
+<p>return i2c_bus_init(0);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>It then begins to initialize the I2C bus with corresponding GPIO pins
+after which it initiates the sensors by init_sensors().</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int rc;</p>
+<p>struct i2c_bus *bus = NULL;</p>
+<p>sensor_id_t ids = {};</p>
+<p>bus = init_i2c();</p>
+<p>init_sensors(bus);</p>
+<p>get_sensor_ids(&amp;ids);</p>
+<p>print_sensor_ids(&amp;ids);</p>
+<p>os_printf(”\n”);</p>
+<p>sensor_reading_t *readings = NULL;</p>
+<p>readings = osal_zalloc(sizeof(*readings));</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Sensor readings are read using the poll_sensors() function and is
+printed on the console for every 2 seconds.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>poll_sensors(readings);</p>
+<p>print_sensor_readings(readings, 1);</p>
+<p>poll_sensors(readings);</p>
+<p>vTaskDelay (2000);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sensor-c">
+<h2>sensor.c<a class="headerlink" href="#sensor-c" title="Permalink to this heading"></a></h2>
+<p>init_sensors() contains all three sensors initialization part. All the
+sensors are initiated from here by the following functions:</p>
+<p>BMP388 (Pressure sensor) - bmp388_init() initiates the pressure sensor.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>bmp388_init(&amp;pres_sen,&amp;dev,bus,0x76);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Opt3002 (Light sensor) - opt3002_init() initiates the light sensor.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>opt3002_init(&amp;opt_sen, bus, 0x44);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>shtc3 (Temperature/Humidity sensor) - sensirion_i2c_init() initializes
+the temp/hum sensor.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>sensirion_i2c_init(bus);</p>
+<p>shtc1_probe();</p>
+<p>shtc1_enable_low_power_mode(1);</p>
+<p>#else</p>
+<p>sensirion_i2c_init(bus);</p>
+<p>shtc1_probe();</p>
+<p>sensirion_i2c_release();</p>
+<p>#endif</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>In the humidity sensor also there is a need to implement the mode of
+operation. shtc1_probe() enables or disables sleep in the driver based
+on product code and will put the device in sleep mode if supported.</p>
+<p>The get_sensor_ids() function reads the sensor IDs from each of the
+sensor.</p>
+<p>BMP388 (Pressure sensor) - bmp3_get_device_ID () API reads the device ID
+of bmp388 pressure sensor. The mode is set using set_normal_mode().</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ids-&gt;bmp388_id = bmp3_get_device_ID(&amp;dev);</p>
+<p>set_normal_mode(&amp;dev);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>opt3002 (Light sensor) - opt3002_readManufacturerID() reads the
+manufacturing ID of light sensor.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ids-&gt;opt3002_id = opt3002_readManufacturerID(&amp;opt_sen);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>shtc3 (Temperature/Humidity sensor) - shtc1_read_serial() API reads the
+sensor ID of shtc3 sensor.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ids-&gt;shtc3_serial = 0;</p>
+<p>shtc1_read_serial(&amp;ids-&gt;shtc3_serial);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Poll_sensor() function reads the sensor readings of all three sensors.</p>
+<p>The get_sensor_data()reads the sensor data. The temperature and pressure
+value of sensors are assigned to temp_bmp and pressure variables of this
+structure sensor_reading_t readings.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>reading-&gt;pressure = 0;</p>
+<p>reading-&gt;temp_bmp = 0;</p>
+<p>/* Read pressure and temperature recorded by bmp388 */</p>
+<p>float *sensor_data;</p>
+<p>sensor_data = get_sensor_data(&amp;dev);</p>
+<p>reading-&gt;temp_bmp = (sensor_data[0]/100);</p>
+<p>reading-&gt;pressure = (sensor_data[1]/100);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>opt_config_trigger assigns the sensor mode, conversion time and latch
+operation. The opt3002_config_t opt_config_read() function reads the raw
+data. The Memset() function stores the light sensor data in a memory.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>opt3002_config_t opt_config_trigger = {</p>
+<p>.RangeNumber = 0xC, // Automatic full-scale mode</p>
+<p>.ConversionTime = 0, // 100 ms conversion time</p>
+<p>.ModeOfConversionOperation = 0x1, // Single-shot mode</p>
+<p>.Latch = 0x1 // Latched operation</p>
+<p>};</p>
+<p>opt3002_config_t opt_config_read = {.rawData = 0};</p>
+<p>memset(&amp;reading-&gt;light, 0, sizeof(reading-&gt;light));</p>
+<p>opt3002_writeConfig(&amp;opt_sen, opt_config_trigger);</p>
+<p>sensor_delay(100);</p>
+<p>do</p>
+<p>{ opt_config_read = opt3002_readConfig(&amp;opt_sen);</p>
+<p>}</p>
+<p>while(!opt_config_read.ConversionReady);</p>
+<p>reading-&gt;light = opt3002_readResult(&amp;opt_sen);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>opt3002_write_config() triggers the reading of sensor data. The sensor
+reading is assigned to the light member.</p>
+<p>The function initiates the humidity and temperature of shtc3 sensor and
+shtc1_measure_blocking_read reads the sensor temperature and humidity
+readings. The sensor readings are assigned to the humidity and temp_shtc
+members.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int32_t humidity_x1000 = 0, temp_shtc_x1000 = 0;</p>
+<p>shtc1_measure_blocking_read(&amp;temp_shtc_x1000, &amp;humidity_x1000);</p>
+<p>reading-&gt;humidity = humidity_x1000 / 1000.0;</p>
+<p>reading-&gt;temp_shtc = temp_shtc_x1000 / 1000.0;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Also, the printing functions are here to print the readings of the
+sensors to the console.</p>
+</section>
+<section id="sensor-delay-c">
+<h2>sensor_delay.c<a class="headerlink" href="#sensor-delay-c" title="Permalink to this heading"></a></h2>
+<p>The sensor_delay.c file contains the routines to generate the delay in
+milliseconds.</p>
+</section>
+<section id="bmp388-c-pressure-sensor">
+<h2>bmp388.c (Pressure sensor)<a class="headerlink" href="#bmp388-c-pressure-sensor" title="Permalink to this heading"></a></h2>
+<p><strong>Configuring the sensor</strong></p>
+<p>To configure the pressure sensor, select the power mode and sensor
+setting. In addition to this, output data rate and oversampling settings
+for pressure and temperature are selected using the following function:</p>
+<p><strong>Note</strong>: Here, BMP3_NO_OVERSAMPLING is selected, and the mode of
+operation is chosen to be normal.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int8_t set_normal_mode(struct bmp3_dev *dev)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Enable the pressure and temperature sensor:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>dev-&gt;settings.press_en = BMP3_ENABLE;</p>
+<p>dev-&gt;settings.temp_en = BMP3_ENABLE;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Select the output data rate and oversampling settings for pressure and
+temperature:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>dev-&gt;settings.odr_filter.press_os = BMP3_NO_OVERSAMPLING;</p>
+<p>dev-&gt;settings.odr_filter.temp_os = BMP3_NO_OVERSAMPLING;</p>
+<p>dev-&gt;settings.odr_filter.odr = BMP3_ODR_200_HZ;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Set the power mode to normal:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ev-&gt;settings.op_mode = BMP3_NORMAL_MODE;</p>
+<p>rslt = bmp3_set_op_mode(dev);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Initialize the sensor</strong></p>
+<p>To initiate the sensor, select the digital interface as I2C and instance
+is created of the structure bpm388 by bmp388_init(). Read and write
+instances are also created inside this function.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>bmp388-&gt;dev = i2c_create_device(bus, address, I2C_CLK_400K);</p>
+<p>dev-&gt;dev_id = bmp388-&gt;dev;</p>
+<p>dev-&gt;intf = BMP3_I2C_INTF;</p>
+<p>dev-&gt;read = bmp3_read_data;</p>
+<p>dev-&gt;write = bmp3_write_data;</p>
+<p>dev-&gt;delay_ms = sensor_delay;</p>
+<p>bmp3_init(dev);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reading sensor data</strong></p>
+<p>To read the sensor data, create a readData()function. This defines the
+length, flag, and data fields of the sensor. This function read sensor
+data and store it in a buffer.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>uint8_t buf[1];</p>
+<p>int ret = 0;</p>
+<p>uint16_t length = 0;</p>
+<p>while(length &lt; len){</p>
+<p>if((ret = read_reg(dev_id, buf, 1))){</p>
+<p>os_printf(“I2C read error”);</p>
+<p>return ret;</p>
+<p>}</p>
+<p>data[length] = *buf;</p>
+<p>length++;</p>
+<p>}</p>
+<p>return ret;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>This executes read transaction on the I2C. The function reads I2C data
+and stores it in buffer. It reads a given number of bytes. If the device
+does not acknowledge the read command, an error will be returned. To
+read I2C data, initialize read_reg()function. This permits reading of
+the I2C data and storing it in msg. This function will be reading the
+I2C data.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>struct i2c_msg msg;</p>
+<p>int i2c_result = 0;</p>
+<p>if( !dev_id){</p>
+<p>os_printf(“no device\n”);</p>
+<p>return -ENODEV;</p>
+<p>}</p>
+<p>msg.im_len = count;</p>
+<p>msg.im_flags = I2C_M_RD | I2C_M_STOP;</p>
+<p>msg.im_buf = data;</p>
+<p>if ((i2c_result = i2c_transfer(dev_id, &amp;msg, 1))){</p>
+<p>os_printf(“bmp388 i2c read error %d: %s\n”, i2c_result,
+strerror(-i2c_result));</p>
+<p>}</p>
+<p>return i2c_result;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Writing sensor data</strong></p>
+<p>To write the sensor data, create writeData()instance. This defines the
+length, flag, and data fields of the sensor. This function writes the
+command data on a register.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>uint8_t command_byte = command;</p>
+<p>write_reg( dev_id,&amp;command_byte, 1);</p>
+<p>return 0;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>This permits writing of I2C data in msg buffer. The write_reg()function
+reads the I2C data and stores it in msg buffer. This executes write
+transaction on the I2C bus, which sends a given number of bytes. The
+bytes in the supplied buffer must be sent to the given address. If the
+slave device does not acknowledge any of the bytes, an error will be
+returned.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>struct i2c_msg msg;</p>
+<p>int i2c_result = 0;</p>
+<p>if( !dev_id){</p>
+<p>os_printf(“no device\n”);</p>
+<p>return -ENODEV;</p>
+<p>}</p>
+<p>msg.im_len = count;</p>
+<p>msg.im_flags = I2C_M_STOP;</p>
+<p>msg.im_buf = data;</p>
+<p>if ((i2c_result = i2c_transfer(dev_id, &amp;msg, 1))){</p>
+<p>os_printf(“bmp388 i2c write error in write reg %d: %s\n”,
+i2c_result, strerror(-i2c_result));</p>
+<p>}</p>
+<p>return i2c_result;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>Opt3002.c (Optical sensor)</p>
+</div></blockquote>
+<hr class="docutils" />
+<p><strong>Initializing the sensor</strong></p>
+<p>To initialize the sensor, select the digital interface as I2C and create
+an instance of structure:</p>
+<p>opt3002_init() function enables the I2C device, clock signals with
+frequency of 400khz.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>opt3002-&gt;dev = i2c_create_device(bus, address, I2C_CLK_400K).</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The function readManufacturerID()reads the manufacturing ID of the
+device. This reads the manufacturing ID. If sensor is detected, the
+opt3002_write data exports the manufacturing ID.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>uint16_t result = 0;</p>
+<p>int error = opt3002_writeData(opt3002, MANUFACTURER_ID);</p>
+<p>if (!error)</p>
+<p>error = opt3002_readData(opt3002, &amp;result);</p>
+<p>return result;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>This enables the configuration of the read and write functions of
+optical sensor opt3002. The function pt3002_readConfig()defines the
+configuration of reading.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>opt3002_config_t config = {.rawData = 0};</p>
+<p>int error = opt3002_writeData(opt3002, CONFIG);</p>
+<p>if (!error)</p>
+<p>error = opt3002_readData(opt3002, &amp;config.rawData);</p>
+<p>return config;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The opt3001_i2c_write writes the configuration of opt3002 sensor.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>uint8_t buf[3] = {CONFIG, config.rawData &gt;&gt; 8, config.rawData &amp;
+0x00FF};</p>
+<p>return opt3002_i2c_write(opt3002, buf, ARRAY_SIZE(buf));</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Post initiating, read and write instances are created to read sensor
+data stored in buffer and sent to the I2C bus. The following function
+reads data from opt3002 to the I2C bus. The function opt3002_light_t
+opt3002_readRegister()reads data from sensor in a raw format and makes
+the required calculations by using formula:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>(lux = (1.2)*(powr(2, er.Exponent)*er.Result))</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The calculated data value will be stored lux variable.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int error = opt3002_writeData(opt3002, command);</p>
+<p>if (!error) {</p>
+<p>opt3002_light_t result;</p>
+<p>result.lux = 0;</p>
+<p>result.raw.rawData = 0;</p>
+<p>result.error = 0;</p>
+<p>opt3002_ER_t er;</p>
+<p>error = opt3002_readData(opt3002, &amp;er.rawData);</p>
+<p>if (!error) {</p>
+<p>result.raw = er;</p>
+<p>if(!raw){</p>
+<p>result.lux = (1.2)*(powr(2, er.Exponent)*er.Result);</p>
+<p>}</p>
+<p>}</p>
+<p>else {</p>
+<p>result.error = error;</p>
+<p>}</p>
+<p>return result;</p>
+<p>}</p>
+<p>else {</p>
+<p>return opt3002_returnError(error);}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reading sensor data</strong></p>
+<p>The opt3002_i2c_readData()function executes the read transaction on the
+I2C bus, reads data from the sensor through I2C and stores it in buffer.
+If the device does not acknowledge the read command, an error will be
+returned.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>struct i2c_msg msg;</p>
+<p>int i2c_result = 0;</p>
+<p>if(!opt3002 || !opt3002-&gt;dev)</p>
+<p>return -ENODEV;</p>
+<p>msg.im_len = count;</p>
+<p>msg.im_flags = I2C_M_RD | I2C_M_STOP;</p>
+<p>msg.im_buf = data;</p>
+<p>if((i2c_result = i2c_transfer(opt3002-&gt;dev, &amp;msg, 1)))</p>
+<p>os_printf(“opt3002 i2c read error %d: %s\n”, i2c_result,
+strerror(-i2c_result));</p>
+<p>return i2c_result;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The opt3002_readData() reads the sensor data and OPT3002 transmits data
+in Big-Endian format.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>uint8_t buf[2];</p>
+<p>int ret = 0;</p>
+<p>if((ret = opt3002_i2c_read(opt3002, buf, 2)))</p>
+<p>return ret;</p>
+<p>*data = (buf[0] &lt;&lt; 8) | buf[1];</p>
+<p>return ret;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Writing sensor data</strong></p>
+<p>The opt3002_writeData() writes the command data to the I2C.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>return opt3002_i2c_write(opt3002, &amp;command_byte, 1);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The int opt3002_i2c_write() executes write transaction on the I2C bus
+and sends a given number of bytes. The bytes in the supplied buffer must
+be sent to the given address. If the slave device does not acknowledge
+any of the bytes, an error will be returned.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>struct i2c_msg msg;</p>
+<p>int i2c_result = 0;</p>
+<p>if(!opt3002 || !opt3002-&gt;dev)</p>
+<p>return -ENODEV;</p>
+<p>msg.im_len = count;</p>
+<p>msg.im_flags = I2C_M_STOP;</p>
+<p>msg.im_buf = data;</p>
+<p>if((i2c_result = i2c_transfer(opt3002-&gt;dev, &amp;msg, 1)))</p>
+<p>os_printf(“opt3002 i2c write error %d: %s\n”, i2c_result,
+strerror(-i2c_result));</p>
+<p>return i2c_result;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sensirion-hw-i2c-implementation-c-temperature-humidity">
+<h2>sensirion_hw_i2c_implementation.c (Temperature/Humidity)<a class="headerlink" href="#sensirion-hw-i2c-implementation-c-temperature-humidity" title="Permalink to this heading"></a></h2>
+<p>The sensirion_hw_i2c_implementation.c contains the routines required to
+perform the I2C initialization, read and write operations of Sensirion
+temperature/humidity sensor.</p>
+<p>The i2c_create_device() function creates the I2C device with the clock
+frequency of 400KHz. The sensirion_i2c_init()initializes all hardware
+and software components of the Sensirion for I2C.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>dev = i2c_create_device(bus, SHTC1_ADDRESS, I2C_CLK_400K);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>It executes one read transaction on the I2C bus through the function
+sensirion_i2c_read(), which reads a given number of bytes. If the device
+does not acknowledge the read command, an error will be returned.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>struct i2c_msg msg;</p>
+<p>int i2c_result = 0;</p>
+<p>if(!dev)</p>
+<p>return -ENODEV;</p>
+<p>msg.im_len = count;</p>
+<p>msg.im_flags = I2C_M_RD | I2C_M_STOP;</p>
+<p>msg.im_buf = data;</p>
+<p>i2c_set_address(dev, address);</p>
+<p>if((i2c_result = i2c_transfer(dev, &amp;msg, 1)))</p>
+<p>os_printf(“shtc3 i2c read error %d: %s\n”, i2c_result,
+strerror(-i2c_result));</p>
+<p>return i2c_result;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The sensirion_i2c_write()executes one write transaction on the I2C bus
+which sends a given number of bytes. The bytes in the supplied buffer
+must be sent to the given address. If the slave device does not
+acknowledge any of the bytes, an error will be returned.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>struct i2c_msg msg;</p>
+<p>int i2c_result = 0;</p>
+<p>if(!dev)</p>
+<p>return -ENODEV;</p>
+<p>msg.im_len = count;</p>
+<p>msg.im_flags = I2C_M_STOP;</p>
+<p>msg.im_buf = (uint8_t*)data; /* Data pointed to won’t be modified
+*/</p>
+<p>i2c_set_address(dev, address);</p>
+<p>if((i2c_result = i2c_transfer(dev, &amp;msg, 1)))</p>
+<p>os_printf(“shtc3 i2c write error %d: %s\n”, i2c_result,
+strerror(-i2c_result));</p>
+<p>return i2c_result;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="shtc1-c-temperature-humidity">
+<h2>shtc1.c (Temperature/Humidity)<a class="headerlink" href="#shtc1-c-temperature-humidity" title="Permalink to this heading"></a></h2>
+<p>The SHTC3 Humidity and Temperature Sensor from Sensirion is a highly
+accurate digital humidity and temperature sensor that communicates using
+the I2C protocol.</p>
+<p><strong>Note</strong>: SHTC1 compatible sensors: SHTW1, SHTW2, SHTC3.</p>
+<p><strong>Configuring mode of operation</strong></p>
+<p>The SHTC3 provides a low power measurement mode with a specific set of
+commands. Using the low power mode significantly shortens the
+measurement duration and thus minimizes the energy consumption per
+measurement. The following functions define the power mode of the shtc3.
+Low power mode is being implemented here.</p>
+<p>To initiate the measurement, the following function is created:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>shtc1_measure(void)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>This is meant to awaken the sensor from sleep mode, begin measuring the
+sensor data and write the data through I2C.</p>
+<p>Function shtc1_measure() starts a measurement in high precision mode.
+Use shtc1_read() to read out the values once the measurement is done.
+The duration of the measurement depends on the sensor in use. Refer
+datasheet for more details.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int16_t ret;</p>
+<p>return PM_WAKE(ret,sensirion_i2c_write_cmd(SHTC1_ADDRESS,
+shtc1_cmd_measure));</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Function shtc1_probe()detects if a sensor is connected by reading out
+the ID register. If the sensor does not answer or if the answer is not
+the expected value, the function returns error. If the sensor is
+detected, 0 is returned.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>uint16_t id;</p>
+<p>int16_t ret;</p>
+<p>supports_sleep = 1;</p>
+<p>sleep_enabled = 1;</p>
+<p>(void)shtc1_wakeup();</p>
+<p>ret= sensirion_i2c_delayed_read_cmd(SHTC1_ADDRESS,
+SHTC1_CMD_READ_ID_REG,</p>
+<p>SHTC1_CMD_DURATION_USEC, &amp;id, 1);</p>
+<p>if (ret)</p>
+<p>return ret;</p>
+<p>if ((id &amp; SHTC3_PRODUCT_CODE_MASK) == SHTC3_PRODUCT_CODE)</p>
+<p>return shtc1_sleep();</p>
+<p>if ((id &amp; SHTC1_PRODUCT_CODE_MASK) == SHTC1_PRODUCT_CODE) {</p>
+<p>supports_sleep = 0;</p>
+<p>return STATUS_OK;</p>
+<p>}</p>
+<p>return STATUS_UNKNOWN_DEVICE;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Function shtc1_measure_blocking_read() starts reading the sensor data.
+This function blocks while the measurement is in progress. Temperature
+is returned in [°C], multiplied by 1000 and relative humidity in
+[percent relative humidity], multiplied by 1000.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int16_t ret;</p>
+<p>PM_WAKE(ret, shtc1_measure());</p>
+<p>#if !defined(USE_SENSIRION_CLOCK_STRETCHING) ||
+!USE_SENSIRION_CLOCK_STRETCHING</p>
+<p>sensirion_sleep_usec(SHTC1_MEASUREMENT_DURATION_USEC);</p>
+<p>#endif</p>
+<p>/* USE_SENSIRION_CLOCK_STRETCHING */</p>
+<p>ret = shtc1_read(temperature, humidity);</p>
+<p>return PM_SLEEP(ret);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reading the sensor data</strong></p>
+<p>To read the sensor data, the function shtc1_read() is used . It reads
+the sensor data and calculates temperature (Temperature = 175 * S_T /
+2^16 – 45), humidity (Relative Humidity = 100 * S_RH / 2^16) using the
+formulae. It reads out the results of a measurement that was previously
+started by shtc1_measure(). If the measurement is still in progress,
+this function returns an error. Temperature is returned in [°C],
+multiplied by 1000, and relative humidity [in percent relative
+humidity], multiplied by 1000.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>uint16_t words[2];</p>
+<p>int16_t ret = sensirion_i2c_read_words(SHTC1_ADDRESS, words,</p>
+<p>SENSIRION_NUM_WORDS(words));</p>
+<p>*temperature = ((21875 * (int32_t)words[0]) &gt;&gt; 13) - 45000;</p>
+<p>*humidity = ((12500 * (int32_t)words[1]) &gt;&gt; 13);</p>
+<p>return PM_SLEEP(ret);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The function shtc1_disable_sleep()enables or disables the SHT’s sleep
+mode between measurements, if supported. Sleep mode is enabled by
+default if supported.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>if (!supports_sleep)</p>
+<p>return STATUS_FAIL;</p>
+<p>sleep_enabled = !disable_sleep;</p>
+<p>if (disable_sleep)</p>
+<p>return shtc1_wakeup();</p>
+<p>return shtc1_sleep();</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Enable or disable the SHT’s low power mode.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>shtc1_cmd_measure =enable_low_power_mode ? SHTC1_CMD_MEASURE_LPM :
+SHTC1_CMD_MEASURE_HPM;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The function shtc1_read_serial() is implemented to read out the serial
+number.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int16_t shtc1_read_serial(uint32_t *serial)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="building">
+<h2>Building<a class="headerlink" href="#building" title="Permalink to this heading"></a></h2>
+<p>To build the sample application, execute the following commands:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>cd examples/i2c</p>
+<p>make</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The make command generates the i2c_sensor.elf in the out directory.</p>
+</section>
+<section id="running-the-application">
+<h2>Running the Application<a class="headerlink" href="#running-the-application" title="Permalink to this heading"></a></h2>
+</section>
+<section id="programming-talaria-two">
+<h2>Programming Talaria TWO<a class="headerlink" href="#programming-talaria-two" title="Permalink to this heading"></a></h2>
+<p>Program i2c_sensor.elf <em>(freertos_sdk_x.y\examples\i2c\bin)</em> using
+the Download tool:</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool provided with InnoPhase Talaria TWO SDK.</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down.</p></li>
+<li><p>ELF Input: Load the i2c_sensor.elf by clicking on Select ELF File.</p></li>
+<li><p>Programming: Prog RAM or Prog Flash as per requirement.</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="expected-output">
+<h2>Expected Output<a class="headerlink" href="#expected-output" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PWWWAE</p>
+<p>Build $Id: git-b3777d5 $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-0039-002c-ffffffffffff</p>
+<p>Initializing bmp388…</p>
+<p>Initializing opt3002…</p>
+<p>Initializing shtc3…</p>
+<p>bmp388 ID: 0x50</p>
+<p>opt3002 ID: 0x5449</p>
+<p>shtc3 ID: 0x2B5A0069</p>
+<p>—–Timestamp: 30130 uS—–</p>
+<p>Pressure: 91235.0 Pa</p>
+<p>Temperature (bmp): 27.9200 C</p>
+<p>Optical power: 28416.0 nW/cm2</p>
+<p>Humidity: 71.7419 %</p>
+<p>Temperature (shtc): 28.6650 C</p>
+<p>—–Timestamp: 2286954 uS—–</p>
+<p>Pressure: 91228.0625 Pa</p>
+<p>Temperature (bmp): 28.0599 C</p>
+<p>Optical power: 30528.0 nW/cm2</p>
+<p>Humidity: 71.4260 %</p>
+<p>Temperature (shtc): 28.6650 C</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Example_for_Crash_handling.html" class="btn btn-neutral float-left" title="Crash Handling" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Example_for_LPScan.html" class="btn btn-neutral float-right" title="LPS Scan" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+Multiple Streaming
+-------------------
+
+1. AWS Dashboard Modification
+
+For using additional cameras, use the Create a new signaling channel
+option in the AWS console:
+
+|image1|
+
+Figure 16: Creating a new signaling channel
+
+2. CLI Command Modification
+
+Modify the CLI command to include the new signaling channel (refer step
+6 (Method 1: Manual Setup) of section: `T31z INP3201 Host - Talaria TWO
+AWS KINESIS Video Streaming Setup <#_T31z_INP3201_Host>`__):
+
++-----------------------------------------------------------------------+
+| /system/awskvs/kvswebrtcmaster-static <new signaling_channel name>    |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+3. Script Modification
+
+Update the new signaling channel name in start_stream.sh script file as
+parameter to kvswebrtcmaster application.
+
+**Note**: As mentioned in step 2 (Method 2 – Automated Shell Scripts) of
+section: `T31z INP3201 Host - Talaria TWO AWS KINESIS Video Streaming
+Setup <#_T31x_Host_->`__, modify the signaling channels to include the
+new signaling channel:
+
+a. echo “.kvswebrtcmaster-static RPI4B_VIDEO”
+
+b. /system/awskvs/kvswebrtcmaster-static RPI4B_VIDEO
+
+.. |image1| image:: media/image1.png
+   :width: 7.08681in
+   :height: 3.98889in

@@ -1,0 +1,52 @@
+1. Create the following credentials from the AWS account
+   (https://us-east-1.console.aws.amazon.com/kinesisvideo/home?region=us-east-1#/dashboard):
+
+   a. AWS_ACCESS_KEY
+
+   b. AWS_SECRET_ACCESS_KEY
+
+   c. AWS_KVS_HOST
+
+**Note**: Steps to create the AWS security credentials are explained in
+section: `Create AWS Security Credentials <#_Create_AWS_Security>`__.
+
+2. On opening the AWS_Streaming mobile app, click on the plus sign at
+   the bottom right corner.
+
+|A picture containing shape Description automatically generated|
+
+Figure 8: AWS_Streaming APP
+
+3. Enter the AWS credentials in the mobile app.
+
+Select the appropriate AWS cloud location using the Select Region
+drop-down. Enter the Talaria TWO MAC ID in the device Mac field.
+
+|image1|
+
+Figure 9: Enter AWS credentials
+
+4. On providing the AWS credentials, the video streaming channel appears
+   in the streaming app listing. Click on the channel to start video
+   streaming.
+
+|image2|
+
+Figure 10: AWS_Streaming APP - T2_VIDEO
+
+|image3|
+
+Figure 11: AWS_Streaming app- video streaming
+
+.. |A picture containing shape Description automatically generated| image:: media/image1.jpeg
+   :width: 2.75625in
+   :height: 5.76667in
+.. |image1| image:: media/image2.png
+   :width: 2.78056in
+   :height: 4.86736in
+.. |image2| image:: media/image3.jpeg
+   :width: 2.75625in
+   :height: 5.74861in
+.. |image3| image:: media/image4.png
+   :width: 3.06667in
+   :height: 5.34722in

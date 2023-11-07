@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eclipse Plugin: InnoPhase IoT Software Development Tool for Application Development &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../../about.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Application Development - Manual Procedure" href="7.%20Application%20Development%20-%20Manual%20Procedure.html" />
+    <link rel="prev" title="Starting Eclipse IDE" href="5.%20Starting%20Eclipse%20IDE.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Software%20Reference/Software_Reference_Landing_Page.html">Software Reference</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../Development%20Environments%20-%20Landing%20Page.html">Development Environments</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../Development%20Environments%20-%20Landing%20Page.html#linux">Linux</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../Development%20Environments%20-%20Landing%20Page.html#environment-set-up-for-linux">Environment Set-up for Linux</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../Development%20Environments%20-%20Landing%20Page.html#eclipse-set-up-for-linux">Eclipse Set-up for Linux</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="1.%20Prerequisites.html">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1.%20Prerequisites.html#jdk-installation">JDK Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1.%20Prerequisites.html#prerequisites-for-eclipse">Prerequisites for Eclipse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2.%20Linux%20-%20Eclipse%20IDE%20installer.html">Linux - Eclipse IDE installer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3.%20Linux%20%E2%80%93%20Eclipse%20IDE%20Installation.html">Linux – Eclipse IDE Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4.%20Connecting%20the%20EVB.html">Connecting the EVB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5.%20Starting%20Eclipse%20IDE.html">Starting Eclipse IDE</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Eclipse Plugin: InnoPhase IoT Software Development Tool for Application Development</a></li>
+<li class="toctree-l4"><a class="reference internal" href="7.%20Application%20Development%20-%20Manual%20Procedure.html">Application Development - Manual Procedure</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../Development%20Environments%20-%20Landing%20Page.html#windows-subsystem-for-linux">Windows Subsystem for Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Development%20Environments%20-%20Landing%20Page.html#windows">Windows</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tools/Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+      <li class="breadcrumb-item active">Eclipse Plugin: InnoPhase IoT Software Development Tool for Application Development</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/Development Environments/1. Linux/2. Eclipse Set-up/6. Eclipse Plugin.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="eclipse-plugin-innophase-iot-software-development-tool-for-application-development">
+<h1>Eclipse Plugin: InnoPhase IoT Software Development Tool for Application Development<a class="headerlink" href="#eclipse-plugin-innophase-iot-software-development-tool-for-application-development" title="Permalink to this heading"></a></h1>
+<p>InnoPhase IoT Software Development Tool is an Eclipse plugin which
+simplifies the application development for InnoPhase IoT product using
+Eclipse IDE.</p>
+<p><strong>Note</strong>:</p>
+<p>1. Currently, the plugin supports only one connected device. In case
+more than one device is connected, the plugin might not function as
+expected.</p>
+<p>2. Steps for manually developing the application are available in
+section: <em>Application Development - Manual Procedure</em>.</p>
+<section id="innophase-iot-software-development-tool-installation">
+<h2>InnoPhase IoT Software Development Tool Installation<a class="headerlink" href="#innophase-iot-software-development-tool-installation" title="Permalink to this heading"></a></h2>
+<p>Install plugin InnoPhase IoT Software Development Tool onto Eclipse
+using following steps:</p>
+<ol class="arabic simple">
+<li><p>Help -&gt; Install New Software</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../../_images/image114.png"><img alt="A screenshot of a computer Description automatically generated" src="../../../_images/image114.png" style="width: 3.93701in; height: 4.81331in;" /></a></p>
+</div></blockquote>
+<p>Figure 9: Plugin installation – Install new software</p>
+<ol class="arabic simple" start="2">
+<li><p>Add -&gt; Location to <a class="reference external" href="https://www.innophaseiot.com/eclipse-plugins">https://www.innophaseiot.com/eclipse-plugins</a> -&gt;Add</p></li>
+</ol>
+<p><a class="reference internal" href="../../../_images/image213.png"><img alt="image1" src="../../../_images/image213.png" style="width: 6.88976in; height: 5.45572in;" /></a></p>
+<p>Figure 10: Plugin installation – Add Repository Location</p>
+<ol class="arabic simple" start="3">
+<li><p>Select the check box: InnoPhase IoT -&gt; Next</p></li>
+</ol>
+<p><a class="reference internal" href="../../../_images/image37.png"><img alt="image2" src="../../../_images/image37.png" style="width: 6.88976in; height: 5.44521in;" /></a></p>
+<p>Figure 11: Plugin installation – Choose available software to install</p>
+<ol class="arabic simple" start="4">
+<li><p>Once done, Eclipse begins to calculate the requirements and
+dependencies.</p></li>
+</ol>
+<p><a class="reference internal" href="../../../_images/image44.png"><img alt="image3" src="../../../_images/image44.png" style="width: 6.88976in; height: 5.4504in;" /></a></p>
+<p>Figure 12: Plugin installation – Calculating requirements and
+dependencies</p>
+<ol class="arabic simple" start="5">
+<li><p>Select radial button “<em>Keep my installation the same and modify the
+items being installed to be compatible</em>” -&gt; Next</p></li>
+</ol>
+<p><a class="reference internal" href="../../../_images/image54.png"><img alt="image4" src="../../../_images/image54.png" style="width: 6.88976in; height: 5.45116in;" /></a></p>
+<p>Figure 13: Plugin installation – Install remediation page</p>
+<ol class="arabic simple" start="6">
+<li><p>Press Next to continue.</p></li>
+</ol>
+<p><a class="reference internal" href="../../../_images/image64.png"><img alt="image5" src="../../../_images/image64.png" style="width: 6.88976in; height: 4.16328in;" /></a></p>
+<p>Figure 14: Plugin installation – Install Details</p>
+<ol class="arabic simple" start="7">
+<li><p>Accept terms -&gt; Finish</p></li>
+</ol>
+<p><a class="reference internal" href="../../../_images/image74.png"><img alt="image6" src="../../../_images/image74.png" style="width: 6.88976in; height: 3.3733in;" /></a></p>
+<p>Figure 15: Plugin installation – Review licenses</p>
+<ol class="arabic simple" start="8">
+<li><p>Select the check box Authority / Update Site and Always trust all
+authorities and Click on Trust Selected -&gt; Yes, I Accept the Risk</p></li>
+</ol>
+<p><a class="reference internal" href="../../../_images/image84.png"><img alt="image7" src="../../../_images/image84.png" style="width: 6.29921in; height: 5.16652in;" /></a></p>
+<p><a class="reference internal" href="../../../_images/image94.png"><img alt="A screenshot of a computer error Description automatically generated" src="../../../_images/image94.png" style="width: 6.29921in; height: 2.61011in;" /></a></p>
+<p>Figure 16: Plugin installation – Trust Authorities</p>
+<ol class="arabic simple" start="9">
+<li><p>Select the check box Unsigned &amp; Always trust all content and Click on
+Trust Selected -&gt; Yes, I Accept the Risk</p></li>
+</ol>
+<p><a class="reference internal" href="../../../_images/image104.png"><img alt="image8" src="../../../_images/image104.png" style="width: 6.88976in; height: 4.25634in;" /></a></p>
+<p><a class="reference internal" href="../../../_images/image115.png"><img alt="A screenshot of a computer error message Description automatically generated" src="../../../_images/image115.png" style="width: 6.88976in; height: 2.97571in;" /></a></p>
+<p>Figure 17: Plugin installation – Trust unsigned content</p>
+<ol class="arabic simple" start="10">
+<li><p>Software begins to install, which is indicated in the status bar.</p></li>
+</ol>
+<p><a class="reference internal" href="../../../_images/image124.png"><img alt="A screen shot of a computer Description automatically generated" src="../../../_images/image124.png" style="width: 6.88976in; height: 0.74912in;" /></a>c</p>
+<p>Figure 18: Plugin installation – Installing software status</p>
+<ol class="arabic simple" start="11">
+<li><p>Once software installation is complete, a pop-up message for
+restarting appears. Click on Restart Now.</p></li>
+</ol>
+<p><a class="reference internal" href="../../../_images/image133.png"><img alt="A screenshot of a software update Description automatically generated" src="../../../_images/image133.png" style="width: 6.88976in; height: 1.95793in;" /></a></p>
+<p>Figure 19: Plugin installation – Restart Now after installation</p>
+<ol class="arabic simple" start="12">
+<li><p>On successful installation, Eclipse IDE will have a tab for
+InnoPhase IoT on restarting.</p></li>
+</ol>
+<p><a class="reference internal" href="../../../_images/image144.png"><img alt="image9" src="../../../_images/image144.png" style="width: 6.88976in; height: 1.49444in;" /></a></p>
+<p>Figure 20: Plugin installation – InnoPhase IoT menu</p>
+</section>
+<section id="download-and-configure-support-files-for-plugin">
+<h2>Download and Configure Support Files for Plugin<a class="headerlink" href="#download-and-configure-support-files-for-plugin" title="Permalink to this heading"></a></h2>
+<p>InnoPhase IoT Software Development Tool plugin requires supporting
+files, which need to be configured before use. Follow the subsequent
+steps to configure the supporting files:</p>
+<ol class="arabic simple">
+<li><p>InnoPhase IoT -&gt; Download and Configure Support Files</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../../_images/image153.png"><img alt="image10" src="../../../_images/image153.png" style="width: 4.72441in; height: 1.53398in;" /></a></p>
+</div></blockquote>
+<p>Figure 21: Download and configure support files menu</p>
+<ol class="arabic simple" start="2">
+<li><p>Browse and choose a directory to download and configure support files
+for <em>InnoPhase IoT Software Development Tool</em> plugin.</p></li>
+</ol>
+<p><a class="reference internal" href="../../../_images/image164.png"><img alt="image11" src="../../../_images/image164.png" style="width: 6.88976in; height: 2.89731in;" /></a></p>
+<p>Figure 22: Download and configure support files - Input window</p>
+<p><strong>Note</strong>: If the plugin support files are already available, then check
+the box: Use an existing InnoPhase IoT support directory file system and
+choose the existing folder.</p>
+<ol class="arabic simple" start="3">
+<li><p>Click Finish. Support files will be downloaded and saved in the
+selected folder. A pop-up message will confirm once the download is
+completed.</p></li>
+</ol>
+<p><a class="reference internal" href="../../../_images/image173.png"><img alt="A screenshot of a message Description automatically generated" src="../../../_images/image173.png" style="width: 6.88976in; height: 2.00514in;" /></a></p>
+<p>Figure 23: Download and Configure Support Files – Status message</p>
+</section>
+<section id="import-talaria-two-example-project">
+<h2>Import Talaria TWO Example Project<a class="headerlink" href="#import-talaria-two-example-project" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Import an existing example as a make file project in eclipse:</p>
+<ol class="loweralpha simple">
+<li><p>Download and unzip Talaria SDK provided</p></li>
+<li><p>Open Eclipse</p></li>
+<li><p>Click on File -&gt; Import</p></li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../../_images/image183.png"><img alt="Graphical user interface, application Description automatically generated" src="../../../_images/image183.png" style="width: 3.93701in; height: 4.04292in;" /></a></p>
+</div></blockquote>
+<p>Figure 24: Import an existing example in Eclipse</p>
+<ol class="arabic simple" start="2">
+<li><p>Under C/C++, Click Existing code as Makefile Project and then click
+Next.</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="Development Environments/1. Linux/2. Eclipse Set-up/media/image19.tmp"><img alt="Graphical user interface, text, application, email Description automatically generated" src="Development Environments/1. Linux/2. Eclipse Set-up/media/image19.tmp" style="width: 4.72441in; height: 4.29633in;" /></a></p>
+</div></blockquote>
+<p>Figure 25: Import existing code as makefile project</p>
+<ol class="arabic simple" start="3">
+<li><p>Enter the project name, select any of the applications or examples
+available in SDK package, select the Toolchain as ARM cross GCC and
+click Finish.</p></li>
+</ol>
+<blockquote>
+<div><p><strong>Note</strong>: Ensure folder selected includes the make file.</p>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>Project is imported with the source code and existing make file.</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../../_images/image203.png"><img alt="image12" src="../../../_images/image203.png" style="width: 4.72441in; height: 5.57611in;" /></a></p>
+</div></blockquote>
+<p>Figure 26: Project imported</p>
+</section>
+<section id="run-configuration-set-up">
+<h2>Run Configuration Set-up<a class="headerlink" href="#run-configuration-set-up" title="Permalink to this heading"></a></h2>
+<p>InnoPhase IoT Software Development Tool provides <em>the Run Configuration
+set-up to Build and Flash the Application to connected Talaria TWO EVB</em>.
+Steps for setting up the run configuration is as follows:</p>
+<ol class="arabic simple">
+<li><p>Right click on Project and select Run As -&gt;Run Configurations.</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../../_images/image214.png"><img alt="image13" src="../../../_images/image214.png" style="width: 6.49606in; height: 7.28281in;" /></a></p>
+</div></blockquote>
+<p>Figure 27: Eclipse Run As – Select Run Configuration</p>
+<ol class="arabic simple" start="2">
+<li><p>Right click on InnoPhase IoT Application Run configuration and select
+New Configuration.</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../../_images/image223.png"><img alt="image14" src="../../../_images/image223.png" style="width: 6.49606in; height: 3.99296in;" /></a></p>
+</div></blockquote>
+<p>Figure 28: InnoPhase IoT Software Development Tool – New Run
+Configuration</p>
+<ol class="arabic simple" start="3">
+<li><p>Plugin will create a new configuration, automatically fill the
+required default values. Other values are required to be filled by
+the user as per the required the application.</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../../_images/image232.png"><img alt="image15" src="../../../_images/image232.png" style="width: 6.49606in; height: 3.57404in;" /></a></p>
+</div></blockquote>
+<p>Figure 29: InnoPhase IoT Software Development Tool – Run configuration
+input window</p>
+<ol class="arabic simple" start="4">
+<li><p>User inputs are required for only the Main tab. Input parameters for
+this tab are as follows:</p>
+<ol class="loweralpha simple">
+<li><p><strong>Name:</strong> Name of the run configuration. Automatically filled with
+default name. Can be changed as per requirement.</p></li>
+<li><p><strong>Project:</strong> By default, the active project name will be selected.
+Use the Browser button to change the project.</p></li>
+<li><p><strong>C/C++ Application:</strong> Depending on the project selected, default
+application file is selected as
+<em>project_path/out/project_name.elf</em>.</p></li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<div><p>For example: If the project name is helloworld and the project path
+is ../helloworld, then the default value will be
+../helloworld/out/helloworld.elf.</p>
+<p>In case the correct file is not selected, use the Browse button to
+select the correct file.</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="4">
+<li><p><strong>Working Directory:</strong> Selected by default.</p></li>
+<li><p><strong>Talaria TWO Filesystem:</strong> Is empty by default. Select the folder
+which contains files/folders to be added to the Talaria TWO
+filesystem.</p></li>
+</ol>
+<blockquote>
+<div><p><strong>Note</strong>: Only files/folders inside the selected folder will be added
+to the Talaria TWO filesystem. Selected folder will not be added.</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="6">
+<li><dl class="simple">
+<dt><strong>Wi-Fi Network Name:</strong> Is empty by default. Add the name of the</dt><dd><p>Wi-Fi API to which Talaria TWO needs to connect.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Wi-Fi Network Password:</strong> Is empty by default. Add the password of</dt><dd><p>the Wi-Fi API provided in the Wi-Fi network name.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Boot Arguments:</strong> Is empty by default. Add the boot argument</dt><dd><p>required by the C/C++ application selected.</p>
+</dd>
+</dl>
+</li>
+</ol>
+<ol class="arabic simple" start="5">
+<li><p>Click Apply once the inputs are filled.</p></li>
+<li><p>Click Run to build and flash the application to Talaria TWO EVB
+device.</p>
+<ol class="loweralpha simple">
+<li><p>In case the device is not connected to the system, only the
+application is built. Application build output can be seen on the
+console window CDT Build Console.</p></li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../../_images/image242.png"><img alt="image16" src="../../../_images/image242.png" style="width: 5.90551in; height: 1.2407in;" /></a></p>
+</div></blockquote>
+<p>Figure 30: Console Window – CDT build console</p>
+<blockquote>
+<div><p><strong>Note</strong>: Use Display Selected Console to select the required console
+window.</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li><p>In case the device is connected to the system, the application flash
+and device console output can be seen on the console window InnoPhase
+IoT T2 Device Monitor.</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../../_images/image252.png"><img alt="image17" src="../../../_images/image252.png" style="width: 5.90551in; height: 1.986in;" /></a></p>
+</div></blockquote>
+<p>Figure 31: InnoPhase IoT T2 Device Monitor Console Window – Run
+configuration</p>
+<blockquote>
+<div><p><strong>Note</strong>: Currently, the plugin can flash to only one connected
+device. In case more than one device is connected, the plugin may not
+function as expected.</p>
+</div></blockquote>
+</section>
+<section id="debug-configuration-set-up">
+<h2>Debug Configuration Set-up<a class="headerlink" href="#debug-configuration-set-up" title="Permalink to this heading"></a></h2>
+<p>InnoPhase IoT Software Development Tool provides debug configuration
+set-up to build, flash application to the connected Talaria TWO EVB and
+debug the application.</p>
+<p>Steps to set-up the debug configuration settings are as follows:</p>
+<ol class="arabic simple">
+<li><p>Right click on Project and select Debug As -&gt;Debug Configurations.</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../../_images/image262.png"><img alt="image18" src="../../../_images/image262.png" style="width: 5.90551in; height: 6.74598in;" /></a></p>
+</div></blockquote>
+<p>Figure 32: Eclipse Debug As – Select debug configuration</p>
+<ol class="arabic simple" start="2">
+<li><p>Right click on InnoPhase IoT Application Debug configuration and
+select New Configuration.</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../../_images/image272.png"><img alt="image19" src="../../../_images/image272.png" style="width: 6.49606in; height: 4.51372in;" /></a></p>
+</div></blockquote>
+<p>Figure 33: InnoPhase IoT Software Development Tool – New debug
+configuration</p>
+<ol class="arabic simple" start="3">
+<li><p>Plugin will create a new configuration and automatically fill-in the
+required default values for debugging. As required, the user can fill
+in the other values.</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../../_images/image282.png"><img alt="image20" src="../../../_images/image282.png" style="width: 6.49606in; height: 3.25585in;" /></a></p>
+</div></blockquote>
+<p>Figure 34: InnoPhase IoT Software Development Tool – Debug configuration
+input window</p>
+<blockquote>
+<div><p>The plugin will automatically fill in the inputs for the Debugger
+tab. For more details on providing the inputs manually, refer <em>Debug
+Configuration Setting up in Eclipse</em>.</p>
+<p>User inputs are required for the Main tab. Input parameters are as
+follows:</p>
+</div></blockquote>
+<ol class="loweralpha simple">
+<li><dl class="simple">
+<dt><strong>Name:</strong> Name of the debug configuration. Filled with default name,</dt><dd><p>the user can change the name as required.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Project:</strong> By default, the active project name is selected. Use the</dt><dd><p>Browser button to change the project.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>C/C++ Application:</strong> Dependent on the project selected. Default</dt><dd><p>application file is selected as
+<em>project_path/out/project_name.elf</em>.</p>
+</dd>
+</dl>
+</li>
+</ol>
+<blockquote>
+<div><p>For example: If the project name is helloworld and the project path
+is <em>..\helloworld</em>, then the default value is
+<em>../helloworld/out/helloworld.elf</em>.</p>
+<p>In case the correct file is not selected, use the Browse button to
+select the correct file.</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="4">
+<li><dl class="simple">
+<dt><strong>Wi-Fi Network Name:</strong> Is empty by default. Add the name of the</dt><dd><p>Wi-Fi AP to which Talaria TWO needs to be connected to.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Wi-Fi Network Password:</strong> Is empty by default. Add the password of</dt><dd><p>the Wi-Fi AP provided in the Wi-Fi network name.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Boot Arguments:</strong> Is empty by default. Add the boot argument</dt><dd><p>required by the C/C++ application selected.</p>
+</dd>
+</dl>
+</li>
+</ol>
+<ol class="arabic simple" start="4">
+<li><p>Click the Apply button once the inputs are filled.</p></li>
+<li><p>Click Debug to build, flash the application onto Talaria TWO EVB and
+start debugging.</p>
+<ol class="loweralpha simple">
+<li><p>In case the device is not connected to the system, only
+application will get build. Application build output can be seen
+in Console window “CDT Build Console”, refer Figure 30.</p></li>
+<li><p>In case the device is connected to the system:</p>
+<ol class="lowerroman simple">
+<li><p>The application flash and device console output can be seen in
+the console window InnoPhase IoT T2 Device Monitor, refer
+Figure 31.</p></li>
+<li><p>Once the application is flashed successfully onto Talaria TWO
+EVB, Eclipse may prompt to switch to Debug Perspective. Press
+Switch to continue debugging.</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../../_images/image291.png"><img alt="image21" src="../../../_images/image291.png" style="width: 5.51181in; height: 2.64963in;" /></a></p>
+<p>Figure 35: InnoPhase IoT Software Development Tool – Debug
+perspective switch</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="3">
+<li><p>Eclipse will begin to debug and the same is displayed in Debug
+Perspective as shown in Figure 36.</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../../_images/image301.png"><img alt="image22" src="../../../_images/image301.png" style="width: 5.90551in; height: 2.49125in;" /></a></p>
+</div></blockquote>
+<p>Figure 36: InnoPhase IoT Software Development Tool – Debug start</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt>Debug the application with Eclipse’s general debugging procedure</dt><dd><p>(refer point 4 to 7 of section <em>Debugging in Eclipse</em>).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>While debugging the application, the application’s prints will be</dt><dd><p>visible on the console window InnoPhase IoT T2 Device Monitor as
+shown in Figure 31.</p>
+</dd>
+</dl>
+</li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="5.%20Starting%20Eclipse%20IDE.html" class="btn btn-neutral float-left" title="Starting Eclipse IDE" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="7.%20Application%20Development%20-%20Manual%20Procedure.html" class="btn btn-neutral float-right" title="Application Development - Manual Procedure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

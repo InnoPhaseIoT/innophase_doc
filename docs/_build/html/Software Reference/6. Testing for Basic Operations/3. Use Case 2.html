@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Use Case 2: Performance Test using iPerf Application &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Use Case 2: Performance Test using iPerf Application</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Software Reference/6. Testing for Basic Operations/3. Use Case 2.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="use-case-2-performance-test-using-iperf-application">
+<h1>Use Case 2: Performance Test using iPerf Application<a class="headerlink" href="#use-case-2-performance-test-using-iperf-application" title="Link to this heading"></a></h1>
+<p>This use case is to test the performance using iPerf application.
+Execute the following steps:</p>
+<p><strong>Step 1</strong>:</p>
+<ol class="arabic simple">
+<li><p>Scan the network</p></li>
+<li><p>Connect to the network of SSID ct_asus and passphrase 12345678</p></li>
+<li><p>Get the IP address of the Talaria TWO module</p></li>
+<li><p>Get the WLAN status of the Talaria TWO module</p></li>
+<li><p>Start the UDP server and send data once the client connects</p></li>
+</ol>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Table 2: Performance Test using iPerf Application – Commands</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Command</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>./conmgr scan</em></p></td>
+<td><p>Scan</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>./conmgr connect &lt;SSID&gt;&lt;AP
+PWD&gt;</em></p></td>
+<td><p>Connect</p></td>
+</tr>
+<tr class="row-even"><td><p><em>./conmgr ip</em></p></td>
+<td><p>Get IP address</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>./conmgr status</em></p></td>
+<td><p>Status</p></td>
+</tr>
+<tr class="row-even"><td><p><em>iperf3 -s -i 1</em></p></td>
+<td><p>Iperf traffic for UDP UL</p></td>
+</tr>
+</tbody>
+</table>
+<p>Console outputs:</p>
+<ol class="arabic simple">
+<li><p>./conmgr connect innotest 123456789</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image199.png"><img alt="A screenshot of a computer Description automatically generated" src="../../_images/image199.png" style="width: 7.10694in; height: 0.91319in;" /></a></p>
+<p>Figure 14: ./conmgr connect - output</p>
+<ol class="arabic simple" start="2">
+<li><p>./conmgr status</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image257.png"><img alt="Text Description automatically generated" src="../../_images/image257.png" style="width: 7.08661in; height: 5.33746in;" /></a></p>
+<p>Figure 15: ./conmgr status – output</p>
+<p><strong>Step 2</strong>: From the Linux host machine, start the UDP client using the
+following command, connect to the Talaria TWO UDP server of IP address
+192.168.1.173 and port 5201. Once the client connects, Talaria TWO will
+start sending the data over UDP socket:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>iperf3 -c &lt;Ipaddress&gt; -i 1 -t 36000 -u -b 15M -R</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Output:</p>
+<p><a class="reference internal" href="../../_images/image329.png"><img alt="A picture containing graphical user interface Description automatically generated" src="../../_images/image329.png" style="width: 7.48056in; height: 2.63681in;" /></a></p>
+<p>Figure 16: Starting UDP Client</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

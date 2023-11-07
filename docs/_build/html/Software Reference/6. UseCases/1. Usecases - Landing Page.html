@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Set-up &amp; Usage &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Set-up &amp; Usage</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Software Reference/6. UseCases/1. Usecases - Landing Page.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>This section describes the different AT commands use cases with details
+on the prerequisites, sequence of operation and expected output.</p>
+<p><strong>Note</strong>: The EVB is shipped with pre-loaded AT application firmware. If
+there is a need to reinstall the firmware or install a higher version of
+the firmware, follow the instructions provided in section: <em>Download the
+Necessary Packages</em> of the AT Commands Quick Start Guide:</p>
+<section id="set-up-usage">
+<h1>Set-up &amp; Usage<a class="headerlink" href="#set-up-usage" title="Link to this heading"></a></h1>
+<section id="pre-set-up-on-talaria-two">
+<h2>Pre-set-up on Talaria TWO<a class="headerlink" href="#pre-set-up-on-talaria-two" title="Link to this heading"></a></h2>
+</section>
+<section id="programming-the-application">
+<h2>Programming the Application<a class="headerlink" href="#programming-the-application" title="Link to this heading"></a></h2>
+</section>
+</section>
+<section id="usecases">
+<h1>UseCases<a class="headerlink" href="#usecases" title="Link to this heading"></a></h1>
+<section id="wireless-operations">
+<h2>Wireless Operations<a class="headerlink" href="#wireless-operations" title="Link to this heading"></a></h2>
+<section id="station-mode">
+<h3>Station Mode<a class="headerlink" href="#station-mode" title="Link to this heading"></a></h3>
+</section>
+<section id="power-management">
+<h3>Power Management<a class="headerlink" href="#power-management" title="Link to this heading"></a></h3>
+</section>
+<section id="ble-peripheral">
+<h3>BLE Peripheral<a class="headerlink" href="#ble-peripheral" title="Link to this heading"></a></h3>
+</section>
+<section id="ble-io-capabilities">
+<h3>BLE IO Capabilities<a class="headerlink" href="#ble-io-capabilities" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="network-protocol">
+<h2>Network Protocol<a class="headerlink" href="#network-protocol" title="Link to this heading"></a></h2>
+<section id="static-ip-configuration">
+<h3>Static IP Configuration<a class="headerlink" href="#static-ip-configuration" title="Link to this heading"></a></h3>
+</section>
+<section id="ping-reset-functionality">
+<h3>Ping &amp; Reset Functionality<a class="headerlink" href="#ping-reset-functionality" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="application-protocol-and-data-transfer">
+<h2>Application Protocol and Data Transfer<a class="headerlink" href="#application-protocol-and-data-transfer" title="Link to this heading"></a></h2>
+<section id="tcp-server">
+<h3>TCP Server<a class="headerlink" href="#tcp-server" title="Link to this heading"></a></h3>
+</section>
+<section id="tcp-client">
+<h3>TCP Client<a class="headerlink" href="#tcp-client" title="Link to this heading"></a></h3>
+</section>
+<section id="udp-server">
+<h3>UDP Server<a class="headerlink" href="#udp-server" title="Link to this heading"></a></h3>
+</section>
+<section id="udp-client">
+<h3>UDP Client<a class="headerlink" href="#udp-client" title="Link to this heading"></a></h3>
+</section>
+<section id="http-client">
+<h3>HTTP Client<a class="headerlink" href="#http-client" title="Link to this heading"></a></h3>
+</section>
+<section id="mqtt-client">
+<h3>MQTT Client<a class="headerlink" href="#mqtt-client" title="Link to this heading"></a></h3>
+</section>
+<section id="secure-mqtt">
+<h3>Secure MQTT<a class="headerlink" href="#secure-mqtt" title="Link to this heading"></a></h3>
+</section>
+<section id="dns-lookup-get-host-ip-by-name">
+<h3>DNS Lookup – Get Host IP by Name<a class="headerlink" href="#dns-lookup-get-host-ip-by-name" title="Link to this heading"></a></h3>
+</section>
+<section id="service-discovery-using-mdns">
+<h3>Service Discovery using mDNS<a class="headerlink" href="#service-discovery-using-mdns" title="Link to this heading"></a></h3>
+</section>
+<section id="get-time-from-ntp-server">
+<h3>Get Time from NTP Server<a class="headerlink" href="#get-time-from-ntp-server" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="advances-services">
+<h2>Advances Services<a class="headerlink" href="#advances-services" title="Link to this heading"></a></h2>
+<section id="ble-provisioning">
+<h3>BLE Provisioning<a class="headerlink" href="#ble-provisioning" title="Link to this heading"></a></h3>
+</section>
+<section id="secure-ble-provisioning-by-passkey-method">
+<h3>Secure BLE Provisioning by Passkey Method<a class="headerlink" href="#secure-ble-provisioning-by-passkey-method" title="Link to this heading"></a></h3>
+</section>
+<section id="secure-ble-provisioning-by-just-works-method">
+<h3>Secure BLE Provisioning by Just Works Method<a class="headerlink" href="#secure-ble-provisioning-by-just-works-method" title="Link to this heading"></a></h3>
+</section>
+<section id="fota">
+<h3>FOTA<a class="headerlink" href="#fota" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="miscellaneous">
+<h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Link to this heading"></a></h2>
+<section id="echo-enable-disable">
+<h3>Echo Enable/Disable<a class="headerlink" href="#echo-enable-disable" title="Link to this heading"></a></h3>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

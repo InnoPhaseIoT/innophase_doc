@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Commands &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../../../about.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Connection Manager UseCases" href="2.%20UseCases.html" />
+    <link rel="prev" title="Software Requirements" href="../1.%20Overview/1.%20Interface%20Requirements/2.%20Software%20Requirements.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Support/Support.html">Support</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../Software_Reference_Landing_Page.html">Software Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../Software_Reference_Landing_Page.html#libraries">Libraries</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../Software_Reference_Landing_Page.html#solutions">Solutions</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../Solutions%20-%20Landing%20Page.html">AT Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Solutions%20-%20Landing%20Page.html#stw-multi-proto">STW Multi-Proto</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../Solutions%20-%20Landing%20Page.html#dual-stack">Dual stack</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../Dual-Stack%20-%20Landing%20Page.html">Overview</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../Dual-Stack%20-%20Landing%20Page.html#connetion-manager">Connetion manager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Dual-Stack%20-%20Landing%20Page.html#inp3201-host">INP3201-HOST</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Software_Reference_Landing_Page.html#cloud-frameworks">Cloud Frameworks</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Tools/Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../Software_Reference_Landing_Page.html">Software Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../Solutions%20-%20Landing%20Page.html">AT Commands</a></li>
+          <li class="breadcrumb-item"><a href="../Dual-Stack%20-%20Landing%20Page.html">Overview</a></li>
+      <li class="breadcrumb-item active">Commands</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/Software Reference/3. Solutions/3. Dual-Stack/2. Connection Manager/1. Commands .rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="commands">
+<h1>Commands<a class="headerlink" href="#commands" title="Permalink to this heading"></a></h1>
+<p>Connection manager provides the user interface and the supported
+commands are described in the subsequent sections.</p>
+<p>Connection Manager supports the following features:</p>
+<ol class="arabic simple">
+<li><p>Wi-Fi Scan</p></li>
+<li><p>Wi-Fi Association/Authentication</p></li>
+<li><p>Wi-Fi Disassociation</p></li>
+<li><p>Wi-Fi Disconnect Management.</p></li>
+<li><p>Static/Dynamic IP set/get</p></li>
+<li><p>Wi-Fi Connection status</p></li>
+<li><p>Keep alive connection configuration</p></li>
+<li><p>Keep alive start/stop</p></li>
+<li><p>Keep alive connection TLS support</p></li>
+<li><p>Host wakeup configuration (wake word) and clear</p></li>
+<li><p>Auto scan enable/disable/configuration status</p></li>
+<li><p>Shutdown command</p></li>
+<li><p>Wi-Fi Power management set/get</p></li>
+<li><p>FOTA configuration/start/stop</p></li>
+<li><p>WLAN power management configuration</p></li>
+<li><p>TOS parameter for network packets</p></li>
+<li><p>Incoming/outgoing packet information display</p></li>
+<li><p>Kill tunadapter</p></li>
+<li><p>Wi-Fi provisioning over BLE</p></li>
+</ol>
+<p>Connection Manager commands are in the following format:</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Table 8: Scan - command, parameters and responses</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>conmgr &lt;operation&gt; &lt;argument-1&gt;….&lt;argument-n&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: <em>Arguments in [ ] are optional and those in &lt;&gt; are mandatory.</em></p>
+<section id="scan-performs-wi-fi-scan">
+<h2>scan - Performs Wi-Fi Scan<a class="headerlink" href="#scan-performs-wi-fi-scan" title="Permalink to this heading"></a></h2>
+<p>responses</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Co
+mmand</strong></p></th>
+<th class="head"><p>conmgr scan</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Param
+eters</strong></p></td>
+<td><p>NA</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Res
+ponse</strong></p></td>
+<td><p>Scan results as listed:</p>
+<ul class="simple">
+<li><p>BSSID</p></li>
+<li><p>Channel</p></li>
+<li><p>RSSI</p></li>
+<li><p>Security</p></li>
+<li><p>SSID</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Example: ./conmgr scan.</p>
+<p><a class="reference internal" href="../../../../_images/image110.jpeg"><img alt="Text Description automatically generated" src="../../../../_images/image110.jpeg" style="width: 7.42847in; height: 4.0625in;" /></a></p>
+<p>Figure 5: ./conmgr scan – Wi-Fi scan</p>
+</section>
+<section id="connect-connects-to-wi-fi-network">
+<h2>connect – Connects to Wi-Fi Network<a class="headerlink" href="#connect-connects-to-wi-fi-network" title="Permalink to this heading"></a></h2>
+<p>Enterprise security type: Personal</p>
+<p>responses</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Co
+mmand</strong></p></th>
+<th class="head"><p>conmgr connect &lt;ssid&gt; &lt;passphrase&gt;[PMK_PATH]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Param
+eters</strong></p></td>
+<td><p><em>ssid</em>: Name of the Access Point</p>
+<p><em>passphrase</em>: Password (optional for open security)</p>
+<p><em>pmk_path</em>: Path of the data file containing PMK
+cache,(optional, PMK cache works only on WPA2.)</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Res
+ponse</strong></p></td>
+<td><p>“Connected” to the mentioned AP.</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Example 1: Configure to connect to an Access Point of SSID innotest and
+passphrase 123456789:</p>
+<p>and responses</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./conmgr connect innotest 123456789</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><a class="reference internal" href="../../../../_images/image240.png"><img alt="image2" src="../../../../_images/image240.png" style="width: 1.14167in; height: 0.175in;" /></a><a class="reference internal" href="../../../../_images/image323.png"><img alt="A computer screen with white text Description automatically generated" src="../../../../_images/image323.png" style="width: 7.48031in; height: 0.94197in;" /></a></p>
+<p>Figure 6: ./conmgr connect (Personal) – Connect to Wi-Fi network</p>
+<p>Enterprise security type: EAP-PSK</p>
+<p>responses</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Co
+mmand</strong></p></th>
+<th class="head"><p>conmgr connect &lt;ssid&gt; &lt;passphrase&gt;&lt;2&gt; &lt;identity&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Param
+eters</strong></p></td>
+<td><p><em>ssid</em>: Name of the Access Point</p>
+<p><em>passphrase</em>: Password (optional for open security)</p>
+<p><em>2:</em> Network security type</p>
+<p><em>identity:</em> EAP username identity string</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Res
+ponse</strong></p></td>
+<td><p>“Connected” to the mentioned AP.</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><a class="reference internal" href="../../../../_images/image240.png"><img alt="image3" src="../../../../_images/image240.png" style="width: 1.76234in; height: 0.16667in;" /></a><a class="reference internal" href="../../../../_images/image240.png"><img alt="image4" src="../../../../_images/image240.png" style="width: 1.76234in; height: 0.16667in;" /></a><a class="reference internal" href="../../../../_images/image417.png"><img alt="A screenshot of a computer Description automatically generated" src="../../../../_images/image417.png" style="width: 7.48031in; height: 4.11625in;" /></a></p>
+<p>Figure 7: ./conmgr connect (EAP-PSK) – Connect to Wi-Fi network</p>
+<p>Enterprise security type: EAP-TLS</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Table 13: Disconnect - command, parameters and responses</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Co
+mmand</strong></p></th>
+<th class="head"><p>conmgr connect &lt;ssid&gt; &lt;3&gt; &lt;identity&gt; &lt;ca_path&gt; &lt;cert_path&gt;
+&lt;pkey_path&gt; &lt;pkey_pwd&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Param
+eters</strong></p></td>
+<td><p><em>ssid</em>: Name of the Access Point</p>
+<p><em>3:</em> Network security type</p>
+<p><em>identity:</em> EAP username identity</p>
+<p><em>ca_path:</em> CA certificate path in Talaria TWO filesystem</p>
+<p><em>cert_path:</em> Client certificate path in Talaria TWO
+filesystem</p>
+<p><em>pkey_path:</em> Path of private key file in Talaria TWO
+filesystem</p>
+<p><em>pkey_pwd:</em> Private key password</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Res
+ponse</strong></p></td>
+<td><p>“Connected” to the mentioned AP.</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../../../_images/image240.png"><img alt="image5" src="../../../../_images/image240.png" style="width: 1.76234in; height: 0.16667in;" /></a><a class="reference internal" href="../../../../_images/image517.png"><img alt="image6" src="../../../../_images/image517.png" style="width: 7.48031in; height: 4.33373in;" /></a></p>
+<p>Figure 8: ./conmgr connect (EAP-TLS) – Connect to Wi-Fi network</p>
+<p>Enterprise security type: EAP-PEAP</p>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-text">Table 14: IP - command, parameters and responses</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Co
+mmand</strong></p></th>
+<th class="head"><p>conmgr connect &lt;ssid&gt; &lt;4&gt; &lt;identity&gt; &lt;ca_path&gt; &lt;identity2&gt;
+&lt;password&gt;&lt;phase2auth&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Param
+eters</strong></p></td>
+<td><p><em>ssid</em>: Name of the Access Point</p>
+<p><em>4:</em> Network security type</p>
+<p><em>identity:</em> EAP username identity</p>
+<p><em>ca_path:</em> CA certificate path</p>
+<p><em>identity2:</em> EAP username identity for Phase 2</p>
+<p><em>password:</em> Private key password</p>
+<p><em>phase2auth:</em> Phase 2 authentication</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Res
+ponse</strong></p></td>
+<td><p>“Connected” to the mentioned AP.</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../../../_images/image240.png"><img alt="image7" src="../../../../_images/image240.png" style="width: 1.76234in; height: 0.16667in;" /></a><a class="reference internal" href="../../../../_images/image240.png"><img alt="image8" src="../../../../_images/image240.png" style="width: 1.76181in; height: 0.16667in;" /></a><a class="reference internal" href="../../../../_images/image614.png"><img alt="image9" src="../../../../_images/image614.png" style="width: 7.48031in; height: 4.21668in;" /></a></p>
+<p>Figure 9: ./conmgr connect (EAP-PEAP) – Connect to Wi-Fi network</p>
+<p><strong>Certificate Storing Method for Enterprise Security Certificates</strong></p>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-text">Table 15: kaconfig - command, parameters and responses</span><a class="headerlink" href="#id4" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>sudo openocd -s conf/ -f ftdi_swd.cfg -f t2_swd.cfg</p>
+<p>sudo ./script/arden.py ./apps/gordon-jtag/bin/gordon-jtag.elf</p>
+<p>sudo python3 ./script/gdbrun.py
+./apps/gordon-jtag/bin/gordon-jtag.elf –noconsole –nowait</p>
+<p>./script/storage.py –device localhost:10000 write
+~/Downloads/rootCACert.pem /data/ca.pem</p>
+<p>./script/storage.py –device localhost:10000 write
+~/Downloads/client_cert.pem /data/client.pem</p>
+<p>./script/storage.py –device localhost:10000 write
+~/Downloads/client_key.pem /data/client.key</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="disconnect-disconnects-from-wi-fi-network">
+<h2>disconnect – Disconnects from Wi-Fi Network<a class="headerlink" href="#disconnect-disconnects-from-wi-fi-network" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id5">
+<caption><span class="caption-text">Table 16: kaconfigget - command, parameters and responses</span><a class="headerlink" href="#id5" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Co
+mmand</strong></p></th>
+<th class="head"><p>conmgr disconnect</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Param
+eters</strong></p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Res
+ponse</strong></p></td>
+<td><p>“Disconnected” from the Wi-Fi network.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example: ./conmgr disconnect.</p>
+<p><a class="reference internal" href="../../../../_images/image240.png"><img alt="image10" src="../../../../_images/image240.png" style="width: 1.14177in; height: 0.21669in;" /></a><a class="reference internal" href="../../../../_images/image713.png"><img alt="image11" src="../../../../_images/image713.png" style="width: 7.48031in; height: 0.9198in;" /></a></p>
+<p>Figure 10: ./conmgr disconnect – Disconnect from Wi-Fi network</p>
+</section>
+<section id="ip-get-set-ipv4-address">
+<h2>IP – Get/Set ipv4 Address<a class="headerlink" href="#ip-get-set-ipv4-address" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id6">
+<caption><span class="caption-text">Table 17: kastart - command, parameters and responses</span><a class="headerlink" href="#id6" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Co
+mmand</strong></p></th>
+<th class="head"><p>conmgr ip &lt;ipaddr4&gt; &lt;net mask&gt; &lt;gateway ip&gt; &lt;dns server
+ip&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Param
+eters</strong></p></td>
+<td><p><em>ipaddr4</em>: IP address, as big-endian integer</p>
+<p><em>netmask</em>: Netmask, as big-endian integer</p>
+<p><em>gateway ip</em>: Default-route address, as big-endian
+integer.</p>
+<p><em>dns server ip</em>: DNS server address, as big-endian
+integer.</p>
+<p>Execute the following to get current ipv4 address
+information:</p>
+<p>responses</p>
+<blockquote>
+<div><table class="docutils align-default">
+<tbody>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line">conmgr ip                                             |</div>
+</div>
+<p>+=======================================================+</p>
+<table class="docutils align-default">
+<tbody>
+</tbody>
+</table>
+</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Res
+ponse</strong></p></td>
+<td><p>Gets the IP configuration status.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example: Set static IP address 192.168.1.174, subnetmask 255.255.255.0,
+Gateway 192.168.1.1 and DNS serverip 192.168.1.1:</p>
+<table class="docutils align-default" id="id7">
+<caption><span class="caption-text">Table 19: kadel - command, parameters and responses</span><a class="headerlink" href="#id7" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>./conmgr ip 192.168.1.174 255.255.255.0 192.168.1.1 192.168.1.1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../../../_images/image812.png"><img alt="image12" src="../../../../_images/image812.png" style="width: 7.40764in; height: 2.80694in;" /></a></p>
+<p>Figure 11: ./conmgr ip – Set/Get Static IP Address</p>
+</section>
+<section id="kaconfig-configures-keepalive-shadow-service">
+<h2>kaconfig – Configures keepalive/shadow Service<a class="headerlink" href="#kaconfig-configures-keepalive-shadow-service" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id8">
+<caption><span class="caption-text">Table 20: status - command, parameters and responses</span><a class="headerlink" href="#id8" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Com
+mand</strong></p></th>
+<th class="head"><p>conmgr kaconfig &lt;server ip &gt; &lt;server port&gt; &lt;interval&gt;
+&lt;heartbeat msg&gt; &lt;wakeup word&gt; &lt;timeout&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>**
+Parame
+ters**</p></td>
+<td><p><em>server ip</em>: Server IP address to start keep alive socket.</p>
+<p><em>server port</em>: Server port number.</p>
+<p><em>interval</em>: Interval to send heartbeat message.</p>
+<p><em>heartbeat msg</em>: Heartbeat message to be sent.</p>
+<p><em>wakeup word</em>: Wake word to receive from server. This wake
+word will be compared with data received from the server.
+If this matches, host wakeup will be triggered.</p>
+<p><em>timeout</em>: Timeout for heartbeat acknowledge message.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Resp
+onse</strong></p></td>
+<td><p>Keepalive config: success message.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example: Send HeartBeatPacket message to server IP address 172.16.16.155
+using port number 5000 every 3 seconds.</p>
+<p>It times out if there has been no acknowledgment received from server
+after 10 seconds.</p>
+<p>WakeUP is the string using which cloud can trigger Talaria TWO host wake
+up.</p>
+<table class="docutils align-default" id="id9">
+<caption><span class="caption-text">Table 21: wakeupconfig - command, parameters and responses</span><a class="headerlink" href="#id9" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>./conmgr kaconfig 172.16.16.155 5000 3 HeartBeatPacket WakeUP 10</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../../../_images/image912.png"><img alt="image13" src="../../../../_images/image912.png" style="width: 7.40417in; height: 1.78125in;" /></a></p>
+<p>Figure 12: kaconfig: Configure Keepalive Send</p>
+</section>
+<section id="kaconfigget-gets-keepalive-shadow-service-configuration">
+<h2>kaconfigget – Gets keepalive/shadow Service Configuration<a class="headerlink" href="#kaconfigget-gets-keepalive-shadow-service-configuration" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id10">
+<caption><span class="caption-text">Table 22: getwakeupreason - command, parameters and responses</span><a class="headerlink" href="#id10" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Co
+mmand</strong></p></th>
+<th class="head"><p>conmgr kaconfigget</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Param
+eters</strong></p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Res
+ponse</strong></p></td>
+<td><p>This command provides the following information:</p>
+<ul class="simple">
+<li><p>association status: associated/not associated</p></li>
+<li><p>keepalive configuration status: keepalive_configured
+/keepalive not configured</p></li>
+<li><p>keepalive status: Keepalive connected/ Keepalive Not
+connected”</p></li>
+<li><p>keepalive interval: Interval in seconds to send
+keepalive message</p></li>
+<li><p>keepalive port: Port number</p></li>
+<li><p>keepalive IP: IP address</p></li>
+<li><p>heartbeat msg: Keepalive message format</p></li>
+<li><p>wakeup msg: Wakeup message format</p></li>
+<li><p>heartbeat sent times: Number of times keepalive message
+was sent</p></li>
+<li><p>wakeup recv times: Number of times wakeup message was
+received</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example: ./conmgr kaconfigget.</p>
+<p><a class="reference internal" href="../../../../_images/image10.jpeg"><img alt="image14" src="../../../../_images/image10.jpeg" style="width: 7.42847in; height: 4.76597in;" /></a></p>
+<p>Figure 13: kaconfigget - Read Keepalive Configuration</p>
+</section>
+<section id="kastart-starts-keepalive-shadow-service">
+<h2>kastart – Starts keepalive/shadow Service<a class="headerlink" href="#kastart-starts-keepalive-shadow-service" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id11">
+<caption><span class="caption-text">Table 23: wakeupreasoncls - command, parameters and responses</span><a class="headerlink" href="#id11" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Co
+mmand</strong></p></th>
+<th class="head"><p>conmgr kastart</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Param
+eters</strong></p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Res
+ponse</strong></p></td>
+<td><p>Keepalive start: success/fail</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example: ./conmgr kastart.</p>
+<p><a class="reference internal" href="../../../../_images/image111.jpeg"><img alt="image15" src="../../../../_images/image111.jpeg" style="width: 7.42222in; height: 1.84861in;" /></a></p>
+<p>Figure 14: kastart - Start Sending Keepalive to Server</p>
+</section>
+<section id="kastop-stops-keepalive-shadow-service">
+<h2>kastop – Stops keepalive/shadow Service<a class="headerlink" href="#kastop-stops-keepalive-shadow-service" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id12">
+<caption><span class="caption-text">Table 24: autoscanenable - command, parameters and responses</span><a class="headerlink" href="#id12" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Co
+mmand</strong></p></th>
+<th class="head"><p>conmgr kastop</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Param
+eters</strong></p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Res
+ponse</strong></p></td>
+<td><p>Keepalive stop: success/fail</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example: ./conmgr kastop.</p>
+<p><a class="reference internal" href="../../../../_images/image121.jpeg"><img alt="image16" src="../../../../_images/image121.jpeg" style="width: 7.37708in; height: 1.76458in;" /></a></p>
+<p>Figure 15: kastop - Stop Sending Keepalive to Server</p>
+</section>
+<section id="kadel-deletes-keepalive-shadow-service-configuration">
+<h2>kadel – Deletes keepalive/shadow Service Configuration<a class="headerlink" href="#kadel-deletes-keepalive-shadow-service-configuration" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id13">
+<caption><span class="caption-text">Table 25: autoscandisable - command, parameters and responses</span><a class="headerlink" href="#id13" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Co
+mmand</strong></p></th>
+<th class="head"><p>conmgr kadel</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Param
+eters</strong></p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Res
+ponse</strong></p></td>
+<td><p>Keepalive conf delete: “success/failed”</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example: ./conmgr kadel.</p>
+<p><a class="reference internal" href="../../../../_images/image132.jpeg"><img alt="image17" src="../../../../_images/image132.jpeg" style="width: 7.42847in; height: 1.93403in;" /></a></p>
+<p>Figure 16: kadel - Delete Keepalive Configuration</p>
+</section>
+<section id="status-gets-dual-stack-status">
+<h2>status – Gets Dual-Stack Status<a class="headerlink" href="#status-gets-dual-stack-status" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id14">
+<caption><span class="caption-text">Table 26: shutdown - command, parameters and responses</span><a class="headerlink" href="#id14" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Co
+mmand</strong></p></th>
+<th class="head"><p>conmgr status</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Param
+eters</strong></p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Res
+ponse</strong></p></td>
+<td><p>The status command respond contains following information:</p>
+<ul class="simple">
+<li><p>mode: STA. 0=STA</p></li>
+<li><p>status: 1=associated/0=not associated</p></li>
+<li><p>ssid: SSID of the connected network</p></li>
+<li><p>bssid: BSSID of the connected network</p></li>
+<li><p>sta-mac – station mac address</p></li>
+<li><p>channel: Wi-Fi channel</p></li>
+<li><p>rssi: Estimated RSSI for the station</p></li>
+<li><p>IPv4 address: IP address of the connected network</p></li>
+<li><p>subnet mask: Netmask, as big-endian integer</p></li>
+<li><p>default gateway: default route, as big-endian integer</p></li>
+<li><p>dns: DNS server, as big-endian integer</p></li>
+<li><p>Security: WPA/WPA2 personal security</p></li>
+<li><p>heap remaining: Heap memory remaining</p></li>
+<li><p>Talaria TWO powersave: Power save status</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example: ./conmgr status.</p>
+<p><a class="reference internal" href="../../../../_images/image1412.png"><img alt="image18" src="../../../../_images/image1412.png" style="width: 0.8in; height: 0.125in;" /></a><a class="reference internal" href="../../../../_images/image1510.png"><img alt="image19" src="../../../../_images/image1510.png" style="width: 7.39792in; height: 2.42014in;" /></a></p>
+<p>Figure 17: status: Get Status Information</p>
+</section>
+<section id="wakeupconfig-configures-host-wakeup-pin">
+<h2>wakeupconfig – Configures Host Wakeup PIN<a class="headerlink" href="#wakeupconfig-configures-host-wakeup-pin" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id15">
+<caption><span class="caption-text">Table 27: kasecconfig - command, parameters and responses</span><a class="headerlink" href="#id15" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Co
+mmand</strong></p></th>
+<th class="head"><p>conmgr wakeupconfig &lt;wakeup pin&gt; &lt;wakeup level&gt; &lt;pin
+direction&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Param
+eters</strong></p></td>
+<td><p><em>wakeup pin</em>: Wake up pin number</p>
+<p><em>wakeup level</em>: Host wakeup level (0/1)</p>
+<p><em>pin direction</em>: 0 – output (default) / 1 – input</p>
+<p><strong>Note</strong>: If no value is provided to <em>pin direction</em>, 0 is
+taken as default.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Res
+ponse</strong></p></td>
+<td><p>Wakeup configuration: success/fail</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: To use wakeupconfig on a Host platform with MCU, GPIO14 and
+GPIO21 should be configured as described below:</p>
+<ol class="arabic simple">
+<li><p><em>./conmgr wakeupconfig 14 1 1</em></p></li>
+</ol>
+<p>where,</p>
+<ol class="loweralpha simple">
+<li><p>wakeup pin=14</p></li>
+<li><p>wakeup level=1</p></li>
+<li><p>pin direction=1</p></li>
+</ol>
+<ol class="arabic simple" start="2">
+<li><p><em>./conmgr wakeupconfig 21 0</em></p></li>
+</ol>
+<p>where,</p>
+<ol class="loweralpha simple">
+<li><p>wakeup pin=21</p></li>
+<li><p>wakeup level=0</p></li>
+</ol>
+<p>Example: Configure gpio20 on Talaria TWO’s end as wakeup with high
+state.</p>
+<table class="docutils align-default" id="id16">
+<caption><span class="caption-text">Table 28: wpmconfig - command, parameters and responses</span><a class="headerlink" href="#id16" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>./conmgr wakeupconfig 20 1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../../../_images/image1610.png"><img alt="image20" src="../../../../_images/image1610.png" style="width: 7.44375in; height: 2.26875in;" /></a></p>
+<p>Figure 18: wakeupconfig - Configure Host Wakeup using GPIO</p>
+</section>
+<section id="getwakeupreason-gets-host-wakeup-reason">
+<h2>getwakeupreason – Gets Host Wakeup Reason<a class="headerlink" href="#getwakeupreason-gets-host-wakeup-reason" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id17">
+<caption><span class="caption-text">Table 29: powersave - command, parameters and responses</span><a class="headerlink" href="#id17" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Co
+mmand</strong></p></th>
+<th class="head"><p>conmgr getwakeupreason</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Param
+eters</strong></p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Res
+ponse</strong></p></td>
+<td><p>Valid wakeup reasons are as follows:</p>
+<ul class="simple">
+<li><p>Network wakeup</p></li>
+<li><p>TCP timeout</p></li>
+<li><p>TCP fin</p></li>
+<li><p>AP Disconnect</p></li>
+<li><p>PIR</p></li>
+<li><p>Button</p></li>
+<li><p>Autoscan</p></li>
+<li><p>DHCP renewal</p></li>
+<li><p>Connected to network</p></li>
+<li><p>Wakeup gpio1</p></li>
+<li><p>Wakeup gpio2</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example: ./conmgr getwakeupreason</p>
+<p><a class="reference internal" href="../../../../_images/image171.jpeg"><img alt="image21" src="../../../../_images/image171.jpeg" style="width: 7.38125in; height: 2.36944in;" /></a></p>
+<p>Figure 19: getwakeupreason - Get Wakeup Reason</p>
+</section>
+<section id="wakeupreasoncls-clears-host-wakeup-reason">
+<h2>wakeupreasoncls – Clears Host Wakeup Reason<a class="headerlink" href="#wakeupreasoncls-clears-host-wakeup-reason" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id18">
+<caption><span class="caption-text">Table 30: version - command, parameters and responses</span><a class="headerlink" href="#id18" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Co
+mmand</strong></p></th>
+<th class="head"><p>conmgr wakeupreasoncls</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Param
+eters</strong></p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Res
+ponse</strong></p></td>
+<td><p>Wakeup reason clear: success</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example: ./conmgr wakeupreasoncls</p>
+<p><a class="reference internal" href="../../../../_images/image181.jpeg"><img alt="image22" src="../../../../_images/image181.jpeg" style="width: 7.38125in; height: 1.89097in;" /></a></p>
+<p>Figure 20: wakeupreasoncls - Clear Wakeup Reason</p>
+</section>
+<section id="autoscanenable-enables-autoscan-operation">
+<h2>autoscanenable – Enables Autoscan Operation<a class="headerlink" href="#autoscanenable-enables-autoscan-operation" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id19">
+<caption><span class="caption-text">Table 31: cbenable - command, parameters and responses</span><a class="headerlink" href="#id19" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Co
+mmand</strong></p></th>
+<th class="head"><p>conmgr autoscanenable&lt;interval&gt; &lt;ssid&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Param
+eters</strong></p></td>
+<td><p><em>interval</em>: Scan interval in seconds.</p>
+<p><em>ssid</em>: SSID to scan for.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Res
+ponse</strong></p></td>
+<td><p>Autoscan Enabled/Autoscan Enable: failed</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example: Set the scan interval to 1 second for ssid ct_asus.</p>
+<table class="docutils align-default" id="id20">
+<caption><span class="caption-text">Table 32: fos - command, parameters and responses</span><a class="headerlink" href="#id20" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>./conmgr autoscanenable 1 ct_asus</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../../../_images/image191.jpeg"><img alt="image23" src="../../../../_images/image191.jpeg" style="width: 7.43056in; height: 1.88194in;" /></a></p>
+<p>Figure 21: autoscanenable - Enable Autoscan</p>
+</section>
+<section id="autoscandisable-disables-autoscan-operation">
+<h2>autoscandisable – Disables Autoscan Operation<a class="headerlink" href="#autoscandisable-disables-autoscan-operation" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id21">
+<caption><span class="caption-text">Table 33: hcidevname - command, parameters and responses</span><a class="headerlink" href="#id21" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>C
+ommand</strong></p></th>
+<th class="head"><p>conmgr autoscandisable</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Para
+meters</strong></p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Re
+sponse</strong></p></td>
+<td><p>Autoscan Disabled/Autoscan Disable: failed</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example: ./conmgr autoscandisable.</p>
+<p><a class="reference internal" href="../../../../_images/image20.jpeg"><img alt="image24" src="../../../../_images/image20.jpeg" style="width: 7.39028in; height: 1.93472in;" /></a></p>
+<p>Figure 22: autoscandisable - Disable Autoscan</p>
+</section>
+<section id="shutdown-triggers-host-shutdown">
+<h2>shutdown – Triggers Host Shutdown<a class="headerlink" href="#shutdown-triggers-host-shutdown" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id22">
+<caption><span class="caption-text">Table 34: kasecconfigget - command, parameters and responses</span><a class="headerlink" href="#id22" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Command</strong></p></th>
+<th class="head"><p>conmgr shutdown</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Parameters</strong></p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Response</strong></p></td>
+<td><p>Shutdown: success/failed</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example: ./conmgr shutdown.</p>
+<p><a class="reference internal" href="../../../../_images/image211.jpeg"><img alt="image25" src="../../../../_images/image211.jpeg" style="width: 7.38958in; height: 1.88194in;" /></a></p>
+<p>Figure 23: shutdown - Host shutdown</p>
+</section>
+<section id="kasecconfig-configures-keepalive-security-parameters">
+<h2>kasecconfig – Configures Keepalive Security Parameters<a class="headerlink" href="#kasecconfig-configures-keepalive-security-parameters" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id23">
+<caption><span class="caption-text">Table 35: wakeupcfgget - command, parameters and responses</span><a class="headerlink" href="#id23" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>C
+ommand</strong></p></th>
+<th class="head"><p>conmgr kasecconfig &lt;config&gt; &lt;certificate name&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Para
+meters</strong></p></td>
+<td><p><em>config</em>: Configuration options:</p>
+<p>1-&gt; enable</p>
+<p>0-&gt; disable</p>
+<p><em>certificate name</em>: TLS certificate name</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Re
+sponse</strong></p></td>
+<td><p>Keep-alive sec config: success/failed</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example: Enable keepalive secure configuration with the certificate name
+cert.pem.</p>
+<table class="docutils align-default" id="id24">
+<caption><span class="caption-text">Table 36: autoscancfgget - command, parameters and responses</span><a class="headerlink" href="#id24" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>./conmgr kasecconfig 1 cert.pem</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../../../_images/image221.jpeg"><img alt="image26" src="../../../../_images/image221.jpeg" style="width: 7.41111in; height: 1.68889in;" /></a></p>
+<p>Figure 24: kasecconfig - Enable Keepalive TLS</p>
+<p><strong>Certificate storing method for kasecconfig:</strong></p>
+<table class="docutils align-default" id="id25">
+<caption><span class="caption-text">Table 37: wpmconfigget- command, parameters and response</span><a class="headerlink" href="#id25" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>sudo openocd -s conf/ -f ftdi_swd.cfg -f t2_swd.cfg</p>
+<p>sudo ./script/arden.py ./apps/gordon-jtag/bin/gordon-jtag.elf</p>
+<p>sudo python3 ./script/gdbrun.py
+./apps/gordon-jtag/bin/gordon-jtag.elf –noconsole –nowait</p>
+<p>./script/storage.py –device localhost:10000 write
+~/Downloads/www-google-com.pem /data/cert/www-google-com.pem</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="wpmconfig-configures-wlan-power-management">
+<h2>wpmconfig – Configures WLAN Power Management<a class="headerlink" href="#wpmconfig-configures-wlan-power-management" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id26">
+<caption><span class="caption-text">Table 38: tos - command, parameters and response</span><a class="headerlink" href="#id26" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Co
+mmand</strong></p></th>
+<th class="head"><p>conmgr wpmconfig &lt;listen_interval&gt; &lt;traffic_timeout&gt;
+&lt;pm_options&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Param
+eters</strong></p></td>
+<td><p><em>listen_interval</em>: Listen to each listen_interval beacon.</p>
+<p><em>traffic_tmo</em>: Traffic timeout in milliseconds. The Wi-Fi
+interface will go to Wi-Fi power save if no traffic has
+occurred for this time.</p>
+<p><em>pm_options</em> : Power save options:</p>
+<ol class="arabic simple">
+<li><p>ps-poll(1): Send ps poll if a beacon was missed.</p></li>
+<li><p>Dynamic_listen_interval(2): Listen to each beacon if
+there has been traffic recently.</p></li>
+<li><p>sta_rx_nap(4): Turn off receiver for uninteresting
+frames/station.</p></li>
+<li><p>sta_bcast_only(8): Do not receive multicast frames that
+are not broadcasted.</p></li>
+<li><p>tx_ps(16): Send outgoing frames without leaving Wi-Fi
+power save</p></li>
+<li><p>mcast_ignore(32): Ignore the multicast flag in beacons.</p></li>
+<li><p>dtim_only(64): Listen to only DTIM beacons</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Res
+ponse</strong></p></td>
+<td><p>Talaria TWO wcm pm config: success/failed</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example: Configure the listen interval to 3, traffic timeout to 12ms and
+enable ps-poll.</p>
+<table class="docutils align-default" id="id27">
+<caption><span class="caption-text">Table 39: disp_pkt_info - command, parameters and response</span><a class="headerlink" href="#id27" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>./conmgr wpmconfig 3 12 1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../../../_images/image1412.png"><img alt="image27" src="../../../../_images/image1412.png" style="width: 0.8in; height: 0.125in;" /></a><a class="reference internal" href="../../../../_images/image1412.png"><img alt="image28" src="../../../../_images/image1412.png" style="width: 0.8in; height: 0.125in;" /></a><a class="reference internal" href="../../../../_images/image2310.png"><img alt="image29" src="../../../../_images/image2310.png" style="width: 7.40764in; height: 3.27778in;" /></a></p>
+<p>Figure 25: wpmconfig – Configure WLAN power management</p>
+</section>
+<section id="powersave-suspend-enable-disable-on-talaria-two">
+<h2>powersave – Suspend Enable/Disable on Talaria TWO<a class="headerlink" href="#powersave-suspend-enable-disable-on-talaria-two" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id28">
+<caption><span class="caption-text">Table 40: disp_pkt_info - command, parameters and response</span><a class="headerlink" href="#id28" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>C
+ommand</strong></p></th>
+<th class="head"><p>conmgr powersave &lt;Enable/Disable&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Para
+meters</strong></p></td>
+<td><p>Enable: 1</p>
+<p>Disable:0</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Re
+sponse</strong></p></td>
+<td><p>powersave: “success/failed”</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example: Disable and enable suspend mode on Talaria TWO.</p>
+<table class="docutils align-default" id="id29">
+<caption><span class="caption-text">Table 41: provstart - command, parameters and response</span><a class="headerlink" href="#id29" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>./conmgr powersave 0</p>
+<p>./conmgr powersave 1</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../../../_images/image246.png"><img alt="image30" src="../../../../_images/image246.png" style="width: 7.42917in; height: 5.07569in;" /></a></p>
+<p>Figure 26: powersave – Suspend disable/enable on Talaria TWO</p>
+</section>
+<section id="version-gets-version-information">
+<h2>version – Gets Version Information<a class="headerlink" href="#version-gets-version-information" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id30">
+<caption><span class="caption-text">Table 42: pfcadd - command, parameters and responses</span><a class="headerlink" href="#id30" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>**
+Command**</p></th>
+<th class="head"><p>conmgr version</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Par
+ameters</strong></p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>R
+esponse</strong></p></td>
+<td><p>version get: success/failed</p>
+<p>Displays version information such as version of
+tunadapter, embedded app, conmgr , dual_stack</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example: ./conmgr version.</p>
+<p><a class="reference internal" href="../../../../_images/image256.png"><img alt="image31" src="../../../../_images/image256.png" style="width: 7.35556in; height: 2.63056in;" /></a></p>
+<p>Figure 27: version - Get Version Information</p>
+</section>
+<section id="cbenable-enable-connect-disconnect-callback">
+<h2>cbenable – Enable Connect/Disconnect Callback<a class="headerlink" href="#cbenable-enable-connect-disconnect-callback" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id31">
+<caption><span class="caption-text">Table 43: pfcdel - command, parameters and responses</span><a class="headerlink" href="#id31" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>C
+ommand</strong></p></th>
+<th class="head"><p>conmgr cbenable</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Para
+meters</strong></p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Re
+sponse</strong></p></td>
+<td><p>cbenable: “success/failed”</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example: ./conmgr cbenable.</p>
+<p><a class="reference internal" href="../../../../_images/image266.png"><img alt="image32" src="../../../../_images/image266.png" style="width: 7.30625in; height: 2.4625in;" /></a></p>
+<p>Figure 28: cbenable – Enable connect/disconnect callback</p>
+</section>
+<section id="fos-upgrade-the-wlan-firmware-from-host">
+<h2>fos – Upgrade the WLAN firmware from Host<a class="headerlink" href="#fos-upgrade-the-wlan-firmware-from-host" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id32">
+<caption><span class="caption-text">Table 44: pfcdel-id - command, parameters and responses</span><a class="headerlink" href="#id32" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>C
+ommand</strong></p></th>
+<th class="head"><p>conmgr &lt;fos&gt; &lt;elf_path&gt; &lt;hash&gt; &lt;auto_reset&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Para
+meters</strong></p></td>
+<td><p><em>elf_path</em> (must): Path of the Dual-Stack ELF</p>
+<p><em>hash</em> (optional): sha256 hash of the elf provided
+through elf_path. Use –no_hash to skip this argument</p>
+<p><em>auto_reset</em> (optional): 1 – Talaria TWO is reset
+automatically after Successful Upgrade</p>
+<p>0 - Host needs to reset Talaria TWO after Successful
+Upgrade</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Re
+sponse</strong></p></td>
+<td><p>Firmware upgrade: “success/failed”</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example: Upgrading WLAN firmware from Host</p>
+<p><a class="reference internal" href="../../../../_images/image276.png"><img alt="image33" src="../../../../_images/image276.png" style="width: 1.93819in; height: 0.16181in;" /></a><a class="reference internal" href="../../../../_images/image276.png"><img alt="image34" src="../../../../_images/image276.png" style="width: 1.93819in; height: 0.16181in;" /></a><a class="reference internal" href="../../../../_images/image286.png"><img alt="image35" src="../../../../_images/image286.png" style="width: 7.48056in; height: 1.74028in;" /></a></p>
+<p>Figure 29: fos – Upgrade the WLAN firmware from Host</p>
+<p><strong>Note</strong>: Once the firmware upgrade is successfully completed, reset the
+host to enable the tunadapter to re-establish communication with Talaria
+TWO.</p>
+</section>
+<section id="hcidevname-device-name">
+<h2>hcidevname – Device Name<a class="headerlink" href="#hcidevname-device-name" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id33">
+<caption><span class="caption-text">Table 45: pfcquery - command, parameters and responses</span><a class="headerlink" href="#id33" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>C
+ommand</strong></p></th>
+<th class="head"><p>conmgr hcidevname</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Para
+meters</strong></p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Re
+sponse</strong></p></td>
+<td><p>HCI device name is displayed</p>
+<p><strong>Note</strong>: Supported only on host platforms with SPI
+interface</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example: ./conmgr hcidevname.</p>
+<p><a class="reference internal" href="../../../../_images/image1412.png"><img alt="image36" src="../../../../_images/image1412.png" style="width: 0.8in; height: 0.125in;" /></a><a class="reference internal" href="../../../../_images/image1412.png"><img alt="image37" src="../../../../_images/image1412.png" style="width: 0.8in; height: 0.125in;" /></a><a class="reference internal" href="../../../../_images/image294.png"><img alt="image38" src="../../../../_images/image294.png" style="width: 7.39792in; height: 1.40764in;" /></a></p>
+<p>Figure 30: hcidevname – Device name</p>
+</section>
+<section id="kasecconfigget-get-keepalive-security-parameters">
+<h2>kasecconfigget – Get Keepalive Security Parameters<a class="headerlink" href="#kasecconfigget-get-keepalive-security-parameters" title="Permalink to this heading"></a></h2>
+<p>Get secure configuration, the information of certificate name and enable
+security status will be resulted. If security is disabled (sec_enable=0)
+then the certificate name will be NULL.</p>
+<table class="docutils align-default" id="id34">
+<caption><span class="caption-text">Table 46: pfcdir - command, parameters and responses</span><a class="headerlink" href="#id34" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>C
+ommand</strong></p></th>
+<th class="head"><p>conmgr kasecconfigget</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Para
+meters</strong></p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Re
+sponse</strong></p></td>
+<td><p>Keepalive security parameters are displayed followed by a
+success message.</p>
+<p><strong>Note</strong>: If security is disabled (sec_enable=0), the
+certificate name will be NULL.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example: ./conmgr kaseccconfigget.</p>
+<p><a class="reference internal" href="../../../../_images/image1412.png"><img alt="image39" src="../../../../_images/image1412.png" style="width: 0.8in; height: 0.125in;" /></a><a class="reference internal" href="../../../../_images/image1412.png"><img alt="image40" src="../../../../_images/image1412.png" style="width: 0.8in; height: 0.125in;" /></a><a class="reference internal" href="../../../../_images/image1412.png"><img alt="image41" src="../../../../_images/image1412.png" style="width: 0.8in; height: 0.125in;" /></a><a class="reference internal" href="../../../../_images/image304.png"><img alt="image42" src="../../../../_images/image304.png" style="width: 7.39236in; height: 2.04444in;" /></a></p>
+<p>Figure 31: kasecconfigget - Get keepalive security parameters</p>
+</section>
+<section id="wakeupcfgget-get-wakeup-configuration">
+<h2>wakeupcfgget – Get Wakeup Configuration<a class="headerlink" href="#wakeupcfgget-get-wakeup-configuration" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>C
+ommand</strong></p></th>
+<th class="head"><p>conmgr wakeupcfgget</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Para
+meters</strong></p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Re
+sponse</strong></p></td>
+<td><p>Wakeup configuration information followed by success
+message.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example: ./ conmgr wakeupcfgget.</p>
+<p><a class="reference internal" href="../../../../_images/image240.png"><img alt="image43" src="../../../../_images/image240.png" style="width: 1.14177in; height: 0.21669in;" /></a><a class="reference internal" href="../../../../_images/image240.png"><img alt="image44" src="../../../../_images/image240.png" style="width: 1.14177in; height: 0.21669in;" /></a><a class="reference internal" href="../../../../_images/image3111.png"><img alt="image45" src="../../../../_images/image3111.png" style="width: 7.48031in; height: 2.42237in;" /></a></p>
+<p>Figure 32: wakeupcfgget - Get wakeup configuration</p>
+</section>
+<section id="autoscancfgget-get-autoscan-configuration-status">
+<h2>autoscancfgget – Get autoscan Configuration Status<a class="headerlink" href="#autoscancfgget-get-autoscan-configuration-status" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>**
+Command**</p></th>
+<th class="head"><p>conmgr autoscancfgget</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Par
+ameters</strong></p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>R
+esponse</strong></p></td>
+<td><p>Get autoscan status: success/fail message followed by
+the following parameters:</p>
+<ul class="simple">
+<li><p>interval: Scan interval in seconds</p></li>
+<li><p>ssid: SSID to scan</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example: ./conmgr autoscancfgget.</p>
+<p><a class="reference internal" href="../../../../_images/image240.png"><img alt="image46" src="../../../../_images/image240.png" style="width: 1.14177in; height: 0.21669in;" /></a><a class="reference internal" href="../../../../_images/image240.png"><img alt="image47" src="../../../../_images/image240.png" style="width: 1.14177in; height: 0.21669in;" /></a><a class="reference internal" href="../../../../_images/image324.png"><img alt="image48" src="../../../../_images/image324.png" style="width: 7.48031in; height: 2.57032in;" /></a></p>
+<p>Figure 33: autoscancfgget - Get autoscan configuration status</p>
+</section>
+<section id="wpmconfigget-get-wlan-power-management-configuration">
+<h2>wpmconfigget – Get WLAN Power Management Configuration<a class="headerlink" href="#wpmconfigget-get-wlan-power-management-configuration" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>C
+ommand</strong></p></th>
+<th class="head"><p>conmgr wpmconfigget</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Para
+meters</strong></p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Re
+sponse</strong></p></td>
+<td><p>Provides WLAN power management configuration such as:</p>
+<ul class="simple">
+<li><p>listen_interval: Listen interval in units of beacon
+intervals.</p></li>
+<li><p>traffic_tmo: Traffic timeout in milliseconds. The
+Wi-Fi interface will go to Wi-Fi power save in case of
+no traffic for this duration.</p></li>
+<li><p>pm_options : Power save options:</p>
+<ul>
+<li><p>ps-poll(1): Send ps poll if a beacon was missed</p></li>
+<li><p>dynamic_listen_interval(2): Listen to each beacon
+if there has been traffic recently</p></li>
+<li><p>sta_rx_nap(4): Turn off receiver for uninteresting
+frames/station</p></li>
+<li><p>sta_bcast_only(8): Do not receive multicast frames
+that are not broadcasted</p></li>
+<li><p>tx_ps(16): Send outgoing frames without leaving
+Wi-Fi power save</p></li>
+<li><p>mcast_ignore(32): Ignore the multicast flag in
+beacons.</p></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example : ./ conmgr wpmconfigget.</p>
+<p><a class="reference internal" href="../../../../_images/image1412.png"><img alt="image49" src="../../../../_images/image1412.png" style="width: 0.8in; height: 0.125in;" /></a><a class="reference internal" href="../../../../_images/image1412.png"><img alt="image50" src="../../../../_images/image1412.png" style="width: 0.8in; height: 0.125in;" /></a><a class="reference internal" href="../../../../_images/image333.png"><img alt="image51" src="../../../../_images/image333.png" style="width: 7.41806in; height: 3.42014in;" /></a></p>
+<p>Figure 34: wpmconfigget - Get WLAN power management configuration</p>
+</section>
+<section id="tos-set-tos-parameter-for-network-packets">
+<h2>tos – Set TOS Parameter for Network Packets<a class="headerlink" href="#tos-set-tos-parameter-for-network-packets" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>C
+ommand</strong></p></th>
+<th class="head"><p>conmgr tos &lt;tos_value&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Para
+meters</strong></p></td>
+<td><p>tos_value: Following are the values which can be used for
+setting tos:</p>
+<blockquote>
+<div><p>tos=160 → Video</p>
+<p>tos=192 → Voice</p>
+<p>tos=0 → Best Effort</p>
+<p>tos=32 → BK (Background)</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Re
+sponse</strong></p></td>
+<td><p>TOS set: success</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example : ./ conmgr tos 160.</p>
+<p><a class="reference internal" href="../../../../_images/image343.png"><img alt="image52" src="../../../../_images/image343.png" style="width: 1.72569in; height: 0.26736in;" /></a><a class="reference internal" href="../../../../_images/image353.png"><img alt="image53" src="../../../../_images/image353.png" style="width: 7.34583in; height: 0.83194in;" /></a></p>
+<p>Figure 35: tos - Set tos parameter for network packets</p>
+</section>
+<section id="disp-pkt-info-display-incoming-and-outgoing-packet-information">
+<h2>disp_pkt_info – Display Incoming and Outgoing Packet Information<a class="headerlink" href="#disp-pkt-info-display-incoming-and-outgoing-packet-information" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>C
+ommand</strong></p></th>
+<th class="head"><p>conmgr disp_pkt_info&lt;disp_option&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Para
+meters</strong></p></td>
+<td><p>disp_option: Following are the values for different
+display options:</p>
+<p>0=Do not display</p>
+<p>1=Display at Host only</p>
+<p>2=Display at Talaria TWO only</p>
+<p>3=Display at Host and Talaria TWO</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Re
+sponse</strong></p></td>
+<td><p>disp_pkt_info: success</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example : ./ conmgr disp_pkt_info 0</p>
+<p><a class="reference internal" href="../../../../_images/image343.png"><img alt="image54" src="../../../../_images/image343.png" style="width: 1.45903in; height: 0.22639in;" /></a><a class="reference internal" href="../../../../_images/image363.png"><img alt="image55" src="../../../../_images/image363.png" style="width: 7.34653in; height: 0.95347in;" /></a></p>
+<p>Figure 36: disp_pkt_info: Display incoming and outgoing packet
+information</p>
+</section>
+<section id="kill-tun-gracefully-kills-the-tunadapter">
+<h2>kill-tun – Gracefully Kills the Tunadapter<a class="headerlink" href="#kill-tun-gracefully-kills-the-tunadapter" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>C
+ommand</strong></p></th>
+<th class="head"><p>conmgr kill-tun</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Para
+meters</strong></p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Re
+sponse</strong></p></td>
+<td><p>tun-kill: success</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example : ./ conmgr kill-tun</p>
+<p><a class="reference internal" href="../../../../_images/image343.png"><img alt="image56" src="../../../../_images/image343.png" style="width: 1.19236in; height: 0.18472in;" /></a><a class="reference internal" href="../../../../_images/image276.png"><img alt="image57" src="../../../../_images/image276.png" style="width: 1.19236in; height: 0.21875in;" /></a><a class="reference internal" href="../../../../_images/image373.png"><img alt="image58" src="../../../../_images/image373.png" style="width: 7.34653in; height: 1.60764in;" /></a></p>
+<p>Figure 37: kill-tun: Gracefully kills the tunadapter</p>
+</section>
+<section id="provstart-wi-fi-provisioning-over-ble">
+<h2>provstart – Wi-Fi Provisioning over BLE<a class="headerlink" href="#provstart-wi-fi-provisioning-over-ble" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>C
+ommand</strong></p></th>
+<th class="head"><p>./conmgr provstart &lt;device_name&gt; &lt;manufacturer_name&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Para
+meters</strong></p></td>
+<td><p><em>device_name</em>: Name of the device for provisioning</p>
+<p><em>manufacturer_name</em>: Device manufacturer name</p>
+<p><strong>Note</strong>:</p>
+<ul class="simple">
+<li><p>device_name and manufacturer_name are mandatory
+arguments, without providing which the BLE
+advertisement or scanning feature will not work.</p></li>
+<li><p>If the device is connected to another Wi-Fi network
+previously, ensure it is disconnected from the network
+before running provstart.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Re
+sponse</strong></p></td>
+<td><p>Success: Prov_success</p>
+<p>Failure: Prov_fail</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Once the provstart command is passed, the specified device begins
+advertising which can be observed using the BLE provisioning mobile
+application.</p>
+<p>For more details on using the BLE provisioning mobile application, refer
+section: <em>Running the Application using Android or iOS app</em> from
+<em>Example_using_Provisioning.pdf</em> (<em>sdk_x.y\examples\prov\doc</em>).</p>
+<p><strong>Note</strong>: x and y in sdk_x.y refer to the SDK package release version.</p>
+<p>Once provisioning is a success, the selected SSID and passphrase is
+displayed on the console. Pass the <a class="reference external" href="#connect-connects-to-wi-fi-network">./conmgr
+connect</a> command with the same
+SSID and passphrase. Connection status can be determined by passing the
+<a class="reference external" href="#status-gets-dual-stack-status">./conmgr status</a> command.</p>
+<p>Example : ./ conmgr provstart Inno_provisioning Innophase</p>
+<p><a class="reference internal" href="../../../../_images/image383.png"><img alt="image59" src="../../../../_images/image383.png" style="width: 7.48056in; height: 4.39097in;" /></a></p>
+<p>Figure 38: provstart – Wi-Fi provisioning over BLE</p>
+</section>
+<section id="add-adds-packet-forward-configuration-and-prints-rule-id">
+<h2>add - Adds packet forward configuration and prints rule ID<a class="headerlink" href="#add-adds-packet-forward-configuration-and-prints-rule-id" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Co
+mmand</strong></p></th>
+<th class="head"><p>conmgr pfcadd &lt;ip_type&gt; &lt;remote_ip&gt; &lt;remote_port&gt;
+&lt;remote_port_start&gt; &lt;remote_port_end&gt;
+&lt;local_port&gt;&lt;local_port_start&gt; &lt;local_port_end&gt; &lt;protocol&gt;
+&lt;direction&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Param
+eters</strong></p></td>
+<td><ul class="simple">
+<li><p>ip type : IP type (0-ipv4, 1-ipv6)</p></li>
+<li><p>remote_ip : Remote IP address</p></li>
+<li><p>remote_port : Remote port address</p></li>
+<li><p>remote_port_start : Remote port start address. Used to
+specify the port range</p></li>
+<li><p>remote_port_end : Remote port end address. Used to
+specify the port range</p></li>
+<li><p>local_port : Local (source) port address</p></li>
+<li><p>local_port_start : Local port start address. Used to
+specify the port range</p></li>
+<li><p>local_port_end : Local port end address. Used to
+specify the port range</p></li>
+<li><p>protocol : Protocol to apply the rule. Standard
+protocol values are used</p></li>
+</ul>
+<p>(0-ignore protocol filter, 1- ICMP, 2- IGMP, 6-TCP,
+17-UDP)</p>
+<ul class="simple">
+<li><p>direction : The direction to forward the packet.</p></li>
+</ul>
+<p>Whether to Talaria TWO (0) or Host (1)</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Res
+ponse</strong></p></td>
+<td><p>rule-id: 6</p>
+<p>Success/Failure</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example: ./conmgr pfcadd 0 0 0 0 0 0 0 0 6 1</p>
+<p><a class="reference internal" href="../../../../_images/image393.png"><img alt="image60" src="../../../../_images/image393.png" style="width: 1.15069in; height: 0.21736in;" /></a><a class="reference internal" href="../../../../_images/image402.png"><img alt="image61" src="../../../../_images/image402.png" style="width: 7.47847in; height: 1.02083in;" /></a></p>
+<p>Figure 39: add - Adds packet forward configuration and prints rule ID</p>
+</section>
+<section id="del-deletes-packet-forward-configuration">
+<h2>del - Deletes packet forward configuration<a class="headerlink" href="#del-deletes-packet-forward-configuration" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Co
+mmand</strong></p></th>
+<th class="head"><p>conmgr pfcdel &lt;ip_type&gt; &lt;remote_ip&gt; &lt;remote_port&gt;
+&lt;remote_port_start&gt; &lt;remote_port_end&gt; &lt;local_port&gt;
+&lt;local_port_start&gt; &lt;local_port_end&gt; &lt;protocol&gt; &lt;direction&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Param
+eters</strong></p></td>
+<td><ul class="simple">
+<li><p>ip type : IP type (0-ipv4, 1-ipv6)</p></li>
+<li><p>remote_ip : Remote IP address</p></li>
+<li><p>remote_port : Remote port address</p></li>
+<li><p>remote_port_start : Remote port start address. Used to
+specify the port range</p></li>
+<li><p>remote_port_end : Remote port end address. Used to
+specify the port range</p></li>
+<li><p>local_port : Local (source) port address</p></li>
+<li><p>local_port_start : Local port start address. Used to
+specify the port range</p></li>
+<li><p>local_port_end : Local port end address. Used to
+specify the port range</p></li>
+<li><p>protocol : Protocol to apply the rule. Standard
+protocol values are used</p></li>
+</ul>
+<p>(0-ignore protocol filter, 1- ICMP, 2- IGMP, 6-TCP,
+17-UDP)</p>
+<ul class="simple">
+<li><p>direction : The direction to forward the packet.</p></li>
+</ul>
+<p>Whether to Talaria TWO(0) or host(1)</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Res
+ponse</strong></p></td>
+<td><p>Success/Failure</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example: ./conmgr pfcdel 0 0 0 0 0 0 0 0 6 1</p>
+<p><a class="reference internal" href="../../../../_images/image393.png"><img alt="image62" src="../../../../_images/image393.png" style="width: 1.15069in; height: 0.21736in;" /></a><a class="reference internal" href="../../../../_images/image402.png"><img alt="image63" src="../../../../_images/image402.png" style="width: 7.47778in; height: 0.90833in;" /></a></p>
+<p>Figure 40: del - Deletes packet forward configuration</p>
+</section>
+<section id="del-id-deletes-packet-forward-configuration-by-providing-rule-id">
+<h2>del-id - Deletes packet forward configuration by providing rule ID<a class="headerlink" href="#del-id-deletes-packet-forward-configuration-by-providing-rule-id" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Co
+mmand</strong></p></th>
+<th class="head"><p>conmgr pfc-del-id &lt;ip_type&gt; &lt;rule_id&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Param
+eters</strong></p></td>
+<td><ul class="simple">
+<li><p>ip type : IP type (0-ipv4, 1-ipv6)</p></li>
+<li><p>rule_id : Rule ID to delete. This is provided by
+configuration <strong>add</strong> operation.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Res
+ponse</strong></p></td>
+<td><p>Success/Failure</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example: ./conmgr pfc-del-id 0 0</p>
+<p><a class="reference internal" href="../../../../_images/image393.png"><img alt="image64" src="../../../../_images/image393.png" style="width: 0.60903in; height: 0.11528in;" /></a><a class="reference internal" href="../../../../_images/image393.png"><img alt="image65" src="../../../../_images/image393.png" style="width: 0.60903in; height: 0.11528in;" /></a><a class="reference internal" href="../../../../_images/image418.png"><img alt="image66" src="../../../../_images/image418.png" style="width: 7.47569in; height: 0.67917in;" /></a></p>
+<p>Figure 41: del-id - Deletes packet forward configuration by providing
+rule ID</p>
+</section>
+<section id="query-prints-forward-configurations">
+<h2>query - Prints forward configurations<a class="headerlink" href="#query-prints-forward-configurations" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Co
+mmand</strong></p></th>
+<th class="head"><p>conmgr pfcquery &lt;ip_type&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Param
+eters</strong></p></td>
+<td><ol class="arabic simple">
+<li><p>ip type : IP type (0-ipv4, 1-ipv6)</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Res
+ponse</strong></p></td>
+<td><p>Packet forward configurations</p>
+<p>JSON format</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example: ./conmgr pfcquery 0</p>
+<p><a class="reference internal" href="../../../../_images/image423.png"><img alt="image67" src="../../../../_images/image423.png" style="width: 0.44236in;" /></a><a class="reference internal" href="../../../../_images/image433.png"><img alt="image68" src="../../../../_images/image433.png" style="width: 7.48056in; height: 0.52153in;" /></a></p>
+<p>Figure 42: query - Prints forward configurations</p>
+</section>
+<section id="dirset-dirget-sets-gets-packet-forward-direction">
+<h2>dirset/dirget - Sets/Gets packet forward direction<a class="headerlink" href="#dirset-dirget-sets-gets-packet-forward-direction" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Co
+mmand</strong></p></th>
+<th class="head"><p>conmgr pfcdirset [direction]</p>
+<p>conmgr pfcdirget</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Param
+eters</strong></p></td>
+<td><ul class="simple">
+<li><p>direction: The direction to forward the packet. Whether
+to Talaria TWO (0) or Host (1). This parameter is valid
+for GET operation.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Res
+ponse</strong></p></td>
+<td><p>pfcdirset: Success/Failure</p>
+<p>pfcdirget: Packet forwarding direction (Talaria TWO or
+Host)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<ol class="arabic simple">
+<li><p>./conmgr pfcdirset 0 ; ./conmgr pfcdirget</p></li>
+<li><p>./conmgr pfcdirset 1 ; ./conmgr pfcdirget</p></li>
+</ol>
+<p><a class="reference internal" href="../../../../_images/image393.png"><img alt="image69" src="../../../../_images/image393.png" style="width: 0.60903in; height: 0.11528in;" /></a><a class="reference internal" href="../../../../_images/image393.png"><img alt="image70" src="../../../../_images/image393.png" style="width: 0.60903in; height: 0.11528in;" /></a><a class="reference internal" href="../../../../_images/image393.png"><img alt="image71" src="../../../../_images/image393.png" style="width: 0.60903in; height: 0.11528in;" /></a><a class="reference internal" href="../../../../_images/image393.png"><img alt="image72" src="../../../../_images/image393.png" style="width: 0.60903in; height: 0.11528in;" /></a><a class="reference internal" href="../../../../_images/image393.png"><img alt="image73" src="../../../../_images/image393.png" style="width: 0.60903in; height: 0.11528in;" /></a><a class="reference internal" href="../../../../_images/image443.png"><img alt="image74" src="../../../../_images/image443.png" style="width: 7.48056in; height: 2.10486in;" /></a></p>
+<p>Figure 43: dirset/dirget - Sets/Gets packet forward direction</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../1.%20Overview/1.%20Interface%20Requirements/2.%20Software%20Requirements.html" class="btn btn-neutral float-left" title="Software Requirements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="2.%20UseCases.html" class="btn btn-neutral float-right" title="Connection Manager UseCases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

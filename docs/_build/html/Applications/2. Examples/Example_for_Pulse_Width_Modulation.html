@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pulse Width Modulation &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Radio and Module Parameters" href="Example_for_Radio_and_Module_Parameters.html" />
+    <link rel="prev" title="MQTT" href="Example_for_MQTT.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Software%20Reference/Software_Reference_Landing_Page.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Tools/Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../Applications%20-%20Landing%20Page.html">Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Applications%20-%20Landing%20Page.html#apps">Apps</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../Applications%20-%20Landing%20Page.html#examples">Examples</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Analog_to_Digital_Converter.html">Analog to Digital Converter (ADC)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Audio_over_I2S.html">Audio Over I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_BLE_WiFi_Bridge.html">BLE WiFi Bridge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Crash_handling.html">Crash Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_I2C.html">I2C</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_LPScan.html">LPS Scan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_MQTT.html">MQTT</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Pulse Width Modulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pwm-specifications">PWM Specifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#block-diagram">Block Diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#building">Building</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pwm-apis">PWM APIs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pwm-application">PWM Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pwm-fade-application">PWM fade Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-application">Running the Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#programming-talaria-two-using-download-tool-pwm-elf">Programming Talaria TWO using Download tool (pwm.elf)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expected-output">Expected output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#programming-talaria-two-using-download-tool-pwm-fade-elf">Programming Talaria TWO using Download tool (pwm_fade.elf)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expected-output-1">Expected output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pwm-test-setup">PWM Test Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Radio_and_Module_Parameters.html">Radio and Module Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Secure_Files.html">Secure Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Socket_Wakeup.html">Socket Wakeup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Software_SPI_Master.html">Software SPI Master</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_Chip_Monitor.html">Chip Monitor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_Filesystem.html">Filesystem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_GPIO.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_SNTP.html">SNTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_WiFi.html">WIFI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_WiFi_Power_Management.html">WiFi Power Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_BLE_5_0.html">BLE 5.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_BLE_Beacons.html">BLE Beacon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Custom_ATCMDLIB.html">Custom ATCMDLIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_HTTP_Client.html">HTTP Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_IFTTT.html">IFTTT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Low_Power_UART.html">Low Power UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_mDNS.html">mDNS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html">Provisioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#scan-data">Scan Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#configuration-data-format">Configuration Data Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#service">Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#characteristics">Characteristics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#application-flow">Application Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#write-the-provisioning-file-into-talaria-two-filesystem">Write the Provisioning File into Talaria TWO Filesystem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#programming-talaria-two-board-with-elf">Programming Talaria TWO board with ELF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#running-the-application-using-android-or-ios-app">Running the Application using Android or iOS App</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Unassociated_Mode.html">Unassociated Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Watchdog_Timer.html">Watchlog Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_WCM_Multi_AP.html">WCM Multi AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Websock_Client.html">Websock Client</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../Applications%20-%20Landing%20Page.html">Applications</a></li>
+      <li class="breadcrumb-item active">Pulse Width Modulation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Applications/2. Examples/Example_for_Pulse_Width_Modulation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pulse-width-modulation">
+<h1>Pulse Width Modulation<a class="headerlink" href="#pulse-width-modulation" title="Permalink to this heading"></a></h1>
+<p>This application note provides details on using the Pulse Width
+Modulation (PWM) peripheral of INP1010/INP1011/INP1012/INP1013 Talaria
+TWO modules. Two different applications - pwm and pwm_fade are described
+in this app note. pwm application generates the PWM frequency of 1MHZ on
+four different channels simultaneously and pwm_fade application
+generates the PWM with varying duty cycles on one of the channels. The
+output of the PWM is connected to LED D1. The brightness of the LED will
+change based on varying duty cycle generated by the pwm_fade
+application.</p>
+<section id="pwm-specifications">
+<h2>PWM Specifications<a class="headerlink" href="#pwm-specifications" title="Permalink to this heading"></a></h2>
+<p>The following table contains the PWM specification of Talaria TWO.</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Table 1: PWM specification details</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>PWM Specification</strong></p></th>
+<th class="head"><p><strong>Details</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Maximum output frequency</p></td>
+<td><p>40MHz</p></td>
+</tr>
+<tr class="row-odd"><td><p>Duty Rate Range</p></td>
+<td><p>0% to 100%</p></td>
+</tr>
+<tr class="row-even"><td><p>Pulse Alignment</p></td>
+<td><p>Left Aligned</p></td>
+</tr>
+<tr class="row-odd"><td><p>Other</p></td>
+<td><p>Audio Capable</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="block-diagram">
+<h2>Block Diagram<a class="headerlink" href="#block-diagram" title="Permalink to this heading"></a></h2>
+<p><a class="reference internal" href="../../_images/image1.jpg"><img alt="image1" src="../../_images/image1.jpg" style="width: 6.69291in; height: 3.92505in;" /></a></p>
+<p>Figure 1: PWM - Block Diagram</p>
+</section>
+<section id="building">
+<h2>Building<a class="headerlink" href="#building" title="Permalink to this heading"></a></h2>
+<p>To build the sample application, execute the following commands:</p>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-text">Table 2: Boot arguments</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>cd examples/pwm</p>
+<p>make</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The make command should generate the pwm.elf and pwm_fade.elf in the out
+directory.</p>
+</section>
+<section id="sample-code-walkthrough">
+<h2>Sample Code Walkthrough<a class="headerlink" href="#sample-code-walkthrough" title="Permalink to this heading"></a></h2>
+<p>In this section, source code of pwm application and pwm_fade
+applications are described. Following APIs are used in these
+applications.</p>
+</section>
+<section id="pwm-apis">
+<h2>PWM APIs<a class="headerlink" href="#pwm-apis" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>pwm_enable(): Creates a new PWM output on a given channel with a
+given period.</p></li>
+<li><p>pwm_destroy(): Releases a previously created PWM output.</p></li>
+<li><p>pwm_channel_cfg_set(): Configures the PWM Channel.</p></li>
+<li><p>pwm_output_cfg_set(): Configures a specific PWM output.</p></li>
+<li><p>pwm_output_cfg_set_array(): Configures multiple outputs.</p></li>
+<li><p>os_gpio_request(): Allocates specified pins and configures them as
+GPIO. The pins are initially set up to be input. The direction of the
+pins can be changed by configuring the specified GPIO pins to be
+outputs.</p></li>
+<li><p>os_gpio_set_mode(): Sets up GPIO pin mode.</p></li>
+<li><p>os_gpio_mux_sel(): Configures GPIO pin mux.</p></li>
+</ol>
+</section>
+<section id="pwm-application">
+<h2>PWM Application<a class="headerlink" href="#pwm-application" title="Permalink to this heading"></a></h2>
+<p>pwm application generates a PWM frequency of 1MHZ, 50% duty cycle on all
+the four channels. In this application, the duty cycle is constant.</p>
+<p>To enable PWM output on a specific GPIO, configure the pin mux using
+os_gpio_mux_sel().</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>os_gpio_mux_sel(GPIO_MUX_SEL_PWM_0P, pwm_port0);</p>
+<p>os_gpio_mux_sel(GPIO_MUX_SEL_PWM_0N, pwm_port2);</p>
+<p>os_gpio_mux_sel(GPIO_MUX_SEL_PWM_1P, pwm_port1);</p>
+<p>os_gpio_mux_sel(GPIO_MUX_SEL_PWM_1N, pwm_port3);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>os_gpio_mux_sel() function sets the PWM functionality to the GPIO
+specified in the argument.</p>
+<p>Next, create a pwm_device using pwm_enable().The struct can be used to
+configure the PWM output ports to operate with a certain duty cycle
+defined in percentage.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>struct pwm_output_cfg cfg[4] = {</p>
+<p>{ .port = 0, .duty_cycle = duty_port_0}, // Ch0 +</p>
+<p>{ .port = 2, .duty_cycle = duty_port_2}, // Ch0 -</p>
+<p>{ .port = 1, .duty_cycle = duty_port_1}, // Ch1 +</p>
+<p>{ .port = 3, .duty_cycle = duty_port_3}, // Ch1 -</p>
+<p>};</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>pwm_enable() generates PWM output on a given channel with a given period
+and width of the pulse.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>pwm_enable(period)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>To set the PWM duty cycle and port, configure pwm_output_cfg structure.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>struct pwm_output_cfg</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pwm-fade-application">
+<h2>PWM fade Application<a class="headerlink" href="#pwm-fade-application" title="Permalink to this heading"></a></h2>
+<p>In the pwm_fade application, PWM output of 1MHZ is generated on one
+channel and PWM duty cycle varies continuously. GPIO is connected to LED
+D1 of the EVB. When the application is loaded on to Talaria TWO, the LED
+D1 is ON and varies the brightness in proportion to the PWM duty cycle.</p>
+<p><strong>Note: Ensure that the jumper J3 on Talaria TWO EVB is connected.</strong></p>
+<p>Application flow:</p>
+<ol class="arabic simple">
+<li><p>Set the port to operate with a 50% duty cycle.</p></li>
+<li><p>Create a 1000ns (1Mhz) long PWM signal.</p></li>
+<li><p>The infinite while loop runs the pwm_fade application.</p></li>
+</ol>
+<p>This section describes configuring the PWM. To create a signal with a
+period of 1000ns and duty cycle of 50% on channel 0, port 0, configure
+the PWM via pwm_enable(), pwm_channel_cfg_set(), and
+pwm_output_cfg_set().</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>#define PWM_PIN 14</p>
+<p>#define PWM_PERIOD 1000</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The PWM pin needs to be requested by os_gpio_request().
+os_gpio_set_mode() sets the operational mode of the pins to the
+GPIO_FUNCTION_MODE as PWM will operate the selected GPIO.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>struct pwm_output_cfg cfg ={ .port = 0, .duty_cycle = 50 };</p>
+<p>os_printf(“PWM demo\n”);</p>
+<p>os_gpio_request(PWM_PIN);</p>
+<p>os_gpio_set_mode(PWM_PIN, GPIO_FUNCTION_MODE);</p>
+<p>os_gpio_mux_sel(GPIO_MUX_SEL_PWM_0, PWM_PIN);</p>
+<p>pwm_enable(PWM_PERIOD);</p>
+<p>if (pwm_channel_cfg_set(0, PWM_CTRL_ENABLE)) {</p>
+<p>pr_err(“Failed to enable channel 0!\n”);</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>To change PWM width, configure the pwm_output_cfg_set parameter.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>struct pwm_output_cfg cfg = { .port = 0, .duty_cycle = 50 };</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="running-the-application">
+<h2>Running the Application<a class="headerlink" href="#running-the-application" title="Permalink to this heading"></a></h2>
+</section>
+<section id="programming-talaria-two-using-download-tool-pwm-elf">
+<h2>Programming Talaria TWO using Download tool (pwm.elf)<a class="headerlink" href="#programming-talaria-two-using-download-tool-pwm-elf" title="Permalink to this heading"></a></h2>
+<p>Program pwm.elf (<em>freertos_sdk_x.y\examples\pwm\bin</em>) using the
+Download tool (<em>freertos_sdk_x.y\pc_tools\Download_Tool\bin</em>):</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool provided with InnoPhase Talaria TWO SDK.</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down.</p></li>
+<li><p>ELF Input: Load the pwm.elf by clicking on Select ELF File.</p></li>
+<li><p>Boot Arguments: Pass the following boot arguments as applicable:</p></li>
+</ol>
+</li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Function</strong></p></th>
+<th class="head"><p><strong>Boot Argument</strong></p></th>
+<th class="head"><p><strong>Example</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Selecting GPIO
+Pin</p></td>
+<td><p>pwm.port_0 ( PWM Channel 0
++)</p></td>
+<td><p>pwm.port_0=18</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>pwm.port_2 ( PWM Channel 0
+-)</p></td>
+<td><p>pwm.port_2=20</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>pwm.port_1 ( PWM Channel 1
++)</p></td>
+<td><p>pwm.port_1=19</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>pwm.port_3 (PWM Channel 1
+-)</p></td>
+<td><p>pwm.port_3=21</p></td>
+</tr>
+<tr class="row-even"><td><p>Common Duty
+Cycle Parameter</p></td>
+<td><p>pwm.duty_cycle ( For all
+PWM Pins)</p></td>
+<td><p>pwm.duty_cycle=50</p></td>
+</tr>
+<tr class="row-odd"><td><p>Individual Duty
+Cycle Parameter</p></td>
+<td><p>pwm.duty0 ( PWM Channel 0
++)</p></td>
+<td><p>pwm.duty0=25</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>pwm.duty1 ( PWM Channel 1
++)</p></td>
+<td><p>pwm.duty1=50</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>pwm.duty2 ( PWM Channel 0
+-)</p></td>
+<td><p>pwm.duty2=75</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>pwm.duty3 ( PWM Channel 1
+-)</p></td>
+<td><p>pwm.duty3=90</p></td>
+</tr>
+<tr class="row-odd"><td><p>Setting PWM
+Period</p></td>
+<td><p>pwm.period</p></td>
+<td><p>pwm.period = 1000</p></td>
+</tr>
+</tbody>
+</table>
+<ol class="loweralpha simple" start="4">
+<li><p>Programming: Prog RAM or Prog Flash as per requirement.</p></li>
+</ol>
+</section>
+<section id="expected-output">
+<h2>Expected output<a class="headerlink" href="#expected-output" title="Permalink to this heading"></a></h2>
+<p>Expected output is displayed on the console:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWAE</p>
+<p>4 DWT comparators, range 0x8000</p>
+<p>Build $Id: git-8bc43d639 $</p>
+<p>hio.baudrate=921600</p>
+<p>flash: Gordon ready!</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWAE</p>
+<p>Build $Id: git-adea113 $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-0083-00a1-ffffffffffff</p>
+<p>Bootargs: hio.transport=0 hio.maxsize=4096 ds.pf_method=2</p>
+<p>PWM demo</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="programming-talaria-two-using-download-tool-pwm-fade-elf">
+<h2>Programming Talaria TWO using Download tool (pwm_fade.elf)<a class="headerlink" href="#programming-talaria-two-using-download-tool-pwm-fade-elf" title="Permalink to this heading"></a></h2>
+<p>Program pwm_fade.elf (<em>freertos_sdk_x.y\examples\pwm\bin</em>) using the
+Download tool:</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool provided with InnoPhase Talaria TWO SDK.</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down.</p></li>
+<li><p>ELF Input: Load the pwm_fade.elf by clicking on Select ELF File.</p></li>
+<li><p>Programming: Prog RAM or Prog Flash as per requirement.</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="expected-output-1">
+<span id="id1"></span><h2>Expected output<a class="headerlink" href="#expected-output-1" title="Permalink to this heading"></a></h2>
+<p>Expected output is displayed on the console:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWAE</p>
+<p>4 DWT comparators, range 0x8000</p>
+<p>Build $Id: git-8bc43d639 $</p>
+<p>hio.baudrate=921600</p>
+<p>flash: Gordon ready!</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWAE</p>
+<p>Build $Id: git-adea113 $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-0083-00a1-ffffffffffff</p>
+<p>Bootargs: hio.transport=0 hio.maxsize=4096 ds.pf_method=2</p>
+<p>PWM FADE demo</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pwm-test-setup">
+<h2>PWM Test Setup<a class="headerlink" href="#pwm-test-setup" title="Permalink to this heading"></a></h2>
+<p>Figure 2 represents the PWM test setup, where Talaria TWO evaluation
+board is powered through USB and the pwm.elf is flashed onto the module
+using the Download Tool. The GPIO which is configured to work as PWM is
+connected to the Oscilloscope along with ground. Once the module is
+released from Reset, the waveforms can be observed on the oscilloscope.</p>
+<p><a class="reference internal" href="../../_images/image22.png"><img alt="image2" src="../../_images/image22.png" style="width: 4.72441in; height: 5.98346in;" /></a></p>
+<p>Figure 2: PWM Test Setup</p>
+<p>Waveforms captured for 1MHz frequency with less than 5% duty cycle is as
+shown in Figure 3.</p>
+<p><a class="reference internal" href="../../_images/image32.png"><img alt="image3" src="../../_images/image32.png" style="width: 5.90551in; height: 3.51684in;" /></a></p>
+<p>Figure 3: Waveforms for 1MHz frequency with less than 5% duty cycle</p>
+<p>Waveforms captured for 1MHz frequency with 50% duty cycle is as shown in
+Figure 4.</p>
+<p><a class="reference internal" href="../../_images/image42.png"><img alt="image4" src="../../_images/image42.png" style="width: 5.90551in; height: 3.51243in;" /></a></p>
+<p>Figure 4: Waveforms for 1MHz frequency with 50% duty cycle</p>
+<p>Waveforms captured for 2MHz frequency with 50% duty cycle is as shown in
+Figure 5.</p>
+<p><a class="reference internal" href="../../_images/image52.png"><img alt="image5" src="../../_images/image52.png" style="width: 5.90551in; height: 3.53338in;" /></a></p>
+<p>Figure 5: Waveforms for 2MHz frequency with 50% duty cycle</p>
+<p>Waveforms captured for 4MHz frequency with 50% duty cycle is as shown in
+Figure 6.</p>
+<p><a class="reference internal" href="../../_images/image62.png"><img alt="image6" src="../../_images/image62.png" style="width: 5.90551in; height: 3.52566in;" /></a></p>
+<p>Figure 6: Waveforms for 4MHz frequency with 50% duty cycle</p>
+<p>Waveforms captured for 10MHz frequency with 50% duty cycle is as shown
+in Figure 7.</p>
+<p><a class="reference internal" href="../../_images/image72.png"><img alt="image7" src="../../_images/image72.png" style="width: 5.90551in; height: 3.53669in;" /></a></p>
+<p>Figure 7: Waveforms for 10MHz frequency with 50% duty cycle</p>
+<p>Waveforms captured for 25KHz frequency with more than 50% duty cycle is
+as shown in Figure 8.</p>
+<p><a class="reference internal" href="../../_images/image82.png"><img alt="image8" src="../../_images/image82.png" style="width: 5.90551in; height: 3.53228in;" /></a></p>
+<p>Figure 8: Waveforms for 25KHz frequency with more than 50% duty cycle</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Example_for_MQTT.html" class="btn btn-neutral float-left" title="MQTT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Example_for_Radio_and_Module_Parameters.html" class="btn btn-neutral float-right" title="Radio and Module Parameters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

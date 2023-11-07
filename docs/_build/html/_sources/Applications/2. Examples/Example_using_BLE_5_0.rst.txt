@@ -1,0 +1,2019 @@
+BLE 5.0
+------------
+
+This document introduces the reader to some of the BLE APIs available in
+the SDK through a code sample consisting of a server and a client
+application.
+
+It covers the usage of:
+
+1. Setting up advertising and connection modes
+
+2. Creating services and its characteristic
+
+3. Assigning UUID to them and handling their access
+
+Topology
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|Diagram Description automatically generated|
+
+Figure : Using BLE – Topology
+
+BT Protocol Stack Structure, APIs & Event Mechanism
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+SDK’s Bluetooth Protocol stack consists of two parts:
+
+1. Controller Stack – manages PHY layer, baseband, link controller, link
+   manager, device manager, HCI and other modules used for hardware
+   interface and link management.
+
+2. Host Stack – consists of L2CAP, SMP, SDP, GAP, ATT, GATT and various
+   profiles.
+
+Host Stack provides the API interface to the application programmer,
+through which application layer can access all the features of Bluetooth
+System.
+
+GAP (Generic Access Profile) defines the discovery, device management
+and device connection management between BLE devices. GAP APIs provide
+the way to configure advertising and connection parameters.
+
+ATT (Attribute Protocol) defines attribute protocol for discovering,
+reading, and writing attributes in a peer device. Attributes are where
+data resides and they consist of a handle, a type, a value, and
+permission.
+
+GATT (Generic Attribute Profile) describes a service framework using the
+ATT protocol for discovering services and for reading and writing
+characteristic values and their descriptors on a peer device.
+
+GATT APIs provide a way to achieve this by creating services and
+characteristics, discovering them, and reading descriptors, or
+requesting for a notification from GATT server.
+
+Once these APIs are called, status of the devices at various states is
+obtained by events pushed from the stack through the callback functions
+provided. These callbacks are used for even-handling.
+
+The applications functionality is defined by the way it is programmed to
+react to these events. For example, by defining what happens next when
+another device tries to connect and reads or writes some parameters.
+
+Roles of Server & Client
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In BLE terminology, the server acts as a GATT server, a GAP peripheral,
+and is a slave device. The client acts as a GATT client, a GAP central,
+and is a master device. The terms server and client are used throughout
+this document to refer to these roles.
+
+The device in the central role scans, looking for advertisement, and the
+device in the peripheral role makes the advertisement.
+
+Once they establish connection, what the two devices talk to each other
+is determined by GATT Server’s and GATT Client’s implementation.
+
+List of APIs 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1.  bt_gap_init()- Initializes the GAP service. This API must be called
+    before using any of the other functions in the GAP interface.
+
+2.  bt_gatt_create_service_128()- Creates a service declaration from a
+    128-bits UUID.
+
+3.  bt_gatt_add_char_128()- Adds a 128-bits UUID characteristic to a
+    created service.
+
+4.  bt_gatt_add_service()- Adds (a created) service to the local server
+    list.
+
+5.  bt_gap_addr_set()- Sets address for given address type.
+
+6.  bt_gap_cfg_ext_set() - Configures extended advertising mode.
+
+7.  bt_gap_set_adv_data() - Sets advertising data for advertising.
+
+8.  bt_gap_discoverable_mode()- Sets device in discoverable mode.
+
+9.  bt_gap_set_adv_data()- Sets advertising data for legacy advertising
+
+10. bt_gap_server_link_add()- Adds a GATT server to the gap connection.
+
+11. bt_gap_server_link_remove()- Removes GATT server from the gap
+    connection.
+
+12. bt_gap_cfg_conn_set()- Configures connection.
+
+13. bt_gap_connection_mode()- Sets device in connecting mode.
+
+14. bt_gap_connectable_mode()-Sets device in connectable mode
+
+15. bt_gap_client_link_add()- Adds a GATT client to the gap connection.
+
+16. bt_gatt_discover_characteristics_by_uuid()- Discovers
+    characteristics by UUID.
+
+17. bt_gatt_exchange_mtu()- Sets and exchanges MTU size for reception.
+
+18. bt_gatt_read_characteristic_value()- Reads characteristic value.
+
+19. bt_gatt_add_char_128()- Adds a 128-bits UUID characteristic to a
+    created service
+
+20. bt_gap_authenticate()- Authenticates connected link.
+
+21. bt_gap_cfg_adv_set()- Configures advertisement.
+
+22. bt_smp_passkey_set()- Sets the passkey for the link.
+
+23. bt_smp_cfg_set()- Sets bt_smp_cfg_t value to the current setting
+    SMP.
+
+Server Application
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Overview
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The sample code in the path examples\\using_ble\\src\\ble_server.c
+implements a server called InnoServer. It creates and starts a custom
+GATT service with a single read-only characteristic. Each time the
+characteristic is read by a client, the read returns a different
+character string from a set of strings present on the server.
+
+In addition to the custom service, the server also makes use of common
+server functionality provided by the BLE API. Specifically, this adds
+the Generic Access, Generic Attribute, and Device Information services
+to the server.
+
+Code Walkthrough
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Note**: All the applicable ELFs are available in the following
+location of the SDK release package:
+freertos_sdk_x.y\\examples\\using_ble\\bin.
+
+x and y in sdk_x.y refer to the SDK release version. For example:
+*freertos_sdk_2.4\\examples\\using_ble\\bin*.
+
+Initialization
+~~~~~~~~~~~~~~
+
+The server starts by initializing the GAP Service:
+
++-----------------------------------------------------------------------+
+| bt_gap_init();                                                        |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+The GAP API must be called before using any of the other functions in
+the Bluetooth GAP interface. It returns zero on success, non-zero
+otherwise.
+
+Adding Common Server Functionality
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The server uses the API to add common server functionality:
+
++-----------------------------------------------------------------------+
+| void common_server_create(char \*name, uint16_t appearance, char      |
+| \*manufacturer_name);                                                 |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+This adds the Generic Access, Generic Attribute, and Device Information
+services to our server. The server is given the name InnoServer with a
+manufacturer name of Innophase IoT.
+
++-----------------------------------------------------------------------+
+| common_server_create("InnoServer", 0, "Innophase IoT");               |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+Adding Custom Service & Characteristic
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The server’s custom service and characteristic are implemented in the
+custom_server_create function:
+
++-----------------------------------------------------------------------+
+| static void custom_server_create(void)                                |
+|                                                                       |
+| {                                                                     |
+|                                                                       |
+| srv.cust_service = bt_gatt_create_service_128(UUID_CUSTOM_SERVICE);   |
+|                                                                       |
+| bt_gatt_add_char_128(srv.cust_service,                                |
+|                                                                       |
+| UUID_CUSTOM_CHARACTERISTIC,                                           |
+|                                                                       |
+| char_access_cb,                                                       |
+|                                                                       |
+| GATT_PERM_READ,                                                       |
+|                                                                       |
+| GATT_CHAR_PROP_BIT_READ);                                             |
+|                                                                       |
+| bt_gatt_add_service(srv.cust_service);                                |
+|                                                                       |
+| }                                                                     |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+The bt_gatt_create_service_128 function creates a GATT service with a
+128-bit UUID.
+
+bt_gatt_add_char_128 is used to add a characteristic with a 128-bit UUID
+to a service. A callback function char_access_cb is provided and will be
+called when the characteristic is accessed. Properties and permissions
+for the characteristic are also specified; in this case, the
+characteristic is read-only.
+
+Finally, bt_gatt_add_service adds the service to our server.
+
+Starting the Server
+~~~~~~~~~~~~~~~~~~~
+
+Once the server’s services and characteristics are set up, it is started
+in the start_server function:
+
++-----------------------------------------------------------------------+
+| static void start_server(void)                                        |
+|                                                                       |
+| {                                                                     |
+|                                                                       |
+| bt_gap_cfg_adv_t bt_handle;                                           |
+|                                                                       |
+| /\* Configure advertisement \*/                                       |
+|                                                                       |
+|     bt_handle.fast_period = 10240;                                    |
+|                                                                       |
+|     bt_handle.slow_period = 0;                                        |
+|                                                                       |
+|     bt_handle.fast_interval = 160;                                    |
+|                                                                       |
+|     bt_handle.slow_interval = 1600;                                   |
+|                                                                       |
+|     bt_handle.tx_power = 0;                                           |
+|                                                                       |
+|    bt_handle.channel_map = 0;                                         |
+|                                                                       |
+|     bt_gap_cfg_adv_set(&bt_handle);                                   |
+|                                                                       |
+|     /\* Set our BLE address \*/                                       |
+|                                                                       |
+|     bt_gap_addr_set(bt_hci_addr_type_random, SERVER_ADDR);            |
+|                                                                       |
+|     if (adv_mode != 0) {                                              |
+|                                                                       |
+|         os_printf("Extended_ADV_mode \\n");                           |
+|                                                                       |
+|         bt_gap_cfg_ext_t ext;                                         |
+|                                                                       |
+|         /\*configure extended advertisement*/                         |
+|                                                                       |
+|         ext.use = 2;                                                  |
+|                                                                       |
+|         ext.adv_pri_phy = 1; /\*adv_pri_phy*/                         |
+|                                                                       |
+|         if(adv_sec_phy != 0)                                          |
+|                                                                       |
+|             ext.adv_sec_phy = 2; /\*adv_sec_phy LE 2 Mbps*/           |
+|                                                                       |
+|         else                                                          |
+|                                                                       |
+|             ext.adv_sec_phy = 1; /\*adv_sec_phy LE 1 Mbps*/           |
+|                                                                       |
+|                                                                       |
+|                                                                       |
+| ext.adv_sid = 1; /\*adv_sid*/                                         |
+|                                                                       |
+|         ext.conn_phy = 1; /\*conn_phy*/                               |
+|                                                                       |
+|         ext.conn_len = 251; /\*conn_len*/                             |
+|                                                                       |
+|         bt_gap_cfg_ext_set(&ext);                                     |
+|                                                                       |
+|         if(adv_sec_phy != 0){                                         |
+|                                                                       |
+|             os_printf("Extended ADV payload len = %d \\n",            |
+| adv_length_2);                                                        |
+|                                                                       |
+|             bt_gap_set_adv_data(adv_length_2, adv_buf_2);             |
+|                                                                       |
+| /\*Set advertising data*/                                             |
+|                                                                       |
+|         } else {                                                      |
+|                                                                       |
+|             os_printf("Extended ADV payload len = %d \\n",            |
+| adv_length_1);                                                        |
+|                                                                       |
+|             bt_gap_set_adv_data(adv_length_1, adv_buf_1);             |
+|                                                                       |
+| /\*Set advertising data*/                                             |
+|                                                                       |
+| }                                                                     |
+|                                                                       |
+| }                                                                     |
+|                                                                       |
+|     /\* Make server connectable (will enable advertisement) \*/       |
+|                                                                       |
+| bt_gap_discoverable_mode(GAP_DISCOVERABLE_MODE_GENERAL,               |
+|                                                                       |
+| bt_hci_addr_type_random, 0,address_zero, &gap_ops);                   |
+|                                                                       |
+| }                                                                     |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+Here bt_gap_cfg_adv sets parameters for advertisement.
+bt_gap_set_adv_data sets the advertisement data. bt_gap_addr_set sets
+our BLE address and address type; the sample server uses a random
+address that does not change.
+
+bt_gap_cfg_ext_set() configures the extended advertisement, while
+bt_gap_set_adv_data() sets advertising data for advertising.
+
+bt_gap_connectable_mode makes the device connectable and will enable
+advertisement.
+
+Connection/Disconnection Callbacks
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+At this point of execution, the server is advertising and ready to
+receive a connection from the client. When the client connects, the
+callback function connected_cb will be called. In the callback, the GATT
+server needs to be linked to this GAP connection with the following
+function call:
+
++-----------------------------------------------------------------------+
+| srv.gatt_link = bt_gap_server_link_add(param->handle);                |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+The code sample shows how to obtain the argument required for this
+function call from the argument provided to the callback by casting
+hci_event with bt_hci_evt_le_conn_cmpl_t and fetching its handle.
+
+Similarly, the link is removed in disconnected_cb, which is the callback
+function that is called when the client disconnects:
+
++-----------------------------------------------------------------------+
+| bt_gap_server_link_remove(srv.gatt_link);                             |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+Characteristic Access Callback
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+While the client is connected to the server, it can read the custom
+characteristic. This results in the callback function associated with
+the characteristic being called. In this case, it is char_access_cb. In
+the sample, this function chooses a string to send to the client as a
+read response. The length argument specifies the space available in the
+data array to store the read response. This is dependent on the MTU size
+used for the connection. The data to send is set in the data array and
+the length argument is updated to the amount of data set in the array:
+
++-----------------------------------------------------------------------+
+| chars_to_copy = min((size_t)*length, strlen(SERVER_QUOTES[rsp_idx])); |
+|                                                                       |
+| memcpy(data, SERVER_QUOTES[rsp_idx], chars_to_copy);                  |
+|                                                                       |
+| \*length = chars_to_copy;                                             |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+**Note**: The string’s null terminator is not included in the read
+response.
+
+Running the Application 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Program ble_server.elf (*freertos_sdk_x.y\\examples\\using_ble\\bin*
+using the Download Tool
+(*freertos_sdk_x.y\\pc_tools\\Download_Tool\\bin*) provided with
+InnoPhase Talaria TWO SDK.
+
+1. Launch the Download tool.
+
+2. In the GUI window:
+
+   a. Boot Target: Select the appropriate EVK from the drop-down
+
+   b. ELF Input: Load the ble_server.elf by clicking on Select ELF File.
+
+   c. Boot Arguments: Pass the following boot arguments to select the
+      advertising mode and adv_sec_phy secondary PHY.
+
++-----------------------------------------------------------------------+
+| BLE5_adv_mode=<0/1> BLE5_adv_sec_phy=<0/1>                            |
+|                                                                       |
+| BLE5_adv_mode=0 => Advertising mode is Legacy                         |
+|                                                                       |
+| BLE5_adv_mode=1 => Advertising mode is Extended                       |
+|                                                                       |
+| BLE5_adv_sec_phy=0 => adv_sec_phy Secondary PHY is LE 1Mbps           |
+|                                                                       |
+| BLE5_adv_sec_phy=1 => adv_sec_phy Secondary PHY is LE 2Mbps           |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+d. Programming: Prog RAM or Prog Flash as per requirement.
+
+Expected Output
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++-----------------------------------------------------------------------+
+| UART:SNWWWWAE                                                         |
+|                                                                       |
+| 4 DWT comparators, range 0x8000                                       |
+|                                                                       |
+| Build $Id: git-ef87896f9 $                                            |
+|                                                                       |
+| hio.baudrate=921600                                                   |
+|                                                                       |
+| flash: Gordon ready!                                                  |
+|                                                                       |
+| UART:SNWWWWAE                                                         |
+|                                                                       |
+| 4 DWT comparators, range 0x8000                                       |
+|                                                                       |
+| Build $Id: git-ef87896f9 $                                            |
+|                                                                       |
+| hio.baudrate=921600                                                   |
+|                                                                       |
+| flash: Gordon ready!                                                  |
+|                                                                       |
+| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
+|                                                                       |
+| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
+|                                                                       |
+| FLASH:PNWWWWWAE                                                       |
+|                                                                       |
+| Build $Id: git-df9b9ef $                                              |
+|                                                                       |
+| Flash detected. flash.hw.uuid: 39483937-3207-0014-00ae-ffffffffffff   |
+|                                                                       |
+| Bootargs: BLE5_adv_mode=1 BLE5_adv_sec_phy=1                          |
+|                                                                       |
+| $App:git-6600fea                                                      |
+|                                                                       |
+| SDK Ver: FREERTOS_SDK_1.0                                             |
+|                                                                       |
+| Ble Server Demo App                                                   |
+|                                                                       |
+| Extended_ADV_mode                                                     |
+|                                                                       |
+| Extended ADV payload len = 114                                        |
+|                                                                       |
+| InnoServer started                                                    |
+|                                                                       |
+| [24.758,721] BT connect[0]: ia:77:e2:09:06:63:2e aa:05:04:03:02:01:00 |
+| phy2:1/1 phyC:00                                                      |
+|                                                                       |
+| Client connected                                                      |
+|                                                                       |
+| [25.099,199] Missing passkey_output_cb().                             |
+|                                                                       |
+| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
+|                                                                       |
+| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
+|                                                                       |
+| FLASH:PNWWWWWAE                                                       |
+|                                                                       |
+| Build $Id: git-df9b9ef $                                              |
+|                                                                       |
+| Flash detected. flash.hw.uuid: 39483937-3207-0014-00ae-ffffffffffff   |
+|                                                                       |
+| Bootargs: BLE5_adv_mode=1 BLE5_adv_sec_phy=1                          |
+|                                                                       |
+| $App:git-6600fea                                                      |
+|                                                                       |
+| SDK Ver: FREERTOS_SDK_1.0                                             |
+|                                                                       |
+| Ble Server Demo App                                                   |
+|                                                                       |
+| Extended_ADV_mode                                                     |
+|                                                                       |
+| Extended ADV payload len = 114                                        |
+|                                                                       |
+| InnoServer started                                                    |
+|                                                                       |
+| [27.094,972] BT connect[0]: ia:77:e2:09:06:63:2e aa:05:04:03:02:01:00 |
+| phy2:1/1 phyC:00                                                      |
+|                                                                       |
+| Client connected                                                      |
+|                                                                       |
+| InnoServer: Hello from InnoServer                                     |
+|                                                                       |
+| InnoServer: You can do anything, but not everything.                  |
+|                                                                       |
+| InnoServer: The richest man is not he who has the most, but he who    |
+| needs the least.                                                      |
+|                                                                       |
+| InnoServer: You miss 100 percent of the shots you never take.         |
+|                                                                       |
+| InnoServer: Courage is not the absence of fear, but rather the        |
+| judgment that something else is more important than fear.             |
+|                                                                       |
+| InnoServer: You must be the change you wish to see in the world.      |
+|                                                                       |
+| InnoServer: To the man who only has a hammer, everything he           |
+| encounters begins to look like a nail.                                |
+|                                                                       |
+| InnoServer: A wise man gets more use from his enemies than a fool     |
+| from his friends.                                                     |
+|                                                                       |
+| InnoServer: The real voyage of discovery consists not in seeking new  |
+| lands but seeing with new eyes.                                       |
+|                                                                       |
+| InnoServer: Even if you’re on the right track, you’ll get run over if |
+| you just sit there.                                                   |
+|                                                                       |
+| InnoServer: People often say that motivation doesn’t last.            |
+| Well,neither does bathing – thats why we recommend it daily.          |
+|                                                                       |
+| InnoServer: Believe those who are seeking the truth. Doubt those who  |
+| find it.                                                              |
+|                                                                       |
+| InnoServer: It is the mark of an educated mind to be able to          |
+| entertain a thought without accepting it.                             |
+|                                                                       |
+| InnoServer: I’d rather live with a good question than a bad answer.   |
+|                                                                       |
+| InnoServer: We learn something every day, and lots of times its that  |
+| what we learned the day before was wrong.                             |
+|                                                                       |
+| InnoServer: I have made this letter longer than usual because I lack  |
+| the time to make it shorter.                                          |
+|                                                                       |
+| InnoServer: Don’t ever wrestle with a pig. You’ll both get dirty, but |
+| the pig will enjoy it.                                                |
+|                                                                       |
+| InnoServer: An inventor is simply a fellow who doesn’t take his       |
+| education too seriously.                                              |
+|                                                                       |
+| InnoServer: Never be afraid to laugh at yourself, after all, you      |
+| could be missing out on the joke of the century.                      |
+|                                                                       |
+| InnoServer: I am patient with stupidity but not with those who are    |
+| proud of it.                                                          |
+|                                                                       |
+| InnoServer: The cure for boredom is curiosity. There is no cure for   |
+| curiosity.                                                            |
+|                                                                       |
+| InnoServer: Advice is what we ask for when we already know the answer |
+| but wish we didn’t.                                                   |
+|                                                                       |
+| InnoServer: Some people like my advice so much that they frame it     |
+| upon the wall instead of using it.                                    |
+|                                                                       |
+| InnoServer: The trouble with the rat race is that even if you         |
+| win,you’re still a rat.                                               |
+|                                                                       |
+| InnoServer: Imagination was given to man to compensate him for what   |
+| he is not,and a sense of humor was provided to console him for what   |
+| he is.                                                                |
+|                                                                       |
+| InnoServer: When a person can no longer laugh at himself, it is time  |
+| for others to laugh at him.                                           |
+|                                                                       |
+| InnoServer: Hello from InnoServer                                     |
+|                                                                       |
+| [209.911,347] BT disconnect[0]: st13                                  |
+|                                                                       |
+| Client disconnected                                                   |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+Client Application
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _overview-1:
+
+Overview
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The sample code in examples/using_ble/src/ble_client.c implements a
+client called InnoClient which is intended to work with InnoServer. The
+client scans for and connects to the server based on the server’s BLE
+address (fixed at compile-time).
+
+Once connected, the client tries to discover the custom GATT service and
+characteristic present on the server. After this is accomplished, the
+client reads the custom characteristic on the server several times and
+prints out the string that it receives to the console.
+
+.. _code-walkthrough-1:
+
+Code Walkthrough
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _initialization-1:
+
+Initialization
+~~~~~~~~~~~~~~
+
+Like the server, the client must also initialize the GAP Service before
+calling other functions in the GAP interface:
+
++-----------------------------------------------------------------------+
+| bt_gap_init();                                                        |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+Scanning
+~~~~~~~~
+
+The function scan_and_connect implements functionality of scanning for
+and connecting to the server.
+
+This function makes use of the following API calls to start the scan:
+bt_gap_cfg_scan_t
+
++-----------------------------------------------------------------------+
+| bt_gap_error_t scan_and_connect(void)                                 |
+|                                                                       |
+| {                                                                     |
+|                                                                       |
+| bt_gap_cfg_scan_t bt_scan_handle;                                     |
+|                                                                       |
+| bt_gap_cfg_conn_t bt_conn_handle;                                     |
+|                                                                       |
+| bt_gap_error_t result_gap = GAP_ERROR_SUCCESS;                        |
+|                                                                       |
+| os_printf("InnoServer address: %6pMR\\n", inno_server_conn.ble_addr); |
+|                                                                       |
+| /\* Scan for server \*/                                               |
+|                                                                       |
+| bt_scan_handle.period = SCAN_PERIOD;                                  |
+|                                                                       |
+| bt_scan_handle.interval = SCAN_INT;                                   |
+|                                                                       |
+| bt_scan_handle.window = SCAN_WIN;                                     |
+|                                                                       |
+| bt_scan_handle.background_interval = SCAN_INT;                        |
+|                                                                       |
+| bt_scan_handle.background_window = SCAN_WIN;                          |
+|                                                                       |
+| bt_scan_handle.filter_duplicates = 1;                                 |
+|                                                                       |
+| }                                                                     |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+bt_gap_discovery_mode puts the device into discovery mode. A pointer to
+a gap_opts_t instance is supplied to specify relevant callback
+functions; this is how the example specifies that the
+device_discovery_event function should be called when a new BLE device
+is discovered during scan:
+
++-----------------------------------------------------------------------+
+| bt_gap_discovery_mode(GAP_DISCOVERY_MODE_GENERAL,                     |
+| bt_hci_addr_type_random, addr_type_zero, address_zero, &gap_ops);     |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+In the device_discovery_event function, the client determines whether
+the identified device is the InnoServer based on a comparison of BLE
+addresses. If so, a copy of the server’s advertising report is saved and
+the main thread executing scan_and_connect is notified to turn off
+discovery and proceed with connection.
+
+Connecting
+~~~~~~~~~~
+
+The client connects to the server using the following API calls:
+bt_gap_cfg_conn_set
+
++-----------------------------------------------------------------------+
+| /\* Configure connection \*/                                          |
+|                                                                       |
+| bt_conn_handle.interval = CONN_INTERVAL;                              |
+|                                                                       |
+| bt_conn_handle.latency = CONN_LATENCY;                                |
+|                                                                       |
+| bt_conn_handle.timeout = CONN_TIMEOUT;                                |
+|                                                                       |
+| bt_conn_handle.params_int_min = 0;                                    |
+|                                                                       |
+| bt_conn_handle.params_int_max = CONN_PARAMS_INT_MIN;                  |
+|                                                                       |
+| bt_conn_handle.params_reject = CONN_PARAMS_INT_MAX;                   |
+|                                                                       |
+| bt_gap_cfg_conn_set(&bt_conn_handle);                                 |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+bt_gap_connection_mode puts the device into connecting mode. The client
+passes the server’s BLE address and address type to this function, along
+with a pointer to an instance of gap_opts_t. This GAP options struct
+instance specifies the callback functions that will be called when the
+connection is established or a disconnect occurs.
+
++-----------------------------------------------------------------------+
+| bt_gap_connection_mode(GAP_CONNECTION_MODE_DIRECT,                    |
+|                                                                       |
+| bt_hci_addr_type_random,                                              |
+|                                                                       |
+| inno_server_conn.adv_report>addr_type,                                |
+|                                                                       |
+| inno_server_conn.ble_addr,                                            |
+|                                                                       |
+| &gap_ops);                                                            |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+In the sample, the connected_event function will be called when the
+connection to the server is established. A connection handle is
+available from the argument to the connected callback. In
+connected_event, this handle is saved and the main thread executing
+scan_and_connect is notified that the connection has been established.
+The following API call is then made to associate the GATT client with
+the connection:
+
++-----------------------------------------------------------------------+
+| inno_server_conn.gatt_link =                                          |
+| bt_gap_client_link_add(inno_server_conn.conn_handle);                 |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+Service Discovery
+~~~~~~~~~~~~~~~~~
+
+The function discover_services implements functionality for discovering
+the custom service and characteristic on the server. The results of
+discovery are handles:
+
+1. Service is identified by a start handle and an end handle
+
+2. Characteristic is identified by a single handle
+
+Since the UUID of the service is known beforehand,
+bt_gatt_discover_primary_service_by_service_uuid is used to identify the
+service on the server:
+
++-----------------------------------------------------------------------+
+| bt_gatt_discover_primary_service_by_service_uuid(                     |
+|                                                                       |
+| inno_server_conn.gatt_link,                                           |
+|                                                                       |
+| inno_server_conn.service.uuid,                                        |
+|                                                                       |
+| &service_discovery_event);                                            |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+The service_discovery_event function is supplied as a callback to record
+the start handle and end handle of the service.
+
+Similarly, bt_gatt_discover_characteristics_by_uuid is used to identify
+the custom characteristic of the custom service on the server:
+
++-----------------------------------------------------------------------+
+| bt_gatt_discover_characteristics_by_uuid(                             |
+|                                                                       |
+| inno_server_conn.gatt_link,                                           |
+|                                                                       |
+| inno_server_conn.service.start_handle,                                |
+|                                                                       |
+| inno_server_conn.service.end_handle,                                  |
+|                                                                       |
+| inno_server_conn.service.characteristic.uuid,                         |
+|                                                                       |
+| &characteristic_discovery_event);                                     |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+The start and end handles of the service are required for this function
+call. The function characteristic_discovery_event is supplied as a
+callback which records the handle of the characteristic.
+
+Exchanging MTU Size
+~~~~~~~~~~~~~~~~~~~
+
+The client exchanges MTU sizes with the server. This allows for an
+increase in the amount of payload data that can be sent in each BLE
+packet. The following API call is used to exchange MTU size:
+
++-----------------------------------------------------------------------+
+| bt_gatt_exchange_mtu(inno_server_conn.gatt_link,size,mtu_set_event);  |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+The mtu_set_event function is supplied as a callback and is called when
+the MTU size has been exchanged.
+
+Reading the Characteristic
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+With the connection to the server established and the handle of the
+characteristic identified, the client can read the value of the custom
+characteristic on the server. This is accomplished with the following
+API call:
+
++-----------------------------------------------------------------------+
+| bt_gatt_read_characteristic_value(                                    |
+|                                                                       |
+| inno_server_conn.gatt_link,                                           |
+|                                                                       |
+| inno_server_conn.service.characteristic.handle,                       |
+|                                                                       |
+| rxbuf,                                                                |
+|                                                                       |
+| &data_read_event);                                                    |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+A pointer to a data buffer, rxbuf, is supplied. This buffer will be
+filled with the data read. The supplied callback, data_read_event, will
+be called when the read is complete. In this sample, the received data
+is printed to the console from within the callback. The size argument to
+the callback function indicates the amount of data received, and the
+data argument provides a pointer to the data buffer.
+
+.. _running-the-application-1:
+
+Running the Application 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+For ble_client, there is a need for two Talaria TWO boards, with
+ble_server.elf running on one and ble_client.elf on the other.
+
+Program the ELFs onto Talaria TWO boards using the Download tool (refer
+to steps in section 8.3 for programming the ELFs onto Talaria TWO).
+
+.. _expected-output-1:
+
+Expected Output
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Console output - ble_server.elf
+
++-----------------------------------------------------------------------+
+| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
+|                                                                       |
+| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
+|                                                                       |
+| FLASH:PNWWWWWAE                                                       |
+|                                                                       |
+| Build $Id: git-df9b9ef $                                              |
+|                                                                       |
+| Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff   |
+|                                                                       |
+| Bootargs: BLE5_adv_mode=1 BLE5_adv_sec_phy=1                          |
+|                                                                       |
+| $App:git-6600fea                                                      |
+|                                                                       |
+| SDK Ver: FREERTOS_SDK_1.0                                             |
+|                                                                       |
+| Ble Server Demo App                                                   |
+|                                                                       |
+| Extended_ADV_mode                                                     |
+|                                                                       |
+| Extended ADV payload len = 114                                        |
+|                                                                       |
+| InnoServer started                                                    |
+|                                                                       |
+| [47.540,263] BT connect[0]: ia:46:69:8a:7f:d6:5a aa:05:04:03:02:01:00 |
+| phy2:1/1 phyC:00                                                      |
+|                                                                       |
+| Client connected                                                      |
+|                                                                       |
+| InnoServer: Hello from InnoServer                                     |
+|                                                                       |
+| InnoServer: You can do anything, but not everything.                  |
+|                                                                       |
+| InnoServer: The richest man is not he who has the most, but he who    |
+| needs the least.                                                      |
+|                                                                       |
+| InnoServer: You miss 100 percent of the shots you never take.         |
+|                                                                       |
+| InnoServer: Courage is not the absence of fear, but rather the        |
+| judgment that something else is more important than fear.             |
+|                                                                       |
+| InnoServer: You must be the change you wish to see in the world.      |
+|                                                                       |
+| InnoServer: To the man who only has a hammer, everything he           |
+| encounters begins to look like a nail.                                |
+|                                                                       |
+| InnoServer: A wise man gets more use from his enemies than a fool     |
+| from his friends.                                                     |
+|                                                                       |
+| InnoServer: The real voyage of discovery consists not in seeking new  |
+| lands but seeing with new eyes.                                       |
+|                                                                       |
+| InnoServer: Even if you’re on the right track, you’ll get run over if |
+| you just sit there.                                                   |
+|                                                                       |
+| InnoServer: People often say that motivation doesn’t last.            |
+| Well,neither does bathing – thats why we recommend it daily.          |
+|                                                                       |
+| InnoServer: Believe those who are seeking the truth. Doubt those who  |
+| find it.                                                              |
+|                                                                       |
+| InnoServer: It is the mark of an educated mind to be able to          |
+| entertain a thought without accepting it.                             |
+|                                                                       |
+| InnoServer: I’d rather live with a good question than a bad answer.   |
+|                                                                       |
+| InnoServer: We learn something every day, and lots of times its that  |
+| what we learned the day before was wrong.                             |
+|                                                                       |
+| InnoServer: I have made this letter longer than usual because I lack  |
+| the time to make it shorter.                                          |
+|                                                                       |
+| InnoServer: Don’t ever wrestle with a pig. You’ll both get dirty, but |
+| the pig will enjoy it.                                                |
+|                                                                       |
+| InnoServer: An inventor is simply a fellow who doesn’t take his       |
+| education too seriously.                                              |
+|                                                                       |
+| InnoServer: Never be afraid to laugh at yourself, after all, you      |
+| could be missing out on the joke of the century.                      |
+|                                                                       |
+| InnoServer: I am patient with stupidity but not with those who are    |
+| proud of it.                                                          |
+|                                                                       |
+| InnoServer: The cure for boredom is curiosity. There is no cure for   |
+| curiosity.                                                            |
+|                                                                       |
+| InnoServer: Advice is what we ask for when we already know the answer |
+| but wish we didn’t.                                                   |
+|                                                                       |
+| InnoServer: Some people like my advice so much that they frame it     |
+| upon the wall instead of using it.                                    |
+|                                                                       |
+| InnoServer: The trouble with the rat race is that even if you         |
+| win,you’re still a rat.                                               |
+|                                                                       |
+| InnoServer: Imagination was given to man to compensate him for what   |
+| he is not,and a sense of humor was provided to console him for what   |
+| he is.                                                                |
+|                                                                       |
+| InnoServer: When a person can no longer laugh at himself, it is time  |
+| for others to laugh at him.                                           |
+|                                                                       |
+| [71.851,726] BT disconnect[0]: st8                                    |
+|                                                                       |
+| Client disconnected                                                   |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+Console output - ble_client.elf
+
++-----------------------------------------------------------------------+
+| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
+|                                                                       |
+| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
+|                                                                       |
+| FLASH:PNWWWWAE                                                        |
+|                                                                       |
+| Build $Id: git-df9b9ef $                                              |
+|                                                                       |
+| Flash detected. flash.hw.uuid: 39483937-3207-0014-00ae-ffffffffffff   |
+|                                                                       |
+| Ble Client Demo App                                                   |
+|                                                                       |
+| InnoClient started                                                    |
+|                                                                       |
+| InnoServer address: 05:04:03:02:01:00                                 |
+|                                                                       |
+| Scanning for InnoServer...                                            |
+|                                                                       |
+| Scanning for InnoServer...                                            |
+|                                                                       |
+| Discovered: a0:6c:65:35:d3:06                                         |
+|                                                                       |
+| Discovered: 05:04:03:02:01:00 (InnoServer)                            |
+|                                                                       |
+| InnoServer 05:04:03:02:01:00 discovered!                              |
+|                                                                       |
+| Attempting to connect to InnoServer...                                |
+|                                                                       |
+| [12.190,486] BT connect[0]: ia:46:69:8a:7f:d6:5a aa:05:04:03:02:01:00 |
+| phy2:1/1 phyC:00                                                      |
+|                                                                       |
+| Connected to InnoServer!                                              |
+|                                                                       |
+| Starting service discovery...                                         |
+|                                                                       |
+| InnoServer custom service discovered!                                 |
+|                                                                       |
+| InnoServer custom characteristic discovered!                          |
+|                                                                       |
+| Exchanging mtu size...                                                |
+|                                                                       |
+| InnoServer says: Hello from InnoServer                                |
+|                                                                       |
+| InnoServer says: You can do anything, but not everything.             |
+|                                                                       |
+| InnoServer says: The richest man is not he who has the most, but he   |
+| who needs the least.                                                  |
+|                                                                       |
+| InnoServer says: You miss 100 percent of the shots you never take.    |
+|                                                                       |
+| InnoServer says: Courage is not the absence of fear, but rather the   |
+| judgment that something else is more important than fear.             |
+|                                                                       |
+| InnoServer says: You must be the change you wish to see in the world. |
+|                                                                       |
+| InnoServer says: To the man who only has a hammer, everything he      |
+| encounters begins to look like a nail.                                |
+|                                                                       |
+| InnoServer says: A wise man gets more use from his enemies than a     |
+| fool from his friends.                                                |
+|                                                                       |
+| InnoServer says: The real voyage of discovery consists not in seeking |
+| new lands but seeing with new eyes.                                   |
+|                                                                       |
+| InnoServer says: Even if you’re on the right track, you’ll get run    |
+| over if you just sit there.                                           |
+|                                                                       |
+| InnoServer says: People often say that motivation doesn’t last.       |
+| Well,neither does bathing – that’s why we recommend it daily.         |
+|                                                                       |
+| InnoServer says: Believe those who are seeking the truth. Doubt those |
+| who find it.                                                          |
+|                                                                       |
+| InnoServer says: It is the mark of an educated mind to be able to     |
+| entertain a thought without accepting it.                             |
+|                                                                       |
+| InnoServer says: I’d rather live with a good question than a bad      |
+| answer.                                                               |
+|                                                                       |
+| InnoServer says: We learn something every day, and lots of times it’s |
+| that what we learned the day before was wrong.                        |
+|                                                                       |
+| InnoServer says: I have made this letter longer than usual because I  |
+| lack the time to make it shorter.                                     |
+|                                                                       |
+| InnoServer says: Don’t ever wrestle with a pig. You’ll both get       |
+| dirty, but the pig will enjoy it.                                     |
+|                                                                       |
+| InnoServer says: An inventor is simply a fellow who doesn’t take his  |
+| education too seriously.                                              |
+|                                                                       |
+| InnoServer says: Never be afraid to laugh at yourself, after all, you |
+| could be missing out on the joke of the century.                      |
+|                                                                       |
+| InnoServer says: I am patient with stupidity but not with those who   |
+| are proud of it.                                                      |
+|                                                                       |
+| InnoServer says: The cure for boredom is curiosity. There is no cure  |
+| for curiosity.                                                        |
+|                                                                       |
+| InnoServer says: Advice is what we ask for when we already know the   |
+| answer but wish we didn’t.                                            |
+|                                                                       |
+| InnoServer says: Some people like my advice so much that they frame   |
+| it upon the wall instead of using it.                                 |
+|                                                                       |
+| InnoServer says: The trouble with the rat race is that even if you    |
+| win,you’re still a rat.                                               |
+|                                                                       |
+| InnoServer says: Imagination was given to man to compensate him for   |
+| what he is not,and a sense of humor was provided to console him for   |
+| what he is.                                                           |
+|                                                                       |
+| InnoServer says: When a person can no longer laugh at himself, it is  |
+| time for others to laugh at him.                                      |
+|                                                                       |
+| InnoClient shutting down...                                           |
+|                                                                       |
+| InnoClient stopped                                                    |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+Mobile Application and ble_server.elf 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If the mobile application is used with BLE scanner app, it serves as a
+client and ble_server.elf is loaded on Talaria TWO, the following output
+is printed on the console:
+
++-----------------------------------------------------------------------+
+| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
+|                                                                       |
+| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
+|                                                                       |
+| FLASH:PNWWWWWAE                                                       |
+|                                                                       |
+| Build $Id: git-df9b9ef $                                              |
+|                                                                       |
+| Flash detected. flash.hw.uuid: 39483937-3207-0014-00ae-ffffffffffff   |
+|                                                                       |
+| Bootargs: BLE5_adv_mode=1 BLE5_adv_sec_phy=1                          |
+|                                                                       |
+| $App:git-6600fea                                                      |
+|                                                                       |
+| SDK Ver: FREERTOS_SDK_1.0                                             |
+|                                                                       |
+| Ble Secure Server Demo App                                            |
+|                                                                       |
+| InnoServer started                                                    |
+|                                                                       |
+| [23.359,190] BT connect[0]: ia:62:14:19:8d:a0:88 aa:07:04:03:02:01:00 |
+| phy2:0/0 phyC:00                                                      |
+|                                                                       |
+| Client connected                                                      |
+|                                                                       |
+| Authentication failed (0x12).                                         |
+|                                                                       |
+| Authentication succeeded.                                             |
+|                                                                       |
+| InnoServer: Hello from InnoServer                                     |
+|                                                                       |
+| InnoServer: You can do anything, but not everything.                  |
+|                                                                       |
+| InnoServer: The richest man is not he who has the most, but he who    |
+| needs the least.                                                      |
+|                                                                       |
+| InnoServer: You miss 100 percent of the shots you never take.         |
+|                                                                       |
+| InnoServer: Courage is not the absence of fear, but rather the        |
+| judgment that something else is more important than fear.             |
+|                                                                       |
+| InnoServer: You must be the change you wish to see in the world.      |
+|                                                                       |
+| InnoServer: To the man who only has a hammer, everything he           |
+| encounters begins to look like a nail.                                |
+|                                                                       |
+| InnoServer: A wise man gets more use from his enemies than a fool     |
+| from his friends.                                                     |
+|                                                                       |
+| InnoServer: The real voyage of discovery consists not in seeking new  |
+| lands but seeing with new eyes.                                       |
+|                                                                       |
+| InnoServer: Even if you’re on the right track, you’ll get run over if |
+| you just sit there.                                                   |
+|                                                                       |
+| InnoServer: People often say that motivation doesn’t last. Well,      |
+| neither does bathing – that’s why we recommend it daily.              |
+|                                                                       |
+| InnoServer: Believe those who are seeking the truth. Doubt those who  |
+| find it.                                                              |
+|                                                                       |
+| InnoServer: It is the mark of an educated mind to be able to          |
+| entertain a thought without accepting it.                             |
+|                                                                       |
+| InnoServer: I’d rather live with a good question than a bad answer.   |
+|                                                                       |
+| InnoServer: We learn something every day, and lots of times its that  |
+| what we learned the day before was wrong.                             |
+|                                                                       |
+| InnoServer: I have made this letter longer than usual because I lack  |
+| the time to make it shorter.                                          |
+|                                                                       |
+| InnoServer: Don’t ever wrestle with a pig. You’ll both get dirty, but |
+| the pig will enjoy it.                                                |
+|                                                                       |
+| InnoServer: An inventor is simply a fellow who doesn’t take his       |
+| education too seriously.                                              |
+|                                                                       |
+| InnoServer: Never be afraid to laugh at yourself, after all, you      |
+| could be missing out on the joke of the century.                      |
+|                                                                       |
+| InnoServer: I am patient with stupidity but not with those who are    |
+| proud of it.                                                          |
+|                                                                       |
+| InnoServer: The cure for boredom is curiosity. There is no cure for   |
+| curiosity.                                                            |
+|                                                                       |
+| InnoServer: Advice is what we ask for when we already know the answer |
+| but wish we didn’t.                                                   |
+|                                                                       |
+| InnoServer: Some people like my advice so much that they frame it     |
+| upon the wall instead of using it.                                    |
+|                                                                       |
+| InnoServer: The trouble with the rat race is that even if you         |
+| win,you’re still a rat.                                               |
+|                                                                       |
+| InnoServer: Imagination was given to man to compensate him for what   |
+| he is not,and a sense of humor was provided to console him for what   |
+| he is.                                                                |
+|                                                                       |
+| InnoServer: When a person can no longer laugh at himself, it is time  |
+| for others to laugh at him.                                           |
+|                                                                       |
+| InnoServer: Hello from InnoServer                                     |
+|                                                                       |
+| [108.990,208] BT disconnect[0]: st13                                  |
+|                                                                       |
+| Client disconnected                                                   |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+Following are the screenshots from the mobile application:
+
+|image1|
+
+Figure Android application as BLE Client, Discovering InnoServer
+
+BLE 1M Advertisement:
+
+|image2|
+
+Figure : BLE 1M advertisement
+
+BLE 2M Advertisement:
+
+|image3|
+
+Figure : BLE 2M advertisement
+
+|A picture containing table Description automatically generated|
+
+Figure : Successful connection and Read from Attribute
+
+Secure Server and Client Applications
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Security Manager Protocol (SMP) APIs enable a GATT Server acting as a
+slave device to bond with a master and establish an encrypted link
+between them.
+
+Server and Client applications described in earlier section, are
+extended here for incorporating security features supported by the SDK
+and the sample code is in the path
+examples/using_ble/src/ble_secure_server.c and
+examples/using_ble/src/ble_secure_client.c.
+
+Setting Security Parameters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+SMP configuration is done using the bt_smp_cfg_set() API, after the
+initialization.
+
+It takes below fields as parameters input/output capabilities, OOB data
+present, bondable or not, man in the middle attack protection, secure
+connection support, generate keypress notifications, minimal key size
+(bytes) that is accepted, encrypt link automatically at connection setup
+if key exists, SMP callback functions.
+
+In Server, SMP configuration is done before calling
+bt_gap_connectable_mode().
+
++-----------------------------------------------------------------------+
+| /\* Starts our server \*/                                             |
+|                                                                       |
+| static void start_server(void)                                        |
+|                                                                       |
+| {                                                                     |
+|                                                                       |
+| bt_gap_cfg_adv_t bt_adv_handle;                                       |
+|                                                                       |
+| bt_smp_cfg_t bt_smp_handle;                                           |
+|                                                                       |
+| /\* Configure advertisement \*/                                       |
+|                                                                       |
+| bt_adv_handle.fast_period = 10240;                                    |
+|                                                                       |
+| bt_adv_handle.slow_period = 0;                                        |
+|                                                                       |
+| bt_adv_handle.fast_interval = 160;                                    |
+|                                                                       |
+| bt_adv_handle.slow_interval = 1600;                                   |
+|                                                                       |
+| bt_adv_handle.tx_power = 0;                                           |
+|                                                                       |
+| bt_adv_handle.channel_map = BT_HCI_ADV_CHANNEL_ALL;                   |
+|                                                                       |
+| bt_gap_cfg_adv_set(&bt_adv_handle);                                   |
+|                                                                       |
+| /\* Set our BLE address \*/                                           |
+|                                                                       |
+| bt_gap_addr_set(bt_hci_addr_type_random, SERVER_ADDR);                |
+|                                                                       |
+| /\* Set SMP Configuration \*/                                         |
+|                                                                       |
+| #ifdef CLIENT_ANDROID_APP                                             |
+|                                                                       |
+| bt_smp_handle.ops = &smp_ops;                                         |
+|                                                                       |
+| bt_smp_handle.io_cap = bt_smp_io_display_only;                        |
+|                                                                       |
+| bt_smp_handle.oob = 0;                                                |
+|                                                                       |
+| bt_smp_handle.bondable = 1;                                           |
+|                                                                       |
+| bt_smp_handle.mitm = 0;                                               |
+|                                                                       |
+| bt_smp_handle.sc = 1;                                                 |
+|                                                                       |
+| bt_smp_handle.keypress = 0;                                           |
+|                                                                       |
+| bt_smp_handle.key_size_min = 16;                                      |
+|                                                                       |
+| bt_smp_handle.encrypt = 1;                                            |
+|                                                                       |
+| bt_smp_cfg_set(&bt_smp_handle);                                       |
+|                                                                       |
+| #else                                                                 |
+|                                                                       |
+| bt_smp_handle.ops = &smp_ops;                                         |
+|                                                                       |
+| bt_smp_handle.io_cap = bt_smp_io_no_input_no_output;                  |
+|                                                                       |
+| bt_smp_handle.oob = 0;                                                |
+|                                                                       |
+| bt_smp_handle.bondable = 1;                                           |
+|                                                                       |
+| bt_smp_handle.mitm = 0;                                               |
+|                                                                       |
+| bt_smp_handle.sc = 1;                                                 |
+|                                                                       |
+| bt_smp_handle.keypress = 0;                                           |
+|                                                                       |
+| bt_smp_handle.key_size_min = 16;                                      |
+|                                                                       |
+| bt_smp_handle.encrypt = 1;                                            |
+|                                                                       |
+| bt_smp_cfg_set(&bt_smp_handle);                                       |
+|                                                                       |
+| #endif                                                                |
+|                                                                       |
+| /\* Make server connectable (will enable advertisement) \*/           |
+|                                                                       |
+| bt_gap_discoverable_mode(GAP_DISCOVERABLE_MODE_GENERAL, 1, 0,         |
+|                                                                       |
+| address_zero, &gap_ops);                                              |
+|                                                                       |
+| }                                                                     |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+In this example, bt_smp_io_no_input_no_output is configured as
+bt_smp_io_capability_t in both server and client as there is no scope of
+entering the PIN etc.
+
+Therefore, the Just Works pairing method will be selected internally,
+which does not require the generation of a random 6-digit passkey.
+
++-----------------------------------------------------------------------+
+| /\* BLE SMP callback functions \*/                                    |
+|                                                                       |
+| static void passkey_input_cb(uint8_t handle)                          |
+|                                                                       |
+| {                                                                     |
+|                                                                       |
+| uint8_t passkey[16];                                                  |
+|                                                                       |
+| /\* Either 20-bits passkey or 128-bits oob \*/                        |
+|                                                                       |
+| os_printf("Enter 20-bits passkey or 128-bits oob: ...\\n");           |
+|                                                                       |
+| /\* FIXME \*/                                                         |
+|                                                                       |
+| bt_smp_passkey_set(handle, passkey);                                  |
+|                                                                       |
+| }                                                                     |
+|                                                                       |
+| static void passkey_output_cb(uint32_t passkey)                       |
+|                                                                       |
+| {                                                                     |
+|                                                                       |
+| os_printf("Passkey (to be entered on remote device): %06d\\n",        |
+|                                                                       |
+| passkey); }                                                           |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+Security Permissions for Attributes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When the Attributes are defined for GATT server, various security
+permissions can be set for those read and write operations. Those
+attributes will not be accessible if any of the security permission of
+the peer device trying to access it, doesn’t match. An error is thrown
+instead, indicating the peer that it does not have the required security
+clearance.
+
+This is shown in secure server example code while making a custom
+characteristic in custom_server_create().
+
++-----------------------------------------------------------------------+
+| bt_gatt_add_char_128(srv.cust_service, UUID_CUSTOM_CHARACTERISTIC,    |
+|                                                                       |
+| char_access_cb,                                                       |
+|                                                                       |
+| (GATT_PERM_READ \| GATT_PERM_ENCRYPTION \|                            |
+|                                                                       |
+| GATT_PERM_ENC_KEY_SIZE_128 \| GATT_PERM_AUTHORIZATION),               |
+|                                                                       |
+| GATT_CHAR_PROP_BIT_READ);                                             |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+**Note**: Adding GATT_PERM_AUTHENTICATION will not allow the read access
+in this example as the pairing occurred through Just Works pairing
+method.
+
+When pairing with Passkey Entry method is used, permission
+GATT_PERM_AUTHENTICATION will be applicable. This is shown in one of the
+next sections, where this same BLE secure server is enabled for Passkey
+Entry method to be used with an Android Phone App as BLE client.
+
+Requesting for Authentication
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In this example, the authentication is requested by ble_secure_server
+once any remote peer BLE client connects to it.
+
+It is achieved by calling API bt_gap_authenticate()from the
+connected_cb, the callback function received by server when any client
+connects.
+
++-----------------------------------------------------------------------+
+| /\* Callback called when the client connects \*/                      |
+|                                                                       |
+| static void connected_cb(bt_hci_event_t \*hci_event)                  |
+|                                                                       |
+| {                                                                     |
+|                                                                       |
+| const bt_hci_evt_le_conn_cmpl_t \*param =                             |
+| (bt_hci_evt_le_conn_cmpl_t\*)&hci_event->parameter;                   |
+|                                                                       |
+| os_printf("Client connected\\n");                                     |
+|                                                                       |
+| // Add link for the connection                                        |
+|                                                                       |
+| srv.gatt_link = bt_gap_server_link_add(param->handle);                |
+|                                                                       |
+| //smp authenticate                                                    |
+|                                                                       |
+| bt_gap_authenticate(param->handle, 0 /\*oob*/, 1 /\*bondable*/, 0     |
+|                                                                       |
+| /\*mitm*/, 0/\*sc*/, 1 /\*key128*/);                                  |
+|                                                                       |
+| }                                                                     |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+This internally triggers the pairing request from BLE server side.
+
+Running Talaria TWO BLE Secure Server
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ble_secure_server can be tested in two ways:
+
+1. Android mobile application acting as BLE Secure Client
+
+2. Talaria TWO application acting as BLE Secure Client
+
+.. _running-the-application-2:
+
+Running the Application 
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Program ble_secure_server.elf to Talaria TWO using the Download tool
+(refer section 8.3 for steps on programming the ELF onto Talaria TWO).
+
+.. _expected-output-2:
+
+Expected Output
+~~~~~~~~~~~~~~~
+
++-----------------------------------------------------------------------+
+| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
+|                                                                       |
+| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
+|                                                                       |
+| FLASH:PNWWWWAEBuild $Id: git-9c4bc20 $                                |
+|                                                                       |
+| Flash detected. flash.hw.uuid: 39483937-3207-001e-0096-ffffffffffff   |
+|                                                                       |
+| Ble Secure Server Demo App                                            |
+|                                                                       |
+| [0.024,798] rfdrv: unknown module type (0)                            |
+|                                                                       |
+| InnoServer started                                                    |
+|                                                                       |
+| [25.383,217] BT connect[0]: ia:5f:e0:ac:4c:fc:9e aa:07:04:03:02:01:00 |
+| phy2:0/0 phyC:00                                                      |
+|                                                                       |
+| Client connected                                                      |
+|                                                                       |
+| Authentication succeeded.                                             |
+|                                                                       |
+| InnoServer: Hello from InnoServer                                     |
+|                                                                       |
+| InnoServer: You can do anything, but not everything.                  |
+|                                                                       |
+| InnoServer: The richest man is not he who has the most, but he who    |
+| needs the least.                                                      |
+|                                                                       |
+| InnoServer: You miss 100 percent of the shots you never take.         |
+|                                                                       |
+| InnoServer: Courage is not the absence of fear, but rather the        |
+| judgment that something else is more important than fear.             |
+|                                                                       |
+| InnoServer: You must be the change you wish to see in the world.      |
+|                                                                       |
+| InnoServer: To the man who only has a hammer, everything he           |
+| encounters begins to look like a nail.                                |
+|                                                                       |
+| InnoServer: A wise man gets more use from his enemies than a fool     |
+| from his friends.                                                     |
+|                                                                       |
+| InnoServer: The real voyage of discovery consists not in seeking new  |
+| lands but seeing with new eyes.                                       |
+|                                                                       |
+| InnoServer: Even if you’re on the right track, you’ll get run over if |
+| you just sit there.                                                   |
+|                                                                       |
+| InnoServer: People often say that motivation doesn’t last. Well,      |
+| neither does bathing – that’s why we recommend it daily.              |
+|                                                                       |
+| InnoServer: Believe those who are seeking the truth. Doubt those who  |
+| find it.                                                              |
+|                                                                       |
+| InnoServer: It is the mark of an educated mind to be able to          |
+| entertain a thought without accepting it.                             |
+|                                                                       |
+| InnoServer: I’d rather live with a good question than a bad answer.   |
+|                                                                       |
+| InnoServer: We learn something every day, and lots of times its that  |
+| what we learned the day before was wrong.                             |
+|                                                                       |
+| InnoServer: I have made this letter longer than usual because I lack  |
+| the time to make it shorter.                                          |
+|                                                                       |
+| InnoServer: Don’t ever wrestle with a pig. You’ll both get dirty, but |
+| the pig will enjoy it.                                                |
+|                                                                       |
+| InnoServer: An inventor is simply a fellow who doesn’t take his       |
+| education too seriously.                                              |
+|                                                                       |
+| InnoServer: Never be afraid to laugh at yourself, after all, you      |
+| could be missing out on the joke of the century.                      |
+|                                                                       |
+| InnoServer: I am patient with stupidity but not with those who are    |
+| proud of it.                                                          |
+|                                                                       |
+| InnoServer: The cure for boredom is curiosity. There is no cure for   |
+| curiosity.                                                            |
+|                                                                       |
+| InnoServer: Advice is what we ask for when we already know the answer |
+| but wish we didn’t.                                                   |
+|                                                                       |
+| InnoServer: Some people like my advice so much that they frame it     |
+| upon the wall instead of using it.                                    |
+|                                                                       |
+| InnoServer: The trouble with the rat race is that even if you         |
+| win,you’re still a rat.                                               |
+|                                                                       |
+| InnoServer: Imagination was given to man to compensate him for what   |
+| he is not,and a sense of humor was provided to console him for what   |
+| he is.                                                                |
+|                                                                       |
+| InnoServer: When a person can no longer laugh at himself, it is time  |
+| for others to laugh at him.                                           |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+Running Android Mobile Application as BLE Client
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To showcase the Passkey Entry method for pairing and attribute
+permission GATT_PERM_AUTHENTICATION (for attribute to be allowed access
+by a peer which is authenticated), the same BLE secure server code can
+be compiled with the option #define CLIENT_ANDROID_APP 1 (its commented
+by default).
+
++-----------------------------------------------------------------------+
+| #define CLIENT_ANDROID_APP 1                                          |
+|                                                                       |
+| // Set SMP Configuration                                              |
+|                                                                       |
+| #ifdef CLIENT_ANDROID_APP                                             |
+|                                                                       |
+| bt_smp_handle.ops = &smp_ops;                                         |
+|                                                                       |
+| bt_smp_handle.io_cap = bt_smp_io_display_only;                        |
+|                                                                       |
+| bt_smp_handle.oob = 0;                                                |
+|                                                                       |
+| bt_smp_handle.bondable = 1;                                           |
+|                                                                       |
+| bt_smp_handle.mitm = 0;                                               |
+|                                                                       |
+| bt_smp_handle.sc = 1;                                                 |
+|                                                                       |
+| bt_smp_handle.keypress = 0;                                           |
+|                                                                       |
+| bt_smp_handle.key_size_min = 16;                                      |
+|                                                                       |
+| bt_smp_handle.encrypt = 1;                                            |
+|                                                                       |
+| bt_smp_cfg_set(&bt_smp_handle);                                       |
+|                                                                       |
+| #else                                                                 |
+|                                                                       |
+| bt_smp_handle.ops = &smp_ops;                                         |
+|                                                                       |
+| bt_smp_handle.io_cap = bt_smp_io_no_input_no_output;                  |
+|                                                                       |
+| bt_smp_handle.oob = 0;                                                |
+|                                                                       |
+| bt_smp_handle.bondable = 1;                                           |
+|                                                                       |
+| bt_smp_handle.mitm = 0;                                               |
+|                                                                       |
+| bt_smp_handle.sc = 1;                                                 |
+|                                                                       |
+| bt_smp_handle.keypress = 0;                                           |
+|                                                                       |
+| bt_smp_handle.key_size_min = 16;                                      |
+|                                                                       |
+| bt_smp_handle.encrypt = 1;                                            |
+|                                                                       |
+| bt_smp_cfg_set(&bt_smp_handle);                                       |
+|                                                                       |
+| #endif                                                                |
+|                                                                       |
+| /\* Make server connectable (will enable advertisement) \*/           |
+|                                                                       |
+| bt_gap_discoverable_mode(GAP_DISCOVERABLE_MODE_GENERAL, 1, 0,         |
+|                                                                       |
+| address_zero, &gap_ops);                                              |
+|                                                                       |
+| }                                                                     |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+Now bt_smp_io_display_only is configured as bt_smp_io_capability_t, and
+when Android Phone tries to connect to it, which has display as well as
+keyboard, internally Passkey Entry method is chosen for pairing.
+
+A mobile application called BLE Scanner (which is developed by Bluepixel
+Technologies) is used for this example.
+
+A random 6-digit passkey is generated and printed out to console for the
+user to enter on Android App, which prompts for the key.
+
+While making a custom characteristic in custom_server_create(),
+permission GATT_PERM_AUTHENTICATION is added, so only the authenticated
+client can successfully read this characteristic.
+
++-----------------------------------------------------------------------+
+| #define CLIENT_ANDROID_APP 1                                          |
+|                                                                       |
+| #ifdef CLIENT_ANDROID_APP                                             |
+|                                                                       |
+| bt_gatt_add_char_128(srv.cust_service,                                |
+|                                                                       |
+| UUID_CUSTOM_CHARACTERISTIC,                                           |
+|                                                                       |
+| char_access_cb,                                                       |
+|                                                                       |
+| (GATT_PERM_READ \| GATT_PERM_ENCRYPTION \|                            |
+|                                                                       |
+| GATT_PERM_ENC_KEY_SIZE_128 \| GATT_PERM_AUTHORIZATION \|              |
+|                                                                       |
+| GATT_PERM_AUTHENTICATION ),                                           |
+|                                                                       |
+| GATT_CHAR_PROP_BIT_READ);                                             |
+|                                                                       |
+| #else                                                                 |
+|                                                                       |
+| bt_gatt_add_char_128(srv.cust_service, UUID_CUSTOM_CHARACTERISTIC,    |
+|                                                                       |
+| char_access_cb,                                                       |
+|                                                                       |
+| (GATT_PERM_READ \| GATT_PERM_ENCRYPTION \|                            |
+|                                                                       |
+| GATT_PERM_ENC_KEY_SIZE_128 \|                                         |
+|                                                                       |
+| GATT_PERM_AUTHORIZATION),                                             |
+|                                                                       |
+| GATT_CHAR_PROP_BIT_READ);                                             |
+|                                                                       |
+| #endif                                                                |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+Talaria TWO application acting as BLE Secure Client
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+For ble_secure_client, there is a need for two Talaria TWO boards, with
+ble_secure_server.elf running on one and ble_secure_client.elf on the
+other.
+
+Program the ELFs onto Talaria TWO boards using the Download tool (refer
+section 8.3 for steps on programming the ELFs onto Talaria TWO).
+
+.. _expected-output-3:
+
+Expected Output
+~~~~~~~~~~~~~~~
+
+ble_secure_server.elf
+
++-----------------------------------------------------------------------+
+| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
+|                                                                       |
+| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
+|                                                                       |
+| FLASH:PNWWWWWAE                                                       |
+|                                                                       |
+| Build $Id: git-df9b9ef $                                              |
+|                                                                       |
+| Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff   |
+|                                                                       |
+| Bootargs: BLE5_adv_mode=1 BLE5_adv_sec_phy=1                          |
+|                                                                       |
+| $App:git-6600fea                                                      |
+|                                                                       |
+| SDK Ver: FREERTOS_SDK_1.0                                             |
+|                                                                       |
+| Ble Secure Server Demo App                                            |
+|                                                                       |
+| InnoServer started                                                    |
+|                                                                       |
+| [17.319,888] BT connect[0]: ia:7e:64:11:52:60:0b aa:07:04:03:02:01:00 |
+| phy2:0/0 phyC:00                                                      |
+|                                                                       |
+| Client connected                                                      |
+|                                                                       |
+| InnoServer: Hello from InnoServer                                     |
+|                                                                       |
+| Authentication succeeded.                                             |
+|                                                                       |
+| InnoServer: You can do anything, but not everything.                  |
+|                                                                       |
+| InnoServer: The richest man is not he who has the most, but he who    |
+| needs the least.                                                      |
+|                                                                       |
+| InnoServer: You miss 100 percent of the shots you never take.         |
+|                                                                       |
+| InnoServer: Courage is not the absence of fear, but rather the        |
+| judgment that something else is more important than fear.             |
+|                                                                       |
+| InnoServer: You must be the change you wish to see in the world.      |
+|                                                                       |
+| InnoServer: To the man who only has a hammer, everything he           |
+| encounters begins to look like a nail.                                |
+|                                                                       |
+| InnoServer: A wise man gets more use from his enemies than a fool     |
+| from his friends.                                                     |
+|                                                                       |
+| InnoServer: The real voyage of discovery consists not in seeking new  |
+| lands but seeing with new eyes.                                       |
+|                                                                       |
+| InnoServer: Even if you’re on the right track, you’ll get run over if |
+| you just sit there.                                                   |
+|                                                                       |
+| InnoServer: People often say that motivation doesn’t last. Well,      |
+| neither does bathing – that’s why we recommend it daily.              |
+|                                                                       |
+| InnoServer: Believe those who are seeking the truth. Doubt those who  |
+| find it.                                                              |
+|                                                                       |
+| InnoServer: It is the mark of an educated mind to be able to          |
+| entertain a thought without accepting it.                             |
+|                                                                       |
+| InnoServer: I’d rather live with a good question than a bad answer.   |
+|                                                                       |
+| InnoServer: We learn something every day, and lots of times its that  |
+| what we learned the day before was wrong.                             |
+|                                                                       |
+| InnoServer: I have made this letter longer than usual because I lack  |
+| the time to make it shorter.                                          |
+|                                                                       |
+| InnoServer: Don’t ever wrestle with a pig. You’ll both get dirty, but |
+| the pig will enjoy it.                                                |
+|                                                                       |
+| InnoServer: An inventor is simply a fellow who doesn’t take his       |
+| education too seriously.                                              |
+|                                                                       |
+| InnoServer: Never be afraid to laugh at yourself, after all, you      |
+| could be missing out on the joke of the century.                      |
+|                                                                       |
+| InnoServer: I am patient with stupidity but not with those who are    |
+| proud of it.                                                          |
+|                                                                       |
+| InnoServer: The cure for boredom is curiosity. There is no cure for   |
+| curiosity.                                                            |
+|                                                                       |
+| InnoServer: Advice is what we ask for when we already know the answer |
+| but wish we didn’t.                                                   |
+|                                                                       |
+| InnoServer: Some people like my advice so much that they frame it     |
+| upon the wall instead of using it.                                    |
+|                                                                       |
+| InnoServer: The trouble with the rat race is that even if you         |
+| win,you’re still a rat.                                               |
+|                                                                       |
+| InnoServer: Imagination was given to man to compensate him for what   |
+| he is not,and a sense of humor was provided to console him for what   |
+| he is.                                                                |
+|                                                                       |
+| InnoServer: When a person can no longer laugh at himself, it is time  |
+| for others to laugh at him.                                           |
+|                                                                       |
+| [42.530,569] BT disconnect[0]: st8                                    |
+|                                                                       |
+| Client disconnected                                                   |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+ble_secure_client.elf
+
++-----------------------------------------------------------------------+
+| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
+|                                                                       |
+| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
+|                                                                       |
+| FLASH:PNWWWWAE                                                        |
+|                                                                       |
+| Build $Id: git-df9b9ef $                                              |
+|                                                                       |
+| Flash detected. flash.hw.uuid: 39483937-3207-0014-00ae-ffffffffffff   |
+|                                                                       |
+| $App:git-6600fea                                                      |
+|                                                                       |
+| SDK Ver: FREERTOS_SDK_1.0                                             |
+|                                                                       |
+| Ble Secure Client Demo App                                            |
+|                                                                       |
+| InnoClient started                                                    |
+|                                                                       |
+| InnoServer address: 07:04:03:02:01:00                                 |
+|                                                                       |
+| Scanning for InnoServer...                                            |
+|                                                                       |
+| Scanning for InnoServer...                                            |
+|                                                                       |
+| Discovered: a0:6c:65:35:d3:06                                         |
+|                                                                       |
+| Discovered: 07:04:03:02:01:00 (InnoServer)                            |
+|                                                                       |
+| InnoServer 07:04:03:02:01:00 discovered!                              |
+|                                                                       |
+| Attempting to connect to InnoServer...                                |
+|                                                                       |
+| Timeout when attempting to connect to server.                         |
+|                                                                       |
+| InnoClient shutting down...                                           |
+|                                                                       |
+| InnoClient stopped                                                    |
+|                                                                       |
+| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
+|                                                                       |
+| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
+|                                                                       |
+| FLASH:PNWWWWAE                                                        |
+|                                                                       |
+| Build $Id: git-df9b9ef $                                              |
+|                                                                       |
+| Flash detected. flash.hw.uuid: 39483937-3207-0014-00ae-ffffffffffff   |
+|                                                                       |
+| $App:git-6600fea                                                      |
+|                                                                       |
+| SDK Ver: FREERTOS_SDK_1.0                                             |
+|                                                                       |
+| Ble Secure Client Demo App                                            |
+|                                                                       |
+| InnoClient started                                                    |
+|                                                                       |
+| InnoServer address: 07:04:03:02:01:00                                 |
+|                                                                       |
+| Scanning for InnoServer...                                            |
+|                                                                       |
+| Scanning for InnoServer...                                            |
+|                                                                       |
+| Discovered: a0:6c:65:35:d3:06                                         |
+|                                                                       |
+| Discovered: 70:e1:57:1f:be:21                                         |
+|                                                                       |
+| Discovered: 07:04:03:02:01:00 (InnoServer)                            |
+|                                                                       |
+| InnoServer 07:04:03:02:01:00 discovered!                              |
+|                                                                       |
+| Attempting to connect to InnoServer...                                |
+|                                                                       |
+| [15.114,232] BT connect[0]: ia:7e:64:11:52:60:0b aa:07:04:03:02:01:00 |
+| phy2:0/0 phyC:00                                                      |
+|                                                                       |
+| Connected to InnoServer!                                              |
+|                                                                       |
+| Starting service discovery...                                         |
+|                                                                       |
+| InnoServer custom service discovered!                                 |
+|                                                                       |
+| InnoServer custom characteristic discovered!                          |
+|                                                                       |
+| Exchanging mtu size...                                                |
+|                                                                       |
+| Authentication succeeded.                                             |
+|                                                                       |
+| InnoServer says: Hello from InnoServer                                |
+|                                                                       |
+| InnoServer says: You can do anything, but not everything.             |
+|                                                                       |
+| InnoServer says: The richest man is not he who has the most, but he   |
+| who needs the least.                                                  |
+|                                                                       |
+| InnoServer says: You miss 100 percent of the shots you never take.    |
+|                                                                       |
+| InnoServer says: Courage is not the absence of fear, but rather the   |
+| judgment that something else is more important than fear.             |
+|                                                                       |
+| InnoServer says: You must be the change you wish to see in the world. |
+|                                                                       |
+| InnoServer says: To the man who only has a hammer, everything he      |
+| encounters begins to look like a nail.                                |
+|                                                                       |
+| InnoServer says: A wise man gets more use from his enemies than a     |
+| fool from his friends.                                                |
+|                                                                       |
+| InnoServer says: The real voyage of discovery consists not in seeking |
+| new lands but seeing with new eyes.                                   |
+|                                                                       |
+| InnoServer says: Even if you’re on the right track, you’ll get run    |
+| over if you just sit there.                                           |
+|                                                                       |
+| InnoServer says: People often say that motivation doesn’t last. Well, |
+| neither does bathing – that’s why we recommend it daily.              |
+|                                                                       |
+| InnoServer says: Believe those who are seeking the truth. Doubt those |
+| who find it.                                                          |
+|                                                                       |
+| InnoServer says: It is the mark of an educated mind to be able to     |
+| entertain a thought without accepting it.                             |
+|                                                                       |
+| InnoServer says: I’d rather live with a good question than a bad      |
+| answer.                                                               |
+|                                                                       |
+| InnoServer says: We learn something every day, and lots of times it’s |
+| that what we learned the day before was wrong.                        |
+|                                                                       |
+| InnoServer says: I have made this letter longer than usual because I  |
+| lack the time to make it shorter.                                     |
+|                                                                       |
+| InnoServer says: Don’t ever wrestle with a pig. You’ll both get       |
+| dirty, but the pig will enjoy it.                                     |
+|                                                                       |
+| InnoServer says: An inventor is simply a fellow who doesn’t take his  |
+| education too seriously.                                              |
+|                                                                       |
+| InnoServer says: Never be afraid to laugh at yourself, after all, you |
+| could be missing out on the joke of the century.                      |
+|                                                                       |
+| InnoServer says: I am patient with stupidity but not with those who   |
+| are proud of it.                                                      |
+|                                                                       |
+| InnoServer says: The cure for boredom is curiosity. There is no cure  |
+| for curiosity.                                                        |
+|                                                                       |
+| InnoServer says: Advice is what we ask for when we already know the   |
+| answer but wish we didn’t.                                            |
+|                                                                       |
+| InnoServer says: Some people like my advice so much that they frame   |
+| it upon the wall instead of using it.                                 |
+|                                                                       |
+| InnoServer says: The trouble with the rat race is that even if you    |
+| win,you’re still a rat.                                               |
+|                                                                       |
+| InnoServer says: Imagination was given to man to compensate him for   |
+| what he is not,and a sense of humor was provided to console him for   |
+| what he is.                                                           |
+|                                                                       |
+| InnoServer says: When a person can no longer laugh at himself, it is  |
+| time for others to laugh at him.                                      |
+|                                                                       |
+| InnoClient shutting down...                                           |
+|                                                                       |
+| InnoClient stopped                                                    |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+Conclusion
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In the secure BLE server and client section, it is shown that various
+capabilities of the peer devices are exchanged, and appropriate pairing
+method is selected by the BLE stack. Based on this, key generation,
+exchange, and the encryption of the messages, is done. And when needed,
+attribute permission can be set to use only encrypted, authenticated,
+and authorized read and write.
+
+.. |Diagram Description automatically generated| image:: media/image1.png
+   :width: 5.90551in
+   :height: 2.17949in
+.. |image1| image:: media/image2.png
+   :width: 3.14961in
+   :height: 6.2023in
+.. |image2| image:: media/image3.png
+   :width: 3.14961in
+   :height: 4.71121in
+.. |image3| image:: media/image4.png
+   :width: 3.14961in
+   :height: 4.19948in
+.. |A picture containing table Description automatically generated| image:: media/image5.jpeg
+   :width: 3.14961in
+   :height: 6.18378in

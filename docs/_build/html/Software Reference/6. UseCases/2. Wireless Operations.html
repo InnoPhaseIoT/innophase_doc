@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Station Mode &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Station Mode</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Software Reference/6. UseCases/2. Wireless Operations.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="station-mode">
+<h1>Station Mode<a class="headerlink" href="#station-mode" title="Link to this heading"></a></h1>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading"></a></h2>
+<p>This use case is to demonstrate station mode configuration and
+connection to an Access Point configured with personal security
+(WPA/WPA2 personal). And disconnecting to network from the connected
+network.</p>
+<p><strong>Note</strong>: Skip the passphrase if it an open AP.</p>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<p>Access Point configured with WPA/WPA2 personal security.</p>
+</section>
+<section id="at-command-sequence">
+<h2>AT Command Sequence<a class="headerlink" href="#at-command-sequence" title="Link to this heading"></a></h2>
+<table class="docutils align-default" id="id9">
+<caption><span class="caption-text">Table 1: Station Mode - AT Commands</span><a class="headerlink" href="#id9" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>**
+Command**</p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>at</em></p></td>
+<td><p>Check communication state</p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+<p>at+wscan*</p>
+</td>
+<td><p>Get list of APs available from the vicinity</p></td>
+</tr>
+<tr class="row-even"><td><p><em>at+wcon</em></p></td>
+<td><p>Connect to a desired AP from the received scan results</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>at
++wstatus</em></p></td>
+<td><p>Get IP address of Talaria TWO to verify the connection
+is successful</p></td>
+</tr>
+<tr class="row-even"><td><p><em>at+wdis</em></p></td>
+<td><p>To disconnect from the connected network</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: at+wdis responds with ERROR response only when network state
+is disconnected.</p>
+</section>
+<section id="procedure">
+<h2>Procedure<a class="headerlink" href="#procedure" title="Link to this heading"></a></h2>
+<p>Execute the following commands on Talaria TWO:</p>
+<table class="docutils align-default" id="id10">
+<caption><span class="caption-text">Table 2: Suspend/Deep sleep Mode - AT Commands</span><a class="headerlink" href="#id10" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>at</p>
+<p>at+wscan</p>
+<p>at+wcon=InnoPhase,Inno&#64;9070</p>
+<p>at+wstatus=0</p>
+<p>at+wdis</p>
+<p>at+wstatus=0</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="serial-log">
+<h2>Serial Log<a class="headerlink" href="#serial-log" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="../../_images/image1100.png"><img alt="Text Description automatically generated" src="../../_images/image1100.png" style="width: 7.48031in; height: 3.89265in;" /></a></p>
+<p>Figure 1: Station Mode – Serial log</p>
+</section>
+</section>
+<section id="power-management">
+<h1>Power Management<a class="headerlink" href="#power-management" title="Link to this heading"></a></h1>
+<p>Power save methods allow battery-operated devices to save power by
+shutting down their wireless radios. While devices are in a sleep state,
+the AP buffers frames destined for it.</p>
+<p>IEEE 802.11 standard allows a wireless device to reduce its power
+consumption, to turn off its radios and to wake up at the correct time
+to retrieve its traffic. The purpose of power saving feature is to
+increase the battery life and to allow longer performance.</p>
+<p>Basic Terminology in 802.11 Power Save:</p>
+<ol class="arabic simple">
+<li><p>AP will store data in buffer when associated Station is in sleep
+mode.</p></li>
+<li><p>TBTT (Target Beacon Transmission Time): Time in which AP should send
+the Beacon.</p></li>
+<li><p>Beacon Interval: Difference between two TBTTs is called Beacon
+Interval. Beacon interval is represented in Time Unit (TU). Each TU
+is 1024 microsecond. If Beacon interval is 100TU, it means 102.4ms.</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image258.png"><img alt="image1" src="../../_images/image258.png" style="width: 7.48031in; height: 5.36428in;" /></a></p>
+<p>Figure 2: Sleep state machine</p>
+<section id="hardware-power-save-mode">
+<h2>Hardware Power Save Mode<a class="headerlink" href="#hardware-power-save-mode" title="Link to this heading"></a></h2>
+<section id="suspend-deep-sleep-mode">
+<h3>Suspend/Deep Sleep Mode<a class="headerlink" href="#suspend-deep-sleep-mode" title="Link to this heading"></a></h3>
+<p><strong>Description</strong></p>
+<p>This use case is suitable for the system where power consumption is the
+major concern. Suspend mode demonstrates the system power save
+configuration. If this mode is enabled, the system will go into suspend
+mode or deep sleep mode when there is nothing to do for the processor.
+When in suspend state, the system will still wakeup if an interrupt
+occurs, but the latency will be much larger compared to running with
+suspend mode disabled.</p>
+<p><strong>Prerequisites</strong></p>
+<p>An Access Point configured with any Wi-Fi security types (WPA/WPA2/WPA3
+Personal/Enterprise protocols).</p>
+<p><strong>AT Command Sequence</strong></p>
+<table class="docutils align-default" id="id11">
+<caption><span class="caption-text">Table 3: Always Active Mode - AT Commands</span><a class="headerlink" href="#id11" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>AT Command</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>at</em></p></td>
+<td><p>Check the communication state</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>at+wcon</em></p></td>
+<td><p>Connect to a desired AP</p></td>
+</tr>
+<tr class="row-even"><td><p><em>at+wstatus</em></p></td>
+<td><p>Get WLAN status</p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+<p>at+syssleep=&lt;suspend
+time&gt;*</p>
+</td>
+<td><p>Puts the module into suspend/deep sleep mode
+for the configured “suspend time” value.</p>
+<p>Unit is in milliseconds.</p>
+<p>0 - Indicates infinite sleep mode</p>
+<p>Range - [0- 32-bit value]</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Procedure</strong></p>
+<p>Issue the following commands to connect Talaria TWO module to an AP of
+SSID “InnoPhase” and passphrase “<a class="reference external" href="mailto:Inno&#37;&#52;&#48;1020">Inno<span>&#64;</span>1020</a>”. Check the WLAN status with
+at+wstatus command. Put the module into deep sleep mode for about 10 sec
+(10000ms). Once the module timeouts (10 sec), it will respond with
+“WAKEUP” message and switch to active mode.</p>
+<table class="docutils align-default" id="id12">
+<caption><span class="caption-text">Table 4: Listen Interval based Wakeup - AT Commands</span><a class="headerlink" href="#id12" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>at</p>
+<p>at+wcon=InnoPhase,Inno&#64;1020</p>
+<p>at+wstatus=0</p>
+<p>at+syssleep=10000</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Serial Log</strong></p>
+<p><a class="reference internal" href="../../_images/image330.png"><img alt="image2" src="../../_images/image330.png" style="width: 6.69291in; height: 3.48682in;" /></a></p>
+<p>Figure 3: Suspend/Deep sleep Mode - Serial log</p>
+<p><strong>OTTI Log</strong></p>
+<p><a class="reference internal" href="../../_images/image427.png"><img alt="A screenshot of a computer Description automatically generated with medium confidence" src="../../_images/image427.png" style="width: 6.69291in; height: 3.94784in;" /></a></p>
+<p>Figure 4: Suspend/Deep sleep Mode - OTTI log</p>
+</section>
+</section>
+<section id="ieee-power-save-mode">
+<h2>IEEE Power Save Mode<a class="headerlink" href="#ieee-power-save-mode" title="Link to this heading"></a></h2>
+<section id="always-active-mode">
+<h3>Always Active Mode<a class="headerlink" href="#always-active-mode" title="Link to this heading"></a></h3>
+<p><strong>Description</strong></p>
+<p>This use case demonstrates configuring Talaria TWO module to put the
+radio in an always active mode. This use case is <strong>not</strong> suitable for a
+low power solution. When this mode (traffic timeout set to 0) is
+configured, rest of the power save configurations (listen interval etc.)
+will have no effect.</p>
+<p><strong>Prerequisites</strong></p>
+<p>Access Point configured with any Wi-Fi security types (WPA/WPA2/WPA3
+Personal/Enterprise protocols).</p>
+<p><strong>AT Command Sequence</strong></p>
+<table class="docutils align-default" id="id13">
+<caption><span class="caption-text">Table 5: Dynamic Listen Interval - AT Commands</span><a class="headerlink" href="#id13" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>AT Command</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>at</em></p></td>
+<td><p>Check the communication state</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>at+wpmcfg=&lt;listen
+interval&gt;, &lt;traffic
+timeout&gt;,
+&lt;pspoll&gt;,</em></p>
+<p><em>&lt;dyn_listen_int&gt;</em></p>
+</td>
+<td><ol class="arabic simple">
+<li><p>listen Interval: Beacon listen interval [0
+- integer range]</p></li>
+<li><p>traffic timeout: This specifies the amount
+of time (in milliseconds) that the device
+should stay awake with the radio powered-up
+after a transmission (to quickly receive
+any replies that may be the result of the
+transmission).</p></li>
+</ol>
+<blockquote>
+<div><p><strong>Range</strong>: 0/ integer range. When set to 0,
+device will stay awake forever.</p>
+<p><strong>Default value</strong> is set to 12ms.</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>pspoll: Send “ps poll”.</p></li>
+</ol>
+<blockquote>
+<div><p><strong>Range</strong>: 0-disable/1-enable. When set to
+1, device will send “ps poll” if a beacon
+is missed. This will increase power
+consumption slightly but decrease latency.</p>
+<p><strong>Default value</strong> is set to 0.</p>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>dyn_listen_in - Dynamic listen interval.</p></li>
+</ol>
+<blockquote>
+<div><p><strong>Range</strong>: 0-disable/1-enable. When set to
+1, device will listen to each beacon if
+there has been traffic recently.</p>
+<p><strong>Default value</strong> is set to 0.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><p><em>at+wcon</em></p></td>
+<td><p>Connect to a desired AP</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>at+wstatus</em></p></td>
+<td><p>Get WLAN status</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Procedure</strong></p>
+<p>Issue the following commands to configure the module to be in always
+active mode. Connect the Talaria TWO module to an AP of SSID “InnoPhase”
+and passphrase “<a class="reference external" href="mailto:Inno&#37;&#52;&#48;1020">Inno<span>&#64;</span>1020</a>”. Check the WLAN status with at+wstatus
+command.</p>
+<table class="docutils align-default" id="id14">
+<caption><span class="caption-text">Table 6: Low Power Optimization - AT Commands</span><a class="headerlink" href="#id14" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>at</p>
+<p>at+wpmcfg=3,0,0,0</p>
+<p>at+wcon=InnoPhase,Inno&#64;1020</p>
+<p>at+wstatus=0</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Serial Log</strong></p>
+<p><a class="reference internal" href="../../_images/image523.png"><img alt="image3" src="../../_images/image523.png" style="width: 7.48031in; height: 4.18375in;" /></a></p>
+<p>Figure 5: Always Active Mode - Serial log</p>
+<p><strong>OTTI Log</strong></p>
+<p><a class="reference internal" href="../../_images/image615.png"><img alt="A picture containing graphical user interface Description automatically generated" src="../../_images/image615.png" style="width: 7.48031in; height: 4.81503in;" /></a></p>
+<p>Figure 6: Always Active Mode - OTTI log</p>
+</section>
+<section id="listen-interval-based-wakeup">
+<h3>Listen Interval Based Wakeup<a class="headerlink" href="#listen-interval-based-wakeup" title="Link to this heading"></a></h3>
+<p>Listen Interval specifies how often the device will wake-up and listen
+for beacons. On Talaria TWO, the listen interval is set to 0 by default
+and it will wake-up to listen to every DTIM beacon.</p>
+<p><strong>Description</strong></p>
+<p>This use case demonstrates wake up based on user defined Listen-Interval
+configuration (which is 10 beacons in this use case). In Listen Interval
+based Wakeup method, Station will miss the broad cast data.</p>
+<p>The listen interval is always rounded up to the nearest even multiple of
+the DTIM interval.</p>
+<p>For example: By setting the listen interval to 10, Talaria TWO will
+listen to each 12th beacon if the AP uses DTIM=3.</p>
+<p><strong>Prerequisites</strong></p>
+<p>An Access Point configured with any Wi-Fi security types (WPA/WPA2/WPA3
+Personal/Enterprise protocols).</p>
+<p><strong>AT Command Sequence</strong></p>
+<table class="docutils align-default" id="id15">
+<caption><span class="caption-text">Table 7: Upon suspend mode timeout - AT Commands</span><a class="headerlink" href="#id15" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>AT Command</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>at</p></td>
+<td><p>Check the communication state</p></td>
+</tr>
+<tr class="row-odd"><td><p>at+wpmcfg=&lt;listen
+interval&gt;, &lt;traffic
+timeout&gt;, &lt;pspoll&gt;,</p>
+<p>&lt;dyn_listen_int&gt;</p>
+</td>
+<td><ol class="arabic simple">
+<li><p>listen Interval: Beacon listen interval
+[0 - integer range]</p></li>
+<li><p>traffic timeout: This specifies the
+amount of time (in milliseconds) that
+the device should stay awake with the
+radio powered-up after a transmission
+(to quickly receive any replies that
+may be the result of the transmission).</p></li>
+</ol>
+<blockquote>
+<div><p><strong>Range</strong>: 0/ integer range. When set
+to 0, device will stay awake forever.</p>
+<p><strong>Default value</strong> is set to 12ms.</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>pspoll: Send “ps poll”.</p></li>
+</ol>
+<blockquote>
+<div><p><strong>Range</strong>: 0-disable/1-enable. When set
+to 1, device will send “ps poll” if a
+beacon is missed. This will increase
+power consumption slightly but decrease
+latency.</p>
+<p><strong>Default value</strong> is set to 0.</p>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>dyn_listen_in - Dynamic listen
+interval.</p></li>
+</ol>
+<blockquote>
+<div><p><strong>Range</strong>: 0-disable/1-enable. When set
+to 1, device will listen to each beacon
+if there has been traffic recently.</p>
+<p><strong>Default value</strong> is set to 0.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><p>at+wcon</p></td>
+<td><p>Connect to a desired AP.</p></td>
+</tr>
+<tr class="row-odd"><td><p>at+wstatus</p></td>
+<td><p>Get WLAN status.</p></td>
+</tr>
+<tr class="row-even"><td><p>at+syssleep=&lt;suspend
+time&gt;</p></td>
+<td><p>Puts the module into suspend/deep sleep
+mode for the configured “suspend time”
+value.</p>
+<p>Unit is in milliseconds.</p>
+<p>0 - Indicates infinite sleep mode.</p>
+<p>Range - [0- 32-bit value].</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Procedure</strong></p>
+<p>Issue following commands to configure the module to listen and wake up
+for every 10th Beacon. Connect the Talaria TWO module to an AP of SSID
+“InnoPhase” and passphrase “<a class="reference external" href="mailto:Inno&#37;&#52;&#48;1020">Inno<span>&#64;</span>1020</a>”. Check the WLAN status with
+at+wstatus command. Put the module into deep sleep mode for about 60 sec
+(60000ms).</p>
+<table class="docutils align-default" id="id16">
+<caption><span class="caption-text">Table 8: GPIO Interrupt - AT Commands</span><a class="headerlink" href="#id16" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>at</p>
+<p>at+wpmcfg=10,12,0,0</p>
+<p>at+wcon=InnoPhase,Inno&#64;1020</p>
+<p>at+wstatus=0</p>
+<p>at+syssleep=60000</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Serial Log</strong></p>
+<p><a class="reference internal" href="../../_images/image714.png"><img alt="image4" src="../../_images/image714.png" style="width: 7.48031in; height: 5.55829in;" /></a></p>
+<p>Figure 7: Listen Interval based Wakeup - Serial log</p>
+<p><strong>OTTI Log</strong></p>
+<p><a class="reference internal" href="../../_images/image813.png"><img alt="Chart Description automatically generated" src="../../_images/image813.png" style="width: 7.48031in; height: 4.22563in;" /></a></p>
+<p>Figure 8: Listen Interval based Wakeup - OTTI log</p>
+</section>
+<section id="dynamic-listen-interval">
+<h3>Dynamic Listen Interval<a class="headerlink" href="#dynamic-listen-interval" title="Link to this heading"></a></h3>
+<p>Listen to all beacons if there has been traffic recently. This will
+decrease latency for incoming traffic but will increase power
+consumption slightly.</p>
+<p><strong>Description</strong></p>
+<p>This use case demonstrates the dynamic listen interval. Module wakes up
+based on user defined Listen-Interval configuration (which is 10 beacons
+in this use case). In Listen Interval based wake-up method, station will
+miss the broad cast data. Upon enabling dynamic listen interval, module
+wakes up and listens to each Beacon if there has been traffic recently.</p>
+<p><strong>Prerequisites</strong></p>
+<p>An Access Point configured with any Wi-Fi security types (WPA/WPA2/WPA3
+Personal/Enterprise protocols).</p>
+<p><strong>AT Command Sequence</strong></p>
+<table class="docutils align-default" id="id17">
+<caption><span class="caption-text">Table 9: Network data reception - AT Commands</span><a class="headerlink" href="#id17" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>AT Command</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>at</p></td>
+<td><p>Check the communication state</p></td>
+</tr>
+<tr class="row-odd"><td><p>at+wpmcfg=&lt;listen
+interval&gt;, &lt;traffic
+timeout&gt;, &lt;pspoll&gt;,</p>
+<p>&lt;dyn_listen_int&gt;</p>
+</td>
+<td><ol class="arabic simple">
+<li><p>listen Interval: Beacon listen interval [0
+- integer range]</p></li>
+<li><p>traffic timeout: This specifies the amount
+of time (in milliseconds) that the device
+should stay awake with the radio
+powered-up after a transmission (to
+quickly receive any replies that may be
+the result of the transmission).</p></li>
+</ol>
+<blockquote>
+<div><p><strong>Range</strong>: 0/ integer range. When set to
+0, device will stay awake forever.</p>
+<p><strong>Default value</strong> is set to 12ms.</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>pspoll: Send “ps poll”.</p></li>
+</ol>
+<blockquote>
+<div><p><strong>Range</strong>: 0-disable/1-enable. When set to
+1, device will send “ps poll” if a beacon
+is missed. This will increase power
+consumption slightly but decrease latency.</p>
+<p><strong>Default value</strong> is set to 0.</p>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>dyn_listen_in - Dynamic listen interval.</p></li>
+</ol>
+<blockquote>
+<div><p><strong>Range</strong>: 0-disable/1-enable. When set to
+1, device will listen to each beacon if
+there has been traffic recently.</p>
+<p><strong>Default value</strong> is set to 0.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><p>at+wcon</p></td>
+<td><p>Connect to a desired AP.</p></td>
+</tr>
+<tr class="row-odd"><td><p>at+wstatus</p></td>
+<td><p>Get WLAN status.</p></td>
+</tr>
+<tr class="row-even"><td><p>at+syssleep=&lt;suspend
+time&gt;</p></td>
+<td><p>Puts the module into suspend/deep sleep mode
+for the configured “suspend time” value.</p>
+<p>Unit is in milliseconds.</p>
+<p>0 - Indicates infinite sleep mode.</p>
+<p>Range - [0- 32-bit value].</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Procedure</strong></p>
+<p>Issue the following commands to configure the module to listen and wake
+up for every 10th Beacon and enable dynamic listen interval to listen to
+every Beacon if there has been any traffic. Connect the Talaria TWO
+module to an AP of SSID “InnoPhase” and passphrase “<a class="reference external" href="mailto:Inno&#37;&#52;&#48;1020">Inno<span>&#64;</span>1020</a>”. Check
+the WLAN status with at+wstatus command. Put the module into deep sleep
+mode for about 60 sec (60000ms).</p>
+<table class="docutils align-default" id="id18">
+<caption><span class="caption-text">Table 10: BLE Peripheral - AT Commands</span><a class="headerlink" href="#id18" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>at</p>
+<p>at+wpmcfg=10,12,0,1</p>
+<p>at+wcon=InnoPhase,Inno&#64;1020</p>
+<p>at+wstatus=0</p>
+<p>at+syssleep=60000</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Serial Log</strong></p>
+<p><a class="reference internal" href="../../_images/image913.png"><img alt="image5" src="../../_images/image913.png" style="width: 7.48031in; height: 4.53538in;" /></a></p>
+<p>Figure 9: Dynamic Listen Interval - Serial log</p>
+<p>Connect the laptop to the same Access Point “InnoPhase” to which the
+Talaria TWO is connected.</p>
+<p><a class="reference internal" href="../../_images/image1012.png"><img alt="Graphical user interface, text Description automatically generated" src="../../_images/image1012.png" style="width: 3.14961in; height: 5.09226in;" /></a></p>
+<p>Figure 10: Connect to InnoPhase AP</p>
+<p>Ping from laptop to the Talaria TWO module (192.168.2.115 is the IP
+address of Talaria TWO) which sends ICMP packets. This generates
+traffic, and hence Dynamic listen interval is enabled on Talaria TWO.</p>
+<p>To generate traffic, execute the ping command from the Windows Command
+Prompt.</p>
+<p><a class="reference internal" href="../../_images/image1116.png"><img alt="image6" src="../../_images/image1116.png" style="width: 7.48031in; height: 5.7985in;" /></a></p>
+<p>Figure 11: Connect to InnoPhase AP Command Prompt</p>
+<p><strong>OTTI Log</strong></p>
+<p><a class="reference internal" href="../../_images/image1215.png"><img alt="Graphical user interface, chart Description automatically generated" src="../../_images/image1215.png" style="width: 7.48031in; height: 4.23315in;" /></a></p>
+<p>Figure 12: Dynamic Listen Interval - OTTI log</p>
+</section>
+<section id="low-power-optimization">
+<h3>Low Power Optimization<a class="headerlink" href="#low-power-optimization" title="Link to this heading"></a></h3>
+<p><strong>Description</strong></p>
+<p>This use case demonstrates the power optimization configurations.</p>
+<p><strong>Prerequisites</strong></p>
+<p>An Access Point configured with any Wi-Fi security types (WPA/WPA2/WPA3
+Personal/Enterprise protocols.</p>
+<p><strong>AT Command Sequence</strong></p>
+<table class="docutils align-default" id="id19">
+<caption><span class="caption-text">Table 11: BLE IO capabilities - AT Commands</span><a class="headerlink" href="#id19" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>AT Command</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>at</em></p></td>
+<td><p>Check communication state</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>at+wpmcfg=&lt;listen
+interval&gt;, &lt;traffic
+timeout&gt;, &lt;pspoll&gt;,
+&lt;dyn_
+listen_int&gt;[&lt;starx_nap&gt;,
+&lt;sta_only_bc&gt;, &lt;txps&gt;,</em></p>
+<p><em>&lt;mcast_dont_care&gt;,
+&lt;dtim&gt;]</em></p>
+</td>
+<td><ol class="arabic simple">
+<li><p>listen Interval: Beacon listen
+interval [0/ integer range]</p></li>
+<li><p>traffic timeout: This specifies the
+amount of time (in milliseconds) that
+the device should stay awake with the
+radio powered-up after a transmission
+(to quickly receive any replies that
+may be the result of the transmission)
+[0/ integer range]. When set to 0,
+device will stay awake forever.
+Default value is set to 12ms.</p></li>
+<li><p>pspoll: use PS-poll
+[0-disable/1-enable]. When set to 1,
+device will send “ps poll” if a beacon
+is missed. This will increase power
+consumption slightly but decrease
+latency. Default value is set to 0.</p></li>
+<li><p>dyn_listen_in - Dynamic listen
+interval [0-disable/1-enable]. When
+set to 1, device will listen to each
+beacon if there has been traffic
+recently. Default value is set to 0.</p></li>
+<li><p>starx_nap: STA Receive nap
+[0-disable/1-enable]. When set to 1,
+turn off receiver for inappropriate
+frames for station. Default value is
+set to 0.</p></li>
+<li><p>sta_only_bc: STA broadcast Only
+[0-disable/1-enable]. When set to 1,
+do not receive multicast frames that
+are not applicable. Default value is
+set to 0.</p></li>
+<li><p>txps: Tx power save
+[0-disable/1-enable]. When set to 1,
+send outgoing frames without leaving
+Wi-Fi power save. Default value is set
+to 0.</p></li>
+<li><p>mcast_dont_care: Multicast don’t
+care[0-disable/1-enable]. When set to
+1, ignore the multicast flag in
+beacons. Default value is set to 0.</p></li>
+<li><p>dtim: Delivery traffic indication
+message [0-disable/1-enable] Wakes up
+only at effective listen interval and
+does not switch to listen to every
+beacon in case of beacon miss</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><p><em>at+wcon</em></p></td>
+<td><p>Connect to a desired AP.</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>at+wstatus</em></p></td>
+<td><p>Get WALN status.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>at+syssleep=&lt;suspend
+time&gt;</em></p></td>
+<td><p>Puts the module into suspend/deep sleep
+mode for the configured “suspend time”
+value.</p>
+<p>Unit is in milliseconds.</p>
+<p>0 - Indicates infinite sleep mode.</p>
+<p>Range - [0- 32-bit value].</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: Arguments in [ ] are optional and those in &lt;&gt; are mandatory.</p>
+<p><strong>Procedure</strong></p>
+<p>Issue the following command to configure Talaria TWO to set the power
+save configuration as listen interval=10, traffic timeout=12ms,
+ps-poll=0, dynamic listen interval=0, station rx nap=1, station
+broadcast only=1, transmit PS=1, multicast don’t care =1, and dtim=1.
+Connect the Talaria TWO to an AP of SSID “InnoPhase” and passphrase
+“<a class="reference external" href="mailto:Inno&#37;&#52;&#48;1020">Inno<span>&#64;</span>1020</a>”. Check the WLAN status with at+wstatus command. Put the
+module into deep sleep mode for about 60 sec (60000ms).</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>at</p>
+<p>at+wpmcfg=10,12,0,0,1,1,1,1,1</p>
+<p>at+wcon=InnoPhase,Inno&#64;1020 at+wstatus=0</p>
+<p>at+syssleep=60000</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Serial Log</strong></p>
+<p><a class="reference internal" href="../../_images/image1312.png"><img alt="image7" src="../../_images/image1312.png" style="width: 7.48031in; height: 2.9188in;" /></a></p>
+<p>Figure 13: Low Power Optimization - Serial log</p>
+<p><strong>OTTI Log</strong></p>
+<p><a class="reference internal" href="../../_images/image1411.png"><img alt="Chart, histogram Description automatically generated" src="../../_images/image1411.png" style="width: 7.48031in; height: 4.23041in;" /></a></p>
+<p>Figure 14: Low Power Optimization - OTTI log</p>
+</section>
+</section>
+<section id="wakeup-from-hardware-power-save-mode">
+<h2>Wakeup from Hardware Power Save Mode<a class="headerlink" href="#wakeup-from-hardware-power-save-mode" title="Link to this heading"></a></h2>
+<section id="upon-suspend-mode-timeout">
+<h3>Upon Suspend Mode Timeout<a class="headerlink" href="#upon-suspend-mode-timeout" title="Link to this heading"></a></h3>
+<p><strong>Description</strong></p>
+<p>The following usecase demonstrates wakeup from suspend mode upon timeout
+of the suspend timer.</p>
+<p><strong>Note</strong>: In case of infinite suspend time, it is mandatory to set
+at+wakeupcfg.</p>
+<p><strong>Prerequisites</strong></p>
+<p>An Access Point configured with any Wi-Fi security types (WPA/WPA2/WPA3
+Personal/Enterprise protocols).</p>
+<p><strong>AT Command Sequence</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>AT Command</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>at</em></p></td>
+<td><p>Check communication state</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>at+wscan</em></p></td>
+<td><p>Get list of available APs from the vicinity</p></td>
+</tr>
+<tr class="row-even"><td><p><em>at+wcon</em></p></td>
+<td><p>Connect to an Access Point</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>at+wstatus=0</em></p></td>
+<td><p>Get IP address of Talaria TWO to verify if the
+connection is successful</p></td>
+</tr>
+<tr class="row-even"><td><p><em>at+syssleep</em></p></td>
+<td><p>Puts system into suspend mode for the configured
+time (Time in milliseconds)</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Procedure</strong></p>
+<p><strong>Step 1</strong>: Issue the following commands to configure the module in
+sleep mode for 30secs and wakeup based on timeout (30secs in this
+example).</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>at</p>
+<p>at+wscan</p>
+<p>at+wcon=InnoPhase,Inno&#64;9070</p>
+<p>at+wstatus=0</p>
+<p>at+syssleep=30000</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Serial Log</strong></p>
+<p><a class="reference internal" href="../../_images/image1511.png"><img alt="image8" src="../../_images/image1511.png" style="width: 6.29921in; height: 3.6165in;" /></a></p>
+<p>Figure 15: Upon suspend mode timeout - Serial log</p>
+<p><strong>OTII Log</strong></p>
+<p><a class="reference internal" href="../../_images/image1610.png"><img alt="image9" src="../../_images/image1610.png" style="width: 6.29921in; height: 3.65419in;" /></a></p>
+<p>Figure 16: Upon suspend mode timeout – OTII log</p>
+</section>
+<section id="upon-gpio-interrupt">
+<h3>Upon GPIO Interrupt<a class="headerlink" href="#upon-gpio-interrupt" title="Link to this heading"></a></h3>
+<p><strong>Description</strong></p>
+<p>The following usecase demonstrates an interrupt based wakeup mechanism
+when the module is put in suspend mode.</p>
+<p><strong>Note</strong>:</p>
+<ol class="arabic simple">
+<li><p>All the GPIOs are pulled HIGH internally by default except GPIO18
+(pulled LOW).</p></li>
+<li><p>To generate a low-level interrupt, GPIO must be pulled LOW
+externally.</p></li>
+<li><p>To generate a high level interrupt, pull down that particular GPIO
+externally through a pull down register. Only then the high interrupt
+will get detected.</p></li>
+<li><p>Since there is always a pull down on high level interrupt GPIO, some
+amount of small current is always sinking through that pin, which
+will add-on to the power save suspend current.</p></li>
+<li><p>Hence, it is recommended to use low level interrupt for low power use
+case.</p></li>
+</ol>
+<p><strong>Prerequisites</strong></p>
+<p>An Access Point configured with any Wi-Fi security types (WPA/WPA2/WPA3
+Personal/Enterprise protocols).</p>
+<p><strong>AT Command Sequence</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>AT
+Command</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>at</em></p></td>
+<td><p>Check communication state</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>at+wscan</em></p></td>
+<td><p>Get list of available APs from the vicinity</p></td>
+</tr>
+<tr class="row-even"><td><p><em>at+wcon</em></p></td>
+<td><p>Connect to an Access Point</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>a
+t+wstatus=0</em></p></td>
+<td><p>Get IP address of Talaria TWO to verify if the
+connection is successful</p></td>
+</tr>
+<tr class="row-even"><td><p><em>a
+t+wakeupcfg</em></p></td>
+<td><p>Configure interrupt-based system wakeup</p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+<p>at+syssleep*</p>
+</td>
+<td><p>Puts system into suspend mode for the configured time
+(Time in milliseconds)</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Procedure</strong></p>
+<p>Issue the following commands to configure the module in infinite sleep
+mode and wakeup based on GPIO14 interrupt. GPIO14 is configured for low
+wakeup level (which implies, generate interrupt when the GPIO14 is low
+level).</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>at</p>
+<p>at+wscan</p>
+<p>at+wcon=InnoPhase,Inno&#64;9070</p>
+<p>at+wstatus=0</p>
+<p>at+wakeupcfg=14,0,0,0</p>
+<p>at+syssleep=0</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Serial Log</strong></p>
+<p><a class="reference internal" href="../../_images/image1710.png"><img alt="image10" src="../../_images/image1710.png" style="width: 7.48031in; height: 4.29542in;" /></a></p>
+<p>Figure 17: GPIO Interrupt - Serial log</p>
+<p><strong>OTTI Log</strong></p>
+<p><a class="reference internal" href="../../_images/image1810.png"><img alt="image11" src="../../_images/image1810.png" style="width: 7.48031in; height: 2.93047in;" /></a></p>
+<p>Figure 18: GPIO Interrupt - OTTI log</p>
+</section>
+<section id="upon-network-data-reception">
+<h3>Upon Network Data Reception<a class="headerlink" href="#upon-network-data-reception" title="Link to this heading"></a></h3>
+<p>This use case is to demonstrate Talaria TWO sleep management with an
+example of illustrating wakeup from sleep mode upon socket data receive.</p>
+<p><strong>Description</strong></p>
+<p>This use case describes connecting to a network of SSID InnoPhase and
+passphrase <a class="reference external" href="mailto:Inno&#37;&#52;&#48;9070">Inno<span>&#64;</span>9070</a>. Creates TCP server socket at port 9000. Waits for
+the TCP client connection and configures module deep sleep of 60
+seconds.</p>
+<p>During the 60 second timestamp, if there is data sent from the client,
+module wakes up upon network data and receives data and goes back to
+sleep till timeout.</p>
+<p><strong>Prerequisites</strong></p>
+<ol class="arabic simple">
+<li><p>An Access Point configured with WPA/WPA2/WPA3 personal/enterprise
+security.</p></li>
+<li><p>Hercules tool to create TCP client in Windows/Linux laptop.</p></li>
+</ol>
+<p><strong>AT Command Sequence</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>AT
+Command</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>at</em></p></td>
+<td><p>Check communication state</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>at+wscan</em></p></td>
+<td><p>Get list of available APs from the vicinity</p></td>
+</tr>
+<tr class="row-even"><td><p><em>at+wcon</em></p></td>
+<td><p>Connect to a desired AP from the received scan results</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>a
+t+wstatus</em></p></td>
+<td><p>Get IP address of Talaria TWO to verify the
+connection(L2+L3) is successful</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li></li>
+</ul>
+<p>at+socsrv*</p>
+</td>
+<td><p>Start TCP server</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>at
++syssleep</em></p></td>
+<td><p>Puts system into suspend mode for the configured time
+(Time in milliseconds)</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Procedure</strong></p>
+<p><strong>Step 1</strong>: Execute the following commands on Talaria TWO:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>at</p>
+<p>at+wscan</p>
+<p>at+wcon=InnoPhase,Inno&#64;9070</p>
+<p>at+wstatus=0</p>
+<p>at+socsrv=0,0,0,9000</p>
+<p>at+syssleep=10000</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 2</strong>: Connect your laptop to the same access point InnoPhase to
+which the Talaria TWO is connected.</p>
+<p><a class="reference internal" href="../../_images/image1910.png"><img alt="image12" src="../../_images/image1910.png" style="width: 0.64172in; height: 0.30836in;" /></a><a class="reference internal" href="../../_images/image208.png"><img alt="Graphical user interface, text, application, chat or text message Description automatically generated" src="../../_images/image208.png" style="width: 2.75591in; height: 4.61993in;" /></a></p>
+<blockquote>
+<div><p>Figure 19: Connect to InnoPhase</p>
+</div></blockquote>
+<p><strong>Step 3</strong>: Using Hercules tool create TCP client and connect to server
+of IP 192.1681.18 server socket and port 9000.</p>
+<p><a class="reference internal" href="../../_images/image2113.png"><img alt="Graphical user interface, text, application Description automatically generated" src="../../_images/image2113.png" style="width: 5.90551in; height: 5.15162in;" /></a></p>
+<p>Figure 20: Hercules tool - create TCP client</p>
+<p><strong>Serial Log</strong></p>
+<p><a class="reference internal" href="../../_images/image2211.png"><img alt="image13" src="../../_images/image2211.png" style="width: 7.48031in; height: 3.90727in;" /></a></p>
+<p>Figure 21: Network data reception - Serial log</p>
+</section>
+</section>
+</section>
+<section id="ble-peripheral">
+<h1>BLE Peripheral<a class="headerlink" href="#ble-peripheral" title="Link to this heading"></a></h1>
+<section id="description-1">
+<span id="id1"></span><h2>Description<a class="headerlink" href="#description-1" title="Link to this heading"></a></h2>
+<p>This use case is to demonstrate configuring Talaria TWO as a BLE
+peripheral mode.</p>
+<ol class="arabic simple">
+<li><p>Start the GATT server.</p></li>
+<li><p>Configure services, add characteristics, and advertise the services.</p></li>
+<li><p>Connect BLE central</p></li>
+<li><p>Perform READ/WRITE operations from the application endpoint (BLE
+Central, Android phone with BLE Scanner app in this example).</p></li>
+</ol>
+</section>
+<section id="prerequisites-1">
+<span id="id2"></span><h2>Prerequisites<a class="headerlink" href="#prerequisites-1" title="Link to this heading"></a></h2>
+<p>Android device installed with BLE app like BLE Scanner or nRF Connect.</p>
+</section>
+<section id="at-command-sequence-1">
+<span id="id3"></span><h2>AT Command Sequence<a class="headerlink" href="#at-command-sequence-1" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>AT Command</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>at</em></p></td>
+<td><p>Checks the connection
+state</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>at+btinit</em></p></td>
+<td><p>Initializes the BLE stack</p></td>
+</tr>
+<tr class="row-even"><td><p><em>at+blecfg=02:03:04:1f:cc:9e,0,
+InnoPhase</em></p></td>
+<td><p>Configures BLE device
+with parameters,</p>
+<p>BLE mac address:
+02:03:04:1f:cc:9e</p>
+<p>BLE address type: 0 (BLE
+public address)</p>
+<p>BLE device name:
+InnoPhase</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><em>at+blesrvstart</em></p></td>
+<td><p>Start the BLE GATT server</p></td>
+</tr>
+<tr class="row-even"><td><p><em>at+bles
+ervcfg=11111111111111111111111111111111</em></p></td>
+<td><p>Creates unique custom
+service ID (32-bit long
+value)</p>
+<p>UUID:
+<em>11111111
+111111111111111111111111</em></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><em>at+blechradd=11
+111111111111111111111111111111,2A29,a,3</em></p></td>
+<td><p>Creates a unique custom
+characteristic ID for the
+above created custom
+service ID with
+parameters,</p>
+<p>Services uuid:
+<em>11111111
+111111111111111111111111</em></p>
+<p>Char uuid: <em>2A29</em></p>
+<p>Properties: <em>“a” sets
+read and write property</em></p>
+<p>Permission: 3 sets read
+and write permission</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><em>at+bles
+ervadd=11111111111111111111111111111111</em></p></td>
+<td><p>This includes the
+customized service into
+GATT server where,</p>
+<p>Custom service UUID:
+<em>11111111
+111111111111111111111111</em></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><em>at+bleadvcfg=100,0,1600,0</em></p></td>
+<td><p> This configures the
+advertisement parameters
+where,</p>
+<p>Fast adv interval: 100
+which equals 62.5ms (100
+* 625 μs)</p>
+<p>Fast adv duration: 0
+(continues advertisement)</p>
+<p>Slow adv interval: 1600,
+which equals 1000ms (1600
+* 625 μs)</p>
+<p>Slow adv duration: 0</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><em>at+bleadvstart</em></p></td>
+<td><p> Start the BLE
+Advertisement</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>at+blecharwrdata=2a29,5</em></p></td>
+<td><p>Acknowledges BLE
+Characteristic Write
+Request with parameters,</p>
+<p>characteristic UUID:
+<em>2a29,</em></p>
+<p>data len (in hex format):
+5</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><em>at+blecharrddata=2a29,a,6162636465</em></p></td>
+<td><p>Sends data for BLE
+Characteristic Read
+Request with parameters,</p>
+<p>uuid: <em>2a29</em></p>
+<p>data len<em>: a</em></p>
+<p>data: <em>6162636465</em></p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="procedure-1">
+<span id="id4"></span><h2>Procedure<a class="headerlink" href="#procedure-1" title="Link to this heading"></a></h2>
+<p><strong>Step 1</strong>: Execute the following commands on Talaria TWO:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>at</p>
+<p>at+btinit</p>
+<p>at+blecfg=02:03:04:1f:cc:9e,0,InnoPhase</p>
+<p>at+blesrvstart</p>
+<p>at+bleservcfg=11111111111111111111111111111111</p>
+<p>at+blechradd=11111111111111111111111111111111,2A29,a,3</p>
+<p>at+bleservadd=11111111111111111111111111111111</p>
+<p>at+bleadvcfg=100,0,1600,0</p>
+<p>at+bleadvstart</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image2310.png"><img alt="image14" src="../../_images/image2310.png" style="width: 7.48031in; height: 4.93599in;" /></a></p>
+<p>Figure 22: BLE Peripheral - serial log</p>
+<p><strong>Step 2</strong>: Launch the BLE Scanner app from the Android device and
+connect to Talaria TWO GATT Server with the BLE name InnoPhase.</p>
+<p><a class="reference internal" href="../../_images/image2410.png"><img alt="image15" src="../../_images/image2410.png" style="width: 3.14961in; height: 6.54325in;" /></a></p>
+<p>Figure 23: Talaria TWO GATT Server</p>
+<p><strong>Step 3</strong>: Once the BLE connection is established successfully send
+data/Write Request by pressing W from BLE central.</p>
+<p><a class="reference internal" href="../../_images/image259.png"><img alt="image16" src="../../_images/image259.png" style="width: 3.14961in; height: 6.32579in;" /></a></p>
+<p>Figure 24: Write request</p>
+<p><strong>Step 4</strong>: An asynchronous message on Talaria TWO will be displayed for
+the Write Request sent from the device. Send an acknowledgment of the
+write request from Talaria TWO using following command:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>at+blecharwrdata=2a29,5</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image266.png"><img alt="image17" src="../../_images/image266.png" style="width: 7.48031in; height: 3.56205in;" /></a></p>
+<p>Figure 25: Write request from Talaria TWO</p>
+<p>Write request acknowledgement displayed on the device:</p>
+<p><a class="reference internal" href="../../_images/image259.png"><img alt="image18" src="../../_images/image259.png" style="width: 3.14961in; height: 6.32579in;" /></a></p>
+<p>Figure 26: Write request acknowledgment on device</p>
+<p><strong>Step 5</strong>: Send Read request from device BLE central and send
+acknowledgement Read request data 6162636465 from Talaria TWO.</p>
+<p><a class="reference internal" href="../../_images/image259.png"><img alt="image19" src="../../_images/image259.png" style="width: 3.14961in; height: 6.32554in;" /></a></p>
+<p>Figure 27: Read request on device</p>
+<p><strong>Step 6</strong>: An asynchronous message will be displayed on Talaria TWO for
+the received Read request. Send data 6162636465 as acknowledgement for
+the received read request from Talaria TWO:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>at+blecharrddata=2a29,a,6162636465</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image276.png"><img alt="image20" src="../../_images/image276.png" style="width: 7.48031in; height: 3.83405in;" /></a></p>
+<p>Figure 28: Send data as an acknowledgement to Talaria TWO</p>
+<p>Acknowledgment of Read request displayed on the device.</p>
+<p><a class="reference internal" href="../../_images/image286.png"><img alt="image21" src="../../_images/image286.png" style="width: 3.14961in; height: 6.43829in;" /></a></p>
+<p>Figure 29: Read request acknowledgment on device</p>
+</section>
+</section>
+<section id="ble-io-capabilities">
+<h1>BLE IO capabilities<a class="headerlink" href="#ble-io-capabilities" title="Link to this heading"></a></h1>
+<section id="description-2">
+<span id="id5"></span><h2>Description<a class="headerlink" href="#description-2" title="Link to this heading"></a></h2>
+<p>This use case is to demonstrate the BLE IO capabilities for secured BLE
+connection.</p>
+</section>
+<section id="prerequisites-2">
+<span id="id6"></span><h2>Prerequisites<a class="headerlink" href="#prerequisites-2" title="Link to this heading"></a></h2>
+<p>Android device installed with native BLE app (BLE Scanner/nRF Connect).</p>
+</section>
+<section id="at-command-sequence-2">
+<span id="id7"></span><h2>AT Command Sequence<a class="headerlink" href="#at-command-sequence-2" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>AT Command</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>at</em></p></td>
+<td><p>Checks the connection state</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>at+btinit</em></p></td>
+<td><p>Initializes the BLE stack</p></td>
+</tr>
+<tr class="row-even"><td><p><em>at+blecfg
+=02:03:04:1f:cc:9e,0,InnoPhase_Secure</em></p></td>
+<td><p>Configures BLE device with
+parameters,</p>
+<p>BLE mac address:
+02:03:04:1f:cc:9e</p>
+<p>BLE address type: 0 (BLE
+public address)</p>
+<p>BLE device name:
+InnoPhase_Secure</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><em>at+blesrvstart</em></p></td>
+<td><p>Start the BLE GATT server</p></td>
+</tr>
+<tr class="row-even"><td><p><em>at+bleser
+vcfg=11111111111111111111111111111111</em></p></td>
+<td><p>Creates unique custom
+service ID (32-bit long
+value)</p>
+<p>UUID:
+<em>111111
+11111111111111111111111111</em></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><em>at+blech
+radd=11111111111111111111111111111111,
+2A29,a,3</em></p></td>
+<td><p>Creates a unique custom
+characteristic ID for the
+above created custom
+service ID with parameters,</p>
+<p>Services uuid:
+<em>111111
+11111111111111111111111111</em></p>
+<p>Char uuid: <em>2A29</em></p>
+<p>Properties: <em>“a” sets read
+and write property</em></p>
+<p>Permission: <em>3</em> sets read
+and write permission</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><em>at+bleser
+vadd=11111111111111111111111111111111</em></p></td>
+<td><p>This includes the
+customized service into
+gatt server where,</p>
+<p>Custom service UUID:
+<em>111111
+11111111111111111111111111</em></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><em>at+bleadvcfg=100,0,1600,0</em></p></td>
+<td><p> This configures the
+advertisement parameters
+where,</p>
+<p>Fast adv interval: 100
+which equals 62.5ms (100 *
+625 μs)</p>
+<p>Fast adv duration: 0
+(continues advertisement)</p>
+<p>Slow adv interval: 1600,
+which equals 1000ms (1600
+* 625 μs)</p>
+<p>Slow adv duration: 0</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><em>at+blesmpcfg=0,0,1,0,0,0,16,1</em></p></td>
+<td><p> Configures the SMP
+(security) with parameters,</p>
+<p>io cap: 0 (display_only)</p>
+<p>oob : 0 (default)</p>
+<p>bondable: 1</p>
+<p>mitm: 0</p>
+<p>sc: 0</p>
+<p>keypress: 0</p>
+<p>key size min: 16 bytes</p>
+<p>encrypt: 1</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><em>at+bleadvstart</em></p></td>
+<td><p>Start the BLE Advertisement</p></td>
+</tr>
+<tr class="row-even"><td><p><em>at+blecharwrdata=2a29,5</em></p></td>
+<td><p>Acknowledges BLE
+Characteristic Write
+Request with parameters,</p>
+<p>characteristic UUID:
+<em>2a29,</em></p>
+<p>data len (in hex format): 5</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><em>at+blecharrddata=2a29,a,6162636465</em></p></td>
+<td><p>Sends data for BLE
+Characteristic Read Request
+with parameters,</p>
+<p>uuid: <em>2a29</em></p>
+<p>data len<em>: a</em></p>
+<p>data: <em>6162636465</em></p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="procedure-2">
+<span id="id8"></span><h2>Procedure<a class="headerlink" href="#procedure-2" title="Link to this heading"></a></h2>
+<p><strong>Step 1</strong>: Execute the following commands on Talaria TWO:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>at</p>
+<p>at+btinit</p>
+<p>at+blecfg=02:03:04:1f:cc:9e,0,InnoPhase_Secure</p>
+<p>at+blesrvstart</p>
+<p>at+bleservcfg=11111111111111111111111111111111</p>
+<p>at+blechradd=11111111111111111111111111111111,2A29,a,3</p>
+<p>at+bleservadd=11111111111111111111111111111111</p>
+<p>at+bleadvcfg=100,0,1600,0</p>
+<p>at+blesmpcfg=0,0,1,0,0,0,16,1</p>
+<p>at+bleadvstart</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image294.png"><img alt="image22" src="../../_images/image294.png" style="width: 7.48031in; height: 5.26928in;" /></a></p>
+<p>Figure 30: BLE IO capability - serial log</p>
+<p><strong>Step 2</strong>: Launch BLE Scanner app from the Android device and connect
+to Talaria TWO GATT server with the BLE name InnoPhase_Secure</p>
+<p><a class="reference internal" href="../../_images/image304.png"><img alt="image23" src="../../_images/image304.png" style="width: 3.14961in; height: 6.10576in;" /></a></p>
+<p>Figure 31: Talaria TWO GATT Server</p>
+<p><strong>Step 3</strong>: For the BLE GATT connection app requests for pairing as a
+pairing request, click on pair &amp; connect.</p>
+<p><a class="reference internal" href="../../_images/image3111.png"><img alt="image24" src="../../_images/image3111.png" style="width: 3.14961in; height: 6.36891in;" /></a></p>
+<p>Figure 32: Pair request on the device</p>
+<p><strong>Step 4</strong>: App requests for a confirmation Pair with InnoPhase_secure
+here click on Pair.</p>
+<p><a class="reference internal" href="../../_images/image3210.png"><img alt="image25" src="../../_images/image3210.png" style="width: 3.14961in; height: 6.50534in;" /></a></p>
+<p>Figure 33: Confirmation to pair</p>
+<p>Now, the passkey for pairing is shown on the AT command line. Add the
+passkey to the app and click on OK. Now the BLE GATT connection is
+created.</p>
+<p><a class="reference internal" href="../../_images/image333.png"><img alt="image26" src="../../_images/image333.png" style="width: 7.48031in; height: 3.63958in;" /></a></p>
+<p>Figure 34: Pass key for pairing</p>
+<p><a class="reference internal" href="../../_images/image343.png"><img alt="image27" src="../../_images/image343.png" style="width: 3.14961in; height: 6.53958in;" /></a></p>
+<p>Figure 35: Add the passkey</p>
+<p><strong>Step 5</strong>: Once the BLE connection is established successfully send
+data/Write Request by pressing W from BLE central.</p>
+<p><a class="reference internal" href="../../_images/image353.png"><img alt="image28" src="../../_images/image353.png" style="width: 3.14961in; height: 6.36466in;" /></a></p>
+<p>Figure 36: Write request- SMP</p>
+<p>An asynchronous message on Talaria TWO will be displayed for the Write
+Request sent from the device. Send an acknowledgment of the write
+request from Talaria TWO using following command:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>at+blecharwrdata=2a29,5</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image363.png"><img alt="image29" src="../../_images/image363.png" style="width: 7.48031in; height: 4.0887in;" /></a></p>
+<p>Figure 37: Acknowledgment of Write request-SMP</p>
+<p>Write request acknowledgement displayed on the device:</p>
+<p><a class="reference internal" href="../../_images/image373.png"><img alt="image30" src="../../_images/image373.png" style="width: 3.14961in; height: 6.38897in;" /></a></p>
+<p>Figure 38: Write request acknowledgment on device-SMP</p>
+<p><strong>Step 6</strong>: Send Read request from device BLE central and send
+acknowledgement Read request data 6162636465 from Talaria TWO.</p>
+<p><a class="reference internal" href="../../_images/image373.png"><img alt="image31" src="../../_images/image373.png" style="width: 3.14961in; height: 6.38957in;" /></a></p>
+<p>Figure 39: Read Request- SMP</p>
+<p>An asynchronous message will be displayed on Talaria TWO for the
+received Read request. Send data 6162636465 as acknowledgement for the
+received read request from Talaria TWO:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>at+blecharrddata=2a29,a,6162636465</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image383.png"><img alt="image32" src="../../_images/image383.png" style="width: 7.48031in; height: 4.47003in;" /></a></p>
+<p>Figure 40: Read request acknowledgment</p>
+<p>Acknowledgment of Read request displayed on the device:</p>
+<p><a class="reference internal" href="../../_images/image393.png"><img alt="image33" src="../../_images/image393.png" style="width: 3.14961in; height: 6.39687in;" /></a></p>
+<p>Figure 41: Read request acknowledgment on device</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

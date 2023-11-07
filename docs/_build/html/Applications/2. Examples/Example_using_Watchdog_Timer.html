@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Watchlog Timer &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="WCM Multi AP" href="Example_using_WCM_Multi_AP.html" />
+    <link rel="prev" title="Unassociated Mode" href="Example_using_Unassociated_Mode.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Software%20Reference/Software_Reference_Landing_Page.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Tools/Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../Applications%20-%20Landing%20Page.html">Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Applications%20-%20Landing%20Page.html#apps">Apps</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../Applications%20-%20Landing%20Page.html#examples">Examples</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Analog_to_Digital_Converter.html">Analog to Digital Converter (ADC)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Audio_over_I2S.html">Audio Over I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_BLE_WiFi_Bridge.html">BLE WiFi Bridge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Crash_handling.html">Crash Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_I2C.html">I2C</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_LPScan.html">LPS Scan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_MQTT.html">MQTT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Pulse_Width_Modulation.html">Pulse Width Modulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Radio_and_Module_Parameters.html">Radio and Module Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Secure_Files.html">Secure Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Socket_Wakeup.html">Socket Wakeup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Software_SPI_Master.html">Software SPI Master</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_Chip_Monitor.html">Chip Monitor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_Filesystem.html">Filesystem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_GPIO.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_SNTP.html">SNTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_WiFi.html">WIFI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_WiFi_Power_Management.html">WiFi Power Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_BLE_5_0.html">BLE 5.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_BLE_Beacons.html">BLE Beacon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Custom_ATCMDLIB.html">Custom ATCMDLIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_HTTP_Client.html">HTTP Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_IFTTT.html">IFTTT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Low_Power_UART.html">Low Power UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_mDNS.html">mDNS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html">Provisioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#scan-data">Scan Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#configuration-data-format">Configuration Data Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#service">Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#characteristics">Characteristics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#application-flow">Application Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#write-the-provisioning-file-into-talaria-two-filesystem">Write the Provisioning File into Talaria TWO Filesystem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#programming-talaria-two-board-with-elf">Programming Talaria TWO board with ELF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#running-the-application-using-android-or-ios-app">Running the Application using Android or iOS App</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Unassociated_Mode.html">Unassociated Mode</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Watchlog Timer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#watchdog-timer">Watchdog Timer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-application">Running the Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expected-output">Expected Output</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_WCM_Multi_AP.html">WCM Multi AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Websock_Client.html">Websock Client</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../Applications%20-%20Landing%20Page.html">Applications</a></li>
+      <li class="breadcrumb-item active">Watchlog Timer</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Applications/2. Examples/Example_using_Watchdog_Timer.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="watchlog-timer">
+<h1>Watchlog Timer<a class="headerlink" href="#watchlog-timer" title="Permalink to this heading"></a></h1>
+<p>This application note describes managing the Talaria TWO watchdog timer
+using the functions provided by the watchdog driver.</p>
+<section id="watchdog-timer">
+<h2>Watchdog Timer<a class="headerlink" href="#watchdog-timer" title="Permalink to this heading"></a></h2>
+<p>The watchdog driver provides functions for managing the Talaria TWO
+watchdog timer.</p>
+<p>It is a down-counting timer that generates a system reset (or an
+interrupt) when the counter reaches zero. The timer is started with an
+application specific timeout via the watchdog_init() and
+watchdog_start() functions. The client application uses the
+watchdog_kick() function to periodically reload the counter to its
+initial value to avoid it counting to zero.</p>
+<p>Depending on what the application wants to supervise using this
+watchdog, the watchdog_kick() may be performed from contexts. If the
+goal is to make sure that a certain real-time response time is required
+on a particular thread priority level, a dedicated thread on this
+priority level should kick the watchdog. Failure to meet the real-time
+response will then lead to a system reset. Another use case is to
+supervise on interrupt level. In this case, the watchdog should be
+kicked from an interrupt service handler on a timer interrupt that is
+scheduled at an interval slightly lower than the watchdog timeout.</p>
+</section>
+<section id="sample-code-walkthrough">
+<h2>Sample Code Walkthrough<a class="headerlink" href="#sample-code-walkthrough" title="Permalink to this heading"></a></h2>
+<p>The sample application provides functions for managing the Talaria TWO
+watchdog timer.</p>
+<p><strong>wdreset.c</strong></p>
+<p>The callout_init()function initiates the callout object. wakeup callout
+is used to schedule a wakeup from suspend state.
+xSemaphoreCreateCounting(1, 0) initiates the semaphore with a default
+value of 0. watchdog_init initializes the watchdog with the specified
+timeout in microseconds and the watchdog expire_cb is passed as NULL,
+resulting in a system reset at timer expiration. The watchdog_start()
+function starts the watchdog counter.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>callout_init(&amp;wakeup, wakeup_callback);</p>
+<p>wakeup_event = xSemaphoreCreateCounting(1, 0);</p>
+<p>watchdog_init(WATCHDOG_TIMEOUT, NULL);</p>
+<p>watchdog_start();</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>callout_init_soft()initializes callout object with a soft deadline.
+kicker callout is used to kick the watchdog to reload the counter to its
+initial value to avoid the counter value reaching zero. A soft callout
+timeout accepts the timeout to be invoked later than requested if this
+could lead to savings in power consumption. The
+callout_schedule()schedules the callback function to be invoked after
+the specified number of microseconds. Application needs to kick the
+watchdog before it expires, hence the timeout is given as
+WATCHDOG_TIMEOUT * 9 / 10.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>callout_init_soft(&amp;kicker, kick_the_dog);</p>
+<p>callout_schedule(&amp;kicker, WATCHDOG_TIMEOUT * 9 / 10);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Talaria TWO is put to suspend mode to demonstrate that the watchdog
+works fine both in suspend mode and awake mode. After enabling the
+suspend mode, wakeup callout is scheduled after two seconds. Then the
+thread suspends on a wakeup_event semaphore. Since there is no other
+activity scheduled at this point, the system enters suspend mode.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>os_suspend_enable();</p>
+<p>callout_schedule(&amp;wakeup, SYSTIME_SEC(2));</p>
+<p>os_printf(“Sleeping\n”);</p>
+<p>if (xSemaphoreTake(wakeup_event, portMAX_DELAY) == pdFAIL) {</p>
+<p>os_printf(“Unable to wait on semaphore…!!\n”);</p>
+<p>return -1;</p>
+<p>}</p>
+<p>os_printf(“Awake\n”);</p>
+<p>os_suspend_disable();</p>
+<p>vTaskDelay(4000);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>This callback function of wakeup callout wakes the system up from
+suspend state and posts the semaphore for which the main thread was
+waiting before going to suspend mode.</p>
+<p><strong>Note</strong>: wakeup_callback is executed from ISR context, hence the
+SemaphoreGiveFromISR() is used.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static void</p>
+<p>wakeup_callback(struct callout *c)</p>
+<p>{ xSemaphoreGiveFromISR(wakeup_event, NULL); }</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>This callback function of kicker callout kicks the watchdog.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static void</p>
+<p>kick_the_dog(struct callout *c)</p>
+<p>{</p>
+<p>static uint32_t num_kicks;</p>
+<p>os_printf(“Kick\n”);</p>
+<p>watchdog_kick();</p>
+<p>if (++num_kicks &lt; 30)</p>
+<p>callout_schedule(c, WATCHDOG_TIMEOUT * 9 / 10);</p>
+<p>else</p>
+<p>os_printf(“Last kick\n”);</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Here, kick_the_dog()function calls watchdog_kick()before the watchdog
+timer expires.</p>
+<p>Every time watchdog_kick() is called, it resets the watchdog timer which
+is set using watchdog_init(). After the 30th call of watchdog_kick(),
+this callback is not scheduled and thus the watchdog timer expires,
+resulting in system reset.</p>
+<p>System reset occurs because the watchdog_init() was called with
+expire_cb passed as NULL.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>watchdog_init(WATCHDOG_TIMEOUT, NULL);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="running-the-application">
+<h2>Running the Application<a class="headerlink" href="#running-the-application" title="Permalink to this heading"></a></h2>
+<p>Program wdreset.elf (<em>freertos_sdk_x.y\examples\watchdog_timer\bin</em>)
+using the Download tool:</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool provided with InnoPhase Talaria TWO SDK.</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down.</p></li>
+<li><p>ELF Input: Load the wdreset.elf by clicking on Select ELF File.</p></li>
+<li><p>Programming: Prog RAM or Prog Flash as per requirement.</p></li>
+</ol>
+</li>
+</ol>
+<p><strong>Note</strong>: Post 30<sup>th</sup> call of the watchdog_kick()function, the
+watchdog timer expires</p>
+<ol class="loweralpha simple">
+<li><p>Prog RAM: After reset, wdreset.elf halts</p></li>
+<li><p>Prog Flash: After reset, wdreset.elf runs in a loop</p></li>
+</ol>
+</section>
+<section id="expected-output">
+<h2>Expected Output<a class="headerlink" href="#expected-output" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Build $Id: git-df9b9ef $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff</p>
+<p>$App:git-6818774</p>
+<p>SDK Ver: FREERTOS_SDK_1.0</p>
+<p>Watchdog Reset Demo App</p>
+<p>Starting watchdog</p>
+<p>Sleeping</p>
+<p>Kick</p>
+<p>Kick</p>
+<p>Awake</p>
+<p>Kick</p>
+<p>Kick</p>
+<p>Kick</p>
+<p>Kick</p>
+<p>Sleeping</p>
+<p>Kick</p>
+<p>Awake</p>
+<p>Kick</p>
+<p>Kick</p>
+<p>Kick</p>
+<p>Kick</p>
+<p>Sleeping</p>
+<p>Kick</p>
+<p>Awake</p>
+<p>Kick</p>
+<p>Kick</p>
+<p>Kick</p>
+<p>Kick</p>
+<p>Sleeping</p>
+<p>Kick</p>
+<p>Awake</p>
+<p>Kick</p>
+<p>Kick</p>
+<p>Kick</p>
+<p>Kick</p>
+<p>Sleeping</p>
+<p>Kick</p>
+<p>Awake</p>
+<p>Kick</p>
+<p>Kick</p>
+<p>Kick</p>
+<p>Kick</p>
+<p>Sleeping</p>
+<p>Kick</p>
+<p>Awake</p>
+<p>Kick</p>
+<p>Kick</p>
+<p>Kick</p>
+<p>Last kick</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Example_using_Unassociated_Mode.html" class="btn btn-neutral float-left" title="Unassociated Mode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Example_using_WCM_Multi_AP.html" class="btn btn-neutral float-right" title="WCM Multi AP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

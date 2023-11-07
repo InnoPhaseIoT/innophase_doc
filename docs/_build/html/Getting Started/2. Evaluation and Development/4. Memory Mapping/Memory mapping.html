@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Mapping of a Standard Application &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../../about.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Evaluation &amp; Development" href="../1.%20Landing%20Page.html" />
+    <link rel="prev" title="Power Management" href="../3.%20Power%20Measurement/Power%20Measurement.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../Getting%20Started%20-%20Landing%20Page.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started%20-%20Landing%20Page.html#key-features">Key Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started%20-%20Landing%20Page.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../Getting%20Started%20-%20Landing%20Page.html#evaluation-and-development">Evaluation and development</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../Getting%20Started%20-%20Landing%20Page.html#debugging-an-application">Debugging an Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Getting%20Started%20-%20Landing%20Page.html#power-measurement">Power Measurement</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../Getting%20Started%20-%20Landing%20Page.html#memory-mapping">Memory Mapping</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Memory Mapping of a Standard Application</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../Getting%20Started%20-%20Landing%20Page.html#landing-page">Landing page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Getting%20Started%20-%20Landing%20Page.html#programming-basic-applications">Programming Basic Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Getting%20Started%20-%20Landing%20Page.html#command-line-interface-commands">Command Line Interface Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Getting%20Started%20-%20Landing%20Page.html#boot-arguments">Boot Arguments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Software%20Reference/Software_Reference_Landing_Page.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tools/Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+      <li class="breadcrumb-item active">Memory Mapping of a Standard Application</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/Getting Started/2. Evaluation and Development/4. Memory Mapping/Memory mapping.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>This section describes the flash memory mapping of standard applications
+with details on the flash memory layout in both development and
+production phase.</p>
+<section id="memory-mapping-of-a-standard-application">
+<h1>Memory Mapping of a Standard Application<a class="headerlink" href="#memory-mapping-of-a-standard-application" title="Permalink to this heading"></a></h1>
+<p>There is a total of 512KB RAM in Talaria TWO. RAM address starts from
+0x40000 to 0xBFFFF. Figure 1 shows the logical RAM address. Boot.py
+writes to this memory address on executing Program RAM.</p>
+<p>When an ELF is created, the map file of the application includes
+multiple sections like .text, .data and .bss.</p>
+<p>Size of the on-module Flash is 2MB. On executing PROG Flash, boot.py
+will look for the boot partition sector for flashing the Non-VM part and
+VM partition sector for flashing the VM part which is 0x1000 and 0x40000
+in-line with the latest default.json.</p>
+<p>BOOT, SYS, VIRT sections of the partition table are fixed, whereas the
+DATA section can be manipulated. There are a total of 511 sectors i.e. 0
+to 511, where each sector is 4096 bytes.</p>
+<p><a class="reference internal" href="../../../_images/image129.png"><img alt="image1" src="../../../_images/image129.png" style="width: 7.48031in; height: 0.92055in;" /></a></p>
+<p>Figure : Memory mapping - standard application</p>
+<section id="flash-layout-development">
+<h2>Flash Layout – Development<a class="headerlink" href="#flash-layout-development" title="Permalink to this heading"></a></h2>
+<p>Figure 2 shows the entire filesystem layout. The boot sector starts from
+0x0000 to 0x1F0000.</p>
+<ol class="arabic simple">
+<li><p>Boot sector: This sector stores the following information:</p>
+<ol class="loweralpha simple">
+<li><p>Secure vault data</p></li>
+<li><p>PUF data</p></li>
+<li><p>Partition table</p></li>
+<li><p>Device information – this includes MAC address, Bluetooth MAC
+address, module testing location, station ID, etc.</p></li>
+</ol>
+</li>
+<li><p>Application Image: On boot-up, a device executes necessary actions
+and begins to load the application from 0x1000 onwards. In case of a
+VM application, the application is loaded from 0x40000 onwards.</p></li>
+</ol>
+<blockquote>
+<div><p>Any application size can be known using the following command:</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>arm-none-eabi-size app_name.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="3">
+<li><p>data/user filesystem: User data is stored in this sector. Maximum
+size of the user filesystem is 300 sectors, close to half of the
+flash memory. Typical files stored in the user filesystem are AWS
+certificates, regularly required look up tables.</p></li>
+</ol>
+<blockquote>
+<div><p>For example: the Write Files/Read Files data from the Download Tool
+is stored in this sector.</p>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>sysfs: Calibration information generated during production or testing
+(RF testing) is stored in this sector starting from 0x1F0000.</p></li>
+</ol>
+<p>The flash layout shown in Figure 2 is followed when the customer is in
+the development phase and is using the Download Tool for loading a
+single application.</p>
+<p><a class="reference internal" href="../../../_images/image220.png"><img alt="image2" src="../../../_images/image220.png" style="width: 7.48031in; height: 0.86048in;" /></a></p>
+<p>Figure : Flash layout</p>
+</section>
+<section id="memory-mapping-vm-based-application">
+<h2>Memory Mapping – VM based application<a class="headerlink" href="#memory-mapping-vm-based-application" title="Permalink to this heading"></a></h2>
+<p>Figure 3 shows the memory layout for an ELF.</p>
+<p>SDK 2.3 release onwards, all applications are virtual. The map file of
+any application consists of .text, .data, .bss and .virtual segments.</p>
+<p>VM application is used to allow more memory available to the
+application.</p>
+<p><a class="reference internal" href="../../../_images/image312.png"><img alt="Diagram Description automatically generated" src="../../../_images/image312.png" style="width: 7.48031in; height: 1.47581in;" /></a></p>
+<p>Figure : Memory mapping - VM based application</p>
+</section>
+<section id="flash-layout">
+<h2>Flash Layout<a class="headerlink" href="#flash-layout" title="Permalink to this heading"></a></h2>
+<p><strong>Note</strong>: SSBL support is not provided with the current release of the
+SDK.</p>
+<p>Once the customer moves from the development phase to the production
+phase, there are two types of flash layouts which the customer could
+follow:</p>
+<ol class="arabic simple">
+<li><p>For loading a single image/ELF as shown in Figure 4.</p></li>
+<li><p>For loading multiple images/ELFs (This also represents the flash
+layout for SSBL) as shown in Figure 5.</p></li>
+</ol>
+<blockquote>
+<div><p>Following are the components of the flash layout when using SSBL:</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>Boot sector: This sector stores the following information:</p>
+<ol class="loweralpha simple">
+<li><p>Secure vault data</p></li>
+<li><p>PUF data</p></li>
+<li><p>Partition table</p></li>
+<li><p>Device information – this includes MAC address, Bluetooth MAC
+address, module testing location, station ID, etc.</p></li>
+</ol>
+</li>
+<li><p>Boot Image: The SSBL application upon flashing is stored here
+starting from 0x1000</p></li>
+</ol>
+<blockquote>
+<div><p><strong>Note</strong>:</p>
+</div></blockquote>
+<ol class="loweralpha simple">
+<li><p>When using SSBL, SSBL is loaded at 0x1000 (Boot image) and based on
+the SSBL configuration, application/elf image is loaded.</p></li>
+<li><p>Without SSBL, the application which is flashed is loaded onto Virtual
+Memory at 0x40000 if it is a VM application, otherwise, it is loaded
+at 0x1000.</p></li>
+</ol>
+<ol class="arabic simple" start="3">
+<li><p>Sectors available for apps: Multiple ELFs/applications can be stored
+in this sector. A total of 352 sectors are made available for the
+same. Depending on the instructions provided in the partition table,
+SSBL will load the appropriate application.</p></li>
+</ol>
+<blockquote>
+<div><p>For more information on SSBL application, refer to the following
+document:
+<em>freertos_sdk_x.y/apps/ssbl/doc/Application_for_using_SSBL.pdf</em>.</p>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>root/user FS: User data is stored in this sector.</p></li>
+<li><p>system FS: Calibration information generated during production or
+testing (RF testing) is stored in this sector.</p></li>
+</ol>
+<p><a class="reference internal" href="../../../_images/image49.png"><img alt="image3" src="../../../_images/image49.png" style="width: 7.08661in; height: 0.74439in;" /></a></p>
+<p>Figure : Flash layout - when using SSBL</p>
+<p><a class="reference internal" href="../../../_images/image58.png"><img alt="A picture containing rectangle Description automatically generated" src="../../../_images/image58.png" style="width: 7.08661in; height: 1.08384in;" /></a></p>
+<p>Figure : Flash layout - without using SSBL</p>
+</section>
+<section id="program-ram">
+<h2>Program RAM<a class="headerlink" href="#program-ram" title="Permalink to this heading"></a></h2>
+<p>Prog RAM will write the application to SRAM (Static RAM). This
+application gets erased on reset. If VM partition is not present,
+boot.py will create a VM partition and add it to partition table.</p>
+<p>Command:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python3 script/boot.py –device /dev/ttyUSB2 –reset=evk42
+./apps/hello_world/bin/hello_world.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../../_images/image68.png"><img alt="image4" src="../../../_images/image68.png" style="width: 0.85in;" /></a><a class="reference internal" href="../../../_images/image78.png"><img alt="image5" src="../../../_images/image78.png" style="width: 7.48031in; height: 0.58527in;" /></a></p>
+<p>Figure : Program RAM – Terminal</p>
+<p><a class="reference internal" href="../../../_images/image68.png"><img alt="image6" src="../../../_images/image68.png" style="width: 0.85in;" /></a><a class="reference internal" href="../../../_images/image88.png"><img alt="image7" src="../../../_images/image88.png" style="width: 7.48031in; height: 3.23385in;" /></a></p>
+<p>Figure : Program RAM - Console output</p>
+</section>
+<section id="program-flash">
+<h2>Program Flash<a class="headerlink" href="#program-flash" title="Permalink to this heading"></a></h2>
+<p>Prog Flash writes the application onto Talaria TWO’s Flash. The
+application is stored in the non-volatile region of the memory where it
+is not erased even after reset.</p>
+<p>Command:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python3 script/boot.py –device /dev/ttyUSB2 –reset=evk42_bl
+–flash=all ./bins/iperf3.elf ssid=xxxxxxxx passphrase=xxxxxxx</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../../_images/image68.png"><img alt="image8" src="../../../_images/image68.png" style="width: 0.85007in;" /></a> <a class="reference internal" href="../../../_images/image98.png"><img alt="image9" src="../../../_images/image98.png" style="width: 7.48031in; height: 1.07287in;" /></a></p>
+<p>Figure : Program Flash - Terminal</p>
+<p>Expected output:</p>
+<p><a class="reference internal" href="../../../_images/image68.png"><img alt="image10" src="../../../_images/image68.png" style="width: 0.85007in;" /></a><a class="reference internal" href="../../../_images/image108.png"><img alt="image11" src="../../../_images/image108.png" style="width: 7.48031in; height: 2.0183in;" /></a></p>
+<p>Figure : Program Flash - Console output</p>
+</section>
+<section id="erase-flash">
+<h2>Erase Flash<a class="headerlink" href="#erase-flash" title="Permalink to this heading"></a></h2>
+<p>For erase flash, load Gordon in BL mode and then erase the boot sector.
+Erase flash will only erase the first sector i.e., sector number 1. Boot
+sector starts from 1 to 63.</p>
+<p>Bootloader is used to boot the application. In the case of SSBL, SSBL is
+flashed post which SSBL loads any required application. Gordon image is
+a utility which helps write data/application onto Talaria TWO Flash. On
+executing Prog Flash, Gordon is initialized and it helps write
+applications to Flash.</p>
+<p><strong>Note</strong>:</p>
+<ol class="arabic simple">
+<li><p>Console window will be lost as we are loading Gordon in BL mode.</p></li>
+<li><p>Currently, one cannot erase the user filesystem. To erase the
+filesystem, user can write an empty file using the Download Tool.</p></li>
+</ol>
+<p>Loading gordon.elf:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python3 script/boot.py –device /dev/ttyUSB2 –reset=evk42_bl
+apps/gordon.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../../_images/image68.png"><img alt="image12" src="../../../_images/image68.png" style="width: 0.85007in;" /></a><a class="reference internal" href="../../../_images/image1111.png"><img alt="image13" src="../../../_images/image1111.png" style="width: 7.48031in; height: 0.77781in;" /></a></p>
+<p>Figure : Loading gordon.elf - Terminal</p>
+<p>Erasing the boot sector:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python3 script/flash.py –device /dev/ttyUSB2 erase 1 63</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../../_images/image68.png"><img alt="image14" src="../../../_images/image68.png" style="width: 0.975in; height: 0.10515in;" /></a><a class="reference internal" href="../../../_images/image1210.png"><img alt="image15" src="../../../_images/image1210.png" style="width: 7.48031in; height: 0.54094in;" /></a></p>
+<p>Figure : Erasing the boot sector – Terminal</p>
+<p>Expected output:</p>
+<p><a class="reference internal" href="../../../_images/image136.png"><img alt="image16" src="../../../_images/image136.png" style="width: 7.48031in; height: 1.86641in;" /></a></p>
+<p>Figure : Erase Flash - Console output</p>
+</section>
+<section id="write-filesystem-to-flash">
+<h2>Write Filesystem to Flash<a class="headerlink" href="#write-filesystem-to-flash" title="Permalink to this heading"></a></h2>
+<p>For this mklittlefs tool is required, which can be found at:
+tools/mklittlefs.</p>
+<p>Create root.img:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./mklittlefs -s 0x40000 -c ../../root_fs/root root.img</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Load Gordon and write root.img:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python3 script/boot.py –device /dev/ttyUSB2 –reset=evk42
+apps/gordon.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Write image to flash:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python3 script/flash.py –device /dev/ttyUSB2 write 0xD0000
+./tools/mklittlefs/root.img</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: 0xD0000 is used as DATA sector starts with sector number 208
+(208*4096 = 0xD0000).</p>
+<p><a class="reference internal" href="../../../_images/image147.png"><img alt="Text Description automatically generated with low confidence" src="../../../_images/image147.png" style="width: 3.14961in; height: 1.43786in;" /></a></p>
+<p>Figure : Sector number</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../3.%20Power%20Measurement/Power%20Measurement.html" class="btn btn-neutral float-left" title="Power Management" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../1.%20Landing%20Page.html" class="btn btn-neutral float-right" title="Evaluation &amp; Development" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

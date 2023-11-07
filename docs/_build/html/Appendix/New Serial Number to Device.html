@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Serial Number to Device – Manual Method &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Response Description &amp; Payload" href="Response%20Description.html" />
+    <link rel="prev" title="Manual Programming" href="Manual%20Programming.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="Appendix-Landing_Page.html">Appendix</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Building%20AWS%20KINESIS%20Video%20Streaming%20Application.html">Building AWS KINESIS Video Streaming Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Checking%20and%20Validating%20the%20Partition%20Table.html">Checking and Validating the Partition Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Create%20AWS%20Security%20Credentials.html">Create AWS Security Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Installation%20Instructions%20for%20libusbK%20Driver.html">Installation Instructions for libusbK Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON%20file%20format%20reference.html">JSON file format reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Legacy%20Mode.html">Legacy Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual%20Programming.html">Manual Programming</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">New Serial Number to Device – Manual Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Response%20Description.html">Response Description &amp; Payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Update%20Driver%20from%20libusK%20Driver%20to%20COM%20Port.html">Update Driver from libusK Driver to COM Port</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Software%20Reference/Software_Reference_Landing_Page.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Tools/Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="Appendix-Landing_Page.html">Appendix</a></li>
+      <li class="breadcrumb-item active">New Serial Number to Device – Manual Method</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Appendix/New Serial Number to Device.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="new-serial-number-to-device-manual-method">
+<h1>New Serial Number to Device – Manual Method<a class="headerlink" href="#new-serial-number-to-device-manual-method" title="Permalink to this heading"></a></h1>
+<p>There might be certain instances where the user may need to manually
+change/add a new EVK serial number to the Talaria TWO (T2) device.</p>
+<p>The manually update Talaria TWO device’s serial number, follow the
+subsequent steps:</p>
+<ol class="arabic simple">
+<li><p>Ensure the device connected is detected under COM Port as shown in
+Figure 25.</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../_images/image1.png"><img alt="image1" src="../_images/image1.png" style="width: 7.48031in; height: 2.45741in;" /></a></p>
+</div></blockquote>
+<p>Figure 25: Device Manager – Composite Device</p>
+<ol class="arabic simple" start="2">
+<li><p>In case the device is not detected under COM Port, follow the
+instruction available in section: <a class="reference external" href="#_Update_Driver_from">Update Driver from libusK Driver
+to COM Port</a> to change the driver to USB
+Composite Device.</p></li>
+<li><p>Once the device is recognized under COM Port, install FT_Prog
+software with the help of <a class="reference external" href="https://ftdichip.com/utilities/">Utilities - FTDI
+(ftdichip.com)</a> to change the
+FTDI device property as required.</p></li>
+<li><p>Open the FT_Prog software and click on Scan &amp; Parse button to detect
+the COM devices. FT_Prog software shows the identified devices in
+tree with device properties, as shown in Figure 26.</p></li>
+</ol>
+<p><a class="reference internal" href="../_images/image2.png"><img alt="A screenshot of a computer Description automatically generated" src="../_images/image2.png" style="width: 7.48031in; height: 5.83939in;" /></a></p>
+<p>Figure 26: FT_Prog - Device detected</p>
+<ol class="arabic simple" start="5">
+<li><p>To update the serial number, click on USB String Descriptor. Add the
+new serial number in the Serial Number field and change the product
+description as InnoPhase T2 Evaluation Board, as shown in Figure 27.</p></li>
+</ol>
+<p><a class="reference internal" href="../_images/image3.png"><img alt="image2" src="../_images/image3.png" style="width: 7.08661in; height: 2.17321in;" /></a></p>
+<p>Figure 27: FT_Prog - Update Serial Number</p>
+<ol class="arabic simple" start="6">
+<li><p>To upload the changes to the device, right click on FT EEPROM and
+click on Program Device, as shown in Figure 28.</p></li>
+</ol>
+<p><a class="reference internal" href="../_images/image4.png"><img alt="image3" src="../_images/image4.png" style="width: 7.08661in; height: 2.7815in;" /></a></p>
+<p>Figure 28: FT_Prog - Program Device</p>
+<ol class="arabic simple" start="7">
+<li><p>The device will now be updated with the new serial number as shown in
+Figure 29.</p></li>
+</ol>
+<p><a class="reference internal" href="../_images/image5.png"><img alt="image4" src="../_images/image5.png" style="width: 7.08661in; height: 1.82677in;" /></a></p>
+<p>Figure 29: FT_Prog - Updated Serial Number</p>
+<ol class="arabic simple" start="8">
+<li><p>In case the new serial number is not updated in Device Manager,
+unplug and re-plug the device to refresh the connection.</p></li>
+</ol>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Manual%20Programming.html" class="btn btn-neutral float-left" title="Manual Programming" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Response%20Description.html" class="btn btn-neutral float-right" title="Response Description &amp; Payload" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

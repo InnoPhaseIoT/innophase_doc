@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Applications &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html" />
+    <link rel="prev" title="Prerequisites:" href="../Tools/3.%20Factory%20Loader/Factory_Loader_Landing_Page.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Software%20Reference/Software_Reference_Landing_Page.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Tools/Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#apps">Apps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html">Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html">Alarm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html">IoT AWS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Apps/4.%20SSBL.html">Second Stage Boot Loader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html">Firmware Over The Air</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_for_Analog_to_Digital_Converter.html">Analog to Digital Converter (ADC)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_for_Audio_over_I2S.html">Audio Over I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html">BLE WiFi Bridge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_for_Crash_handling.html">Crash Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_for_I2C.html">I2C</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_for_LPScan.html">LPS Scan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html">MQTT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_for_Pulse_Width_Modulation.html">Pulse Width Modulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_for_Radio_and_Module_Parameters.html">Radio and Module Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_for_Secure_Files.html">Secure Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_for_Socket_Wakeup.html">Socket Wakeup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_for_Software_SPI_Master.html">Software SPI Master</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_for_using_Chip_Monitor.html">Chip Monitor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_for_using_Filesystem.html">Filesystem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_for_using_SNTP.html">SNTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html">WIFI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html">WiFi Power Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html">BLE 5.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html">BLE Beacon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_using_Custom_ATCMDLIB.html">Custom ATCMDLIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_using_HTTP_Client.html">HTTP Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_using_IFTTT.html">IFTTT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html">Low Power UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_using_mDNS.html">mDNS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html">Provisioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html#scan-data">Scan Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html#configuration-data-format">Configuration Data Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html#service">Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html#characteristics">Characteristics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html#application-flow">Application Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html#write-the-provisioning-file-into-talaria-two-filesystem">Write the Provisioning File into Talaria TWO Filesystem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html#programming-talaria-two-board-with-elf">Programming Talaria TWO board with ELF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html#running-the-application-using-android-or-ios-app">Running the Application using Android or iOS App</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_using_Unassociated_Mode.html">Unassociated Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_using_Watchdog_Timer.html">Watchlog Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_using_WCM_Multi_AP.html">WCM Multi AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Examples/Example_using_Websock_Client.html">Websock Client</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Applications</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Applications/Applications - Landing Page.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="applications">
+<h1>Applications<a class="headerlink" href="#applications" title="Permalink to this heading"></a></h1>
+<p>The FreeRTOS SDK software package provides software APIs with
+ready-to-run firmware examples to support quick evaluation and
+development with Talaria TWO.</p>
+<p>Applications: Production ready example applications which the user can
+run on Talaria TWO. Following applications are available in the release
+package:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>**
+Protocol**</p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>alarm</p></td>
+<td><p>Describes alarm functionality in Talaria TWO</p></td>
+</tr>
+<tr class="row-odd"><td><p>helloworld</p></td>
+<td><p>Basic helloworld application</p></td>
+</tr>
+<tr class="row-even"><td><p>ssbl</p></td>
+<td><p>Demonstrates running and switching between multiple
+applications on Talaria TWO using SSBL</p></td>
+</tr>
+<tr class="row-odd"><td><p>stw_m
+ulti_proto</p></td>
+<td><p>Serial to Wi-Fi application used in hosted mode of
+operation</p></td>
+</tr>
+<tr class="row-even"><td><p>gordon.elf</p></td>
+<td><p>Flashing utility using UART interface</p></td>
+</tr>
+<tr class="row-odd"><td><p>fota</p></td>
+<td><p>Demonstrates the FOTA (Firmware Over The Air) process</p></td>
+</tr>
+<tr class="row-even"><td><p>iot_aws</p></td>
+<td><p>Demonstrates using Talaria TWO board and the SDK with
+Amazon Web Services (AWS) IoT</p></td>
+</tr>
+</tbody>
+</table>
+<p>Examples: Demo/sample applications that the user can run on Talaria TWO
+firmware. Following examples are available:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Protocol</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>alexa_ready</p></td>
+<td><p>Demonstrates the use of AWS IoT Embedded C Device
+SDK available on Talaria TWO to interact with the
+Device Shadow Service on AWS IoT Core</p></td>
+</tr>
+<tr class="row-odd"><td><p>adc</p></td>
+<td><p>Example for using the Analog to Digital Convertor
+(ADC) peripheral of Talaria TWO modules</p></td>
+</tr>
+<tr class="row-even"><td><p>at_custom_cmd</p></td>
+<td><p>Demonstrates custom AT commands which the user can
+use apart from the standard commands</p></td>
+</tr>
+<tr class="row-odd"><td><p>ble_beacons</p></td>
+<td><p>Example codes describing the basic concept of
+Eddystone Beacon</p>
+<ul class="simple">
+<li><p>Eddystone UID</p></li>
+<li><p>Eddystone URL</p></li>
+<li><p>Eddystone TLM</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>b
+le_wifi_bridge</p></td>
+<td><p>Example code for receiving a text message from a
+connected BLE client and publishing it to a
+CloudMQTT broker</p></td>
+</tr>
+<tr class="row-odd"><td><p>chip_monitor</p></td>
+<td><p>Describes the application for fetching the changes
+in the values of device core temperature, Voltage
+of VBAT, external ADC and estimated current
+consumption of Talaria TWO device</p></td>
+</tr>
+<tr class="row-even"><td><p>crash_handling</p></td>
+<td><p>Example code for using the crash handler API to
+handle and debug error cases</p></td>
+</tr>
+<tr class="row-odd"><td><p>gpio</p></td>
+<td><p>Example codes to use the GPIO interface. the
+interface for GPIO</p></td>
+</tr>
+<tr class="row-even"><td><p>http_client</p></td>
+<td><p>Example codes for using HTTP client APIs to connect
+to HTTP servers in secured (HTTPS) and non-secured
+way</p></td>
+</tr>
+<tr class="row-odd"><td><p>i2c</p></td>
+<td><p>Demonstrates usage of I2C on Talaria TWO</p></td>
+</tr>
+<tr class="row-even"><td><p>i2s_audio</p></td>
+<td><p>Example codes for using I2S peripheral of
+INP1010/INP1011/INP1012/INP1013 Talaria TWO modules
+for playing audio</p></td>
+</tr>
+<tr class="row-odd"><td><p>ifttt</p></td>
+<td><p>Example application for using Talaria TWO with
+IFTTT</p></td>
+</tr>
+<tr class="row-even"><td><p>lp_scan</p></td>
+<td><p>Demonstrates the basics of the Low Power Wi-Fi scan
+feature</p></td>
+</tr>
+<tr class="row-odd"><td><p>lp_uart</p></td>
+<td><p>Example codes describing the use of UART APIs</p></td>
+</tr>
+<tr class="row-even"><td><p>mdns</p></td>
+<td><p>Demonstrates using the mDNS APIs provided by the
+mDNS module</p></td>
+</tr>
+<tr class="row-odd"><td><p>mqtt</p></td>
+<td><p>Example codes for using the publish/subscribe
+operation of MQTT in both secured and non-secured
+modes</p></td>
+</tr>
+<tr class="row-even"><td><p>prov</p></td>
+<td><p>A demo Provisioning application using BLE for
+provisioning AP credentials at Talaria TWO from a
+mobile application</p></td>
+</tr>
+<tr class="row-odd"><td><p>pwm</p></td>
+<td><p>Demonstrates usage of Pulse Width Modulation
+peripheral of INP1010/INP1011/INP1012/INP1013
+Talaria TWO modules</p></td>
+</tr>
+<tr class="row-even"><td><p>radio
+_module_params</p></td>
+<td><p>Describes using the Radio and Module parameters on
+the Talaria TWO module</p></td>
+</tr>
+<tr class="row-odd"><td><p>secure_files</p></td>
+<td><p>Example application for reading and writing
+encrypted files from/to the filesystem</p></td>
+</tr>
+<tr class="row-even"><td><p>socket_wakeup</p></td>
+<td><p>Demonstrates the basics of sleep management
+(Talaria TWO wake-up from sleep mode)</p></td>
+</tr>
+<tr class="row-odd"><td><p>spi</p></td>
+<td><p>Demonstrates the usage of the Software SPI Master
+(SSM) on Talaria TWO</p></td>
+</tr>
+<tr class="row-even"><td><p>unassoc</p></td>
+<td><p>Example codes describing Wi-Fi un-associated mode
+transmission APIs available in the SDK, call-back
+events, notifications and associated data
+structures</p></td>
+</tr>
+<tr class="row-odd"><td><p>using_ble</p></td>
+<td><p>Introduction to BLE APIs through code samples
+consisting of a server and client application</p></td>
+</tr>
+<tr class="row-even"><td><p>us
+ing_filesystem</p></td>
+<td><p>Demonstrates using the filesystem APIs to show case
+the filesystem functionalities on the Talaria TWO
+EVK</p></td>
+</tr>
+<tr class="row-odd"><td><p>using_sntp</p></td>
+<td><p>Demonstrates fetching time from NTP server using
+SNTP</p></td>
+</tr>
+<tr class="row-even"><td><p>using_wifi</p></td>
+<td><p>Example codes describing the Wi-Fi connection
+manager APIs</p></td>
+</tr>
+<tr class="row-odd"><td><p>watchdog_timer</p></td>
+<td><p>Demonstrates managing Talaria TWO watchdog timer
+using the functions provided by the watchdog driver</p></td>
+</tr>
+<tr class="row-even"><td><p>wcm_multi_ap</p></td>
+<td><p>Demonstrates the application example of Wi-Fi
+Connection with Multi-Access Point (WCM_MULTI_AP)</p></td>
+</tr>
+<tr class="row-odd"><td><p>wcm_pm</p></td>
+<td><p>Demonstrates the Wi-Fi Connection Manager power
+management APIs</p></td>
+</tr>
+<tr class="row-even"><td><p>websocket</p></td>
+<td><p>Demonstrates using the WebSocket client APIs
+provided by the WebSocket module</p></td>
+</tr>
+</tbody>
+</table>
+<section id="apps">
+<h2>Apps<a class="headerlink" href="#apps" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html">Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#aws-iot-device-shadow-service">AWS IoT Device Shadow Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#aws-iot-embedded-c-device-sdk-3-0-1-features">AWS IoT Embedded C Device SDK 3.0.1 Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#mqtt-connection">MQTT Connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#thing-shadow">Thing Shadow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#aws-iot-core-device-shadow-service-protocol">AWS IoT Core Device Shadow Service Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#initialization-of-the-device-on-first-connection-to-aws-iot-core">Initialization of the device on first connection to AWS IoT Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#processing-messages-while-the-device-is-connected-to-aws-iot-core">Processing messages while the device is connected to AWS IoT Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#processing-messages-when-the-device-is-reconnected-to-aws-iot-core">Processing messages when the device is reconnected to AWS IoT Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#aws-iot-embedded-c-device-sdk-shadow-service-apis-and-structures">AWS IoT Embedded C Device SDK - Shadow Service APIs and Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#aws-iot-shadow-init">aws_iot_shadow_init()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#aws-iot-shadow-yield">aws_iot_shadow_yield()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#fpactioncallback-t">(*fpActionCallback_t)()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#aws-iot-shadow-update">aws_iot_shadow_update()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#aws-iot-shadow-get">aws_iot_shadow_get()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#aws-iot-shadow-delete">aws_iot_shadow_delete()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#aws-iot-shadow-register-delta">aws_iot_shadow_register_delta()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#aws-iot-shadow-reset-last-received-version">aws_iot_shadow_reset_last_received_version()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#aws-iot-shadow-get-last-received-version">aws_iot_shadow_get_last_received_version()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#aws-iot-shadow-enable-discard-old-delta-msgs">aws_iot_shadow_enable_discard_old_delta_msgs()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#aws-iot-shadow-disable-discard-old-delta-msgs">aws_iot_shadow_disable_discard_old_delta_msgs()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#aws-iot-shadow-set-autoreconnect-status">aws_iot_shadow_set_autoreconnect_status()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#aws-iot-shadow-disconnect">aws_iot_shadow_disconnect()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#aws-iot-shadow-free">aws_iot_shadow_free()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#aws-iot-shadow-init-json-document">aws_iot_shadow_init_json_document()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#structure-jsonstruct-t">structure jsonStruct_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#aws-iot-shadow-add-reported">aws_iot_shadow_add_reported()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#aws-iot-shadow-add-desired">aws_iot_shadow_add_desired()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#aws-iot-finalize-json-document">aws_iot_finalize_json_document()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#aws-iot-fill-with-client-token">aws_iot_fill_with_client_token()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#auto-reconnect-feature">Auto Reconnect Feature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#about-alexa-smart-home-skill">About Alexa Smart Home Skill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#setting-up-a-talaria-two-innoswitch-demo">Setting up a Talaria TWO InnoSwitch Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#enable-innophase-smart-home-demo-alexa-skill">Enable InnoPhase Smart Home Demo Alexa Skill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#method-1-enabling-via-browser">Method 1 - Enabling Via Browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#method-2-enabling-via-amazon-alexa-app">Method 2 - Enabling Via Amazon Alexa App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#linking-the-alexa-account-to-the-skill">Linking the Alexa account to the Skill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#request-for-aws-iot-thing-creation-certs-created-for-the-thing">Request for AWS IoT Thing creation &amp; Certs created for the Thing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#programming-applications">Programming Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#programming-talaria-two-board-with-certificates">Programming Talaria TWO board with certificates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#show-file-system-contents">Show File System Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#writing-files-into-file-system">Writing Files into File System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#programming-talaria-two-board-with-elf">Programming Talaria TWO board with ELF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#programming-talaria-two-board-with-innoswitch-elf">Programming Talaria TWO board with innoswitch.elf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#programming-talaria-two-board-with-innoswitch-ble-provisioning-elf">Programming Talaria TWO board with innoswitch_ble_provisioning.elf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#using-innophase-talaria-two-smart-home-application">Using InnoPhase Talaria TWO Smart Home Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#jumper-setting-on-talaria-two-evb">Jumper Setting on Talaria TWO EVB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html#interacting-the-talaria-two-evb-with-alexa">Interacting the Talaria TWO EVB with Alexa</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html">Alarm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#relevant-apis">Relevant APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#alarm-init">alarm_init()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#alarm-set-time">alarm_set_time ()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#sntp-setservername">sntp_setservername ()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#sntp-init">sntp_init()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#sntp-stop">sntp_stop ()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#uart-puts">uart_puts ()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#uart-flush">uart_flush()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#uart-close">uart_close()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#uart-getchar">uart_getchar()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#uart-putchar">uart_putchar()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#uart-set-event-callback">uart_set_event_callback()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#code-walkthrough">Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#connecting-to-a-wi-fi-network">Connecting to a Wi-Fi network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#validating-date">Validating Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#validating-time">Validating Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#get-ntp-time">Get NTP time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#read-input-string-from-uart">Read Input String from UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#alarm-callback">Alarm Callback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#alarm-display-callback">Alarm Display Callback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#suspend-the-system">Suspend the System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#cases-supporting-the-alarm-menu">Cases Supporting the Alarm Menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#case-0-sleep-mode">Case 0: Sleep Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#case-1-wi-fi-connection-status">Case 1: Wi-Fi Connection Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#case-2-system-time">Case 2: System Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#case-3-system-date-and-time">Case 3: System Date and Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#case-4-set-system-time">Case 4: Set System Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#case-5-set-system-time-in-seconds">Case 5: Set System Time in Seconds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#case-6-set-the-alarm">Case 6: Set the Alarm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#case-7-delete-the-alarm">Case 7: Delete the Alarm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#case-8-display-configured-alarm">Case 8: Display Configured Alarm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#programming-talaria-two">Programming Talaria TWO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#expected-output">Expected Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#evaluating-the-application">Evaluating the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#put-system-in-sleep-mode">Put System in Sleep Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#get-ntp-time-1">Get NTP Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#get-system-time">Get System Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#get-system-date-and-time">Get System Date and Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#set-system-time-with-ntp-time">Set System Time with NTP Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#set-system-time-seconds">Set System Time (Seconds)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#set-alarm">Set Alarm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#delete-alarm">Delete Alarm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#display-all-alarms">Display All Alarms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/2.%20Alarm.html#alarm-expiry">Alarm Expiry</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html">IoT AWS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#aws-iot-device-sdk-embedded-c-on-talaria-two-platform">AWS IoT Device SDK Embedded C On Talaria TWO Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#cloning-talaria-two-aws-repository">Cloning talaria_two_aws Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#patching-aws-iot-device-sdk-embedded-c-for-talaria-two-sdk-compatibility">Patching AWS IoT Device SDK Embedded C for Talaria TWO SDK Compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#compiling-aws-iot-freertos-sdk-and-sample-applications">Compiling AWS IoT FreeRTOS SDK and Sample Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#folder-structure-talaria-two-aws-repository">Folder Structure talaria_two_aws Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#overview-of-sample-applications">Overview of Sample Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#subscribe-publish-sample">Subscribe-Publish Sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#shadow-sample">Shadow Sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#jobs-sample">Jobs Sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#sensor2cloud-aws">Sensor2Cloud- AWS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#aws-set-up">AWS Set-up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#programming-vm-based-applications">Programming VM-based applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#programming-talaria-two-board-with-certificates">Programming Talaria TWO Board with Certificates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#show-file-system-contents">Show File System Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#write-files">Write Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#programming-talaria-two-board-with-elf">Programming Talaria TWO board with ELF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#mqtt-publish-and-subscribe">MQTT Publish and Subscribe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#subscribe">Subscribe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#running-the-sample-application">Running the Sample Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#publish">Publish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#device-shadow">Device Shadow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#running-the-sample-application-1">Running the Sample Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#running-jobs">Running Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#creating-a-job-in-aws">Creating a job in AWS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#running-the-sample-application-2">Running the Sample Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#id3">Sensor2Cloud – AWS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#hardware-settings-and-evb-sensors">Hardware Settings and EVB Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/3.%20IoT_AWS.html#running-the-sample-application-3">Running the Sample Application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Apps/4.%20SSBL.html">Second Stage Boot Loader</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/4.%20SSBL.html#description-of-operation">Description of Operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/4.%20SSBL.html#memory-layout">Memory Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/4.%20SSBL.html#flash-layout">Flash Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/4.%20SSBL.html#ssbl-operation-flow">SSBL Operation Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/4.%20SSBL.html#non-secure-ssbl">Non-Secure SSBL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/4.%20SSBL.html#secureboot-ssbl">Secureboot SSBL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/4.%20SSBL.html#ssbl-configuration">SSBL Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/4.%20SSBL.html#ssbl-boot-arguments">SSBL Boot Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/4.%20SSBL.html#building-components">Building Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/4.%20SSBL.html#creating-file-system-root-img-file">Creating File System (root.img) file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/4.%20SSBL.html#non-secure-ssbl-1">Non-secure SSBL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/4.%20SSBL.html#secureboot-ssbl-1">Secureboot SSBL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/4.%20SSBL.html#building-ssbl">Building SSBL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/4.%20SSBL.html#non-secure-ssbl-2">Non-secure SSBL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/4.%20SSBL.html#secureboot-ssbl-2">Secureboot SSBL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/4.%20SSBL.html#flashing-components">Flashing Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/4.%20SSBL.html#non-secure-ssbl-3">Non-secure SSBL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/4.%20SSBL.html#flashing">Flashing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/4.%20SSBL.html#expected-output">Expected Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/4.%20SSBL.html#changing-root-img-to-run-the-other-application">Changing root.img to Run the Other Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/4.%20SSBL.html#secure-ssbl">Secure SSBL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/4.%20SSBL.html#flashing-1">Flashing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/4.%20SSBL.html#expected-output-1">Expected Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html">Firmware Over The Air</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#topology">Topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#list-of-apis">List of APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#features-limitations">Features &amp; Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#dependent-talaria-two-module-information">Dependent Talaria TWO Module Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#flash-layout">Flash Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#partition-table-file-part-json">Partition Table File (part.json)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#boot-index-file-boot-json">Boot Index File (boot.json)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#fota-configuration-file-fota-config-json">FOTA Configuration File (fota_config.json)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#secure-secondary-boot-loader-ssbl">Secure Secondary Boot Loader (SSBL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#checking-for-new-updates">Checking for New Updates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#selecting-image-area">Selecting Image Area</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#secured-connection">Secured Connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#downloading-the-firmware">Downloading the Firmware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#setting-the-new-image-for-boot-and-reload">Setting the new image for boot and reload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#flow-diagram">Flow Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#code-walkthrough">Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#initializing-fota">Initializing FOTA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#fota-perform">FOTA Perform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#fota-commit">FOTA Commit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#deinitialize-fota">Deinitialize FOTA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#block-diagram">Block Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#aws-set-up">AWS Set-up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#build-and-run-fota-application">Build and Run FOTA Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#using-script">Using Script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#using-manual-programming-discrete-commands">Using Manual Programming Discrete Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#build">Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#create-root-filesystem-image">Create Root Filesystem Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#flash-required-images">Flash Required Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#expected-output">Expected Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#build-and-run-fota-application-with-secureboot">Build and Run FOTA Application with Secureboot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#flashing-and-testing">Flashing and Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html#expected-output-1">Expected Output</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_for_Analog_to_Digital_Converter.html">Analog to Digital Converter (ADC)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Analog_to_Digital_Converter.html#adc-block-diagram">ADC block diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Analog_to_Digital_Converter.html#vbat-voltage">VBAT Voltage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Analog_to_Digital_Converter.html#vbat-block-diagram">VBAT block diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Analog_to_Digital_Converter.html#source-code-walkthrough">Source Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Analog_to_Digital_Converter.html#application-flow">Application flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Analog_to_Digital_Converter.html#adc-apis">ADC APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Analog_to_Digital_Converter.html#source-file">Source file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Analog_to_Digital_Converter.html#adc-c">adc.c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Analog_to_Digital_Converter.html#building">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Analog_to_Digital_Converter.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Analog_to_Digital_Converter.html#programming-talaria-two">Programming Talaria TWO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Analog_to_Digital_Converter.html#expected-output">Expected Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_for_Audio_over_I2S.html">Audio Over I2S</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Audio_over_I2S.html#i2s">I2S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Audio_over_I2S.html#required-dependencies-on-ubuntu-host">Required Dependencies on Ubuntu Host</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Audio_over_I2S.html#source-code-walkthrough">Source Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Audio_over_I2S.html#directory-structure">Directory Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Audio_over_I2S.html#i2s-apis">I2S APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Audio_over_I2S.html#code-walkthrough-i2s-audio-flash-example">Code Walkthrough – I2s_audio_flash Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Audio_over_I2S.html#evaluating-i2s-audio-flash-example-application">Evaluating i2s_audio_flash Example Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Audio_over_I2S.html#flashing-sample-wave-file-to-talaria-twos-filesystem">Flashing Sample Wave File to Talaria TWO’s Filesystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Audio_over_I2S.html#code-walkthrough-i2s-audio-wifi-example">Code Walkthrough – i2s_audio_wifi Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Audio_over_I2S.html#evaluating-the-i2s-audio-wifi-example-application">Evaluating the i2s_audio_wifi Example Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Audio_over_I2S.html#flashing-a-file-to-talaria-twos-filesystem">Flashing a file to Talaria TWO’s Filesystem</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html">BLE WiFi Bridge</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#mq-telemetry-transport-protocol">MQ Telemetry Transport Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#relevant-apis">Relevant APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#ble-apis">BLE APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#bt-gap-init">bt_gap_init()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#bt-gatt-create-service-16">bt_gatt_create_service_16()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#bt-gatt-add-char-16">bt_gatt_add_char_16()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#bt-gatt-add-service">bt_gatt_add_service()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#bt-gap-cfg-adv">bt_gap_cfg_adv()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#bt-gap-connectable-mode">bt_gap_connectable_mode()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#bt-gap-server-link-add">bt_gap_server_link_add()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#bt-gap-server-link-remove">bt_gap_server_link_remove()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#bt-gatt-add-desc-16">bt_gatt_add_desc_16()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#bt-gap-server-link-remove-1">bt_gap_server_link_remove()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#mqtt-apis">MQTT APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#mqttnetworkinit">MQTTNetworkInit()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#mqttnetworkconnect">MQTTNetworkConnect()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#mqttnetworkdisconnect">MQTTNetworkDisconnect()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#mqttclientinit">MQTTClientInit()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#mqttconnect">MQTTConnect()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#mqttdisconnect">MQTTDisconnect()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#mqttpublish">MQTTPublish()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#mqttsubscribe">MQTTSubscribe()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#mqttunsubscribe">MQTTUnsubscribe()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#mqttyield">MQTTYield()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#application-flow">Application Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#code-walkthrough">Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#reading-the-boot-argument">Reading the Boot Argument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#connecting-to-a-wi-fi-network">Connecting to a Wi-Fi Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#initializing-mqtt-client">Initializing MQTT Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#publishing-data-to-the-mqtt-instance">Publishing Data to the MQTT Instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#subscribing-to-mqtt-topic">Subscribing to MQTT Topic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#running-ble-gatt-server">Running BLE GATT Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#connection-disconnection-callbacks">Connection/Disconnection Callbacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#characteristic-access-callback">Characteristic Access Callback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#running-the-application-using-mosquitto-projects-test-server">Running the Application using Mosquitto Project’s Test Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#installing-and-running-the-mosquitto-mqtt-tool">Installing and Running the Mosquitto MQTT Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#programming-the-talaria-two-module">Programming the Talaria TWO Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#publishing-a-topic-and-sending-data-from-ble-to-wi-fi">Publishing a Topic and Sending Data from BLE to Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_BLE_WiFi_Bridge.html#subscribing-to-a-topic-and-sending-data-from-wi-fi-to-ble">Subscribing to a Topic and Sending Data from Wi-Fi to BLE</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_for_Crash_handling.html">Crash Handling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Crash_handling.html#crash-handler">Crash Handler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Crash_handling.html#crash-output-debug">Crash Output Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Crash_handling.html#cortex-m3-crash">Cortex M3 Crash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Crash_handling.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Crash_handling.html#expected-output">Expected Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Crash_handling.html#soft-faults">Soft Faults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Crash_handling.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Crash_handling.html#co-processor-crash">Co-processor Crash</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_for_I2C.html">I2C</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_I2C.html#id1">I2C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_I2C.html#i2c-sensors">I2C Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_I2C.html#source-code-walkthrough">Source Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_I2C.html#directory-structure">Directory Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_I2C.html#application-flow">Application Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_I2C.html#i2c-apis">I2C APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_I2C.html#source-files">Source Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_I2C.html#i2c-sensor-c">i2c_sensor.c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_I2C.html#sensor-c">sensor.c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_I2C.html#sensor-delay-c">sensor_delay.c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_I2C.html#bmp388-c-pressure-sensor">bmp388.c (Pressure sensor)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_I2C.html#sensirion-hw-i2c-implementation-c-temperature-humidity">sensirion_hw_i2c_implementation.c (Temperature/Humidity)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_I2C.html#shtc1-c-temperature-humidity">shtc1.c (Temperature/Humidity)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_I2C.html#building">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_I2C.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_I2C.html#programming-talaria-two">Programming Talaria TWO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_I2C.html#expected-output">Expected Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_for_LPScan.html">LPS Scan</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_LPScan.html#system-api-functions">System / API Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_LPScan.html#sdk-provided-data-structures-and-objects">SDK Provided Data Structures and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_LPScan.html#api-functions">API Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_LPScan.html#wcm-create">wcm_create()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_LPScan.html#wifi-init-scan-default">wifi_init_scan_default()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_LPScan.html#wcm-scan">wcm_scan()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_LPScan.html#wi-fi-scan-related-data-retrieval">Wi-Fi Scan Related Data Retrieval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_LPScan.html#code-walkthrough">Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_LPScan.html#lpscan-c">lpscan.c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_LPScan.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_LPScan.html#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_LPScan.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_LPScan.html#expected-output">Expected Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html">MQTT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#mq-telemetry-transport-protocol">MQ Telemetry Transport Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#relevant-apis">Relevant APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#mqtt-apis">MQTT APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#mqttnetworkinit">MQTTNetworkInit()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#mqttnetworkinit-tls">MQTTNetworkInit_Tls()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#mqttnetworkconnect">MQTTNetworkConnect()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#mqttnetworkconnect-tls">MQTTNetworkConnect_Tls()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#mqttnetworkdisconnect">MQTTNetworkDisconnect()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#mqttnetworkdisconnect-tls">MQTTNetworkDisconnect_Tls()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#mqttclientinit">MQTTClientInit()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#mqttconnect">MQTTConnect()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#mqttdisconnect">MQTTDisconnect()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#mqttpublish">MQTTPublish()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#mqttsubscribe">MQTTSubscribe()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#mqttunsubscribe">MQTTUnsubscribe()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#mqttyield">MQTTYield()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#mqttnopollinit">MQTTNoPollInit()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#mqttnetworkinit-ws">MQTTNetworkInit_Ws ()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#mqttnetworkconnect-ws">MQTTNetworkConnect_Ws ()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#application-flow">Application Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#code-walkthrough">Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#mounting-the-filesystem">Mounting the Filesystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#reading-the-boot-argument">Reading the Boot Argument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#selecting-the-transport-mode">Selecting the Transport Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#connecting-to-a-wi-fi-network">Connecting to a Wi-Fi Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#initializing-mqtt-client">Initializing MQTT Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#publishing-data-to-the-mqtt-instance">Publishing Data to the MQTT Instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#subscribing-to-mqtt-topic">Subscribing to MQTT Topic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#last-will-testament">Last Will &amp; Testament</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#running-the-application-using-mosquitto-projects-test-server">Running the Application using Mosquitto Project’s Test Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#installing-and-running-the-mosquitto-mqtt-tool">Installing and Running the Mosquitto MQTT Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#programming-the-talaria-two-module">Programming the Talaria TWO module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#publishing-the-message">Publishing the Message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#subscribing-to-a-topic">Subscribing to a Topic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#evaluating-lwt-feature">Evaluating LWT Feature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#evaluating-websocket-feature">Evaluating Websocket Feature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#evaluating-the-application-using-mosquitto-local-server">Evaluating the Application using Mosquitto Local Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#non-secured">Non-secured</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#secured">Secured</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#key-and-certificate-generation-for-secured-local-server">Key and Certificate Generation for Secured Local Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#programing-talaria-two">Programing Talaria TWO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_MQTT.html#certificates-validity-assessment">Certificates Validity Assessment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_for_Pulse_Width_Modulation.html">Pulse Width Modulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Pulse_Width_Modulation.html#pwm-specifications">PWM Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Pulse_Width_Modulation.html#block-diagram">Block Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Pulse_Width_Modulation.html#building">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Pulse_Width_Modulation.html#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Pulse_Width_Modulation.html#pwm-apis">PWM APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Pulse_Width_Modulation.html#pwm-application">PWM Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Pulse_Width_Modulation.html#pwm-fade-application">PWM fade Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Pulse_Width_Modulation.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Pulse_Width_Modulation.html#programming-talaria-two-using-download-tool-pwm-elf">Programming Talaria TWO using Download tool (pwm.elf)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Pulse_Width_Modulation.html#expected-output">Expected output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Pulse_Width_Modulation.html#programming-talaria-two-using-download-tool-pwm-fade-elf">Programming Talaria TWO using Download tool (pwm_fade.elf)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Pulse_Width_Modulation.html#expected-output-1">Expected output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Pulse_Width_Modulation.html#pwm-test-setup">PWM Test Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_for_Radio_and_Module_Parameters.html">Radio and Module Parameters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Radio_and_Module_Parameters.html#id1">Radio and Module Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Radio_and_Module_Parameters.html#regulatory-domain">Regulatory Domain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Radio_and_Module_Parameters.html#rf-antenna-gain">RF Antenna Gain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Radio_and_Module_Parameters.html#tx-power">Tx Power</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Radio_and_Module_Parameters.html#device-information">Device Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Radio_and_Module_Parameters.html#apis-used-in-the-application">APIs used in the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Radio_and_Module_Parameters.html#radio-and-module-parameter-apis">Radio and Module Parameter APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Radio_and_Module_Parameters.html#source-code-walkthrough">Source Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Radio_and_Module_Parameters.html#source-code-walkthrough-1">Source Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Radio_and_Module_Parameters.html#building-the-application">Building the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Radio_and_Module_Parameters.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Radio_and_Module_Parameters.html#programming-talaria-two-using-the-download-tool">Programming Talaria TWO using the Download Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Radio_and_Module_Parameters.html#expected-output">Expected Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_for_Secure_Files.html">Secure Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Secure_Files.html#description-of-operation">Description of Operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Secure_Files.html#building-and-flashing-process">Building and Flashing Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Secure_Files.html#building-components">Building Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Secure_Files.html#flashing-components">Flashing Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Secure_Files.html#expected-output">Expected Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_for_Socket_Wakeup.html">Socket Wakeup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Socket_Wakeup.html#system-sleep-enable-disable">System Sleep Enable &amp; Disable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Socket_Wakeup.html#system-sleep-apis">System Sleep APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Socket_Wakeup.html#os-suspend-enable">os_suspend_enable()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Socket_Wakeup.html#os-suspend-disable">os_suspend_disable()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Socket_Wakeup.html#code-walkthrough">Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Socket_Wakeup.html#sock-wake-c">Sock_wake.c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Socket_Wakeup.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Socket_Wakeup.html#connect-to-a-wi-fi-network">Connect to a Wi-Fi network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Socket_Wakeup.html#wi-fi-connection-callback-function">Wi-Fi Connection Callback Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Socket_Wakeup.html#server-socket-function">Server Socket Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Socket_Wakeup.html#socket-event-callback-function">Socket Event Callback Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Socket_Wakeup.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Socket_Wakeup.html#expected-output">Expected Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_for_Software_SPI_Master.html">Software SPI Master</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Software_SPI_Master.html#supported-modes-and-configuration-options">Supported Modes and Configuration Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Software_SPI_Master.html#data-length">Data Length</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Software_SPI_Master.html#shift-direction">Shift Direction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Software_SPI_Master.html#clock-phase">Clock Phase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Software_SPI_Master.html#clock-polarity">Clock Polarity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Software_SPI_Master.html#pin-4-pin-modes">3-Pin / 4-Pin Modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Software_SPI_Master.html#gpios">GPIOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Software_SPI_Master.html#timing">Timing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Software_SPI_Master.html#timing-diagram">Timing Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Software_SPI_Master.html#iis2dlpc-3-axis-accelerometer-sample">IIS2DLPC 3-axis Accelerometer Sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Software_SPI_Master.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Software_SPI_Master.html#code-overview">Code Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Software_SPI_Master.html#directory-structure">Directory structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Software_SPI_Master.html#using-ssm">Using SSM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Software_SPI_Master.html#sw-spi-c">sw_spi.c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Software_SPI_Master.html#sw-spi-h">sw_spi.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Software_SPI_Master.html#accel-c">accel.c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Software_SPI_Master.html#iisdlpc-c">IISDLPC.c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Software_SPI_Master.html#iisdlpc-h">IISDLPC.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Software_SPI_Master.html#spi-throughput">SPI Throughput</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Software_SPI_Master.html#running-the-application-1">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_Software_SPI_Master.html#expected-output">Expected Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_for_using_Chip_Monitor.html">Chip Monitor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_Chip_Monitor.html#chip-monitoring-services-standalone-application">Chip Monitoring Services Standalone Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_Chip_Monitor.html#building">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_Chip_Monitor.html#chip-monitor-apis">Chip monitor APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_Chip_Monitor.html#chip-monitor-power-init">chip_monitor_power_init()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_Chip_Monitor.html#chip-monitor-start">chip_monitor_start()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_Chip_Monitor.html#chip-monitor-stop">chip_monitor_stop()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_Chip_Monitor.html#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_Chip_Monitor.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_Chip_Monitor.html#programming-talaria-two-using-the-download-tool">Programming Talaria TWO using the Download Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_Chip_Monitor.html#chip-monitoring-services-hosted-application">Chip Monitoring Services - Hosted Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_Chip_Monitor.html#application-running-on-external-host">Application Running on External Host</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_Chip_Monitor.html#measured-current-values-for-multiple-dtim-intervals">Measured Current Values for multiple DTIM Intervals</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_for_using_Filesystem.html">Filesystem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_Filesystem.html#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_Filesystem.html#using-filesystem">Using_filesystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_Filesystem.html#read-and-write">Read and Write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_Filesystem.html#fetching-the-file-into-a-buffer">Fetching the File into a Buffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_Filesystem.html#flashing-running-the-application">Flashing &amp; Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_Filesystem.html#generate-flash-a-filesystem-manually-for-factory-setup">Generate &amp; Flash a Filesystem Manually for Factory Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_Filesystem.html#writing-into-the-filesystem-programmatically">Writing into the Filesystem Programmatically</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_Filesystem.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_Filesystem.html#expected-output">Expected Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html">GPIO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html#demo-applications">Demo Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html#evb-a-hardware-configuration">EVB-A Hardware Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html#building">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html#gpio-demo-apis">GPIO Demo APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html#source-code-walkthrough">Source Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html#gpio-blink-demo-example">GPIO Blink Demo Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html#application-flow">Application Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html#expected-output">Expected Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html#gpio-suspend-demo-example">GPIO Suspend Demo Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html#application-flow-1">Application Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html#sample-code-walkthrough-1">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html#running-the-application-1">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html#expected-output-1">Expected Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html#gpio-suspend-mask-demo-example">GPIO Suspend Mask Demo Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html#application-flow-2">Application Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html#sample-code-walkthrough-2">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html#running-the-application-2">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html#expected-output-2">Expected Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html#gpio-interrupt-awake-demo-example">GPIO Interrupt Awake Demo Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html#application-flow-3">Application Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html#sample-code-walkthrough-3">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html#running-the-application-3">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_GPIO.html#expected-output-3">Expected Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_for_using_SNTP.html">SNTP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_SNTP.html#simple-network-time-protocol-sntp">Simple Network Time Protocol (SNTP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_SNTP.html#relevant-apis">Relevant APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_SNTP.html#sntp-apis">SNTP APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_SNTP.html#sntp-setoperatingmode">sntp_setoperatingmode()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_SNTP.html#sntp-init">sntp_init()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_SNTP.html#sntp-stop">sntp_stop()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_SNTP.html#os-systime64">os_systime64()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_SNTP.html#code-walkthrough">Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_SNTP.html#connecting-to-a-wi-fi-network">Connecting to a Wi-Fi network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_SNTP.html#getting-time-from-ntp">Getting time from NTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_SNTP.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_SNTP.html#programming-talaria-two-device-using-download-tool">Programming Talaria TWO Device using Download Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_SNTP.html#expected-output">Expected Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html">WIFI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html#topology">Topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html#wi-fi-connection-manager-functionalities">Wi-Fi Connection Manager Functionalities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html#list-of-apis">List of APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html#states-and-events-of-wi-fi-connection-manager">States and Events of Wi-Fi Connection Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html#initialization">Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html#states-of-wcm">States of WCM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html#source-code-walkthrough">Source Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html#wifi-connect">Wifi_Connect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html#expected-output">Expected Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html#wi-fi-scan">Wi-Fi Scan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html#overview-1">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html#sample-code-walkthrough-1">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html#running-the-application-1">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html#expected-output-1">Expected Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html#power-optimization-with-rx-nap-scan">Power Optimization with Rx Nap Scan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html#wifi-connect-disconnect">Wifi_Connect_Disconnect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html#overview-2">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html#sample-code-walkthrough-2">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html#running-the-application-2">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html#pmk-caching">PMK Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_using_WiFi.html#expected-output-2">Expected Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html">WiFi Power Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#wcm-power-management">WCM Power Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#wcm-power-management-apis">WCM Power Management APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#source-code-walkthrough">Source Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#wcm-pm-with-different-listen-interval">WCM_PM with Different Listen Interval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#wi-fi-power-management-configuration">Wi-Fi Power Management Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#rx-nap-in-station-mode-wifi-pm-sta-rx-nap">Rx Nap in Station Mode (WIFI_PM_STA_RX_NAP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#overview-1">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#sample-code-walkthrough-1">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#running-the-application-1">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#only-broadcast-wifi-pm-sta-only-broadcast">Only Broadcast (WIFI_PM_STA_ONLY_BROADCAST)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#overview-2">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#sample-code-walkthrough-2">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#running-the-application-2">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#dynamic-listen-interval-wifi-pm-dyn-listen-int">Dynamic listen Interval (WIFI_PM_DYN_LISTEN_INT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#overview-3">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#sample-code-walkthrough-3">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#running-the-application-3">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#multicast-dont-care-wifi-pm-mcast-dont-care">Multicast Don’t Care (WIFI_PM_MCAST_DONT_CARE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#overview-4">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#sample-code-walkthrough-4">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#running-the-application-4">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#power-save-poll-wifi-pm-ps-poll">Power Save Poll (WIFI_PM_PS_POLL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#overview-5">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#sample-code-walkthrough-5">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#running-the-application-5">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#transmit-power-save-wifi-pm-tx-ps">Transmit Power Save (WIFI_PM_TX_PS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#overview-6">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#sample-code-walkthrough-6">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#running-the-application-6">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#traffic-timeout-traffic-tmo">Traffic Timeout (traffic_tmo)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#overview-7">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#sample-code-walkthrough-7">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#running-the-application-7">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#dtim-only-wifi-pm-dtim-only">DTIM Only (WIFI_PM_DTIM_ONLY)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#overview-8">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#sample-code-walkthrough-8">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#running-the-application-8">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#power-management-boot-arguments">Power Management Boot Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#cloud-power-mode">Cloud Power Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#overview-9">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#boot-arguments">Boot Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#arp-cache-update-on-access-point">ARP Cache Update on Access Point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#wake-time-after-keepalive">Wake Time After Keepalive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#overview-10">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#boot-arguments-1">Boot Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_for_WiFi_Power_Management.html#running-the-application-9">Running the Application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html">BLE 5.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#topology">Topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#bt-protocol-stack-structure-apis-event-mechanism">BT Protocol Stack Structure, APIs &amp; Event Mechanism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#roles-of-server-client">Roles of Server &amp; Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#list-of-apis">List of APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#server-application">Server Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#code-walkthrough">Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#initialization">Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#adding-common-server-functionality">Adding Common Server Functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#adding-custom-service-characteristic">Adding Custom Service &amp; Characteristic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#starting-the-server">Starting the Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#connection-disconnection-callbacks">Connection/Disconnection Callbacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#characteristic-access-callback">Characteristic Access Callback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#expected-output">Expected Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#client-application">Client Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#overview-1">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#code-walkthrough-1">Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#initialization-1">Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#scanning">Scanning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#connecting">Connecting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#service-discovery">Service Discovery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#exchanging-mtu-size">Exchanging MTU Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#reading-the-characteristic">Reading the Characteristic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#running-the-application-1">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#expected-output-1">Expected Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#mobile-application-and-ble-server-elf">Mobile Application and ble_server.elf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#secure-server-and-client-applications">Secure Server and Client Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#setting-security-parameters">Setting Security Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#security-permissions-for-attributes">Security Permissions for Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#requesting-for-authentication">Requesting for Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#running-talaria-two-ble-secure-server">Running Talaria TWO BLE Secure Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#running-the-application-2">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#expected-output-2">Expected Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#running-android-mobile-application-as-ble-client">Running Android Mobile Application as BLE Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#talaria-two-application-acting-as-ble-secure-client">Talaria TWO application acting as BLE Secure Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#expected-output-3">Expected Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_5_0.html#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html">BLE Beacon</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#eddystone-beacons">Eddystone Beacons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#sample-application-apis">Sample Application APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#bt-gap-init">bt_gap_init()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#bt-gap-cfg-adv">bt_gap_cfg_adv()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#bt-gap-addr-set">bt_gap_addr_set()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#bt-gap-connectable-mode">bt_gap_connectable_mode()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#bt-gap-set-adv-data">bt_gap_set_adv_data()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#bt-gap-destroy">bt_gap_destroy()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#code-walkthrough">Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#sample-application-1-eddystone-uri-application">Sample Application 1 – Eddystone URI Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#initialize-the-gap">Initialize the GAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#configure-advertisement-uri-parameters">Configure Advertisement URI Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#setting-the-ble-address">Setting the BLE Address</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#set-eddystone-uri-data-as-advertisement-data">Set Eddystone URI Data as Advertisement Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#set-the-device-in-non-connectable-mode">Set the device in non-connectable mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#expected-output">Expected Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#sample-application-2-eddystone-uid-application">Sample Application 2 – Eddystone UID Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#overview-1">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#sample-code-walkthrough-1">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#running-the-application-1">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#expected-output-1">Expected Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#sample-application-3-eddystone-tlm-application">Sample Application 3 – Eddystone TLM Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#overview-2">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#sample-code-walkthrough-2">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#running-the-application-2">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_BLE_Beacons.html#expected-output-2">Expected Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_using_Custom_ATCMDLIB.html">Custom ATCMDLIB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Custom_ATCMDLIB.html#atcmdlib-application">ATCMDLIB Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Custom_ATCMDLIB.html#include-atcmdlib-header-file">Include ATCMDLIB Header File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Custom_ATCMDLIB.html#initialization">Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Custom_ATCMDLIB.html#add-sample-command-function">Add Sample Command Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Custom_ATCMDLIB.html#add-new-command">Add New Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Custom_ATCMDLIB.html#command-status">Command Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Custom_ATCMDLIB.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Custom_ATCMDLIB.html#expected-output">Expected Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_using_HTTP_Client.html">HTTP Client</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_HTTP_Client.html#features-and-limitations">Features and Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_HTTP_Client.html#http-s-apis">HTTP/S APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_HTTP_Client.html#http-s-open">HTTP/S Open</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_HTTP_Client.html#http-s-get">HTTP/S Get</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_HTTP_Client.html#http-s-post">HTTP/S Post</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_HTTP_Client.html#setting-the-header">Setting the header</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_HTTP_Client.html#closing-the-connection">Closing the connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_HTTP_Client.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_HTTP_Client.html#programming-talaria-two-board-with-certificates">Programming Talaria TWO board with certificates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_HTTP_Client.html#show-file-system-contents">Show File System Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_HTTP_Client.html#write-files">Write Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_HTTP_Client.html#programming-talaria-two-board-with-elf">Programming Talaria TWO board with ELF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_HTTP_Client.html#using-the-application">Using the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_HTTP_Client.html#example-boot-args-for-http-get-non-secure">Example boot args for HTTP Get (non-secure)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_HTTP_Client.html#example-boot-args-for-https-get-without-server-verification">Example boot args for HTTPS Get (without server verification)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_HTTP_Client.html#example-boot-args-for-https-get-with-server-certificate-validation">Example boot args for HTTPS Get (with server certificate validation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_HTTP_Client.html#example-boot-args-for-http-post-non-secure">Example boot args for HTTP Post (non-secure)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_HTTP_Client.html#example-boot-args-for-https-post-without-server-verification">Example boot args for HTTPS Post (without server verification)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_HTTP_Client.html#example-boot-args-for-https-post-with-server-certificate-validation">Example boot args for HTTPS Post (with server certificate validation)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_using_IFTTT.html">IFTTT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_IFTTT.html#id1">IFTTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_IFTTT.html#accessing-ifttt">Accessing IFTTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_IFTTT.html#creating-an-account-in-ifttt">Creating an Account in IFTTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_IFTTT.html#ifttt-concepts">IFTTT Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_IFTTT.html#applet">Applet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_IFTTT.html#creating-an-applet-for-talaria-two">Creating an Applet for Talaria TWO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_IFTTT.html#code-walkthrough">Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_IFTTT.html#application-flow">Application Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_IFTTT.html#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_IFTTT.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_IFTTT.html#programming-talaria-two-board-with-elf">Programming Talaria TWO board with ELF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_IFTTT.html#expected-output">Expected Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html">Low Power UART</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html#basic-usage-of-uart">Basic Usage of UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html#opening-the-serial-port">Opening the Serial Port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html#closing-the-serial-port">Closing the Serial Port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html#transmitting-a-single-character">Transmitting a Single Character</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html#transmitting-a-string">Transmitting a String</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html#receiving-blocking">Receiving (Blocking)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html#receiving-blocking-with-timeout">Receiving (Blocking with Timeout)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html#register-event-callback-called-when-talaria-two-wakes-from-sleep">Register Event Callback (called when Talaria TWO wakes from sleep)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html#register-callback-called-when-special-character-is-received">Register Callback (called when special character is received)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html#recommended-protocol-for-2-wire-uart">Recommended Protocol for 2-wire UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html#power-on">Power-ON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html#uart-apis">UART APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html#uart-rx">UART-RX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html#code-walkthrough">Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html#expected-output">Expected Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html#uart-tx">UART-TX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html#code-walkthrough-1">Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html#running-the-application-1">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html#expected-output-1">Expected Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html#uart-suspend-wakeup">UART Suspend/Wakeup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html#code-walkthrough-2">Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html#hardware-connection">Hardware Connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html#running-the-application-2">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Low_Power_UART.html#expected-output-2">Expected Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_using_mDNS.html">mDNS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_mDNS.html#code-walkthrough-for-mdns">Code Walkthrough for mDNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_mDNS.html#application-flow">Application Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_mDNS.html#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_mDNS.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_mDNS.html#programming-talaria-two-board-with-elf">Programming Talaria TWO board with ELF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_mDNS.html#using-the-application">Using the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_mDNS.html#example-bootargs-for-mdns-service-register-and-announce">Example Bootargs for mDNS Service Register and Announce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_mDNS.html#example-bootargs-for-mdns-service-discovery">Example Bootargs for mDNS Service Discovery</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html">Provisioning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html#topology">Topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html#list-of-apis">List of APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html#functionality-overview">Functionality overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html#data-exchange-formats">Data Exchange Formats</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html#scan-data">Scan Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html#configuration-data-format">Configuration Data Format</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html#provisioning-profile">Provisioning Profile</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html#service">Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html#characteristics">Characteristics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html#code-walkthrough">Code Walkthrough</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html#application-flow">Application Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html#sample-code-walkthrough">Sample Code Walkthrough</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html#running-the-application">Running the Application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html#write-the-provisioning-file-into-talaria-two-filesystem">Write the Provisioning File into Talaria TWO Filesystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html#programming-talaria-two-board-with-elf">Programming Talaria TWO board with ELF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_using_Provisioning.html#running-the-application-using-android-or-ios-app">Running the Application using Android or iOS App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_using_Unassociated_Mode.html">Unassociated Mode</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Unassociated_Mode.html#topology">Topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Unassociated_Mode.html#wi-fi-unassociated-mode-functionalities">Wi-Fi Unassociated Mode Functionalities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Unassociated_Mode.html#wi-fi-unassociated-mode-apis">Wi-Fi Unassociated Mode APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Unassociated_Mode.html#wifi-if-create">wifi_if_create()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Unassociated_Mode.html#wifi-if-destroy">wifi_if_destroy()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Unassociated_Mode.html#wifi-init-scan-default">wifi_init_scan_default()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Unassociated_Mode.html#wifi-ssid-from-bytes">wifi_ssid_from_bytes()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Unassociated_Mode.html#wifi-set-pm">wifi_set_pm()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Unassociated_Mode.html#wifi-scan">wifi_scan()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Unassociated_Mode.html#states-and-events-of-unassociated-mode">States and Events of Unassociated Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Unassociated_Mode.html#unassociated-tx-procedure">Unassociated Tx Procedure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Unassociated_Mode.html#code-walkthrough">Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Unassociated_Mode.html#unassociated-mode-tx-example">Unassociated mode Tx Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Unassociated_Mode.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Unassociated_Mode.html#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Unassociated_Mode.html#running-the-example">Running the Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Unassociated_Mode.html#expected-output">Expected Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_using_Watchdog_Timer.html">Watchlog Timer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Watchdog_Timer.html#watchdog-timer">Watchdog Timer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Watchdog_Timer.html#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Watchdog_Timer.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Watchdog_Timer.html#expected-output">Expected Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_using_WCM_Multi_AP.html">WCM Multi AP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_WCM_Multi_AP.html#wi-fi-connection-with-multi-ap-functionalities">Wi-Fi Connection with Multi-AP Functionalities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_WCM_Multi_AP.html#overview-of-wcm-multi-ap">Overview of wcm_multi_ap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_WCM_Multi_AP.html#overview-of-wcm">Overview of WCM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_WCM_Multi_AP.html#code-walkthrough-wcm-multi-ap">Code Walkthrough WCM_MULTI_AP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_WCM_Multi_AP.html#application-flow">Application Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_WCM_Multi_AP.html#sample-code-walkthrough">Sample code walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_WCM_Multi_AP.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_WCM_Multi_AP.html#expected-output">Expected Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Examples/Example_using_Websock_Client.html">Websock Client</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Websock_Client.html#features-and-limitations">Features and Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Websock_Client.html#websocket-s-apis">WebSocket/S APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Websock_Client.html#websocket-open">WebSocket Open</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Websock_Client.html#websocket-send">WebSocket Send</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Websock_Client.html#websocket-close">WebSocket Close</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Websock_Client.html#ping-and-pong">PING and PONG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Websock_Client.html#code-walkthrough">Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Websock_Client.html#application-flow">Application Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Websock_Client.html#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Websock_Client.html#running-the-application">Running the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Websock_Client.html#websocket-server-setup">WebSocket Server Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Websock_Client.html#programming-talaria-two-board-with-elf">Programming Talaria TWO board with ELF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Examples/Example_using_Websock_Client.html#expected-output">Expected Output</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Tools/3.%20Factory%20Loader/Factory_Loader_Landing_Page.html" class="btn btn-neutral float-left" title="Prerequisites:" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="1.%20Apps/1.%20Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.html" class="btn btn-neutral float-right" title="Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

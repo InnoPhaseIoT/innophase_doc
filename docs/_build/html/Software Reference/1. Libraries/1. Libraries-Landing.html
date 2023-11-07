@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. alarm &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Alarm Api ref" href="alarm_apiref.html" />
+    <link rel="prev" title="Software Reference" href="../Software_Reference_Landing_Page.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/Support.html">Support</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../Software_Reference_Landing_Page.html">Software Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../Software_Reference_Landing_Page.html#libraries">Libraries</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1.  alarm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="alarm_apiref.html">Alarm Api ref</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#fota">2.  fota</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fota_apiref.html">FirmWare Over The Air</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fota_apiref.html#fota-perform">fota_perform</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#http">3.  http</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="httpclient_apiref.html">http client</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mdns">4.  mdns</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mdns_apiref.html">mdns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mdns_apiref.html#mdns-hnreg-param-t">mdns_hnreg_param_t</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mqtt">5.  mqtt</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mqtt_apiref.html">mqtt</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#prov">6.  prov</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="prov_apiref.html">Provision</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sntp">7.  sntp</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sntp_apiref.html">sntp</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ssl-wrap">8.  ssl_wrap</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="sslwrap_apiref.html">sslwrap</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#utils">9.  utils</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="utils_apiref.html">Utils</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#websocket">10. websocket</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="websock_apiref.html">Websocket</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Software_Reference_Landing_Page.html#solutions">Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software_Reference_Landing_Page.html#cloud-frameworks">Cloud Frameworks</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Tools/Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../Software_Reference_Landing_Page.html">Software Reference</a></li>
+      <li class="breadcrumb-item active">1.  alarm</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Software Reference/1. Libraries/1. Libraries-Landing.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>The Talaria TWO FreeRTOS SDK provides the following pre-designed and
+reusable set of libraries for developing applications:</p>
+<section id="alarm">
+<h1>1.  alarm<a class="headerlink" href="#alarm" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="alarm_apiref.html">Alarm Api ref</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#features-and-limitations">Features and Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#header-file-s">Header file/s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#data-structure-definitions">Data Structure Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#alarm-tm">alarm_tm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#alarm-info">alarm_info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#api-reference">API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#alarm-init">alarm_init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#definition">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#return">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#alarm-set">alarm_set</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#overview-1">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#definition-1">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#parameters-1">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#return-1">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#alarm-set-time">alarm_set_time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#overview-2">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#definition-2">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#parameters-2">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#return-2">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#alarm-delete">alarm_delete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#overview-3">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#definition-3">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#parameters-3">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#return-3">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#alarm-display">alarm_display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#overview-4">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#definition-4">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#parameters-4">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#return-4">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#alarm-info-get">alarm_info_get</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#overview-5">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#definition-5">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#parameters-5">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#return-5">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alarm_apiref.html#example-application">Example Application</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="fota">
+<h1>2.  fota<a class="headerlink" href="#fota" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="fota_apiref.html">FirmWare Over The Air</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fota_apiref.html#features-and-limitations">Features and Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fota_apiref.html#header-file-s">Header file/s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fota_apiref.html#api-reference">API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fota_apiref.html#fota-init">fota_init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fota_apiref.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fota_apiref.html#definition">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fota_apiref.html#return">Return</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fota_apiref.html#fota-perform">fota_perform</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fota_apiref.html#overview-1">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fota_apiref.html#definition-1">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fota_apiref.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fota_apiref.html#return-1">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fota_apiref.html#fota-commit">fota_commit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fota_apiref.html#overview-2">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fota_apiref.html#definition-2">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fota_apiref.html#parameters-1">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fota_apiref.html#return-2">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fota_apiref.html#fota-deinit">fota_deinit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fota_apiref.html#overview-3">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fota_apiref.html#definition-3">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fota_apiref.html#parameters-2">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fota_apiref.html#return-3">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fota_apiref.html#application-example">Application Example</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="http">
+<h1>3.  http<a class="headerlink" href="#http" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="httpclient_apiref.html">http client</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#features-and-limitations">Features and Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#header-file-s">Header file/s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#data-structure-definitions">Data Structure Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#http-client-config-t">http_client_config_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#http-client-resp-info-t">http_client_resp_info_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#api-reference">API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#http-client-open">http_client_open</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#definition">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#return">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#http-client-get">http_client_get</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#overview-1">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#definition-1">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#parameters-1">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#return-1">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#http-client-post">http_client_post</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#overview-2">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#definition-2">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#parameters-2">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#return-2">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#http-client-set-req-hdr">http_client_set_req_hdr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#overview-3">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#definition-3">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#parameters-3">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#return-3">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#http-client-close">http_client_close</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#overview-4">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#definition-4">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#parameters-4">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#return-4">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httpclient_apiref.html#application-example">Application Example</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="mdns">
+<h1>4.  mdns<a class="headerlink" href="#mdns" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mdns_apiref.html">mdns</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#features-and-limitations">Features and Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#header-file-s">Header file/s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#data-structure-definitions">Data Structure Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#mdns-srvc-info-t">mdns_srvc_info_t</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mdns_apiref.html#mdns-hnreg-param-t">mdns_hnreg_param_t</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#mdns-srvreg-param-t">mdns_srvreg_param_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#mdns-srvcdisc-param-t">mdns_srvcdisc_param_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#api-reference">API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#mdns-init">mdns_init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#definition">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#return">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#mdns-hostname-reg">mdns_hostname_reg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#overview-1">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#definition-1">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#parameters-1">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#return-1">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#mdns-service-register">mdns_service_register</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#overview-2">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#definition-2">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#parameters-2">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#return-2">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#mdns-service-discover">mdns_service_discover</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#overview-3">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#definition-3">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#parameters-3">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#return-3">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mdns_apiref.html#application-example">Application Example</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="mqtt">
+<h1>5.  mqtt<a class="headerlink" href="#mqtt" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mqtt_apiref.html">mqtt</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#features-and-limitations">Features and Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#header-file-s">Header file/s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#api-reference">API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#mqttnetworkinit">MQTTNetworkInit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#definition">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#parameter">Parameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#return">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#mqttnetworkconnect">MQTTNetworkConnect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#overview-1">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#definition-1">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#return-1">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#mqttnetworkdisconnect">MQTTNetworkDisconnect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#overview-2">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#definition-2">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#parameters-1">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#return-2">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#mqttnetworkinit-tls">MQTTNetworkInit_Tls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#overview-3">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#definition-3">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#parameters-2">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#return-3">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#mqttnetworkconnect-tls">MQTTNetworkConnect_Tls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#overview-4">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#definition-4">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#parameters-3">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#return-4">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#mqttnetworkdisconnect-tls">MQTTNetworkDisconnect_Tls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#overview-5">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#definition-5">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#parameters-4">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#return-5">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#mqttnetworkinit-ws">MQTTNetworkInit_Ws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#overview-6">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#definition-6">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#parameters-5">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#return-6">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#mqttnetworkconnect-ws">MQTTNetworkConnect_Ws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#overview-7">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#definition-7">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#parameters-6">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#return-7">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#mqttnetworkdisconnect-ws">MQTTNetworkDisconnect_Ws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#overview-8">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#definition-8">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#parameters-7">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#return-8">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mqtt_apiref.html#application-example">Application Example</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="prov">
+<h1>6.  prov<a class="headerlink" href="#prov" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="prov_apiref.html">Provision</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#features-and-limitations">Features and Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#header-file-s">Header file/s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#data-structure-definitions">Data Structure Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#prov-start-prams-t">prov_start_prams_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#api-reference">API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#prov-start">prov_start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#definition">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#return">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#prov-conf-param-str-get">prov_conf_param_str_get</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#overview-1">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#definition-1">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#parameters-1">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#return-1">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#prov-conf-param-int-get">prov_conf_param_int_get</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#overview-2">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#definition-2">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#parameters-2">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#return-2">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#prov-is-provisioned">prov_is_provisioned</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#overview-3">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#definition-3">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#parameters-3">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#return-3">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prov_apiref.html#application-example">Application Example</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="sntp">
+<h1>7.  sntp<a class="headerlink" href="#sntp" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sntp_apiref.html">sntp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#features-and-limitations">Features and Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#header-file-s">Header file/s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#data-structure-definitions">Data Structure Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#sntp-msg">sntp_msg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#api-reference">API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#sntp-init">sntp_init()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#definition">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#return">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#sntp-stop">sntp_stop()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#overview-1">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#definition-1">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#parameters-1">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#return-1">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#sntp-setoperatingmode">sntp_setoperatingmode()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#overview-2">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#definition-2">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#parameters-2">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#return-2">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#sntp-servermode-dhcp">sntp_servermode_dhcp()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#overview-3">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#definition-3">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#parameters-3">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#return-3">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#sntp-setservername">sntp_setservername</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#overview-4">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#definition-4">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#parameters-4">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#return-4">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#sntp-getservername">sntp_getservername</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#overview-5">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#definition-5">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#parameters-5">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#return-5">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#sntp-retry">sntp_retry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#overview-6">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#definition-6">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#parameters-6">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#return-6">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#sntp-try-next-server">sntp_try_next_server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#overview-7">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#definition-7">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#parameters-7">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#return-7">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#sntp-request">sntp_request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#overview-8">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#definition-8">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#parameters-8">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#return-8">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sntp_apiref.html#example-application">Example Application</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="ssl-wrap">
+<h1>8.  ssl_wrap<a class="headerlink" href="#ssl-wrap" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sslwrap_apiref.html">sslwrap</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#header-file-s">Header file/s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#data-structure-definitions">Data Structure Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#ssl-auth-mode-t">ssl_auth_mode_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#ssl-wrap-cert-t">ssl_wrap_cert_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#ssl-wrap-cfg-t">ssl_wrap_cfg_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#http-client-resp-info-t">http_client_resp_info_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#api-reference">API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#ssl-wrap-connect">ssl_wrap_connect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#definition">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#return">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#ssl-wrap-read">ssl_wrap_read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#overview-1">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#definition-1">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#parameters-1">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#return-1">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#ssl-wrap-write">ssl_wrap_write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#overview-2">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#definition-2">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#parameters-2">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#return-2">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#ssl-wrap-read-timeout">ssl_wrap_read_timeout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#overview-3">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#definition-3">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#parameters-3">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#return-3">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#ssl-wrap-disconnect">ssl_wrap_disconnect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#overview-4">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#definition-4">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#parameters-4">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#return-4">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sslwrap_apiref.html#application-example">Application Example</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="utils">
+<h1>9.  utils<a class="headerlink" href="#utils" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="utils_apiref.html">Utils</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#features-and-limitations">Features and Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#header-file-s">Header file/s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#api-reference">API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#utils-mount-rootfs">utils_mount_rootfs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#definition">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#return">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#utils-is-file-present">utils_is_file_present</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#overview-1">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#definition-1">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#parameters-1">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#return-1">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#utils-file-size-get">utils_file_size_get</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#overview-2">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#definition-2">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#parameters-2">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#return-2">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#utils-file-get">utils_file_get</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#overview-3">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#definition-3">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#parameters-3">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#return-3">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#utils-file-store">utils_file_store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#overview-4">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#definition-4">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#parameters-4">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#return-4">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#reset-device">reset_device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#overview-5">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#definition-5">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#show-heap">show_heap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#overview-6">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#definition-6">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#parameters-5">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#network-profile-new-from-ssid-pw">network_profile_new_from_ssid_pw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#overview-7">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#definition-7">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#parameters-6">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#return-5">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#network-profile-new-from-ssid-bssid-pw">network_profile_new_from_ssid_bssid_pw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#overview-8">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#definition-8">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#parameters-7">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#return-6">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#network-profile-new-from-boot-args">network_profile_new_from_boot_args</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#overview-9">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#definition-9">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#parameters-8">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#return-7">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#is-valid-ip">is_valid_ip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#overview-10">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#definition-10">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#parameters-9">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#return-8">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#wifi-connect-to-network">wifi_connect_to_network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#overview-11">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#definition-11">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#parameters-10">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#return-9">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_apiref.html#application-example">Application Example</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="websocket">
+<h1>10. websocket<a class="headerlink" href="#websocket" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="websock_apiref.html">Websocket</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#features-and-limitations">Features and Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#data-structure-definitions">Data Structure Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#websock-config-t">websock_config_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#websock-msg-hdr-t">websock_msg_hdr_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#api-reference">API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#websock-open">websock_open</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#definition">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#return">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#websock-close">websock_close</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#overview-1">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#definition-1">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#parameters-1">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#return-1">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#websock-send-text">websock_send_text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#overview-2">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#definition-2">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#parameters-2">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#return-2">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#websock-send-binary">websock_send_binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#overview-3">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#definition-3">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#parameters-3">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#return-3">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#websock-recv">websock_recv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#overview-4">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#definition-4">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#parameters-4">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#return-4">Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="websock_apiref.html#application-example">Application Example</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Software_Reference_Landing_Page.html" class="btn btn-neutral float-left" title="Software Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="alarm_apiref.html" class="btn btn-neutral float-right" title="Alarm Api ref" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

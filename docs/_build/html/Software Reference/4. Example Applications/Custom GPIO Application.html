@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom GPIO Application &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Custom GPIO Application</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Software Reference/4. Example Applications/Custom GPIO Application.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="custom-gpio-application">
+<h1>Custom GPIO Application<a class="headerlink" href="#custom-gpio-application" title="Link to this heading"></a></h1>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading"></a></h2>
+<p>Custom GPIO (custom_gpio_mon) application can be used to control and
+monitor a GPIO. Host can change the GPIO state by set/clear method. The
+GPIO state can be monitored using this application. When in monitor
+mode, this will receive an indication whenever there is a change in GPIO
+state and hence demonstrates indication handling in a user application.</p>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<p>GTKTerm or similar application.</p>
+</section>
+<section id="command-description-with-procedure">
+<h2>Command Description with Procedure<a class="headerlink" href="#command-description-with-procedure" title="Link to this heading"></a></h2>
+<p>Open a serial terminal and navigate to the directory where custom
+applications are placed and issue the commands in the following sequence
+to set/clear/monitor GPIO pins in Talaria TWO.</p>
+<p>For this application, the allowed GPIOs are GPIO17, GPIO18 and GPIO19.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p># ./custom_gpio set &lt;GPIO num&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>To clear the GPIO state, Talaria TWO will clear the GPIO output.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p># ./custom_gpio clear &lt;GPIO num&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>To monitor GPIO state changes, Talaria TWO will send GPIO state change
+indications to the Host.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p># ./custom_gpio monitor &lt;GPIO num&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="procedure">
+<h2>Procedure<a class="headerlink" href="#procedure" title="Link to this heading"></a></h2>
+<p>Execute the following operations on the Talaria TWO:</p>
+<p>Step 1: Short GPIO_19 and GPIO_18</p>
+<p>Step 2: Set GPIO_18 to control the PIN</p>
+<p>Step 3: Set GPIO_19 to monitor and send indication to Host</p>
+<p>Step 4: Reset the state of GPIO_18</p>
+<p>Step 5: Observe the indication received at custom_gpio monitor</p>
+</section>
+<section id="expected-output">
+<h2>Expected Output<a class="headerlink" href="#expected-output" title="Link to this heading"></a></h2>
+<section id="host-console-logs">
+<h3>Host Console Logs<a class="headerlink" href="#host-console-logs" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image190.png"><img alt="image1" src="../../_images/image190.png" style="width: 0.81736in; height: 0.18403in;" /></a><a class="reference internal" href="../../_images/image190.png"><img alt="image2" src="../../_images/image190.png" style="width: 0.81736in; height: 0.18403in;" /></a><a class="reference internal" href="../../_images/image190.png"><img alt="image3" src="../../_images/image190.png" style="width: 0.81736in; height: 0.18403in;" /></a><a class="reference internal" href="../../_images/image190.png"><img alt="image4" src="../../_images/image190.png" style="width: 0.81736in; height: 0.18403in;" /></a><a class="reference internal" href="../../_images/image249.png"><img alt="A computer screen with white text Description automatically generated" src="../../_images/image249.png" style="width: 7.48056in; height: 3.30694in;" /></a></p>
+<p>Figure 2: custom_gpio – host serial log</p>
+<p>Host console log – text output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference external" href="mailto:innophase&#37;&#52;&#48;inn">innophase<span>&#64;</span>inn</a>
+ophase-ThinkPad-E15-Gen-2:~/Documents/xxxxxxxxx/hapi/dual_stack/bins$
+./custom_gpio monitor 18&amp; [3] 17202</p>
+<p><a class="reference external" href="mailto:innophase&#37;&#52;&#48;inn">innophase<span>&#64;</span>inn</a>
+ophase-ThinkPad-E15-Gen-2:~/Documents/xxxxxxxxx/hapi/dual_stack/bins$
+./custom_gpio set 19</p>
+<p>GPIO State changed..</p>
+<p>Group_id :0x41,msg_id ::0xc3,</p>
+<p>GPIO state=0</p>
+<p>GPIO State changed..</p>
+<p>Group_id :0x41,msg_id ::0xc3,</p>
+<p>GPIO state=1</p>
+<p><a class="reference external" href="mailto:innophase&#37;&#52;&#48;inn">innophase<span>&#64;</span>inn</a>
+ophase-ThinkPad-E15-Gen-2:~/Documents/xxxxxxxxx/hapi/dual_stack/bins$
+./custom_gpio clear 19</p>
+<p>GPIO State changed..</p>
+<p>Group_id :0x41,msg_id ::0xc3,</p>
+<p>GPIO state=0</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="list-of-message-ids-used">
+<h2>List of Message IDs Used<a class="headerlink" href="#list-of-message-ids-used" title="Link to this heading"></a></h2>
+<p>This application uses three message IDs and Group number 65:</p>
+<ol class="arabic simple">
+<li><p>GPIO_CUSTOM_SET_REQ</p></li>
+</ol>
+<p>This message will be sent to Talaria TWO when the application is invoked
+with “set” command. When Talaria TWO receives this command, it will
+enable the GPIO and replies with status code to Host. If the GPIO is
+enabled successfully, it will return 0, otherwise non-zero.</p>
+<ol class="arabic simple" start="2">
+<li><p>GPIO_CUSTOM_CLEAR_REQ</p></li>
+</ol>
+<p>This message will be sent to Talaria TWO when the application is invoked
+with “clear” command. When Talaria TWO receives this command, it will
+disable the GPIO and replies with status code to Host. If the GPIO is
+disabled successfully, it will return 0, otherwise non-zero.</p>
+<ol class="arabic simple" start="3">
+<li><p>GPIO_CUSTOM_MONITOR_REQ</p></li>
+</ol>
+<p>This message will be sent to Talaria TWO when the application is invoked
+with “monitor” command. When Talaria TWO receives this command, it will
+start monitoring the GPIO and replies with a status code to Host. If the
+GPIO monitor is started successfully, it will return 0 otherwise
+non-zero.</p>
+<ol class="arabic simple" start="4">
+<li><p>GPIO_CUSTOM_VAL_IND</p></li>
+</ol>
+<p>When GPIO monitor is issued, Talaria TWO starts monitoring the GPIO
+state changes. Whenever the state changes, it sends a state change
+indication message to Host.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

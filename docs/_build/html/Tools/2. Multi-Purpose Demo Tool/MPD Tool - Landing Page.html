@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MPD Tool – Introduction &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Prerequisites" href="1.%20Prerequisites/1.%20Prerequisites%20-%20Landing%20Page.html" />
+    <link rel="prev" title="Programming to Flash" href="../1.%20Download%20Tool/3.%20Download%20Tool%20Usage/6.%20Program%20and%20Reset/3.%20Programming%20to%20Flash.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Software%20Reference/Software_Reference_Landing_Page.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../Tools-landing%20page.html">Tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Tools-landing%20page.html#download-tool">Download Tool</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../Tools-landing%20page.html#multi-purpose-demo-tool">Multi Purpose Demo Tool</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">MPD Tool – Introduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="1.%20Prerequisites/1.%20Prerequisites%20-%20Landing%20Page.html">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2.%20GUI%20Overview/1.%20GUI%20Overview%20-%20Landing%20Page.html">GUI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mpd">MPD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#iperf3">Iperf3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scan">Scan</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Tools-landing%20page.html#factory-loader">Factory Loader</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../Tools-landing%20page.html">Tools</a></li>
+      <li class="breadcrumb-item active">MPD Tool – Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Tools/2. Multi-Purpose Demo Tool/MPD Tool - Landing Page.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mpd-tool-introduction">
+<h1>MPD Tool – Introduction<a class="headerlink" href="#mpd-tool-introduction" title="Permalink to this heading"></a></h1>
+<p>Talaria TWO MPD Demo Tool is a GUI tool that enables quick evaluation of
+power consumption and throughput performances of Talaria TWO modules.
+This tool is bundled with two applications:</p>
+<ul class="simple">
+<li><p>Multipurpose Demo (MPD) primarily intended to verify power
+consumption under various protocol scenarios (such as TCP, UDP, HTTP
+etc.)</p></li>
+<li><p>iPerf3 application to showcase throughput performance</p></li>
+<li><p>Standard scan and Low power scan, which enables to configure
+different scan feature</p></li>
+</ul>
+<p>This GUI is intended for use with the INP3010 and INP3011 Talaria TWO
+evaluation boards to enable easy programming and accelerated
+evaluations.</p>
+<p><a class="reference internal" href="../../_images/image1122.png"><img alt="image1" src="../../_images/image1122.png" style="width: 6.26806in; height: 2.47731in;" /></a></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Prerequisites/1.%20Prerequisites%20-%20Landing%20Page.html">Prerequisites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Prerequisites/2.%20Using%20MPD%20Tool%20in%20Linux.html">Using MPD Tool in Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Prerequisites/3.%20Microsoft%20Visual%20C%20plus%20plus%20Redistributable%20Software%20Package.html">Microsoft Visual C++ Redistributable Software Package</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="2.%20GUI%20Overview/1.%20GUI%20Overview%20-%20Landing%20Page.html">GUI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20GUI%20Overview/2.%20MPD.html">MPD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20GUI%20Overview/3.%20iPerf3.html">iPerf3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20GUI%20Overview/4.%20Scan.html">Scan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20GUI%20Overview/5.%20Help.html">Help</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="mpd">
+<h2>MPD<a class="headerlink" href="#mpd" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="3.%20MPD/MPD%20Modes.html">MPD modes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.%20MPD/MPD%20Modes.html#base-mode">Base Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20MPD/MPD%20Modes.html#keep-alive-mode">Keep Alive Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20MPD/MPD%20Modes.html#tcp">TCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20MPD/MPD%20Modes.html#udp">UDP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20MPD/MPD%20Modes.html#http">HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20MPD/MPD%20Modes.html#https">HTTPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20MPD/MPD%20Modes.html#mqtt">MQTT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20MPD/MPD%20Modes.html#multicast-reception-off-grat-arp-on">Multicast Reception OFF GRAT ARP ON</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="iperf3">
+<h2>Iperf3<a class="headerlink" href="#iperf3" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="4.%20iPerf3/iPerf3%20Modes.html">Iperf3 Modes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4.%20iPerf3/iPerf3%20Modes.html#udp-throughput-test-downlink">UDP Throughput Test Downlink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.%20iPerf3/iPerf3%20Modes.html#udp-throughput-test-uplink">UDP Throughput Test Uplink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.%20iPerf3/iPerf3%20Modes.html#tcp-throughput-test-downlink">TCP Throughput Test Downlink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.%20iPerf3/iPerf3%20Modes.html#tcp-throughput-test-uplink">TCP Throughput Test Uplink</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="scan">
+<h2>Scan<a class="headerlink" href="#scan" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="5.%20Scan/Scan%20Modes.html">scan Modes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5.%20Scan/Scan%20Modes.html#case-1-standard-wi-fi-scan">Case 1: Standard Wi-Fi Scan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.%20Scan/Scan%20Modes.html#case-2-low-power-wi-fi-smart-scan">Case 2: Low Power Wi-Fi Smart Scan</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../1.%20Download%20Tool/3.%20Download%20Tool%20Usage/6.%20Program%20and%20Reset/3.%20Programming%20to%20Flash.html" class="btn btn-neutral float-left" title="Programming to Flash" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="1.%20Prerequisites/1.%20Prerequisites%20-%20Landing%20Page.html" class="btn btn-neutral float-right" title="Prerequisites" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

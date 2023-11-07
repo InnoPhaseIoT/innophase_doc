@@ -1,0 +1,19 @@
+
+Programming STM32 MCU
+-------------------------
+
+The MCU STM32L010F4P6 on INP3201 can be programmed using the connector
+J3:
+
+|image1|
+
+Figure 9: Programming STM32 MCU
+
+The bin file for STM32L010F4P6 is provided as part of the software
+package and STlink can be used to program the MCU.
+
+For more details, refer: MUC_Firmware_Flashing
+
+.. |image1| image:: media/image1.emf
+   :width: 5.90551in
+   :height: 3.31654in

@@ -1,0 +1,2099 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WiFi Power Management &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="BLE 5.0" href="Example_using_BLE_5_0.html" />
+    <link rel="prev" title="WIFI" href="Example_for_using_WiFi.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Software%20Reference/Software_Reference_Landing_Page.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Tools/Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../Applications%20-%20Landing%20Page.html">Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Applications%20-%20Landing%20Page.html#apps">Apps</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../Applications%20-%20Landing%20Page.html#examples">Examples</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Analog_to_Digital_Converter.html">Analog to Digital Converter (ADC)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Audio_over_I2S.html">Audio Over I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_BLE_WiFi_Bridge.html">BLE WiFi Bridge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Crash_handling.html">Crash Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_I2C.html">I2C</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_LPScan.html">LPS Scan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_MQTT.html">MQTT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Pulse_Width_Modulation.html">Pulse Width Modulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Radio_and_Module_Parameters.html">Radio and Module Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Secure_Files.html">Secure Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Socket_Wakeup.html">Socket Wakeup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Software_SPI_Master.html">Software SPI Master</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_Chip_Monitor.html">Chip Monitor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_Filesystem.html">Filesystem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_GPIO.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_SNTP.html">SNTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_WiFi.html">WIFI</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">WiFi Power Management</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#wcm-power-management">WCM Power Management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wcm-power-management-apis">WCM Power Management APIs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#source-code-walkthrough">Source Code Walkthrough</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wcm-pm-with-different-listen-interval">WCM_PM with Different Listen Interval</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-application">Running the Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wi-fi-power-management-configuration">Wi-Fi Power Management Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rx-nap-in-station-mode-wifi-pm-sta-rx-nap">Rx Nap in Station Mode (WIFI_PM_STA_RX_NAP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overview-1">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sample-code-walkthrough-1">Sample Code Walkthrough</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-application-1">Running the Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#only-broadcast-wifi-pm-sta-only-broadcast">Only Broadcast (WIFI_PM_STA_ONLY_BROADCAST)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overview-2">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sample-code-walkthrough-2">Sample Code Walkthrough</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-application-2">Running the Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dynamic-listen-interval-wifi-pm-dyn-listen-int">Dynamic listen Interval (WIFI_PM_DYN_LISTEN_INT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overview-3">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sample-code-walkthrough-3">Sample Code Walkthrough</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-application-3">Running the Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#multicast-dont-care-wifi-pm-mcast-dont-care">Multicast Don’t Care (WIFI_PM_MCAST_DONT_CARE)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overview-4">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sample-code-walkthrough-4">Sample Code Walkthrough</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-application-4">Running the Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#power-save-poll-wifi-pm-ps-poll">Power Save Poll (WIFI_PM_PS_POLL)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overview-5">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sample-code-walkthrough-5">Sample Code Walkthrough</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-application-5">Running the Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transmit-power-save-wifi-pm-tx-ps">Transmit Power Save (WIFI_PM_TX_PS)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overview-6">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sample-code-walkthrough-6">Sample Code Walkthrough</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-application-6">Running the Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#traffic-timeout-traffic-tmo">Traffic Timeout (traffic_tmo)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overview-7">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sample-code-walkthrough-7">Sample Code Walkthrough</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-application-7">Running the Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dtim-only-wifi-pm-dtim-only">DTIM Only (WIFI_PM_DTIM_ONLY)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overview-8">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sample-code-walkthrough-8">Sample Code Walkthrough</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-application-8">Running the Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#power-management-boot-arguments">Power Management Boot Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cloud-power-mode">Cloud Power Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overview-9">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#boot-arguments">Boot Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arp-cache-update-on-access-point">ARP Cache Update on Access Point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wake-time-after-keepalive">Wake Time After Keepalive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overview-10">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#boot-arguments-1">Boot Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-application-9">Running the Application</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_BLE_5_0.html">BLE 5.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_BLE_Beacons.html">BLE Beacon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Custom_ATCMDLIB.html">Custom ATCMDLIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_HTTP_Client.html">HTTP Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_IFTTT.html">IFTTT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Low_Power_UART.html">Low Power UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_mDNS.html">mDNS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html">Provisioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#scan-data">Scan Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#configuration-data-format">Configuration Data Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#service">Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#characteristics">Characteristics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#application-flow">Application Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#write-the-provisioning-file-into-talaria-two-filesystem">Write the Provisioning File into Talaria TWO Filesystem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#programming-talaria-two-board-with-elf">Programming Talaria TWO board with ELF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#running-the-application-using-android-or-ios-app">Running the Application using Android or iOS App</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Unassociated_Mode.html">Unassociated Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Watchdog_Timer.html">Watchlog Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_WCM_Multi_AP.html">WCM Multi AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Websock_Client.html">Websock Client</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../Applications%20-%20Landing%20Page.html">Applications</a></li>
+      <li class="breadcrumb-item active">WiFi Power Management</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Applications/2. Examples/Example_for_WiFi_Power_Management.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="wifi-power-management">
+<h1>WiFi Power Management<a class="headerlink" href="#wifi-power-management" title="Permalink to this heading"></a></h1>
+<p>This application note describes the Wi-Fi Connection Manager’s power
+management APIs available in the SDK.</p>
+<section id="wcm-power-management">
+<h2>WCM Power Management<a class="headerlink" href="#wcm-power-management" title="Permalink to this heading"></a></h2>
+<p>The WCM power management configuration APIs allow the application to
+configure the Wi-Fi interface with the following power management flags.</p>
+<ol class="arabic simple">
+<li><p>WIFI_PM_PS_POLL: Sends PS poll if a beacon was missed.</p></li>
+<li><p>WIFI_PM_DYN_LISTEN_INT: Dynamic listen interval.</p></li>
+<li><p>WIFI_PM_STA_RX_NAP: Turns off receiver for uninteresting frames for
+station.</p></li>
+<li><p>WIFI_PM_STA_ONLY_BROADCAST: Does not receive multicast frames that
+are not broadcast (only effective if rx_nap is used).</p></li>
+<li><p>WIFI_PM_TX_PS: Sends outgoing frames without leaving Wi-Fi power
+save.</p></li>
+<li><p>WIFI_PM_MCAST_DONT_CARE: Ignores the multicast flag in beacons. i.e.,
+does not receive multicast or broadcast frames.</p></li>
+<li><p>WIFI_PM_DTIM_ONLY: Wakes up only at effective listen interval and
+does not switch to listen to every beacon in case of beacon miss.</p></li>
+</ol>
+<p>This application note demonstrates usage of the above flags.</p>
+</section>
+<section id="wcm-power-management-apis">
+<h2>WCM Power Management APIs<a class="headerlink" href="#wcm-power-management-apis" title="Permalink to this heading"></a></h2>
+<p>Following are the WCM power management APIs used in this application</p>
+<ol class="arabic simple">
+<li><p>wcm_pm_config()</p></li>
+</ol>
+<blockquote>
+<div><p>Sets the Power Management configuration of a Wi-Fi interface.</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>wcm_pm_config_get()</p></li>
+</ol>
+<blockquote>
+<div><p>Gets Power Management configuration of a Wi-Fi interface.</p>
+</div></blockquote>
+</section>
+<section id="source-code-walkthrough">
+<h2>Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permalink to this heading"></a></h2>
+</section>
+<section id="wcm-pm-with-different-listen-interval">
+<h2>WCM_PM with Different Listen Interval<a class="headerlink" href="#wcm-pm-with-different-listen-interval" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<p>The sample code is in the path <em>example/wcm_pm/src/wcm_pm.c</em>. This
+describes how the API wcm_pm_config()is used to disable the pm_flags to
+achieve optimized power consumption. The two power-save parameters being
+used in code are explained below:</p>
+<ol class="arabic simple">
+<li><p>Listen interval</p></li>
+</ol>
+<blockquote>
+<div><p>Specifies how often the device will wake-up and listen for beacons.
+If the listen_interval is set to a number which is not an even
+multiple of DTIMs, the actual listen interval will be set to an even
+multiple of DTIMs which is higher than listen_interval.</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Traffic timeout (ms)</p></li>
+</ol>
+<blockquote>
+<div><p>Keeps the device awake for configured time (default 12ms) after any
+incoming or outgoing traffic. The Wi-Fi interface will go to Wi-Fi
+power save if no traffic has occurred for the traffic timeout time in
+milliseconds. A traffic timeout value of 0 will make the device stay
+awake forever.</p>
+</div></blockquote>
+</section>
+<section id="sample-code-walkthrough">
+<h2>Sample Code Walkthrough<a class="headerlink" href="#sample-code-walkthrough" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Connect to a Wi-Fi network</p></li>
+</ol>
+<blockquote>
+<div><p>To connect to a Wi-Fi network, wcm_create()API from the Wi-Fi
+Connection Manager is used. Initially, the Wi-Fi network interface is
+created using wcm_create().</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>h = wcm_create(NULL);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>wifi_connect_to_network()API, from components library, connects to
+the Wi-Fi network using the AP credentials provided.</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>rval = wifi_connect_to_network(&amp;h, WCM_CONN_WAIT_INFINITE,</p>
+<p>&amp;wcm_connected);</p>
+<p>if(rval &lt; 0) {</p>
+<p>os_printf(”\nError: Unable to connect to network\n”);</p>
+<p>return 0; }</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="2">
+<li><p>Print Power Management Configuration</p></li>
+</ol>
+<blockquote>
+<div><p>The function reads the power management configuration such as listen
+interval, traffic timeout and power management flag using
+wcm_pm_config_get() API.</p>
+</div></blockquote>
+<p>wcm_pm_get_sleep_period()gets the current_sleep_period value.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>uint32_t current_listen_interval;</p>
+<p>uint32_t current_traffic_tmo;</p>
+<p>uint32_t current_pm_flags;</p>
+<p>int current_sleep_period;</p>
+<p>wcm_pm_config_get(h, &amp;current_listen_interval, &amp;current_traffic_tmo,</p>
+<p>current_pm_flags);</p>
+<p>wcm_pm_get_sleep_period(h, &amp;current_sleep_period);</p>
+<p>os_printf(”\n******\n”);</p>
+<p>os_printf(“listen_interval: %d\n”, current_listen_interval);</p>
+<p>os_printf(“traffic_tmo: %d\n”, current_traffic_tmo);</p>
+<p>os_printf(“pm_flags: 0x%x\n”, current_pm_flags);</p>
+<p>os_printf(“sleep_period: %d ms\n”, current_sleep_period/1000);</p>
+<p>os_printf(”******\n”);</p>
+<p>os_printf((current_pm_flags &amp; WIFI_PM_DTIM_ONLY) ==0 ? “dtim_only
+disabled\n” : “dtim_only enabled\n”);</p>
+<p>os_printf((current_pm_flags &amp; WIFI_PM_TX_PS) ==0 ? “tx_ps
+disabled\n” : “tx_ps enabled\n”);</p>
+<p>os_printf((current_pm_flags &amp; WIFI_PM_MCAST_DONT_CARE)==0 ?
+“mcast_don’t_care disabled \n” : “mcast_don’t_care enabled\n”);</p>
+<p>os_printf((current_pm_flags &amp; WIFI_PM_STA_RX_NAP)==0 ? “rx_nap
+disabled\n” : “rx_nap enabled\n”);</p>
+<p>os_printf((current_pm_flags &amp; WIFI_PM_STA_ONLY_BROADCAST)==0 ?
+“only_broadcast disabled\n” : “only_broadcast enabled\n”);</p>
+<p>os_printf((current_pm_flags &amp; WIFI_PM_PS_POLL)==0 ? “ps_poll
+disabled\n” : “ps_poll enabled\n”);</p>
+<p>os_printf((current_pm_flags &amp; WIFI_PM_DYN_LISTEN_INT)==0 ? “dli
+disabled\n” : “dli enabled\n”);</p>
+<p>os_printf(”******\n”);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="3">
+<li><p>Set Power Management Configurations</p></li>
+</ol>
+<blockquote>
+<div><p>Sets the Power Management configuration of the Wi-Fi interface using
+wcm_pm_config() API.</p>
+<p>In this application, the pm_flag is set to 0 to disable all power
+management flags. The application sets three different
+listen_interval values and stays configured for each of the
+listen_interval values for 20 seconds. For all three listen interval
+values, the traffic time out is set to 12.</p>
+<p>Listen Interval 3</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>wcm_pm_config(h, LISTEN_INTERVAL_3, TRAFFIC_TMO, pm_mask);</p>
+<p>vTaskDelay(20000);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>Listen Interval 10</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO, pm_mask);</p>
+<p>vTaskDelay(20000);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>Listen Interval 20</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>wcm_pm_config(h, LISTEN_INTERVAL_20, TRAFFIC_TMO, pm_mask);</p>
+<p>vTaskDelay(20000);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="running-the-application">
+<h2>Running the Application<a class="headerlink" href="#running-the-application" title="Permalink to this heading"></a></h2>
+<p><strong>Note</strong>: All applicable ELFs are available at:
+<em>freertos_sdk_x.y\examples\wcm_pm\bin</em> in the FreeRTOS SDK package.</p>
+<p>Program wcm_pm.elf using the Download tool
+(<em>freertos_sdk_x.y\pc_tools\Download_Tool\bin</em>):</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool provided with InnoPhase Talaria TWO SDK.</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down</p></li>
+<li><p>ELF Input: Load the wcm_pm.elf by clicking on Select ELF File.</p></li>
+<li><p>AP Options: Provide the SSID and Passphrase under AP Options to
+connect to an Access Point.</p></li>
+<li><p>Boot Arguments: Pass the following boot arguments:</p></li>
+</ol>
+</li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>wifi.max_idle_period=600,suspend=1,wifi.arp_grat_period=0</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="lowerroman simple">
+<li><p>suspend</p></li>
+</ol>
+<blockquote>
+<div><p>suspend =1 will trigger Talaria TWO suspend state.</p>
+</div></blockquote>
+<ol class="lowerroman simple" start="2">
+<li><p>wifi.max_idle_period</p></li>
+</ol>
+<blockquote>
+<div><p>Some APs disconnect stations when no traffic has occurred for a
+certain time. This parameter specifies how many seconds the device
+can be idle before it must send a keep alive to the AP. To reduce
+power consumption, the keep alive messages are aligned to the next
+beacon reception period. The actual keep alive interval can therefore
+be longer than specified, especially if the wifi.listen_interval is
+set to a high value.</p>
+</div></blockquote>
+<ol class="lowerroman simple" start="3">
+<li><p>wifi.arp_grat_period</p></li>
+</ol>
+<blockquote>
+<div><p>Period in seconds for gratuitous ARP announcements. Set to zero to
+disable.</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="5">
+<li><p>Programming: Prog RAM or Prog Flash as per requirement.</p></li>
+</ol>
+<section id="id3">
+<h3><a href="#id1"><span class="problematic" id="id2">**</span></a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<p>Console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWAE</p>
+<p>4 DWT comparators, range 0x8000</p>
+<p>Build $Id: git-ef87896f9 $</p>
+<p>hio.baudrate=921600</p>
+<p>flash: Gordon ready!</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWWWAE</p>
+<p>Build $Id: git-df9b9ef $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff</p>
+<p>Bootargs: wifi.max_idle_period=600 suspend=1 wifi.arp_grat_period=0
+np_conf_path=/data/nprofile.json ssid=Lucy <a class="reference external" href="mailto:passphrase=Password&#37;&#52;&#48;321">passphrase=Password<span>&#64;</span>321</a></p>
+<p>$App:git-6600fea</p>
+<p>SDK Ver: FREERTOS_SDK_1.0</p>
+<p>Wifi PM Demo App</p>
+<p>addr e0:69:3a:00:16:d4</p>
+<p>Connecting to added network : Lucy</p>
+<p>[0.616,682] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-61 dBm</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS</p>
+<p>[0.721,841] MYIP 192.168.1.105</p>
+<p>[0.722,122] IPv6 [fe80::e269:3aff:fe00:16d4]-link</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED</p>
+<p>Connected to added network : Lucy</p>
+<p>Suspend enabled!</p>
+<p>setting to listen interval equivalent 3</p>
+<p>******</p>
+<p>listen_interval: 3</p>
+<p>traffic_tmo: 12</p>
+<p>sleep_period: 102 ms</p>
+<p>dtim_only enabled</p>
+<p>tx_ps enabled</p>
+<p>mcast_don’t_care enabled</p>
+<p>rx_nap enabled</p>
+<p>only_broadcast enabled</p>
+<p>ps_poll disabled</p>
+<p>dli disabled</p>
+<p>******</p>
+<p>setting to listen interval equivalent 10</p>
+<p>******</p>
+<p>listen_interval: 10</p>
+<p>traffic_tmo: 12</p>
+<p>sleep_period: 307 ms</p>
+<p>dtim_only enabled</p>
+<p>tx_ps enabled</p>
+<p>mcast_don’t_care enabled</p>
+<p>rx_nap enabled</p>
+<p>only_broadcast enabled</p>
+<p>ps_poll disabled</p>
+<p>dli disabled</p>
+<p>******</p>
+<p>setting to listen interval equivalent 20</p>
+<p>******</p>
+<p>listen_interval: 20</p>
+<p>traffic_tmo: 12</p>
+<p>sleep_period: 1024 ms</p>
+<p>dtim_only enabled</p>
+<p>tx_ps enabled</p>
+<p>mcast_don’t_care enabled</p>
+<p>rx_nap enabled</p>
+<p>only_broadcast enabled</p>
+<p>ps_poll disabled</p>
+<p>dli disabled</p>
+<p>******</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image110.png"><img alt="image1" src="../../_images/image110.png" style="width: 6.10236in; height: 2.62612in;" /></a></p>
+<p>Figure 1: Otti capture</p>
+<p>The console output comprises of the different power management
+configurations the sample application goes through. Figure 1 shows the
+Otti power consumption, where the listen interval is changed every 20
+seconds.</p>
+</section>
+</section>
+<section id="wi-fi-power-management-configuration">
+<h2>Wi-Fi Power Management Configuration<a class="headerlink" href="#wi-fi-power-management-configuration" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Configuring the listen_interval</p></li>
+</ol>
+<blockquote>
+<div><p>The DTIM value is typically set by the AP and can be configured
+inside the AP settings. To save power, Talaria TWO can carry out
+beacon skipping so that it only listens at certain intervals as
+specified by the listen_interval parameter values in wcm_pm_config()
+API.</p>
+<p>traffic_tmo argument represents the traffic time out in milliseconds,
+described in section 5.1.2 point 2.</p>
+<p>pm_flags represent the power management flags, described in section
+4.</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void wcm_pm_config(struct wcm_handle *h, uint32_t listen_interval,
+uint32_t traffic_tmo, uint32_t pm_flags)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>For example:</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>wcm_pm_config(h, 3, 12, 0);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>The line of code sets the listen interval to 3, which is equivalent
+to DTIM3.</p>
+<p><strong>Note</strong>: If the listen_interval is set to a number that is not an
+even multiple of DTIMs, the effective listen interval will be set to
+an even multiple of DTIMs which is higher than the listen_interval.</p>
+<p>Example 1:</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configured LI: 10</p>
+<p>DTIM set on AP: 3</p>
+<p>Effective LI: 12</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>Example 2:</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configured LI: 2</p>
+<p>DTIM set on AP: 3</p>
+<p>Effective LI: 6</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rx-nap-in-station-mode-wifi-pm-sta-rx-nap">
+<h2>Rx Nap in Station Mode (WIFI_PM_STA_RX_NAP)<a class="headerlink" href="#rx-nap-in-station-mode-wifi-pm-sta-rx-nap" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-1">
+<span id="id4"></span><h2>Overview<a class="headerlink" href="#overview-1" title="Permalink to this heading"></a></h2>
+<p>During reception of uninteresting frames in an associated station mode,
+the receiver can be turned OFF to save power. When the device receives
+the beginning of a frame, it is possible to check if the frame is
+intended for this device or not. If the frame is not intended for this
+device, the Rx nap functionality will turn the receiver OFF (“<em>take a
+nap</em>”) for the duration of the frame. This mode will have very little
+impact on the power consumption if the cloud power mode is used (refer
+section 6.1 - Cloud Power Mode for more details).</p>
+<p>The frames that are of interest are unicast frames, broadcast frames
+from AP, multicast (not broadcast) from AP, unless explicitly configured
+to skip multicast. Rx nap feature can be used in applications such as
+sensor or door lock that are not latency sensitive. This feature should
+be disabled for firmware upgrade application.</p>
+<p>The sample code is in: <em>example/wcm_pm/src/wcm_pm_rxnap.c</em></p>
+</section>
+<section id="sample-code-walkthrough-1">
+<span id="id5"></span><h2>Sample Code Walkthrough<a class="headerlink" href="#sample-code-walkthrough-1" title="Permalink to this heading"></a></h2>
+<p>The following code uses wcm_pm_config() API to enable the station Rx NAP
+flag WIFI_PM_STA_RX_NAP. Suspend mode is enabled using the API
+os_suspend_enable().</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>os_printf(“Suspend enabled!\n”);</p>
+<p>os_suspend_enable();</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Sets the listen interval to 10, traffic timeout to 12ms and enables Rx
+nap. Enables sleep mode for 20 seconds before disabling the Rx nap flag.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>print_wifi_config()</p>
+<p>os_printf(“Sleep mode for next 20 sec\n”);</p>
+<p>vTaskDelay(20000);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Sets the listen interval to 10, traffic timeout to 12ms and disables Rx
+nap.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO, PM_FLAGS);</p>
+<p>print_wifi_config();</p>
+<p>vTaskDelay(20000);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="running-the-application-1">
+<span id="id6"></span><h2>Running the Application<a class="headerlink" href="#running-the-application-1" title="Permalink to this heading"></a></h2>
+<p>Program wcm_pm_rxnap.elf using the Download Tool. Refer steps in section
+5.1.3 to program the ELF onto Talaria TWO.</p>
+<p>Console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWAE</p>
+<p>4 DWT comparators, range 0x8000</p>
+<p>Build $Id: git-ef87896f9 $</p>
+<p>hio.baudrate=921600</p>
+<p>flash: Gordon ready!</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWWWAE</p>
+<p>Build $Id: git-df9b9ef $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff</p>
+<p>Bootargs: np_conf_path=/data/nprofile.json ssid=Lucy
+<a class="reference external" href="mailto:passphrase=Password&#37;&#52;&#48;321">passphrase=Password<span>&#64;</span>321</a></p>
+<p>$App:git-6600fea</p>
+<p>SDK Ver: FREERTOS_SDK_1.0</p>
+<p>Wifi PM Demo Rx nap in associated Mode</p>
+<p>addr e0:69:3a:00:16:d4</p>
+<p>Connecting to added network : Lucy</p>
+<p>[0.593,596] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-62 dBm</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS</p>
+<p>[0.707,791] MYIP 192.168.1.105</p>
+<p>[0.707,960] IPv6 [fe80::e269:3aff:fe00:16d4]-link</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED</p>
+<p>Connected to added network : Lucy</p>
+<p>Suspend enabled!</p>
+<p>******</p>
+<p>listen_interval: 10</p>
+<p>traffic_tmo: 12</p>
+<p>sleep_period: 102 ms</p>
+<p>dtim_only disabled</p>
+<p>tx_ps disabled</p>
+<p>mcast_don’t_care disabled</p>
+<p>rx_nap enabled</p>
+<p>only_broadcast disabled</p>
+<p>ps_poll disabled</p>
+<p>dli disabled</p>
+<p>******</p>
+<p>Sleep mode for next 20 sec</p>
+<p>******</p>
+<p>listen_interval: 10</p>
+<p>traffic_tmo: 12</p>
+<p>sleep_period: 1024 ms</p>
+<p>dtim_only disabled</p>
+<p>tx_ps disabled</p>
+<p>mcast_don’t_care disabled</p>
+<p>rx_nap disabled</p>
+<p>only_broadcast disabled</p>
+<p>ps_poll disabled</p>
+<p>dli disabled</p>
+<p>******</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple">
+<li><p>Rx nap enabled</p></li>
+</ol>
+<blockquote>
+<div><p>To test this, ping Talaria TWO IP address from the host machine. When
+Talaria TWO turns the receiver OFF (<em>takes a nap</em>) in Rx nap enabled
+case, the current consumption dips to 8mA as shown in Figure 2.</p>
+<p><a class="reference internal" href="../../_images/image22.png"><img alt="image2" src="../../_images/image22.png" style="width: 5.11811in; height: 2.87254in;" /></a></p>
+</div></blockquote>
+<p>Figure : Power Analyzer- Rx Nap enabled mode</p>
+<ol class="arabic simple" start="2">
+<li><p>Rx nap disabled</p></li>
+</ol>
+<blockquote>
+<div><p>When Rx nap gets disabled, Talaria TWO does not take naps for any
+uninteresting frames.</p>
+<p><a class="reference internal" href="../../_images/image32.png"><img alt="image3" src="../../_images/image32.png" style="width: 5.11811in; height: 3.28494in;" /></a></p>
+</div></blockquote>
+<p>Figure : Power Analyzer- RX Nap disabled mode</p>
+</section>
+<section id="only-broadcast-wifi-pm-sta-only-broadcast">
+<h2>Only Broadcast (WIFI_PM_STA_ONLY_BROADCAST)<a class="headerlink" href="#only-broadcast-wifi-pm-sta-only-broadcast" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-2">
+<span id="id7"></span><h2>Overview<a class="headerlink" href="#overview-2" title="Permalink to this heading"></a></h2>
+<p>This feature will turn the receiver OFF for multicast frames, but
+listens to the broadcast frames. This function is only activated if Rx
+nap is also set. In most cases, an application is only interested in
+broadcast frames to receive ARP requests.</p>
+<p>Thus, the MAC header is always received to determine if the frame is of
+interest or not. The receiver will be turned off for the duration of the
+frame, which is calculated based on the length and rate information in
+the PHY header.</p>
+<p>The sample code is located in the path example/wcm_pm/src/wcm_pm_bc.c.
+This describes using the API wcm_pm_config()to enable and disable the
+WIFI_PM_STA_ONLY_BROADCAST flag.</p>
+</section>
+<section id="sample-code-walkthrough-2">
+<span id="id8"></span><h2>Sample Code Walkthrough<a class="headerlink" href="#sample-code-walkthrough-2" title="Permalink to this heading"></a></h2>
+<p>The following code uses wcm_pm_config() API to enable the only broadcast
+flag WIFI_PM_STA_ONLY_BROADCAST and WIFI_PM_STA_RX_NAP. Here the Rx_nap
+is a pre-requisite for using WIFI_PM_STA_ONLY_BROADCAST flag</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>pm_mask |= WIFI_PM_STA_RX_NAP | WIFI_PM_STA_ONLY_BROADCAST;</p>
+<p>/* Enable Only broadcast flag with listen interval set to 1 */</p>
+<p>wcm_pm_config(h, LISTEN_INTERVAL_1, TRAFFIC_TMO, pm_mask);</p>
+<p>print_wifi_config();</p>
+<p>vTaskDelay(20000);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Sleep mode is enabled for 20 seconds before disabling this flag again.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>os_printf(“Sleep mode for next 20 sec\n”);</p>
+<p>vTaskDelay(20000);</p>
+<p>os_printf(”\n******\n”);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Next, the only broadcast is disabled by setting the flag to 0.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>wcm_pm_config(h, LISTEN_INTERVAL_1, TRAFFIC_TMO, PM_FLAGS);</p>
+<p>print_wifi_config();</p>
+<p>vTaskDelay(60000);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="running-the-application-2">
+<span id="id9"></span><h2>Running the Application<a class="headerlink" href="#running-the-application-2" title="Permalink to this heading"></a></h2>
+<p>Program wcm_pm_bc.elf using the Download tool:</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool provided with InnoPhase Talaria TWO SDK.</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down</p></li>
+<li><p>ELF Input: Load the wcm_pm_bc.elf by clicking on Select ELF File.</p></li>
+<li><p>AP Options: Provide the SSID and Passphrase under AP Options to
+connect to an Access Point.</p></li>
+<li><p>Programming: Prog RAM or Prog Flash as per requirement.</p></li>
+</ol>
+</li>
+</ol>
+<p>Console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWAE</p>
+<p>4 DWT comparators, range 0x8000</p>
+<p>Build $Id: git-ef87896f9 $</p>
+<p>hio.baudrate=921600</p>
+<p>flash: Gordon ready!</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWWWAE</p>
+<p>Build $Id: git-df9b9ef $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff</p>
+<p>Bootargs: np_conf_path=/data/nprofile.json ssid=Lucy
+<a class="reference external" href="mailto:passphrase=Password&#37;&#52;&#48;321">passphrase=Password<span>&#64;</span>321</a></p>
+<p>$App:git-6600fea</p>
+<p>SDK Ver: FREERTOS_SDK_1.0</p>
+<p>Wifi PM Only Broadcast</p>
+<p>addr e0:69:3a:00:16:d4</p>
+<p>Connecting to added network : Lucy</p>
+<p>[0.599,991] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-64 dBm</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS</p>
+<p>[0.757,544] MYIP 192.168.1.105</p>
+<p>[0.757,709] IPv6 [fe80::e269:3aff:fe00:16d4]-link</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED</p>
+<p>Connected to added network : Lucy</p>
+<p>Suspend enabled!</p>
+<p>******</p>
+<p>listen_interval: 1</p>
+<p>traffic_tmo: 12</p>
+<p>sleep_period: 102 ms</p>
+<p>dtim_only disabled</p>
+<p>tx_ps disabled</p>
+<p>mcast_don’t_care disabled</p>
+<p>rx_nap enabled</p>
+<p>only_broadcast enabled</p>
+<p>ps_poll disabled</p>
+<p>dli disabled</p>
+<p>******</p>
+<p>Sleep mode for next 20 sec</p>
+<p>******</p>
+<p>listen_interval: 1</p>
+<p>traffic_tmo: 12</p>
+<p>sleep_period: 102 ms</p>
+<p>dtim_only disabled</p>
+<p>tx_ps disabled</p>
+<p>mcast_don’t_care disabled</p>
+<p>rx_nap disabled</p>
+<p>only_broadcast disabled</p>
+<p>ps_poll disabled</p>
+<p>dli disabled</p>
+<p>******</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple">
+<li><p>only_broadcast mode is enabled.</p></li>
+</ol>
+<blockquote>
+<div><p>Once this flag is enabled, multicast ping request to Talaria TWO IP
+address from a Host (laptop/PC) is sent. Since Talaria TWO listens to
+broadcast frames only, multicast ping fail is as shown in Figure 4.</p>
+<p><strong>Note</strong>: To add multicast routing to a specific network interface,
+use the following command:</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>route add -net 224.0.0.0/8 dev &lt;interface-name&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image42.png"><img alt="A screenshot of a computer Description automatically generated with medium confidence" src="../../_images/image42.png" style="width: 5.90551in; height: 0.75746in;" /></a></p>
+</div></blockquote>
+<p>Figure : Multicast ping output – only broadcast enabled</p>
+<blockquote>
+<div><p>Wireshark capture for the multicast ping: Here, the ping request is
+sent, but the response is not received as shown in Figure 5.</p>
+<p><a class="reference internal" href="../../_images/image52.png"><img alt="image4" src="../../_images/image52.png" style="width: 5.90551in; height: 2.15059in;" /></a></p>
+</div></blockquote>
+<p>Figure : Wireshark output - only_broadcast enabled</p>
+<ol class="arabic simple" start="2">
+<li><p>only_broadcast mode is disabled.</p></li>
+</ol>
+<blockquote>
+<div><p>Once this flag is disabled, multicast ping request to Talaria TWO IP
+address from a Host (laptop/PC) is sent. Multicast ping goes through
+successfully as shown in Figure 6.</p>
+<p><a class="reference internal" href="../../_images/image62.png"><img alt="image5" src="../../_images/image62.png" style="width: 5.90551in; height: 1.34983in;" /></a></p>
+</div></blockquote>
+<p>Figure : Multicast ping output – only broadcast disabled</p>
+<blockquote>
+<div><p>Wireshark captures for the multicast ping: Here, the ping request is
+sent and a response is received as shown in Figure 7.</p>
+<p><a class="reference internal" href="../../_images/image72.png"><img alt="image6" src="../../_images/image72.png" style="width: 5.90551in; height: 1.08053in;" /></a></p>
+</div></blockquote>
+<p>Figure : Wireshark output - only_broadcast disabled</p>
+</section>
+<section id="dynamic-listen-interval-wifi-pm-dyn-listen-int">
+<h2>Dynamic listen Interval (WIFI_PM_DYN_LISTEN_INT)<a class="headerlink" href="#dynamic-listen-interval-wifi-pm-dyn-listen-int" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-3">
+<span id="id10"></span><h2>Overview<a class="headerlink" href="#overview-3" title="Permalink to this heading"></a></h2>
+<p>When this feature is enabled, Talaria TWO will listen to all beacons if
+there has been traffic recently till the next listen interval. This will
+decrease latency for incoming traffic, but will increase power
+consumption slightly.</p>
+<p>The sample code is located in: example/wcm_pm/src/wcm_pm_dli.c. This
+describes using the API wcm_pm_config()to enable and disable the
+WIFI_PM_DYN_LISTEN_INT flag.</p>
+</section>
+<section id="sample-code-walkthrough-3">
+<span id="id11"></span><h2>Sample Code Walkthrough<a class="headerlink" href="#sample-code-walkthrough-3" title="Permalink to this heading"></a></h2>
+<p>The following code uses wcm_pm_config() API to enable the dynamic listen
+interval flag WIFI_PM_DYN_LISTEN_INT.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>/* Enable the Dynamic Listen Interval flag */</p>
+<p>wcm_pm_config(h,LISTEN_INTERVAL_10,TRAFFIC_TMO,
+WIFI_PM_DYN_LISTEN_INT);</p>
+<p>print_wifi_config();</p>
+<p>vTaskDelay(60000);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Sleep mode is enabled for 20 seconds before disabling this flag again.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>os_printf(“Sleep mode for next 20 sec\n”);</p>
+<p>os_sleep_us(20000000, OS_TIMEOUT_NO_WAKEUP);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Next, the flag is disabled by setting the flag to 0.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO, PM_FLAGS);</p>
+<p>print_wifi_config();</p>
+<p>vTaskDelay(60000);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="running-the-application-3">
+<span id="id12"></span><h2>Running the Application<a class="headerlink" href="#running-the-application-3" title="Permalink to this heading"></a></h2>
+<p>Program wcm_pm_dli.elf using the Download tool. Refer steps in section
+5.3.3 to program the ELF onto Talaria TWO.</p>
+<p>Console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWAE</p>
+<p>4 DWT comparators, range 0x8000</p>
+<p>Build $Id: git-ef87896f9 $</p>
+<p>hio.baudrate=921600</p>
+<p>flash: Gordon ready!</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWWWAE</p>
+<p>Build $Id: git-df9b9ef $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff</p>
+<p>Bootargs: np_conf_path=/data/nprofile.json ssid=Lucy
+<a class="reference external" href="mailto:passphrase=Password&#37;&#52;&#48;321">passphrase=Password<span>&#64;</span>321</a></p>
+<p>$App:git-6600fea</p>
+<p>SDK Ver: FREERTOS_SDK_1.0</p>
+<p>Wifi PM Dynamic listen Interval</p>
+<p>addr e0:69:3a:00:16:d4</p>
+<p>Connecting to added network : Lucy</p>
+<p>[0.594,981] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-61 dBm</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS</p>
+<p>[0.712,988] MYIP 192.168.1.105</p>
+<p>[0.713,157] IPv6 [fe80::e269:3aff:fe00:16d4]-link</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED</p>
+<p>Connected to added network : Lucy</p>
+<p>Suspend enabled!</p>
+<p>******</p>
+<p>listen_interval: 10</p>
+<p>traffic_tmo: 12</p>
+<p>sleep_period: 1024 ms</p>
+<p>dtim_only disabled</p>
+<p>tx_ps disabled</p>
+<p>mcast_don’t_care disabled</p>
+<p>rx_nap disabled</p>
+<p>only_broadcast disabled</p>
+<p>ps_poll disabled</p>
+<p>dli enabled</p>
+<p>******</p>
+<p>Sleep mode for next 10 sec</p>
+<p>******</p>
+<p>listen_interval: 10</p>
+<p>traffic_tmo: 12</p>
+<p>sleep_period: 1024 ms</p>
+<p>dtim_only disabled</p>
+<p>tx_ps disabled</p>
+<p>mcast_don’t_care disabled</p>
+<p>rx_nap disabled</p>
+<p>only_broadcast disabled</p>
+<p>ps_poll disabled</p>
+<p>dli disabled</p>
+<p>******</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple">
+<li><p>Dynamic listen interval enabled</p></li>
+</ol>
+<blockquote>
+<div><p>In this example, the listen interval is set to 10 and the DTIM in the
+AP is set to 1, so every one second the module wakes up. Since the
+dynamic listen interval is enabled, the module will listen to each
+beacon interval i.e.,100ms whenever data is available.</p>
+<p>To test this, ping Talaria TWO IP address from the host when the
+application is enabled for dynamic listen interval and observe the
+output as shown in Figure 8.</p>
+<p><a class="reference internal" href="../../_images/image82.png"><img alt="image7" src="../../_images/image82.png" style="width: 5.90551in; height: 2.16156in;" /></a></p>
+</div></blockquote>
+<p>Figure : Ping output-CMD</p>
+<blockquote>
+<div><p>Following is the OTTI capture of one ping traffic:</p>
+<p><a class="reference internal" href="../../_images/image92.png"><img alt="image8" src="../../_images/image92.png" style="width: 5.90551in; height: 2.72044in;" /></a></p>
+</div></blockquote>
+<p>Figure : OTII capture-Dynamic listen Interval enabled</p>
+<ol class="arabic simple" start="2">
+<li><p>Dynamic Listen Interval disabled</p></li>
+</ol>
+<blockquote>
+<div><p>To test this, ping Talaria TWO IP address from the host when the
+application is disabled for dynamic listen interval and observe the
+output as shown in Figure 10.</p>
+<p><a class="reference internal" href="../../_images/image102.png"><img alt="image9" src="../../_images/image102.png" style="width: 5.90551in; height: 2.13875in;" /></a></p>
+</div></blockquote>
+<p>Figure : Ping output - CMD</p>
+<blockquote>
+<div><p>Since dynamic listen interval is disabled, the modules listen for
+every 1s irrespective of any extra traffic as shown in Figure 11.</p>
+<p><a class="reference internal" href="../../_images/image112.png"><img alt="image10" src="../../_images/image112.png" style="width: 5.90551in; height: 2.87485in;" /></a></p>
+</div></blockquote>
+<p>Figure : OTII capture-Dynamic listen Interval disabled</p>
+</section>
+<section id="multicast-dont-care-wifi-pm-mcast-dont-care">
+<h2>Multicast Don’t Care (WIFI_PM_MCAST_DONT_CARE)<a class="headerlink" href="#multicast-dont-care-wifi-pm-mcast-dont-care" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-4">
+<span id="id13"></span><h2>Overview<a class="headerlink" href="#overview-4" title="Permalink to this heading"></a></h2>
+<p>When this flag is enabled, Talaria TWO will ignore the multicast bit in
+beacons. Use this function with care since incoming broadcast ARPs or
+other important broadcast/multicast traffic may be missed with this.</p>
+<p>The sample code is located in: example/wcm_pm/src/wcm_pm_mcast.c. This
+describes using the API wcm_pm_config()to enable and disable the
+WIFI_PM_MCAST_DONT_CARE flag.</p>
+</section>
+<section id="sample-code-walkthrough-4">
+<span id="id14"></span><h2>Sample Code Walkthrough<a class="headerlink" href="#sample-code-walkthrough-4" title="Permalink to this heading"></a></h2>
+<p>The following code uses wcm_pm_config() API to enable the multicast
+don’t care flag WIFI_PM_MCAST_DONT_CARE.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>wcm_pm_config(h, LISTEN_INTERVAL_1, TRAFFIC_TMO,
+WIFI_PM_MCAST_DONT_CARE);</p>
+<p>print_wifi_config();</p>
+<p>vTaskDelay(60000);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Sleep mode is enabled for 20s before disabling this flag again.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>os_printf(“Sleep mode for next 20 sec\n”);</p>
+<p>vTaskDelay(60000);</p>
+<p>os_printf(”\n******\n”);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Next, the flag is disabled by setting the flag to 0.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>wcm_pm_config(h, LISTEN_INTERVAL_1, TRAFFIC_TMO, PM_FLAGS);</p>
+<p>print_wifi_config();</p>
+<p>vTaskDelay(60000);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="running-the-application-4">
+<span id="id15"></span><h2>Running the Application<a class="headerlink" href="#running-the-application-4" title="Permalink to this heading"></a></h2>
+<p>Program wcm_pm_mcast.elf using the Download tool. Refer steps in section
+5.3.3 to program the ELF onto Talaria TWO.</p>
+<p>Console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWAE</p>
+<p>4 DWT comparators, range 0x8000</p>
+<p>Build $Id: git-ef87896f9 $</p>
+<p>hio.baudrate=921600</p>
+<p>flash: Gordon ready!</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWWWAE</p>
+<p>Build $Id: git-df9b9ef $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff</p>
+<p>Bootargs: np_conf_path=/data/nprofile.json ssid=Lucy
+<a class="reference external" href="mailto:passphrase=Password&#37;&#52;&#48;321">passphrase=Password<span>&#64;</span>321</a></p>
+<p>$App:git-6600fea</p>
+<p>SDK Ver: FREERTOS_SDK_1.0</p>
+<p>Wifi PM Multicast Don’t care</p>
+<p>addr e0:69:3a:00:16:d4</p>
+<p>Connecting to added network : Lucy</p>
+<p>[0.599,223] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-63 dBm</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS</p>
+<p>[0.680,815] MYIP 192.168.1.105</p>
+<p>[0.680,979] IPv6 [fe80::e269:3aff:fe00:16d4]-link</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED</p>
+<p>Connected to added network : Lucy</p>
+<p>Suspend enabled!</p>
+<p>******</p>
+<p>listen_interval: 1</p>
+<p>traffic_tmo: 12</p>
+<p>sleep_period: 102 ms</p>
+<p>dtim_only disabled</p>
+<p>tx_ps disabled</p>
+<p>mcast_don’t_care enabled</p>
+<p>rx_nap disabled</p>
+<p>only_broadcast disabled</p>
+<p>ps_poll disabled</p>
+<p>dli disabled</p>
+<p>******</p>
+<p>Sleep mode for next 10 sec</p>
+<p>******</p>
+<p>listen_interval: 1</p>
+<p>traffic_tmo: 12</p>
+<p>sleep_period: 102 ms</p>
+<p>dtim_only disabled</p>
+<p>tx_ps disabled</p>
+<p>mcast_don’t_care disabled</p>
+<p>rx_nap disabled</p>
+<p>only_broadcast disabled</p>
+<p>ps_poll disabled</p>
+<p>dli disabled</p>
+<p>******</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple">
+<li><p>Multicast don’t care enabled</p></li>
+</ol>
+<blockquote>
+<div><p>Send UDP traffic in the multicast mode once multicast don’t care is
+enabled. Observe the decrease in the Rx current duration from the
+OTII logs. To send UPD traffic, use the following link to download
+the app: <a class="reference external" href="https://www.cistechsolutions.com/netspanner">https://www.cistechsolutions.com/netspanner</a>.</p>
+<p><a class="reference internal" href="../../_images/image122.png"><img alt="image11" src="../../_images/image122.png" style="width: 5.90551in; height: 3.10324in;" /></a></p>
+</div></blockquote>
+<p>Figure : UDP multicast traffic</p>
+<blockquote>
+<div><p>The following Wireshark logs show the UDP data sent in multicast
+mode. However, Talaria TWO ignores this traffic because the multicast
+don’t care is enabled.</p>
+<p><a class="reference internal" href="../../_images/image131.png"><img alt="image12" src="../../_images/image131.png" style="width: 5.90551in; height: 3.08492in;" /></a></p>
+</div></blockquote>
+<p>Figure : Wireshark capture-Multicast don’t care enabled</p>
+<blockquote>
+<div><p>Since the Multicast don’t care is enabled, the Rx current duration is
+approximately 2ms as shown in the OTTI logs in Figure 14.</p>
+<p><a class="reference internal" href="../../_images/image142.png"><img alt="image13" src="../../_images/image142.png" style="width: 5.90551in; height: 3.09735in;" /></a></p>
+</div></blockquote>
+<p>Figure : Multicast don’t care enabled-OTII log</p>
+<ol class="arabic simple" start="2">
+<li><p>Multicast don’t care disabled</p></li>
+</ol>
+<blockquote>
+<div><p>Send UDP traffic in the multicast mode once multicast don’t care is
+disabled. Observe increase in the Rx current duration from the OTII
+logs shown in Figure 15.</p>
+<p><a class="reference internal" href="../../_images/image151.png"><img alt="image14" src="../../_images/image151.png" style="width: 5.90551in; height: 3.27204in;" /></a></p>
+</div></blockquote>
+<p>Figure : UDP musticast traffic</p>
+<blockquote>
+<div><p>The following Wireshark logs show the UDP data sent in multicast
+mode. Talaria TWO receives this traffic because the multicast don’t
+care is disabled.</p>
+<p><a class="reference internal" href="../../_images/image162.png"><img alt="image15" src="../../_images/image162.png" style="width: 5.90551in; height: 2.98351in;" /></a></p>
+</div></blockquote>
+<p>Figure : Wireshark capture-Multicast don’t care disabled</p>
+<blockquote>
+<div><p>Since the Multicast don’t care is disabled, Rx current duration is
+approximately 9.213ms.</p>
+<p><a class="reference internal" href="../../_images/image171.png"><img alt="image16" src="../../_images/image171.png" style="width: 5.90551in; height: 3.10053in;" /></a></p>
+</div></blockquote>
+<p>Figure : Multicast don’t care disabled-OTII log</p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+</section>
+<section id="power-save-poll-wifi-pm-ps-poll">
+<h2>Power Save Poll (WIFI_PM_PS_POLL)<a class="headerlink" href="#power-save-poll-wifi-pm-ps-poll" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-5">
+<span id="id16"></span><h2>Overview<a class="headerlink" href="#overview-5" title="Permalink to this heading"></a></h2>
+<p>PS-Poll (power save poll) can be used to poll (and receive) unicast data
+from the AP while in power save.</p>
+<p>If Talaria TWO does not receive the beacon at TBTT (TU equal to 1024µs)
+then a PS-Poll is sent after the beacon window. The window size of the
+PS-Poll should be around 8ms.</p>
+<p>After that, Talaria TWO waits for an ACK or a timeout on the ACK
+reception. Then, irrespective of whether there is ACK or not Talaria TWO
+listens for up to 8ms for potential unicast data from the AP. If unicast
+data is received, the reception will continue as long as needed.</p>
+</section>
+<section id="sample-code-walkthrough-5">
+<span id="id17"></span><h2>Sample Code Walkthrough<a class="headerlink" href="#sample-code-walkthrough-5" title="Permalink to this heading"></a></h2>
+<p>The following code uses wcm_pm_config() API to enable the power save
+poll flag WIFI_PM_PS_POLL.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>wcm_pm_config(h, LISTEN_INTERVAL_1, TRAFFIC_TMO, WIFI_PM_PS_POLL);</p>
+<p>print_wifi_config();</p>
+<p>vTaskDelay(60000);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Next, the flag is disabled by setting the flag to 0.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>wcm_pm_config(h, LISTEN_INTERVAL_1, TRAFFIC_TMO, PM_FLAGS);</p>
+<p>print_wifi_config();</p>
+<p>vTaskDelay(60000);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="running-the-application-5">
+<span id="id18"></span><h2>Running the Application<a class="headerlink" href="#running-the-application-5" title="Permalink to this heading"></a></h2>
+<p>Program wcm_pm_ps.elf using the Download tool. Refer steps in section
+5.1.3 to program the ELF onto Talaria TWO.</p>
+<p>In the GUI window, Boot Arguments section, pass the following boot
+arguments:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>wifi.log_beacon=1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWAE</p>
+<p>4 DWT comparators, range 0x8000</p>
+<p>Build $Id: git-ef87896f9 $</p>
+<p>hio.baudrate=921600</p>
+<p>flash: Gordon ready!</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWWWAE</p>
+<p>Build $Id: git-df9b9ef $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff</p>
+<p>Bootargs: wifi.log_beacon=1 np_conf_path=/data/nprofile.json
+ssid=Lucy <a class="reference external" href="mailto:passphrase=Password&#37;&#52;&#48;321">passphrase=Password<span>&#64;</span>321</a></p>
+<p>$App:git-6600fea</p>
+<p>SDK Ver: FREERTOS_SDK_1.0</p>
+<p>Wifi PM Power save</p>
+<p>addr e0:69:3a:00:16:d4</p>
+<p>Connecting to added network : Lucy</p>
+<p>[0.597,198] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-63 dBm</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP</p>
+<p>[0.787,895] MYIP 192.168.1.105</p>
+<p>[0.788,059] IPv6 [fe80::e269:3aff:fe00:16d4]-link</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS</p>
+<p>Connected to added network : Lucy</p>
+<p>Suspend enabled!</p>
+<p>[1.429,558] Beacon misses: 1</p>
+<p>[1.525,336] Beacon received again.</p>
+<p>******</p>
+<p>listen_interval: 1</p>
+<p>traffic_tmo: 12</p>
+<p>sleep_period: 102 ms</p>
+<p>dtim_only disabled</p>
+<p>tx_ps disabled</p>
+<p>mcast_don’t_care disabled</p>
+<p>rx_nap disabled</p>
+<p>only_broadcast disabled</p>
+<p>ps_poll enabled</p>
+<p>dli disabled</p>
+<p>******</p>
+<p>[31.535,821] Beacon misses: 1</p>
+<p>[31.535,882] Sending pspoll (ntries 1)</p>
+<p>[31.630,972] Beacon received again.</p>
+<p>[48.227,069] Beacon misses: 1</p>
+<p>[48.227,128] Sending pspoll (ntries 1)</p>
+<p>[48.322,285] Beacon received again.</p>
+<p>[72.291,142] Beacon misses: 1</p>
+<p>[72.291,201] Sending pspoll (ntries 1)</p>
+<p>[72.386,332] Beacon received again.</p>
+<p>******</p>
+<p>listen_interval: 1</p>
+<p>traffic_tmo: 12</p>
+<p>sleep_period: 102 ms</p>
+<p>dtim_only disabled</p>
+<p>tx_ps disabled</p>
+<p>mcast_don’t_care disabled</p>
+<p>rx_nap disabled</p>
+<p>only_broadcast disabled</p>
+<p>ps_poll disabled</p>
+<p>dli disabled</p>
+<p>******</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple">
+<li><p>Power save mode enabled</p></li>
+</ol>
+<blockquote>
+<div><p>ps_poll is sent when a beacon is missed as shown in Figure 18.</p>
+<p><a class="reference internal" href="../../_images/image181.png"><img alt="image17" src="../../_images/image181.png" style="width: 5.90551in; height: 3.31409in;" /></a></p>
+</div></blockquote>
+<p>Figure : Wireshark capture-ps_poll enabled</p>
+<blockquote>
+<div><p>ps_poll spike is observed. Here, the transmitting current window size
+is 7.605ms as shown in Figure 19.</p>
+<p><a class="reference internal" href="../../_images/image191.png"><img alt="image18" src="../../_images/image191.png" style="width: 5.90551in; height: 3.08344in;" /></a></p>
+</div></blockquote>
+<p>Figure : OTII logs- Power save poll enabled</p>
+<ol class="arabic simple" start="2">
+<li><p>Power-save mode disabled</p></li>
+</ol>
+<blockquote>
+<div><p>There are no ps-polls in the Wireshark capture in Figure 20 in case
+of beacon miss since the ps-poll is disabled.</p>
+<p><a class="reference internal" href="../../_images/image201.png"><img alt="image19" src="../../_images/image201.png" style="width: 5.90486in; height: 3.62426in;" /></a></p>
+</div></blockquote>
+<p>Figure : Wireshark capture-ps_poll disabled</p>
+<blockquote>
+<div><p>No ps_poll is sent. Hence, Tx current spike is not observed as shown
+in Figure 21.</p>
+<p><a class="reference internal" href="../../_images/image211.png"><img alt="image20" src="../../_images/image211.png" style="width: 5.90551in; height: 3.04994in;" /></a></p>
+</div></blockquote>
+<p>Figure : OTII logs- Power save poll disabled</p>
+</section>
+<section id="transmit-power-save-wifi-pm-tx-ps">
+<h2>Transmit Power Save (WIFI_PM_TX_PS)<a class="headerlink" href="#transmit-power-save-wifi-pm-tx-ps" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-6">
+<span id="id19"></span><h2>Overview<a class="headerlink" href="#overview-6" title="Permalink to this heading"></a></h2>
+<p>Send outgoing frames without leaving Wi-Fi power save (when possible).
+This function will save power for sensor-type applications where the
+response from the server will be received after the traffic timeout. The
+response from the server will instead be fetched after the next beacon
+is received. Some power is also saved when sending gratuitous ARPs or
+ICMP messages.</p>
+<p>The sample code located in the path example/wcm_pm/src/wcm_pm_tx_ps.c.
+This describes using the API wcm_pm_config()to enable and disable the
+WIFI_PM_TX_PS flag.</p>
+</section>
+<section id="sample-code-walkthrough-6">
+<span id="id20"></span><h2>Sample Code Walkthrough<a class="headerlink" href="#sample-code-walkthrough-6" title="Permalink to this heading"></a></h2>
+<p>The following code uses wcm_pm_config() API to enable the transmit power
+save flag WIFI_PM_TX_PS.</p>
+<p>Gratuitous APR is enabled using the API wcm_arp_grat_enable().</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>os_printf(“Gratuitous ARP enabled!\n”);</p>
+<p>wcm_arp_grat_enable(h,20);</p>
+<p>wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO, WIFI_PM_TX_PS);</p>
+<p>print_wifi_config();</p>
+<p>vTaskDelay(60000);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Sleep mode is enabled for 20s before disabling this flag again.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>os_printf(“Sleep mode for next 20 sec\n”);</p>
+<p>vTaskDelay(60000);</p>
+<p>os_printf(”\n******\n”);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Next, the flag is disabled by setting the flag to 0.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO, PM_FLAGS);</p>
+<p>print_wifi_config();</p>
+<p>vTaskDelay(60000);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="running-the-application-6">
+<span id="id21"></span><h2>Running the Application<a class="headerlink" href="#running-the-application-6" title="Permalink to this heading"></a></h2>
+<p>Program wcm_pm_tx_ps.elf using the Download tool. Refer steps in section
+5.3.3 to program the ELF onto Talaria TWO.</p>
+<p>Console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWAE</p>
+<p>4 DWT comparators, range 0x8000</p>
+<p>Build $Id: git-ef87896f9 $</p>
+<p>hio.baudrate=921600</p>
+<p>flash: Gordon ready!</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWWWAE</p>
+<p>Build $Id: git-df9b9ef $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff</p>
+<p>Bootargs: np_conf_path=/data/nprofile.json ssid=Lucy
+<a class="reference external" href="mailto:passphrase=Password&#37;&#52;&#48;321">passphrase=Password<span>&#64;</span>321</a></p>
+<p>$App:git-6600fea</p>
+<p>SDK Ver: FREERTOS_SDK_1.0</p>
+<p>Wifi PM Power save</p>
+<p>addr e0:69:3a:00:16:d4</p>
+<p>Connecting to added network : Lucy</p>
+<p>[0.595,057] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-60 dBm</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP</p>
+<p>[0.679,532] MYIP 192.168.1.105</p>
+<p>[0.679,697] IPv6 [fe80::e269:3aff:fe00:16d4]-link</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS</p>
+<p>Connected to added network : Lucy</p>
+<p>Suspend enabled!</p>
+<p>******</p>
+<p>listen_interval: 1</p>
+<p>traffic_tmo: 12</p>
+<p>sleep_period: 102 ms</p>
+<p>dtim_only disabled</p>
+<p>tx_ps disabled</p>
+<p>mcast_don’t_care disabled</p>
+<p>rx_nap disabled</p>
+<p>only_broadcast disabled</p>
+<p>ps_poll enabled</p>
+<p>dli disabled</p>
+<p>******</p>
+<p>******</p>
+<p>listen_interval: 1</p>
+<p>traffic_tmo: 12</p>
+<p>sleep_period: 102 ms</p>
+<p>dtim_only disabled</p>
+<p>tx_ps disabled</p>
+<p>mcast_don’t_care disabled</p>
+<p>rx_nap disabled</p>
+<p>only_broadcast disabled</p>
+<p>ps_poll disabled</p>
+<p>dli disabled</p>
+<p>******</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple">
+<li><p>Transmit power save enabled</p></li>
+</ol>
+<blockquote>
+<div><p>There is no null frame before and after the Gratuitous ARP, since the
+transmit power save is enabled.</p>
+<p><a class="reference internal" href="../../_images/image221.png"><img alt="image21" src="../../_images/image221.png" style="width: 5.90551in; height: 1.32777in;" /></a></p>
+</div></blockquote>
+<p>Figure : Wireshark capture- Transmit power save</p>
+<ol class="arabic simple" start="2">
+<li><p>Transmit power save disabled</p></li>
+</ol>
+<blockquote>
+<div><p>There is a null frame before and after the ARP the Gratuitous ARP.</p>
+<p><a class="reference internal" href="../../_images/image23.png"><img alt="image22" src="../../_images/image23.png" style="width: 5.90551in; height: 2.47882in;" /></a></p>
+</div></blockquote>
+<p>Figure : Wireshark capture- Transmit power save disabled</p>
+</section>
+<section id="traffic-timeout-traffic-tmo">
+<h2>Traffic Timeout (traffic_tmo)<a class="headerlink" href="#traffic-timeout-traffic-tmo" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-7">
+<span id="id22"></span><h2>Overview<a class="headerlink" href="#overview-7" title="Permalink to this heading"></a></h2>
+<p>The traffic_tmo parameter can be set using wcm_pm_config() API. Refer
+section 5.1.1 point 2 for definition of this feature.</p>
+<p>Traffic timeout value can be increased for the applications that require
+decreased latency such as firmware upgrade. However, this will increase
+the power consumption.</p>
+<p>For line powered applications traffic timeout can be set to 0 where
+Wi-Fi is always turned on and power save will not be used.</p>
+<p>The sample code is in: <em>example/wcm_pm/src/wcm_pm_tmo.c.</em></p>
+</section>
+<section id="sample-code-walkthrough-7">
+<span id="id23"></span><h2>Sample Code Walkthrough<a class="headerlink" href="#sample-code-walkthrough-7" title="Permalink to this heading"></a></h2>
+<p>The following code uses wcm_pm_config() API to enable the traffic_tmo
+parameter. Suspend mode is enabled using the API os_suspend_enable().</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>os_printf(“Suspend enabled!\n”);</p>
+<p>os_suspend_enable();</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Sets the traffic timeout to 0 and listen interval to 10. Sleep mode is
+enabled for 10s before changing this parameter value.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO_0, PM_FLAGS);</p>
+<p>print_wifi_config();</p>
+<p>vTaskDelay(60000);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Next, sets the traffic timeout to 12ms and enables sleep mode to 20
+seconds.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO_12, PM_FLAGS);</p>
+<p>print_wifi_config();</p>
+<p>vTaskDelay(60000);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="running-the-application-7">
+<span id="id24"></span><h2>Running the Application<a class="headerlink" href="#running-the-application-7" title="Permalink to this heading"></a></h2>
+<p>Program wcm_pm_tmo.elf using the Download tool. Refer steps in section
+5.3.3 to program the ELF onto Talaria TWO.</p>
+<p>Console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWAE</p>
+<p>4 DWT comparators, range 0x8000</p>
+<p>Build $Id: git-ef87896f9 $</p>
+<p>hio.baudrate=921600</p>
+<p>flash: Gordon ready!</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWWWAE</p>
+<p>Build $Id: git-df9b9ef $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff</p>
+<p>Bootargs: np_conf_path=/data/nprofile.json ssid=Lucy
+<a class="reference external" href="mailto:passphrase=Password&#37;&#52;&#48;321">passphrase=Password<span>&#64;</span>321</a></p>
+<p>$App:git-6600fea</p>
+<p>SDK Ver: FREERTOS_SDK_1.0</p>
+<p>Wifi PM Traffic Timeout Demo App</p>
+<p>addr e0:69:3a:00:16:d4</p>
+<p>Connecting to added network : Lucy</p>
+<p>[0.609,600] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-61 dBm</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS</p>
+<p>[0.699,769] MYIP 192.168.1.105</p>
+<p>[0.699,934] IPv6 [fe80::e269:3aff:fe00:16d4]-link</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED</p>
+<p>Connected to added network : Lucy</p>
+<p>Suspend enabled!</p>
+<p>******</p>
+<p>listen_interval: 10</p>
+<p>traffic_tmo: 0</p>
+<p>sleep_period: 102 ms</p>
+<p>dtim_only disabled</p>
+<p>tx_ps disabled</p>
+<p>mcast_don’t_care disabled</p>
+<p>rx_nap disabled</p>
+<p>only_broadcast disabled</p>
+<p>ps_poll disabled</p>
+<p>dli disabled</p>
+<p>******</p>
+<p>Sleep mode for next 20 sec</p>
+<p>******</p>
+<p>listen_interval: 10</p>
+<p>traffic_tmo: 12</p>
+<p>sleep_period: 1024 ms</p>
+<p>dtim_only disabled</p>
+<p>tx_ps disabled</p>
+<p>mcast_don’t_care disabled</p>
+<p>rx_nap disabled</p>
+<p>only_broadcast disabled</p>
+<p>ps_poll disabled</p>
+<p>dli disabled</p>
+<p>******</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple">
+<li><p>Traffic timeout set to 0 and 12ms</p></li>
+</ol>
+<blockquote>
+<div><p>Talaria TWO stays in active state when Traffic timeout is set to 0
+and enters suspend state when suspend mode gets enabled with listen
+interval configured to 10 and traffic timeout to 12ms.</p>
+<p><a class="reference internal" href="../../_images/image24.png"><img alt="image23" src="../../_images/image24.png" style="width: 5.90551in; height: 2.95496in;" /></a></p>
+</div></blockquote>
+<p>Figure : Power Analyzer- Traffic timeout switched from 0 to 12ms</p>
+<blockquote>
+<div><p>To test this, ping from host machine to Talaria TWO to observe device
+staying in awake state for 12ms after incoming and outgoing traffic.</p>
+<p><a class="reference internal" href="../../_images/image25.png"><img alt="image24" src="../../_images/image25.png" style="width: 5.90551in; height: 2.95937in;" /></a></p>
+</div></blockquote>
+<p>Figure : Power Analyzer- Talaria TWO stays awake for 12ms after traffic</p>
+</section>
+<section id="dtim-only-wifi-pm-dtim-only">
+<h2>DTIM Only (WIFI_PM_DTIM_ONLY)<a class="headerlink" href="#dtim-only-wifi-pm-dtim-only" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-8">
+<span id="id25"></span><h2>Overview<a class="headerlink" href="#overview-8" title="Permalink to this heading"></a></h2>
+<p>When enabled, Talaria TWO wakes up only at effective listen interval and
+does not switch to listen to every beacon in case of beacon miss. This
+feature can be enabled to save power if the application is not latency
+sensitive.</p>
+<p>The sample code is in: <em>examples/wcm_pm/src/wcm_pm_dtim_only.c</em>.</p>
+</section>
+<section id="sample-code-walkthrough-8">
+<span id="id26"></span><h2>Sample Code Walkthrough<a class="headerlink" href="#sample-code-walkthrough-8" title="Permalink to this heading"></a></h2>
+<p>The following code uses wcm_pm_config() API to enable the
+WIFI_PM_DTIM_ONLY flag . Suspend mode is enabled using the API
+os_suspend_enable().</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>wifi_main();</p>
+<p>os_printf(“Suspend enabled!\n”);</p>
+<p>os_suspend_enable();</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Sets the DTIM ONLY flag, prints the power management configurations and
+enables sleep mode for 20 seconds.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>/* Enable DTIM switching by disabling the DTIM_ONLY power save flag
+*/</p>
+<p>wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO, PM_FLAGS);</p>
+<p>print_wifi_config();</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Disables the DTIM ONLY flag and prints the power management
+configurations.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>/* Disable DTIM switching by enabling the DTIM_ONLY power save flag
+*/</p>
+<p>wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO, WIFI_PM_DTIM_ONLY);</p>
+<p>print_wifi_config();</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="running-the-application-8">
+<span id="id27"></span><h2>Running the Application<a class="headerlink" href="#running-the-application-8" title="Permalink to this heading"></a></h2>
+<p>Program wcm_pm_dtim_only.elf using the Download tool. Refer steps in
+section 5.3.3 to program the ELF onto Talaria TWO.</p>
+<p>Console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWAE</p>
+<p>4 DWT comparators, range 0x8000</p>
+<p>Build $Id: git-ef87896f9 $</p>
+<p>hio.baudrate=921600</p>
+<p>flash: Gordon ready!</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWWWAE</p>
+<p>Build $Id: git-df9b9ef $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff</p>
+<p>Bootargs: np_conf_path=/data/nprofile.json ssid=Lucy
+<a class="reference external" href="mailto:passphrase=Password&#37;&#52;&#48;321">passphrase=Password<span>&#64;</span>321</a></p>
+<p>$App:git-6600fea</p>
+<p>SDK Ver: FREERTOS_SDK_1.0</p>
+<p>Wifi PM Demo DTIM_Only</p>
+<p>addr e0:69:3a:00:16:d4</p>
+<p>Connecting to added network : Lucy</p>
+<p>[0.595,761] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-64 dBm</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP</p>
+<p>[0.688,120] MYIP 192.168.1.105</p>
+<p>[0.688,284] IPv6 [fe80::e269:3aff:fe00:16d4]-link</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS</p>
+<p>Connected to added network : Lucy</p>
+<p>Suspend enabled!</p>
+<p>******</p>
+<p>listen_interval: 10</p>
+<p>traffic_tmo: 12</p>
+<p>sleep_period: 102 ms</p>
+<p>dtim_only disabled</p>
+<p>tx_ps disabled</p>
+<p>mcast_don’t_care disabled</p>
+<p>rx_nap disabled</p>
+<p>only_broadcast disabled</p>
+<p>ps_poll disabled</p>
+<p>dli disabled</p>
+<p>******</p>
+<p>Sleep mode for next 20 sec</p>
+<p>******</p>
+<p>listen_interval: 10</p>
+<p>traffic_tmo: 12</p>
+<p>sleep_period: 1024 ms</p>
+<p>dtim_only enabled</p>
+<p>tx_ps disabled</p>
+<p>mcast_don’t_care disabled</p>
+<p>rx_nap disabled</p>
+<p>only_broadcast disabled</p>
+<p>ps_poll disabled</p>
+<p>dli disabled</p>
+<p>******</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple">
+<li><p>DTIM ONLY mode disabled.</p></li>
+</ol>
+<blockquote>
+<div><p>Talaria TWO listens to every 10<sup>th</sup> beacon since listen
+interval is set to 10 and DTIM on AP=1. When there is a beacon miss,
+device switches to DTIM=1.</p>
+<p><a class="reference internal" href="../../_images/image26.png"><img alt="image25" src="../../_images/image26.png" style="width: 5.90551in; height: 2.49892in;" /></a></p>
+</div></blockquote>
+<p>Figure : DTIM ONLY mode disabled</p>
+<ol class="arabic simple" start="2">
+<li><p>DTIM ONLY mode enabled.</p></li>
+</ol>
+<blockquote>
+<div><p>Talaria TWO listens to 10<sup>th</sup> beacon as Listen interval is set
+to 10 and DTIM on AP=1. No DTIM switching occurs in case of beacon
+miss.</p>
+<p><a class="reference internal" href="../../_images/image27.png"><img alt="image26" src="../../_images/image27.png" style="width: 5.90551in; height: 3.42502in;" /></a></p>
+</div></blockquote>
+<p>Figure : DTIM ONLY mode enabled</p>
+</section>
+<section id="power-management-boot-arguments">
+<h2>Power Management Boot Arguments<a class="headerlink" href="#power-management-boot-arguments" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cloud-power-mode">
+<h2>Cloud Power Mode<a class="headerlink" href="#cloud-power-mode" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-9">
+<span id="id28"></span><h2>Overview<a class="headerlink" href="#overview-9" title="Permalink to this heading"></a></h2>
+<p>When there is no internal LAN traffic needed and all communication goes
+through the gateway, for instance to the cloud, it is possible to reduce
+the power consumption significantly with the cloud power mode.</p>
+<p>In Cloud Power Mode, Talaria TWO can turn off the multicast/ broadcast
+reception and thereby reduce the power consumption. In this mode,
+“multicast don’t care” feature will be enabled by default.</p>
+<p>The Access Point’s ARP cache is updated by sending ICMP packet with Time
+to Live (TTL) set to 1, so the access point need not send broadcast ARPs
+to Talaria TWO. This ICMP method helps in maintaining connection and
+save power.</p>
+<p>Cloud Power Mode feature can be used in a low power device such as
+sensor which is not sensitive to data latency.</p>
+</section>
+<section id="boot-arguments">
+<h2>Boot Arguments<a class="headerlink" href="#boot-arguments" title="Permalink to this heading"></a></h2>
+<p>To enable the cloud power mode, use the following boot argument:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>wifi.cloud_pm=1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="arp-cache-update-on-access-point">
+<h2>ARP Cache Update on Access Point<a class="headerlink" href="#arp-cache-update-on-access-point" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Send a ping, to for instance 1.1.1.1 (google DNS), but set the TTL
+(Time To Live) field in the IP header to 1.</p></li>
+<li><p>When this packet passes the first router, the TTL field will be
+decremented to zero, and the frame will be discarded. But this router
+must now send an ICMP TTL expired message back to the source (Talaria
+TWO).</p></li>
+<li><p>When the router sends the TTL expired message it needs to have a
+valid ARP cache entry for Talaria TWO and the ARP cache timeout
+should be extended in the router.</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image28.png"><img alt="image27" src="../../_images/image28.png" style="width: 5.90551in; height: 0.87287in;" /></a></p>
+</div></blockquote>
+<p>Figure : Wireshark sniffer- ICMP packet exchange</p>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image29.png"><img alt="image28" src="../../_images/image29.png" style="width: 5.90551in; height: 3.63358in;" /></a></p>
+</div></blockquote>
+<p>Figure : OTII logs- cloud power mode enabled</p>
+</section>
+<section id="wake-time-after-keepalive">
+<h2>Wake Time After Keepalive<a class="headerlink" href="#wake-time-after-keepalive" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-10">
+<span id="id29"></span><h2>Overview<a class="headerlink" href="#overview-10" title="Permalink to this heading"></a></h2>
+<p>Talaria TWO sends periodic keep alive NULL frames to the Access Point
+for the duration indicated in the Max Idle Period (in seconds) boot
+argument. The keep_alive_wake_time boot argument is the time when device
+remains awake after the ack of the NULL frame (in milliseconds).</p>
+<p>There could be instances when AP just silently disconnects the station.
+In such scenario, when Talaria TWO sends a keep-alive frame (NULL frame
++ ack), the AP will send a de-authentication frame after the ack. In
+this de-authentication method, it will be stated that the device is no
+longer associated. Hence, the purpose of keep_alive_wake_time is just to
+be able to receive the de-authentication message so that Talaria TWO can
+reconnect.</p>
+</section>
+<section id="boot-arguments-1">
+<span id="id30"></span><h2>Boot Arguments<a class="headerlink" href="#boot-arguments-1" title="Permalink to this heading"></a></h2>
+<p>The default value is set to 8ms.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>wifi.keep_alive_wake_time=&lt;int&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="running-the-application-9">
+<span id="id31"></span><h2>Running the Application<a class="headerlink" href="#running-the-application-9" title="Permalink to this heading"></a></h2>
+<p>Program wifi_connect.elf (<em>freertos_sdk_x.y\examples\using_wifi\bin</em>)
+using the Download tool. Refer steps in section 5.1.3 to program the ELF
+onto Talaria TWO.</p>
+<p>In the GUI window, Boot Arguments section, pass the following boot
+arguments:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>suspend=1,wifi.max_idle_period=5</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWAE</p>
+<p>4 DWT comparators, range 0x8000</p>
+<p>Build $Id: git-ef87896f9 $</p>
+<p>hio.baudrate=921600</p>
+<p>flash: Gordon ready!</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWWWAE</p>
+<p>Build $Id: git-df9b9ef $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff</p>
+<p>Bootargs: wifi.keep_alive_wake_time=10 suspend=1
+wifi.max_idle_period=5 np_conf_path=/data/nprofile.json ssid=Lucy
+<a class="reference external" href="mailto:passphrase=Password&#37;&#52;&#48;321">passphrase=Password<span>&#64;</span>321</a></p>
+<p>$App:git-6600fea</p>
+<p>SDK Ver: FREERTOS_SDK_1.0</p>
+<p>Wifi connect Demo App</p>
+<p>addr e0:69:3a:00:16:d4</p>
+<p>[0.600,393] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-63 dBm</p>
+<p>[0.687,846] MYIP 192.168.1.105</p>
+<p>[0.688,128] IPv6 [fe80::e269:3aff:fe00:16d4]-link</p>
+<p>————- Connected to Network——–</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image30.png"><img alt="image29" src="../../_images/image30.png" style="width: 5.90551in; height: 3.85926in;" /></a></p>
+<p>Figure : Power analyzer- wake time after keepalive</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Example_for_using_WiFi.html" class="btn btn-neutral float-left" title="WIFI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Example_using_BLE_5_0.html" class="btn btn-neutral float-right" title="BLE 5.0" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

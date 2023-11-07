@@ -1,0 +1,83 @@
+Host Package 
+-------------
+
+Download talaria_two_dual_stack host package provided by InnoPhase IoT.
+
+**Package Contents:**
+
+The package includes talaria_two_dual_stack_vx.y folder (Path:
+*talaria_two_dual_stack\\talaria_two_dual_stack_vx.y*).
+
+**Note**: x and y in *vx.y* refers to the package release version.
+
+The talaria_two_dual_stack_vx.y folder contains the following:
+
+1. Quick Start Guide: This document
+
+2. apps
+
+Contains the optional binary images of common applications like iPerf.
+These applications can be executed once the Dual-Stack solution is up
+and running.
+
+3. doc
+
+Contains documents which can be referred to for evaluating and working
+with the Dual-Stack solution:
+
+a. firmware-upgrade-via-serial: Contains the Readme to flash the
+   firmware upgrade related files to Talaria TWO
+
+b. Release notes
+
+c. Talaria TWO Host API Reference Guide
+
+d. Dual-Stack User Guide
+
+e. Example applications for Dual-Stack
+
+f. INP3201 schematics – MCU bypass and with Low Power MCU
+
+g. Hardware Guide
+
+h. MCU Firmware Flashing
+
+i. AWS Kinesis Video Streaming Quick Start Guide
+
+4. dual-stack
+
+Contains the Dual-Stack solutions’ software components. It also includes
+an example code to demonstrate custom logic on top of Dual-Stack
+solution to communicate with the Talaria TWO Wi-Fi module.
+
+5. patch
+
+Contains the patch files for the kernel and/or U-boot if it exists.
+These patch files should be applied to the kernel of the platform before
+building the kernel (optional in case of a pre-built kernel).
+
+6. mcu
+
+Contains the MCU firmware binary and application designed to run on
+T31zx to communicate with MCU over UART to enable low-power mode while
+using video streaming capabilities.
+
+7. t31zx_kernel
+
+Contains the binary file with bootloader, Linux kernel and root
+filesystem for T31zx CPU.
+
+8. wlan-sdio
+
+Contains the SDIO host driver for the Talaria TWO Wi-Fi module (optional
+in case of SPI).
+
+9. AWSIOT_certificates
+
+Contains the AWS IoT certificates for MQTT connection authentication.
+
+10. readme:
+
+Refer the Readme file for talaria_two_dual_stack_vx.y package folder
+structure. Follow individual readme files present in the sub-folders for
+more information.

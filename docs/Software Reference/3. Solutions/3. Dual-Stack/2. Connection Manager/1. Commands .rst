@@ -1,0 +1,1598 @@
+Commands
+=========
+
+Connection manager provides the user interface and the supported
+commands are described in the subsequent sections.
+
+Connection Manager supports the following features:
+
+1.  Wi-Fi Scan
+
+2.  Wi-Fi Association/Authentication
+
+3.  Wi-Fi Disassociation
+
+4.  Wi-Fi Disconnect Management.
+
+5.  Static/Dynamic IP set/get
+
+6.  Wi-Fi Connection status
+
+7.  Keep alive connection configuration
+
+8.  Keep alive start/stop
+
+9.  Keep alive connection TLS support
+
+10. Host wakeup configuration (wake word) and clear
+
+11. Auto scan enable/disable/configuration status
+
+12. Shutdown command
+
+13. Wi-Fi Power management set/get
+
+14. FOTA configuration/start/stop
+
+15. WLAN power management configuration
+
+16. TOS parameter for network packets
+
+17. Incoming/outgoing packet information display
+
+18. Kill tunadapter
+
+19. Wi-Fi provisioning over BLE
+
+Connection Manager commands are in the following format:
+
+.. table:: Table 8: Scan - command, parameters and responses
+
+   +-----------------------------------------------------------------------+
+   | conmgr <operation> <argument-1>….<argument-n>                         |
+   +=======================================================================+
+   +-----------------------------------------------------------------------+
+
+**Note**: *Arguments in [ ] are optional and those in <> are mandatory.*
+
+scan - Performs Wi-Fi Scan
+---------------------------
+
+.. table:: Table 9: Connect (personal) - command, parameters and
+responses
+
+   +---------+------------------------------------------------------------+
+   | **Co    | conmgr scan                                                |
+   | mmand** |                                                            |
+   +=========+============================================================+
+   | **Param | NA                                                         |
+   | eters** |                                                            |
+   +---------+------------------------------------------------------------+
+   | **Res   | Scan results as listed:                                    |
+   | ponse** |                                                            |
+   |         | -  BSSID                                                   |
+   |         |                                                            |
+   |         | -  Channel                                                 |
+   |         |                                                            |
+   |         | -  RSSI                                                    |
+   |         |                                                            |
+   |         | -  Security                                                |
+   |         |                                                            |
+   |         | -  SSID                                                    |
+   +---------+------------------------------------------------------------+
+
+Example: ./conmgr scan.
+
+|Text Description automatically generated|
+
+Figure 5: ./conmgr scan – Wi-Fi scan
+
+connect – Connects to Wi-Fi Network 
+------------------------------------
+
+Enterprise security type: Personal
+
+.. table:: Table 10: Connect (EAP-PSK) - command, parameters and
+responses
+
+   +---------+------------------------------------------------------------+
+   | **Co    | conmgr connect <ssid> <passphrase>[PMK_PATH]               |
+   | mmand** |                                                            |
+   +=========+============================================================+
+   | **Param | *ssid*: Name of the Access Point                           |
+   | eters** |                                                            |
+   |         | *passphrase*: Password (optional for open security)        |
+   |         |                                                            |
+   |         | *pmk_path*: Path of the data file containing PMK           |
+   |         | cache,(optional, PMK cache works only on WPA2.)            |
+   +---------+------------------------------------------------------------+
+   | **Res   | “Connected” to the mentioned AP.                           |
+   | ponse** |                                                            |
+   +---------+------------------------------------------------------------+
+
+Example 1: Configure to connect to an Access Point of SSID innotest and
+passphrase 123456789:
+
+.. table:: |image1|\ Table 11: Connect (EAP-TLS) – command, parameters
+and responses
+
+   +-----------------------------------------------------------------------+
+   | ./conmgr connect innotest 123456789                                   |
+   +=======================================================================+
+   +-----------------------------------------------------------------------+
+
+|image2|\ |A computer screen with white text Description automatically
+generated|
+
+Figure 6: ./conmgr connect (Personal) – Connect to Wi-Fi network
+
+Enterprise security type: EAP-PSK
+
+.. table:: Table 12: Connect (EAP-PEAP) - command, parameters and
+responses
+
+   +---------+------------------------------------------------------------+
+   | **Co    | conmgr connect <ssid> <passphrase><2> <identity>           |
+   | mmand** |                                                            |
+   +=========+============================================================+
+   | **Param | *ssid*: Name of the Access Point                           |
+   | eters** |                                                            |
+   |         | *passphrase*: Password (optional for open security)        |
+   |         |                                                            |
+   |         | *2:* Network security type                                 |
+   |         |                                                            |
+   |         | *identity:* EAP username identity string                   |
+   +---------+------------------------------------------------------------+
+   | **Res   | “Connected” to the mentioned AP.                           |
+   | ponse** |                                                            |
+   +---------+------------------------------------------------------------+
+
+|image3|\ |image4|\ |A screenshot of a computer Description
+automatically generated|
+
+Figure 7: ./conmgr connect (EAP-PSK) – Connect to Wi-Fi network
+
+Enterprise security type: EAP-TLS
+
+.. table:: Table 13: Disconnect - command, parameters and responses
+
+   +---------+------------------------------------------------------------+
+   | **Co    | conmgr connect <ssid> <3> <identity> <ca_path> <cert_path> |
+   | mmand** | <pkey_path> <pkey_pwd>                                     |
+   +=========+============================================================+
+   | **Param | *ssid*: Name of the Access Point                           |
+   | eters** |                                                            |
+   |         | *3:* Network security type                                 |
+   |         |                                                            |
+   |         | *identity:* EAP username identity                          |
+   |         |                                                            |
+   |         | *ca_path:* CA certificate path in Talaria TWO filesystem   |
+   |         |                                                            |
+   |         | *cert_path:* Client certificate path in Talaria TWO        |
+   |         | filesystem                                                 |
+   |         |                                                            |
+   |         | *pkey_path:* Path of private key file in Talaria TWO       |
+   |         | filesystem                                                 |
+   |         |                                                            |
+   |         | *pkey_pwd:* Private key password                           |
+   +---------+------------------------------------------------------------+
+   | **Res   | “Connected” to the mentioned AP.                           |
+   | ponse** |                                                            |
+   +---------+------------------------------------------------------------+
+
+|image5|\ |image6|
+
+Figure 8: ./conmgr connect (EAP-TLS) – Connect to Wi-Fi network
+
+Enterprise security type: EAP-PEAP
+
+.. table:: Table 14: IP - command, parameters and responses
+
+   +---------+------------------------------------------------------------+
+   | **Co    | conmgr connect <ssid> <4> <identity> <ca_path> <identity2> |
+   | mmand** | <password><phase2auth>                                     |
+   +=========+============================================================+
+   | **Param | *ssid*: Name of the Access Point                           |
+   | eters** |                                                            |
+   |         | *4:* Network security type                                 |
+   |         |                                                            |
+   |         | *identity:* EAP username identity                          |
+   |         |                                                            |
+   |         | *ca_path:* CA certificate path                             |
+   |         |                                                            |
+   |         | *identity2:* EAP username identity for Phase 2             |
+   |         |                                                            |
+   |         | *password:* Private key password                           |
+   |         |                                                            |
+   |         | *phase2auth:* Phase 2 authentication                       |
+   +---------+------------------------------------------------------------+
+   | **Res   | “Connected” to the mentioned AP.                           |
+   | ponse** |                                                            |
+   +---------+------------------------------------------------------------+
+
+|image7|\ |image8|\ |image9|
+
+Figure 9: ./conmgr connect (EAP-PEAP) – Connect to Wi-Fi network
+
+**Certificate Storing Method for Enterprise Security Certificates**
+
+.. table:: Table 15: kaconfig - command, parameters and responses
+
+   +-----------------------------------------------------------------------+
+   | sudo openocd -s conf/ -f ftdi_swd.cfg -f t2_swd.cfg                   |
+   |                                                                       |
+   | sudo ./script/arden.py ./apps/gordon-jtag/bin/gordon-jtag.elf         |
+   |                                                                       |
+   | sudo python3 ./script/gdbrun.py                                       |
+   | ./apps/gordon-jtag/bin/gordon-jtag.elf --noconsole –nowait            |
+   |                                                                       |
+   | ./script/storage.py --device localhost:10000 write                    |
+   | ~/Downloads/rootCACert.pem /data/ca.pem                               |
+   |                                                                       |
+   | ./script/storage.py --device localhost:10000 write                    |
+   | ~/Downloads/client_cert.pem /data/client.pem                          |
+   |                                                                       |
+   | ./script/storage.py --device localhost:10000 write                    |
+   | ~/Downloads/client_key.pem /data/client.key                           |
+   +=======================================================================+
+   +-----------------------------------------------------------------------+
+
+disconnect – Disconnects from Wi-Fi Network
+-------------------------------------------
+
+.. table:: Table 16: kaconfigget - command, parameters and responses
+
+   +---------+------------------------------------------------------------+
+   | **Co    | conmgr disconnect                                          |
+   | mmand** |                                                            |
+   +=========+============================================================+
+   | **Param | None                                                       |
+   | eters** |                                                            |
+   +---------+------------------------------------------------------------+
+   | **Res   | “Disconnected” from the Wi-Fi network.                     |
+   | ponse** |                                                            |
+   +---------+------------------------------------------------------------+
+
+Example: ./conmgr disconnect.
+
+|image10|\ |image11|
+
+Figure 10: ./conmgr disconnect – Disconnect from Wi-Fi network
+
+IP – Get/Set ipv4 Address 
+--------------------------
+
+.. table:: Table 17: kastart - command, parameters and responses
+
+   +---------+------------------------------------------------------------+
+   | **Co    | conmgr ip <ipaddr4> <net mask> <gateway ip> <dns server    |
+   | mmand** | ip>                                                        |
+   +=========+============================================================+
+   | **Param | *ipaddr4*: IP address, as big-endian integer               |
+   | eters** |                                                            |
+   |         | *netmask*: Netmask, as big-endian integer                  |
+   |         |                                                            |
+   |         | *gateway ip*: Default-route address, as big-endian         |
+   |         | integer.                                                   |
+   |         |                                                            |
+   |         | *dns server ip*: DNS server address, as big-endian         |
+   |         | integer.                                                   |
+   |         |                                                            |
+   |         | Execute the following to get current ipv4 address          |
+   |         | information:                                               |
+   |         |                                                            |
+   |         | .. table:: Table 18: kastop - command, parameters and      |
+   |         | responses                                                  |
+   |         |                                                            |
+   |         |                                                            |
+   |         |  +-------------------------------------------------------+ |
+   |         |                                                            |
+   |         |  | conmgr ip                                             | |
+   |         |                                                            |
+   |         |  +=======================================================+ |
+   |         |                                                            |
+   |         |  +-------------------------------------------------------+ |
+   +---------+------------------------------------------------------------+
+   | **Res   | Gets the IP configuration status.                          |
+   | ponse** |                                                            |
+   +---------+------------------------------------------------------------+
+
+Example: Set static IP address 192.168.1.174, subnetmask 255.255.255.0,
+Gateway 192.168.1.1 and DNS serverip 192.168.1.1:
+
+.. table:: Table 19: kadel - command, parameters and responses
+
+   +-----------------------------------------------------------------------+
+   | ./conmgr ip 192.168.1.174 255.255.255.0 192.168.1.1 192.168.1.1       |
+   +=======================================================================+
+   +-----------------------------------------------------------------------+
+
+|image12|
+
+Figure 11: ./conmgr ip – Set/Get Static IP Address
+
+kaconfig – Configures keepalive/shadow Service
+----------------------------------------------
+
+.. table:: Table 20: status - command, parameters and responses
+
+   +--------+-------------------------------------------------------------+
+   | **Com  | conmgr kaconfig <server ip > <server port> <interval>       |
+   | mand** | <heartbeat msg> <wakeup word> <timeout>                     |
+   +========+=============================================================+
+   | **     | *server ip*: Server IP address to start keep alive socket.  |
+   | Parame |                                                             |
+   | ters** | *server port*: Server port number.                          |
+   |        |                                                             |
+   |        | *interval*: Interval to send heartbeat message.             |
+   |        |                                                             |
+   |        | *heartbeat msg*: Heartbeat message to be sent.              |
+   |        |                                                             |
+   |        | *wakeup word*: Wake word to receive from server. This wake  |
+   |        | word will be compared with data received from the server.   |
+   |        | If this matches, host wakeup will be triggered.             |
+   |        |                                                             |
+   |        | *timeout*: Timeout for heartbeat acknowledge message.       |
+   +--------+-------------------------------------------------------------+
+   | **Resp | Keepalive config: success message.                          |
+   | onse** |                                                             |
+   +--------+-------------------------------------------------------------+
+
+Example: Send HeartBeatPacket message to server IP address 172.16.16.155
+using port number 5000 every 3 seconds.
+
+It times out if there has been no acknowledgment received from server
+after 10 seconds.
+
+WakeUP is the string using which cloud can trigger Talaria TWO host wake
+up.
+
+.. table:: Table 21: wakeupconfig - command, parameters and responses
+
+   +-----------------------------------------------------------------------+
+   | ./conmgr kaconfig 172.16.16.155 5000 3 HeartBeatPacket WakeUP 10      |
+   +=======================================================================+
+   +-----------------------------------------------------------------------+
+
+|image13|
+
+Figure 12: kaconfig: Configure Keepalive Send
+
+kaconfigget – Gets keepalive/shadow Service Configuration
+---------------------------------------------------------
+
+.. table:: Table 22: getwakeupreason - command, parameters and responses
+
+   +---------+------------------------------------------------------------+
+   | **Co    | conmgr kaconfigget                                         |
+   | mmand** |                                                            |
+   +=========+============================================================+
+   | **Param | None                                                       |
+   | eters** |                                                            |
+   +---------+------------------------------------------------------------+
+   | **Res   | This command provides the following information:           |
+   | ponse** |                                                            |
+   |         | -  association status: associated/not associated           |
+   |         |                                                            |
+   |         | -  keepalive configuration status: keepalive_configured    |
+   |         |    /keepalive not configured                               |
+   |         |                                                            |
+   |         | -  keepalive status: Keepalive connected/ Keepalive Not    |
+   |         |    connected”                                              |
+   |         |                                                            |
+   |         | -  keepalive interval: Interval in seconds to send         |
+   |         |    keepalive message                                       |
+   |         |                                                            |
+   |         | -  keepalive port: Port number                             |
+   |         |                                                            |
+   |         | -  keepalive IP: IP address                                |
+   |         |                                                            |
+   |         | -  heartbeat msg: Keepalive message format                 |
+   |         |                                                            |
+   |         | -  wakeup msg: Wakeup message format                       |
+   |         |                                                            |
+   |         | -  heartbeat sent times: Number of times keepalive message |
+   |         |    was sent                                                |
+   |         |                                                            |
+   |         | -  wakeup recv times: Number of times wakeup message was   |
+   |         |    received                                                |
+   +---------+------------------------------------------------------------+
+
+Example: ./conmgr kaconfigget.
+
+|image14|
+
+Figure 13: kaconfigget - Read Keepalive Configuration
+
+kastart – Starts keepalive/shadow Service
+-----------------------------------------
+
+.. table:: Table 23: wakeupreasoncls - command, parameters and responses
+
+   +---------+------------------------------------------------------------+
+   | **Co    | conmgr kastart                                             |
+   | mmand** |                                                            |
+   +=========+============================================================+
+   | **Param | None                                                       |
+   | eters** |                                                            |
+   +---------+------------------------------------------------------------+
+   | **Res   | Keepalive start: success/fail                              |
+   | ponse** |                                                            |
+   +---------+------------------------------------------------------------+
+
+Example: ./conmgr kastart.
+
+|image15|
+
+Figure 14: kastart - Start Sending Keepalive to Server
+
+kastop – Stops keepalive/shadow Service
+---------------------------------------
+
+.. table:: Table 24: autoscanenable - command, parameters and responses
+
+   +---------+------------------------------------------------------------+
+   | **Co    | conmgr kastop                                              |
+   | mmand** |                                                            |
+   +=========+============================================================+
+   | **Param | None                                                       |
+   | eters** |                                                            |
+   +---------+------------------------------------------------------------+
+   | **Res   | Keepalive stop: success/fail                               |
+   | ponse** |                                                            |
+   +---------+------------------------------------------------------------+
+
+Example: ./conmgr kastop.
+
+|image16|
+
+Figure 15: kastop - Stop Sending Keepalive to Server
+
+kadel – Deletes keepalive/shadow Service Configuration
+------------------------------------------------------
+
+.. table:: Table 25: autoscandisable - command, parameters and responses
+
+   +---------+------------------------------------------------------------+
+   | **Co    | conmgr kadel                                               |
+   | mmand** |                                                            |
+   +=========+============================================================+
+   | **Param | None                                                       |
+   | eters** |                                                            |
+   +---------+------------------------------------------------------------+
+   | **Res   | Keepalive conf delete: “success/failed”                    |
+   | ponse** |                                                            |
+   +---------+------------------------------------------------------------+
+
+Example: ./conmgr kadel.
+
+|image17|
+
+Figure 16: kadel - Delete Keepalive Configuration
+
+status – Gets Dual-Stack Status
+-------------------------------
+
+.. table:: Table 26: shutdown - command, parameters and responses
+
+   +---------+------------------------------------------------------------+
+   | **Co    | conmgr status                                              |
+   | mmand** |                                                            |
+   +=========+============================================================+
+   | **Param | None                                                       |
+   | eters** |                                                            |
+   +---------+------------------------------------------------------------+
+   | **Res   | The status command respond contains following information: |
+   | ponse** |                                                            |
+   |         | -  mode: STA. 0=STA                                        |
+   |         |                                                            |
+   |         | -  status: 1=associated/0=not associated                   |
+   |         |                                                            |
+   |         | -  ssid: SSID of the connected network                     |
+   |         |                                                            |
+   |         | -  bssid: BSSID of the connected network                   |
+   |         |                                                            |
+   |         | -  sta-mac – station mac address                           |
+   |         |                                                            |
+   |         | -  channel: Wi-Fi channel                                  |
+   |         |                                                            |
+   |         | -  rssi: Estimated RSSI for the station                    |
+   |         |                                                            |
+   |         | -  IPv4 address: IP address of the connected network       |
+   |         |                                                            |
+   |         | -  subnet mask: Netmask, as big-endian integer             |
+   |         |                                                            |
+   |         | -  default gateway: default route, as big-endian integer   |
+   |         |                                                            |
+   |         | -  dns: DNS server, as big-endian integer                  |
+   |         |                                                            |
+   |         | -  Security: WPA/WPA2 personal security                    |
+   |         |                                                            |
+   |         | -  heap remaining: Heap memory remaining                   |
+   |         |                                                            |
+   |         | -  Talaria TWO powersave: Power save status                |
+   +---------+------------------------------------------------------------+
+
+Example: ./conmgr status.
+
+|image18|\ |image19|
+
+Figure 17: status: Get Status Information
+
+wakeupconfig – Configures Host Wakeup PIN
+-----------------------------------------
+
+.. table:: Table 27: kasecconfig - command, parameters and responses
+
+   +---------+------------------------------------------------------------+
+   | **Co    | conmgr wakeupconfig <wakeup pin> <wakeup level> <pin       |
+   | mmand** | direction>                                                 |
+   +=========+============================================================+
+   | **Param | *wakeup pin*: Wake up pin number                           |
+   | eters** |                                                            |
+   |         | *wakeup level*: Host wakeup level (0/1)                    |
+   |         |                                                            |
+   |         | *pin direction*: 0 – output (default) / 1 – input          |
+   |         |                                                            |
+   |         | **Note**: If no value is provided to *pin direction*, 0 is |
+   |         | taken as default.                                          |
+   +---------+------------------------------------------------------------+
+   | **Res   | Wakeup configuration: success/fail                         |
+   | ponse** |                                                            |
+   +---------+------------------------------------------------------------+
+
+**Note**: To use wakeupconfig on a Host platform with MCU, GPIO14 and
+GPIO21 should be configured as described below:
+
+1. *./conmgr wakeupconfig 14 1 1*
+
+where,
+
+a. wakeup pin=14
+
+b. wakeup level=1
+
+c. pin direction=1
+
+2. *./conmgr wakeupconfig 21 0*
+
+where,
+
+a. wakeup pin=21
+
+b. wakeup level=0
+
+Example: Configure gpio20 on Talaria TWO’s end as wakeup with high
+state.
+
+.. table:: Table 28: wpmconfig - command, parameters and responses
+
+   +-----------------------------------------------------------------------+
+   | ./conmgr wakeupconfig 20 1                                            |
+   +=======================================================================+
+   +-----------------------------------------------------------------------+
+
+|image20|
+
+Figure 18: wakeupconfig - Configure Host Wakeup using GPIO
+
+getwakeupreason – Gets Host Wakeup Reason
+-----------------------------------------
+
+.. table:: Table 29: powersave - command, parameters and responses
+
+   +---------+------------------------------------------------------------+
+   | **Co    | conmgr getwakeupreason                                     |
+   | mmand** |                                                            |
+   +=========+============================================================+
+   | **Param | None                                                       |
+   | eters** |                                                            |
+   +---------+------------------------------------------------------------+
+   | **Res   | Valid wakeup reasons are as follows:                       |
+   | ponse** |                                                            |
+   |         | -  Network wakeup                                          |
+   |         |                                                            |
+   |         | -  TCP timeout                                             |
+   |         |                                                            |
+   |         | -  TCP fin                                                 |
+   |         |                                                            |
+   |         | -  AP Disconnect                                           |
+   |         |                                                            |
+   |         | -  PIR                                                     |
+   |         |                                                            |
+   |         | -  Button                                                  |
+   |         |                                                            |
+   |         | -  Autoscan                                                |
+   |         |                                                            |
+   |         | -  DHCP renewal                                            |
+   |         |                                                            |
+   |         | -  Connected to network                                    |
+   |         |                                                            |
+   |         | -  Wakeup gpio1                                            |
+   |         |                                                            |
+   |         | -  Wakeup gpio2                                            |
+   +---------+------------------------------------------------------------+
+
+Example: ./conmgr getwakeupreason
+
+|image21|
+
+Figure 19: getwakeupreason - Get Wakeup Reason
+
+wakeupreasoncls – Clears Host Wakeup Reason
+-------------------------------------------
+
+.. table:: Table 30: version - command, parameters and responses
+
+   +---------+------------------------------------------------------------+
+   | **Co    | conmgr wakeupreasoncls                                     |
+   | mmand** |                                                            |
+   +=========+============================================================+
+   | **Param | None                                                       |
+   | eters** |                                                            |
+   +---------+------------------------------------------------------------+
+   | **Res   | Wakeup reason clear: success                               |
+   | ponse** |                                                            |
+   +---------+------------------------------------------------------------+
+
+Example: ./conmgr wakeupreasoncls
+
+|image22|
+
+Figure 20: wakeupreasoncls - Clear Wakeup Reason
+
+autoscanenable – Enables Autoscan Operation
+-------------------------------------------
+
+.. table:: Table 31: cbenable - command, parameters and responses
+
+   +---------+------------------------------------------------------------+
+   | **Co    | conmgr autoscanenable<interval> <ssid>                     |
+   | mmand** |                                                            |
+   +=========+============================================================+
+   | **Param | *interval*: Scan interval in seconds.                      |
+   | eters** |                                                            |
+   |         | *ssid*: SSID to scan for.                                  |
+   +---------+------------------------------------------------------------+
+   | **Res   | Autoscan Enabled/Autoscan Enable: failed                   |
+   | ponse** |                                                            |
+   +---------+------------------------------------------------------------+
+
+Example: Set the scan interval to 1 second for ssid ct_asus.
+
+.. table:: Table 32: fos - command, parameters and responses
+
+   +-----------------------------------------------------------------------+
+   | ./conmgr autoscanenable 1 ct_asus                                     |
+   +=======================================================================+
+   +-----------------------------------------------------------------------+
+
+|image23|
+
+Figure 21: autoscanenable - Enable Autoscan
+
+autoscandisable – Disables Autoscan Operation
+---------------------------------------------
+
+.. table:: Table 33: hcidevname - command, parameters and responses
+
+   +----------+-----------------------------------------------------------+
+   | **C      | conmgr autoscandisable                                    |
+   | ommand** |                                                           |
+   +==========+===========================================================+
+   | **Para   | None                                                      |
+   | meters** |                                                           |
+   +----------+-----------------------------------------------------------+
+   | **Re     | Autoscan Disabled/Autoscan Disable: failed                |
+   | sponse** |                                                           |
+   +----------+-----------------------------------------------------------+
+
+Example: ./conmgr autoscandisable.
+
+|image24|
+
+Figure 22: autoscandisable - Disable Autoscan
+
+shutdown – Triggers Host Shutdown
+---------------------------------
+
+.. table:: Table 34: kasecconfigget - command, parameters and responses
+
+   +--------------------+-------------------------------------------------+
+   | **Command**        | conmgr shutdown                                 |
+   +====================+=================================================+
+   | **Parameters**     | None                                            |
+   +--------------------+-------------------------------------------------+
+   | **Response**       | Shutdown: success/failed                        |
+   +--------------------+-------------------------------------------------+
+
+Example: ./conmgr shutdown.
+
+|image25|
+
+Figure 23: shutdown - Host shutdown
+
+kasecconfig – Configures Keepalive Security Parameters
+------------------------------------------------------
+
+.. table:: Table 35: wakeupcfgget - command, parameters and responses
+
+   +----------+-----------------------------------------------------------+
+   | **C      | conmgr kasecconfig <config> <certificate name>            |
+   | ommand** |                                                           |
+   +==========+===========================================================+
+   | **Para   | *config*: Configuration options:                          |
+   | meters** |                                                           |
+   |          | 1-> enable                                                |
+   |          |                                                           |
+   |          | 0-> disable                                               |
+   |          |                                                           |
+   |          | *certificate name*: TLS certificate name                  |
+   +----------+-----------------------------------------------------------+
+   | **Re     | Keep-alive sec config: success/failed                     |
+   | sponse** |                                                           |
+   +----------+-----------------------------------------------------------+
+
+Example: Enable keepalive secure configuration with the certificate name
+cert.pem.
+
+.. table:: Table 36: autoscancfgget - command, parameters and responses
+
+   +-----------------------------------------------------------------------+
+   | ./conmgr kasecconfig 1 cert.pem                                       |
+   +=======================================================================+
+   +-----------------------------------------------------------------------+
+
+|image26|
+
+Figure 24: kasecconfig - Enable Keepalive TLS
+
+**Certificate storing method for kasecconfig:**
+
+.. table:: Table 37: wpmconfigget- command, parameters and response
+
+   +-----------------------------------------------------------------------+
+   | sudo openocd -s conf/ -f ftdi_swd.cfg -f t2_swd.cfg                   |
+   |                                                                       |
+   | sudo ./script/arden.py ./apps/gordon-jtag/bin/gordon-jtag.elf         |
+   |                                                                       |
+   | sudo python3 ./script/gdbrun.py                                       |
+   | ./apps/gordon-jtag/bin/gordon-jtag.elf --noconsole –nowait            |
+   |                                                                       |
+   | ./script/storage.py --device localhost:10000 write                    |
+   | ~/Downloads/www-google-com.pem /data/cert/www-google-com.pem          |
+   +=======================================================================+
+   +-----------------------------------------------------------------------+
+
+wpmconfig – Configures WLAN Power Management
+--------------------------------------------
+
+.. table:: Table 38: tos - command, parameters and response
+
+   +---------+------------------------------------------------------------+
+   | **Co    | conmgr wpmconfig <listen_interval> <traffic_timeout>       |
+   | mmand** | <pm_options>                                               |
+   +=========+============================================================+
+   | **Param | *listen_interval*: Listen to each listen_interval beacon.  |
+   | eters** |                                                            |
+   |         | *traffic_tmo*: Traffic timeout in milliseconds. The Wi-Fi  |
+   |         | interface will go to Wi-Fi power save if no traffic has    |
+   |         | occurred for this time.                                    |
+   |         |                                                            |
+   |         | *pm_options* : Power save options:                         |
+   |         |                                                            |
+   |         | 1. ps-poll(1): Send ps poll if a beacon was missed.        |
+   |         |                                                            |
+   |         | 2. Dynamic_listen_interval(2): Listen to each beacon if    |
+   |         |    there has been traffic recently.                        |
+   |         |                                                            |
+   |         | 3. sta_rx_nap(4): Turn off receiver for uninteresting      |
+   |         |    frames/station.                                         |
+   |         |                                                            |
+   |         | 4. sta_bcast_only(8): Do not receive multicast frames that |
+   |         |    are not broadcasted.                                    |
+   |         |                                                            |
+   |         | 5. tx_ps(16): Send outgoing frames without leaving Wi-Fi   |
+   |         |    power save                                              |
+   |         |                                                            |
+   |         | 6. mcast_ignore(32): Ignore the multicast flag in beacons. |
+   |         |                                                            |
+   |         | 7. dtim_only(64): Listen to only DTIM beacons              |
+   +---------+------------------------------------------------------------+
+   | **Res   | Talaria TWO wcm pm config: success/failed                  |
+   | ponse** |                                                            |
+   +---------+------------------------------------------------------------+
+
+Example: Configure the listen interval to 3, traffic timeout to 12ms and
+enable ps-poll.
+
+.. table:: Table 39: disp_pkt_info - command, parameters and response
+
+   +-----------------------------------------------------------------------+
+   | ./conmgr wpmconfig 3 12 1                                             |
+   +=======================================================================+
+   +-----------------------------------------------------------------------+
+
+|image27|\ |image28|\ |image29|
+
+Figure 25: wpmconfig – Configure WLAN power management
+
+powersave – Suspend Enable/Disable on Talaria TWO
+-------------------------------------------------
+
+.. table:: Table 40: disp_pkt_info - command, parameters and response
+
+   +----------+-----------------------------------------------------------+
+   | **C      | conmgr powersave <Enable/Disable>                         |
+   | ommand** |                                                           |
+   +==========+===========================================================+
+   | **Para   | Enable: 1                                                 |
+   | meters** |                                                           |
+   |          | Disable:0                                                 |
+   +----------+-----------------------------------------------------------+
+   | **Re     | powersave: “success/failed”                               |
+   | sponse** |                                                           |
+   +----------+-----------------------------------------------------------+
+
+Example: Disable and enable suspend mode on Talaria TWO.
+
+.. table:: Table 41: provstart - command, parameters and response
+
+   +-----------------------------------------------------------------------+
+   | ./conmgr powersave 0                                                  |
+   |                                                                       |
+   | ./conmgr powersave 1                                                  |
+   +=======================================================================+
+   +-----------------------------------------------------------------------+
+
+|image30|
+
+Figure 26: powersave – Suspend disable/enable on Talaria TWO
+
+version – Gets Version Information
+----------------------------------
+
+.. table:: Table 42: pfcadd - command, parameters and responses
+
+   +-----------+----------------------------------------------------------+
+   | **        | conmgr version                                           |
+   | Command** |                                                          |
+   +===========+==========================================================+
+   | **Par     | None                                                     |
+   | ameters** |                                                          |
+   +-----------+----------------------------------------------------------+
+   | **R       | version get: success/failed                              |
+   | esponse** |                                                          |
+   |           | Displays version information such as version of          |
+   |           | tunadapter, embedded app, conmgr , dual_stack            |
+   +-----------+----------------------------------------------------------+
+
+Example: ./conmgr version.
+
+|image31|
+
+Figure 27: version - Get Version Information
+
+cbenable – Enable Connect/Disconnect Callback
+---------------------------------------------
+
+.. table:: Table 43: pfcdel - command, parameters and responses
+
+   +----------+-----------------------------------------------------------+
+   | **C      | conmgr cbenable                                           |
+   | ommand** |                                                           |
+   +==========+===========================================================+
+   | **Para   | None                                                      |
+   | meters** |                                                           |
+   +----------+-----------------------------------------------------------+
+   | **Re     | cbenable: “success/failed”                                |
+   | sponse** |                                                           |
+   +----------+-----------------------------------------------------------+
+
+Example: ./conmgr cbenable.
+
+|image32|
+
+Figure 28: cbenable – Enable connect/disconnect callback
+
+fos – Upgrade the WLAN firmware from Host
+-----------------------------------------
+
+.. table:: Table 44: pfcdel-id - command, parameters and responses
+
+   +----------+-----------------------------------------------------------+
+   | **C      | conmgr <fos> <elf_path> <hash> <auto_reset>               |
+   | ommand** |                                                           |
+   +==========+===========================================================+
+   | **Para   | *elf_path* (must): Path of the Dual-Stack ELF             |
+   | meters** |                                                           |
+   |          | *hash* (optional): sha256 hash of the elf provided        |
+   |          | through elf_path. Use --no_hash to skip this argument     |
+   |          |                                                           |
+   |          | *auto_reset* (optional): 1 – Talaria TWO is reset         |
+   |          | automatically after Successful Upgrade                    |
+   |          |                                                           |
+   |          | 0 - Host needs to reset Talaria TWO after Successful      |
+   |          | Upgrade                                                   |
+   +----------+-----------------------------------------------------------+
+   | **Re     | Firmware upgrade: “success/failed”                        |
+   | sponse** |                                                           |
+   +----------+-----------------------------------------------------------+
+
+Example: Upgrading WLAN firmware from Host
+
+|image33|\ |image34|\ |image35|
+
+Figure 29: fos – Upgrade the WLAN firmware from Host
+
+**Note**: Once the firmware upgrade is successfully completed, reset the
+host to enable the tunadapter to re-establish communication with Talaria
+TWO.
+
+hcidevname – Device Name
+------------------------
+
+.. table:: Table 45: pfcquery - command, parameters and responses
+
+   +----------+-----------------------------------------------------------+
+   | **C      | conmgr hcidevname                                         |
+   | ommand** |                                                           |
+   +==========+===========================================================+
+   | **Para   | None                                                      |
+   | meters** |                                                           |
+   +----------+-----------------------------------------------------------+
+   | **Re     | HCI device name is displayed                              |
+   | sponse** |                                                           |
+   |          | **Note**: Supported only on host platforms with SPI       |
+   |          | interface                                                 |
+   +----------+-----------------------------------------------------------+
+
+Example: ./conmgr hcidevname.
+
+|image36|\ |image37|\ |image38|
+
+Figure 30: hcidevname – Device name
+
+kasecconfigget – Get Keepalive Security Parameters
+--------------------------------------------------
+
+Get secure configuration, the information of certificate name and enable
+security status will be resulted. If security is disabled (sec_enable=0)
+then the certificate name will be NULL.
+
+.. table:: Table 46: pfcdir - command, parameters and responses
+
+   +----------+-----------------------------------------------------------+
+   | **C      | conmgr kasecconfigget                                     |
+   | ommand** |                                                           |
+   +==========+===========================================================+
+   | **Para   | None                                                      |
+   | meters** |                                                           |
+   +----------+-----------------------------------------------------------+
+   | **Re     | Keepalive security parameters are displayed followed by a |
+   | sponse** | success message.                                          |
+   |          |                                                           |
+   |          | **Note**: If security is disabled (sec_enable=0), the     |
+   |          | certificate name will be NULL.                            |
+   +----------+-----------------------------------------------------------+
+
+Example: ./conmgr kaseccconfigget.
+
+|image39|\ |image40|\ |image41|\ |image42|
+
+Figure 31: kasecconfigget - Get keepalive security parameters
+
+wakeupcfgget – Get Wakeup Configuration 
+----------------------------------------
+
++----------+-----------------------------------------------------------+
+| **C      | conmgr wakeupcfgget                                       |
+| ommand** |                                                           |
++==========+===========================================================+
+| **Para   | None                                                      |
+| meters** |                                                           |
++----------+-----------------------------------------------------------+
+| **Re     | Wakeup configuration information followed by success      |
+| sponse** | message.                                                  |
++----------+-----------------------------------------------------------+
+
+Example: ./ conmgr wakeupcfgget.
+
+|image43|\ |image44|\ |image45|
+
+Figure 32: wakeupcfgget - Get wakeup configuration
+
+autoscancfgget – Get autoscan Configuration Status
+--------------------------------------------------
+
++-----------+----------------------------------------------------------+
+| **        | conmgr autoscancfgget                                    |
+| Command** |                                                          |
++===========+==========================================================+
+| **Par     | None                                                     |
+| ameters** |                                                          |
++-----------+----------------------------------------------------------+
+| **R       | Get autoscan status: success/fail message followed by    |
+| esponse** | the following parameters:                                |
+|           |                                                          |
+|           | -  interval: Scan interval in seconds                    |
+|           |                                                          |
+|           | -  ssid: SSID to scan                                    |
++-----------+----------------------------------------------------------+
+
+Example: ./conmgr autoscancfgget.
+
+|image46|\ |image47|\ |image48|
+
+Figure 33: autoscancfgget - Get autoscan configuration status
+
+wpmconfigget – Get WLAN Power Management Configuration
+------------------------------------------------------
+
++----------+-----------------------------------------------------------+
+| **C      | conmgr wpmconfigget                                       |
+| ommand** |                                                           |
++==========+===========================================================+
+| **Para   | None                                                      |
+| meters** |                                                           |
++----------+-----------------------------------------------------------+
+| **Re     | Provides WLAN power management configuration such as:     |
+| sponse** |                                                           |
+|          | -  listen_interval: Listen interval in units of beacon    |
+|          |    intervals.                                             |
+|          |                                                           |
+|          | -  traffic_tmo: Traffic timeout in milliseconds. The      |
+|          |    Wi-Fi interface will go to Wi-Fi power save in case of |
+|          |    no traffic for this duration.                          |
+|          |                                                           |
+|          | -  pm_options : Power save options:                       |
+|          |                                                           |
+|          |    -  ps-poll(1): Send ps poll if a beacon was missed     |
+|          |                                                           |
+|          |    -  dynamic_listen_interval(2): Listen to each beacon   |
+|          |       if there has been traffic recently                  |
+|          |                                                           |
+|          |    -  sta_rx_nap(4): Turn off receiver for uninteresting  |
+|          |       frames/station                                      |
+|          |                                                           |
+|          |    -  sta_bcast_only(8): Do not receive multicast frames  |
+|          |       that are not broadcasted                            |
+|          |                                                           |
+|          |    -  tx_ps(16): Send outgoing frames without leaving     |
+|          |       Wi-Fi power save                                    |
+|          |                                                           |
+|          |    -  mcast_ignore(32): Ignore the multicast flag in      |
+|          |       beacons.                                            |
++----------+-----------------------------------------------------------+
+
+Example : ./ conmgr wpmconfigget.
+
+|image49|\ |image50|\ |image51|
+
+Figure 34: wpmconfigget - Get WLAN power management configuration
+
+tos – Set TOS Parameter for Network Packets
+-------------------------------------------
+
++----------+-----------------------------------------------------------+
+| **C      | conmgr tos <tos_value>                                    |
+| ommand** |                                                           |
++==========+===========================================================+
+| **Para   | tos_value: Following are the values which can be used for |
+| meters** | setting tos:                                              |
+|          |                                                           |
+|          |    tos=160 → Video                                        |
+|          |                                                           |
+|          |    tos=192 → Voice                                        |
+|          |                                                           |
+|          |    tos=0 → Best Effort                                    |
+|          |                                                           |
+|          |    tos=32 → BK (Background)                               |
++----------+-----------------------------------------------------------+
+| **Re     | TOS set: success                                          |
+| sponse** |                                                           |
++----------+-----------------------------------------------------------+
+
+Example : ./ conmgr tos 160.
+
+|image52|\ |image53|
+
+Figure 35: tos - Set tos parameter for network packets
+
+disp_pkt_info – Display Incoming and Outgoing Packet Information
+----------------------------------------------------------------
+
++----------+-----------------------------------------------------------+
+| **C      | conmgr disp_pkt_info<disp_option>                         |
+| ommand** |                                                           |
++==========+===========================================================+
+| **Para   | disp_option: Following are the values for different       |
+| meters** | display options:                                          |
+|          |                                                           |
+|          | 0=Do not display                                          |
+|          |                                                           |
+|          | 1=Display at Host only                                    |
+|          |                                                           |
+|          | 2=Display at Talaria TWO only                             |
+|          |                                                           |
+|          | 3=Display at Host and Talaria TWO                         |
++----------+-----------------------------------------------------------+
+| **Re     | disp_pkt_info: success                                    |
+| sponse** |                                                           |
++----------+-----------------------------------------------------------+
+
+Example : ./ conmgr disp_pkt_info 0
+
+|image54|\ |image55|
+
+Figure 36: disp_pkt_info: Display incoming and outgoing packet
+information
+
+kill-tun – Gracefully Kills the Tunadapter
+------------------------------------------
+
++----------+-----------------------------------------------------------+
+| **C      | conmgr kill-tun                                           |
+| ommand** |                                                           |
++==========+===========================================================+
+| **Para   | None                                                      |
+| meters** |                                                           |
++----------+-----------------------------------------------------------+
+| **Re     | tun-kill: success                                         |
+| sponse** |                                                           |
++----------+-----------------------------------------------------------+
+
+Example : ./ conmgr kill-tun
+
+|image56|\ |image57|\ |image58|
+
+Figure 37: kill-tun: Gracefully kills the tunadapter
+
+provstart – Wi-Fi Provisioning over BLE
+---------------------------------------
+
++----------+-----------------------------------------------------------+
+| **C      | ./conmgr provstart <device_name> <manufacturer_name>      |
+| ommand** |                                                           |
++==========+===========================================================+
+| **Para   | *device_name*: Name of the device for provisioning        |
+| meters** |                                                           |
+|          | *manufacturer_name*: Device manufacturer name             |
+|          |                                                           |
+|          | **Note**:                                                 |
+|          |                                                           |
+|          | -  device_name and manufacturer_name are mandatory        |
+|          |    arguments, without providing which the BLE             |
+|          |    advertisement or scanning feature will not work.       |
+|          |                                                           |
+|          | -  If the device is connected to another Wi-Fi network    |
+|          |    previously, ensure it is disconnected from the network |
+|          |    before running provstart.                              |
++----------+-----------------------------------------------------------+
+| **Re     | Success: Prov_success                                     |
+| sponse** |                                                           |
+|          | Failure: Prov_fail                                        |
++----------+-----------------------------------------------------------+
+
+Once the provstart command is passed, the specified device begins
+advertising which can be observed using the BLE provisioning mobile
+application.
+
+For more details on using the BLE provisioning mobile application, refer
+section: *Running the Application using Android or iOS app* from
+*Example_using_Provisioning.pdf* (*sdk_x.y\\examples\\prov\\doc*).
+
+**Note**: x and y in sdk_x.y refer to the SDK package release version.
+
+Once provisioning is a success, the selected SSID and passphrase is
+displayed on the console. Pass the `./conmgr
+connect <#connect-connects-to-wi-fi-network>`__ command with the same
+SSID and passphrase. Connection status can be determined by passing the
+`./conmgr status <#status-gets-dual-stack-status>`__ command.
+
+Example : ./ conmgr provstart Inno_provisioning Innophase
+
+|image59|
+
+Figure 38: provstart – Wi-Fi provisioning over BLE
+
+add - Adds packet forward configuration and prints rule ID
+----------------------------------------------------------
+
++---------+------------------------------------------------------------+
+| **Co    | conmgr pfcadd <ip_type> <remote_ip> <remote_port>          |
+| mmand** | <remote_port_start> <remote_port_end>                      |
+|         | <local_port><local_port_start> <local_port_end> <protocol> |
+|         | <direction>                                                |
++=========+============================================================+
+| **Param | -  ip type : IP type (0-ipv4, 1-ipv6)                      |
+| eters** |                                                            |
+|         | -  remote_ip : Remote IP address                           |
+|         |                                                            |
+|         | -  remote_port : Remote port address                       |
+|         |                                                            |
+|         | -  remote_port_start : Remote port start address. Used to  |
+|         |    specify the port range                                  |
+|         |                                                            |
+|         | -  remote_port_end : Remote port end address. Used to      |
+|         |    specify the port range                                  |
+|         |                                                            |
+|         | -  local_port : Local (source) port address                |
+|         |                                                            |
+|         | -  local_port_start : Local port start address. Used to    |
+|         |    specify the port range                                  |
+|         |                                                            |
+|         | -  local_port_end : Local port end address. Used to        |
+|         |    specify the port range                                  |
+|         |                                                            |
+|         | -  protocol : Protocol to apply the rule. Standard         |
+|         |    protocol values are used                                |
+|         |                                                            |
+|         | (0-ignore protocol filter, 1- ICMP, 2- IGMP, 6-TCP,        |
+|         | 17-UDP)                                                    |
+|         |                                                            |
+|         | -  direction : The direction to forward the packet.        |
+|         |                                                            |
+|         | Whether to Talaria TWO (0) or Host (1)                     |
++---------+------------------------------------------------------------+
+| **Res   | rule-id: 6                                                 |
+| ponse** |                                                            |
+|         | Success/Failure                                            |
++---------+------------------------------------------------------------+
+
+Example: ./conmgr pfcadd 0 0 0 0 0 0 0 0 6 1
+
+|image60|\ |image61|
+
+Figure 39: add - Adds packet forward configuration and prints rule ID
+
+del - Deletes packet forward configuration
+------------------------------------------
+
++---------+------------------------------------------------------------+
+| **Co    | conmgr pfcdel <ip_type> <remote_ip> <remote_port>          |
+| mmand** | <remote_port_start> <remote_port_end> <local_port>         |
+|         | <local_port_start> <local_port_end> <protocol> <direction> |
++=========+============================================================+
+| **Param | -  ip type : IP type (0-ipv4, 1-ipv6)                      |
+| eters** |                                                            |
+|         | -  remote_ip : Remote IP address                           |
+|         |                                                            |
+|         | -  remote_port : Remote port address                       |
+|         |                                                            |
+|         | -  remote_port_start : Remote port start address. Used to  |
+|         |    specify the port range                                  |
+|         |                                                            |
+|         | -  remote_port_end : Remote port end address. Used to      |
+|         |    specify the port range                                  |
+|         |                                                            |
+|         | -  local_port : Local (source) port address                |
+|         |                                                            |
+|         | -  local_port_start : Local port start address. Used to    |
+|         |    specify the port range                                  |
+|         |                                                            |
+|         | -  local_port_end : Local port end address. Used to        |
+|         |    specify the port range                                  |
+|         |                                                            |
+|         | -  protocol : Protocol to apply the rule. Standard         |
+|         |    protocol values are used                                |
+|         |                                                            |
+|         | (0-ignore protocol filter, 1- ICMP, 2- IGMP, 6-TCP,        |
+|         | 17-UDP)                                                    |
+|         |                                                            |
+|         | -  direction : The direction to forward the packet.        |
+|         |                                                            |
+|         | Whether to Talaria TWO(0) or host(1)                       |
++---------+------------------------------------------------------------+
+| **Res   | Success/Failure                                            |
+| ponse** |                                                            |
++---------+------------------------------------------------------------+
+
+Example: ./conmgr pfcdel 0 0 0 0 0 0 0 0 6 1
+
+|image62|\ |image63|
+
+Figure 40: del - Deletes packet forward configuration
+
+del-id - Deletes packet forward configuration by providing rule ID
+------------------------------------------------------------------
+
++---------+------------------------------------------------------------+
+| **Co    | conmgr pfc-del-id <ip_type> <rule_id>                      |
+| mmand** |                                                            |
++=========+============================================================+
+| **Param | -  ip type : IP type (0-ipv4, 1-ipv6)                      |
+| eters** |                                                            |
+|         | -  rule_id : Rule ID to delete. This is provided by        |
+|         |    configuration **add** operation.                        |
++---------+------------------------------------------------------------+
+| **Res   | Success/Failure                                            |
+| ponse** |                                                            |
++---------+------------------------------------------------------------+
+
+Example: ./conmgr pfc-del-id 0 0
+
+|image64|\ |image65|\ |image66|
+
+Figure 41: del-id - Deletes packet forward configuration by providing
+rule ID
+
+query - Prints forward configurations
+-------------------------------------
+
++---------+------------------------------------------------------------+
+| **Co    | conmgr pfcquery <ip_type>                                  |
+| mmand** |                                                            |
++=========+============================================================+
+| **Param | 1. ip type : IP type (0-ipv4, 1-ipv6)                      |
+| eters** |                                                            |
++---------+------------------------------------------------------------+
+| **Res   | Packet forward configurations                              |
+| ponse** |                                                            |
+|         | JSON format                                                |
++---------+------------------------------------------------------------+
+
+Example: ./conmgr pfcquery 0
+
+|image67|\ |image68|
+
+Figure 42: query - Prints forward configurations
+
+dirset/dirget - Sets/Gets packet forward direction
+--------------------------------------------------
+
++---------+------------------------------------------------------------+
+| **Co    | conmgr pfcdirset [direction]                               |
+| mmand** |                                                            |
+|         | conmgr pfcdirget                                           |
++=========+============================================================+
+| **Param | -  direction: The direction to forward the packet. Whether |
+| eters** |    to Talaria TWO (0) or Host (1). This parameter is valid |
+|         |    for GET operation.                                      |
++---------+------------------------------------------------------------+
+| **Res   | pfcdirset: Success/Failure                                 |
+| ponse** |                                                            |
+|         | pfcdirget: Packet forwarding direction (Talaria TWO or     |
+|         | Host)                                                      |
++---------+------------------------------------------------------------+
+
+Example:
+
+1. ./conmgr pfcdirset 0 ; ./conmgr pfcdirget
+
+2. ./conmgr pfcdirset 1 ; ./conmgr pfcdirget
+
+|image69|\ |image70|\ |image71|\ |image72|\ |image73|\ |image74|
+
+Figure 43: dirset/dirget - Sets/Gets packet forward direction
+
+.. |Text Description automatically generated| image:: media/image1.jpeg
+   :width: 7.42847in
+   :height: 4.0625in
+.. |image1| image:: media/image2.png
+   :width: 1.76234in
+   :height: 0.16667in
+.. |image2| image:: media/image2.png
+   :width: 1.14167in
+   :height: 0.175in
+.. |A computer screen with white text Description automatically generated| image:: media/image3.png
+   :width: 7.48031in
+   :height: 0.94197in
+.. |image3| image:: media/image2.png
+   :width: 1.76234in
+   :height: 0.16667in
+.. |image4| image:: media/image2.png
+   :width: 1.76234in
+   :height: 0.16667in
+.. |A screenshot of a computer Description automatically generated| image:: media/image4.png
+   :width: 7.48031in
+   :height: 4.11625in
+.. |image5| image:: media/image2.png
+   :width: 1.76234in
+   :height: 0.16667in
+.. |image6| image:: media/image5.png
+   :width: 7.48031in
+   :height: 4.33373in
+.. |image7| image:: media/image2.png
+   :width: 1.76234in
+   :height: 0.16667in
+.. |image8| image:: media/image2.png
+   :width: 1.76181in
+   :height: 0.16667in
+.. |image9| image:: media/image6.png
+   :width: 7.48031in
+   :height: 4.21668in
+.. |image10| image:: media/image2.png
+   :width: 1.14177in
+   :height: 0.21669in
+.. |image11| image:: media/image7.png
+   :width: 7.48031in
+   :height: 0.9198in
+.. |image12| image:: media/image8.png
+   :width: 7.40764in
+   :height: 2.80694in
+.. |image13| image:: media/image9.png
+   :width: 7.40417in
+   :height: 1.78125in
+.. |image14| image:: media/image10.jpeg
+   :width: 7.42847in
+   :height: 4.76597in
+.. |image15| image:: media/image11.jpeg
+   :width: 7.42222in
+   :height: 1.84861in
+.. |image16| image:: media/image12.jpeg
+   :width: 7.37708in
+   :height: 1.76458in
+.. |image17| image:: media/image13.jpeg
+   :width: 7.42847in
+   :height: 1.93403in
+.. |image18| image:: media/image14.png
+   :width: 0.8in
+   :height: 0.125in
+.. |image19| image:: media/image15.png
+   :width: 7.39792in
+   :height: 2.42014in
+.. |image20| image:: media/image16.png
+   :width: 7.44375in
+   :height: 2.26875in
+.. |image21| image:: media/image17.jpeg
+   :width: 7.38125in
+   :height: 2.36944in
+.. |image22| image:: media/image18.jpeg
+   :width: 7.38125in
+   :height: 1.89097in
+.. |image23| image:: media/image19.jpeg
+   :width: 7.43056in
+   :height: 1.88194in
+.. |image24| image:: media/image20.jpeg
+   :width: 7.39028in
+   :height: 1.93472in
+.. |image25| image:: media/image21.jpeg
+   :width: 7.38958in
+   :height: 1.88194in
+.. |image26| image:: media/image22.jpeg
+   :width: 7.41111in
+   :height: 1.68889in
+.. |image27| image:: media/image14.png
+   :width: 0.8in
+   :height: 0.125in
+.. |image28| image:: media/image14.png
+   :width: 0.8in
+   :height: 0.125in
+.. |image29| image:: media/image23.png
+   :width: 7.40764in
+   :height: 3.27778in
+.. |image30| image:: media/image24.png
+   :width: 7.42917in
+   :height: 5.07569in
+.. |image31| image:: media/image25.png
+   :width: 7.35556in
+   :height: 2.63056in
+.. |image32| image:: media/image26.png
+   :width: 7.30625in
+   :height: 2.4625in
+.. |image33| image:: media/image27.png
+   :width: 1.93819in
+   :height: 0.16181in
+.. |image34| image:: media/image27.png
+   :width: 1.93819in
+   :height: 0.16181in
+.. |image35| image:: media/image28.png
+   :width: 7.48056in
+   :height: 1.74028in
+.. |image36| image:: media/image14.png
+   :width: 0.8in
+   :height: 0.125in
+.. |image37| image:: media/image14.png
+   :width: 0.8in
+   :height: 0.125in
+.. |image38| image:: media/image29.png
+   :width: 7.39792in
+   :height: 1.40764in
+.. |image39| image:: media/image14.png
+   :width: 0.8in
+   :height: 0.125in
+.. |image40| image:: media/image14.png
+   :width: 0.8in
+   :height: 0.125in
+.. |image41| image:: media/image14.png
+   :width: 0.8in
+   :height: 0.125in
+.. |image42| image:: media/image30.png
+   :width: 7.39236in
+   :height: 2.04444in
+.. |image43| image:: media/image2.png
+   :width: 1.14177in
+   :height: 0.21669in
+.. |image44| image:: media/image2.png
+   :width: 1.14177in
+   :height: 0.21669in
+.. |image45| image:: media/image31.png
+   :width: 7.48031in
+   :height: 2.42237in
+.. |image46| image:: media/image2.png
+   :width: 1.14177in
+   :height: 0.21669in
+.. |image47| image:: media/image2.png
+   :width: 1.14177in
+   :height: 0.21669in
+.. |image48| image:: media/image32.png
+   :width: 7.48031in
+   :height: 2.57032in
+.. |image49| image:: media/image14.png
+   :width: 0.8in
+   :height: 0.125in
+.. |image50| image:: media/image14.png
+   :width: 0.8in
+   :height: 0.125in
+.. |image51| image:: media/image33.png
+   :width: 7.41806in
+   :height: 3.42014in
+.. |image52| image:: media/image34.png
+   :width: 1.72569in
+   :height: 0.26736in
+.. |image53| image:: media/image35.png
+   :width: 7.34583in
+   :height: 0.83194in
+.. |image54| image:: media/image34.png
+   :width: 1.45903in
+   :height: 0.22639in
+.. |image55| image:: media/image36.png
+   :width: 7.34653in
+   :height: 0.95347in
+.. |image56| image:: media/image34.png
+   :width: 1.19236in
+   :height: 0.18472in
+.. |image57| image:: media/image27.png
+   :width: 1.19236in
+   :height: 0.21875in
+.. |image58| image:: media/image37.png
+   :width: 7.34653in
+   :height: 1.60764in
+.. |image59| image:: media/image38.png
+   :width: 7.48056in
+   :height: 4.39097in
+.. |image60| image:: media/image39.png
+   :width: 1.15069in
+   :height: 0.21736in
+.. |image61| image:: media/image40.png
+   :width: 7.47847in
+   :height: 1.02083in
+.. |image62| image:: media/image39.png
+   :width: 1.15069in
+   :height: 0.21736in
+.. |image63| image:: media/image40.png
+   :width: 7.47778in
+   :height: 0.90833in
+.. |image64| image:: media/image39.png
+   :width: 0.60903in
+   :height: 0.11528in
+.. |image65| image:: media/image39.png
+   :width: 0.60903in
+   :height: 0.11528in
+.. |image66| image:: media/image41.png
+   :width: 7.47569in
+   :height: 0.67917in
+.. |image67| image:: media/image42.png
+   :width: 0.44236in
+.. |image68| image:: media/image43.png
+   :width: 7.48056in
+   :height: 0.52153in
+.. |image69| image:: media/image39.png
+   :width: 0.60903in
+   :height: 0.11528in
+.. |image70| image:: media/image39.png
+   :width: 0.60903in
+   :height: 0.11528in
+.. |image71| image:: media/image39.png
+   :width: 0.60903in
+   :height: 0.11528in
+.. |image72| image:: media/image39.png
+   :width: 0.60903in
+   :height: 0.11528in
+.. |image73| image:: media/image39.png
+   :width: 0.60903in
+   :height: 0.11528in
+.. |image74| image:: media/image44.png
+   :width: 7.48056in
+   :height: 2.10486in

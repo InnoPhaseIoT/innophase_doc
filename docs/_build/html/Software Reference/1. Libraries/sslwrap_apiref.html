@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sslwrap &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Utils" href="utils_apiref.html" />
+    <link rel="prev" title="sntp" href="sntp_apiref.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/Support.html">Support</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../Software_Reference_Landing_Page.html">Software Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../Software_Reference_Landing_Page.html#libraries">Libraries</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html">1.  alarm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#fota">2.  fota</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#http">3.  http</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#mdns">4.  mdns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#mqtt">5.  mqtt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#prov">6.  prov</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#sntp">7.  sntp</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="1.%20Libraries-Landing.html#ssl-wrap">8.  ssl_wrap</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">sslwrap</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#utils">9.  utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#websocket">10. websocket</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Software_Reference_Landing_Page.html#solutions">Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software_Reference_Landing_Page.html#cloud-frameworks">Cloud Frameworks</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Tools/Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../Software_Reference_Landing_Page.html">Software Reference</a></li>
+          <li class="breadcrumb-item"><a href="1.%20Libraries-Landing.html">1.  alarm</a></li>
+      <li class="breadcrumb-item active">sslwrap</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Software Reference/1. Libraries/sslwrap_apiref.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sslwrap">
+<h1>sslwrap<a class="headerlink" href="#sslwrap" title="Permalink to this heading"></a></h1>
+<p>Talaria TWO uses mbed TLS library for the implementation of SSL/TLS.
+This component provides wrapper functions for the commonly used
+functionalities like connect, read, write and read with timeout. This is
+an effort to hide the complicacy of using discrete mbed TLS APIs to
+perform commonly used functionality like establishing connection.</p>
+<p><strong>Note</strong>: mbed TLS APIs are available for using directly without the
+need of using this module.</p>
+<section id="header-file-s">
+<h2>Header file/s<a class="headerlink" href="#header-file-s" title="Permalink to this heading"></a></h2>
+<p>Components/ssl_wrap/inc/ssl_wrap.h</p>
+</section>
+<section id="data-structure-definitions">
+<h2>Data Structure Definitions<a class="headerlink" href="#data-structure-definitions" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ssl-auth-mode-t">
+<h2>ssl_auth_mode_t<a class="headerlink" href="#ssl-auth-mode-t" title="Permalink to this heading"></a></h2>
+<p>This enum defines the various authentication modes.</p>
+<table class="docutils align-default" id="id17">
+<caption><span class="caption-text">Table : ssl_auth_mode_t - authentication modes</span><a class="headerlink" href="#id17" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>S
+SL_WRAP_VERIFY_NONE</strong></p></th>
+<th class="head"><p>Peer certificate is not checked (default on
+server. insecure on client)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>SSL_W
+RAP_VERIFY_OPTIONAL</strong></p></td>
+<td><p>Peer certificate is checked; however the
+handshake continues even if verification
+fails. mbedtls_ssl_get_verify_result() can
+be called after the handshake is complete</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SSL_W
+RAP_VERIFY_REQUIRED</strong></p></td>
+<td><p>Peer <strong>must</strong> present a valid certificate;
+handshake is aborted if verification fails
+(default on client)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ssl-wrap-cert-t">
+<h2>ssl_wrap_cert_t<a class="headerlink" href="#ssl-wrap-cert-t" title="Permalink to this heading"></a></h2>
+<p>This data structure is used to provide information about the certificate
+like CA cert, Client cert and Client Key.</p>
+<table class="docutils align-default" id="id18">
+<caption><span class="caption-text">Table : ssl_wrap_cert_t – parameters</span><a class="headerlink" href="#id18" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>path</strong></p></th>
+<th class="head"><p>Not used currently. Path of the certificate in
+file system</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>buf</strong></p></td>
+<td><p>Pointer to buffer having the certificate</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>len</strong></p></td>
+<td><p>Length of the certificate/key present in the buf</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ssl-wrap-cfg-t">
+<h2>ssl_wrap_cfg_t<a class="headerlink" href="#ssl-wrap-cfg-t" title="Permalink to this heading"></a></h2>
+<p>This data structure is used to pass the parameters while opening an SSL
+connection with the remote server using ssl_wrap_connect API.</p>
+<table class="docutils align-default" id="id19">
+<caption><span class="caption-text">Table : ssl_wrap_cfg_t - parameters</span><a class="headerlink" href="#id19" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>ca_cert</strong></p></th>
+<th class="head"><p>CA certificate information. This is a pointer to
+properly initialized ssl_wrap_cert_t</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>client_cert</strong></p></td>
+<td><p>Client certificate information. This is a pointer
+to properly initialized ssl_wrap_cert_t</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>client_key</strong></p></td>
+<td><p>Client key information. This is a pointer to
+properly initialized ssl_wrap_cert_t</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>auth_mode</strong></p></td>
+<td><p>Authentication mode as defined in ssl_auth_mode_t</p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>max_frag_len*</em></p>
+</td>
+<td><p>Value will be &gt;= MBEDTLS_SSL_MAX_FRAG_LEN_512 and
+&lt;= MBEDTLS_SSL_MAX_FRAG_LEN_4096</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="http-client-resp-info-t">
+<h2>http_client_resp_info_t<a class="headerlink" href="#http-client-resp-info-t" title="Permalink to this heading"></a></h2>
+<p>This data structure is used to pass information about the data received
+from the server when HTTP GET is done using the http_client_get API.</p>
+<table class="docutils align-default" id="id20">
+<caption><span class="caption-text">Table : http_client_resp_info_t - parameters</span><a class="headerlink" href="#id20" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>st
+atus_code</strong></p></th>
+<th class="head"><p>HTTP response status code</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>**
+resp_hdrs**</p></td>
+<td><p>Response headers. Array of strings</p></td>
+</tr>
+<tr class="row-odd"><td><p>**
+resp_body**</p></td>
+<td><p>Response body len</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>resp_len*</em></p>
+</td>
+<td><p>Resp len, currently available in the resp_body</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>resp_
+total_len</strong></p></td>
+<td><p>Total length of the response body. If 0, no total
+length available before hand as the body may be sent
+using chunked or multipart encoding</p></td>
+</tr>
+<tr class="row-even"><td><p>**
+more_data**</p></td>
+<td><p>More data will be followed. The callback will be
+called again</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="api-reference">
+<h2>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ssl-wrap-connect">
+<h2>ssl_wrap_connect<a class="headerlink" href="#ssl-wrap-connect" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<p>This API is used to securely connect to remote server using SSL/TLS.</p>
+</section>
+<section id="definition">
+<h2>Definition<a class="headerlink" href="#definition" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id21">
+<caption><span class="caption-text">Table : ssl_wrap_connect – parameters</span><a class="headerlink" href="#id21" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>ssl_wrap_handle_t</p>
+<p>ssl_wrap_connect(char *host_name, int port, ssl_wrap_cfg_t *cfg)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id22">
+<caption><span class="caption-text">Table : ssl_wrap_read - parameters</span><a class="headerlink" href="#id22" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p><em>Parameter*</em></p>
+</th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>hostname</em></p></td>
+<td><p>DNS name or the IP address of the remote server</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>port</em></p></td>
+<td><p>Port number to connect to</p></td>
+</tr>
+<tr class="row-even"><td><p><em>cfg</em></p></td>
+<td><p>SSL configuration parameters required to make the SSL
+connection</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="return">
+<h2>Return<a class="headerlink" href="#return" title="Permalink to this heading"></a></h2>
+<p>Success: Pointer to SSL wrap connection handle.</p>
+<p>Error: NULL</p>
+</section>
+<section id="ssl-wrap-read">
+<h2>ssl_wrap_read<a class="headerlink" href="#ssl-wrap-read" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-1">
+<span id="id1"></span><h2>Overview<a class="headerlink" href="#overview-1" title="Permalink to this heading"></a></h2>
+<p>This function is used to read data received over the SSL connection
+established using the ssl_wrap_connect API. This API blocks indefinitely
+for the data.</p>
+</section>
+<section id="definition-1">
+<span id="id2"></span><h2>Definition<a class="headerlink" href="#definition-1" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id23">
+<caption><span class="caption-text">Table : ssl_wrap_write - parameters</span><a class="headerlink" href="#id23" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>ssl_wrap_read(ssl_wrap_handle_t handle, unsigned char *buf, int len)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters-1">
+<span id="id3"></span><h2>Parameters<a class="headerlink" href="#parameters-1" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id24">
+<caption><span class="caption-text">Table : ssl_wrap_read_timeout - parameters</span><a class="headerlink" href="#id24" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p><em>Parameter*</em></p>
+</th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>handle</em></p></td>
+<td><p>Handle returned by ssl_wrap_connect</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>buf</em></p></td>
+<td><p>Buffer to read data in to</p></td>
+</tr>
+<tr class="row-even"><td><p><em>len</em></p></td>
+<td><p>Max length of the buffer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="return-1">
+<span id="id4"></span><h2>Return<a class="headerlink" href="#return-1" title="Permalink to this heading"></a></h2>
+<p>Success: &gt;0. Number of bytes read.</p>
+<p>Error: -1</p>
+</section>
+<section id="ssl-wrap-write">
+<h2>ssl_wrap_write<a class="headerlink" href="#ssl-wrap-write" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-2">
+<span id="id5"></span><h2>Overview<a class="headerlink" href="#overview-2" title="Permalink to this heading"></a></h2>
+<p>This function is used to send data over the SSL connection established
+using the ssl_wrap_connect API.</p>
+</section>
+<section id="definition-2">
+<span id="id6"></span><h2>Definition<a class="headerlink" href="#definition-2" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>ssl_wrap_write (ssl_wrap_handle_t handle, unsigned char *buf, int
+len)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters-2">
+<span id="id7"></span><h2>Parameters<a class="headerlink" href="#parameters-2" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Parameters</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>handle</em></p></td>
+<td><p>Handle returned by ssl_wrap_connect</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>buf</em></p></td>
+<td><p>Buffer having data to be sent</p></td>
+</tr>
+<tr class="row-even"><td><p><em>len</em></p></td>
+<td><p>Length of data to be sent</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="return-2">
+<span id="id8"></span><h2>Return<a class="headerlink" href="#return-2" title="Permalink to this heading"></a></h2>
+<p>Success: &gt;=0. Number of bytes sent.</p>
+<p>Error: -1</p>
+</section>
+<section id="ssl-wrap-read-timeout">
+<h2>ssl_wrap_read_timeout<a class="headerlink" href="#ssl-wrap-read-timeout" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-3">
+<span id="id9"></span><h2>Overview<a class="headerlink" href="#overview-3" title="Permalink to this heading"></a></h2>
+<p>This function is used to tread data received over the SSL connection
+established using the ssl_wrap_connect API. This is similar to
+ssl_wrap_read, the difference being, this API will return after a
+specified timeout.</p>
+</section>
+<section id="definition-3">
+<span id="id10"></span><h2>Definition<a class="headerlink" href="#definition-3" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>ssl_wrap_read_timeout(ssl_wrap_handle_t handle, unsigned char* buf,
+int len,</p>
+<p>int timeout_ms)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters-3">
+<span id="id11"></span><h2>Parameters<a class="headerlink" href="#parameters-3" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>P
+arameter</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>handle</em></p></td>
+<td><p>Handle returned by ssl_wrap_connect</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>buf</em></p></td>
+<td><p>Buffer to read data into</p></td>
+</tr>
+<tr class="row-even"><td><p><em>len</em></p></td>
+<td><p>Max length of the buffer</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>timeout</em></p></td>
+<td><p>Timeout in seconds after which API will return with an
+error if no data is received from the server</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="return-3">
+<span id="id12"></span><h2>Return<a class="headerlink" href="#return-3" title="Permalink to this heading"></a></h2>
+<p>Success: &gt;0. Number of bytes read.</p>
+<p>Error: -1</p>
+</section>
+<section id="ssl-wrap-disconnect">
+<h2>ssl_wrap_disconnect<a class="headerlink" href="#ssl-wrap-disconnect" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-4">
+<span id="id13"></span><h2>Overview<a class="headerlink" href="#overview-4" title="Permalink to this heading"></a></h2>
+<p>This function is used to disconnect the SSL connection established using
+the ssl_wrap_connect API.</p>
+</section>
+<section id="definition-4">
+<span id="id14"></span><h2>Definition<a class="headerlink" href="#definition-4" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void</p>
+<p>ssl_wrap_disconnect(ssl_wrap_handle_t handle)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters-4">
+<span id="id15"></span><h2>Parameters<a class="headerlink" href="#parameters-4" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Parameter</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>handle</em></p></td>
+<td><p>Handle returned by ssl_wrap_connect</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="return-4">
+<span id="id16"></span><h2>Return<a class="headerlink" href="#return-4" title="Permalink to this heading"></a></h2>
+<p>None.</p>
+</section>
+<section id="application-example">
+<h2>Application Example<a class="headerlink" href="#application-example" title="Permalink to this heading"></a></h2>
+<p>For the example code, refer: <em>components/http_client</em>, <em>components/mqtt</em>
+and other similar directories.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sntp_apiref.html" class="btn btn-neutral float-left" title="sntp" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="utils_apiref.html" class="btn btn-neutral float-right" title="Utils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

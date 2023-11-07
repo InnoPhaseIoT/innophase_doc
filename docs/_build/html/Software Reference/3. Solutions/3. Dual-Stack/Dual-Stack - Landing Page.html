@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../../about.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Dual Stack Package" href="1.%20Overview/2.%20Dual-Stack%20Packages.html" />
+    <link rel="prev" title="STW Multi Proto Application" href="../2.%20STW%20Multi-Proto/5.%20STW%20Multi-Proto%20Application/STW%20Multi-Proto%20Application.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/Support.html">Support</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../Software_Reference_Landing_Page.html">Software Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Software_Reference_Landing_Page.html#libraries">Libraries</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../Software_Reference_Landing_Page.html#solutions">Solutions</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Solutions%20-%20Landing%20Page.html">AT Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Solutions%20-%20Landing%20Page.html#stw-multi-proto">STW Multi-Proto</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../Solutions%20-%20Landing%20Page.html#dual-stack">Dual stack</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connetion-manager">Connetion manager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#inp3201-host">INP3201-HOST</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Software_Reference_Landing_Page.html#cloud-frameworks">Cloud Frameworks</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tools/Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../Software_Reference_Landing_Page.html">Software Reference</a></li>
+          <li class="breadcrumb-item"><a href="../Solutions%20-%20Landing%20Page.html">AT Commands</a></li>
+      <li class="breadcrumb-item active">Overview</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/Software Reference/3. Solutions/3. Dual-Stack/Dual-Stack - Landing Page.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>Dual-Stack is a hosted solution with Talaria TWO Wi-Fi module which
+helps replace the normal Wi-Fi driver concept of Linux stack. This
+solution is designed to reduce power consumption without compromising
+the throughput performance for Linux based application SoCs used by
+ISPs, Industrial computers etc.</p>
+<p>Dual-Stack provides the following advantages:</p>
+<ol class="arabic simple">
+<li><p>Maintains Wi-Fi connectivity during host power off/sleep state.</p></li>
+<li><p>Supports low power.</p></li>
+<li><p>Easy to migrate across different kernel versions.</p></li>
+</ol>
+<p>In this solution, the Wi-Fi driver software runs in the user space with
+minimal kernel modifications and makes use of the network stack on the
+Wi-Fi module for housekeeping tasks (such as cloud keepalive). The
+network stack on the Linux host is used to transfer high bandwidth data.</p>
+<p><a class="reference internal" href="../../../_images/image1103.png"><img alt="image1" src="../../../_images/image1103.png" style="width: 7.47986in; height: 3.57639in;" /></a></p>
+<p>Figure 1: Software architecture block diagram</p>
+<p>Following are the key advantages of the Dual-Stack solution:</p>
+<ol class="arabic simple">
+<li><p>Solution is a user space program and hence easy to maintain.</p></li>
+<li><p>Portability across platform and kernel versions.</p></li>
+<li><p>Linux kernel modifications are minimal to support SPI/TUN.</p></li>
+<li><p>Existing socket applications will be able to run on the host without
+any modification.</p></li>
+<li><p>It provides a shadow service of sockets so that the always connected
+feature can be achieved even when the host is in sleep.</p></li>
+<li><p>FOTA and provisioning features are supported.</p></li>
+</ol>
+<section id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Overview/2.%20Dual-Stack%20Packages.html">Dual Stack Package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Overview/2.%20Dual-Stack%20Packages.html#host-software-package">Host Software Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Overview/2.%20Dual-Stack%20Packages.html#talaria-two-firmware">Talaria TWO Firmware</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Overview/3.%20Key%20Features.html">Key-Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Overview/4.%20Tunadapter.html">Tunadapter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Overview/5.%20Configuration.html">Configuration</a></li>
+</ul>
+</div>
+<section id="interface-requirements">
+<h2>Interface Requirements<a class="headerlink" href="#interface-requirements" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Overview/1.%20Interface%20Requirements/1.%20Hardware%20Requirements.html">Hardware Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Overview/1.%20Interface%20Requirements/2.%20Software%20Requirements.html">Software Requirements</a></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="connetion-manager">
+<h1>Connetion manager<a class="headerlink" href="#connetion-manager" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html">Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#scan-performs-wi-fi-scan">scan - Performs Wi-Fi Scan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#connect-connects-to-wi-fi-network">connect – Connects to Wi-Fi Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#disconnect-disconnects-from-wi-fi-network">disconnect – Disconnects from Wi-Fi Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#ip-get-set-ipv4-address">IP – Get/Set ipv4 Address</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#kaconfig-configures-keepalive-shadow-service">kaconfig – Configures keepalive/shadow Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#kaconfigget-gets-keepalive-shadow-service-configuration">kaconfigget – Gets keepalive/shadow Service Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#kastart-starts-keepalive-shadow-service">kastart – Starts keepalive/shadow Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#kastop-stops-keepalive-shadow-service">kastop – Stops keepalive/shadow Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#kadel-deletes-keepalive-shadow-service-configuration">kadel – Deletes keepalive/shadow Service Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#status-gets-dual-stack-status">status – Gets Dual-Stack Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#wakeupconfig-configures-host-wakeup-pin">wakeupconfig – Configures Host Wakeup PIN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#getwakeupreason-gets-host-wakeup-reason">getwakeupreason – Gets Host Wakeup Reason</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#wakeupreasoncls-clears-host-wakeup-reason">wakeupreasoncls – Clears Host Wakeup Reason</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#autoscanenable-enables-autoscan-operation">autoscanenable – Enables Autoscan Operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#autoscandisable-disables-autoscan-operation">autoscandisable – Disables Autoscan Operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#shutdown-triggers-host-shutdown">shutdown – Triggers Host Shutdown</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#kasecconfig-configures-keepalive-security-parameters">kasecconfig – Configures Keepalive Security Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#wpmconfig-configures-wlan-power-management">wpmconfig – Configures WLAN Power Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#powersave-suspend-enable-disable-on-talaria-two">powersave – Suspend Enable/Disable on Talaria TWO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#version-gets-version-information">version – Gets Version Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#cbenable-enable-connect-disconnect-callback">cbenable – Enable Connect/Disconnect Callback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#fos-upgrade-the-wlan-firmware-from-host">fos – Upgrade the WLAN firmware from Host</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#hcidevname-device-name">hcidevname – Device Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#kasecconfigget-get-keepalive-security-parameters">kasecconfigget – Get Keepalive Security Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#wakeupcfgget-get-wakeup-configuration">wakeupcfgget – Get Wakeup Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#autoscancfgget-get-autoscan-configuration-status">autoscancfgget – Get autoscan Configuration Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#wpmconfigget-get-wlan-power-management-configuration">wpmconfigget – Get WLAN Power Management Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#tos-set-tos-parameter-for-network-packets">tos – Set TOS Parameter for Network Packets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#disp-pkt-info-display-incoming-and-outgoing-packet-information">disp_pkt_info – Display Incoming and Outgoing Packet Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#kill-tun-gracefully-kills-the-tunadapter">kill-tun – Gracefully Kills the Tunadapter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#provstart-wi-fi-provisioning-over-ble">provstart – Wi-Fi Provisioning over BLE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#add-adds-packet-forward-configuration-and-prints-rule-id">add - Adds packet forward configuration and prints rule ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#del-deletes-packet-forward-configuration">del - Deletes packet forward configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#del-id-deletes-packet-forward-configuration-by-providing-rule-id">del-id - Deletes packet forward configuration by providing rule ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#query-prints-forward-configurations">query - Prints forward configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/1.%20Commands%20.html#dirset-dirget-sets-gets-packet-forward-direction">dirset/dirget - Sets/Gets packet forward direction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html">Connection Manager UseCases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#station-mode-wi-fi-connection">Station Mode Wi-Fi Connection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#command-description">Command Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#procedure">Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#console-logs">Console Logs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#keepalive-and-host-wake-up-mechanism">Keepalive and Host Wake Up Mechanism</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#description-1">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#prerequisites-1">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#command-description-1">Command Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#procedure-1">Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#console-logs-1">Console Logs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#autoscan-operation">Autoscan Operation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#description-2">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#prerequisites-2">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#command-description-2">Command Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#procedure-2">Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#console-logs-2">Console Logs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#enable-connect-disconnect-callback">Enable Connect/Disconnect Callback</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#description-3">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#prerequisites-3">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#command-description-3">Command Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#procedure-3">Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#image32console-logs">Console Logs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#firmware-upgrade-over-serial">Firmware Upgrade Over Serial</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#description-4">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#prerequisites-4">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#command-description-with-procedure">Command Description with Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#console-logs-4">Console Logs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#wi-fi-provisioning-over-ble">Wi-Fi Provisioning over BLE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#description-5">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#prerequisites-5">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#command-description-4">Command Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#procedure-4">Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Connection%20Manager/2.%20UseCases.html#image61console-logs">Console Logs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="inp3201-host">
+<h1>INP3201-HOST<a class="headerlink" href="#inp3201-host" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="3.%20INP3201-HOST/1.%20Getting%20Started/INP3201%20Getting%20Started%20-%20Landing%20Page.html">Prerequisites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/1.%20Getting%20Started/1.%20Prerequisites/Prerequisites.html">Prerequisites</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3.%20INP3201-HOST/1.%20Getting%20Started/INP3201%20Getting%20Started%20-%20Landing%20Page.html#package-and-contents">Package and Contents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/1.%20Getting%20Started/2.%20Package%20and%20Contents/1.%20Test%20Setup%20Topology.html">Test Setup Topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/1.%20Getting%20Started/2.%20Package%20and%20Contents/2.%20Talaria%20TWO%20SDK%20Package.html">Talaria TWO SDK Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/1.%20Getting%20Started/2.%20Package%20and%20Contents/3.%20Host%20Package.html">Host Package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3.%20INP3201-HOST/1.%20Getting%20Started/INP3201%20Getting%20Started%20-%20Landing%20Page.html#hardware-requirements">Hardware Requirements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/1.%20Getting%20Started/3.%20Hardware%20Requirements/2.%20Features.html">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/1.%20Getting%20Started/3.%20Hardware%20Requirements/3.%20INP301x%20Package%20Contents.html">INP301x Package Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/1.%20Getting%20Started/3.%20Hardware%20Requirements/4.%20INP3201%20Board%20Overview.html">INP3201 Board Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/1.%20Getting%20Started/3.%20Hardware%20Requirements/5.%20Programming%20Talaria%20TWO%20Module%20on%20INP3201%20Board.html">Programming Talaria TWO Module on INP3201 Board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/1.%20Getting%20Started/3.%20Hardware%20Requirements/6.%20Programming%20STM32%20MCU.html">Programming STM32 MCU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/1.%20Getting%20Started/3.%20Hardware%20Requirements/7.%20INP3201%20Board%20%E2%80%93%20Power%20Up.html">INP3201 Board – Power Up</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="evaluation-setup-and-usage">
+<h2>Evaluation Setup and Usage<a class="headerlink" href="#evaluation-setup-and-usage" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="3.%20INP3201-HOST/2.%20Evaluation%20Set-up%20%26%20Usage/1.%20Evaluation%20Set-up%20%26%20Usage%20-%20Landing%20Page.html">Evaluation Set-up &amp; Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/2.%20Evaluation%20Set-up%20%26%20Usage/2.%20Preparing%20the%20SD%20Card%20and%20Booting%20INP3201%20Board.html">Preparing the SD Card and Booting INP3201 Board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/2.%20Evaluation%20Set-up%20%26%20Usage/3.%20Programming%20Talaria%20TWO.html">Programming Talaria TWO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/2.%20Evaluation%20Set-up%20%26%20Usage/4.%20Programming%20T31ZX%20Host.html">Programming T31ZX Host</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3.%20INP3201-HOST/2.%20Evaluation%20Set-up%20%26%20Usage/1.%20Evaluation%20Set-up%20%26%20Usage%20-%20Landing%20Page.html#mcu-firmware-flashing">MCU Firmware Flashing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/2.%20Evaluation%20Set-up%20%26%20Usage/5.%20MCU%20Firmware%20Flashing/1.%20MCU%20Firmware%20Flashing%20-%20Landing%20Page.html">Flashing using STM32Cube Programmer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3.%20INP3201-HOST/2.%20Evaluation%20Set-up%20%26%20Usage/1.%20Evaluation%20Set-up%20%26%20Usage%20-%20Landing%20Page.html#testing-for-basic-operations">Testing for Basic Operations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/2.%20Evaluation%20Set-up%20%26%20Usage/6.%20Testing%20for%20Basic%20Operations/1.%20Testing%20for%20Basic%20Operations%20-%20Landing%20Page.html">Testing for Basic Operations</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="current-measurement">
+<h2>Current Measurement<a class="headerlink" href="#current-measurement" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="3.%20INP3201-HOST/3.%20Current%20Measurement/Current%20Measurement.html">Current Measurement</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/3.%20Current%20Measurement/Current%20Measurement.html#talaria-two">Talaria TWO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/3.%20Current%20Measurement/Current%20Measurement.html#t31">T31</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/3.%20Current%20Measurement/Current%20Measurement.html#inp3201-board">INP3201 Board</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="example-applications">
+<h2>Example applications<a class="headerlink" href="#example-applications" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="3.%20INP3201-HOST/4.%20Example%20Applications/Example%20applications%20-%20Landing%20Page.html">Compilation of Dual-Stack Example Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3.%20INP3201-HOST/4.%20Example%20Applications/Example%20applications%20-%20Landing%20Page.html#example-applications">Example applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/4.%20Example%20Applications/Custom%20Echo%20Application.html">Custom Echo Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/4.%20Example%20Applications/Custom%20FOS%20Application.html">Custom FOS Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/4.%20Example%20Applications/Custom%20GPIO%20Application.html">Custom GPIO Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/4.%20Example%20Applications/Custom%20MQTT%20Application.html">Custom MQTT Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/4.%20Example%20Applications/Custom%20Network%20Test%20Application.html">Custom Network Test Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/4.%20Example%20Applications/Heartbeat%20Monitor%20Application.html">Heartbeat Monitor Application</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="aws-kinesis-video-streaming">
+<h2>AWS Kinesis Video streaming<a class="headerlink" href="#aws-kinesis-video-streaming" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="3.%20INP3201-HOST/5.%20AWS%20Kinesis%20Video%20Streaming/1.%20AWS%20Kinesis%20Video%20Streaming%20-%20Landing%20Page.html">AWS KINESIS Video Streaming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/5.%20AWS%20Kinesis%20Video%20Streaming/2.%20Preparing%20the%20SD%20Card%20and%20Booting%20INP3201%20Board.html">Preparing the SD Card and Booting INP3201 Board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/5.%20AWS%20Kinesis%20Video%20Streaming/3.%20INP3201%20Host%20-%20Talaria%20TWO%20AWS%20KINESIS%20Video%20Streaming%20Setup.html">Talaria TWO AWS KINESIS Video Streaming Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/5.%20AWS%20Kinesis%20Video%20Streaming/5.%20Multiple%20Streaming.html">Multiple Streaming</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3.%20INP3201-HOST/5.%20AWS%20Kinesis%20Video%20Streaming/1.%20AWS%20Kinesis%20Video%20Streaming%20-%20Landing%20Page.html#enable-video-streaming">Enable Video Streaming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/5.%20AWS%20Kinesis%20Video%20Streaming/4.%20Enable%20Video%20Streaming/1.%20AWS%20Streaming%20APP.html">AWS Streaming APP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20INP3201-HOST/5.%20AWS%20Kinesis%20Video%20Streaming/4.%20Enable%20Video%20Streaming/2.%20Web%20Browser%20.html">Web browser</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../2.%20STW%20Multi-Proto/5.%20STW%20Multi-Proto%20Application/STW%20Multi-Proto%20Application.html" class="btn btn-neutral float-left" title="STW Multi Proto Application" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="1.%20Overview/2.%20Dual-Stack%20Packages.html" class="btn btn-neutral float-right" title="Dual Stack Package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

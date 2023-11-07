@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connection Manager UseCases &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Connection Manager UseCases</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Software Reference/2. Connection Manager/2. UseCases.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="connection-manager-usecases">
+<h1>Connection Manager UseCases<a class="headerlink" href="#connection-manager-usecases" title="Link to this heading"></a></h1>
+<section id="station-mode-wi-fi-connection">
+<h2>Station Mode Wi-Fi Connection<a class="headerlink" href="#station-mode-wi-fi-connection" title="Link to this heading"></a></h2>
+<section id="description">
+<h3>Description<a class="headerlink" href="#description" title="Link to this heading"></a></h3>
+<p>This use case is to demonstrate the station mode configuration and
+connecting to the Wi-Fi Access Point.</p>
+</section>
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h3>
+<p>Access Point configured with WPA/WPA2 personal security.</p>
+</section>
+<section id="command-description">
+<h3>Command Description<a class="headerlink" href="#command-description" title="Link to this heading"></a></h3>
+<table class="docutils align-default" id="id22">
+<caption><span class="caption-text">Table 47: Station Mode Wi-Fi Connection - commands</span><a class="headerlink" href="#id22" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Command</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>./conmgr scan</em></p></td>
+<td><p>Scan</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>./conmgr connect &lt;SSID&gt;&lt;AP PWD&gt;</em></p></td>
+<td><p>Connect</p></td>
+</tr>
+<tr class="row-even"><td><p><em>./conmgr ip</em></p></td>
+<td><p>Get IP address</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>./conmgr status</em></p></td>
+<td><p>Get WLAN status</p></td>
+</tr>
+<tr class="row-even"><td><p><em>./conmgr disconnect</em></p></td>
+<td><p>Disconnect</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="procedure">
+<h3>Procedure<a class="headerlink" href="#procedure" title="Link to this heading"></a></h3>
+<p>Execute the following operations on the Talaria TWO:</p>
+<p><strong>Step 1</strong>: Scan the network.</p>
+<p><strong>Step 2</strong>: Connect to the desired network by providing SSID and
+passphrase.</p>
+<p><strong>Step 3</strong>: Get the IP address of the Talaria TWO module.</p>
+<p><strong>Step 4</strong>: Get the WLAN status of the Talaria TWO module.</p>
+<p><strong>Step 5</strong>: Disconnect from the connected network.</p>
+</section>
+<section id="console-logs">
+<h3>Console Logs<a class="headerlink" href="#console-logs" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>./conmgr scan</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image160.png"><img alt="Text Description automatically generated" src="../../_images/image160.png" style="width: 6.69291in; height: 3.34681in;" /></a></p>
+<p>Figure 44: ./conmgr scan – output</p>
+<ol class="arabic simple" start="2">
+<li><p>./conmgr connect innotest 123456789</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image238.png"><img alt="image1" src="../../_images/image238.png" style="width: 1.14167in; height: 0.175in;" /></a><a class="reference internal" href="../../_images/image320.png"><img alt="A computer screen with white text Description automatically generated" src="../../_images/image320.png" style="width: 6.69291in; height: 0.84281in;" /></a></p>
+</div></blockquote>
+<p>Figure 45: ./conmgr connect - output</p>
+<ol class="arabic simple" start="3">
+<li><p>./conmgr ip</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image415.png"><img alt="A screenshot of a computer Description automatically generated with medium confidence" src="../../_images/image415.png" style="width: 5.51181in; height: 1.86657in;" /></a></p>
+</div></blockquote>
+<p>Figure 46: ./conmgr ip – output</p>
+<ol class="arabic simple" start="4">
+<li><p>./conmgr status</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image516.png"><img alt="image2" src="../../_images/image516.png" style="width: 5.51181in; height: 4.06408in;" /></a></p>
+</div></blockquote>
+<p>Figure 47: ./conmgr status – output</p>
+<ol class="arabic simple" start="5">
+<li><p><a class="reference internal" href="../../_images/image238.png"><img alt="image3" src="../../_images/image238.png" style="width: 1.14167in; height: 0.175in;" /></a>./conmgr disconnect</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image613.png"><img alt="image4" src="../../_images/image613.png" style="width: 5.51181in; height: 0.67775in;" /></a></p>
+<p>Figure 48: ./conmgr disconnect – output</p>
+</section>
+</section>
+<section id="keepalive-and-host-wake-up-mechanism">
+<h2>Keepalive and Host Wake Up Mechanism<a class="headerlink" href="#keepalive-and-host-wake-up-mechanism" title="Link to this heading"></a></h2>
+<section id="description-1">
+<span id="id1"></span><h3>Description<a class="headerlink" href="#description-1" title="Link to this heading"></a></h3>
+<p>This use case demonstrates keep alive and host wake up mechanism on
+Dual-Stack solution.</p>
+</section>
+<section id="prerequisites-1">
+<span id="id2"></span><h3>Prerequisites<a class="headerlink" href="#prerequisites-1" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Access Point configured with WPA/WPA2 personal security.</p></li>
+<li><p>Netcat server on Linux host machine.</p></li>
+</ol>
+</section>
+<section id="command-description-1">
+<span id="id3"></span><h3>Command Description<a class="headerlink" href="#command-description-1" title="Link to this heading"></a></h3>
+<table class="docutils align-default" id="id23">
+<caption><span class="caption-text">Table 48: Keepalive and host wake up mechanism – Commands</span><a class="headerlink" href="#id23" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Command</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>./conmgr connect &lt;SSID&gt;&lt;AP PWD&gt;</em></p></td>
+<td><p>Connect</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>./conmgr kaconfig &lt;ip address of server&gt;
+&lt;srv_port&gt; &lt;interval&gt; &lt;heartbeat msg&gt; &lt;wakeup
+word&gt; &lt;timeout&gt;</em></p></td>
+<td><p>Keepalive
+configuration</p></td>
+</tr>
+<tr class="row-even"><td><p><em>./conmgr kaconfigget</em></p></td>
+<td><p>Get keepalive
+configuration</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>./conmgr kastart</em></p></td>
+<td><p>Start sending
+keepalive to server</p></td>
+</tr>
+<tr class="row-even"><td><p><em>./conmgr &lt;wakeupconfig&gt; &lt;wakeup pin&gt; &lt;0/1&gt;
+&lt;0/1&gt;</em></p></td>
+<td><p>Configure wake up
+pin</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>./conmgr wakeupreasoncls</em></p></td>
+<td><p>Clear wakeup reason</p></td>
+</tr>
+<tr class="row-even"><td><p><em>./conmgr wakeupcfgget</em></p></td>
+<td><p>Get wakeup
+configuration status</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>./conmgr shutdown</em></p></td>
+<td><p>Power off the host</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="procedure-1">
+<span id="id4"></span><h3>Procedure<a class="headerlink" href="#procedure-1" title="Link to this heading"></a></h3>
+<p>Execute the following operations:</p>
+<p><strong>Step 1</strong>: Start the netcat server on the Linux host machine. This host
+should be connected to same network to which Talaria TWO will be
+connected .</p>
+<table class="docutils align-default" id="id24">
+<caption><span class="caption-text">Table 49: autoscanenable and autoscandisable – commands</span><a class="headerlink" href="#id24" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>nc -l -p 8888</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 2</strong>: On Talaria TWO, connect to the desired network by providing
+SSID and passphrase.</p>
+<p><strong>Step 3</strong>: Configure Keepalive.</p>
+<p><strong>Step 4</strong>: Read the Keepalive configuration.</p>
+<p><strong>Step 5</strong>: start sending Keepalive message keepalivemsg to the server.</p>
+<p><strong>Step 6</strong>: Configure GPIO20 for host wake up.</p>
+<p><strong>Step 7</strong>: Clear wakeup reason.</p>
+<p><strong>Step 8</strong>: Get wakeup configuration status.</p>
+<p><strong>Step 9</strong>: Power OFF the Host.</p>
+<p><strong>Step 10</strong>: From netcat server, send the wakeup word hello. Talaria TWO
+receives and wakes up the host.</p>
+<p><strong>Step 11</strong>: Check the wakeup reason.</p>
+<p><strong>Step 12</strong>: Stop Keepalive.</p>
+</section>
+<section id="console-logs-1">
+<span id="id5"></span><h3>Console Logs<a class="headerlink" href="#console-logs-1" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image712.png"><img alt="image5" src="../../_images/image712.png" style="width: 0.7in; height: 0.11667in;" /></a><a class="reference internal" href="../../_images/image712.png"><img alt="image6" src="../../_images/image712.png" style="width: 0.7in; height: 0.11667in;" /></a><a class="reference internal" href="../../_images/image712.png"><img alt="image7" src="../../_images/image712.png" style="width: 0.7in; height: 0.25in;" /></a><a class="reference internal" href="../../_images/image712.png"><img alt="image8" src="../../_images/image712.png" style="width: 0.7in; height: 0.25in;" /></a><a class="reference internal" href="../../_images/image712.png"><img alt="image9" src="../../_images/image712.png" style="width: 0.7in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image712.png"><img alt="image10" src="../../_images/image712.png" style="width: 0.8in; height: 0.24167in;" /></a><a class="reference internal" href="../../_images/image712.png"><img alt="image11" src="../../_images/image712.png" style="width: 0.71667in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image712.png"><img alt="image12" src="../../_images/image712.png" style="width: 0.71667in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image811.png"><img alt="image13" src="../../_images/image811.png" style="width: 7.48031in; height: 6.13055in;" /></a></p>
+<p>Figure 49: Keepalive config and host shutdown with MCU– output</p>
+<p><a class="reference internal" href="../../_images/image712.png"><img alt="image14" src="../../_images/image712.png" style="width: 0.7in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image712.png"><img alt="image15" src="../../_images/image712.png" style="width: 0.7in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image712.png"><img alt="image16" src="../../_images/image712.png" style="width: 0.7in; height: 0.33333in;" /></a><a class="reference internal" href="../../_images/image712.png"><img alt="image17" src="../../_images/image712.png" style="width: 0.7in; height: 0.3in;" /></a><a class="reference internal" href="../../_images/image712.png"><img alt="image18" src="../../_images/image712.png" style="width: 0.7in; height: 0.31667in;" /></a><a class="reference internal" href="../../_images/image712.png"><img alt="image19" src="../../_images/image712.png" style="width: 0.7in; height: 0.34167in;" /></a><a class="reference internal" href="../../_images/image712.png"><img alt="image20" src="../../_images/image712.png" style="width: 0.7in; height: 0.11667in;" /></a><a class="reference internal" href="../../_images/image911.png"><img alt="A screenshot of a computer Description automatically generated" src="../../_images/image911.png" style="width: 7.48031in; height: 6.21652in;" /></a></p>
+<p>Figure 50: Keepalive config and host shutdown without MCU– output</p>
+<p><a class="reference internal" href="../../_images/image712.png"><img alt="image21" src="../../_images/image712.png" style="width: 0.7in; height: 0.10625in;" /></a><a class="reference internal" href="../../_images/image712.png"><img alt="image22" src="../../_images/image712.png" style="width: 0.7in; height: 0.25833in;" /></a><a class="reference internal" href="../../_images/image712.png"><img alt="image23" src="../../_images/image712.png" style="width: 0.7in; height: 0.25833in;" /></a><a class="reference internal" href="../../_images/image1011.png"><img alt="image24" src="../../_images/image1011.png" style="width: 7.48031in; height: 1.64393in;" /></a></p>
+<p>Figure 51: Host wakeup– output</p>
+<p><a class="reference internal" href="../../_images/image1115.png"><img alt="image25" src="../../_images/image1115.png" style="width: 3.59198in; height: 0.30003in;" /></a> <a class="reference internal" href="../../_images/image1214.png"><img alt="image26" src="../../_images/image1214.png" style="width: 7.36597in; height: 4.15417in;" /></a></p>
+<p>Figure 52: netcat server – output</p>
+</section>
+</section>
+<section id="autoscan-operation">
+<h2>Autoscan Operation<a class="headerlink" href="#autoscan-operation" title="Link to this heading"></a></h2>
+<section id="description-2">
+<span id="id6"></span><h3>Description<a class="headerlink" href="#description-2" title="Link to this heading"></a></h3>
+<p>This use case demonstrates enabling/disabling auto scan operation for
+finding the specific SSID and SSID that are not in the vicinity of
+Talaria TWO.</p>
+</section>
+<section id="prerequisites-2">
+<span id="id7"></span><h3>Prerequisites<a class="headerlink" href="#prerequisites-2" title="Link to this heading"></a></h3>
+<p>Access Point configured with WPA/WPA2 personal security.</p>
+</section>
+<section id="command-description-2">
+<span id="id8"></span><h3>Command Description<a class="headerlink" href="#command-description-2" title="Link to this heading"></a></h3>
+<table class="docutils align-default" id="id25">
+<caption><span class="caption-text">Table 50: Connect/disconnect callback – commands</span><a class="headerlink" href="#id25" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Command</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>./conmgr autoscanenable &lt;interval&gt;
+&lt;ssid&gt;</em></p></td>
+<td><p>Enable auto scan</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>./conmgr autoscancfgget</em></p></td>
+<td><p>Get autoscan configuration
+status</p></td>
+</tr>
+<tr class="row-even"><td><p><em>./conmgr autoscandisable</em></p></td>
+<td><p>Disable auto scan</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="procedure-2">
+<span id="id9"></span><h3>Procedure<a class="headerlink" href="#procedure-2" title="Link to this heading"></a></h3>
+<p>Execute the following operations on the Talaria TWO:</p>
+<p><strong>Step 1</strong>: Enable auto scan with SSID information of an AP.</p>
+<p><strong>Step 2</strong>: Enable auto scan with SSID information of an AP which is not
+in the vicinity.</p>
+<p><strong>Step 3</strong>: Get autoscan configuration status with the appropriate
+interval and SSID.</p>
+<p><strong>Step 4</strong>: Disable the autoscan.</p>
+</section>
+<section id="console-logs-2">
+<span id="id10"></span><h3>Console Logs<a class="headerlink" href="#console-logs-2" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image1311.png"><img alt="image27" src="../../_images/image1311.png" style="width: 7.41111in; height: 1.98125in;" /></a></p>
+<p>Figure 53: autoscanenable for specific SSID - host console output</p>
+<p>Talaria TWO console log:</p>
+<table class="docutils align-default" id="id26">
+<caption><span class="caption-text">Table 51: Wi-Fi provisioning over BLE – commands</span><a class="headerlink" href="#id26" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>event:9in dualstack_autoscan_process: entry:121864:0:</p>
+<p>scan start</p>
+<p>pssid:InnoPhase_AE_AP:InnoPhase_AE_APFound 1 nets:</p>
+<p>ssid:InnoPhase_AE_AP</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image238.png"><img alt="image28" src="../../_images/image238.png" style="width: 1.14177in; height: 0.21669in;" /></a><a class="reference internal" href="../../_images/image238.png"><img alt="image29" src="../../_images/image238.png" style="width: 1.14177in; height: 0.21669in;" /></a><a class="reference internal" href="../../_images/image1410.png"><img alt="image30" src="../../_images/image1410.png" style="width: 7.48031in; height: 2.57032in;" /></a></p>
+<p>Figure 54: autoscanenable and get autoscan status – output</p>
+<p><a class="reference internal" href="../../_images/image1510.png"><img alt="image31" src="../../_images/image1510.png" style="width: 7.41111in; height: 2.7875in;" /></a></p>
+<p>Figure 55: autoscanenable for SSIDs not in the vicinity of station –
+host console output</p>
+<p>Talaria TWO console log:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>scan start</p>
+<p>pssid:InnoPhase_AE:InnoPhase_AEFound 0 nets:</p>
+<p>in dualstack_autoscan_process: exit</p>
+<p>Dtx rate:{837(561),0(0),0(0),0(0),0(0),0(0),0(0),0(0)
+59(26),0(0),0(0),0(0),4(2),1(0),17(7),0(0)
+0(0),0(0),7(5),7(1),119(55),0(0),0(0),0(0)}</p>
+<p>ampdu:{0,0,0,0,0,0,0,0} sf:0.0 ba:0%(0%) to:8</p>
+<p>Drx rate:{286,0,0,0,0,0,0,0 0,0,0,0,0,0,0,0 0,0,0,0,4,7,23,13}</p>
+<p>mcs:{0(0,0),0(0,0),0(0,0),0(0,0),0(0,0),0(0,0),0(0,0),0(0,0)}
+no_mem:0/0 rx_idle:86755</p>
+<p>Drts: 81(54)</p>
+<p>Dlwip: 660(0/0/0)</p>
+<p>Dmem: heap:122336 page_faults:3825</p>
+<p>event:9in dualstack_autoscan_process: entry:122296:0:</p>
+<p>scan start</p>
+<p>pssid:InnoPhase_AE:InnoPhase_AEFound 0 nets:</p>
+<p>in dualstack_autoscan_process: exit</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="enable-connect-disconnect-callback">
+<h2>Enable Connect/Disconnect Callback<a class="headerlink" href="#enable-connect-disconnect-callback" title="Link to this heading"></a></h2>
+<section id="description-3">
+<span id="id11"></span><h3>Description<a class="headerlink" href="#description-3" title="Link to this heading"></a></h3>
+<p>This use case demonstrates invocation of callback function during
+connection and disconnection process with an Access Point.</p>
+</section>
+<section id="prerequisites-3">
+<span id="id12"></span><h3>Prerequisites<a class="headerlink" href="#prerequisites-3" title="Link to this heading"></a></h3>
+<p>Access Point configured with WPA/WPA2 personal security.</p>
+</section>
+<section id="command-description-3">
+<span id="id13"></span><h3>Command Description<a class="headerlink" href="#command-description-3" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Command</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>./conmgr connect &lt;SSID&gt;&lt;AP PWD&gt;</em></p></td>
+<td><p>Connect</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>./conmgr cbenable</em></p></td>
+<td><p>Callback enable</p></td>
+</tr>
+<tr class="row-even"><td><p><em>./conmgr disconnect</em></p></td>
+<td><p>Disconnect</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>./conmgr connect &lt;SSID&gt;&lt;AP PWD&gt;</em></p></td>
+<td><p>Connect</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="procedure-3">
+<span id="id14"></span><h3>Procedure<a class="headerlink" href="#procedure-3" title="Link to this heading"></a></h3>
+<p>Execute the following operations on the Talaria TWO:</p>
+<p><strong>Step 1</strong>: Connect to the desired network by providing SSID and
+passphrase.</p>
+<p><strong>Step 2:</strong> Enable callback.</p>
+<p><strong>Step 3</strong>: Disconnect from the network.</p>
+<p><strong>Step 4</strong>: Connect to the network.</p>
+</section>
+<section id="image32console-logs">
+<span id="console-logs-3"></span><h3><a class="reference internal" href="../../_images/image238.png"><img alt="image32" src="../../_images/image238.png" style="width: 1.14167in; height: 0.175in;" /></a>Console Logs<a class="headerlink" href="#image32console-logs" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image613.png"><img alt="image33" src="../../_images/image613.png" style="width: 7.48031in; height: 0.9198in;" /></a></p>
+<p>Figure 56: Disconnect - output</p>
+<p><a class="reference internal" href="../../_images/image238.png"><img alt="image34" src="../../_images/image238.png" style="width: 1.14167in; height: 0.175in;" /></a><a class="reference internal" href="../../_images/image320.png"><img alt="image35" src="../../_images/image320.png" style="width: 7.48031in; height: 0.94197in;" /></a></p>
+<p>Figure 57: Connect – output</p>
+<p>Talaria TWO console log:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>[1162.370,516]</p>
+<p>dualstack_wcm_notify:201:1[1162.371,762] DISCONNECTED</p>
+<p>event:24[1162.388,153]</p>
+<p>dualstack_wcm_notify:203:1</p>
+<p>event:22</p>
+<p>Disconnection callback</p>
+<p>[1174.265,374] CONNECT:98:da:c4:73:b7:76 Channel:2 rssi:-40 dBm</p>
+<p>[1174.340,947] MYIP 192.168.0.228</p>
+<p>[1174.341,114] IPv6 [fe80::e069:3aff:fe00:46e]-link</p>
+<p>event:16</p>
+<p>owcb:1:InnoPhase_AE_AP::1</p>
+<p>linkup:1</p>
+<p>Connection callback</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="firmware-upgrade-over-serial">
+<h2>Firmware Upgrade Over Serial<a class="headerlink" href="#firmware-upgrade-over-serial" title="Link to this heading"></a></h2>
+<section id="description-4">
+<span id="id15"></span><h3>Description<a class="headerlink" href="#description-4" title="Link to this heading"></a></h3>
+<p>This use case demonstrates firmware upgrade process from host to Talaria
+TWO via SPI/SDIO interface.</p>
+</section>
+<section id="prerequisites-4">
+<span id="id16"></span><h3>Prerequisites<a class="headerlink" href="#prerequisites-4" title="Link to this heading"></a></h3>
+<p>TFTP server on Linux machine.</p>
+</section>
+<section id="command-description-with-procedure">
+<h3>Command Description with Procedure<a class="headerlink" href="#command-description-with-procedure" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>On Linux console machine, open a terminal and issue the following
+command to put Talaria TWO into bootloader mode.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py –device /dev/ttyUSB2 –reset=evk42_bl</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="2">
+<li><p>Start openocd from the SDK root folder <em>(sdk_x.y\)</em>. This enables
+in-system programming on Talaria TWO.</p></li>
+</ol>
+<p>Command:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>openocd -s conf/ -f ftdi_swd.cfg -f t2_swd.cfg</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image168.png"><img alt="image36" src="../../_images/image168.png" style="width: 1.88333in; height: 0.225in;" /></a><a class="reference internal" href="../../_images/image1115.png"><img alt="image37" src="../../_images/image1115.png" style="width: 2.50833in; height: 0.20951in;" /></a> <a class="reference internal" href="../../_images/image177.png"><img alt="image38" src="../../_images/image177.png" style="width: 6.91528in; height: 2.58611in;" /></a></p>
+<p>Figure 58: In-system programming on Talaria TWO</p>
+<ol class="arabic simple" start="3">
+<li><p>In a separate terminal, start arden.py script from SDK root folder
+<em>(sdkx.y\)</em> on a new terminal:</p></li>
+</ol>
+<p>Command:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/arden.py ./apps/gordon-jtag/bin/gordon-jtag.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image168.png"><img alt="image39" src="../../_images/image168.png" style="width: 1.61417in; height: 0.1811in;" /></a><a class="reference internal" href="../../_images/image1115.png"><img alt="image40" src="../../_images/image1115.png" style="width: 2.17826in; height: 0.18194in;" /></a></p>
+</div></blockquote>
+<p><a class="reference internal" href="../../_images/image187.png"><img alt="image41" src="../../_images/image187.png" style="width: 6.97917in; height: 0.89097in;" /></a></p>
+<p>Figure 59: Start arden.py from SDK root folder</p>
+<ol class="arabic simple" start="4">
+<li><p>Run the script gdbrun.py from SDK root folder <em>(sdk_x.y\)</em> on a new
+terminal. Given a host with running OpenOCD and UART relay, gdbrun.py
+connects to host and loads/boots an ELF image.</p></li>
+</ol>
+<p>Command:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/gdbrun.py ./apps/gordon-jtag/bin/gordon-jtag.elf –noconsole
+–nowait</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="5">
+<li><p>Flash SSBL partition table and dual_stack_sdio.elf/dual_stack.elf to
+Talaria TWO using the following commands:</p>
+<ol class="loweralpha simple">
+<li><p>Invalidate the boot image.</p></li>
+</ol>
+</li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/flash.py –device localhost:10000 write 0x1000
+./solutions/dual_stack/firmware_upgrade_images/empty.img</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image168.png"><img alt="image42" src="../../_images/image168.png" style="width: 1.16667in; height: 0.12431in;" /></a><a class="reference internal" href="../../_images/image196.png"><img alt="image43" src="../../_images/image196.png" style="width: 1.49167in; height: 0.12459in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image207.png"><img alt="image44" src="../../_images/image207.png" style="width: 6.41111in; height: 0.42569in;" /></a></p>
+</div></blockquote>
+<p>Figure 60: Invalidate boot image – Terminal Output</p>
+<ol class="loweralpha simple" start="2">
+<li><p>Flash SSBL partition.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/flash.py –device localhost:10000 from_json
+./tools/partition_files/ssbl_part_table.json</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image168.png"><img alt="image45" src="../../_images/image168.png" style="width: 1.16667in; height: 0.12431in;" /></a><a class="reference internal" href="../../_images/image196.png"><img alt="image46" src="../../_images/image196.png" style="width: 1.49167in; height: 0.12459in;" /></a><a class="reference internal" href="../../_images/image2112.png"><img alt="image47" src="../../_images/image2112.png" style="width: 6.41111in; height: 0.34375in;" /></a></p>
+</div></blockquote>
+<p>Figure 61: Flash SSBL Partition - Terminal Output</p>
+<ol class="loweralpha simple" start="3">
+<li><p>Flash root filesystem.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/flash.py –device localhost:10000 write 0x180000
+./solutions/dual_stack/firmware_upgrade_images/root_sdio.img</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image168.png"><img alt="image48" src="../../_images/image168.png" style="width: 1.16667in; height: 0.12431in;" /></a><a class="reference internal" href="../../_images/image196.png"><img alt="image49" src="../../_images/image196.png" style="width: 1.49167in; height: 0.12459in;" /></a><a class="reference internal" href="../../_images/image2210.png"><img alt="image50" src="../../_images/image2210.png" style="width: 6.41111in; height: 0.4375in;" /></a></p>
+</div></blockquote>
+<p>Figure 62: Flash root filesystem – Termina output</p>
+<ol class="loweralpha simple" start="4">
+<li><p>Flash SSBL.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/flash.py –device localhost:10000 write 0x1000
+./apps/ssbl/fast_ssbl.img</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image168.png"><img alt="image51" src="../../_images/image168.png" style="width: 1.16667in; height: 0.12431in;" /></a><a class="reference internal" href="../../_images/image196.png"><img alt="image52" src="../../_images/image196.png" style="width: 1.49167in; height: 0.12459in;" /></a><a class="reference internal" href="../../_images/image239.png"><img alt="image53" src="../../_images/image239.png" style="width: 6.42847in; height: 0.46319in;" /></a></p>
+</div></blockquote>
+<p>Figure 63: Flash SSBL – Terminal Output</p>
+<ol class="loweralpha simple" start="5">
+<li><p>Flash Dual-Stack ELF.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/flash.py –device localhost:10000 write 0x20000
+./solutions/dual_stack/bin/dual_stack_sdio.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image168.png"><img alt="image54" src="../../_images/image168.png" style="width: 1.16667in; height: 0.12431in;" /></a><a class="reference internal" href="../../_images/image196.png"><img alt="image55" src="../../_images/image196.png" style="width: 1.49167in; height: 0.12459in;" /></a><a class="reference internal" href="../../_images/image245.png"><img alt="image56" src="../../_images/image245.png" style="width: 6.41111in; height: 0.44792in;" /></a></p>
+</div></blockquote>
+<p>Figure 64: Flash Dual-Stack ELF - Terminal Output</p>
+<ol class="arabic simple" start="6">
+<li><p>Using TFTP or SD card, copy the dual_stack_sdio.elf/dual_stack.elf
+from \solutions\dual_stack\bin\ folder to the lib\modules\
+folder on host using TFTP or SD card.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>tftp -g -r &lt;filename&gt; &lt;tftp server IP&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="7">
+<li><p>Start the tunadapter in the background.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./tunadapter &amp;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="8">
+<li><p>Start the firmware upgrade from host to Talaria TWO.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./conmgr &lt;fos&gt; &lt;elf_path&gt; &lt;hash&gt; &lt;auto_reset&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> Turn off Talaria TWO powersave before upgrading the firmware
+by using the command ./conmgr powersave 0.</p>
+</section>
+<section id="console-logs-4">
+<span id="id17"></span><h3>Console Logs<a class="headerlink" href="#console-logs-4" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image255.png"><img alt="image57" src="../../_images/image255.png" style="width: 1.66736in; height: 0.13958in;" /></a><a class="reference internal" href="../../_images/image255.png"><img alt="image58" src="../../_images/image255.png" style="width: 1.66736in; height: 0.13958in;" /></a><a class="reference internal" href="../../_images/image255.png"><img alt="image59" src="../../_images/image255.png" style="width: 1.12569in; height: 0.175in;" /></a><a class="reference internal" href="../../_images/image265.png"><img alt="image60" src="../../_images/image265.png" style="width: 7.3625in; height: 1.7125in;" /></a></p>
+<p>Figure 65: Firmware upgrade – output</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>[root&#64;:Aug30_Master]# ./tunadapter &amp;</p>
+<p>[root&#64;: Aug30_Master]# ./tunadapter: platform=&lt;host&gt;_SDIO</p>
+<p>Opening Serial device /dev/wlanSDIO0</p>
+<p>Speed=10000000</p>
+<p>[ 49.161440] sw_open</p>
+<p>hapi_recv_thread:943 DEBUG:recv thread entry</p>
+<p>wakeup gpio(gpio_63) conf success</p>
+<p>in hapi_wakeup_config. dev=/sys/class/gpio/gpio63/value</p>
+<p>wakeup_fd = 4</p>
+<p>hapi_config:1526 DEBUG:hapi_config. 14 1 0 0</p>
+<p>hapi_config:1586 DEBUG:before calling hio_query</p>
+<p>hapi_hio_query:352 DEBUG:Connected to T2, max packet size is 4092</p>
+<p>hapi_hio_query:353 DEBUG:Firmware version: , patch version</p>
+<p>hapi_hio_query:354 DEBUG:Hapi version: 1</p>
+<p>hapi_config:1588 DEBUG:after calling hio_query</p>
+<p>hapi init:start</p>
+<p>Registering Wake up Indication Handlers</p>
+<p>Registering Shutdown Indication Handlers</p>
+<p>hapi init:done</p>
+<p>dual_stack_status:688896:1:0</p>
+<p>dual_stack_ver:e4f2ebcd:SDK_2.6:1.0.05</p>
+<p>port:70-40000</p>
+<p>dual_stack_sockid:0:2:1</p>
+<p>Creating tun interface</p>
+<p>Initialising tun interface</p>
+<p>IP: 192.168.1.131</p>
+<p>Successfully connected to interface</p>
+<p>net.ipv4.ip_local_port_range = 70 40000</p>
+<p>cmd:ifconfig tun0 192.168.1.131 netmask 255.255.255.0</p>
+<p>ip set done</p>
+<p>Adding routing table entry:echo nameserver 192.168.1.1 &gt;
+/etc/resolv_ds.conf</p>
+<p>readlink() returned /etc/resolv_ds.conf</p>
+<p>Adding default route</p>
+<p>UDP socket create success</p>
+<p>ICMP Raw socket create success</p>
+<p>Regsitering WCM Indication Handlers</p>
+<p>waiting for data from tun….</p>
+<p>ptsname:/dev/pts/0</p>
+<p>[root&#64;:Aug30_Master]# ./conmgr fos ../dual_stack_sdio_qa.elf.strip
+99abbc2dfc424992ea38d6063504a3916c353150b689b975c1dd5c1ac7740dfd 1</p>
+<p>file size = 666592</p>
+<p>hapi_fos_start:96 DEBUG:req-&gt;image_size = 666592</p>
+<p>Waiting for Response</p>
+<p>FOS Start Success</p>
+<p>file size = 666592</p>
+<p>End of Reading t2 image file</p>
+<p>Firmware upgrade:success</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="wi-fi-provisioning-over-ble">
+<h2>Wi-Fi Provisioning over BLE<a class="headerlink" href="#wi-fi-provisioning-over-ble" title="Link to this heading"></a></h2>
+<section id="description-5">
+<span id="id18"></span><h3>Description<a class="headerlink" href="#description-5" title="Link to this heading"></a></h3>
+<p>Using the device provisioning feature, SSID and passphrase can be
+configured onto the device using the mobile application.</p>
+<p>For information on downloading and using the mobile application for
+device provisioning, refer section: <em>7.3 Running the Application using
+Android or iOS App</em>, of the document: Example_using_Provisioning.pdf
+(<em>sdk_x.y/examples\prov\doc</em>).</p>
+<p>Once the provisioning is complete, the configured SSID and passphrase is
+provided to the Host, which stores these parameters for further use.</p>
+</section>
+<section id="prerequisites-5">
+<span id="id19"></span><h3>Prerequisites<a class="headerlink" href="#prerequisites-5" title="Link to this heading"></a></h3>
+<p>Mobile application (BLE Provisioning) to provision the device.</p>
+</section>
+<section id="command-description-4">
+<span id="id20"></span><h3>Command Description<a class="headerlink" href="#command-description-4" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Command</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>./conmgr provstart</em></p></td>
+<td><p>Start provisioning</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>./conmgr waitforprovinfo</em></p></td>
+<td><p>Wait for the provisioned info</p></td>
+</tr>
+<tr class="row-even"><td><p><em>./conmgr provstop</em></p></td>
+<td><p>Stop provisioning</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>./conmgr provstart</em></p></td>
+<td><p>Start provisioning</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="procedure-4">
+<span id="id21"></span><h3>Procedure<a class="headerlink" href="#procedure-4" title="Link to this heading"></a></h3>
+<p><strong>Step 1</strong>: Initiate provisioning using ./conmgr provstart command</p>
+<p><strong>Note</strong>: ./conmgr waitforprovinfo should be passed immediately after
+./conmgr provstart command</p>
+<p><strong>Step 2</strong>: Wait for the user to provision the device. This can be
+achieved using the ./conmgr waitforprovinfo command</p>
+<p><strong>Step 3</strong>: Launch the InnophaseIoT mobile application on Android/iOS
+mobile and connect to the device</p>
+<p><strong>Step 4</strong>: Provide the appropriate SSID and passphrase on the mobile
+application</p>
+<p><strong>Step 5</strong>: If the right SSID and passphrase is provided, the same will
+be provided to the Host and ./conmgr waitforprovinfo command is executed</p>
+<p><strong>Step 6</strong>: Use ./conmgr provstop to stop provisioning as per
+requirement</p>
+</section>
+<section id="image61console-logs">
+<span id="console-logs-5"></span><h3><a class="reference internal" href="../../_images/image1115.png"><img alt="image61" src="../../_images/image1115.png" style="width: 1.49653in; height: 0.19167in;" /></a>Console Logs<a class="headerlink" href="#image61console-logs" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image1115.png"><img alt="image62" src="../../_images/image1115.png" style="width: 1.49653in; height: 0.19167in;" /></a><a class="reference internal" href="../../_images/image1115.png"><img alt="image63" src="../../_images/image1115.png" style="width: 1.49653in; height: 0.19167in;" /></a><a class="reference internal" href="../../_images/image275.png"><img alt="image64" src="../../_images/image275.png" style="width: 7.48056in; height: 2.97986in;" /></a></p>
+<p>Figure 66: Device provisioning</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWWWAE4 DWT comparators, range 0x8000</p>
+<p>Build</p>
+<p>hio.transport=0 ds.pf_method=2</p>
+<p>$App:git-0ec71a86</p>
+<p>SDK Ver: SDK_2.7_master</p>
+<p>DualStack App</p>
+<p>Serial-to-Wireless: Ready</p>
+<p>Registering dual stack apis</p>
+<p>Standard HIOs Enabled: fota fos prov</p>
+<p>Custom HIOs Enabled:</p>
+<p>gpio_ctrl custom_echo pir Registering pir apis</p>
+<p>chip_mon custom_mqtt [0.207,059] mqtt_ping_interval=60</p>
+<p>custom_n/w custom_wifi_connect rssi_monitor</p>
+<p>DualStack: Ready…</p>
+<p>dual_stack_param_getaddr e0:69:3a:00:0a:5a</p>
+<p>dual_stack_param_update</p>
+<p>store:::1</p>
+<p>linkup:0</p>
+<p>dual_stack_btinitBT HCI: Ready</p>
+<p>dual_stack_host_ready</p>
+<p>dual_stack_btinit</p>
+<p>[PROV] bt_gap_init</p>
+<p>[PROV] common_server_create: Inno_provisioning InnoPhase 0</p>
+<p>[PROV] bt_gatt_create_service_128 ret = 0x0008f650</p>
+<p>[PROV] Adding Characteristics</p>
+<p>[PROV] bt_gatt_add_service</p>
+<p>[PROV] bt_gap_discoverable_mode, ret = 0</p>
+<p>prov_event_thread_entry[13.386,045] BT connect[0]:
+ia:54:c5:dd:79:4d:ad aa:05:04:03:02:01:00 phy2:0/0 phyC:00</p>
+<p>[PROV]BLE connection success</p>
+<p>[ROV] prov_srv_fn_wifi_scan</p>
+<p>prov_event_thread_entry: msg-&gt;event = 1</p>
+<p>[PROV]203 : len = 11</p>
+<p>[PROV] WiFi scan: Found 6 networks</p>
+<p>[PROV]231 : wc.scan_rslts_len = 70</p>
+<p>[PROV]231 : wc.scan_rslts_len = 136</p>
+<p>[PROV]231 : wc.scan_rslts_len = 197</p>
+<p>[PROV]231 : wc.scan_rslts_len = 250</p>
+<p>[PROV]231 : wc.scan_rslts_len = 313</p>
+<p>[PROV]231 : wc.scan_rslts_len = 373</p>
+<p>[PROV]237 : len = 375</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 0</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=0 ,
+rslt_len=375</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 0 remaining_bytes = 375,
+copy_len = 18</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 18</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 18, scan_rslts_len = 375</p>
+<p>Sending</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=18 ,
+rslt_len=375</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 22 remaining_bytes = 357,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 40</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 40, scan_rslts_len = 375</p>
+<p>Sending</p>
+<p>:”innotest”,”bssid”:”c</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 44</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=40 ,
+rslt_len=375</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 44 remaining_bytes = 335,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 62</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 62, scan_rslts_len = 375</p>
+<p>Sending</p>
+<p>e:66:97:a2:74:ec”,”cha</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 66</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=62 ,
+rslt_len=375</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 66 remaining_bytes = 313,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 84</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 84, scan_rslts_len = 375</p>
+<p>Sending</p>
+<p>nnel”:6},{“ssid”:”DEN</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 88</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=84 ,
+rslt_len=375</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 88 remaining_bytes = 291,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 106</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 106, scan_rslts_len = 375</p>
+<p>Sending</p>
+<p>speaker.o,”,”bssid”:”f</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 110</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=106 ,
+rslt_len=375</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 110 remaining_bytes = 269,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 128</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 128, scan_rslts_len = 375</p>
+<p>Sending</p>
+<p>a:8f:ca:85:b6:69”,”cha</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 132</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=128 ,
+rslt_len=375</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 132 remaining_bytes = 247,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 150</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 150, scan_rslts_len = 375</p>
+<p>Sending</p>
+<p>nnel”:6},{“ssid”:”Mura</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 154</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=150 ,
+rslt_len=375</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 154 remaining_bytes = 225,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 172</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 172, scan_rslts_len = 375</p>
+<p>Sending</p>
+<p>li3G”,”bssid”:”8c:a3:9</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 176</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=172 ,
+rslt_len=375</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 176 remaining_bytes = 203,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 194</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 194, scan_rslts_len = 375</p>
+<p>Sending</p>
+<p>9:57:ef:b4”,”channel”:</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 198</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=194 ,
+rslt_len=375</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 198 remaining_bytes = 181,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 216</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 216, scan_rslts_len = 375</p>
+<p>Sending</p>
+<p>11},{“ssid”:””,”bssid”</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 220</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=216 ,
+rslt_len=375</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 220 remaining_bytes = 159,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 238</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 238, scan_rslts_len = 375</p>
+<p>Sending</p>
+<p>:”8e:a3:99:57:ef:b4”,”</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 242</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=238 ,
+rslt_len=375</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 242 remaining_bytes = 137,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 260</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 260, scan_rslts_len = 375</p>
+<p>Sending</p>
+<p>channel”:11},{“ssid”:”</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 264</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=260 ,
+rslt_len=375</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 264 remaining_bytes = 115,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 282</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 282, scan_rslts_len = 375</p>
+<p>Sending</p>
+<p>Mithrandir”,”bssid”:”0</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 286</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=282 ,
+rslt_len=375</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 286 remaining_bytes = 93,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 304</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 304, scan_rslts_len = 375</p>
+<p>Sending</p>
+<p>0:5f:67:f9:12:e4”,”cha</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 308</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=304 ,
+rslt_len=375</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 308 remaining_bytes = 71,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 326</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 326, scan_rslts_len = 375</p>
+<p>Sending</p>
+<p>nnel”:13},{“ssid”:”TP-</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 330</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=326 ,
+rslt_len=375</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 330 remaining_bytes = 49,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 348</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 348, scan_rslts_len = 375</p>
+<p>Sending</p>
+<p>LINK”,”bssid”:”b0:be:7</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 352</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=348 ,
+rslt_len=375</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 352 remaining_bytes = 27,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 370</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 370, scan_rslts_len = 375</p>
+<p>Sending</p>
+<p>6:67:c7:a5”,”channel”:</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 374</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=370 ,
+rslt_len=375</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 374 remaining_bytes = 5,
+copy_len = 5</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 375</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 375, scan_rslts_len = 375</p>
+<p>Sending</p>
+<p>11}]}</p>
+<p>scan_len is greaterthan index</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 0</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=0 , rslt_len=0</p>
+<p>[PROV] prov_wifi_scan_rslts_send : line = 257</p>
+<p>[PROV]prov_srv_fn_cfg_ssid:8 innotest</p>
+<p>[PROV]prov_conf_update: key = ssid, val = innotest</p>
+<p>[PROV]prov_conf_update: prov_json_object_update ret = 0</p>
+<p>[PROV]prov_conf_update: prov_json_object_update ret = 0</p>
+<p>prov_srv_fn_cfg_ssid : 1 0</p>
+<p>[PROV]prov_conf_update: key = passphrase, val = 1234567890</p>
+<p>[PROV]prov_conf_update: prov_json_object_update ret = 0</p>
+<p>[PROV]prov_conf_update: prov_json_object_update ret = 0</p>
+<p>prov_srv_fn_cfg_passphrase : 1 1</p>
+<p>prov_event_thread_entry: msg-&gt;event = 2</p>
+<p>ssid = innotest</p>
+<p>passphrase = 1234567890</p>
+<p>[PROV]Checking connectivity to…</p>
+<p>ssid = innotest passphrase = 1234567890</p>
+<p>network profile created for ssid: innotest</p>
+<p>[27.398,799] CONNECT:ce:66:97:a2:74:ec Channel:6 rssi:-53 dBm</p>
+<p>[PROV] prov_srv_fn_wifi_conn_state: data = waiting[33.014,922] MYIP
+172.20.10.2</p>
+<p>[33.015,085] IPv6 [fe80::e269:3aff:fe00:a5a]-link</p>
+<p>[33.015,149] IPv6 [2401:4900:4e5a:edaa:e269:3aff:fe00:a5a]</p>
+<p>prov_hio_data_cb</p>
+<p>Sending Packet, size=: 16</p>
+<p>prov_hio_data_cb</p>
+<p>Sending Packet, size=: 18</p>
+<p>[33.220,501] DISCONNECTED</p>
+<p>[PROV] prov_srv_fn_wifi_conn_state: data = success</p>
+<p>[PROV] prov_srv_fn_wifi_conn_state: data = success</p>
+<p>[ROV] prov_srv_fn_cfg_apply</p>
+<p>[PROV]prov_conf_set_provisioned 173</p>
+<p>[PROV]prov_conf_set_provisioned 197</p>
+<p>[PROV]prov_conf_data_apply:354</p>
+<p>[PROV]prov_conf_data_apply:357</p>
+<p>{</p>
+<p>“image”: [</p>
+<p>{</p>
+<p>“name”: “dual_stack_app”,</p>
+<p>“version”: “1.0”,</p>
+<p>“start_sector”: 32,</p>
+<p>“bootargs_start”: 1,</p>
+<p>“hio.transport”: “0”,</p>
+<p>“hio.maxsize”: “4096”,</p>
+<p>“hio.sdio_mhz”: “10”,</p>
+<p>“krn.coredump”: “1”,</p>
+<p>“krn.trace”: “R:0x3ff”,</p>
+<p>“krn.cop_error_fatal”: “1”,</p>
+<p>“ssid”: “innotest”,</p>
+<p>“passphrase”: “1234567890”,</p>
+<p>“bootargs_end”: 1</p>
+<p>},</p>
+<p>{</p>
+<p>“name”: “dual_stack_app”,</p>
+<p>“version”: “0.0”,</p>
+<p>“start_sector”: 208,</p>
+<p>“bootargs_start”: 1,</p>
+<p>“hio.transport”: “0”,</p>
+<p>“hio.maxsize”: “4096”,</p>
+<p>“hio.sdio_mhz”: “10”,</p>
+<p>“krn.coredump”: “1”,</p>
+<p>“krn.trace”: “R:0x3ff”,</p>
+<p>“krn.cop_error_fatal”: “1”,</p>
+<p>“ssid”: “innotest”,</p>
+<p>“passphrase”: “1234567890”,</p>
+<p>“bootargs_end”: 1</p>
+<p>}</p>
+<p>],</p>
+<p>“baudrate”: 2560000,</p>
+<p>“timeout”: 0,</p>
+<p>“verbose”: 1</p>
+<p>}</p>
+<p>[PROV]prov_conf_data_apply:362</p>
+<p>prov_hio_cb : status = 1</p>
+<p>prov_hio_data_cb</p>
+<p>Sending Packet, size=: 8</p>
+<p>prov_stop: Interface(Bit map) = 2</p>
+<p>dual_stack_btinitBT HCI: Ready</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

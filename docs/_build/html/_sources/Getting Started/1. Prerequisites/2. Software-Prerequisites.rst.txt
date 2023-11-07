@@ -1,0 +1,311 @@
+Following are the software prerequisites to get started:
+
+1. Windows/Linux PC
+
+2. Wi-Fi Access Point
+
+3. Minicom/TeraTerm VT Utility installed on PC (add a download link)
+
+4. SDK package
+
+Software Development Kit
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Download the Software Development Package (SDK)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To download the software development package, execute the following
+steps:
+
+1. Go to the InnoPhase website (https://innophaseiot.com/) and click on
+   Register.
+
+|A screenshot of a computer Description automatically generated|
+
+2. Provide the appropriate details to register onto the InnoPhase
+   Customer Portal.
+
+**Note**: InnoPhase requires a signed MNDA and Development Tool License
+Agreement (DTLA) to be signed prior to granting access to the Customer
+Portal.
+
+3. On successfully registering to the Customer Portal, the following
+   screen will appear:
+
+|image1|\ |image2|
+
+4. Navigate to the Software Tab and download the appropriate software
+   package(s):
+
+|image3|
+
+SDK Package Contents Walkthrough
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The FreeRTOS SDK software package (sdk_x.y.zip) provides software APIs
+with ready-to-run firmware examples to support quick evaluation and
+development of MQTT/HTTP/HTTPS/AWS and AZURE IoT Cloud applications with
+Talaria TWO.
+
+Folder details are as follows:
+
+1. **apps**: production ready example applications that the user can run
+   on Talaria TWO. Following applications are available in the release
+   package:
+
+.. table:: Table 1: Application in the release package
+
+   +-------------+--------------------------------------------------------+
+   | *           | **Description**                                        |
+   | *Protocol** |                                                        |
+   +=============+========================================================+
+   | alarm       | Describes alarm functionality in Talaria TWO           |
+   +-------------+--------------------------------------------------------+
+   | helloworld  | Basic helloworld application                           |
+   +-------------+--------------------------------------------------------+
+   | ssbl        | Demonstrates running and switching between multiple    |
+   |             | applications on Talaria TWO using SSBL                 |
+   +-------------+--------------------------------------------------------+
+   | stw_        | Serial to Wi-Fi application used in hosted mode of     |
+   | multi_proto | operation                                              |
+   +-------------+--------------------------------------------------------+
+   | gordon.elf  | Flashing utility using UART interface                  |
+   +-------------+--------------------------------------------------------+
+
+2. **binaries**: The product folder consists of firmware image for AT
+   commands.
+
+3. **bins**: Firmware images which can be used to understand the
+   protocols and functionality supported on Talaria TWO.
+
+4. **build**: Make configuration files. These files include linker
+   scripts and make file rules used for firmware configuration.
+
+5. **components**: Files which serve as common components which all
+   applications can make use of. It acts as a library, where an
+   application like HTTP, SNTP, etc., can link to this library and
+   directly use the function. The following protocols are available in
+   the components folder serving as a library for applications:
+
+   a. alarm
+
+   b. checksum
+
+   c. cipher
+
+   d. device_ifc
+
+   e. fota
+
+   f. http
+
+   g. json
+
+   h. mdns
+
+   i. mqtt
+
+   j. out
+
+   k. prov
+
+   l. secureboot
+
+   m. sntp
+
+   n. ssl_wrap
+
+   o. utils
+
+   p. websocket
+
+6. **conf**: Debugger configuration files.
+
+7. **doc**:
+
+The doc folder contains the following sub-folders:
+
+a. reference_guides
+
+   i.   api_reference_guide: API reference guide describes the
+        programmers APIs.
+
+   ii.  bootargs_reference_guide: Bootargs reference guide describes the
+        use of Talaria TWO boot arguments (bootargs) in different
+        scenarios using different feature and protocols.
+
+   iii. cli_reference_guide: CLI reference guide serves as a reference
+        guide for Talaria TWO CLI commands, its usage, use case or
+        examples in different scenarios supported by Talaria TWO
+        modules.
+
+b. user_guides
+
+   i.    ug_evb_a: Talaria TWO Evaluation Board an overview of the
+         evaluation board explaining its key features and functions
+
+   ii.   ug_eclipse_setup_windows: Eclipse setup in Windows describes
+         developing an application using Eclipse and Talaria TWO SDK
+
+   iii.  ug_eclipse_setup_linux: Eclipse setup in Linux describes the
+         procedure to build and debug an application on Eclipse IDE
+         using Talaria TWO SDK
+
+   iv.   ug_env_setup_linux: Environment set-up with Talaria TWO for
+         Linux describes setting up the development environment for
+         Talaria TWO\ :sup:`TM` SDK on an Ubuntu VirtualBox with a
+         Windows 10 host
+
+   v.    ug_wsl: Windows Subsystem for Linux describes developing an
+         application using Windows Subsystem for Linux (WSL) and Talaria
+         TWO SDK
+
+   vi.   ug_coredump_generation_and_anaysis: Coredump generation and
+         analysis describes generating a coredump file used for
+         analyzing the cause of the crash.
+
+   vii.  ug_debugging_using_gdb: Debugging using GDB describes the
+         procedure for debugging the applications using GDB to work with
+         OpenOCD
+
+   viii. porting_guide_innoos_to_freeRTOS: Porting guide describes the
+         procedure to port InnoOS code to FreeRTOS.
+
+   ix.   ug_firmware_sdk: Firmware SDK user guide describes developing
+         applications for the Talaria TWO device.
+
+   x.    ug_memory_mapping: Memory mapping describes the flash memory
+         mapping of standard applications with details on the flash
+         memory layout.
+
+8. **examples**: Demo/sample applications that the user can run on
+   Talaria TWO firmware. Following examples are available:
+
+.. table:: Table 2: Example applications
+
+   +-------------+--------------------------------------------------------+
+   | *           | **Description**                                        |
+   | *Protocol** |                                                        |
+   +=============+========================================================+
+   | at          | Demonstrates custom AT commands which the user can use |
+   | _custom_cmd | apart from the standard commands                       |
+   +-------------+--------------------------------------------------------+
+   | ble_beacons | Example codes describing the basic concept of          |
+   |             | Eddystone Beacon                                       |
+   |             |                                                        |
+   |             | -  Eddystone UID                                       |
+   |             |                                                        |
+   |             | -  Eddystone URL                                       |
+   |             |                                                        |
+   |             | -  Eddystone TLM                                       |
+   +-------------+--------------------------------------------------------+
+   | ble_        | Example code for receiving a text message from a       |
+   | wifi_bridge | connected BLE client and publishing it to a CloudMQTT  |
+   |             | broker                                                 |
+   +-------------+--------------------------------------------------------+
+   | c           | Describes the application for fetching the changes in  |
+   | hip_monitor | the values of device core temperature, Voltage of      |
+   |             | VBAT, external ADC and estimated current consumption   |
+   |             | of Talaria TWO device                                  |
+   +-------------+--------------------------------------------------------+
+   | cra         | Example code for using the crash handler API to handle |
+   | sh_handling | and debug error cases                                  |
+   +-------------+--------------------------------------------------------+
+   | gpio        | Example codes to use the GPIO interface. the interface |
+   |             | for GPIO                                               |
+   +-------------+--------------------------------------------------------+
+   | http_client | Example codes for using HTTP client APIs to connect to |
+   |             | HTTP servers in secured (HTTPS) and non-secured way    |
+   +-------------+--------------------------------------------------------+
+   | i2c         | Demonstrates usage of I2C on Talaria TWO               |
+   +-------------+--------------------------------------------------------+
+   | ifttt       | Example application for using Talaria TWO with IFTTT   |
+   +-------------+--------------------------------------------------------+
+   | lp_scan     | Demonstrates the basics of the Low Power Wi-Fi scan    |
+   |             | feature                                                |
+   +-------------+--------------------------------------------------------+
+   | mdns        | Demonstrates using the mDNS APIs provided by the mDNS  |
+   |             | module                                                 |
+   +-------------+--------------------------------------------------------+
+   | mqtt        | Example codes for using the publish/subscribe          |
+   |             | operation of MQTT in both secured and non-secured      |
+   |             | modes                                                  |
+   +-------------+--------------------------------------------------------+
+   | prov        | A demo Provisioning application using BLE for          |
+   |             | provisioning AP credentials at Talaria TWO from a      |
+   |             | mobile application                                     |
+   +-------------+--------------------------------------------------------+
+   | s           | Example application for reading and writing encrypted  |
+   | ecure_files | files from/to the filesystem                           |
+   +-------------+--------------------------------------------------------+
+   | unassoc     | Example codes describing Wi-Fi un-associated mode      |
+   |             | transmission APIs available in the SDK, call-back      |
+   |             | events, notifications and associated data structures   |
+   +-------------+--------------------------------------------------------+
+   | using_ble   | Introduction to BLE APIs through code samples          |
+   |             | consisting of a server and client application          |
+   +-------------+--------------------------------------------------------+
+   | using       | Demonstrates using the filesystem APIs to show case    |
+   | _filesystem | the filesystem functionalities on the Talaria TWO EVK  |
+   +-------------+--------------------------------------------------------+
+   | using_sntp  | Demonstrates fetching time from NTP server using SNTP  |
+   +-------------+--------------------------------------------------------+
+   | using_wifi  | Example codes describing the Wi-Fi connection manager  |
+   |             | APIs                                                   |
+   +-------------+--------------------------------------------------------+
+   | wat         | Demonstrates managing Talaria TWO watchdog timer using |
+   | chdog_timer | the functions provided by the watchdog driver          |
+   +-------------+--------------------------------------------------------+
+   | wcm_pm      | Demonstrates the Wi-Fi Connection Manager power        |
+   |             | management APIs                                        |
+   +-------------+--------------------------------------------------------+
+   | websocket   | Demonstrates using the WebSocket client APIs provided  |
+   |             | by the WebSocket module                                |
+   +-------------+--------------------------------------------------------+
+
+9.  **FreeRTOS-Kernel**: FreeRTOS include files.
+
+10. **include**: SDK include files (.h files) for all
+    applications/examples in the release package.
+
+11. **libs**: SDK library files which can be used by all
+    applications/examples.
+
+12. **pc_tools**: Programming (Download) tool and Multi-Purpose Demo
+    tool (available for both Windows and Linux platforms).
+
+13. **root_fs**: Contains the filesystem image.
+
+14. **script**: Helper scripts/utilities used to achieve multiple
+    functionalities like program, read, write and so on.
+
+15. **tools**: Certain tools, supporting files and scripts are used for
+    development on Talaria TWO. This directory further contains the
+    following directories:
+
+    a. fcc_test – tool used for Wi-Fi/BLE testing and to set up required
+       test parameters.
+
+    b. fletcher32 - tool used to create checksum files for checking the
+       integrity of the configuration files. Currently part.json,
+       boot.json and fota_config.json files’ integrity is checked using
+       the checksum.
+
+    c. mklittlefs - tool used to create the file system image.
+
+    d. partition_files - flash partition files used with SSBL setup
+       (ssbl_part_table.json) and without SSBL setup
+       (standard_part_table.json).
+
+.. |A screenshot of a computer Description automatically generated| image:: media/image1.png
+   :width: 5.90551in
+   :height: 2.5654in
+.. |image1| image:: media/image2.png
+   :width: 0.53778in
+   :height: 0.12222in
+.. |image2| image:: media/image3.png
+   :width: 5.90551in
+   :height: 2.55874in
+.. |image3| image:: media/image4.png
+   :width: 5.90551in
+   :height: 2.65093in

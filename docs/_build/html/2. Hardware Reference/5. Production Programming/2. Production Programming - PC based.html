@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Production Programming &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Production Programming</a><ul>
+<li><a class="reference internal" href="#pc-based-programming">PC-based Programming</a><ul>
+<li><a class="reference internal" href="#uart-based-programming">UART-based Programming</a></li>
+<li><a class="reference internal" href="#swd-based-programming">SWD-based Programming</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Production Programming</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/2. Hardware Reference/5. Production Programming/2. Production Programming - PC based.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="production-programming">
+<h1>Production Programming<a class="headerlink" href="#production-programming" title="Link to this heading"></a></h1>
+<section id="pc-based-programming">
+<h2>PC-based Programming<a class="headerlink" href="#pc-based-programming" title="Link to this heading"></a></h2>
+<p>There are two ways in which the module can be programmed using the PC:</p>
+<ol class="arabic simple">
+<li><p>UART-based programming</p></li>
+<li><p>SWD-based programming</p></li>
+</ol>
+<section id="uart-based-programming">
+<h3>UART-based Programming<a class="headerlink" href="#uart-based-programming" title="Link to this heading"></a></h3>
+<p>To perform UART-based programming, the module must be connected to the
+PC with 6 pins listed in Table 10.</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Table 10: UART Programming PIN-OUT</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>PINS</strong></p></th>
+<th class="head"><p><strong>PIN DETAILS</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>GND</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>EN_CHIP/RST</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>TXD</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>RXD</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>GPIO17/CONSOLE</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>GND</p></td>
+</tr>
+</tbody>
+</table>
+<p>The block diagram for the same is discussed in Figure 13 and the
+schematics can be extracted from the evaluation board schematics listed
+on the InnoPhase IoT website:
+<a class="reference external" href="https://innophaseiot.com/wp-content/uploads/modules/INP301x-EVB-A-Schematics.pdf">https://innophaseiot.com/wp-content/uploads/modules/INP301x-EVB-A-Schematics.pdf</a>.</p>
+<p><a class="reference internal" href="../../_images/image127.png"><img alt="Graphical user interface Description automatically generated" src="../../_images/image127.png" style="width: 0.59595in; height: 0.575in;" /></a><a class="reference internal" href="../../_images/image23.jpeg"><img alt="Diagram Description automatically generated" src="../../_images/image23.jpeg" style="width: 7.48031in; height: 3.4863in;" /></a></p>
+<p>Figure 13: UART-based Programming</p>
+<p>In case of a custom application board, it is recommended to use the
+INP3000 programmer board to program the module. The INP3000 programmer
+board comes with a Molex cable part number 151340601 (<em>PicoBlade
+Female-to-PicoBlade Female Off-the-Shelf (OTS) Cable Assembly</em>).</p>
+<p>The mating connector for the same is 532610671 Pitch 1.25mm, (<em>PicoBlade
+PCB Header, Single Row, Right-Angle, Surface mount, Tin (Sn) Plating,
+Friction Lock, 6 Circuits</em>).</p>
+<p><a class="reference internal" href="../../_images/image318.png"><img alt="A close-up of a cable Description automatically generated" src="../../_images/image318.png" style="width: 3.14961in; height: 1.87549in;" /></a></p>
+<p>Figure 14: Molex cable part number 151340601</p>
+<p><a class="reference internal" href="../../_images/image416.png"><img alt="image1" src="../../_images/image416.png" style="width: 3.14961in; height: 2.11003in;" /></a></p>
+<p>Figure 15: Mating connector part number 532610671</p>
+<p><a class="reference internal" href="../../_images/image517.png"><img alt="Diagram Description automatically generated with medium confidence" src="../../_images/image517.png" style="width: 7.48031in; height: 2.1966in;" /></a></p>
+<p>Figure 16: Programming Cable PIN-OUTs J7</p>
+</section>
+<section id="swd-based-programming">
+<h3>SWD-based Programming<a class="headerlink" href="#swd-based-programming" title="Link to this heading"></a></h3>
+<p>To perform SWD-based programming, the module must be connected as shown
+in Figure 18.</p>
+<p><a class="reference internal" href="../../_images/image66.png"><img alt="image2" src="../../_images/image66.png" style="width: 7.48031in; height: 3.26392in;" /></a></p>
+<p>Figure 18: SWD-based programming</p>
+<p>In case of a custom application board, it is recommended to use the
+INP3000 programmer board to program the module. The INP3000 programmer
+board comes with a 10 pin 1.27mm connector on board with part number
+3221-10-0100-00. The mating cable part number for SWD is 1528-2009-ND
+Digikey.</p>
+<p>The connector on the INP3000 board is a 10-pin connector with the
+following connector details:</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Table 11: SWD programming PIN-OUT</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>PINS</strong></p></th>
+<th class="head"><p><strong>PIN DETAILS</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>VCC (If VCC required from INP3000
+board)</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>SWDIO/ GPIO19</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>GND</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>SWCLK/ GPIO18</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>GND</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>NC</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>GPIO17/CONSOLE</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>NC</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>GND</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>EN_CHIP/RST</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image75.png"><img alt="image3" src="../../_images/image75.png" style="width: 7.48031in; height: 3.0208in;" /></a></p>
+<p>Figure 19: SWD Connector on the application board</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

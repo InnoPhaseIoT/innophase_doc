@@ -1,0 +1,81 @@
+Talaria TWO SDK Package 
+------------------------
+
+Download the latest SDK package from the InnoPhase IoT website by
+following the subsequent steps:
+
+1. Go to the InnoPhase IoT website (https://innophaseiot.com/) and click
+   on Register.
+
+|image1|
+
+Figure 1: InnoPhase IoT website
+
+2. Provide the appropriate details to register onto the InnoPhase IoT
+   Customer Portal.
+
+**Note**: InnoPhase IoT requires a signed MNDA and Development Tool
+License Agreement (DTLA) to be signed prior to granting access to the
+Customer Portal.
+
+3. On successfully registering to the Customer Portal, the following
+   screen will appear:
+
+|image2|\ |A screenshot of a computer Description automatically
+generated|
+
+Figure 2: Customer portal registration
+
+4. Navigate to the Software Tab and download the appropriate software
+   package(s):
+
+|image3|
+
+Figure 3: Software tab
+
+**Package Contents:**
+
+The package includes dual_stack folder (Path:
+*sdk_x.y\\solutions\\dual_stack*).
+
+**Note**: x and y in sdk_x.y refers to the SDK release version.
+
+The dual_stack folder contains the following:
+
+1. docs:
+
+Readme which includes details of Files and folders of Talaria TWO
+Dual-Stack solution.
+
+2. bin:
+
+Pre-built binaries (dualstack.elf and dualstack_sdio.elf).
+
+3. src:
+
+Source code of Dual-Stack, and custom groups.
+
+4. lib:
+
+Dual-Stack library/source.
+
+5. fs:
+
+Contains json files.
+
+6. firmware_upgrade_images:
+
+Root files.
+
+.. |image1| image:: media/image1.png
+   :width: 7.08661in
+   :height: 3.07848in
+.. |image2| image:: media/image2.png
+   :width: 0.53778in
+   :height: 0.12222in
+.. |A screenshot of a computer Description automatically generated| image:: media/image3.png
+   :width: 7.08661in
+   :height: 3.07049in
+.. |image3| image:: media/image4.png
+   :width: 7.08661in
+   :height: 3.18112in

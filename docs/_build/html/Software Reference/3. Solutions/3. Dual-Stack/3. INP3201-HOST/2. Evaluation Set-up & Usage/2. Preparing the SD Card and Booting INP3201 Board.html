@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preparing the SD Card and Booting INP3201 Board &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../../../../about.html" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="Programming Talaria TWO" href="3.%20Programming%20Talaria%20TWO.html" />
+    <link rel="prev" title="Evaluation Set-up &amp; Usage" href="1.%20Evaluation%20Set-up%20%26%20Usage%20-%20Landing%20Page.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../../../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../Support/Support.html">Support</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../Software_Reference_Landing_Page.html">Software Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../Software_Reference_Landing_Page.html#libraries">Libraries</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../Software_Reference_Landing_Page.html#solutions">Solutions</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../Solutions%20-%20Landing%20Page.html">AT Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Solutions%20-%20Landing%20Page.html#stw-multi-proto">STW Multi-Proto</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../Solutions%20-%20Landing%20Page.html#dual-stack">Dual stack</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../Dual-Stack%20-%20Landing%20Page.html">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../Dual-Stack%20-%20Landing%20Page.html#connetion-manager">Connetion manager</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../Dual-Stack%20-%20Landing%20Page.html#inp3201-host">INP3201-HOST</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../Software_Reference_Landing_Page.html#cloud-frameworks">Cloud Frameworks</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../Tools/Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../Software_Reference_Landing_Page.html">Software Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../../Solutions%20-%20Landing%20Page.html">AT Commands</a></li>
+          <li class="breadcrumb-item"><a href="../../Dual-Stack%20-%20Landing%20Page.html">Overview</a></li>
+          <li class="breadcrumb-item"><a href="1.%20Evaluation%20Set-up%20%26%20Usage%20-%20Landing%20Page.html">Evaluation Set-up &amp; Usage</a></li>
+      <li class="breadcrumb-item active">Preparing the SD Card and Booting INP3201 Board</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/Software Reference/3. Solutions/3. Dual-Stack/3. INP3201-HOST/2. Evaluation Set-up &amp; Usage/2. Preparing the SD Card and Booting INP3201 Board.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="preparing-the-sd-card-and-booting-inp3201-board">
+<h1>Preparing the SD Card and Booting INP3201 Board<a class="headerlink" href="#preparing-the-sd-card-and-booting-inp3201-board" title="Permalink to this heading"></a></h1>
+<p><strong>Note</strong>: The following steps need to be executed when booting the board
+for the very first time.</p>
+<ol class="arabic simple">
+<li><p>Using a 16GB or 32GB SDCARD, connect to a Linux PC/LAPTOP using a
+card reader.</p></li>
+<li><p>Create a new FAT partition in SDCARD – sdcard is enumerated as
+/dev/sda</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>sudo fdisk /dev/sda</p>
+<p>//For creating a new partition type n</p>
+<p>Command (m for help): n &lt;enter&gt;</p>
+<p>//Select default primary partition</p>
+<p>Select (p(default) - primary (1 primary, 0 extended, 3 free),</p>
+<p>e – extended(container for logical partitions)): &lt;enter&gt;</p>
+<p>//Use default partition number 1</p>
+<p>Partition number (1 - 4, default 1): &lt;enter&gt;</p>
+<p>First sector (2048 – 62333951, default 2048): &lt;enter&gt;</p>
+<p>Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048 – 62333951,
+default 62333951): &lt;enter&gt;</p>
+<p>//Created a new partition 1 of ‘Linux’ and size of 29.7 GiB.</p>
+<p>//For writing the changes to SDCARD type w</p>
+<p>Command (m for help): w &lt;enter&gt;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../../../../_images/image189.png"><img alt="image1" src="../../../../../_images/image189.png" style="width: 1.01875in; height: 0.14375in;" /></a><a class="reference internal" href="../../../../../_images/image189.png"><img alt="image2" src="../../../../../_images/image189.png" style="width: 1.01875in; height: 0.14375in;" /></a><a class="reference internal" href="../../../../../_images/image249.png"><img alt="A screenshot of a computer program Description automatically generated with medium confidence" src="../../../../../_images/image249.png" style="width: 6.96736in; height: 3.55069in;" /></a></p>
+<p>Figure 5: Create a new FAT partition</p>
+<ol class="arabic simple" start="3">
+<li><p>Create FAT filesystem on this new partition</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>sudo mkfs.vfat /dev/sda1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../../../../_images/image189.png"><img alt="image3" src="../../../../../_images/image189.png" style="width: 1.01875in;" /></a><a class="reference internal" href="../../../../../_images/image326.png"><img alt="image4" src="../../../../../_images/image326.png" style="width: 6.96875in; height: 0.24028in;" /></a></p>
+<p>Figure 6: Create FAT filesystem</p>
+<ol class="arabic simple" start="4">
+<li><p>Copy the pre-built MMC u-boot image given in the T31ZX SDK to SDCARD</p></li>
+</ol>
+<p>SDK u-boot path:
+<em>T31ZX_files/T31ZX-Battery-Camera/NDA/SDK/firmware/sdcard_uboot</em></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>sudo dd if=t31z_sdcard_uboot_uart1_v1.bin of=/dev/sda1 bs=1024
+seek=17</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../../../../_images/image189.png"><img alt="image5" src="../../../../../_images/image189.png" style="width: 1.01875in; height: 0.16042in;" /></a><a class="reference internal" href="../../../../../_images/image189.png"><img alt="image6" src="../../../../../_images/image189.png" style="width: 1.01875in;" /></a><a class="reference internal" href="../../../../../_images/image189.png"><img alt="image7" src="../../../../../_images/image189.png" style="width: 1.01875in;" /></a><a class="reference internal" href="../../../../../_images/image424.png"><img alt="image8" src="../../../../../_images/image424.png" style="width: 0.42639in;" /></a><a class="reference internal" href="../../../../../_images/image424.png"><img alt="image9" src="../../../../../_images/image424.png" style="width: 0.42639in;" /></a><a class="reference internal" href="../../../../../_images/image424.png"><img alt="image10" src="../../../../../_images/image424.png" style="width: 0.42639in;" /></a><a class="reference internal" href="../../../../../_images/image424.png"><img alt="image11" src="../../../../../_images/image424.png" style="width: 0.42639in;" /></a><a class="reference internal" href="../../../../../_images/image424.png"><img alt="image12" src="../../../../../_images/image424.png" style="width: 0.42639in;" /></a><a class="reference internal" href="../../../../../_images/image518.png"><img alt="A picture containing text, screenshot, font Description automatically generated" src="../../../../../_images/image518.png" style="width: 6.96875in; height: 1.10833in;" /></a></p>
+<p>Figure 7: Pre-build MMC u-boot image</p>
+<ol class="arabic simple" start="5">
+<li><p>Insert the SD card into the SD card slot of INP3201. Power ON the
+INP3201 by pressing the boot-select button to boot the uboot</p></li>
+</ol>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1.%20Evaluation%20Set-up%20%26%20Usage%20-%20Landing%20Page.html" class="btn btn-neutral float-left" title="Evaluation Set-up &amp; Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3.%20Programming%20Talaria%20TWO.html" class="btn btn-neutral float-right" title="Programming Talaria TWO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

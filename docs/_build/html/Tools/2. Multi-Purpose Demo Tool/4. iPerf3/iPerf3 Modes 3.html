@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UDP Throughput Test Downlink &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../../about.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Software%20Reference/Software_Reference_Landing_Page.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">UDP Throughput Test Downlink</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/Tools/2. Multi-Purpose Demo Tool/4. iPerf3/iPerf3 Modes 3.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>Select the iPerf3 tab on the Demo tool GUI to automatically load the
+signed firmware image for iPerf3 application.</p>
+<p>The following sections provide information on the different modes in
+which the iPerf3 application can be used along with their respective
+outputs.</p>
+<section id="udp-throughput-test-downlink">
+<h1>UDP Throughput Test Downlink<a class="headerlink" href="#udp-throughput-test-downlink" title="Permalink to this heading"></a></h1>
+<p>Console output of UDP Downlink test:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWWAEBuild $Id: git-e31bdbe13 $</p>
+<p>krn.gpio=–K suspend=1 np_conf_path=/data/nprofile.json
+ssid=InnoPhase passphrase=43083191</p>
+<p>addr e0:69:3a:00:2c:42</p>
+<p>[0.690,936] CONNECT:b0:39:56:93:83:31 Channel:6 rssi:-47 dBm</p>
+<p>[0.732,813] MYIP 192.168.1.131</p>
+<p>[0.732,977] IPv6 [fe80::e269:3aff:fe00:2c42]-link</p>
+<p>IPerf3 server &#64; 192.168.1.131</p>
+<p>Iperf3 TCP/UDP server listening on 5201</p>
+<p>Accepted connection from 192.168.1.124 port 47552</p>
+<p>[ 1] local 192.168.1.131 port 20756 connected to 192.168.1.124 port
+34976</p>
+<p>RSSI start: -46 dBm</p>
+<p>RSSI end: -48 dBm</p>
+<p>[ ID] Interval Transfer Bitrate</p>
+<p>[ 1] iperf3[S-RX-udp]: 0.0-30 sec 106.4 MBytes 29.7 Mbits/sec</p>
+<p>User: 23606574 (78%)</p>
+<p>IRQ: 2906897 (9%)</p>
+<p>Idle: 3489850 (11%)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Windows console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>C:Users\InnoP\Downloads\iperf-3.1.3-win64\iperf-3.1.3-win64&gt;iperf3
+-c 192.168.1.131 -u -b30M -i1 -t30</p>
+<p>Connecting to host 192.168.1.131, port 5201</p>
+<p>[ 5] local 192.168.1.124 port 34976 connected to 192.168.1.131 port
+5201</p>
+<p>[ ID] Interval Transfer Bitrate Total Datagrams</p>
+<p>[ 5] 0.00-1.00 sec 3.57 MBytes 30.0 Mbits/sec 2567</p>
+<p>[ 5] 1.00-2.00 sec 3.58 MBytes 30.0 Mbits/sec 2568</p>
+<p>[ 5] 2.00-3.00 sec 3.58 MBytes 30.0 Mbits/sec 2569</p>
+<p>[ 5] 3.00-4.00 sec 3.58 MBytes 30.0 Mbits/sec 2568</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>[ 5] 24.00-25.00 sec 3.58 MBytes 30.0 Mbits/sec 2569</p>
+<p>[ 5] 25.00-26.00 sec 3.58 MBytes 30.0 Mbits/sec 2568</p>
+<p>[ 5] 26.00-27.00 sec 3.58 MBytes 30.0 Mbits/sec 2569</p>
+<p>[ 5] 27.00-28.00 sec 3.58 MBytes 30.0 Mbits/sec 2568</p>
+<p>[ 5] 28.00-29.00 sec 3.58 MBytes 30.0 Mbits/sec 2569</p>
+<p>[ 5] 29.00-30.00 sec 3.58 MBytes 30.0 Mbits/sec 2569</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>[ ID] Interval Transfer Bitrate Jitter Lost/Total Datagrams</p>
+<p>[ 5] 0.00-30.00 sec 107 MBytes 30.0 Mbits/sec 0.000 ms 0/77054 (0%)
+sender</p>
+<p>[ 5] 0.00-30.00 sec 106 MBytes 29.8 Mbits/sec 0.000 ms 634/77054
+(0.82%) receiver</p>
+<p>iperf Done.</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="udp-throughput-test-uplink">
+<h1>UDP Throughput Test Uplink<a class="headerlink" href="#udp-throughput-test-uplink" title="Permalink to this heading"></a></h1>
+<p>Console output for UDP throughput uplink test:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Iperf3 TCP/UDP server listening on 5201</p>
+<p>Accepted connection from 192.168.1.124 port 47568</p>
+<p>[ 1] local 192.168.1.131 port 20756 connected to 192.168.1.124 port
+39126</p>
+<p>RSSI start: -47 dBm</p>
+<p>RSSI end: -49 dBm</p>
+<p>[ ID] Interval Transfer Bitrate</p>
+<p>[ 1] iperf3[S-TX-udp]: 0.0-30 sec 48.8 MBytes 13.6 Mbits/sec</p>
+<p>User: 10874781 (36%)</p>
+<p>IRQ: 1501611 (5%)</p>
+<p>Idle: 17631727 (58%)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Windows console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>C:\Users\InnoP\Downloads\iperf-3.1.3-win64\iperf-3.1.3-win64&gt;
+iperf3 -c 192.168.1.131 -u -b30M -i1 -t30 -R</p>
+<p>Connecting to host 192.168.1.131, port 5201</p>
+<p>Reverse mode, remote host 192.168.1.131 is sending</p>
+<p>[ 5] local 192.168.1.124 port 39126 connected to 192.168.1.131 port
+5201</p>
+<p>[ ID] Interval Transfer Bitrate Jitter Lost/Total Datagrams</p>
+<p>[ 5] 0.00-1.00 sec 2.62 MBytes 22.0 Mbits/sec 0.605 ms 0/1881 (0%)</p>
+<p>[ 5] 1.00-2.00 sec 2.62 MBytes 21.9 Mbits/sec 1.475 ms 0/1879 (0%)</p>
+<p>[ 5] 2.00-3.00 sec 1.26 MBytes 10.6 Mbits/sec 1.434 ms 0/907 (0%)</p>
+<p>[ 5] 3.00-4.00 sec 1.74 MBytes 14.6 Mbits/sec 0.773 ms 0/1247 (0%)</p>
+<p>[ 5] 4.00-5.00 sec 1.36 MBytes 11.4 Mbits/sec 0.828 ms 0/976 (0%)</p>
+<p>[ 5] 5.00-6.00 sec 1.76 MBytes 14.7 Mbits/sec 1.314 ms 0/1262 (0%)</p>
+<p>[ 5] 6.00-7.00 sec 1.63 MBytes 13.7 Mbits/sec 0.931 ms 0/1173 (0%)</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>[ 5] 26.00-27.00 sec 1.53 MBytes 12.8 Mbits/sec 1.512 ms 0/1096 (0%)</p>
+<p>[ 5] 27.00-28.00 sec 1.59 MBytes 13.3 Mbits/sec 1.299 ms 0/1142 (0%)</p>
+<p>[ 5] 28.00-29.00 sec 1.53 MBytes 12.8 Mbits/sec 1.160 ms 0/1097 (0%)</p>
+<p>[ 5] 29.00-30.00 sec 1.57 MBytes 13.2 Mbits/sec 1.988 ms 0/1128 (0%)</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>[ ID] Interval Transfer Bitrate Jitter Lost/Total Datagrams</p>
+<p>[ 5] 0.00-30.00 sec 48.9 MBytes 13.7 Mbits/sec 0.000 ms 0/35102 (0%)
+sender</p>
+<p>[ 5] 0.00-30.00 sec 48.8 MBytes 13.6 Mbits/sec 1.988 ms 0/35022 (0%)
+receiver</p>
+<p>iperf Done.</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tcp-throughput-test-downlink">
+<h1>TCP Throughput Test Downlink<a class="headerlink" href="#tcp-throughput-test-downlink" title="Permalink to this heading"></a></h1>
+<p>Console output of TCP Throughput Downlink test:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Iperf3 TCP/UDP server listening on 5201</p>
+<p>Accepted connection from 192.168.1.124 port 47556</p>
+<p>[ 1] local 192.168.1.131 port 5201 connected to 192.168.1.124 port
+47558</p>
+<p>RSSI start: -47 dBm</p>
+<p>RSSI end: -48 dBm</p>
+<p>[ ID] Interval Transfer Bitrate</p>
+<p>[ 1] iperf3[S-RX-tcp]: 0.0-30 sec 84.8 MBytes 23.7 Mbits/sec</p>
+<p>User: 26877186 (88%)</p>
+<p>IRQ: 3241560 (10%)</p>
+<p>Idle: 124208 (0%)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Windows console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>C:Users\InnoP\Downloads\iperf-3.1.3-win64\iperf-3.1.3-win64&gt;iperf3
+-c 192.168.1.131 -i1 -t30</p>
+<p>Connecting to host 192.168.1.131, port 5201</p>
+<p>[ 5] local 192.168.1.124 port 47558 connected to 192.168.1.131 port
+5201</p>
+<p>[ ID] Interval Transfer Bitrate Retr Cwnd</p>
+<p>[ 5] 0.00-1.00 sec 3.14 MBytes 26.3 Mbits/sec 0 67.0 KBytes</p>
+<p>[ 5] 1.00-2.00 sec 2.91 MBytes 24.4 Mbits/sec 0 67.0 KBytes</p>
+<p>[ 5] 2.00-3.00 sec 2.79 MBytes 23.4 Mbits/sec 0 67.0 KBytes</p>
+<p>[ 5] 3.00-4.00 sec 2.91 MBytes 24.4 Mbits/sec 0 67.0 KBytes</p>
+<p>[ 5] 4.00-5.00 sec 2.91 MBytes 24.4 Mbits/sec 10 47.1 KBytes</p>
+<p>[ 5] 5.00-6.00 sec 2.76 MBytes 23.1 Mbits/sec 21 17.1 KBytes</p>
+<p>[ 5] 6.00-7.00 sec 2.91 MBytes 24.4 Mbits/sec 20 34.2 KBytes</p>
+<p>[ 5] 7.00-8.00 sec 2.76 MBytes 23.1 Mbits/sec 9 28.5 KBytes</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>[ 5] 23.00-24.00 sec 2.79 MBytes 23.4 Mbits/sec 0 67.0 KBytes</p>
+<p>[ 5] 24.00-25.00 sec 2.91 MBytes 24.4 Mbits/sec 22 14.3 KBytes</p>
+<p>[ 5] 25.00-26.00 sec 2.76 MBytes 23.1 Mbits/sec 28 15.7 KBytes</p>
+<p>[ 5] 26.00-27.00 sec 2.76 MBytes 23.1 Mbits/sec 22 24.2 KBytes</p>
+<p>[ 5] 27.00-28.00 sec 2.91 MBytes 24.4 Mbits/sec 9 29.9 KBytes</p>
+<p>[ 5] 28.00-29.00 sec 2.79 MBytes 23.4 Mbits/sec 7 14.3 KBytes</p>
+<p>[ 5] 29.00-30.00 sec 2.94 MBytes 24.7 Mbits/sec 8 32.8 KBytes</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>[ ID] Interval Transfer Bitrate Retr</p>
+<p>[ 5] 0.00-30.00 sec 84.8 MBytes 23.7 Mbits/sec 296 sender</p>
+<p>[ 5] 0.00-30.00 sec 84.8 MBytes 23.7 Mbits/sec receiver</p>
+<p>iperf Done.</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tcp-throughput-test-uplink">
+<h1>TCP Throughput Test Uplink<a class="headerlink" href="#tcp-throughput-test-uplink" title="Permalink to this heading"></a></h1>
+<p>Console output of TCP Throughput Uplink test.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Iperf3 TCP/UDP server listening on 5201</p>
+<p>Accepted connection from 192.168.1.124 port 47564</p>
+<p>[ 1] local 192.168.1.131 port 5201 connected to 192.168.1.124 port
+47566</p>
+<p>RSSI start: -47 dBm</p>
+<p>RSSI end: -48 dBm</p>
+<p>[ ID] Interval Transfer Bitrate</p>
+<p>[ 1] iperf3[S-TX-tcp]: 0.0-30 sec 48.7 MBytes 13.6 Mbits/sec</p>
+<p>User: 13556511 (45%)</p>
+<p>IRQ: 1300291 (4%)</p>
+<p>Idle: 15148431 (50%)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Windows console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>C:\Users\InnoP\Downloads\iperf-3.1.3-win64\iperf-3.1.3-win64&gt;
+iperf3 -c 192.168.1.131 -i1 -t30 -R</p>
+<p>Connecting to host 192.168.1.131, port 5201</p>
+<p>Reverse mode, remote host 192.168.1.131 is sending</p>
+<p>[ 5] local 192.168.1.124 port 47566 connected to 192.168.1.131 port
+5201</p>
+<p>[ ID] Interval Transfer Bitrate</p>
+<p>[ 5] 0.00-1.00 sec 2.03 MBytes 17.0 Mbits/sec</p>
+<p>[ 5] 1.00-2.00 sec 2.43 MBytes 20.4 Mbits/sec</p>
+<p>[ 5] 2.00-3.00 sec 2.48 MBytes 20.8 Mbits/sec</p>
+<p>[ 5] 3.00-4.00 sec 2.46 MBytes 20.6 Mbits/sec</p>
+<p>[ 5] 4.00-5.00 sec 2.51 MBytes 21.0 Mbits/sec</p>
+<p>[ 5] 5.00-6.00 sec 1.87 MBytes 15.7 Mbits/sec</p>
+<p>.</p>
+<p>.</p>
+<p>.</p>
+<p>[ 5] 27.00-28.00 sec 1.31 MBytes 11.0 Mbits/sec</p>
+<p>[ 5] 28.00-29.00 sec 1.35 MBytes 11.3 Mbits/sec</p>
+<p>[ 5] 29.00-30.00 sec 1.38 MBytes 11.6 Mbits/sec</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>[ ID] Interval Transfer Bitrate Retr</p>
+<p>[ 5] 0.00-30.00 sec 48.8 MBytes 13.6 Mbits/sec 0 sender</p>
+<p>[ 5] 0.00-30.00 sec 48.7 MBytes 13.6 Mbits/sec receiver</p>
+<p>iperf Done.</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

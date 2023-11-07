@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 1: Standard Wi-Fi Scan &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../../about.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Software%20Reference/Software_Reference_Landing_Page.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Case 1: Standard Wi-Fi Scan</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/Tools/2. Multi-Purpose Demo Tool/5. Scan/Scan Modes 3.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>Select the Scan tab on the Demo tool GUI to actively scan for nearby
+Access Points. The user can choose between the following scan types:</p>
+<ol class="arabic simple">
+<li><p>Standard Wi-Fi Scan</p></li>
+<li><p>Low Power Wi-Fi Smart Scan</p></li>
+</ol>
+<p>Default values of parameters for Standard Wi-Fi and Low-Power Wi-Fi scan
+are shown in Table 1. Depending on the user’s choice of the scanning
+scheme, respective default values will be set to corresponding
+parameters.</p>
+<p>Wi-Fi Scan</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Default Value</strong></p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Parameters</strong></p></td>
+<td><p><strong>Standard
+Wi-Fi scan</strong></p></td>
+<td><p><strong>Low-Power
+Wi-Fi Scan</strong></p></td>
+<td><p><strong>Remark</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>No_of_Probes</strong></p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>Configurable</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Ide_Slots</strong></p></td>
+<td><p>3</p></td>
+<td><p>3</p></td>
+<td><p>Configurable</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Select the
+Required Probe
+Rate</strong></p></td>
+<td><p>11b_1Mbps</p></td>
+<td><p>11b_6Mbps</p></td>
+<td><p>Configurable</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>NAP Enable</strong></p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>Hard coded</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<section id="case-1-standard-wi-fi-scan">
+<h1>Case 1: Standard Wi-Fi Scan<a class="headerlink" href="#case-1-standard-wi-fi-scan" title="Permalink to this heading"></a></h1>
+<ol class="arabic simple">
+<li><p>In this mode of scan, Talaria TWO will dwell 40ms on each channel.</p></li>
+<li><p>Hence, to scan all 2Ghz channels, it will take ~520ms in clean
+environment.</p></li>
+<li><p>In a crowded environment, it will take additional time to complete
+full scan based on the channel condition.</p></li>
+</ol>
+<p>Console output for Standard Scan Scheme:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWWAEBuild $Id: git-ba65998b7 $</p>
+<p>mpd.proto=scan wifi.scan_num_probes=2 wifi.scan_idleslots=3
+wifi.scan_min_listen_time=8 wifi.scan_max_listen_time=40
+wifi.scan_wait_time=0 wifi.nap_scan=0 mpd.scan.dt_iterations=10
+wifi.probe_rate=0x00 wifi.scan_channel_mask=0x7ff mpd.regdomain=FCC
+mpd.suspend=1</p>
+<p>$App:git-73e7f910</p>
+<p>SDK Ver: FREERTOS_SDK_1.0</p>
+<p>T2 Multipurpose Demp App Version 0.12</p>
+<p>Suspend Enabled.</p>
+<p>Regdomain=FCC</p>
+<p>addr e0:69:3a:00:13:90</p>
+<p>Applying reg domain: <a class="reference external" href="mailto:1-11&#37;&#52;&#48;20">1-11<span>&#64;</span>20</a></p>
+<p>MPD scan mode.</p>
+<p>Channels to be scanned=1,2,3,4,5,6,7,8,9,10,11</p>
+<p>Enabling suspend.</p>
+<p>period=10</p>
+<p>Round:1 Found 9 nets:</p>
+<p>00:5f:67:cd:c5:a6 on channel 11 &#64; -60 ‘InnoPhase’ ‘WPA2-PSK’</p>
+<p>b0:a7:b9:73:8e:51 on channel 4 &#64; -73 ‘Lakshmi pg 2nd floor 2g’
+‘WPA2-PSK’</p>
+<p>ba:6b:ad:62:6d:8b on channel 11 &#64; -79 ‘DESKTOP-9B1DNVC 1786’
+‘WPA2-PSK’</p>
+<p>e4:a7:c5:d4:ea:86 on channel 6 &#64; -82 ‘Airtel-E5573-EA86’ ‘WPA2-PSK’</p>
+<p>d8:47:32:2e:e1:e0 on channel 11 &#64; -83 ‘GPMH’ ‘WPA2-PSK’</p>
+<p>3c:1e:04:2d:c1:01 on channel 11 &#64; -85 ‘Lakshmi pg 1st floor’
+‘WPA-PSK/WPA2-PSK Mixed Mode’</p>
+<p>34:e8:94:be:16:9b on channel 1 &#64; -88 ‘InfecteD v2.4’ ‘WPA2-PSK’</p>
+<p>dc:71:37:56:91:b0 on channel 8 &#64; -90 ‘Hathway_Raghuram’
+‘WPA-PSK/WPA2-PSK Mixed Mode’</p>
+<p>50:2b:73:98:0f:51 on channel 9 &#64; -92 ‘SharmaShesCheatingonYou’
+‘WPA-PSK/WPA2-PSK Mixed Mode’</p>
+<p>Round:2 Found 7 nets:</p>
+<p>00:5f:67:cd:c5:a6 on channel 11 &#64; -52 ‘InnoPhase’ ‘WPA2-PSK’</p>
+<p>34:0a:33:70:f3:a2 on channel 1 &#64; -78 ‘Siddusm’ ‘WPA2-PSK’</p>
+<p>90:8d:78:fa:54:60 on channel 10 &#64; -79 ‘LAKSHMI PG 4TH FLOOR’
+‘WPA2-PSK’</p>
+<p>e4:a7:c5:d4:ea:86 on channel 6 &#64; -82 ‘Airtel-E5573-EA86’ ‘WPA2-PSK’</p>
+<p>70:4f:57:77:7e:d4 on channel 2 &#64; -84 ‘Rahul’ ‘WPA2-PSK’</p>
+<p>dc:71:37:56:91:b0 on channel 8 &#64; -84 ‘Hathway_Raghuram’
+‘WPA-PSK/WPA2-PSK Mixed Mode’</p>
+<p>aa:74:84:e0:c9:a0 on channel 4 &#64; -94 ‘SUMAIYA’ ‘WPA-PSK/WPA2-PSK
+Mixed Mode’</p>
+<p>Round:3 Found 2 nets:</p>
+<p>00:5f:67:cd:c5:a6 on channel 11 &#64; -60 ‘InnoPhase’ ‘WPA2-PSK’</p>
+<p>e4:a7:c5:d4:ea:86 on channel 6 &#64; -79 ‘Airtel-E5573-EA86’ ‘WPA2-PSK’</p>
+<p>Round:4 Found 3 nets:</p>
+<p>34:0a:33:70:f3:a2 on channel 1 &#64; -80 ‘Siddusm’ ‘WPA2-PSK’</p>
+<p>e4:a7:c5:d4:ea:86 on channel 6 &#64; -80 ‘Airtel-E5573-EA86’ ‘WPA2-PSK’</p>
+<p>34:e8:94:be:16:9b on channel 1 &#64; -90 ‘InfecteD v2.4’ ‘WPA2-PSK’</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Expected Result</strong>: Depending on the scan specifications, available
+networks are identified and displayed.</p>
+<p><strong>Otii log</strong>: Shows an average current consumption of 43.7mA for
+99.950ms scan duration, here the FCC regulatory domain is enabled.</p>
+<p><a class="reference internal" href="../../../_images/image1121.png"><img alt="image1" src="../../../_images/image1121.png" style="width: 6.29921in; height: 4.22183in;" /></a></p>
+<p>Figure 1: Case 1 - Standard scan - Otti log</p>
+</section>
+<section id="case-2-low-power-wi-fi-smart-scan">
+<h1>Case 2: Low Power Wi-Fi Smart Scan<a class="headerlink" href="#case-2-low-power-wi-fi-smart-scan" title="Permalink to this heading"></a></h1>
+<p>Overall current consumption can be reduced by one of the following
+methods:</p>
+<ol class="arabic simple">
+<li><p>Dynamic dwelling</p>
+<ol class="loweralpha simple">
+<li><p>Based on the channel condition, Talaria TWO can stay minimum
+channel time or maximum channel time.</p></li>
+<li><p>Normally, minimum channel time is configured to 8ms, and maximum
+channel time is configured to 24ms.</p></li>
+<li><p>While scanning, Talaria TWO will decide after every minimum
+channel time, whether to stay on channel or move to next channel.</p></li>
+<li><p>Staying in the channel is based on channel condition. Talaria TWO
+will identify this by number of idle slots at the end of minimum
+channel time.</p></li>
+</ol>
+</li>
+<li><p>Napping</p>
+<ol class="loweralpha simple">
+<li><p>After probe, if Talaria TWO receives packet other than the Probe
+response and Beacon, Talaria TWO will take a NAP based on the
+duration of packet received.</p></li>
+</ol>
+</li>
+</ol>
+<p>Console output for Low Power scan scheme:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWWAEBuild $Id: git-ba65998b7 $</p>
+<p>mpd.proto=lpscan wifi.scan_num_probes=1 wifi.scan_idleslots=3
+wifi.scan_min_listen_time=8 wifi.scan_max_listen_time=24
+wifi.nap_scan=1 mpd.lpscan.ap_logging=1 mpd.lpscan.dt_iterations=10
+mpd.lpscan.rate=0x100 wifi.scan_channel_mask=0x7ff mpd.regdomain=FCC
+mpd.suspend=1</p>
+<p>$App:git-73e7f910</p>
+<p>SDK Ver: FREERTOS_SDK_1.0</p>
+<p>T2 Multipurpose Demp App Version 0.12</p>
+<p>Suspend Enabled.</p>
+<p>Multicast reception Disabled.</p>
+<p>Regdomain=FCC</p>
+<p>addr e0:69:3a:00:13:90</p>
+<p>Applying reg domain: <a class="reference external" href="mailto:1-11&#37;&#52;&#48;20">1-11<span>&#64;</span>20</a></p>
+<p>MPD lpscan mode.</p>
+<p>Enabling suspend.</p>
+<p>[1.718,157] Round:1 Found 3 nets:</p>
+<p>[1.718,817] 00:5f:67:cd:c5:a6 on channel 11 &#64; -45 ‘InnoPhase’
+‘WPA2-PSK’</p>
+<p>[1.718,929] b0:a7:b9:73:8e:51 on channel 4 &#64; -70 ‘Lakshmi pg 2nd
+floor 2g’ ‘WPA2-PSK’</p>
+<p>[1.719,042] 34:0a:33:70:f3:a2 on channel 1 &#64; -77 ‘Siddusm’ ‘WPA2-PSK’</p>
+<p>[11.698,197] Round:2 Found 3 nets:</p>
+<p>[11.698,286] ba:6b:ad:62:6d:8b on channel 11 &#64; -67 ‘DESKTOP-9B1DNVC
+1786’ ‘WPA2-PSK’</p>
+<p>[11.698,401] b0:a7:b9:73:8e:51 on channel 4 &#64; -71 ‘Lakshmi pg 2nd
+floor 2g’ ‘WPA2-PSK’</p>
+<p>[11.698,517] d8:47:32:2e:e1:e0 on channel 11 &#64; -79 ‘GPMH’ ‘WPA2-PSK’</p>
+<p>[21.693,819] Round:3 Found 2 nets:</p>
+<p>[21.693,903] 34:0a:33:70:f3:a2 on channel 1 &#64; -78 ‘Siddusm’
+‘WPA2-PSK’</p>
+<p>[21.694,019] 30:b6:2d:94:37:a0 on channel 1 &#64; -86 ‘JioPrivateNet’
+‘WPA2/WPA3-Enterprise’</p>
+<p>[31.684,572] Round:4 Found 2 nets:</p>
+<p>[31.684,656] 00:5f:67:cd:c5:a6 on channel 11 &#64; -47 ‘InnoPhase’
+‘WPA2-PSK’</p>
+<p>[31.684,769] f8:c4:f3:18:2e:08 on channel 2 &#64; -91 ‘Shiva_Airtel’
+‘WPA2-PSK’</p>
+<p>[41.702,628] Round:5 Found 3 nets:</p>
+<p>[41.702,713] 00:5f:67:cd:c5:a6 on channel 11 &#64; -57 ‘InnoPhase’
+‘WPA2-PSK’</p>
+<p>[41.702,828] ba:6b:ad:62:6d:8b on channel 11 &#64; -66 ‘DESKTOP-9B1DNVC
+1786’ ‘WPA2-PSK’</p>
+<p>[41.702,943] 70:4f:57:77:7e:d4 on channel 2 &#64; -85 ‘Rahul’ ‘WPA2-PSK’</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Otii log</strong>: Shows an average current consumption of 32.8mA for
+96.032ms scan duration for low power Wi-Fi smart scan, here FCC
+regulatory domain is enabled.</p>
+<p><strong>Note</strong>: The capture is taken in a clean environment.</p>
+<p><a class="reference internal" href="../../../_images/image280.png"><img alt="image2" src="../../../_images/image280.png" style="width: 6.29921in; height: 4.34133in;" /></a></p>
+<p>Figure 2: Low power Wi-Fi smart scan - Otti log</p>
+<p><strong>Note:</strong> Following are some of the use cases that can be configured
+manually by the user on the MPD GUI scan tab, which is applicable for
+both Standard and Low Power Smart scan:</p>
+<ol class="arabic simple">
+<li><p>The Scan tab allows the user to actively scan for nearby Access
+Points by default parameters.</p></li>
+<li><p>Regulatory Domain: Depending on the user’s geographical location, any
+one of the listed Regulatory Domains can be selected.</p></li>
+<li><p>Channel_list: Set the Wi-Fi channels to be used.</p></li>
+</ol>
+<p>For example: Set 1-11,13 to use channels 1 to 11 and 13, depending on
+the selected Regulatory Domain.</p>
+<ol class="arabic simple" start="4">
+<li><p>Prob_rate: The rate as defined by rate_t is used to transmit the
+probe request. If this field is set to 0xffff, no probes will be sent
+and the scan will only be passive.</p></li>
+<li><p>Setting the SSID.</p></li>
+</ol>
+<p>SSID (Service Set Identifier) is the name of the user’s wireless
+network, also known as Network ID. If the SSID of the network is
+provided and the BSSID field is kept empty, it scans for the network as
+per the provided SSID and gives the following details:</p>
+<ol class="loweralpha simple">
+<li><p>BSSID</p></li>
+<li><p>Channel</p></li>
+<li><p>RSSI Range</p></li>
+<li><p>Mode</p></li>
+</ol>
+<ol class="arabic simple" start="6">
+<li><p>Setting the BSSID.</p></li>
+</ol>
+<p>BSSID recognizes the AP or router as it has a unique address which
+creates the wireless network. To set the BSSID of a network, enter the
+BSSID in the provided field and click on Start.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

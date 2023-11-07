@@ -1,0 +1,39 @@
+
+
+This section describes the set-up and usage of Talaria TWO module with
+INP3201 for evaluation.
+
+It provides:
+
+1. Pre-built firmware binary for Talaria TWO
+   (*freertos_sdk_x.y\\solutions\\dual_stack*)
+
+2. Quick start guide *(talaria_two_dual_stack_vx.y\\host\\INP3201)*
+
+3. Programming tools *(freertos_sdk_x.y\\pc_tools\\Download_Tool*))
+
+4. Dual-Stack Host app binary and utilities
+   (*talaria_two_dual_stack_vx.y\\host\\INP3201\\dual-stack*)
+
+Evaluation Set-up & Usage
+--------------------------------------
+.. toctree::
+   :maxdepth: 2
+
+   2. Preparing the SD Card and Booting INP3201 Board.rst
+   3. Programming Talaria TWO.rst
+   4. Programming T31ZX Host.rst
+
+MCU Firmware Flashing
+----------------------
+.. toctree::
+   :maxdepth: 2
+
+   5. MCU Firmware Flashing/1. MCU Firmware Flashing - Landing Page.rst
+
+Testing for Basic Operations
+----------------------
+.. toctree::
+   :maxdepth: 2
+
+   6. Testing for Basic Operations/1. Testing for Basic Operations - Landing Page.rst

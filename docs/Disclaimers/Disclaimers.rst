@@ -1,0 +1,50 @@
+Disclaimer
+==============
+
+Limited warranty and liability — Information in this document is
+believed to be accurate and reliable. However, InnoPhase IoT
+Incorporated does not give any representations or warranties, expressed
+or implied, as to the accuracy or completeness of such information and
+assumes no liability associated with the use of such information.
+InnoPhase IoT Incorporated takes no responsibility for the content in
+this document if provided by an information source outside of InnoPhase
+IoT Incorporated.
+
+InnoPhase IoT Incorporated disclaims liability for any indirect,
+incidental, punitive, special or consequential damages associated with
+the use of this document, applications and any products associated with
+information in this document, whether or not such damages are based on
+tort (including negligence), warranty, including warranty of
+merchantability, warranty of fitness for a particular purpose, breach of
+contract or any other legal theory. Further, InnoPhase IoT Incorporated
+accepts no liability and makes no warranty, express or implied, for any
+assistance given with respect to any applications described herein or
+customer product design, or the application or use by any customer’s
+third-party customer(s).
+
+Notwithstanding any damages that a customer might incur for any reason
+whatsoever, InnoPhase IoT Incorporated’ aggregate and cumulative
+liability for the products described herein shall be limited in
+accordance with the Terms and Conditions of identified in the commercial
+sale documentation for such InnoPhase IoT Incorporated products.
+
+Right to make changes — InnoPhase IoT Incorporated reserves the right to
+make changes to information published in this document, including,
+without limitation, changes to any specifications and product
+descriptions, at any time and without notice. This document supersedes
+and replaces all information supplied prior to the publication hereof.
+
+Suitability for use — InnoPhase IoT Incorporated products are not
+designed, authorized or warranted to be suitable for use in life
+support, life-critical or safety-critical systems or equipment, nor in
+applications where failure or malfunction of an InnoPhase IoT
+Incorporated product can reasonably be expected to result in personal
+injury, death or severe property or environmental damage. InnoPhase IoT
+Incorporated and its suppliers accept no liability for inclusion and/or
+use of InnoPhase IoT Incorporated products in such equipment or
+applications and such inclusion and/or use is at the customer’s own
+risk.
+
+All trademarks, trade names and registered trademarks mentioned in this
+document are property of their respective owners and are hereby
+acknowledged.

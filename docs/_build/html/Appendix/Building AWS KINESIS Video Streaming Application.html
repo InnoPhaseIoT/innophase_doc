@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building AWS KINESIS Video Streaming Application &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Checking and Validating the Partition Table" href="Checking%20and%20Validating%20the%20Partition%20Table.html" />
+    <link rel="prev" title="Appendix" href="Appendix-Landing_Page.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="Appendix-Landing_Page.html">Appendix</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Building AWS KINESIS Video Streaming Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Checking%20and%20Validating%20the%20Partition%20Table.html">Checking and Validating the Partition Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Create%20AWS%20Security%20Credentials.html">Create AWS Security Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Installation%20Instructions%20for%20libusbK%20Driver.html">Installation Instructions for libusbK Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JSON%20file%20format%20reference.html">JSON file format reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Legacy%20Mode.html">Legacy Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual%20Programming.html">Manual Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="New%20Serial%20Number%20to%20Device.html">New Serial Number to Device – Manual Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Response%20Description.html">Response Description &amp; Payload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Update%20Driver%20from%20libusK%20Driver%20to%20COM%20Port.html">Update Driver from libusK Driver to COM Port</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Software%20Reference/Software_Reference_Landing_Page.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Tools/Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="Appendix-Landing_Page.html">Appendix</a></li>
+      <li class="breadcrumb-item active">Building AWS KINESIS Video Streaming Application</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Appendix/Building AWS KINESIS Video Streaming Application.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="building-aws-kinesis-video-streaming-application">
+<h1>Building AWS KINESIS Video Streaming Application<a class="headerlink" href="#building-aws-kinesis-video-streaming-application" title="Permalink to this heading"></a></h1>
+<ol class="arabic simple">
+<li><p>Create an AWS folder and clone the ADK from the cloud.</p></li>
+</ol>
+<p>Git clone:
+<a class="reference external" href="https://github.com/aws-samples/amazon-kinesis-video-streams-media-interface.git">https://github.com/aws-samples/amazon-kinesis-video-streams-media-interface.git</a></p>
+<p><a class="reference internal" href="../_images/image1.png"><img alt="image1" src="../_images/image1.png" style="width: 1.34444in; height: 0.18958in;" /></a><a class="reference internal" href="../_images/image1.png"><img alt="image2" src="../_images/image1.png" style="width: 1.34444in; height: 0.18958in;" /></a><a class="reference internal" href="../_images/image2.png"><img alt="A screenshot of a computer program Description automatically generated" src="../_images/image2.png" style="width: 6.88958in; height: 2.57847in;" /></a></p>
+<p>Figure 30: Clone ADK from the cloud</p>
+<ol class="arabic simple" start="2">
+<li><p>Run the following command for MIPS GCC5.40</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>export
+PATH
+/home/xxxx/ingenic/tools/mips-gcc540-glibc222-64bit-r3.3.0/bin/:$PATH</p>
+<p>export CC=mips-linux-gnu-gcc</p>
+<p>export CXX=mips-linux-gnu-g++</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: These exports can be added in the environment variables.
+Ensure to add the path for cross-compiler binaries.</p>
+<p><a class="reference internal" href="../_images/image3.png"><img alt="image3" src="../_images/image3.png" style="width: 0.41944in; height: 0.18611in;" /></a><a class="reference internal" href="../_images/image1.png"><img alt="image4" src="../_images/image1.png" style="width: 1.39444in; height: 0.69792in;" /></a><a class="reference internal" href="../_images/image1.png"><img alt="image5" src="../_images/image1.png" style="width: 1.33333in; height: 0.23194in;" /></a><a class="reference internal" href="../_images/image1.png"><img alt="image6" src="../_images/image1.png" style="width: 1.39444in; height: 0.19653in;" /></a><a class="reference internal" href="../_images/image4.png"><img alt="image7" src="../_images/image4.png" style="width: 6.88958in; height: 4.11111in;" /></a></p>
+<p>Figure 31: Export - MIPS GCC5.40</p>
+<ol class="arabic simple" start="3">
+<li><p>Copy dependent files from Ingenic SDK to Amazon ADK</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>cp -rf
+/home/xxx/INP3201_A
+WS_DEMO/T31_SNIPE_XXXXXXXX/FREERTOS_SDK_XXXXXXXX/ISVP-T31-1.1.5-XXXXX
+XXX/software/sdk/Ingenic-SDK-T31-1.1.5-XXXXXXXX/freertos_sdk/5.4.0/*
+/home/xxxx/INPIOT_GIT/A
+WS_KINESIS/amazon-kinesis-video-streams-media-interface/3rdparty/T31/</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../_images/image5.png"><img alt="image8" src="../_images/image5.png" style="width: 2.01684in; height: 0.16668in;" /></a><a class="reference internal" href="../_images/image6.jpeg"><img alt="1" src="../_images/image6.jpeg" style="width: 7.08661in; height: 3.75067in;" /></a></p>
+<p>Figure 32: Copy dependent files</p>
+<ol class="arabic simple" start="4">
+<li><p>Enter path: amazon-kinesis-video-streams-media-interface. Create a
+folder ‘build’ and enter the folder.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>cd amazon-kinesis-video-streams-media-interface</p>
+<p>mkdir build; cd build;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../_images/image1.png"><img alt="image9" src="../_images/image1.png" style="width: 1.36875in; height: 0.16944in;" /></a><a class="reference internal" href="../_images/image1.png"><img alt="image10" src="../_images/image1.png" style="width: 1.36875in; height: 0.16944in;" /></a><a class="reference internal" href="../_images/image1.png"><img alt="image11" src="../_images/image1.png" style="width: 1.36875in; height: 0.16944in;" /></a><a class="reference internal" href="../_images/image1.png"><img alt="image12" src="../_images/image1.png" style="width: 1.36875in; height: 0.16944in;" /></a><a class="reference internal" href="../_images/image1.png"><img alt="image13" src="../_images/image1.png" style="width: 1.36944in; height: 0.85278in;" /></a><a class="reference internal" href="../_images/image3.png"><img alt="image14" src="../_images/image3.png" style="width: 0.41944in; height: 0.18611in;" /></a><a class="reference internal" href="../_images/image7.png"><img alt="image15" src="../_images/image7.png" style="width: 6.88958in; height: 5.58194in;" /></a></p>
+<p>Figure 33: Create build folder</p>
+<ol class="arabic simple" start="5">
+<li><p>Check the cmake version installed. Run cmake to generate - makefile.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>/home/xxxx/ingenic/tools/cmake-3.13.3/build/bin/cmake –version</p>
+<p>/home/xxxx/ingenic/tools/cmake-3.13.3/build/bin/cmake ..
+-DBUILD_WEBRTC_SAMPLES=ON -DBUILD_KVS_SAMPLES=ON -DBOARD=T31</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: After configuring the environment, install cmake 3.13.3 to
+user path and not the system path.</p>
+<p><a class="reference internal" href="../_images/image1.png"><img alt="image16" src="../_images/image1.png" style="width: 0.71111in;" /></a><a class="reference internal" href="../_images/image1.png"><img alt="image17" src="../_images/image1.png" style="width: 0.71111in;" /></a><a class="reference internal" href="../_images/image1.png"><img alt="image18" src="../_images/image1.png" style="width: 0.71111in;" /></a><a class="reference internal" href="../_images/image1.png"><img alt="image19" src="../_images/image1.png" style="width: 0.79028in;" /></a><a class="reference internal" href="../_images/image1.png"><img alt="image20" src="../_images/image1.png" style="width: 0.70139in; height: 0.77778in;" /></a><a class="reference internal" href="../_images/image8.png"><img alt="image21" src="../_images/image8.png" style="width: 6.88958in; height: 5.94583in;" /></a></p>
+<p>Figure 34: Generate makefile</p>
+<ol class="arabic simple" start="6">
+<li><p>Execute make to generate the executed file.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>make -j4</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../_images/image9.png"><img alt="image22" src="../_images/image9.png" style="width: 0.29444in; height: 0.11111in;" /></a><a class="reference internal" href="../_images/image9.png"><img alt="image23" src="../_images/image9.png" style="width: 0.29444in; height: 0.11111in;" /></a><a class="reference internal" href="../_images/image10.png"><img alt="image24" src="../_images/image10.png" style="width: 0.76944in; height: 0.17778in;" /></a><a class="reference internal" href="../_images/image9.png"><img alt="image25" src="../_images/image9.png" style="width: 0.29444in; height: 0.11111in;" /></a><a class="reference internal" href="../_images/image9.png"><img alt="image26" src="../_images/image9.png" style="width: 0.71875in; height: 0.11597in;" /></a><a class="reference internal" href="../_images/image11.png"><img alt="A screenshot of a computer Description automatically generated" src="../_images/image11.png" style="width: 7.08681in; height: 6.63056in;" /></a></p>
+<p>Figure 35: Execute make</p>
+<ol class="arabic simple" start="7">
+<li><p>Copy kvswebrtcmaster-static to the T31z filesystem, insmod the
+necessary drivers in T31z and execute: kvswebrtcmaster-static to
+stream the video to AWS cloud.</p></li>
+</ol>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Appendix-Landing_Page.html" class="btn btn-neutral float-left" title="Appendix" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Checking%20and%20Validating%20the%20Partition%20Table.html" class="btn btn-neutral float-right" title="Checking and Validating the Partition Table" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

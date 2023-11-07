@@ -1,0 +1,26 @@
+Testing for Basic Operations 
+-----------------------------
+
+There are three application init scripts in /system/init folder:
+
+1. app_init.sh: Basic functionality (using connection manager commands)
+
+2. app_init_t2.sh: Talaria TWO used for power management (copy this
+   script to app_init.sh)
+
+3. app_init_mcu.sh: STM32 MCU used for power management (copy this
+   script to app_init.sh)
+
+When T31zx booting is completed, the init script loads the sdio-wlan.ko
+driver module and runs the tunadapter application as an initial step to
+use the Talaria TWO Dual-Stack commands.
+
+For more details on the tunadapter, refer: UG_Dual_Stack.pdf
+(*talaria_two_dual_stack_vx.y\\host\\INP3201\\doc*).
+
+
+.. toctree::
+   :maxdepth: 2
+
+   2. Use Case 1.rst
+   3. Use Case 2.rst

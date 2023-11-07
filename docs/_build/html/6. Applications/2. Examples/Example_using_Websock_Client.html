@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Features and Limitations &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Features and Limitations</a></li>
+<li><a class="reference internal" href="#websocket-s-apis">WebSocket/S APIs</a><ul>
+<li><a class="reference internal" href="#websocket-open">WebSocket Open</a></li>
+<li><a class="reference internal" href="#websocket-send">WebSocket Send</a></li>
+<li><a class="reference internal" href="#websocket-close">WebSocket Close</a></li>
+<li><a class="reference internal" href="#ping-and-pong">PING and PONG</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#code-walkthrough">Code Walkthrough</a><ul>
+<li><a class="reference internal" href="#application-flow">Application Flow</a></li>
+<li><a class="reference internal" href="#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#running-the-application">Running the Application</a><ul>
+<li><a class="reference internal" href="#websocket-server-setup">WebSocket Server Setup</a></li>
+<li><a class="reference internal" href="#programming-talaria-two-board-with-elf">Programming Talaria TWO board with ELF</a></li>
+<li><a class="reference internal" href="#expected-output">Expected Output</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Features and Limitations</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/6. Applications/2. Examples/Example_using_Websock_Client.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>This document provides information on using the WebSocket client APIs
+provided by the WebSocket module under components. This application
+demonstrates using these APIs to connect to WebSocket servers in secured
+(Secured WebSocket) and non-secured way.</p>
+<p>The document also discusses ways to execute WebSocket GET and POST.</p>
+<section id="features-and-limitations">
+<h1>Features and Limitations<a class="headerlink" href="#features-and-limitations" title="Link to this heading"></a></h1>
+<p>The WebSocket implementation supports:</p>
+<ol class="arabic simple">
+<li><p>Secured and non-secured WebSocket client APIs</p></li>
+<li><p>The server address can be either IP address or the host name (Domain
+Name)</p></li>
+<li><p>APIs to send Text and Binary data</p></li>
+<li><p>APIs for sending Close, Ping and Pong control packets</p></li>
+</ol>
+</section>
+<section id="websocket-s-apis">
+<h1>WebSocket/S APIs<a class="headerlink" href="#websocket-s-apis" title="Link to this heading"></a></h1>
+<section id="websocket-open">
+<h2>WebSocket Open<a class="headerlink" href="#websocket-open" title="Link to this heading"></a></h2>
+<p>This is performed using the following API:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>websock_handle_t</p>
+<p>websock_open(websock_config_t *ws_cfg)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>This API connects to the remote WebSocket server. The configuration
+needed for the connection is passed using the following data structure:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>typedef struct {</p>
+<p>char *hostname;/**&lt;host name or the ip address of the server*/</p>
+<p>int port;/**&lt;port*/</p>
+<p>char *uri;/**&lt;Websocket uri/path to connect to*/</p>
+<p>int secured; /*secured websocket*/</p>
+<p>ssl_wrap_cfg_t ssl_config;</p>
+<p>int time_out;/**&lt;tcp connection timeout*/</p>
+<p>/**&lt;The headers to be set in the WebSocket Handshake request.</p>
+<p>The format shall be “key:val”. Use this to pass headers that are not</p>
+<p>set implicitly. Refer websock_open() for the list of headers set</p>
+<p>implicitly*/</p>
+<p>websoc_hndshk_hdr_t hndshk_hdrs[WEBSOCK_MAX_HNDSHK_HDRS];</p>
+<p>int num_hndshk_hdrs;/** Number of headers provided through,</p>
+<p>hndshk_hdrs[WEBSOCK_MAX_HNDSHK_HDRS]*/</p>
+<p>} websock_config_t;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: If a URL is available in the form: ws://&lt;domain
+name&gt;:port/&lt;path&gt;, use http_client_url_to_host() API to get the hostname
+port and the path from the URL.</p>
+<p>The |Host| |Upgrade|, |Connection|, |Sec -Websocket-key| and
+|Sec-websocket-Version| headers are implicitly set by the
+websock_Open() during the handshake. If any more headers need to be sent
+during handshake, it needs to be passed using
+hndshk_hdrs[WEBSOCK_MAX_HNDSHK_HDRS] in websock_config_t .</p>
+</section>
+<section id="websocket-send">
+<h2>WebSocket Send<a class="headerlink" href="#websocket-send" title="Link to this heading"></a></h2>
+<p>Once the connection is established using websock_open(), data can be
+sent to the server using the following APIs:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>websock_send_text(websock_handle_t handle, char *payload, int len)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>websock_send_binary(websock_handle_t handle, char *payload, int len)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>websock_send_text is used for sending the Text frames (Opcode = 1).
+websock_send_binary is used for sending Binary frames (Opcode = 2).</p>
+</section>
+<section id="websocket-close">
+<h2>WebSocket Close<a class="headerlink" href="#websocket-close" title="Link to this heading"></a></h2>
+<p>A connection opened using websock_open() can be closed using the
+following API:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void</p>
+<p>websock_close(websock_handle_t h);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ping-and-pong">
+<h2>PING and PONG<a class="headerlink" href="#ping-and-pong" title="Link to this heading"></a></h2>
+<p>WebSocket provides Ping and Pong control packets to check and maintain
+the connection. These packets can be sent using the following APIs:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>websock_send_ping(websock_handle_t handle, char *payload, int len);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>websock_send_pong(websock_handle_t handle, char *payload, int len);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="code-walkthrough">
+<h1>Code Walkthrough<a class="headerlink" href="#code-walkthrough" title="Link to this heading"></a></h1>
+<section id="application-flow">
+<h2>Application Flow<a class="headerlink" href="#application-flow" title="Link to this heading"></a></h2>
+<p>WebSocket is a communication protocol providing full duplex,
+asynchronous communication between the connected endpoints.</p>
+<p>Following are the steps:</p>
+<ol class="arabic simple">
+<li><p>Connect to Wi-Fi Network.</p></li>
+<li><p>Connect to WebSocket server.</p></li>
+<li><p>Send message to server.</p></li>
+<li><p>Receive the message.</p></li>
+</ol>
+</section>
+<section id="sample-code-walkthrough">
+<h2>Sample Code Walkthrough<a class="headerlink" href="#sample-code-walkthrough" title="Link to this heading"></a></h2>
+<p>A user-defined data struct is created to store the data of the
+Websocket:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>#define APP_NAME “WebSocket application”</p>
+<p>#define APP_VERSION “2.0”</p>
+<p>OS_APPINFO {.stack_size = 4096};</p>
+<p>#define INPUT_PARAMETER_HOST “host”</p>
+<p>#define INPUT_PARAMETER_URL “url”</p>
+<p>#define INPUT_PARAMETER_PATH “path”</p>
+<p>#define INPUT_PARAMETER_PORT “port”</p>
+<p>#define INPUT_PARAMETER_SECURED “secured”</p>
+<p>#define INPUT_PARAMETER_METHOD “method”</p>
+<p>#define INPUT_PARAMETER_CA “ca_cert”</p>
+<p>#define INPUT_PARAMETER_POST_LEN “post_len”</p>
+<p>#define INPUT_PARAMETER_CLIENT_CERT “client_cert”</p>
+<p>#define INPUT_PARAMETER_CLIENT_KEY “client_key”</p>
+<p>#define INPUT_PARAMETER_TEST_ITER “test_iterations”</p>
+<p>#define INPUT_PARAMETER_USE_CA_BUNDLE “use_ca_bundle”</p>
+<p>#define NULL_STR “”</p>
+<p>struct param_t {</p>
+<p>const char *url;</p>
+<p>const char *host;</p>
+<p>const char *path;</p>
+<p>const char *port;</p>
+<p>const char *secured;</p>
+<p>const char *ca_cert;</p>
+<p>const char *client_cert;</p>
+<p>const char *client_key;</p>
+<p>const char *test_iterations;</p>
+<p>const char *use_ca_bundle;</p>
+<p>};</p>
+<p>/*CA certificate bundle*/</p>
+<p>extern uint8_t ca_bundle_start[] asm(”_binary_ca_bundle_start”);</p>
+<p>extern uint8_t ca_bundle_end[] asm(”_binary_ca_bundle_end”);</p>
+<p>struct param_t param;</p>
+<p>char default_port[8];</p>
+<p>char default_secured[8];</p>
+<p>struct os_semaphore app_wcm_lock;</p>
+<p>int wcm_connect_success = 0;</p>
+<p>static char host[128];</p>
+<p>static char path[128];</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Following boot arguments are passed in this application:</p>
+<ol class="arabic simple">
+<li><p>URL, port, secured, ca_cert, method, post_len, client_cert,
+client_key value and ca_bundle.</p></li>
+<li><p>SD service type and proto, and action.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>static int</p>
+<p>parse_boot_args(void)</p>
+<p>{</p>
+<p>const char *np_path;</p>
+<p>int ret = 0;</p>
+<p>sprintf(default_port, “%d”, 80);</p>
+<p>sprintf(default_secured, “%d”, 0);</p>
+<p>param.url = os_get_boot_arg_str(INPUT_PARAMETER_URL);</p>
+<p>param.host = os_get_boot_arg_str(INPUT_PARAMETER_HOST);</p>
+<p>param.path = os_get_boot_arg_str(INPUT_PARAMETER_PATH);</p>
+<p>param.port = os_get_boot_arg_str(INPUT_PARAMETER_PORT);</p>
+<p>param.secured = os_get_boot_arg_str(INPUT_PARAMETER_SECURED);</p>
+<p>param.ca_cert = os_get_boot_arg_str(INPUT_PARAMETER_CA);</p>
+<p>param.client_cert = os_get_boot_arg_str(INPUT_PARAMETER_CLIENT_CERT);</p>
+<p>param.client_key = os_get_boot_arg_str(INPUT_PARAMETER_CLIENT_KEY);</p>
+<p>param.test_iterations =
+os_get_boot_arg_str(INPUT_PARAMETER_TEST_ITER);</p>
+<p>param.use_ca_bundle =
+os_get_boot_arg_str(INPUT_PARAMETER_USE_CA_BUNDLE);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>To connect to a Wi-Fi network, wcm_create()API from the Wi-Fi Connection
+Manager is used. Initially, the Wi-Fi network interface is created using
+wcm_create().</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>h = wcm_create(NULL);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>wifi_connect_to_network()API, from components library, connects to
+the Wi-Fi network using the AP credentials provided.</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>rval = wifi_connect_to_network(&amp;h, WCM_CONN_WAIT_INFINITE,
+&amp;wcm_connect_success);</p>
+<p>if(rval &lt; 0) {</p>
+<p>os_printf(”\nError: Unable to connect to network\n”);</p>
+<p>return 0;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Here, the data structure websoc_config_t is used to pass the parameters
+while opening a WebSocket connection with the remote server using the
+websock_open API such as URL, port, secured, ca_cert, method, post_len,
+client_cert, client_key value and ca_bundle.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>websock_config_t cfg = {0};</p>
+<p>websock_handle_t ws_handle;</p>
+<p>memset(&amp;cfg, 0, sizeof(websock_config_t));</p>
+<p>path[0]= ‘\0’;</p>
+<p>if(param.url){</p>
+<p>os_printf(”\n[APP]URL = %s”, param.url);</p>
+<p>rval = http_client_url_to_host(param.url, host, sizeof(host), path,</p>
+<p>sizeof(path), &amp;cfg.port);</p>
+<p>if(rval &lt; 0){</p>
+<p>os_printf(”\n[APP]URL is not proper”);</p>
+<p>os_printf(”\n\texample URLs:”);</p>
+<p>os_printf(”\n\t\twss://echo.websocket.org/”);</p>
+<p>os_printf(”\n\t\tws://192.168.1.155:8000/”);</p>
+<p>}</p>
+<p>cfg.hostname = host;</p>
+<p>cfg.uri = path;</p>
+<p>os_printf(”\nuri/path = %s”, cfg.uri);</p>
+<p>}else{</p>
+<p>cfg.hostname = (char *)param.host;</p>
+<p>}</p>
+<p>if(param.port){/*If specified explicietly, overide the port
+specified in URL*/</p>
+<p>cfg.port = atoi(param.port);</p>
+<p>}</p>
+<p>cfg.secured = atoi(param.secured);</p>
+<p>if(cfg.secured) {</p>
+<p>if(cfg.secured == 1){</p>
+<p>cfg.ssl_config.auth_mode = SSL_WRAP_VERIFY_NONE;</p>
+<p>}else{</p>
+<p>cfg.ssl_config.auth_mode = SSL_WRAP_VERIFY_REQUIRED;</p>
+<p>if(!param.use_ca_bundle || !atoi(param.use_ca_bundle)){</p>
+<p>cfg.ssl_config.ca_cert.buf = utils_file_get(param.ca_cert,</p>
+<p>&amp;cfg.ssl_config.ca_cert.len);</p>
+<p>if(NULL == cfg.ssl_config.ca_cert.buf){</p>
+<p>os_printf(“[APP]Error: No CA certificate found. Required”);</p>
+<p>goto exit;</p>
+<p>}</p>
+<p>}else if(atoi(param.use_ca_bundle)){</p>
+<p>/*If use_ca_bundle is set, initialise CA bundle*/</p>
+<p>os_printf(“[APP]Initializing the ca bundle”);</p>
+<p>ssl_wrap_crt_bundle_init((const char *)ca_bundle_start);</p>
+<p>}</p>
+<p>}</p>
+<p>if(param.client_cert &amp;&amp; strlen(param.client_cert)){</p>
+<p>cfg.ssl_config.client_cert.buf = utils_file_get(param.client_cert,</p>
+<p>&amp;cfg.ssl_config.client_cert.len);</p>
+<p>if(NULL == cfg.ssl_config.client_cert.buf){</p>
+<p>os_printf(“Error: Could not open client certificate\n”);</p>
+<p>goto exit;</p>
+<p>}</p>
+<p>}</p>
+<p>if(param.client_key &amp;&amp; strlen(param.client_key)){</p>
+<p>cfg.ssl_config.client_key.buf = utils_file_get(param.client_key,</p>
+<p>&amp;cfg.ssl_config.client_key.len);</p>
+<p>if(NULL == cfg.ssl_config.client_key.buf){</p>
+<p>os_printf(“Error: Could not open client key\n”);</p>
+<p>goto exit;</p>
+<p>}</p>
+<p>}</p>
+<p>cfg.secured = 1;</p>
+<p>}</p>
+<p>if(NULL != param.test_iterations){</p>
+<p>test_iterations = atoi(param.test_iterations);</p>
+<p>if(0 == test_iterations)test_iterations = 1;</p>
+<p>}</p>
+<p>os_printf(”\n** Test Iterations = %d **\n”, test_iterations);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>This function opens a TCP socket to the server and performs the initial
+HTTP-based handshake to upgrade to the WebSocket protocol. Both secure
+(SSL) and non-secure WebSocket connections are supported.</p>
+<p>Function websock_send_text is used to send “text” data over WebSocket
+connection.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>websock_send_text(ws_handle,APP_MESSAGE, strlen(APP_MESSAGE));</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The data structure websock_msg_hdr_t is used to pass information about
+the data received from the server.</p>
+<p>Function websock_recv receives WebSocket messages. This internally
+handles WebSocket close and ping messages.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>/*Receive message*/</p>
+<p>char recv_buf[128];</p>
+<p>websock_msg_hdr_t msg_hdr;</p>
+<p>int recv_len = 128;</p>
+<p>websock_recv(ws_handle, &amp;msg_hdr,recv_buf,&amp;recv_len,10);</p>
+<p>recv_buf[recv_len] = 0;</p>
+<p>os_printf(”\n[APP] Received Message = %s”, recv_buf);</p>
+<p>exit:</p>
+<p>os_printf(”\n\n[APP]—— Program Exit————-\n\n”);</p>
+<p>return 0;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="running-the-application">
+<h1>Running the Application<a class="headerlink" href="#running-the-application" title="Link to this heading"></a></h1>
+<section id="websocket-server-setup">
+<h2>WebSocket Server Setup<a class="headerlink" href="#websocket-server-setup" title="Link to this heading"></a></h2>
+<p>There is no specific server available in public domain for free testing
+of the websockets. A local server is required to test the same. One of
+the simple local server set-ups can be found at
+<a class="reference external" href="https://github.com/dpallot/simple-websocket-server">https://github.com/dpallot/simple-websocket-server</a>.</p>
+<p>This is a Python based server with a Readme for setup instructions.</p>
+</section>
+<section id="programming-talaria-two-board-with-elf">
+<h2>Programming Talaria TWO board with ELF<a class="headerlink" href="#programming-talaria-two-board-with-elf" title="Link to this heading"></a></h2>
+<p>Program websocket.elf <em>(freertos_sdk_x.y\examples\websocket\bin)</em>
+using the Download tool:</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool provided with InnoPhase Talaria TWO SDK.</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down.</p></li>
+<li><p>ELF Input: Load the websocket.elf by clicking on Select ELF File.</p></li>
+<li><p>Boot arguments: Pass the following boot arguments:</p></li>
+</ol>
+</li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>url=ws://192.168.1.111/,port=8000,secured=0</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>where,</p>
+</div></blockquote>
+<ol class="lowerroman simple">
+<li><p>url: URL of the server to connect to</p>
+<ol class="arabic simple">
+<li><p><em>ws://&lt;domain name OR ip address&gt;:&lt;port&gt;/&lt;path&gt;</em> <strong>or</strong></p></li>
+<li><p><em>ws://&lt;domain name OR ip address&gt;/&lt;path&gt;</em></p></li>
+</ol>
+</li>
+<li><p>port: Server port. Default - 80 in case of non-secured (WebSocket),
+443 in case of secured (Secured WebSocket)</p></li>
+<li><p>secured:</p></li>
+</ol>
+<blockquote>
+<div><p>0 - WebSocket,</p>
+<p>1 - Secured WebSocket without server verification</p>
+<p>2 - Secured WebSocket with server verification</p>
+</div></blockquote>
+<ol class="lowerroman simple" start="4">
+<li><p>ca_cert: Certificate path in root FS in case of Secured WebSocket</p></li>
+</ol>
+<ol class="loweralpha simple" start="4">
+<li><p>Programming: Prog RAM or Prog Flash as per requirement.</p></li>
+</ol>
+</section>
+<section id="expected-output">
+<h2>Expected Output<a class="headerlink" href="#expected-output" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWWWAE</p>
+<p>Build $Id: git-df9b9ef $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff</p>
+<p>Bootargs: url=ws://192.168.1.105:8000 port=8000 secured=0
+np_conf_path=/data/nprofile.json ssid=Lucy <a class="reference external" href="mailto:passphrase=Password&#37;&#52;&#48;321">passphrase=Password<span>&#64;</span>321</a></p>
+<p>$App:git-6600fea</p>
+<p>SDK Ver: FREERTOS_SDK_1.0</p>
+<p>WebSocket Client Demo App</p>
+<p>Application Information:</p>
+<p>Name : WebSocket application</p>
+<p>Version : 2.0</p>
+<p>Build Date : Aug 18 2023</p>
+<p>Build Time : 10:52:56</p>
+<p>Heap Available: 311 KB (318712 Bytes)</p>
+<p>[APP]Bootparams :</p>
+<p>url=ws://192.168.1.105:8000</p>
+<p>host= &lt;null&gt;</p>
+<p>port=8000</p>
+<p>path= &lt;null&gt;</p>
+<p>secured= 0</p>
+<p>ca_cert=&lt;null&gt;</p>
+<p>test_iterations = &lt;null&gt;</p>
+<p>use_ca_bundle = &lt;null&gt;</p>
+<p>[APP]Bootparams end here….</p>
+<p>[APP]Bootparams check done….ret = 0</p>
+<p>addr e0:69:3a:00:16:d4</p>
+<p>Connecting to added network : Lucy</p>
+<p>[0.583,020] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-73 dBm</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS</p>
+<p>[0.655,110] MYIP 192.168.1.103</p>
+<p>[0.655,275] IPv6 [fe80::e269:3aff:fe00:16d4]-link</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED</p>
+<p>Connected to added network : Lucy</p>
+<p>[APP]URL = ws://192.168.1.105:8000</p>
+<p>uri/path = /</p>
+<p>** Test Iterations = 1 **</p>
+<p>[APP]Calling websock_open(). heap size = 243656</p>
+<p>[APP] Received Message = Hello World</p>
+<p>[APP]—— Program Exit————-</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

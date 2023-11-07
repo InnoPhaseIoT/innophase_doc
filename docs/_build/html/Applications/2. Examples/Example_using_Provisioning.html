@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Provisioning &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Unassociated Mode" href="Example_using_Unassociated_Mode.html" />
+    <link rel="prev" title="mDNS" href="Example_using_mDNS.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Software%20Reference/Software_Reference_Landing_Page.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Tools/Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../Applications%20-%20Landing%20Page.html">Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Applications%20-%20Landing%20Page.html#apps">Apps</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../Applications%20-%20Landing%20Page.html#examples">Examples</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Analog_to_Digital_Converter.html">Analog to Digital Converter (ADC)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Audio_over_I2S.html">Audio Over I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_BLE_WiFi_Bridge.html">BLE WiFi Bridge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Crash_handling.html">Crash Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_I2C.html">I2C</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_LPScan.html">LPS Scan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_MQTT.html">MQTT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Pulse_Width_Modulation.html">Pulse Width Modulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Radio_and_Module_Parameters.html">Radio and Module Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Secure_Files.html">Secure Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Socket_Wakeup.html">Socket Wakeup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Software_SPI_Master.html">Software SPI Master</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_Chip_Monitor.html">Chip Monitor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_Filesystem.html">Filesystem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_GPIO.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_SNTP.html">SNTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_WiFi.html">WIFI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_WiFi_Power_Management.html">WiFi Power Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_BLE_5_0.html">BLE 5.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_BLE_Beacons.html">BLE Beacon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Custom_ATCMDLIB.html">Custom ATCMDLIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_HTTP_Client.html">HTTP Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_IFTTT.html">IFTTT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Low_Power_UART.html">Low Power UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_mDNS.html">mDNS</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Provisioning</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#topology">Topology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#list-of-apis">List of APIs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#functionality-overview">Functionality overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#data-exchange-formats">Data Exchange Formats</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#scan-data">Scan Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-data-format">Configuration Data Format</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#provisioning-profile">Provisioning Profile</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#service">Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#characteristics">Characteristics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#code-walkthrough">Code Walkthrough</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#application-flow">Application Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sample-code-walkthrough">Sample Code Walkthrough</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-application">Running the Application</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#write-the-provisioning-file-into-talaria-two-filesystem">Write the Provisioning File into Talaria TWO Filesystem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#programming-talaria-two-board-with-elf">Programming Talaria TWO board with ELF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-application-using-android-or-ios-app">Running the Application using Android or iOS App</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Unassociated_Mode.html">Unassociated Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Watchdog_Timer.html">Watchlog Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_WCM_Multi_AP.html">WCM Multi AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Websock_Client.html">Websock Client</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../Applications%20-%20Landing%20Page.html">Applications</a></li>
+      <li class="breadcrumb-item active">Provisioning</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Applications/2. Examples/Example_using_Provisioning.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="provisioning">
+<h1>Provisioning<a class="headerlink" href="#provisioning" title="Permalink to this heading"></a></h1>
+<p>This application note demonstrates the use of APIs to create a
+provisioning application using BLE as the mode of transferring
+provisioning data. A reusable module is provided for provisioning the
+device in the following location: <em>freertos_sdk_x.y\components\prov</em>.
+The code in this sample application can be used in any user application
+to use the provisioning feature.</p>
+<p>For more information regarding the module and the APIs, refer:
+<em>prov_apiref.pdf</em>.</p>
+<section id="topology">
+<h2>Topology<a class="headerlink" href="#topology" title="Permalink to this heading"></a></h2>
+</section>
+<section id="list-of-apis">
+<h2>List of APIs<a class="headerlink" href="#list-of-apis" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>prov_start(): Initializes and starts the Provisioning service.</p></li>
+<li><p>prov_conf_param_str_get(): Gets the configuration parameters of type
+string.</p></li>
+<li><p>prov_conf_param_int_get(): Gets the configuration parameter of type
+integer.</p></li>
+<li><p>prov_is_provisioned(): Checks if the device is provisioned at least
+once.</p></li>
+<li><p>wcm_create(): Creates a Wi-Fi network interface.</p></li>
+<li><p>wcm_add_network_profile(): Adds a network profile to WCM.</p></li>
+<li><p>wcm_auto_connect(): Starts or stops auto connect.</p></li>
+<li><p>wcm_notify_enable(): Enables callbacks of link and IP address
+changes.</p></li>
+</ol>
+</section>
+<section id="functionality-overview">
+<h2>Functionality overview<a class="headerlink" href="#functionality-overview" title="Permalink to this heading"></a></h2>
+<p>Provisioning module exposes states and data through Provisioning
+service. Each state and data are provided through respective
+characteristics.</p>
+<p>Following are a list of states and data exposed using the Provisioning
+Service:</p>
+<ol class="arabic simple">
+<li><p>Connection state: Wi-fi connection state</p></li>
+<li><p>Connect: Connect to the configured Wi-Fi N/w</p></li>
+<li><p>Scan state: Wi-Fi Scanning state</p></li>
+<li><p>Scan: Trigger scan</p></li>
+<li><p>Scan results: Scan results</p></li>
+<li><p>Conf data: Configuration data. This data can be read from and writen
+to configuration file (currently it is: /root/part.json file)</p></li>
+<li><p>Reset: Device reset</p></li>
+<li><p>SSID: Configure SSID</p></li>
+<li><p>Passphrase: Configure Passphrase</p></li>
+</ol>
+<p>These states and data can be used by the Provisioning application
+(application running on a smart device) in various combination.</p>
+<p>Following are the list of activities that can be executed by
+Provisioning application using these states and data:</p>
+<ol class="arabic simple">
+<li><p>Trigger scan and get scan results:</p></li>
+</ol>
+<p>Wi-Fi scan can be triggered by setting the “Scan” state. This will
+trigger the Wi-Fi scan and scan results are stored in the internal
+buffer in Talaria TWO. After setting the “Scan”, the application needs
+to poll the “Scan state”. When the Scan state becomes 2, scan results
+are ready to be read. At this point read “scan results”.</p>
+<ol class="arabic simple" start="2">
+<li><p>Get configuration data:</p></li>
+</ol>
+<p>Configuration data can be acquired by reading the “Conf data”. This is
+the entire content of the configuration file.</p>
+<ol class="arabic simple" start="3">
+<li><p>Write Configuration Data:</p></li>
+</ol>
+<p>After changing the required configuration parameters, configuration data
+can be written back(stored) to Talaria TWO by writing “Conf data”. The
+updated data is stored back in the configuration file in root fs.</p>
+<ol class="arabic simple" start="4">
+<li><p>Check connectivity:</p></li>
+</ol>
+<p>Once the configuration data is written(Provisioning is done), Wi-Fi
+connectivity can be checked for. Setting “Connect” will trigger the
+same.</p>
+<ol class="arabic simple" start="5">
+<li><p>SSID and Passphrase can be configured without getting the full
+configuration data. These parameters can be written using “ssid” and
+“passphrase”.</p></li>
+</ol>
+<p>One way to provision is to change the SSID and Passphrase by writing to
+“ssid” and “passphrase” characteristics. If any more parameters needs to
+be changed, the following procedure needs to be followed:</p>
+<p>Another way to provision the device would be to get the config data file
+content, change the required parameters and write it back. Additionally,
+before changing the config parameter like SSID, user can select the
+network from the SSID list in the scan results. After provisioning,
+connectivity check can also be done.</p>
+<p>Either one of the mentioned methods/procedures need to be followed to
+provision the device.</p>
+</section>
+<section id="data-exchange-formats">
+<h2>Data Exchange Formats<a class="headerlink" href="#data-exchange-formats" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+<section id="scan-data">
+<h1>Scan Data<a class="headerlink" href="#scan-data" title="Permalink to this heading"></a></h1>
+<p>This data is sent from Talaria TWO to the Provisioning application when
+“scan results” is read.</p>
+<p>Format:</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Table 5: Potential values of the connection state</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>&lt;Length of the scan data – 4 bytes&gt;&lt; Scan Data …&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Scan data format:</p>
+<p>Scan data is in the json format with one or more elements. Each element
+of the array gives SSID, BSSID and the channel for a discovered network.</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Table 6: Potential values of the scan state</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>{ “result”: [ {“ssid”:&lt;ssid string&gt;”, “bssid”:”&lt;bssid string&gt;”,
+“channel”:&lt;channel num str&gt;}…….]}</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="configuration-data-format">
+<h1>Configuration Data Format<a class="headerlink" href="#configuration-data-format" title="Permalink to this heading"></a></h1>
+<p>Configuration data is the content of part.json file. It is sent from
+Talaria TWO to the Provisioning application and vice versa in the
+following format:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>&lt;Length of the config data – 4 bytes&gt;&lt; Config Data …&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Configuration data is currently stored in part.json file. Hence, when
+the read operation is executed on this characteristic, whole of the
+part.json file content is sent as is. The configuration parameters are
+stored in this file between bootargs_start and bootargs_end. The
+Provisioning application changes the required parameters and sends the
+entire file content back. At Talaria TWO, the file is overwritten with
+new data.</p>
+<p>Ensure that the “provisioned” is set to 1 in the updated configuration
+data.</p>
+<p>Following is the basic content of part.json file:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>{</p>
+<p>“image” : [</p>
+<p>{</p>
+<p>“name” : “fota”,</p>
+<p>“version” : “1.0”,</p>
+<p>“start_sector” : 32,</p>
+<p>“bootargs_start”: 1,</p>
+<p>“ssid” : “inno_test”,</p>
+<p>“passphrase” : “1234567890”,</p>
+<p>“bootargs_end” : 1</p>
+<p>},</p>
+<p>{</p>
+<p>“name” : “test_app”,</p>
+<p>“version” : “1.0”,</p>
+<p>“start_sector” : 154,</p>
+<p>“bootargs_start”: 1,</p>
+<p>“ssid” : “inno_test”,</p>
+<p>“passphrase” : “1234567890”,</p>
+<p>“bootargs_end” : 1</p>
+<p>}</p>
+<p>],</p>
+<p>“provisioned” : 0,</p>
+<p>“baudrate” : 2560000,</p>
+<p>“timeout” : 0,</p>
+<p>“verbose” : 1</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<section id="provisioning-profile">
+<h2>Provisioning Profile<a class="headerlink" href="#provisioning-profile" title="Permalink to this heading"></a></h2>
+<p>Provisioning profile has one service and multiple characteristics. The
+service name is configurable. The following sections provide information
+about the provisioning service and the characteristics.</p>
+</section>
+</section>
+<section id="service">
+<h1>Service<a class="headerlink" href="#service" title="Permalink to this heading"></a></h1>
+<p>Service UUID:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>11111111-1111-1111-1111111111111111</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Service name:</p>
+<p>Configurable. Default is “Inno_Provisioning”.</p>
+</section>
+<section id="characteristics">
+<h1>Characteristics<a class="headerlink" href="#characteristics" title="Permalink to this heading"></a></h1>
+<ol class="arabic simple">
+<li><p>Connection state:</p>
+<ol class="arabic simple">
+<li><p>UUID: 0xAB30</p></li>
+<li><p>Properties: Read</p></li>
+<li><p>Description: Gives the current state of Wi-Fi connection of
+Talaria TWO</p></li>
+<li><p>Potential Values:</p></li>
+</ol>
+</li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Value</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Failure</p></td>
+<td><p>Unable to connect to the provisioned
+Wi-Fi network</p></td>
+</tr>
+<tr class="row-odd"><td><p>Success</p></td>
+<td><p>Connected</p></td>
+</tr>
+<tr class="row-even"><td><p>Waiting</p></td>
+<td><p>Connection in Progress</p></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="2">
+<li><p>Connect:</p>
+<ol class="arabic simple">
+<li><p>UUID: 0xAB31</p></li>
+<li><p>Properties: Write</p></li>
+<li><p>Description: When written, any 1-byte value (just typing 1), will
+trigger the Wi-Fi connect using the configured SSID and
+passphrase.</p></li>
+</ol>
+</li>
+<li><p>Scan State</p>
+<ol class="arabic simple">
+<li><p>UUID: 0xAB32</p></li>
+<li><p>Properties: Read</p></li>
+<li><p>Description: Gives the current state of the Wi-Fi scanning
+activity</p></li>
+<li><p>Potential Values:</p></li>
+</ol>
+</li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Value</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Not Scanning</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Scanning Complete</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Scanning in Progress</p></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="4">
+<li><p>Scan:</p>
+<ol class="arabic simple">
+<li><p>UUID: 0xAB33</p></li>
+<li><p>Properties: Write</p></li>
+<li><p>Description: When any 1-byte value is written (just typing 1),
+will trigger Wi-Fi scan. The scan results are stored internally
+but are not sent.</p></li>
+</ol>
+</li>
+<li><p>Scan Results:</p>
+<ol class="arabic simple">
+<li><p>UUID: 0xAB34</p></li>
+<li><p>Properties: Read</p></li>
+<li><p>Description: When read, the scan results are sent from Talaria
+TWO to the Provisioning application. The format of the scan
+results are as provided in section: <em>Scan Data</em>. Provisioning
+application may have to read multiple times to get the full data.</p></li>
+</ol>
+</li>
+<li><p>Configuration data:</p>
+<ol class="arabic simple">
+<li><p>UUID: 0xAB35</p></li>
+<li><p>Properties: Read/Write</p></li>
+<li><p>Description: When read, configuration data is sent from Talaria
+TWO to the Provisioning application. The format of the scan
+results is as provided in section: <em>Scan Data</em>. Provisioning
+application may have to read multiple times to get the full data.</p></li>
+</ol>
+</li>
+<li><p>Apply and Reset</p>
+<ol class="arabic simple">
+<li><p>UUID: 0xAB36</p></li>
+<li><p>Properties: Write</p></li>
+<li><p>Description: When 1 is written, the configuration will be applied
+(stored into the configuration file) and the device is reset.</p></li>
+</ol>
+</li>
+<li><p>Apply</p>
+<ol class="arabic simple">
+<li><p>UUID: 0xAB37</p></li>
+<li><p>Properties: Write</p></li>
+<li><p>Description: When written with any 1-byte value, the
+configuration will be applied (stored into the configuration
+file).</p></li>
+</ol>
+</li>
+<li><p>ssid</p>
+<ol class="arabic simple">
+<li><p>UUID: 0xAB38</p></li>
+<li><p>Properties: Write</p></li>
+<li><p>Description: Write a maximum of 31 bytes of SSID.</p></li>
+</ol>
+</li>
+<li><p>passphrase</p>
+<ol class="arabic simple">
+<li><p>UUID: 0xAB39</p></li>
+<li><p>Properties: Write</p></li>
+<li><p>Description: Write a maximum of 31 bytes of passphrase.</p></li>
+</ol>
+</li>
+</ol>
+<section id="code-walkthrough">
+<h2>Code Walkthrough<a class="headerlink" href="#code-walkthrough" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+<section id="application-flow">
+<h1>Application Flow<a class="headerlink" href="#application-flow" title="Permalink to this heading"></a></h1>
+<p>In this application, provisioning is done over BLE, and the
+configuration data is stored in the file system.</p>
+<p>Following are the steps:</p>
+<ol class="arabic simple">
+<li><p>Initiate BLE provisioning by creating a GATT server.</p></li>
+<li><p>Provision the SSID and passphrase by selecting the network from the
+SSID list created from scan results using the BLE Provisioning mobile
+app.</p></li>
+<li><p>Store the configuration data.</p></li>
+<li><p>Check Wi-Fi connectivity using the configured SSID and passphrase.</p></li>
+</ol>
+</section>
+<section id="sample-code-walkthrough">
+<h1>Sample Code Walkthrough<a class="headerlink" href="#sample-code-walkthrough" title="Permalink to this heading"></a></h1>
+<p>A user-defined data struct is created to store provisioning data.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>struct param_t {</p>
+<p>const char *ssid;</p>
+<p>const char *passphrase;</p>
+<p>const char *dummy;</p>
+<p>};</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>prov_start_prams_t and prov_cfg is the pointer to the data structure of
+type prov_start_prams_t.</p>
+<p>Provisioning method, device name, appearance, manufacturer name, user
+callback and context pointer are passed to structure members of
+prov_start_prams_t.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>if(0 == prov_is_provisioned()){</p>
+<p>/*Provisioning*/</p>
+<p>prov_start_prams_t prov_cfg = {0};</p>
+<p>prov_cfg.method = PROV_METHOD_BLE;</p>
+<p>prov_cfg.cb = app_prov_cb;</p>
+<p>/*”custparam” is configurable parameter present in part.json file</p>
+<p>provisioning module does not add this parametr bu default to the prov</p>
+<p>service. Need to add it exlicietly*/</p>
+<p>prov_custom_param_add(0xAA44, “custparam”);</p>
+<p>prov_start(&amp;prov_cfg);</p>
+<p>os_sem_wait(&amp;app_lock); }</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>prov_start API starts the provisioning service and prov_is_provisioned
+checks if provisioning is complete. Here, the prov_conf_param_str_get
+API is used to get the provisioning parameters such as SSID and
+passphrase. These parameters are stored in user defined structure
+param_t.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>/*if provisioning is done. use provisioned params*/</p>
+<p>if(prov_is_provisioned()){</p>
+<p>param.ssid = prov_conf_param_str_get(“ssid”);</p>
+<p>param.passphrase = prov_conf_param_str_get(“passphrase”);</p>
+<p>os_printf(”\n[APP] %s %s”, param.ssid, param.passphrase); }</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>wcm_create()API creates a Wi-Fi network interface and connects to
+network using provisioned parameters.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>wcm_handle = wcm_create(NULL);</p>
+<p>app_wcm_connect(wcm_handle, (char *)param.ssid, (char
+*)param.passphrase);</p>
+<p>if(!wcm_connect_success) {</p>
+<p>os_printf(”\n[APP]Error: Failed to connect to WiFi N/w”);</p>
+<p>goto exit; }</p>
+<p>os_printf(”\n[APP]Success: Connected to %s N/w”, (char
+*)param.ssid);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<section id="running-the-application">
+<h2>Running the Application<a class="headerlink" href="#running-the-application" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+<section id="write-the-provisioning-file-into-talaria-two-filesystem">
+<h1>Write the Provisioning File into Talaria TWO Filesystem<a class="headerlink" href="#write-the-provisioning-file-into-talaria-two-filesystem" title="Permalink to this heading"></a></h1>
+<p>Using the Download Tool’s Write Files feature, write the file
+(part.json) present in <em>freertos_sdk_x.y\examples\prov\data</em> into
+Talaria TWO filesystem.</p>
+<p>This can be accomplished by using the option: Filesystem-&gt;Write Files
+from a directory-&gt;(File Open Icon). Choose the directory
+<em>sdk_x.y\examples\prov\data</em> and click on Write Files option.</p>
+<p><strong>Note</strong>: To re-provision the application, write the files using the
+procedure described above.</p>
+</section>
+<section id="programming-talaria-two-board-with-elf">
+<h1>Programming Talaria TWO board with ELF<a class="headerlink" href="#programming-talaria-two-board-with-elf" title="Permalink to this heading"></a></h1>
+<p>Program prov_app.elf (<em>examples\prov\bin\prov_app.elf</em>) using the
+Download tool.</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool provided with InnoPhase Talaria TWO SDK.</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down.</p></li>
+<li><p>ELF Input: Load the prov_app.elf by clicking on Select ELF File.</p></li>
+<li><p>Programming: Click on Prog Flash.</p></li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<div><p>Once done, follow the instructions mentioned in section 7.3 to run
+the mobile</p>
+</div></blockquote>
+<p><strong>Note</strong>:</p>
+<ol class="arabic simple">
+<li><p>There is no requirement of boot arguments. User can run the
+application directly. On running the application, it creates a
+provisioning GATT server.</p></li>
+</ol>
+</section>
+<section id="running-the-application-using-android-or-ios-app">
+<h1>Running the Application using Android or iOS App<a class="headerlink" href="#running-the-application-using-android-or-ios-app" title="Permalink to this heading"></a></h1>
+<ol class="arabic simple">
+<li><p>Download and install the Android or iOS mobile application from the
+play/app store using the following links:</p>
+<ol class="loweralpha simple">
+<li><p><strong>Android</strong>:<a class="reference external" href="https://play.google.com/store/apps/details?id=com.innophase.provisioning&amp;hl=en&amp;gl=US">https://play.google.com/store/apps/details?id=com.innophase.provisioning&amp;hl=en&amp;gl=US</a></p></li>
+<li><p><strong>iOS</strong>:
+<a class="reference external" href="https://apps.apple.com/in/app/ble-provisioning/id1627682345">https://apps.apple.com/in/app/ble-provisioning/id1627682345</a></p></li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image110.png"><img alt="image1" src="../../_images/image110.png" style="width: 3.14931in; height: 6.32083in;" /></a></p>
+</div></blockquote>
+<p>Figure : Android mobile app in play store</p>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image22.png"><img alt="Graphical user interface, application Description automatically generated" src="../../_images/image22.png" style="width: 3.14926in; height: 4.9875in;" /></a></p>
+</div></blockquote>
+<p>Figure : iOS mobile app in app store</p>
+<ol class="arabic simple" start="2">
+<li><p>BLE Provisioning can be enabled via non-secure and secure BLE
+connections. Following are the three supported methods:</p>
+<ol class="loweralpha simple">
+<li><p>Non-secure provisioning</p></li>
+<li><p>Secure Provisioning – Just Work Method</p></li>
+<li><p>Secure Provisioning – Passkey Method</p></li>
+</ol>
+</li>
+<li><p>Non-secure Provisioning</p></li>
+</ol>
+<blockquote>
+<div><p>On flashing prov_app.elf onto Talaria TWO using the Download Tool,
+the following console logs are observed.</p>
+<p>Talaria TWO console output:</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PWWWWWWAE</p>
+<p>Build $Id: git-2eebd42 $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-0080-0055-ffffffffffff</p>
+<p>Bootargs: prov_every_time=1</p>
+<p>Application Information:</p>
+<p>Name : Prov App</p>
+<p>Version : 1.0</p>
+<p>Build Date : Sep 8 2023</p>
+<p>Build Time : 13:58:53</p>
+<p>Heap Available: 297 KB (304152 Bytes)</p>
+<p>[APP]Bootparams :</p>
+<p>ssid= &lt;null&gt;</p>
+<p>passphrase= &lt;null&gt;</p>
+<p>dummy= &lt;null&gt;</p>
+<p>secured_prov =0</p>
+<p>pass_key=0</p>
+<p>prov_every_time=1</p>
+<p>[APP]Bootparams end here….</p>
+<p>[PROV]prov_is_provisioned : val = 1</p>
+<p>[PROV] bt_gap_init</p>
+<p>[PROV] common_server_create: Inno_Provisioning InnophaseInc 0</p>
+<p>[PROV] bt_gatt_create_service_128 ret = 0x000bf278</p>
+<p>[PROV] Adding Characteristics</p>
+<p>[PROV] bt_gatt_add_service</p>
+<p>[PROV] bt_gap_discoverable_mode, ret = 0</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="4">
+<li><p>Secure Provisioning</p></li>
+</ol>
+<blockquote>
+<div><p>In case of secure BLE provisioning, flash the prov_app.elf onto
+Talaria TWO with the following boot arguments as applicable:</p>
+</div></blockquote>
+<ol class="loweralpha simple">
+<li><p>Just Work Method: secured_prov=1,pass_key=0, or</p></li>
+<li><p>Passkey Method: secured_prov=1,pass_key=1</p></li>
+</ol>
+<blockquote>
+<div><p>Console output:</p>
+<p><strong>secured_prov=1, pass_key=0</strong></p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PWWWWWWAE</p>
+<p>Build $Id: git-2eebd42 $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-0080-0055-ffffffffffff</p>
+<p>Bootargs: prov_every_time=1 secured_prov=1</p>
+<p>Application Information:</p>
+<p>Name : Prov App</p>
+<p>Version : 1.0</p>
+<p>Build Date : Sep 8 2023</p>
+<p>Build Time : 13:58:53</p>
+<p>Heap Available: 297 KB (304152 Bytes)</p>
+<p>[APP]Bootparams :</p>
+<p>ssid= &lt;null&gt;</p>
+<p>passphrase= &lt;null&gt;</p>
+<p>dummy= &lt;null&gt;</p>
+<p>secured_prov =1</p>
+<p>pass_key=0</p>
+<p>prov_every_time=1</p>
+<p>[APP]Bootparams end here….</p>
+<p>[PROV]prov_is_provisioned : val = 1</p>
+<p>[PROV] bt_gap_init</p>
+<p>[PROV] common_server_create: Inno_Provisioning InnophaseInc 1</p>
+<p>[PROV] bt_gatt_create_service_128 ret = 0x000bf278</p>
+<p>[PROV] Adding Characteristics</p>
+<p>[PROV] bt_gatt_add_service</p>
+<p>[PROV] bt_gap_discoverable_mode, ret = 0</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p><strong>secured_prov=1,pass_key=1</strong></p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PWWWWWWAE</p>
+<p>Build $Id: git-2eebd42 $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-0080-0055-ffffffffffff</p>
+<p>Bootargs: prov_every_time=1 secured_prov=1 pass_key=1</p>
+<p>Application Information:</p>
+<p>Name : Prov App</p>
+<p>Version : 1.0</p>
+<p>Build Date : Sep 8 2023</p>
+<p>Build Time : 13:58:53</p>
+<p>Heap Available: 297 KB (304152 Bytes)</p>
+<p>[APP]Bootparams :</p>
+<p>ssid= &lt;null&gt;</p>
+<p>passphrase= &lt;null&gt;</p>
+<p>dummy= &lt;null&gt;</p>
+<p>secured_prov =1</p>
+<p>pass_key=1</p>
+<p>prov_every_time=1</p>
+<p>[APP]Bootparams end here….</p>
+<p>[PROV]prov_is_provisioned : val = 1</p>
+<p>[PROV] bt_gap_init</p>
+<p>[PROV] common_server_create: Inno_Provisioning InnophaseInc 1</p>
+<p>[PROV] bt_gatt_create_service_128 ret = 0x000bf278</p>
+<p>[PROV] Adding Characteristics</p>
+<p>[PROV] bt_gatt_add_service</p>
+<p>[PROV] bt_gap_discoverable_mode, ret = 0</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="5">
+<li><p>Launch the downloaded BLE Provisioning mobile app. App icon and UI
+are as shown in Figure 4.</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image32.png"><img alt="A screenshot of a phone Description automatically generated with medium confidence" src="../../_images/image32.png" style="width: 2.75591in; height: 4.35509in;" /></a> <a class="reference internal" href="../../_images/image4.jpeg"><img alt="A picture containing text, screenshot, software, web page Description automatically generated" src="../../_images/image4.jpeg" style="width: 2.06368in; height: 4.34984in;" /></a></p>
+</div></blockquote>
+<p>Figure : BLE Provisioning home screen</p>
+<ol class="arabic simple" start="6">
+<li><p>To check the version of the Talaria TWO Provisioning App and other
+related details, user can click and open the About Us option.</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image52.png"><img alt="Graphical user interface, text, application Description automatically generated" src="../../_images/image52.png" style="width: 2.75591in; height: 5.93507in;" /></a></p>
+</div></blockquote>
+<p>Figure : About Us</p>
+<p>Talaria TWO Provisioning Mobile App version is displayed as shown in
+Figure 6. Version varies for each release.</p>
+<p>User has the following two options via which they can contact the
+InnoPhase support team.</p>
+<ol class="arabic simple">
+<li><p>Contact the sales team via email: <a class="reference external" href="mailto:sales&#37;&#52;&#48;innophaseiot&#46;com">sales<span>&#64;</span>innophaseiot<span>&#46;</span>com</a></p></li>
+<li><p>LinkedIn, which redirects them to the InnoPhase website.</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image62.png"><img alt="image2" src="../../_images/image62.png" style="width: 2.75591in; height: 5.66463in;" /></a></p>
+<blockquote>
+<div><p>Figure : About Us - App version and other related details</p>
+</div></blockquote>
+<ol class="arabic simple" start="7">
+<li><p>Click on BLE Scan if there are no services listed.</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image7.jpeg"><img alt="Shape Description automatically generated with low confidence" src="../../_images/image7.jpeg" style="width: 2.75591in; height: 5.80891in;" /></a></p>
+<p>Figure : BLE Scan</p>
+<ol class="arabic simple" start="8">
+<li><p>If the user needs to scan for unknown devices, then the highlighted
+toggle switch should be enabled.</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image52.png"><img alt="image3" src="../../_images/image52.png" style="width: 2.75591in; height: 5.93507in;" /></a></p>
+</div></blockquote>
+<p>Figure : Show/List ‘Unknown’ devices</p>
+<ol class="arabic simple" start="9">
+<li><p>Click on the Inno_Provisioning service.</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image7.jpeg"><img alt="Shape Description automatically generated with low confidence" src="../../_images/image7.jpeg" style="width: 2.75591in; height: 5.80891in;" /></a></p>
+<p>Figure : Starting Inno_Provisioning</p>
+<p>Console output: <strong>non-secured</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>[121.460,022] BT connect[0]: ia:68:be:27:2e:5f:f9
+aa:05:04:03:02:01:00 phy2:0/0 phyC:00</p>
+<p>[PROV]BLE connection success</p>
+<p>[ROV] prov_srv_fn_wifi_scan</p>
+<p>prov_event_thread_entry: msg-&gt;event = 1</p>
+<p>Creating wcm interfaceaddr e0:69:3a:00:2c:3c</p>
+<p>[PROV]140 : len = 11</p>
+<p>[PROV] WiFi scan: Found 7 networks</p>
+<p>[PROV]168 : wc.scan_rslts_len = 75</p>
+<p>[PROV]168 : wc.scan_rslts_len = 128</p>
+<p>[PROV]168 : wc.scan_rslts_len = 194</p>
+<p>[PROV]168 : wc.scan_rslts_len = 257</p>
+<p>[PROV]168 : wc.scan_rslts_len = 322</p>
+<p>[PROV]168 : wc.scan_rslts_len = 382</p>
+<p>[PROV]168 : wc.scan_rslts_len = 446</p>
+<p>[PROV]174 : len = 448</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 0</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=0 ,
+rslt_len=448</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 0 remaining_bytes = 448,
+copy_len = 18</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 18</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 18, scan_rslts_len = 448</p>
+<p>Sending</p>
+<p>{“result”:[{“ssid”</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=18 ,
+rslt_len=448</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 22 remaining_bytes = 430,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 40</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 40, scan_rslts_len = 448</p>
+<p>Sending</p>
+<p>:”InnoPhase_AE”,”bssid</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 44</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=40 ,
+rslt_len=448</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 44 remaining_bytes = 408,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 62</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 62, scan_rslts_len = 448</p>
+<p>Sending</p>
+<p>“:”98:da:c4:73:b7:76”,</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 66</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=62 ,
+rslt_len=448</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 66 remaining_bytes = 386,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 84</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 84, scan_rslts_len = 448</p>
+<p>Sending</p>
+<p>“channel”:11},{“ssid”:</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 88</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=84 ,
+rslt_len=448</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 88 remaining_bytes = 364,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 106</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 106, scan_rslts_len = 448</p>
+<p>Sending</p>
+<p>“”,”bssid”:”aa:da:c4:7</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 110</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=106 ,
+rslt_len=448</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 110 remaining_bytes = 342,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 128</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 128, scan_rslts_len = 448</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="10">
+<li><p>For secured BLE provisioning, pairing with the device is a must. On
+clicking Inno_Provisioning on the mobile application, a pop-up
+appears with a request to pair:</p></li>
+</ol>
+<blockquote>
+<div><p><strong>Note</strong>: If the mobile application is already paired with an
+existing provisioning advertisement, the user will have to explicitly
+remove the same from paired devices before proceeding.</p>
+<p>For unpairing a device, go to:</p>
+</div></blockquote>
+<ol class="lowerroman simple">
+<li><p>Settings → Connections → Bluetooth</p></li>
+<li><p>Click on the Settings icon on the paired device → Unpair.</p></li>
+</ol>
+<ol class="loweralpha simple">
+<li><p>secured_prov=1,pass_key=0</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image82.png"><img alt="image4" src="../../_images/image82.png" style="width: 2.75591in; height: 5.78867in;" /></a></p>
+</div></blockquote>
+<p>Figure : Pairing - open networks</p>
+<ol class="loweralpha simple" start="2">
+<li><p>secured_prov=1,pass_key=1</p></li>
+</ol>
+<blockquote>
+<div><p>Enter the appropriate pass_key (PIN) from the Talaria TWO console log
+to complete pairing.</p>
+<p><a class="reference internal" href="../../_images/image92.png"><img alt="image5" src="../../_images/image92.png" style="width: 5.90551in; height: 1.10119in;" /></a></p>
+</div></blockquote>
+<p>Figure : passkey (PIN) from the console log</p>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image102.png"><img alt="image6" src="../../_images/image102.png" style="width: 1.7294in; height: 0.16667in;" /></a><a class="reference internal" href="../../_images/image102.png"><img alt="image7" src="../../_images/image102.png" style="width: 1.59167in; height: 0.21667in;" /></a><a class="reference internal" href="../../_images/image112.png"><img alt="image8" src="../../_images/image112.png" style="width: 2.75591in; height: 5.81682in;" /></a></p>
+</div></blockquote>
+<p>Figure : Pairing - with pass_key</p>
+<blockquote>
+<div><p>Once the pairing is complete, the screen with a list of available APs
+in the vicinity opens.</p>
+</div></blockquote>
+<ol class="arabic simple" start="11">
+<li><p>Available Wireless Network screen opens the AP listing available in
+the vicinity. Here, select the appropriate AP from the list.</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image12.jpeg"><img alt="image9" src="../../_images/image12.jpeg" style="width: 2.75591in; height: 5.81964in;" /></a></p>
+</div></blockquote>
+<p>Figure : Selecting the appropriate AP from the list</p>
+<ol class="arabic simple" start="12">
+<li><p>Provide the passphrase for the secured AP and click on Submit. User
+can use the hide or show option to check the passphrase entered.</p></li>
+</ol>
+<blockquote>
+<div><p><strong>Note</strong>: If the user is connecting to an open network, they can keep
+the password space empty.</p>
+<p><a class="reference internal" href="../../_images/image131.jpeg"><img alt="image10" src="../../_images/image131.jpeg" style="width: 2.75591in; height: 5.81119in;" /></a></p>
+</div></blockquote>
+<p>Figure : Connecting to InnoPhase_AE network by providing passphrase</p>
+<ol class="arabic simple" start="13">
+<li><p>On successfully connecting to the AP, the following output is
+observed:</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image142.png"><img alt="image11" src="../../_images/image142.png" style="width: 2.75591in; height: 5.76333in;" /></a></p>
+</div></blockquote>
+<p>Figure : Successfully connected to InnoPhase network</p>
+<p>Console output:</p>
+<p>To connect to the configured network, “Apply and reset” is used to save
+the provisioned data and reset the application.</p>
+<p><strong>Note</strong>: If there is a need to re-provision the application, follow the
+procedure described in section 7.1.</p>
+<p><strong>Non-secure provisioning</strong>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>[PROV]prov_srv_fn_cfg_ssid:9 InnoPhase_AE</p>
+<p>[PROV]prov_conf_update: key = ssid, val = InnoPhase_AE</p>
+<p>[PROV]prov_conf_update: prov_json_object_update ret = 0</p>
+<p>prov_srv_fn_cfg_ssid : 1 0</p>
+<p>[PROV]prov_conf_update: key = passphrase, val = <a class="reference external" href="mailto:Inno&#37;&#52;&#48;1234">Inno<span>&#64;</span>1234</a></p>
+<p>[PROV]prov_conf_update: prov_json_object_update ret = 0</p>
+<p>prov_srv_fn_cfg_passphrase : 1 1</p>
+<p>prov_event_thread_entry: msg-&gt;event = 2</p>
+<p>ssid = InnoPhase_AE</p>
+<p>passphrase = <a class="reference external" href="mailto:Inno&#37;&#52;&#48;1234">Inno<span>&#64;</span>1234</a></p>
+<p>[PROV]Checking connectivity to…</p>
+<p>ssid = InnoPhase_AE passphrase = <a class="reference external" href="mailto:Inno&#37;&#52;&#48;1234">Inno<span>&#64;</span>1234</a></p>
+<p>network profile created for ssid: InnoPhase</p>
+<p>[PROV] prov_srv_fn_wifi_conn_state: data = waiting[54.777,862]
+CONNECT:00:5f:67:cd:c5:a6 Channel:11 rssi:-54 dBm</p>
+<p>[PROV] prov_srv_fn_wifi_conn_state: data = waiting[55.512,208] MYIP
+192.168.0.106</p>
+<p>[55.512,488] IPv6 [fe80::e269:3aff:fe00:1390]-link</p>
+<p>[PROV] prov_srv_fn_wifi_conn_state: data = success</p>
+<p>[PROV] prov_srv_fn_wifi_conn_state: data = success</p>
+<p>[ROV] prov_srv_fn_cfg_apply_and_reset</p>
+<p>[PROV]prov_conf_set_provisioned 168</p>
+<p>[PROV]prov_conf_set_provisioned 192</p>
+<p>[PROV]prov_conf_data_apply:342</p>
+<p>[PROV]prov_conf_data_apply:345</p>
+<p>{</p>
+<p>“image”: [</p>
+<p>{</p>
+<p>“name”: “prov_app”,</p>
+<p>“version”: “1.0”,</p>
+<p>“start_sector”: 32,</p>
+<p>“bootargs_start”: 1,</p>
+<p>“ssid”: “InnoPhase_AE”,</p>
+<p>“passphrase”: “<a class="reference external" href="mailto:Inno&#37;&#52;&#48;1234">Inno<span>&#64;</span>1234</a>”,</p>
+<p>“custparam”: “inno”,</p>
+<p>“bootargs_end”: 1</p>
+<p>}</p>
+<p>],</p>
+<p>“provisioned”: 1,</p>
+<p>“baudrate”: 2560000,</p>
+<p>“timeout”: 0,</p>
+<p>“verbose”: 1</p>
+<p>}</p>
+<p>[PROV]prov_conf_data_apply:350</p>
+<p>app_prov_cb : status = 1</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:P</p>
+<p>UART:SNWWWWAE</p>
+<p>Build $Id: git-34e3eddb8 $</p>
+<p>hio.baudrate=921600</p>
+<p>flash: Gordon ready!</p>
+<p>UART:SNWWWWWAEBuild $Id: git-34e3eddb8 $</p>
+<p>Application Information:</p>
+<p>Name : Prov App</p>
+<p>Version : 1.0</p>
+<p>Build Date : Aug 3 2022</p>
+<p>Build Time : 03:56:17</p>
+<p>Heap Available: 326 KB (333976 Bytes)</p>
+<p>[APP]Bootparams :</p>
+<p>ssid= &lt;null&gt;</p>
+<p>passphrase= &lt;null&gt;</p>
+<p>dummy= &lt;null&gt;</p>
+<p>[APP]Bootparams end here….</p>
+<p>[PROV]prov_is_provisioned : val = 1</p>
+<p>[PROV]prov_is_provisioned : val = 1</p>
+<p>ssid = InnoPhase_AE</p>
+<p>passphrase = <a class="reference external" href="mailto:Inno&#37;&#52;&#48;1234">Inno<span>&#64;</span>1234</a></p>
+<p>[APP] InnoPhase_AE <a class="reference external" href="mailto:Inno&#37;&#52;&#48;1234addr">Inno<span>&#64;</span>1234addr</a> e0:69:3a:00:13:90</p>
+<p>app_wcm_connect:144 0x000bfa20 0x000bfa78 network profile created for
+ssid: InnoPhase_AE</p>
+<p>[2.340,175] CONNECT:98:da:c4:73:b7:76 Channel:11 rssi:-33 dBm</p>
+<p>[2.387,308] MYIP 192.168.0.164</p>
+<p>[2.387,586] IPv6 [fe80::e269:3aff:fe00:1390]-link</p>
+<p>[APP]Success: Connected to InnoPhase_AE N/w</p>
+<p>[APP]—— Program Exit————-</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>secured_prov=1, pass_key=0</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>prov_event_thread_entry[5.094,119] BT connect[0]:
+ia:7c:90:13:12:df:43 aa:05:04:03:02:01:00 phy2:0/0 phyC:00</p>
+<p>[PROV]BLE connection success</p>
+<p>[ROV] prov_srv_fn_wifi_scan</p>
+<p>prov_event_thread_entry: msg-&gt;event = 1</p>
+<p>Creating wcm interfaceaddr e0:69:3a:00:16:cc</p>
+<p>[PROV]199 : len = 11</p>
+<p>[PROV] WiFi scan: Found 4 networks</p>
+<p>[PROV]227 : wc.scan_rslts_len = 68</p>
+<p>[PROV]227 : wc.scan_rslts_len = 132</p>
+<p>[PROV]227 : wc.scan_rslts_len = 199</p>
+<p>[PROV]227 : wc.scan_rslts_len = 258</p>
+<p>[PROV]233 : len = 260Authentication succeeded.</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 0</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=0 ,
+rslt_len=260</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 0 remaining_bytes = 260,
+copy_len = 18</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 18</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 18, scan_rslts_len = 260</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 44</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=40 ,
+rslt_len=260</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 44 remaining_bytes = 220,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 62</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 62, scan_rslts_len = 260</p>
+<p>Sending</p>
+<p>7:2c:7c:ee:f4”,”channe</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 66</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=62 ,
+rslt_len=260</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 66 remaining_bytes = 198,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 84</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 84, scan_rslts_len = 260</p>
+<p>Sending</p>
+<p>l”:10},{“ssid”:”dlink8</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 88</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=84 ,
+rslt_len=260</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 88 remaining_bytes = 176,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 106</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 106, scan_rslts_len = 260</p>
+<p>Sending</p>
+<p>25_iop”,”bssid”:”34:0a</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 110</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=106 ,
+rslt_len=260</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 110 remaining_bytes = 154,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 128</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 128, scan_rslts_len = 260</p>
+<p>Sending</p>
+<p>:33:91:bd:30”,”channel</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 132</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=128 ,
+rslt_len=260</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 132 remaining_bytes = 132,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 150</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 150, scan_rslts_len = 260</p>
+<p>Sending</p>
+<p>“:1},{“ssid”:”Asus_86U</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 154</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=150 ,
+rslt_len=260</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 154 remaining_bytes = 110,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 172</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 172, scan_rslts_len = 260</p>
+<p>Sending</p>
+<p>_2G_iop”,”bssid”:”24:4</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 176</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=172 ,
+rslt_len=260</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 176 remaining_bytes = 88,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 194</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 194, scan_rslts_len = 260</p>
+<p>Sending</p>
+<p>b:fe:5e:fd:d8”,”channe</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 198</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=194 ,
+rslt_len=260</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 198 remaining_bytes = 66,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 216</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 216, scan_rslts_len = 260</p>
+<p>Sending</p>
+<p>l”:1},{“ssid”:”Asus777</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 220</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=216 ,
+rslt_len=260</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 220 remaining_bytes = 44,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 238</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 238, scan_rslts_len = 260</p>
+<p>Sending</p>
+<p>“,”bssid”:”58:11:22:71</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 242</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=238 ,
+rslt_len=260</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 242 remaining_bytes = 22,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 260</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 260, scan_rslts_len = 260</p>
+<p>Sending</p>
+<p>:f2:a8”,”channel”:6}]}</p>
+<p>[PROV]prov_srv_fn_cfg_ssid:12 dlink825_iop</p>
+<p>[PROV]prov_conf_update: key = ssid, val = dlink825_iop</p>
+<p>[PROV]prov_conf_update: prov_json_object_update ret = 0</p>
+<p>prov_srv_fn_cfg_ssid : 1 0</p>
+<p>[PROV]prov_conf_update: key = passphrase, val = InnoQA2023$</p>
+<p>[PROV]prov_conf_update: prov_json_object_update ret = 0</p>
+<p>prov_srv_fn_cfg_passphrase : 1 1</p>
+<p>prov_event_thread_entry: msg-&gt;event = 2</p>
+<p>ssid = dlink825_iop</p>
+<p>passphrase = InnoQA2023$</p>
+<p>[PROV]Checking connectivity to…</p>
+<p>ssid = dlink825_iop passphrase = InnoQA2023$</p>
+<p>network profile created for ssid: dlink825_iop</p>
+<p>[30.915,617] CONNECT:34:0a:33:91:bd:30 Channel:1 rssi:-32 dBm</p>
+<p>[PROV] prov_srv_fn_wifi_conn_state: data = waiting[35.658,449] MYIP
+192.168.1.214</p>
+<p>[35.658,613] IPv6 [fe80::e269:3aff:fe00:16cc]-link</p>
+<p>[35.661,211] DISCONNECTED</p>
+<p>[PROV] prov_srv_fn_wifi_conn_state: data = success</p>
+<p>[PROV] prov_srv_fn_wifi_conn_state: data = success</p>
+<p>[ROV] prov_srv_fn_cfg_apply</p>
+<p>[PROV]prov_conf_set_provisioned 173</p>
+<p>[PROV]prov_conf_set_provisioned 197</p>
+<p>[PROV]prov_conf_data_apply:347</p>
+<p>[PROV]prov_conf_data_apply:350</p>
+<p>{</p>
+<p>“image”: [</p>
+<p>{</p>
+<p>“name”: “prov_app”,</p>
+<p>“version”: “1.0”,</p>
+<p>“start_sector”: 32,</p>
+<p>“bootargs_start”: 1,</p>
+<p>“ssid”: “dlink825_iop”,</p>
+<p>“passphrase”: “InnoQA2023$”,</p>
+<p>“custparam”: “inno”,</p>
+<p>“new_boot_param_key”: “new_boot_param_val”,</p>
+<p>“bootargs_end”: 1</p>
+<p>},</p>
+<p>{</p>
+<p>“name”: “prov_app”,</p>
+<p>“version”: “1.0”,</p>
+<p>“start_sector”: 208,</p>
+<p>“bootargs_start”: 1,</p>
+<p>“ssid”: “Innophasetest”,</p>
+<p>“passphrase”: “123456789”,</p>
+<p>“custparam”: “inno”,</p>
+<p>“new_boot_param_key”: “new_boot_param_val”,</p>
+<p>“bootargs_end”: 1</p>
+<p>}</p>
+<p>],</p>
+<p>“provisioned”: 1,</p>
+<p>“baudrate”: 2560000,</p>
+<p>“timeout”: 0,</p>
+<p>“verbose”: 1</p>
+<p>}</p>
+<p>[PROV]prov_conf_data_apply:355</p>
+<p>app_prov_cb : status = 1</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWWWAEBuild $Id: git-a042e9a42 $</p>
+<p>secured_prov=1 pass_key=0</p>
+<p>Application Information:</p>
+<p>Name : Prov App</p>
+<p>Version : 1.0</p>
+<p>Build Date : Apr 24 2023</p>
+<p>Build Time : 20:57:23</p>
+<p>Heap Available: 323 KB (331672 Bytes)</p>
+<p>[APP]Bootparams :</p>
+<p>ssid= &lt;null&gt;</p>
+<p>passphrase= &lt;null&gt;</p>
+<p>secured_prov =1</p>
+<p>pass_key=0</p>
+<p>[APP]Bootparams end here….</p>
+<p>[PROV]prov_is_provisioned : val = 1</p>
+<p>[PROV]prov_is_provisioned : val = 1</p>
+<p>ssid = dlink825_iop</p>
+<p>passphrase = InnoQA2023$</p>
+<p>[APP] dlink825_iop InnoQA2023$addr e0:69:3a:00:16:cc</p>
+<p>network profile created for ssid: dlink825_iop</p>
+<p>[1.356,659] Trying to connect in 1 seconds</p>
+<p>[2.637,148] Trying to connect in 2 seconds</p>
+<p>[4.940,709] Trying to connect in 4 seconds</p>
+<p>[10.444,878] CONNECT:34:0a:33:91:bd:30 Channel:1 rssi:-32 dBm</p>
+<p>[11.800,951] MYIP 192.168.1.214</p>
+<p>[11.801,114] IPv6 [fe80::e269:3aff:fe00:16cc]-link</p>
+<p>[APP]Success: Connected to dlink825_iop N/w</p>
+<p>[APP]—— Program Exit————-</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>secured_prov=1,pass_key=1</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>prov_event_thread_entry[130.106,485] BT connect[0]:
+ia:57:34:ac:96:d3:11 aa:05:04:03:02:01:00 phy2:0/0 phyC:00</p>
+<p>[PROV]BLE connection success</p>
+<p>[ROV] prov_srv_fn_wifi_scan</p>
+<p>prov_event_thread_entry: msg-&gt;event = 1</p>
+<p>Creating wcm interfaceaddr e0:69:3a:00:16:cc</p>
+<p>[PROV]199 : len = 11</p>
+<p>[PROV] WiFi scan: Found 10 networks</p>
+<p>[PROV]227 : wc.scan_rslts_len = 79</p>
+<p>[PROV]227 : wc.scan_rslts_len = 137</p>
+<p>[PROV]227 : wc.scan_rslts_len = 190</p>
+<p>[PROV]227 : wc.scan_rslts_len = 255</p>
+<p>[PROV]227 : wc.scan_rslts_len = 317</p>
+<p>[PROV]227 : wc.scan_rslts_len = 378</p>
+<p>[PROV]227 : wc.scan_rslts_len = 442</p>
+<p>[PROV]227 : wc.scan_rslts_len = 506</p>
+<p>[PROV]227 : wc.scan_rslts_len = 571</p>
+<p>[PROV]227 : wc.scan_rslts_len = 630</p>
+<p>[PROV]233 : len = 632Passkey (to be entered on remote device): 455291</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 0</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=0 ,
+rslt_len=632</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 0 remaining_bytes = 632,
+copy_len = 18</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 18</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 18, scan_rslts_len = 632</p>
+<p>Sending</p>
+<p>id”:”ct_ds”,”bssid”:”1</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 110</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=106 ,
+rslt_len=632</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 110 remaining_bytes = 526,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 128</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 128, scan_rslts_len = 632</p>
+<p>Sending</p>
+<p>c:b7:2c:7c:ee:f4”,”cha</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 132</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=128 ,
+rslt_len=632</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 132 remaining_bytes = 504,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 150</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 150, scan_rslts_len = 632</p>
+<p>Sending</p>
+<p>nnel”:10},{“ssid”:””,”</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 154</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=150 ,
+rslt_len=632</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 154 remaining_bytes = 482,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 172</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 172, scan_rslts_len = 632</p>
+<p>Sending</p>
+<p>bssid”:”7c:10:c9:02:f2</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 176</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=172 ,
+rslt_len=632</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 176 remaining_bytes = 460,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 194</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 194, scan_rslts_len = 632</p>
+<p>Sending</p>
+<p>id”:”tplink_A91”,”bssi</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 286</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=282 ,
+rslt_len=632</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 286 remaining_bytes = 350,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 304</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 304, scan_rslts_len = 632</p>
+<p>Sending</p>
+<p>d”:”60:32:b1:33:b5:7b”</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 308</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=304 ,
+rslt_len=632</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 308 remaining_bytes = 328,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 326</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 326, scan_rslts_len = 632</p>
+<p>Sending</p>
+<p>,”channel”:6},{“ssid”:</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 330</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=326 ,
+rslt_len=632</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 330 remaining_bytes = 306,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 348</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 348, scan_rslts_len = 632</p>
+<p>Sending</p>
+<p>“low_rssi”,”bssid”:”74</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 352</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=348 ,
+rslt_len=632</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 352 remaining_bytes = 284,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 370</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 370, scan_rslts_len = 632</p>
+<p>Sending</p>
+<p>:da:88:a6:9c:ea”,”chan</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 374</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=370 ,
+rslt_len=632</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 374 remaining_bytes = 262,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 392</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 392, scan_rslts_len = 632</p>
+<p>Sending</p>
+<p>nel”:11},{“ssid”:”dlin</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 396</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=392 ,
+rslt_len=632</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 396 remaining_bytes = 240,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 414</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 414, scan_rslts_len = 632</p>
+<p>Sending</p>
+<p>k650_iop”,”bssid”:”e0:</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 418</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=414 ,
+rslt_len=632</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 418 remaining_bytes = 218,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 436</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 436, scan_rslts_len = 632</p>
+<p>Sending</p>
+<p>1c:fc:a3:5b:04”,”chann</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 440</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=436 ,
+rslt_len=632</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 440 remaining_bytes = 196,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 458</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 458, scan_rslts_len = 632</p>
+<p>Sending</p>
+<p>el”:1},{“ssid”:”ASUS_O</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 462</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=458 ,
+rslt_len=632</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 462 remaining_bytes = 174,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 480</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 480, scan_rslts_len = 632</p>
+<p>Sending</p>
+<p>utside”,”bssid”:”58:11</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 484</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=480 ,
+rslt_len=632</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 484 remaining_bytes = 152,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 502</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 502, scan_rslts_len = 632</p>
+<p>Sending</p>
+<p>:22:71:ee:10”,”channel</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 506</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=502 ,
+rslt_len=632</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 506 remaining_bytes = 130,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 524</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 524, scan_rslts_len = 632</p>
+<p>Sending</p>
+<p>“:1},{“ssid”:”asusax55</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 528</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=524 ,
+rslt_len=632</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 528 remaining_bytes = 108,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 546</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 546, scan_rslts_len = 632</p>
+<p>Sending</p>
+<p>u_iop”,”bssid”:”04:42:</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 550</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=546 ,
+rslt_len=632</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 550 remaining_bytes = 86,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 568</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 568, scan_rslts_len = 632</p>
+<p>Sending</p>
+<p>1a:bd:6e:08”,”channel”</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 572</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=568 ,
+rslt_len=632</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 572 remaining_bytes = 64,
+copy_len = 22</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 590</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 590, scan_rslts_len = 632</p>
+<p>Sending</p>
+<p>:1},{“ssid”:”Asus777”,</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 594</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=590 ,
+rslt_len=632</p>
+<p>[PROV]prov_wifi_scan_rslts_send: offset = 594 remaining_bytes = 42,
+copy_len = 6</p>
+<p>[PROV] prov_wifi_scan_rslts_send : wc.index = 596</p>
+<p>[PROV]prov_wifi_scan_rslts_send: index = 596, scan_rslts_len = 632</p>
+<p>Sending</p>
+<p>“channel”:6}]}</p>
+<p>scan_len is greaterthan index</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : length = 22</p>
+<p>[PROV] prov_srv_fn_wifi_scan_rslts : offset = 0</p>
+<p>[PROV] prov_wifi_scan_rslts_send : length = 22, index=0 , rslt_len=0</p>
+<p>[PROV] prov_wifi_scan_rslts_send : line = 253</p>
+<p>Authentication succeeded.</p>
+<p>[PROV]prov_srv_fn_cfg_ssid:10 tplink_A91</p>
+<p>[PROV]prov_conf_update: key = ssid, val = tplink_A91</p>
+<p>[PROV]prov_conf_update: prov_json_object_update ret = 0</p>
+<p>prov_srv_fn_cfg_ssid : 1 0</p>
+<p>[PROV]prov_conf_update: key = passphrase, val = InnoQA2023$</p>
+<p>[PROV]prov_conf_update: prov_json_object_update ret = 0</p>
+<p>prov_srv_fn_cfg_passphrase : 1 1</p>
+<p>prov_event_thread_entry: msg-&gt;event = 2</p>
+<p>ssid = tplink_A91</p>
+<p>passphrase = InnoQA2023$</p>
+<p>[PROV]Checking connectivity to…</p>
+<p>ssid = tplink_A91 passphrase = InnoQA2023$</p>
+<p>network profile created for ssid: tplink_A91</p>
+<p>[196.123,714] CONNECT:60:32:b1:33:b5:7b Channel:6 rssi:-35 dBm</p>
+<p>[198.756,859] MYIP 192.168.1.15</p>
+<p>[198.757,022] IPv6 [fe80::e269:3aff:fe00:16cc]-link</p>
+<p>[198.759,544] DISCONNECTED</p>
+<p>[PROV] prov_srv_fn_wifi_conn_state: data = success</p>
+<p>[PROV] prov_srv_fn_wifi_conn_state: data = success</p>
+<p>[ROV] prov_srv_fn_cfg_apply</p>
+<p>[PROV]prov_conf_set_provisioned 173</p>
+<p>[PROV]prov_conf_set_provisioned 197</p>
+<p>[PROV]prov_conf_data_apply:347</p>
+<p>[PROV]prov_conf_data_apply:350</p>
+<p>{</p>
+<p>“image”: [</p>
+<p>{</p>
+<p>“name”: “prov_app”,</p>
+<p>“version”: “1.0”,</p>
+<p>“start_sector”: 32,</p>
+<p>“bootargs_start”: 1,</p>
+<p>“ssid”: “tplink_A91”,</p>
+<p>“passphrase”: “InnoQA2023$”,</p>
+<p>“custparam”: “inno”,</p>
+<p>“new_boot_param_key”: “new_boot_param_val”,</p>
+<p>“bootargs_end”: 1</p>
+<p>},</p>
+<p>{</p>
+<p>“name”: “prov_app”,</p>
+<p>“version”: “1.0”,</p>
+<p>“start_sector”: 208,</p>
+<p>“bootargs_start”: 1,</p>
+<p>“ssid”: “Innophasetest”,</p>
+<p>“passphrase”: “123456789”,</p>
+<p>“custparam”: “inno”,</p>
+<p>“new_boot_param_key”: “new_boot_param_val”,</p>
+<p>“bootargs_end”: 1</p>
+<p>}</p>
+<p>],</p>
+<p>“provisioned”: 1,</p>
+<p>“baudrate”: 2560000,</p>
+<p>“timeout”: 0,</p>
+<p>“verbose”: 1</p>
+<p>}</p>
+<p>[PROV]prov_conf_data_apply:355</p>
+<p>app_prov_cb : status = 1</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWWWAEBuild $Id: git-a042e9a42 $</p>
+<p>secured_prov=1 pass_key=1</p>
+<p>Application Information:</p>
+<p>Name : Prov App</p>
+<p>Version : 1.0</p>
+<p>Build Date : Apr 24 2023</p>
+<p>Build Time : 20:57:23</p>
+<p>Heap Available: 323 KB (331672 Bytes)</p>
+<p>[APP]Bootparams :</p>
+<p>ssid= &lt;null&gt;</p>
+<p>passphrase= &lt;null&gt;</p>
+<p>secured_prov =1</p>
+<p>pass_key=1</p>
+<p>[APP]Bootparams end here….</p>
+<p>[PROV]prov_is_provisioned : val = 1</p>
+<p>[PROV]prov_is_provisioned : val = 1</p>
+<p>ssid = tplink_A91</p>
+<p>passphrase = InnoQA2023$</p>
+<p>[APP] tplink_A91 InnoQA2023$addr e0:69:3a:00:16:cc</p>
+<p>network profile created for ssid: tplink_A91</p>
+<p>[0.930,675] CONNECT:60:32:b1:33:b5:7b Channel:6 rssi:-30 dBm</p>
+<p>[1.007,676] MYIP 192.168.1.15</p>
+<p>[1.007,841] IPv6 [fe80::e269:3aff:fe00:16cc]-link</p>
+<p>[APP]Success: Connected to tplink_A91 N/w</p>
+<p>[APP]—— Program Exit————-</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Errors</strong>:</p>
+<ol class="arabic simple">
+<li><p>Password length is less than 8 characters:</p></li>
+</ol>
+<blockquote>
+<div><p>As shown in Figure 16, if the password length is less than 8
+characters, an error message pops-up with the following message:
+Passphrase should be &gt;= 8 characters or EMPTY for open security.</p>
+<p><a class="reference internal" href="../../_images/image151.png"><img alt="Graphical user interface, text, application, email Description automatically generated" src="../../_images/image151.png" style="width: 2.75591in; height: 5.94634in;" /></a></p>
+</div></blockquote>
+<p>Figure : Incorrect or minimum length or open security password</p>
+<ol class="arabic simple" start="2">
+<li><p>Wrong password:</p></li>
+</ol>
+<blockquote>
+<div><p>If user entered passphrase for secure connection is incorrect, a
+failure message on the Talaria TWO console screen and an alert
+message on the mobile app indicating the same is displayed. At this
+stage the user is required to reset the board or re-flash the
+application.</p>
+<p><a class="reference internal" href="../../_images/image162.png"><img alt="image12" src="../../_images/image162.png" style="width: 2.75591in; height: 5.76051in;" /></a></p>
+<p>Figure : Alert message in case of a wrong passphrase</p>
+</div></blockquote>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Example_using_mDNS.html" class="btn btn-neutral float-left" title="mDNS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Example_using_Unassociated_Mode.html" class="btn btn-neutral float-right" title="Unassociated Mode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

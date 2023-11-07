@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/3. Software Reference/5. MCU Firmware Flashing/2. Flashing using STM32Cube Programmer.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p><a class="reference external" href="https://www.st.com/en/development-tools/stm32cubeprog.html">https://www.st.com/en/development-tools/stm32cubeprog.html</a></p>
+<p>Execute the following steps to flash the binary file using STM32Cube
+programmer:</p>
+<p><a class="reference internal" href="../../_images/image154.png"><img alt="image1" src="../../_images/image154.png" style="width: 4.92165in; height: 7.52638in;" /></a></p>
+<p>Figure 1: MCU ST-Link programmer connection</p>
+<ol class="arabic simple">
+<li><p>On launching the STM32Cube programmer, the following window pops-up.</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image230.png"><img alt="image2" src="../../_images/image230.png" style="width: 6.29921in; height: 3.6056in;" /></a></p>
+<p>Figure 2: STM32Cube programmer board</p>
+<ol class="arabic simple" start="2">
+<li><p>To load the binary file, click on ‘Open File’ tab in the main window,
+select the .elf or .bin file to program from the Open File pop-up
+window and click Open.</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image326.png"><img alt="image3" src="../../_images/image326.png" style="width: 6.29921in; height: 3.58352in;" /></a></p>
+<p>Figure 3: Load the binary file</p>
+<p>The selected .elf or .bin file will be loaded in the STM32Cube
+programmer. ST-Link configuration can be seen on the right-side.</p>
+<ol class="loweralpha simple">
+<li><p>Port: SWD</p></li>
+<li><p>Frequency: 4000 Khz</p></li>
+<li><p>Mode: Normal</p></li>
+<li><p>Access Port: 0</p></li>
+<li><p>Reset mode: Software reset</p></li>
+<li><p>Speed: Reliable</p></li>
+<li><p>Shared: Disabled</p></li>
+</ol>
+<ol class="arabic simple" start="3">
+<li><p>On confirming the ST-Link configurations, click on CONNECT button on
+the top right corner to connect to the target bard.</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image426.png"><img alt="image4" src="../../_images/image426.png" style="width: 7.08661in; height: 4.03034in;" /></a></p>
+<p>Figure 4: Target window – device connected</p>
+<ol class="arabic simple" start="4">
+<li><p>Click on the Download button to program the STM32 MCU:</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image522.png"><img alt="image5" src="../../_images/image522.png" style="width: 7.08661in; height: 4.04627in;" /></a></p>
+<p>Figure 5: Target -&gt; Program &amp; Verify</p>
+<p>Once the programming is complete, a pop-up window with the following
+message is displayed: File download completed. Click on OK to continue
+and close the STM32Cube programming software.</p>
+<ol class="arabic simple" start="5">
+<li><p>After flashing the binary onto the MCU, press the reset button on the
+INP3201 board. This will turn the T31ZX Host ON and execute the
+app_init.sh script automatically.</p></li>
+</ol>
+<p>The console output confirms the binary being loaded appropriately.</p>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

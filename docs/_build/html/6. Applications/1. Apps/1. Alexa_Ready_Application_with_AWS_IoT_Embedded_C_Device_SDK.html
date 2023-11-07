@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AWS IoT Device Shadow Service &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">AWS IoT Device Shadow Service</a></li>
+<li><a class="reference internal" href="#aws-iot-embedded-c-device-sdk-3-0-1-features">AWS IoT Embedded C Device SDK 3.0.1 Features</a><ul>
+<li><a class="reference internal" href="#mqtt-connection">MQTT Connection</a></li>
+<li><a class="reference internal" href="#thing-shadow">Thing Shadow</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#aws-iot-core-device-shadow-service-protocol">AWS IoT Core Device Shadow Service Protocol</a><ul>
+<li><a class="reference internal" href="#initialization-of-the-device-on-first-connection-to-aws-iot-core">Initialization of the device on first connection to AWS IoT Core</a></li>
+<li><a class="reference internal" href="#processing-messages-while-the-device-is-connected-to-aws-iot-core">Processing messages while the device is connected to AWS IoT Core</a></li>
+<li><a class="reference internal" href="#processing-messages-when-the-device-is-reconnected-to-aws-iot-core">Processing messages when the device is reconnected to AWS IoT Core</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#aws-iot-embedded-c-device-sdk-shadow-service-apis-and-structures">AWS IoT Embedded C Device SDK - Shadow Service APIs and Structures</a><ul>
+<li><a class="reference internal" href="#aws-iot-shadow-init">aws_iot_shadow_init()</a></li>
+<li><a class="reference internal" href="#aws-iot-shadow-connect">aws_iot_shadow_connect()</a></li>
+<li><a class="reference internal" href="#aws-iot-shadow-yield">aws_iot_shadow_yield()</a></li>
+<li><a class="reference internal" href="#fpactioncallback-t">(*fpActionCallback_t)()</a></li>
+<li><a class="reference internal" href="#aws-iot-shadow-update">aws_iot_shadow_update()</a></li>
+<li><a class="reference internal" href="#aws-iot-shadow-get">aws_iot_shadow_get()</a></li>
+<li><a class="reference internal" href="#aws-iot-shadow-delete">aws_iot_shadow_delete()</a></li>
+<li><a class="reference internal" href="#aws-iot-shadow-register-delta">aws_iot_shadow_register_delta()</a></li>
+<li><a class="reference internal" href="#aws-iot-shadow-reset-last-received-version">aws_iot_shadow_reset_last_received_version()</a></li>
+<li><a class="reference internal" href="#aws-iot-shadow-get-last-received-version">aws_iot_shadow_get_last_received_version()</a></li>
+<li><a class="reference internal" href="#aws-iot-shadow-enable-discard-old-delta-msgs">aws_iot_shadow_enable_discard_old_delta_msgs()</a></li>
+<li><a class="reference internal" href="#aws-iot-shadow-disable-discard-old-delta-msgs">aws_iot_shadow_disable_discard_old_delta_msgs()</a></li>
+<li><a class="reference internal" href="#aws-iot-shadow-set-autoreconnect-status">aws_iot_shadow_set_autoreconnect_status()</a></li>
+<li><a class="reference internal" href="#aws-iot-shadow-disconnect">aws_iot_shadow_disconnect()</a></li>
+<li><a class="reference internal" href="#aws-iot-shadow-free">aws_iot_shadow_free()</a></li>
+<li><a class="reference internal" href="#aws-iot-shadow-init-json-document">aws_iot_shadow_init_json_document()</a></li>
+<li><a class="reference internal" href="#structure-jsonstruct-t">structure jsonStruct_t</a></li>
+<li><a class="reference internal" href="#aws-iot-shadow-add-reported">aws_iot_shadow_add_reported()</a></li>
+<li><a class="reference internal" href="#aws-iot-shadow-add-desired">aws_iot_shadow_add_desired()</a></li>
+<li><a class="reference internal" href="#aws-iot-finalize-json-document">aws_iot_finalize_json_document()</a></li>
+<li><a class="reference internal" href="#aws-iot-fill-with-client-token">aws_iot_fill_with_client_token()</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#auto-reconnect-feature">Auto Reconnect Feature</a></li>
+<li><a class="reference internal" href="#about-alexa-smart-home-skill">About Alexa Smart Home Skill</a></li>
+<li><a class="reference internal" href="#setting-up-a-talaria-two-innoswitch-demo">Setting up a Talaria TWO InnoSwitch Demo</a><ul>
+<li><a class="reference internal" href="#enable-innophase-smart-home-demo-alexa-skill">Enable InnoPhase Smart Home Demo Alexa Skill</a><ul>
+<li><a class="reference internal" href="#method-1-enabling-via-browser">Method 1 - Enabling Via Browser</a></li>
+<li><a class="reference internal" href="#method-2-enabling-via-amazon-alexa-app">Method 2 - Enabling Via Amazon Alexa App</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#linking-the-alexa-account-to-the-skill">Linking the Alexa account to the Skill</a></li>
+<li><a class="reference internal" href="#request-for-aws-iot-thing-creation-certs-created-for-the-thing">Request for AWS IoT Thing creation &amp; Certs created for the Thing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#programming-applications">Programming Applications</a><ul>
+<li><a class="reference internal" href="#programming-talaria-two-board-with-certificates">Programming Talaria TWO board with certificates</a><ul>
+<li><a class="reference internal" href="#show-file-system-contents">Show File System Contents</a></li>
+<li><a class="reference internal" href="#writing-files-into-file-system">Writing Files into File System</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#programming-talaria-two-board-with-elf">Programming Talaria TWO board with ELF</a><ul>
+<li><a class="reference internal" href="#programming-talaria-two-board-with-innoswitch-elf">Programming Talaria TWO board with innoswitch.elf</a></li>
+<li><a class="reference internal" href="#programming-talaria-two-board-with-innoswitch-ble-provisioning-elf">Programming Talaria TWO board with innoswitch_ble_provisioning.elf</a><ul>
+<li><a class="reference internal" href="#using-innophase-talaria-two-smart-home-application">Using InnoPhase Talaria TWO Smart Home Application</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#jumper-setting-on-talaria-two-evb">Jumper Setting on Talaria TWO EVB</a></li>
+<li><a class="reference internal" href="#interacting-the-talaria-two-evb-with-alexa">Interacting the Talaria TWO EVB with Alexa</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">AWS IoT Device Shadow Service</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/6. Applications/1. Apps/1. Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>Alexa Ready application on Talaria TWO uses AWS IoT Embedded C Device
+SDK available on Talaria TWO to interact with the Device Shadow Service
+on AWS IoT Core.</p>
+<p>Device makers can have their own Alexa Skill implementation hosted on
+their cloud to bridge the Alexa Voice Service (AVS) and device maker’s
+AWS IoT Core Cloud Service. Post this, AWS IoT Embedded C Device SDK
+available on Talaria TWO can be used to make their smart home device
+endpoints which can be controlled using Alexa.</p>
+<p>This Application Note describes the APIs used to achieve this on Talaria
+TWO and guides the reader to a demo of Alexa Ready application using
+InnoPhase Smart Home Demo Alexa Skill to control a device endpoint
+running on Talaria TWO EVB and behaving as an Alexa Smart Home Switch.</p>
+<p>This is achieved by Alexa Voice Service (AVS) Cloud interacting with the
+Alexa Skill hosted at InnoPhase IoT’s AWS Cloud which eventually
+controls the Talaria TWO EVB represented as an IoT device endpoint in
+InnoPhase Inc.’s AWS IoT Core Cloud.</p>
+<section id="aws-iot-device-shadow-service">
+<h1>AWS IoT Device Shadow Service<a class="headerlink" href="#aws-iot-device-shadow-service" title="Link to this heading"></a></h1>
+<p>Device Shadow is the always-available device state in the AWS cloud. A
+device’s shadow is a JSON document that is used to store and retrieve
+current state information for a device. The AWS IoT Device Shadow
+service adds and maintains shadows to AWS IoT Thing objects. It is also
+known as Thing Shadow.</p>
+<p>Shadows can make a device’s state available to apps and other cloud
+services whether the device is connected to AWS IoT or not.</p>
+<p>To get and set the state of a device from AWS IoT Core, the Device
+Shadow service can be used over MQTT and HTTP. Applications and web
+services generally use HTTP to interact with Device Shadow and Embedded
+devices often use MQTT to interact with Device Shadow.</p>
+<p>Common use cases for Device Shadow include backing up device state, or
+sending commands to devices and as a reliable data store for devices,
+applications, and other cloud services to share data. While devices,
+applications, and other cloud services are connected to AWS IoT Core,
+they can access and control the current state of a device through its
+shadows. Device Shadow Service enables devices, applications, and other
+cloud services to connect and disconnect without losing a device’s
+state.</p>
+</section>
+<section id="aws-iot-embedded-c-device-sdk-3-0-1-features">
+<h1>AWS IoT Embedded C Device SDK 3.0.1 Features<a class="headerlink" href="#aws-iot-embedded-c-device-sdk-3-0-1-features" title="Link to this heading"></a></h1>
+<p>AWS IoT Embedded C Device SDK version 3.0.1 is available with Talaria
+TWO FreeRTOS SDK which allows embedded applications to securely connect
+to the AWS IoT Core platform. It simplifies access to the PUB/SUB
+functionality of the AWS IoT Core broker via MQTT and provides
+convenient APIs for handling MQTT topics reserved for Device Shadow
+Service to interact with Thing Shadows.</p>
+<p>AWS IoT Embedded C Device SDK was specifically designed for resource
+constrained devices (running on micro-controllers and RTOS), and follows
+a layered architecture as shown in Figure 1.</p>
+<p><a class="reference internal" href="../../_images/image1102.png"><img alt="image1" src="../../_images/image1102.png" style="width: 7.48031in; height: 5.78469in;" /></a></p>
+<p>Figure : SDK architecture &amp; modules</p>
+<section id="mqtt-connection">
+<h2>MQTT Connection<a class="headerlink" href="#mqtt-connection" title="Link to this heading"></a></h2>
+<p>AWS IoT Embedded C Device SDK provides functionality to create and
+maintain a mutually authenticated TLS connection over which it runs
+MQTT. This connection is used for any further publish operations and
+allow for subscribing to MQTT topics which will call a configurable
+callback function when these topics are received.</p>
+</section>
+<section id="thing-shadow">
+<h2>Thing Shadow<a class="headerlink" href="#thing-shadow" title="Link to this heading"></a></h2>
+<p>AWS IoT Embedded C Device SDK implements the specific protocol for Thing
+Shadows to retrieve, update and delete Thing Shadows. This protocol is
+implemented to ensure correct versioning and support for client tokens.</p>
+</section>
+</section>
+<section id="aws-iot-core-device-shadow-service-protocol">
+<h1>AWS IoT Core Device Shadow Service Protocol<a class="headerlink" href="#aws-iot-core-device-shadow-service-protocol" title="Link to this heading"></a></h1>
+<p>This section describes device communications with Shadows using Shadow
+Service Protocol.</p>
+<p>It internally uses MQTT messages which is the preferred method for
+embedded devices to communicate with the AWS IoT Device Shadow service.</p>
+<p>It abstracts the necessary MQTT topic subscriptions by automatically
+subscribing to and unsubscribing from the reserved topics for Device
+Shadow Service as needed for each API call. Inbound state change
+requests are automatically signaled via a configurable call back.</p>
+<p>Shadow communications emulate a request/response model using the
+publish/subscribe communication of MQTT. As MQTT is used, the shadow
+needs to connect and disconnect.</p>
+<p>There are three actions a device can perform on the shadow - Get, Update
+and Delete. Every shadow action consists of a request topic, a
+successful response topic (accepted), and an error response topic
+(rejected). On performing any action, the acknowledgment will be
+received in either accepted topic or rejected topic.</p>
+<p>On performing any action, the acknowledgment will be received in either
+accepted or rejected.</p>
+<p>For Example: If there is a need to perform a GET on a Thing Shadow the
+following messages will be sent and received:</p>
+<ol class="arabic simple">
+<li><p>A MQTT Publish on the topic - $aws/things/{thingName}/shadow/get</p></li>
+<li><p>Subscribe to MQTT topics -
+$aws/things/{thingName}/shadow/get/accepted and
+$aws/things/{thingName}/shadow/get/rejected.</p></li>
+</ol>
+<p>If the request was successful, the things json document is received in
+the accepted topic.</p>
+<p>Similarly, for another example, when an Update is performed to a Thing
+Shadow, one of the two things can happen and can be acknowledged.</p>
+<p>The update action could be accepted by the Thing Shadow and the version
+of the JSON document will be updated. The update request could also be
+rejected.</p>
+<p>This can be known by subscribing to the two topics:
+$aws/things/{thingName}/shadow/update/accepted and
+$aws/things/{thingName}/shadow/update/rejected.</p>
+<section id="initialization-of-the-device-on-first-connection-to-aws-iot-core">
+<h2>Initialization of the device on first connection to AWS IoT Core<a class="headerlink" href="#initialization-of-the-device-on-first-connection-to-aws-iot-core" title="Link to this heading"></a></h2>
+<p>After a device registers with AWS IoT, it subscribes to these MQTT
+messages for the shadows that it supports. The ShadowTopicPrefix can
+refer to either a named or an unnamed shadow, as described in Table 1.</p>
+<p>Shadows can be named or unnamed (classic). The topics used by each
+differ only in the topic prefix. Table 1 shows the topic prefix used by
+each shadow type.</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Table : Topic prefix used by each shadow type</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>ShadowTopicPrefix value</strong></p></th>
+<th class="head"><p><strong>Shadow type</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>$aws/things/thingName/shadow</p></td>
+<td><p>Unnamed (classic) shadow</p></td>
+</tr>
+<tr class="row-odd"><td><p>$aw
+s/things/thingName/shadow/name/shadowName</p></td>
+<td><p>Named shadow</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Table : ShadowTopicPrefix</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Topic</strong></p></th>
+<th class="head"><p><strong>Meaning</strong></p></th>
+<th class="head"><p><strong>Action a device should
+take when this topic is
+received</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>S
+hadowTopicPrefix
+/delete/accepted</p></td>
+<td><p>The delete request was
+accepted and AWS IoT
+deleted the shadow.</p></td>
+<td><p>The actions necessary to
+accommodate the deleted
+shadow, such as stop
+publishing updates.</p></td>
+</tr>
+<tr class="row-odd"><td><p>S
+hadowTopicPrefix
+/delete/rejected</p></td>
+<td><p>The delete request was
+rejected by AWS IoT
+and the shadow was not
+deleted. The message
+body contains the
+error information.</p></td>
+<td><p>Respond to the error
+message in the message
+body.</p></td>
+</tr>
+<tr class="row-even"><td><p>ShadowTopicPre
+fix/get/accepted</p></td>
+<td><p>The get request was
+accepted by AWS IoT,
+and the message body
+contains the current
+shadow document.</p></td>
+<td><p>The actions necessary to
+process the state
+document in the message
+body.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ShadowTopicPre
+fix/get/rejected</p></td>
+<td><p>The get request was
+rejected by AWS IoT,
+and the message body
+contains the error
+information.</p></td>
+<td><p>Respond to the error
+message in the message
+body.</p></td>
+</tr>
+<tr class="row-even"><td><p>S
+hadowTopicPrefix
+/update/accepted</p></td>
+<td><p>The update request was
+accepted by AWS IoT,
+and the message body
+contains the current
+shadow document.</p></td>
+<td><p>Confirm the updated data
+in the message body
+matches the device
+state.</p></td>
+</tr>
+<tr class="row-odd"><td><p>S
+hadowTopicPrefix
+/update/rejected</p></td>
+<td><p>The update request was
+rejected by AWS IoT,
+and the message body
+contains the error
+information.</p></td>
+<td><p>Respond to the error
+message in the message
+body.</p></td>
+</tr>
+<tr class="row-even"><td><p>ShadowTopicPre
+fix/update/delta</p></td>
+<td><p>The shadow document
+was updated by a
+request to AWS IoT,
+and the message body
+contains the changes
+requested.</p></td>
+<td><p>Update the device’s
+state to match the
+desired state in the
+message body.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sh
+adowTopicPrefix/
+update/documents</p></td>
+<td><p>An update to the
+shadow was recently
+completed, and the
+message body contains
+the current shadow
+document.</p></td>
+<td><p>Confirm the updated
+state in the message
+body matches the
+device’s state.</p></td>
+</tr>
+</tbody>
+</table>
+<p>After subscribing to the messages in the preceding table for each
+shadow, the device tests to see if the shadows that it supports have
+already been created by publishing a /get topic to each shadow. If
+a /get/accepted message is received, the message body contains the
+shadow document, which the device uses to initialize its state. If
+a /get/rejected message is received, the shadow is created by publishing
+an /update message with the current device state.</p>
+</section>
+<section id="processing-messages-while-the-device-is-connected-to-aws-iot-core">
+<h2>Processing messages while the device is connected to AWS IoT Core<a class="headerlink" href="#processing-messages-while-the-device-is-connected-to-aws-iot-core" title="Link to this heading"></a></h2>
+<p>There are three key value pairs of device states in shadow JSON document
+which a device needs to be concerned about.</p>
+<ol class="arabic simple">
+<li><p>Reported</p></li>
+<li><p>Desired</p></li>
+<li><p>Delta</p></li>
+</ol>
+<p>All these keys are under the state.</p>
+<p>If the device state is changed using a physical interaction, then
+Publishing an /update message with a desired message body that has the
+device’s physically changed state is needed. When it is done, other
+entities connected with Device Shadow Service get a delta callback
+notifying them with the change.</p>
+<p>The device always receives a delta message if there is any difference
+between the desired and the reported section of the device and if the
+device has subscribed for the delta topic using the
+API <a class="reference external" href="http://aws-iot-device-sdk-embedded-c-docs.s3-website-us-east-1.amazonaws.com/aws__iot__shadow__interface_8h.html#a2b6000e1a7590cff3b6e66601b0c4934">aws_iot_shadow_register_delta()</a>.</p>
+<p>While a device is connected to AWS IoT, it can receive /update/delta
+messages if the desired state is changed by another party, and should
+keep the device state matched to the changes in its shadows by:</p>
+<ol class="arabic simple">
+<li><p>Reading all /update/delta messages received and synchronizing the
+device state to match.</p></li>
+<li><p>Publishing an /update message with a reported message body that has
+the device’s current state, whenever the device’s state changes.</p></li>
+</ol>
+<p>While a device is connected, it publishes these messages when indicated.</p>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-text">Table : Indication</span><a class="headerlink" href="#id3" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Indication</strong></p></th>
+<th class="head"><p><strong>Topic</strong></p></th>
+<th class="head"><p><strong>Payload</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>The device’s state has
+changed.</p></td>
+<td><p>Shadow
+TopicPrefix/update</p></td>
+<td><p>A shadow document
+with
+the
+reported property.</p></td>
+</tr>
+<tr class="row-odd"><td><p>The device’s desired state
+has changed (physical
+interaction).</p></td>
+<td><p>Shadow
+TopicPrefix/update</p></td>
+<td><p>A shadow document
+with
+the
+ desired property.</p></td>
+</tr>
+<tr class="row-even"><td><p>The device might not be
+synchronized with the
+shadow.</p></td>
+<td><p>Sha
+dowTopicPrefix/get</p></td>
+<td><p>(empty)</p></td>
+</tr>
+<tr class="row-odd"><td><p>An action on the device
+indicates that a shadow
+will no longer be
+supported by the device,
+such as when the device is
+being remove or replaced</p></td>
+<td><p>Shadow
+TopicPrefix/delete</p></td>
+<td><p>(empty)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="processing-messages-when-the-device-is-reconnected-to-aws-iot-core">
+<h2>Processing messages when the device is reconnected to AWS IoT Core<a class="headerlink" href="#processing-messages-when-the-device-is-reconnected-to-aws-iot-core" title="Link to this heading"></a></h2>
+<p>When a device with one or more shadows connects to AWS IoT, it should
+synchronize its state with that of all the shadows that it supports by:</p>
+<ol class="arabic simple">
+<li><p>Reading all /update/delta messages received and synchronizing the
+device state to match.</p></li>
+<li><p>Publishing an /update message with a reported message body that has
+the device’s current state.</p></li>
+</ol>
+</section>
+</section>
+<section id="aws-iot-embedded-c-device-sdk-shadow-service-apis-and-structures">
+<h1>AWS IoT Embedded C Device SDK - Shadow Service APIs and Structures<a class="headerlink" href="#aws-iot-embedded-c-device-sdk-shadow-service-apis-and-structures" title="Link to this heading"></a></h1>
+<p>APIs available in Talaria TWO AWS IoT Device SDK to effectively use the
+AWS IoT Device Shadow Service are as follows:</p>
+<section id="aws-iot-shadow-init">
+<h2>aws_iot_shadow_init()<a class="headerlink" href="#aws-iot-shadow-init" title="Link to this heading"></a></h2>
+<p>This API takes care of initializing the IoT client and the internal
+book-keeping data structures of Thing Shadow before use.</p>
+<p>Parameter pClient is a new MQTT Client to be used as the protocol layer.
+Will be initialized with pParams.</p>
+<p>Returns an IoT Error Type defining successful/failed Initialization.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>IoT_Error_t aws_iot_shadow_init(AWS_IoT_Client *pClient,
+ShadowInitParameters_t *pParams);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="aws-iot-shadow-connect">
+<h2>aws_iot_shadow_connect()<a class="headerlink" href="#aws-iot-shadow-connect" title="Link to this heading"></a></h2>
+<p>This API does the TLSv1.2 handshake and establishes the MQTT connection
+to connect to the AWS IoT Thing Shadow service over MQTT.</p>
+<p>Parameter pClient is MQTT Client used as the protocol layer, pParams
+holds Shadow Connection parameters.</p>
+<p>Returns an IoT Error Type defining successful/failed Connection.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>IoT_Error_t aws_iot_shadow_connect(AWS_IoT_Client *pClient,
+ShadowConnectParameters_t *pParams);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="aws-iot-shadow-yield">
+<h2>aws_iot_shadow_yield()<a class="headerlink" href="#aws-iot-shadow-yield" title="Link to this heading"></a></h2>
+<p>This API is called to yield the current thread to the underlying MQTT
+client and Shadow. It ensures the expired requests of Shadow actions are
+cleared and Timeout callback is executed.</p>
+<p>It also ensures that the MQTT client gets the time to manage PING
+requests to monitor the health of the TCP connection as well as
+periodically check the socket receive buffer for subscribe messages.</p>
+<p>This function could be used in a separate thread waiting for the
+incoming messages, ensuring the connection is kept alive with the AWS
+Service.</p>
+<p>All callbacks used in the SDK will be executed in the context of this
+function.</p>
+<p>Parameter pClient is MQTT Client used as the protocol layer, timeout is
+the maximum time in milliseconds the yield function will wait for a
+message and/or read the messages from the TLS buffer.</p>
+<p>Returns an IoT Error Type defining successful/failed Yield.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>IoT_Error_t aws_iot_shadow_yield(AWS_IoT_Client *pClient, uint32_t
+timeout);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fpactioncallback-t">
+<h2>(*fpActionCallback_t)()<a class="headerlink" href="#fpactioncallback-t" title="Link to this heading"></a></h2>
+<p>This is a Function Pointer typedef used as the callback for the actions
+Update, Get and Delete.</p>
+<p>This function will be called from the context of thread which called
+aws_iot_shadow_yield().</p>
+<p>Parameter pThingName is Thing Name of the response received, action
+tells that the response is of which action (Update, Get or Delete),
+status informs if the action was Accepted/Rejected or Timed out,
+pReceivedJsonDocument is received JSON document when Accepted,
+pContextData is the void* data passed in during the action call
+(Update, Get or Delete).</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>typedef void (*fpActionCallback_t)(const char *pThingName,
+ShadowActions_t action, Shadow_Ack_Status_t status, const char
+*pReceivedJsonDocument, void *pContextData);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>/**</p>
+<p>* &#64;brief Thing Shadow Acknowledgment enum</p>
+<p>*/</p>
+<p>typedef enum {</p>
+<p>SHADOW_ACK_TIMEOUT, SHADOW_ACK_REJECTED, SHADOW_ACK_ACCEPTED</p>
+<p>} Shadow_Ack_Status_t;</p>
+<p>/**</p>
+<p>* &#64;brief Thing Shadow Action type enum</p>
+<p>*/</p>
+<p>typedef enum {</p>
+<p>SHADOW_GET, SHADOW_UPDATE, SHADOW_DELETE</p>
+<p>} ShadowActions_t;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="aws-iot-shadow-update">
+<h2>aws_iot_shadow_update()<a class="headerlink" href="#aws-iot-shadow-update" title="Link to this heading"></a></h2>
+<p>This API is the used to perform an Update action to a Thing Name’s
+Shadow.</p>
+<p>Update is one of the most frequently used functionalities by a device.
+In most cases the device may be just reporting few params to update the
+thing shadow in the cloud.</p>
+<p>If no callback or if the JSON document does not have a client token,
+then the Update Action will just publish the update and not track it.</p>
+<p>The following steps are performed on using this function:</p>
+<ol class="arabic simple">
+<li><p>Subscribe to Shadow topics -
+$aws/things/{thingName}/shadow/update/accepted and
+$aws/things/{thingName}/shadow/update/rejected</p></li>
+<li><p>Wait for two seconds for the subscription to take effect</p></li>
+<li><p>Publish on the update topic - $aws/things/{thingName}/shadow/update</p></li>
+<li><p>The response will be handled in the aws_iot_shadow_yield() function.
+In case of timeout or if no response is received, the subscription to
+shadow response topics is un-subscribed.</p></li>
+</ol>
+<p>On the contrary, if the persistent subscription is set to TRUE then the
+un-subscribe will not be done. The topics will always be listened to.</p>
+<p>Parameter pClient is MQTT Client used as the protocol layer, pThingName
+is the Thing Name of the shadow that needs to be Updated, pJsonString
+contains a JSON document which update action expects. The JSON String
+should be a null terminated string. This JSON document should adhere to
+the AWS IoT Thing Shadow specification. To help in the process of
+creating this JSON document- SDK provides JSON handling APIs explained
+later in this app note.</p>
+<p>Parameter callback is the callback that will be used to inform the
+caller of the response from the AWS IoT Shadow service. Callback could
+be set to NULL if response is not important.</p>
+<p>Parameter pContextData is an extra parameter that could be passed along
+with the callback. Should be set to NULL if not used.</p>
+<p>Parameter timeout_seconds is the time the SDK will wait for the response
+on either accepted or rejected topic before declaring timeout on the
+action.</p>
+<p>Parameter isPersistentSubscribe should be set to true to avoid repeated
+subscription and un-subscription if every time a device updates the same
+shadow, as mentioned above. If the update action on the Thing Name is a
+one-off update, then isPersistentSubscribe should be set to false.</p>
+<p>Returns an IoT Error Type defining successful/failed Update action.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>IoT_Error_t aws_iot_shadow_update(AWS_IoT_Client *pClient, const
+char *pThingName, char *pJsonString, fpActionCallback_t callback,
+void *pContextData, uint8_t timeout_seconds, bool
+isPersistentSubscribe);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="aws-iot-shadow-get">
+<h2>aws_iot_shadow_get()<a class="headerlink" href="#aws-iot-shadow-get" title="Link to this heading"></a></h2>
+<p>This API is the used to perform a Get action to a Thing Name’s Shadow.</p>
+<p>This is usually used to get the config of a device at boot up. It is
+like the Update API internally, except it does not take a JSON document
+as the input. In case of success, JSON document is received over the
+accepted topic.</p>
+<p>All the other parameters are same as explained in API
+aws_iot_shadow_update().</p>
+<p>Returns an IoT Error Type defining successful/failed Get action.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>IoT_Error_t aws_iot_shadow_get(AWS_IoT_Client *pClient, const char
+*pThingName, fpActionCallback_t callback, void *pContextData,
+uint8_t timeout_seconds, bool isPersistentSubscribe);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="aws-iot-shadow-delete">
+<h2>aws_iot_shadow_delete()<a class="headerlink" href="#aws-iot-shadow-delete" title="Link to this heading"></a></h2>
+<p>This API is the used to perform a Delete action to a Thing Name’s
+Shadow.</p>
+<p>It is generally the responsibility of the accompanying web service / app
+to do the delete so it is not a very common use case for the device.</p>
+<p>It is like the Update function internally, except it does not take a
+JSON document as the input. The Thing Shadow referred by the Thing Name
+will be deleted.</p>
+<p>All the other parameters are same as explained in API
+aws_iot_shadow_update().</p>
+<p>Returns an IoT Error Type defining successful/failed Delete action.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>IoT_Error_t aws_iot_shadow_delete(AWS_IoT_Client *pClient, const
+char *pThingName, fpActionCallback_t callback, void *pContextData,
+uint8_t timeout_seconds, bool isPersistentSubscriptions);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="aws-iot-shadow-register-delta">
+<h2>aws_iot_shadow_register_delta()<a class="headerlink" href="#aws-iot-shadow-register-delta" title="Link to this heading"></a></h2>
+<p>This API is the used to listen on the delta topic of
+#AWS_IOT_MY_THING_NAME mentioned in the aws_iot_config.h file. Any time
+a delta is published, the JSON document will be delivered to the
+pStruct-&gt;cb. If the parsing done by the SDK is not needed, then use the
+jsonStruct_t key set to “state”.</p>
+<p>Parameter pClient is MQTT Client used as the protocol layer and pStruct
+is the struct used to parse JSON value. To help in the process of
+parsing this JSON document- SDK provides JSON handling APIs explained
+later in this app note.</p>
+<p>Returns an IoT Error Type defining successful/failed delta registration.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>IoT_Error_t aws_iot_shadow_register_delta(AWS_IoT_Client *pClient,
+jsonStruct_t *pStruct);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="aws-iot-shadow-reset-last-received-version">
+<h2>aws_iot_shadow_reset_last_received_version()<a class="headerlink" href="#aws-iot-shadow-reset-last-received-version" title="Link to this heading"></a></h2>
+<p>This API is the used Reset the last received version number to zero and
+is useful when the Thing Shadow is deleted and the local version needs
+to be rest.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void aws_iot_shadow_reset_last_received_version(void);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="aws-iot-shadow-get-last-received-version">
+<h2>aws_iot_shadow_get_last_received_version()<a class="headerlink" href="#aws-iot-shadow-get-last-received-version" title="Link to this heading"></a></h2>
+<p>This API is the used get the last received version number for a JSON
+document.</p>
+<p>Version of a document is received with every accepted/rejected and the
+SDK keeps track of the last received version of the JSON document of
+#AWS_IOT_MY_THING_NAME shadow.</p>
+<p>One exception to this version tracking is that the SDK ignores the
+version from update/accepted topic. Rest of the responses will be
+scanned to update the version number.</p>
+<p>Reason behind this is, accepting version change for update/accepted may
+cause version conflicts for delta message if the update message is
+received before the delta.</p>
+<p>Returns version number of the last received response.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>uint32_t aws_iot_shadow_get_last_received_version(void);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="aws-iot-shadow-enable-discard-old-delta-msgs">
+<h2>aws_iot_shadow_enable_discard_old_delta_msgs()<a class="headerlink" href="#aws-iot-shadow-enable-discard-old-delta-msgs" title="Link to this heading"></a></h2>
+<p>This API enables the ignoring of delta messages with old version number.</p>
+<p>As the MQTT is as protocol layer, there could be more than 1 of the same
+messages if we use QoS 0. To avoid getting called for the same message,
+this functionality should be enabled. If enabled, all the old messages
+will be ignored.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void aws_iot_shadow_enable_discard_old_delta_msgs(void);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="aws-iot-shadow-disable-discard-old-delta-msgs">
+<h2>aws_iot_shadow_disable_discard_old_delta_msgs()<a class="headerlink" href="#aws-iot-shadow-disable-discard-old-delta-msgs" title="Link to this heading"></a></h2>
+<p>This API disables the ignoring of delta messages with old version
+number.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void aws_iot_shadow_disable_discard_old_delta_msgs(void);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="aws-iot-shadow-set-autoreconnect-status">
+<h2>aws_iot_shadow_set_autoreconnect_status()<a class="headerlink" href="#aws-iot-shadow-set-autoreconnect-status" title="Link to this heading"></a></h2>
+<p>This API is the used to enable or disable autoreconnect feature. Any
+time a disconnect happens the underlying MQTT client attempts to
+reconnect if this is set to true.</p>
+<p>Parameter pClient is MQTT Client used as the protocol layer, newStatus
+holds the value to set the autoreconnect option to.</p>
+<p>Returns an IoT Error Type defining successful/failed operation.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>IoT_Error_t aws_iot_shadow_set_autoreconnect_status(AWS_IoT_Client
+*pClient, bool newStatus);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="aws-iot-shadow-disconnect">
+<h2>aws_iot_shadow_disconnect()<a class="headerlink" href="#aws-iot-shadow-disconnect" title="Link to this heading"></a></h2>
+<p>This API is used to disconnect from the AWS IoT Thing Shadow service
+over MQTT. This closes the underlying TCP connection.</p>
+<p>Parameter pClient is MQTT Client used as the protocol layer.</p>
+<p>Returns an IoT Error Type defining successful/failed disconnect status.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>IoT_Error_t aws_iot_shadow_disconnect(AWS_IoT_Client *pClient);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="aws-iot-shadow-free">
+<h2>aws_iot_shadow_free()<a class="headerlink" href="#aws-iot-shadow-free" title="Link to this heading"></a></h2>
+<p>This API is used to clean shadow client and free up memory that was
+dynamically allocated for the client.</p>
+<p>Parameter pClient is MQTT Client that was previously created by calling
+aws_iot_shadow_init().</p>
+<p>Returns an IoT Error Type defining successful/failed freeing.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>IoT_Error_t aws_iot_shadow_disconnect(AWS_IoT_Client *pClient);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="aws-iot-shadow-init-json-document">
+<h2>aws_iot_shadow_init_json_document()<a class="headerlink" href="#aws-iot-shadow-init-json-document" title="Link to this heading"></a></h2>
+<p>This API initializes the JSON document with Shadow expected name/value
+and fills the JSON Buffer with a null terminated string. This function
+should always be used First, before using iot_shadow_add_reported()
+and/or iot_shadow_add_desired(), and finally
+iot_finalize_json_document() is called.</p>
+<p>The caller of the API needs to ensure the size of the buffer is enough
+to hold the entire JSON document.</p>
+<p>Parameter pJsonDocument is the JSON document filled in this char buffer,
+maxSizeOfJsonDocument is maximum size of the pJsonDocument that can be
+used to fill the JSON document.</p>
+<p>Returns an IoT Error Type defining if the buffer was null or the entire
+string was not filled up.</p>
+<p><strong>Note</strong>: The JSON library used for this SDK is JSMN which does not use
+any dynamic memory allocation.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>IoT_Error_t aws_iot_shadow_init_json_document(char *pJsonDocument,
+size_t maxSizeOfJsonDocument);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="structure-jsonstruct-t">
+<h2>structure jsonStruct_t<a class="headerlink" href="#structure-jsonstruct-t" title="Link to this heading"></a></h2>
+<p>After the initialization of the JSON document, APIs
+iot_shadow_add_reported() and/or iot_shadow_add_desired(), are used to
+fill the JSON document’s reported or desired section with the values we
+want to report/desire. The relevant structure is as follows:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>/**</p>
+<p>* &#64;brief This is the struct form of a JSON Key value pair</p>
+<p>*/</p>
+<p>struct jsonStruct {</p>
+<p>const char *pKey; ///&lt; JSON key</p>
+<p>void *pData; ///&lt; pointer to the data (JSON value)</p>
+<p>size_t dataLength; ///&lt; Length (in bytes) of pData</p>
+<p>JsonPrimitiveType type; ///&lt; type of JSON</p>
+<p>jsonStructCallback_t cb; ///&lt; callback to be executed on receiving
+the Key value pair</p>
+<p>};</p>
+<p>/**</p>
+<p>* &#64;brief All the JSON object types enum</p>
+<p>*</p>
+<p>* JSON number types need to be split into proper integer / floating
+point data types and sizes on embedded platforms.</p>
+<p>*/</p>
+<p>typedef enum {</p>
+<p>SHADOW_JSON_INT32,</p>
+<p>SHADOW_JSON_INT16,</p>
+<p>SHADOW_JSON_INT8,</p>
+<p>SHADOW_JSON_UINT32,</p>
+<p>SHADOW_JSON_UINT16,</p>
+<p>SHADOW_JSON_UINT8,</p>
+<p>SHADOW_JSON_FLOAT,</p>
+<p>SHADOW_JSON_DOUBLE,</p>
+<p>SHADOW_JSON_BOOL,</p>
+<p>SHADOW_JSON_STRING,</p>
+<p>SHADOW_JSON_OBJECT</p>
+<p>} JsonPrimitiveType;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="aws-iot-shadow-add-reported">
+<h2>aws_iot_shadow_add_reported()<a class="headerlink" href="#aws-iot-shadow-add-reported" title="Link to this heading"></a></h2>
+<p>This API is used to Add the reported section of the JSON document of
+jsonStruct_t.</p>
+<p>It API takes variable number of arguments; count is the number of
+jsonStruct_t types that you would like to add in the reported section.</p>
+<p>It adds “reported”:{&lt;all the values that needs to be added&gt;} to the JSON
+document.</p>
+<p>The caller of the API needs to ensure the size of the buffer is enough
+to hold the reported section + the init section. The JSON document
+buffer needs to be initialized using iot_shadow_init_json_document()
+before calling this API.</p>
+<p>Parameter pJsonDocument is the JSON document filled in this char buffer,
+maxSizeOfJsonDocument is maximum size of the pJsonDocument that can be
+used to fill the JSON document.</p>
+<p>Parameter count is total number of arguments (jsonStruct_t object)
+passed in the arguments.</p>
+<p>Returns an IoT Error Type defining if the buffer was null or the entire
+string was not filled up.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>IoT_Error_t aws_iot_shadow_add_reported(char *pJsonDocument, size_t
+maxSizeOfJsonDocument, uint8_t count, …);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="aws-iot-shadow-add-desired">
+<h2>aws_iot_shadow_add_desired()<a class="headerlink" href="#aws-iot-shadow-add-desired" title="Link to this heading"></a></h2>
+<p>This API is used to Add the desired section of the JSON document of
+jsonStruct_t.</p>
+<p>It API takes variable number of arguments; count is the number of
+jsonStruct_t types that you would like to add in the desired section.</p>
+<p>It adds ” desired “: {&lt;all the values that needs to be added&gt;} to the
+JSON document.</p>
+<p>The caller of the API needs to ensure the size of the buffer is enough
+to hold the desired section + the init section. The JSON document buffer
+needs to be initialized using iot_shadow_init_json_document() before
+calling this API.</p>
+<p>Parameter pJsonDocument is the JSON document filled in this char buffer,
+maxSizeOfJsonDocument is maximum size of the pJsonDocument that can be
+used to fill the JSON document.</p>
+<p>Parameter count is total number of arguments (jsonStruct_t object)
+passed in the arguments.</p>
+<p>Returns an IoT Error Type defining if the buffer was null or the entire
+string was not filled up.</p>
+<p><strong>Note</strong>: Both ‘desired’ and ‘reported’ section are not mandatory. Most
+devices might just use the reported section.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>IoT_Error_t aws_iot_shadow_add_desired(char *pJsonDocument, size_t
+maxSizeOfJsonDocument, uint8_t count, …);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="aws-iot-finalize-json-document">
+<h2>aws_iot_finalize_json_document()<a class="headerlink" href="#aws-iot-finalize-json-document" title="Link to this heading"></a></h2>
+<p>This API is used to finalize the JSON document with Shadow expected
+client Token and increments the client token every time this API is
+called.</p>
+<p>The caller of the API needs to ensure the size of the buffer is enough
+to hold the entire JSON document.</p>
+<p>This API is to be called after using iot_shadow_add_reported() and/or
+iot_shadow_add_desired(), otherwise the JSON document after ADD
+operation will not be valid.</p>
+<p>Parameter pJsonDocument is the JSON document filled in this char buffer,
+maxSizeOfJsonDocument is maximum size of the pJsonDocument that can be
+used to fill the JSON document.</p>
+<p>Returns an IoT Error Type defining if the buffer was null or the entire
+string was not filled up.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>IoT_Error_t aws_iot_finalize_json_document(char *pJsonDocument,
+size_t maxSizeOfJsonDocument);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>When action Update is called after finalize, there could a situation of
+multiple other services trying to update the same shadow. To
+differentiate the services / device in such situation, a client token
+string is included to the request.</p>
+<p>AWS_IOT_MQTT_CLIENT_ID with a sequence number to differentiate between
+our own previous update requests is used as a client token. It is of the
+form: “clientToken”: “UniqueClientID+Seq”. This is also taken care by
+<a class="reference external" href="http://aws-iot-device-sdk-embedded-c-docs.s3-website-us-east-1.amazonaws.com/aws__iot__shadow__json__data_8h.html#acc1c9fe2e514d9b46d659ad4161d0a54">aws_iot_finalize_json_document()</a>
+APIs.</p>
+</section>
+<section id="aws-iot-fill-with-client-token">
+<h2>aws_iot_fill_with_client_token()<a class="headerlink" href="#aws-iot-fill-with-client-token" title="Link to this heading"></a></h2>
+<p>This API fills the given buffer with client token for tracking the
+Response.</p>
+<p>It adds the AWS_IOT_MQTT_CLIENT_ID with a sequence number. Every time
+this function is used the sequence number gets incremented.</p>
+<p>Parameter pBufferToBeUpdatedWithClientToken is the buffer to be updated
+with the client token string, maxSizeOfJsonDocument is maximum size of
+the pJsonDocument that can be used to fill the JSON document.</p>
+<p>Returns an IoT Error Type defining if the buffer was null or the entire
+string was not filled up.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>IoT_Error_t aws_iot_fill_with_client_token(char
+*pBufferToBeUpdatedWithClientToken, size_t maxSizeOfJsonDocument);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="auto-reconnect-feature">
+<h1>Auto Reconnect Feature<a class="headerlink" href="#auto-reconnect-feature" title="Link to this heading"></a></h1>
+<p>If Auto Reconnect feature is enabled using API:
+aws_iot_shadow_set_autoreconnect_status(), an attempt to reconnect is
+made as part of the next yield call at any time, a disconnect happens.
+On reconnecting the MQTT connection, all the topics will be
+re-subscribed.</p>
+<p>The auto-reconnect feature could be enabled at any point of time after
+the aws_iot_shadow_connect() is a success. It should not be enabled
+before aws_iot_shadow_connect(). To verify if this feature is enabled or
+disabled, an underlying MQTT API aws_iot_is_autoreconnect_enabled() is
+used.</p>
+<p>Exponential back-off is used to decide the time between two reconnect
+attempts.</p>
+<p>There are two configuration parameters associated with exponential
+back-off:</p>
+<ol class="arabic simple">
+<li><p>AWS_IOT_MQTT_MIN_RECONNECT_WAIT_INTERVAL</p></li>
+<li><p>AWS_IOT_MQTT_MAX_RECONNECT_WAIT_INTERVAL</p></li>
+</ol>
+<p>Interval before every next try is multiplied by 2, starting with
+AWS_IOT_MQTT_MIN_RECONNECT_WAIT_INTERVAL.</p>
+<p>After all the reconnect attempts fail based on the maximum back-off
+time, an attempt will be made every
+AWS_IOT_MQTT_MAX_RECONNECT_WAIT_INTERVAL.</p>
+<p>In the following cases a network disconnect is detected:</p>
+<ol class="arabic simple">
+<li><p>As part of MQTT Keepalive functionality, if the Ping Response is not
+received back, then a disconnect is initiated and
+iot_disconnect_handler() is called.</p></li>
+<li><p>If we are unable to send the Ping in the first place, then it is
+flagged as a disconnect.</p></li>
+</ol>
+<p>Any time a disconnect is detected because of the keep alive logic then
+this disconnect handler is invoked. The iot_disconnect_handler() is
+invoked even if the auto-reconnect feature is enabled. It is invoked
+only once before the beginning of the reconnection attempt.</p>
+<p>When auto-reconnect is attempted, API iot_tls_is_connected() is called
+to check if the Physical Network is up and whether the TLS layer is
+connected or not. Every time before performing a TLS handshake, the
+return value of this function will be checked.</p>
+<p>Yield return values could be one of these while using the reconnect
+feature:</p>
+<ol class="arabic simple">
+<li><p>NETWORK_RECONNECTED</p></li>
+<li><p>NETWORK_ATTEMPTING_RECONNECT</p></li>
+<li><p>NETWORK_RECONNECT_TIMED_OUT</p></li>
+<li><p>NETWORK_DISCONNECTED</p></li>
+</ol>
+<p><strong>Note</strong>: If the AWS IoT Embedded C Device SDK library is built with
+configuration network reconnect timeout enabled (#define
+AWS_IOT_MQTT_DISABLE_NETWORK_RECONNECT_TIME_OUT 0), then auto reconnect
+behavior changes as detailed below.</p>
+<p>After all reconnect attempt failure based on the maximum back-off time,
+NETWORK_RECONNECT_TIMED_OUT is returned by aws_iot_mqtt_yield(). There
+will be no longer reconnect attempts. If a reconnect is needed after
+this based on some external conditions then use
+aws_iot_mqtt_attempt_reconnect() API to reconnect and re-subscribe. This
+API could be manually used without turning on the auto-reconnect
+feature. It will attempt to reconnect only once.
+aws_iot_mqtt_attempt_reconnect() is a blocking call.</p>
+</section>
+<section id="about-alexa-smart-home-skill">
+<h1>About Alexa Smart Home Skill<a class="headerlink" href="#about-alexa-smart-home-skill" title="Link to this heading"></a></h1>
+<p>‘Alexa Skills Kit’ can be used by the Customer to develop various Alexa
+controlled devices with different use cases.</p>
+<p>In this application note demo, Alexa Smart Home Skill is used where
+voice interaction model is prebuilt and Smart Home Devices can be
+discovered and controlled using Amazon Alexa Smartphone App user
+interface.</p>
+<p><a class="reference external" href="https://developer.amazon.com/en-US/docs/alexa/smarthome/understand-the-smart-home-skill-api.html">https://developer.amazon.com/en-US/docs/alexa/smarthome/understand-the-smart-home-skill-api.html</a></p>
+<p>Smart Home Skill also provide various APIs with predefined protocols as
+interface for different types of Smart Home Devices, For example:
+thermostat, temperature sensor, color controller and so on.</p>
+<p>Similarly, there is Smart Home Security Skills with predefined voice
+interaction models and predefined protocols covering doorbell and lock
+control etc., use cases.</p>
+<p><a class="reference external" href="https://developer.amazon.com/en-US/docs/alexa/device-apis/overview-smart-home-security.html">https://developer.amazon.com/en-US/docs/alexa/device-apis/overview-smart-home-security.html</a></p>
+<p>There are around 25 predefined interfaces in Smart Home category, for
+which this sample code can be easily extended.</p>
+<p>This application note demo skill uses PowerController interface and
+PowerState in the device shadow is updated based on Alexa commands from
+Alexa Voice Service.</p>
+<p><a class="reference external" href="https://developer.amazon.com/en-US/docs/alexa/device-apis/alexa-powercontroller.html">https://developer.amazon.com/en-US/docs/alexa/device-apis/alexa-powercontroller.html</a></p>
+<p>This is achieved by Alexa Smart Home Skill bridging between Alexa Voice
+Service (AVS) and AWS IoT Core service where the device endpoint
+resides. This shadow is replicated by the Talaria TWO running the
+example code with this application note.</p>
+<p>To achieve this, customers will need to develop and deploy their own
+Alexa Skill.</p>
+<p>A demo of this can be seen in action using ‘InnoPhase Smart Home Demo’
+Alexa Skill and a device endpoint ‘InnoSwitch’ residing at InnoPhase AWS
+Endpoint Cloud. Talaria TWO EVB is used to connect to this device
+endpoint ‘InnoSwitch’ and be controlled by Alexa commands or Amazon
+Alexa Smartphone App. Next section describes how to setup this demo.</p>
+<p>Custom Alexa Skills with customer’s own voice interaction models can
+also be built with your own protocol over AWS IoT Core Device Shadow
+Service.</p>
+</section>
+<section id="setting-up-a-talaria-two-innoswitch-demo">
+<h1>Setting up a Talaria TWO InnoSwitch Demo<a class="headerlink" href="#setting-up-a-talaria-two-innoswitch-demo" title="Link to this heading"></a></h1>
+<p>The following section describes the steps needed to successfully setup
+the Alexa Ready Talaria TWO App with InnoPhase Smart Home Demo Alexa
+Skill.</p>
+<p>Following steps are a one-time process for the individual using the
+skill to link the account and receive unique device name, device cert
+and device key or Talaria TWO ELF binary.</p>
+<blockquote>
+<div><p>Prerequisite</p>
+</div></blockquote>
+<hr class="docutils" />
+<p>The User should already have an active Amazon account and an Alexa
+Application in User’s Smart Phone. Optionally, an Alexa enabled speaker
+like Echo can be used for voice interaction. Talaria TWO EVB and Talaria
+TWO Download Tool will be needed to program the board.</p>
+<section id="enable-innophase-smart-home-demo-alexa-skill">
+<h2>Enable InnoPhase Smart Home Demo Alexa Skill<a class="headerlink" href="#enable-innophase-smart-home-demo-alexa-skill" title="Link to this heading"></a></h2>
+<p>LWA (Login with Amazon) service from Amazon is used for securely linking
+the Alexa account to the Skill. There are two methods to enable Skill
+for your amazon account which are as follows:</p>
+<section id="method-1-enabling-via-browser">
+<h3>Method 1 - Enabling Via Browser<a class="headerlink" href="#method-1-enabling-via-browser" title="Link to this heading"></a></h3>
+<p>Login to amazon.com with the amazon account you want to link with the
+skill, and search for innophase alexa skill as shown in Figure 2.</p>
+<p><a class="reference internal" href="../../_images/image260.png"><img alt="image2" src="../../_images/image260.png" style="width: 5.90551in; height: 3.65398in;" /></a></p>
+<p>Figure : Locating and enabling skill via amazon.com in browser – 1</p>
+<p>Click the link of the skill and look for Enable. Once enabled from here,
+this skill will show up in Alexa App logged in to same account as well.</p>
+<p><a class="reference internal" href="../../_images/image345.png"><img alt="image3" src="../../_images/image345.png" style="width: 5.90551in; height: 2.77155in;" /></a></p>
+<p>Figure : Locating and enabling skill via amazon.com in browser – 2</p>
+</section>
+<section id="method-2-enabling-via-amazon-alexa-app">
+<h3>Method 2 - Enabling Via Amazon Alexa App<a class="headerlink" href="#method-2-enabling-via-amazon-alexa-app" title="Link to this heading"></a></h3>
+<p>Search for InnoPhase Smart Home Demo from Alexa App Skill Section -&gt;
+Browse Skills -&gt; Search, locate the skill and tap Enable To Use, as
+shown in Figure 4.</p>
+<p><a class="reference internal" href="../../_images/image444.png"><img alt="image4" src="../../_images/image444.png" style="width: 5.90551in; height: 2.53424in;" /></a></p>
+<p>Figure : Locating and enabling skill via Alexa phone app</p>
+</section>
+</section>
+<section id="linking-the-alexa-account-to-the-skill">
+<h2>Linking the Alexa account to the Skill<a class="headerlink" href="#linking-the-alexa-account-to-the-skill" title="Link to this heading"></a></h2>
+<p>Follow the login instructions that appears on subsequent screens and
+allow the permissions as required as described below.</p>
+<p>Clicking enable in previous steps will open a new page (or redirect to
+next screen) where it asks for an Amazon account, as shown in Figure 5.</p>
+<p><a class="reference internal" href="../../_images/image533.png"><img alt="image5" src="../../_images/image533.png" style="width: 3.14961in; height: 4.17991in;" /></a></p>
+<p>Figure : Amazon account – credentials asked for account linking</p>
+<p>Ensure you use the same account you have used for Alexa app to login.</p>
+<p><strong>Note</strong>: If the User has already logged in to the Amazon account in the
+same browser but in a different tab, then the step in Figure 5 might be
+skipped and you will directly see a prompt as shown in Figure 6.</p>
+<p>Provide permission for accessing email address and name by the Skill.</p>
+<p><a class="reference internal" href="../../_images/image63.jpeg"><img alt="Graphical user interface Description automatically generated with medium confidence" src="../../_images/image63.jpeg" style="width: 1.87932in; height: 0.46667in;" /></a><a class="reference internal" href="../../_images/image716.png"><img alt="image6" src="../../_images/image716.png" style="width: 5.90551in; height: 3.41619in;" /></a></p>
+<p>Figure : Permissions asked to access profile for Account Linking</p>
+<p><strong>Note</strong>: This permission is asked only for the first time of account
+linking. Disabling the Skill and enabling it again with account linking
+later might not pop-up a prompt looking exactly as shown in this figure.
+Instead, the user might see a variant of this prompt or this prompt
+might be skipped altogether.</p>
+<p>This will lead to successfully linking your Amazon Account to InnoPhase
+Smart Home Demo Skill and a confirmation screen like Figure 7 would
+appear. This completes the Alexa skill setup in your Amazon account.</p>
+<p><a class="reference internal" href="../../_images/image815.png"><img alt="image7" src="../../_images/image815.png" style="width: 5.90551in; height: 3.17269in;" /></a></p>
+<p>Figure : Amazon Alexa Account Successfully linked to the InnoPhase Smart
+Home Demo Alexa Skill</p>
+</section>
+<section id="request-for-aws-iot-thing-creation-certs-created-for-the-thing">
+<h2>Request for AWS IoT Thing creation &amp; Certs created for the Thing<a class="headerlink" href="#request-for-aws-iot-thing-creation-certs-created-for-the-thing" title="Link to this heading"></a></h2>
+<p>Please communicate the email-id associated with your Amazon Account to
+<a class="reference external" href="mailto:apps-dev&#37;&#52;&#48;innophaseiot&#46;com">apps-dev<span>&#64;</span>innophaseiot<span>&#46;</span>com</a> with the subject line – ‘Request for T2 Alexa
+End Point’.</p>
+<p>In response, an email with the certificates, keys created for the thing
+and a ‘Thing Name’ similar to ‘INNO_ENDPOINT_ABCD1234’ will be provided.
+The certificates, keys and ‘Thing Name’ are unique to your account.</p>
+<p>There are two ways in which the ELF is made available:</p>
+<ol class="arabic simple">
+<li><p>As part of FreeRTOS SDK package in the
+&lt;freertos_sdk&gt;/binaries/eval/Alexa_ready/bin path</p></li>
+<li><p>In case you do not have the FreeRTOS SDK package, the ELF can be sent
+along with certs and Thing in response to the request email for Alexa
+Ready App.</p></li>
+</ol>
+<p><strong>Note</strong>: Make sure you can login to Alexa Smart Phone App with your
+Amazon Account.</p>
+</section>
+</section>
+<section id="programming-applications">
+<h1>Programming Applications<a class="headerlink" href="#programming-applications" title="Link to this heading"></a></h1>
+<section id="programming-talaria-two-board-with-certificates">
+<h2>Programming Talaria TWO board with certificates<a class="headerlink" href="#programming-talaria-two-board-with-certificates" title="Link to this heading"></a></h2>
+<p>Program the ELFs, certificate and key onto Talaria TWO using the
+Download tool.</p>
+<p>Launch the Download tool provided with InnoPhase Talaria TWO FreeRTOS
+SDK: (<em>freertos_sdk_x.y\pc_tools\Download_Tool\bin</em>).</p>
+<p><strong>Note</strong>: x and y in freertos_sdk_x.y refers to the FreeRTOS SDK release
+version.</p>
+<section id="show-file-system-contents">
+<h3>Show File System Contents<a class="headerlink" href="#show-file-system-contents" title="Link to this heading"></a></h3>
+<p>Click on Show File System Contents to see the current available files in
+the file system.</p>
+</section>
+<section id="writing-files-into-file-system">
+<h3>Writing Files into File System<a class="headerlink" href="#writing-files-into-file-system" title="Link to this heading"></a></h3>
+<p>The user needs to add three files in file system:</p>
+<ol class="arabic simple">
+<li><p>aws_device_cert</p></li>
+<li><p>aws_root_ca</p></li>
+<li><p>aws_device_pkey</p></li>
+</ol>
+<p>Users should rename certificates and key received in the mail with the
+above provided name.</p>
+<p>For example: 5497cf0b16-private.pem.key must be renamed to
+aws_device_pkey.</p>
+<p>To write files into Talaria TWO, user must create a folder with the name
+data and must create a sub folder (/data/certs/aws/alexa_ready) which is
+the default sub-folder used and place all certificates, keys into it.
+Using the Download tool, files must be written to file system.</p>
+<p>For more information on using the Download Tool, refer:
+UG_Download_Tool.pdf (<em>freertos_sdk_x.y\pc_tools\Download_Tool\doc).</em></p>
+</section>
+</section>
+<section id="programming-talaria-two-board-with-elf">
+<h2>Programming Talaria TWO board with ELF<a class="headerlink" href="#programming-talaria-two-board-with-elf" title="Link to this heading"></a></h2>
+<p>There are two Talaria TWO applications available in the following
+location of the FreeRTOS SDK release package:
+<em>freertos_sdk_x.y\binaries\eval\alexa_ready\bin</em>.</p>
+<ol class="arabic simple">
+<li><p>innoswitch.elf</p></li>
+<li><p>innoswitch_ble_provisionig.elf</p></li>
+</ol>
+<p>The difference amongst the two is, while using
+innoswitch_ble_provisioning.elf , the AP details (SSID, Passphrase) can
+be provisioned to the Talaria TWO application from a mobile application
+instead of passing it from Download Tool.</p>
+<section id="programming-talaria-two-board-with-innoswitch-elf">
+<h3>Programming Talaria TWO board with innoswitch.elf<a class="headerlink" href="#programming-talaria-two-board-with-innoswitch-elf" title="Link to this heading"></a></h3>
+<p>Program innoswitch.elf
+(<em>freertos_sdk_x.y\examples\watchdog_timer\bin</em>) using the Download
+tool:</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool provided with InnoPhase Talaria TWO SDK.</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down.</p></li>
+<li><p>ELF Input: Load the innoswitch.elf by clicking on Select ELF File.</p></li>
+<li><p>AP Options: Provide the appropriate SSID and Passphrase to connect
+to an Access Point.</p></li>
+<li><p>Boot Arguments: Pass the following boot arguments:</p></li>
+</ol>
+</li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>aws_host=a3t0o11ohwlo2h-ats.iot.us-east-1.amazonaws.com,
+aws_port=8883,suspend=1,no_mcast=1,thing_name=INNO_ENDPOINT_xxxxxxxx</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>where,</p>
+</div></blockquote>
+<ol class="lowerroman simple">
+<li><p>aws_host: Custom AWS location</p></li>
+<li><p>aws_port=8883</p></li>
+<li><dl class="simple">
+<dt>no_mcast: (0 or 1) Flag for enabling/disabling reception of</dt><dd><p>multicast frames.</p>
+</dd>
+</dl>
+</li>
+<li><p>suspend=1 for power save</p></li>
+<li><dl class="simple">
+<dt>thing_name: Unique Thing name received. Replace xxxxxx with</dt><dd><p>appropriate details.</p>
+</dd>
+</dl>
+</li>
+</ol>
+<p><strong>Note</strong>:</p>
+<ol class="arabic simple">
+<li><p>Ensure correct boot parameters are supplied to your Wi-Fi network and
+the information from the device/thing created previously on AWS.</p></li>
+<li><p>In addition to the above-mentioned boot arguments, high DTIM specific
+tests can be run by providing the following boot arguments and
+extending the timeouts as required:</p></li>
+</ol>
+<blockquote>
+<div><p>These boot arguments are used to configure the timeouts in AWS IoT
+SDK.</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>aws_keepAliveIntervalInSec=120,aws_tlsHandshake
+Timeout_ms=60000,aws_mqttCommandTimeout_ms=60000,aws_sslRead_timeout_
+ms=10,aws_sslReadRetry_timeout_ms=20,aws_sslWriteRetry_timeout_ms=20,
+aws_shaddowActionAckTimeout_sec=60,aws_mqttPingResponseTimeout_sec=60</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="loweralpha simple">
+<li><p>Programming: Prog RAM or Prog Flash as per requirement.</p></li>
+</ol>
+<p>Console log after programming:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWWAEBuild $Id: git-b664be2af $</p>
+<p>aws_host=a3t0o11ohwlo2h-ats.iot.us-east-1.amazonaws.com aws_port=8883
+suspend=1 no_mcast=&lt; 1 thing_name=INNO_ENDPOINT_6GBTSRZ8
+np_conf_path=/sys/nprofile.json ssid=InnoPhase passphrase=43083191</p>
+<p>$App:git-38ca4ab7</p>
+<p>SDK Ver: FREERTOS_SDK_1.0</p>
+<p>Innoswitch Demo App</p>
+<p>Mounting file system</p>
+<p>read_certs() success</p>
+<p>addr e0:69:3a:00:2c:3e</p>
+<p>added network profile successfully, will try connecting..</p>
+<p>[2.769,774] CONNECT:d2:01:2a:d2:4a:2d Channel:11 rssi:-24 dBm</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS</p>
+<p>[4.805,318] MYIP 192.168.224.237</p>
+<p>[4.805,402] IPv6 [fe80::e269:3aff:fe00:2c3e]-link</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED</p>
+<p>Shadow Connect</p>
+<p>Root Done[0]Loading the client cert. and key. size TLSDataParams:2080</p>
+<p>Loading the client cert done…. ret[0]</p>
+<p>Client pkey loaded[0]</p>
+<p>. Connecting to
+a3t0o11ohwlo2h-ats.iot.us-east-1.amazonaws.com/8883… ok</p>
+<p>. Setting up the SSL/TLS structure… This certificate has no flags</p>
+<p>This certificate has no flags</p>
+<p>This certificate has no flags</p>
+<p>SSL/TLS handshake. DONE ..ret:0</p>
+<p>ok</p>
+<p>[ Protocol is TLSv1.2 ]</p>
+<p>[ Ciphersuite is TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256 ]</p>
+<p>[ Record expansion is 29 ]</p>
+<p>. Verifying peer X.509 certificate…</p>
+<p>ok</p>
+<p>Shadow Connected</p>
+<p>init_and_connect_aws_iot. ret:0</p>
+<p>LED Off</p>
+<p>Update Shadow: {“state”:{“reported”:{“powerState”:”OFF”}},
+“clientToken”:”INNO_ENDPOINT_6GBTSRZ8-0”}</p>
+<p>Delta - Switch state changed to ON</p>
+<p>LED On</p>
+<p>Update Shadow: {“state”:{“reported”:{“powerState”:”ON”}},
+“clientToken”:”INNO_ENDPOINT_6GBTSRZ8-1”}</p>
+<p>Update Accepted !!</p>
+<p>Update Accepted !!</p>
+<p>Delta - Switch state changed to OFF</p>
+<p>LED Off</p>
+<p>Update Shadow: {“state”:{“reported”:{“powerState”:”OFF”}},
+“clientToken”:”INNO_ENDPOINT_6GBTSRZ8-2”}</p>
+<p>Update Accepted !!</p>
+<p>Delta - Switch state changed to ON</p>
+<p>LED On</p>
+<p>Update Shadow: {“state”:{“reported”:{“powerState”:”ON”}},
+“clientToken”:”INNO_ENDPOINT_6GBTSRZ8-3”}</p>
+<p>Update Accepted !!</p>
+<p>Delta - Switch state changed to OFF</p>
+<p>LED Off</p>
+<p>Update Shadow: {“state”:{“reported”:{“powerState”:”OFF”}},
+“clientToken”:”INNO_ENDPOINT_6GBTSRZ8-4”}</p>
+<p>Update Accepted !!</p>
+<p>Delta - Switch state changed to ON</p>
+<p>LED On</p>
+<p>Update Shadow: {“state”:{“reported”:{“powerState”:”ON”}},
+“clientToken”:”INNO_ENDPOINT_6GBTSRZ8-5”}</p>
+<p>Update Accepted !!</p>
+<p>Delta - Switch state changed to OFF</p>
+<p>LED Off</p>
+<p>Update Shadow: {“state”:{“reported”:{“powerState”:”OFF”}},
+“clientToken”:”INNO_ENDPOINT_6GBTSRZ8-6”}</p>
+<p>Update Accepted !!</p>
+<p>Delta - Switch state changed to ON</p>
+<p>LED On</p>
+<p>Update Shadow: {“state”:{“reported”:{“powerState”:”ON”}},
+“clientToken”:”INNO_ENDPOINT_6GBTSRZ8-7”}</p>
+<p>Update Accepted !!</p>
+<p>Delta - Switch state changed to OFF</p>
+<p>LED Off</p>
+<p>Update Shadow: {“state”:{“reported”:{“powerState”:”OFF”}},
+“clientToken”:”INNO_ENDPOINT_6GBTSRZ8-8”}</p>
+<p>Update Accepted !!</p>
+<p>Delta - Switch state changed to ON</p>
+<p>LED On</p>
+<p>Update Shadow: {“state”:{“reported”:{“powerState”:”ON”}},
+“clientToken”:”INNO_ENDPOINT_6GBTSRZ8-9”}</p>
+<p>Update Accepted !!</p>
+<p>Delta - Switch state changed to OFF</p>
+<p>LED Off</p>
+<p>Update Shadow: {“state”:{“reported”:{“powerState”:”OFF”}},
+“clientToken”:”INNO_ENDPOINT_6GBTSRZ8-10”}</p>
+<p>Update Accepted !!</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="programming-talaria-two-board-with-innoswitch-ble-provisioning-elf">
+<h3>Programming Talaria TWO board with innoswitch_ble_provisioning.elf<a class="headerlink" href="#programming-talaria-two-board-with-innoswitch-ble-provisioning-elf" title="Link to this heading"></a></h3>
+<p>Write the part.json file to the data folder using Write Files in the
+Download Tool. Once done, program innoswitch_with_bleProvisioning.elf
+(refer steps from section: <em>Programming Talaria TWO board with
+innoswitch.elf</em> to program the ELF onto Talaria TWO).</p>
+<p><strong>Note</strong>:</p>
+<ol class="arabic simple">
+<li><p>To reprovision the Talaria TWO module, write the part.json file onto
+Talaria TWO filesystem using Write Files.</p></li>
+<li><p>For connecting the Talaria TWO to an AP, the SSID and Passphrase are
+provisioned to Talaria TWO through BLE from a mobile application as
+mentioned in the following section (section: <em>Using InnoPhase Talaria
+TWO Smart Home Application</em>). Ensure to keep the SSID and Passphrase
+fields in the Download Tool empty.</p></li>
+</ol>
+<section id="using-innophase-talaria-two-smart-home-application">
+<h4>Using InnoPhase Talaria TWO Smart Home Application<a class="headerlink" href="#using-innophase-talaria-two-smart-home-application" title="Link to this heading"></a></h4>
+<p>To test this sample application (innoswitch_ble_provisionig.elf ), the
+companion Innophase T2 Smart Home Android application can be used from
+either an Android or iOS device.</p>
+<ol class="arabic simple">
+<li><p>To install, open the provided .apk file
+(<em>freertos_sdk_x.y\apps\ble_provisioning\mobile_app</em>) from the
+phone (Android or iOS).</p></li>
+</ol>
+<p><strong>Note</strong>: x and y in <em>freertos_</em>sdk_x.y refer to the FreeRTOS SDK
+release version.</p>
+<ol class="arabic simple" start="2">
+<li><p>To connect to the Talaria TWO BLE Server, wait for the application to
+complete the scanning and look for Inno_Ble_WiFiProvisioning and
+click on it.</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image9.jpeg"><img alt="image8" src="../../_images/image9.jpeg" style="width: 2.3622in; height: 4.97907in;" /></a></p>
+<p>Figure : Android - Scanning for Talaria TWO BLE Server for Wi-Fi
+Provisioning</p>
+<p><a class="reference internal" href="../../_images/image1013.png"><img alt="image9" src="../../_images/image1013.png" style="width: 2.3622in; height: 4.05258in;" /></a></p>
+<p>Figure : iOS - Scanning for Talaria TWO BLE Server for Wi-Fi
+Provisioning</p>
+<p>Android phone connects as a BLE Client to Talaria TWO device at this
+stage.</p>
+<ol class="arabic simple" start="3">
+<li><p>Android application scans for the nearby available Wi-Fi networks and
+displays them in a list view.</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image112.jpeg"><img alt="Graphical user interface, text, application, email Description automatically generated" src="../../_images/image112.jpeg" style="width: 2.3622in; height: 4.98826in;" /></a></p>
+<p>Figure : Android - Available Wi-Fi networks as scanned by Android Phone</p>
+<p><a class="reference internal" href="../../_images/image1217.png"><img alt="image10" src="../../_images/image1217.png" style="width: 2.36172in; height: 3.9875in;" /></a></p>
+<p>Figure : iOS - Available Wi-Fi networks as scanned by Android Phone</p>
+<ol class="arabic simple" start="4">
+<li><p>Select the SSID of the AP you want to connect to. A passphrase needs
+to be provided for the SSID.</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image132.jpeg"><img alt="Graphical user interface, text, application Description automatically generated" src="../../_images/image132.jpeg" style="width: 2.3622in; height: 4.98102in;" /></a></p>
+<p>Figure : Android - Providing the passphrase</p>
+<p><a class="reference internal" href="../../_images/image1415.png"><img alt="image11" src="../../_images/image1415.png" style="width: 2.36181in; height: 4.05293in;" /></a></p>
+<p>Figure : iOS - Providing the passphrase</p>
+<ol class="arabic simple" start="5">
+<li><p>Once the passphrase is entered, click on Done. If the provided
+passphrase is correct, connection is established successfully. If
+not, an error message is shown.</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image151.jpeg"><img alt="Graphical user interface, application, PowerPoint Description automatically generated" src="../../_images/image151.jpeg" style="width: 2.3622in; height: 4.98826in;" /></a></p>
+<p>Figure : Android - Connecting successful</p>
+<p><a class="reference internal" href="../../_images/image1611.png"><img alt="Graphical user interface, text, application, chat or text message Description automatically generated" src="../../_images/image1611.png" style="width: 2.36181in; height: 4.05293in;" /></a></p>
+<p>Figure : iOS - Connecting successful</p>
+<p><a class="reference internal" href="../../_images/image171.jpeg"><img alt="Graphical user interface, application Description automatically generated" src="../../_images/image171.jpeg" style="width: 2.3622in; height: 5.0124in;" /></a></p>
+<p>Figure : Android - Error in connection</p>
+<p><a class="reference internal" href="../../_images/image1810.png"><img alt="image12" src="../../_images/image1810.png" style="width: 2.36181in; height: 4.06127in;" /></a></p>
+<p>Figure : iOS - Error in connection</p>
+<ol class="arabic simple" start="6">
+<li><p>On establishing the connection successfully, the android application
+should transfer the Wi-Fi credentials using custom GATT Service and
+Characteristics we created.</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/image9.jpeg"><img alt="Shape Description automatically generated with low confidence" src="../../_images/image9.jpeg" style="width: 2.3622in; height: 4.9593in;" /></a></p>
+<p>Figure : Android - Connection successful</p>
+<p><a class="reference internal" href="../../_images/image1013.png"><img alt="image13" src="../../_images/image1013.png" style="width: 2.3622in; height: 4.05258in;" /></a></p>
+<p>Figure : iOS - Connection successful</p>
+<p>Talaria TWO will try to connect to the provisioned network and provide
+the following console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWWAEBuild $Id: git-65f6c1f46 $</p>
+<p>aws_host=a3t0o11ohwlo2h-ats.iot.us-east-1.amazonaws.com aws_port=8883
+suspend=1 no_mcast=&lt; 1 thing_name=INNO_ENDPOINT_6GBTSRZ8</p>
+<p>Inno_Ble_WiFiProvisioning started</p>
+<p>[63.146,804] BT connect[0]: ia:60:4d:89:ec:f3:51 aa:05:04:03:02:01:00
+phy2:0/0 phyC:00</p>
+<p>Client connected</p>
+<p>client reading status:waiting</p>
+<p>WiFi Details SSID: InnoPhase, PASSWORD: 43083191</p>
+<p>addr e0:69:3a:00:13:90</p>
+<p>client reading status:waiting</p>
+<p>client reading status:waiting</p>
+<p>Connecting to WiFi…</p>
+<p>added network successfully, will try connecting..</p>
+<p>connecting to network status: 0</p>
+<p>connection attempt timer started. current timein
+microseconds:[66337388]</p>
+<p>[66.879,059] CONNECT:00:5f:67:cd:c5:a6 Channel:6 rssi:-32 dBm</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP</p>
+<p>client reading status:waiting</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS</p>
+<p>[67.638,187] MYIP 192.168.0.104</p>
+<p>[67.638,466] IPv6 [fe80::e269:3aff:fe00:1390]-link</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED</p>
+<p>Cancelling the connection timeout timer. current timein
+microseconds:[67639064]</p>
+<p>client reading status : success</p>
+<p>status sent to phone app, now calling common_server_destroy and
+bt_gap_destroy</p>
+<p>$App:git-cd11dc34</p>
+<p>SDK Ver: FREERTOS_SDK_1.0</p>
+<p>Innoswitch Demo App</p>
+<p>Mounting file system</p>
+<p>read_certs() success</p>
+<p>Shadow Connect</p>
+<p>Root Done[0]Loading the client cert. and key. size TLSDataParams:2080</p>
+<p>Loading the client cert done…. ret[0]</p>
+<p>Client pkey loaded[0]</p>
+<p>. Connecting to
+a3t0o11ohwlo2h-ats.iot.us-east-1.amazonaws.com/8883… ok</p>
+<p>. Setting up the SSL/TLS structure… This certificate has no flags</p>
+<p>This certificate has no flags</p>
+<p>This certificate has no flags</p>
+<p>SSL/TLS handshake. DONE ..ret:0</p>
+<p>ok</p>
+<p>[ Protocol is TLSv1.2 ]</p>
+<p>[ Ciphersuite is TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256 ]</p>
+<p>[ Record expansion is 29 ]</p>
+<p>. Verifying peer X.509 certificate…</p>
+<p>ok</p>
+<p>Shadow Connected</p>
+<p>init_and_connect_aws_iot. ret:0</p>
+<p>LED Off</p>
+<p>Update Shadow: {“state”:{“reported”:{“powerState”:”OFF”}},
+“clientToken”:”INNO_ENDPOINT_6GBTSRZ8-0”}</p>
+<p>Delta - Switch state changed to ON</p>
+<p>LED On</p>
+<p>Update Shadow: {“state”:{“reported”:{“powerState”:”ON”}},
+“clientToken”:”INNO_ENDPOINT_6GBTSRZ8-1”}</p>
+<p>Update Accepted !!</p>
+<p>Update Accepted !!</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="jumper-setting-on-talaria-two-evb">
+<h2>Jumper Setting on Talaria TWO EVB<a class="headerlink" href="#jumper-setting-on-talaria-two-evb" title="Link to this heading"></a></h2>
+<p>This example uses GPIO 14 to toggle the LED D1. Ensure jumper J3 is
+installed which connects GPIO14 and LED.</p>
+</section>
+<section id="interacting-the-talaria-two-evb-with-alexa">
+<h2>Interacting the Talaria TWO EVB with Alexa<a class="headerlink" href="#interacting-the-talaria-two-evb-with-alexa" title="Link to this heading"></a></h2>
+<p>Inno Switch can be controlled either using Amazon’s Alexa App installed
+in Android Phone or iOS Phone, or using the Alexa Voice Interactions
+with the Alexa speaker which is linked with User’s Alexa account.</p>
+<p>For testing with a Phone, go to the Devices -&gt; Switches and refresh the
+page if the Inno Switch is not found here.</p>
+<p><a class="reference internal" href="../../_images/image1910.png"><img alt="image14" src="../../_images/image1910.png" style="width: 5.90551in; height: 4.58502in;" /></a></p>
+<p>Figure : Devices – Switches – InnoSwitch</p>
+<p>Tap on Inno Switch to find power on/off control. The switch can be
+controlled from here by tapping on the Power Button, and the results
+will be reflected in LED status and Console of Talaria TWO EVB.</p>
+<p><a class="reference internal" href="../../_images/image208.png"><img alt="image15" src="../../_images/image208.png" style="width: 5.90551in; height: 3.23342in;" /></a></p>
+<p>Figure : InnoSwitch power on-off control</p>
+<p>Optionally, for controlling the device with Voice Interaction, you will
+need an Alexa enabled speaker (e.g., Amazon Echo) logged in with same
+Amazon Account.</p>
+<p>Following voice commands are used to control the switch operation:</p>
+<ol class="arabic simple">
+<li><p>Alexa, turn on the Inno Switch</p></li>
+<li><p>Alexa, turn off the Inno Switch</p></li>
+</ol>
+<p>Console log while interacting with the device is as follows:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWWAEBuild $Id: git-b664be2af $</p>
+<p>aws_host=a3t0o11ohwlo2h-ats.iot.us-east-1.amazonaws.com aws_port=8883
+suspend=1 no_mcast=&lt; 1 thing_name=INNO_ENDPOINT_6GBTSRZ8</p>
+<p>Inno_Ble_WiFiProvisioning started</p>
+<p>[22.113,536] BT connect[0]: ia:7c:36:ff:b4:67:18 aa:05:04:03:02:01:00
+phy2:0/0 phyC:00</p>
+<p>Client connected</p>
+<p>client reading status:waiting</p>
+<p>WiFi Details SSID:InnoPhase, PASSWORD: 43083191</p>
+<p>addr e0:69:3a:00:2c:3e</p>
+<p>client reading status:waiting</p>
+<p>client reading status:waiting</p>
+<p>Connecting to WiFi…</p>
+<p>added network successfully, will try connecting..</p>
+<p>connecting to network status: 0</p>
+<p>connection attempt timer started. current timein
+microseconds:[25293138]</p>
+<p>[25.832,396] CONNECT:e8:48:b8:fb:35:70 Channel:6 rssi:-71 dBm</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP</p>
+<p>client reading status:waiting</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS</p>
+<p>[26.705,681] MYIP 192.168.0.116</p>
+<p>[26.705,845] IPv6 [fe80::e269:3aff:fe00:2c3e]-link</p>
+<p>wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED</p>
+<p>Cancelling the connection timeout timer. current timein
+microseconds:[26706029]</p>
+<p>client reading status : success</p>
+<p>status sent to phone app, now calling common_server_destroy and
+bt_gap_destroy</p>
+<p>$App:git-38ca4ab7</p>
+<p>SDK Ver: FREERTOS_SDK_1.0</p>
+<p>Innoswitch Demo App</p>
+<p>Mounting file system</p>
+<p>read_certs() success</p>
+<p>Shadow Connect</p>
+<p>Root Done[0]Loading the client cert. and key. size TLSDataParams:2080</p>
+<p>Loading the client cert done…. ret[0]</p>
+<p>Client pkey loaded[0]</p>
+<p>. Connecting to
+a3t0o11ohwlo2h-ats.iot.us-east-1.amazonaws.com/8883… ok</p>
+<p>. Setting up the SSL/TLS structure… This certificate has no flags</p>
+<p>This certificate has no flags</p>
+<p>This certificate has no flags</p>
+<p>SSL/TLS handshake. DONE ..ret:0</p>
+<p>ok</p>
+<p>[ Protocol is TLSv1.2 ]</p>
+<p>[ Ciphersuite is TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256 ]</p>
+<p>[ Record expansion is 29 ]</p>
+<p>. Verifying peer X.509 certificate…</p>
+<p>ok</p>
+<p>Shadow Connected</p>
+<p>init_and_connect_aws_iot. ret:0</p>
+<p>LED Off</p>
+<p>Update Shadow: {“state”:{“reported”:{“powerState”:”OFF”}},
+“clientToken”:”INNO_ENDPOINT_6GBTSRZ8-0”}</p>
+<p>Update Accepted !!</p>
+<p>Delta - Switch state changed to ON</p>
+<p>LED On</p>
+<p>Update Shadow: {“state”:{“reported”:{“powerState”:”ON”}},
+“clientToken”:”INNO_ENDPOINT_6GBTSRZ8-1”}</p>
+<p>Update Accepted !!</p>
+<p>Delta - Switch state changed to OFF</p>
+<p>LED Off</p>
+<p>Update Shadow: {“state”:{“reported”:{“powerState”:”OFF”}},
+“clientToken”:”INNO_ENDPOINT_6GBTSRZ8-2”}</p>
+<p>Update Accepted !!</p>
+<p>Delta - Switch state changed to ON</p>
+<p>LED On</p>
+<p>Update Shadow: {“state”:{“reported”:{“powerState”:”ON”}},
+“clientToken”:”INNO_ENDPOINT_6GBTSRZ8-3”}</p>
+<p>Update Accepted !!</p>
+<p>Delta - Switch state changed to OFF</p>
+<p>LED Off</p>
+<p>Update Shadow: {“state”:{“reported”:{“powerState”:”OFF”}},
+“clientToken”:”INNO_ENDPOINT_6GBTSRZ8-4”}</p>
+<p>Update Accepted !!</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

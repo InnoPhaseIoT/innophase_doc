@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mdns &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="mqtt" href="mqtt_apiref.html" />
+    <link rel="prev" title="http client" href="httpclient_apiref.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/Support.html">Support</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../Software_Reference_Landing_Page.html">Software Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../Software_Reference_Landing_Page.html#libraries">Libraries</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html">1.  alarm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#fota">2.  fota</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#http">3.  http</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="1.%20Libraries-Landing.html#mdns">4.  mdns</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">mdns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mdns-hnreg-param-t">mdns_hnreg_param_t</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#mqtt">5.  mqtt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#prov">6.  prov</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#sntp">7.  sntp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#ssl-wrap">8.  ssl_wrap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#utils">9.  utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#websocket">10. websocket</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Software_Reference_Landing_Page.html#solutions">Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software_Reference_Landing_Page.html#cloud-frameworks">Cloud Frameworks</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Tools/Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../Software_Reference_Landing_Page.html">Software Reference</a></li>
+          <li class="breadcrumb-item"><a href="1.%20Libraries-Landing.html">1.  alarm</a></li>
+      <li class="breadcrumb-item active">mdns</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Software Reference/1. Libraries/mdns_apiref.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mdns">
+<h1>mdns<a class="headerlink" href="#mdns" title="Permalink to this heading"></a></h1>
+<p>mDNS is a protocol that provides DNS like facility to advertise and
+discover services in a local area network. The mDNS based service
+discovery is defined by two RFCs, 6762 and 6763.</p>
+<section id="features-and-limitations">
+<h2>Features and Limitations<a class="headerlink" href="#features-and-limitations" title="Permalink to this heading"></a></h2>
+<p>Following is the list of features provided by this component:</p>
+<ol class="arabic simple">
+<li><p>Support for IPV4</p></li>
+<li><p>Register hostname</p></li>
+<li><p>Register services</p></li>
+<li><p>Responding to Multi-Question queries</p></li>
+<li><p>Known-Answer Suppression</p></li>
+<li><p>Respond to ADDR, SRV and ANY type of queries</p></li>
+<li><p>One-Shot Multicast DNS queries</p></li>
+</ol>
+<p>Following is the list of some limitations,</p>
+<ol class="arabic simple">
+<li><p>IPV6 is not supported</p></li>
+<li><p>Probing and conflict detection is not supported</p></li>
+<li><p>Continues multicast querying</p></li>
+</ol>
+</section>
+<section id="header-file-s">
+<h2>Header file/s<a class="headerlink" href="#header-file-s" title="Permalink to this heading"></a></h2>
+<p>Components/mdns/inc/mdns.h.</p>
+</section>
+<section id="data-structure-definitions">
+<h2>Data Structure Definitions<a class="headerlink" href="#data-structure-definitions" title="Permalink to this heading"></a></h2>
+</section>
+<section id="mdns-srvc-info-t">
+<h2>mdns_srvc_info_t<a class="headerlink" href="#mdns-srvc-info-t" title="Permalink to this heading"></a></h2>
+<p>This data structure is used to pass information about the discovered
+service. Information is passed through the callback function provided
+while calling the mdns_service_discover API.</p>
+<table class="docutils align-default" id="id13">
+<caption><span class="caption-text">Table : mdns_srvc_info_t - parameters</span><a class="headerlink" href="#id13" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>**
+instance**</p></th>
+<th class="head"><p>Service Instance name. max limit 63 bytes. Example:
+“innoprov”</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>s
+rvc_type</strong></p></td>
+<td><p>Service protocol. Example: “_tcp”</p></td>
+</tr>
+<tr class="row-odd"><td><p>**
+protocol**</p></td>
+<td><p>Service protocol. Example: “_tcp”</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>domain</strong></p></td>
+<td><p>Domain. In almost all the cases its “local”. This is
+the default value</p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>txtInfo*</em></p>
+</td>
+<td><p>Txt record information data</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>port</strong></p></td>
+<td><p>Port on which service is available</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>ipaddr</strong></p></td>
+<td><p>IP address of the interface on which service is
+available</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="mdns-hnreg-param-t">
+<h1>mdns_hnreg_param_t<a class="headerlink" href="#mdns-hnreg-param-t" title="Permalink to this heading"></a></h1>
+<p>This data structure is used to pass parameters while registering the
+Host Name. Following are some of the important parameters:</p>
+<table class="docutils align-default" id="id14">
+<caption><span class="caption-text">Table : mdns_hnreg_param_t - parameters</span><a class="headerlink" href="#id14" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>**
+hostname**</p></th>
+<th class="head"><p>Host name of the device. Keep this unique in the N/w.
+Best done by using mac address as part of the host name</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>domain</strong></p></td>
+<td><p>Always pass MDNS_LOCAL_DOMAIN</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>ipaddr</strong></p></td>
+<td><p>IP address of the host interface in little endian
+format</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>ttl</strong></p></td>
+<td><p>Time to live. Default value is 120 sec</p></td>
+</tr>
+</tbody>
+</table>
+<section id="mdns-srvreg-param-t">
+<h2>mdns_srvreg_param_t<a class="headerlink" href="#mdns-srvreg-param-t" title="Permalink to this heading"></a></h2>
+<p>This data structure is used to pass the parameters while registering a
+service. Following are some of the important parameters:</p>
+<table class="docutils align-default" id="id15">
+<caption><span class="caption-text">Table : mdns_srvreg_param_t – parameters</span><a class="headerlink" href="#id15" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>s
+rvc_name</strong></p></th>
+<th class="head"><p>Service name. Example: “prov”</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>srvc_
+sub_type</strong></p></td>
+<td><p>Name of the subtype excluding “_sub”. “_sub” is added
+implicitly</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>s
+rvc_type</strong></p></td>
+<td><p>Type of service. Example: “_http”</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>sr
+vc_proto</strong></p></td>
+<td><p>Protocol type. “_tcp” or “_udp”</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>domain</strong></p></td>
+<td><p>Always pass MDNS_LOCAL_DOMAIN</p></td>
+</tr>
+<tr class="row-even"><td><p>**
+txt_data**</p></td>
+<td><p>Pointer to key/value pairs conveying additional
+information about the named service</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>port</strong></p></td>
+<td><p>Port number for the given service protocol type</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>ttl</strong></p></td>
+<td><p>Time to live. Default 120 sec</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mdns-srvcdisc-param-t">
+<h2>mdns_srvcdisc_param_t<a class="headerlink" href="#mdns-srvcdisc-param-t" title="Permalink to this heading"></a></h2>
+<p>This data structure is used for passing the parameters while discovering
+for service of specific type.</p>
+<table class="docutils align-default" id="id16">
+<caption><span class="caption-text">Table : mdns_srvcdisc_param_t - parameters</span><a class="headerlink" href="#id16" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>srvc_
+sub_type</strong></p></th>
+<th class="head"><p>Name of the subtype excluding “_sub”. “_sub” is added
+implicitly</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>s
+rvc_type</strong></p></td>
+<td><p>Type of service. Example: “_http”</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>sr
+vc_proto</strong></p></td>
+<td><p>Protocol type. “_tcp” or “_udp”</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>domain</strong></p></td>
+<td><p>Always pass MDNS_LOCAL_DOMAIN</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>cb</strong></p></td>
+<td><p>mDNS service discovery callback function</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>cbctx</strong></p></td>
+<td><p>Callback context to be passed to cb</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="api-reference">
+<h2>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this heading"></a></h2>
+</section>
+<section id="mdns-init">
+<h2>mdns_init<a class="headerlink" href="#mdns-init" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<p>This function is used for initializing the mDNS component. This returns
+pointer to mDNS handle. This needs to be passed to all other APIs. This
+shall be a onetime initialization.</p>
+<p>Apart from other initializations, this call creates a thread and a
+message queue for handling mDNS activities like packet parsing and
+timeouts.</p>
+</section>
+<section id="definition">
+<h2>Definition<a class="headerlink" href="#definition" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>mdns_ctx_t *</p>
+<p>mdns_init(mdns_init_params_t *param);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>P
+arameters</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>param</em></p></td>
+<td><p>Pointer to data structure of type mdns_init_params_t</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="return">
+<h2>Return<a class="headerlink" href="#return" title="Permalink to this heading"></a></h2>
+<p>Success: Pointer to mDNS handle</p>
+<p>Error: NULL</p>
+</section>
+<section id="mdns-hostname-reg">
+<h2>mdns_hostname_reg<a class="headerlink" href="#mdns-hostname-reg" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-1">
+<span id="id1"></span><h2>Overview<a class="headerlink" href="#overview-1" title="Permalink to this heading"></a></h2>
+<p>This function is used for registering the host name of the
+interface(node).</p>
+</section>
+<section id="definition-1">
+<span id="id2"></span><h2>Definition<a class="headerlink" href="#definition-1" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>mdns_hostname_reg(mdns_ctx_t *mc, mdns_hnreg_param_t *param);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters-1">
+<span id="id3"></span><h2>Parameters<a class="headerlink" href="#parameters-1" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>P
+arameters</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>mc</em></p></td>
+<td><p>Pointer returned by mdns_init()</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>param</em></p></td>
+<td><p>Pointer to structure of type mdns_hnreg_param_t</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="return-1">
+<span id="id4"></span><h2>Return<a class="headerlink" href="#return-1" title="Permalink to this heading"></a></h2>
+<p>Success: 0</p>
+<p>Error: -1</p>
+</section>
+<section id="mdns-service-register">
+<h2>mdns_service_register<a class="headerlink" href="#mdns-service-register" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-2">
+<span id="id5"></span><h2>Overview<a class="headerlink" href="#overview-2" title="Permalink to this heading"></a></h2>
+<p>This function is used for registering the service. Once registered,
+response for any matching query will be given internally.</p>
+</section>
+<section id="definition-2">
+<span id="id6"></span><h2>Definition<a class="headerlink" href="#definition-2" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>mdns_service_register(mdns_ctx_t *mc, mdns_srvreg_param_t *param)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters-2">
+<span id="id7"></span><h2>Parameters<a class="headerlink" href="#parameters-2" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>P
+arameters</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>mc</em></p></td>
+<td><p>Pointer returned by mdns_init()</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>param</em></p></td>
+<td><p>Pointer to structure of type mdns_srvreg_param_t</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="return-2">
+<span id="id8"></span><h2>Return<a class="headerlink" href="#return-2" title="Permalink to this heading"></a></h2>
+<p>Success: 0</p>
+<p>Error: -1</p>
+</section>
+<section id="mdns-service-discover">
+<h2>mdns_service_discover<a class="headerlink" href="#mdns-service-discover" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-3">
+<span id="id9"></span><h2>Overview<a class="headerlink" href="#overview-3" title="Permalink to this heading"></a></h2>
+<p>This function is used for discovering services of given type. When
+service is discovered, callback function specified in service discovery
+parameter structure will be called to notify the application.</p>
+<p>Callback function is called separately for each service it discovers. If
+more than one services are detected, callback function will be called as
+many times as the total number of service detected.</p>
+</section>
+<section id="definition-3">
+<span id="id10"></span><h2>Definition<a class="headerlink" href="#definition-3" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>mdns_service_discover(mdns_ctx_t *mc, mdns_srvcdisc_param_t *param)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters-3">
+<span id="id11"></span><h2>Parameters<a class="headerlink" href="#parameters-3" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>**
+Parameters**</p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>mc</em></p></td>
+<td><p>Pointer returned by mdns_init()</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>param</em></p></td>
+<td><p>Pointer to structure of type mdns_srvcdisc_param_t</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="return-3">
+<span id="id12"></span><h2>Return<a class="headerlink" href="#return-3" title="Permalink to this heading"></a></h2>
+<p>Success: 0</p>
+<p>Error: -1</p>
+</section>
+<section id="application-example">
+<h2>Application Example<a class="headerlink" href="#application-example" title="Permalink to this heading"></a></h2>
+<p>For the example code, refer: <em>examples/mdns application</em>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="httpclient_apiref.html" class="btn btn-neutral float-left" title="http client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mqtt_apiref.html" class="btn btn-neutral float-right" title="mqtt" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

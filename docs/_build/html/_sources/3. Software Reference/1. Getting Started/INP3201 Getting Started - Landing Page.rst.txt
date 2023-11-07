@@ -1,0 +1,22 @@
+INP3201 Low Power Video Camera Reference Kit empowers embedded designers
+with IoT enabled Wi-Fi camera design for multiple video applications
+like video doorbell, IP camera, security camera, drones with camera,
+video conferencing devices and so on.
+
+INP3201 Reference Kit has an Ingenic processor (Host), Talaria TWO
+(Wi-Fi module) and STM32 Low Power Module (MCU). The integrated T31ZX
+processor on the INP3201 Reference Kit acts as the Host processor. It is
+used as an Image Processing Unit to send image data to Talaria TWO for
+Wi-Fi transmission. It can be implemented as a solution with/without
+MCU.
+
+The INP3201 board can be used in the following three modes:
+
+1. To verify the hosted Dual-Stack solution
+
+2. Dual-Stack solution with Low Power MCU
+
+3. Dual-Stack solution without Low Power MCU
+
+This Quick Start Guide provides a brief introduction to setup and run
+the Talaria TWO Dual-Stack Solution demo using INP3201 Reference Kit.

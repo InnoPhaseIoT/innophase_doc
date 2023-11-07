@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Websocket &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="AT Commands" href="../3.%20Solutions/Solutions%20-%20Landing%20Page.html" />
+    <link rel="prev" title="Utils" href="utils_apiref.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/Support.html">Support</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../Software_Reference_Landing_Page.html">Software Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../Software_Reference_Landing_Page.html#libraries">Libraries</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html">1.  alarm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#fota">2.  fota</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#http">3.  http</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#mdns">4.  mdns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#mqtt">5.  mqtt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#prov">6.  prov</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#sntp">7.  sntp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#ssl-wrap">8.  ssl_wrap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#utils">9.  utils</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="1.%20Libraries-Landing.html#websocket">10. websocket</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Websocket</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Software_Reference_Landing_Page.html#solutions">Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software_Reference_Landing_Page.html#cloud-frameworks">Cloud Frameworks</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Tools/Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../Software_Reference_Landing_Page.html">Software Reference</a></li>
+          <li class="breadcrumb-item"><a href="1.%20Libraries-Landing.html">1.  alarm</a></li>
+      <li class="breadcrumb-item active">Websocket</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Software Reference/1. Libraries/websock_apiref.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="websocket">
+<h1>Websocket<a class="headerlink" href="#websocket" title="Permalink to this heading"></a></h1>
+<p>This module implements the WebSocket client functionality. WebSocket is
+a communication protocol providing full duplex, asynchronous
+communication between the connected endpoints. WebSocket is designed to
+leverage the currently existing web infrastructure. It is designed to
+work over HTTP ports 80 and 443 as well as to support HTTP proxies and
+intermediaries. WebSocket is fully compatible with Web (HTTP) servers
+and uses HTTP upgrade header to switch from HTTP to WebSocket protocol.
+WebSocket is standardized by IETF as RFC6455.</p>
+<section id="features-and-limitations">
+<h2>Features and Limitations<a class="headerlink" href="#features-and-limitations" title="Permalink to this heading"></a></h2>
+<p>Following are the list of salient features of this Websocket
+implementation:</p>
+<ol class="arabic simple">
+<li><p>Confirms to RFC6455</p></li>
+<li><p>Both the server IP address and the host name (Domain Name)</p></li>
+<li><p>Supports secured connection using SSL/TLS</p></li>
+</ol>
+<p>Header file/s
+======~~~~~~~~~~~~~~~~~~~~~~~~~=======</p>
+<p>Components/websocket/inc/websock.h.</p>
+</section>
+<section id="data-structure-definitions">
+<h2>Data Structure Definitions<a class="headerlink" href="#data-structure-definitions" title="Permalink to this heading"></a></h2>
+</section>
+<section id="websock-config-t">
+<h2>websock_config_t<a class="headerlink" href="#websock-config-t" title="Permalink to this heading"></a></h2>
+<p>This data structure is used to pass the parameters while opening a
+websocket connection with the remote server using websock_open API.</p>
+<table class="docutils align-default" id="id17">
+<caption><span class="caption-text">Table : websock_config_t - parameters</span><a class="headerlink" href="#id17" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>hostname</strong></p></th>
+<th class="head"><p>Host name or the IP address of the server</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>port</strong></p></td>
+<td><p>Port</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>uri</strong></p></td>
+<td><p>Websocket uri to connect to</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>secured</strong></p></td>
+<td><p>Secured websocket</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>ssl_config</strong></p></td>
+<td><p>SSL connection configurations</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>time_out</strong></p></td>
+<td><p>TCP connection timeout</p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>hndshk_hdrs*</em></p>
+</td>
+<td><p>The headers to be set in the WebSocket Handshake
+request. The format is: “key:val”. Use this to pass
+headers that are not set implicitly. Refer
+<a class="reference external" href="#websock_open">websock_open()</a> for the list of
+headers set implicitly</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>num
+_hndshk_hdrs</strong></p></td>
+<td><p>Number of headers passed using hndshk_hdrs</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="websock-msg-hdr-t">
+<h2>websock_msg_hdr_t<a class="headerlink" href="#websock-msg-hdr-t" title="Permalink to this heading"></a></h2>
+<p>This data structure is used to pass information about the data received
+from the server.</p>
+<table class="docutils align-default" id="id18">
+<caption><span class="caption-text">Table : websock_msg_hdr_t - parameters</span><a class="headerlink" href="#id18" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>fin</strong></p></th>
+<th class="head"><p>End of message</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>opcode</strong></p></td>
+<td><p>Opcode of the message frame.</p>
+<p>If &lt; 0, this structure contents are invalid. This
+can happen if the header is not fully received in
+the current call to websock_recv().</p>
+<p>This is not an error, keep calling websock_recv(),
+unless websock_recv() itself returns &lt; 0</p>
+</td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+<p><em>payload_len*</em></p>
+</td>
+<td><p>Total length of the payload of the fragment being
+received</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="api-reference">
+<h2>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this heading"></a></h2>
+</section>
+<section id="websock-open">
+<h2>websock_open<a class="headerlink" href="#websock-open" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<p>This function opens a TCP socket to the server and performs the initial
+HTTP-based handshake to upgrade to the websocket protocol. Both secure
+(SSL) and non-secure websocket connections are supported.</p>
+<p>Headers set implicitly during connection handshake:</p>
+<ol class="arabic simple">
+<li><p>|Host| header field whose value contains /host/ plus optionally “:”
+followed by /port/ (when not using the default port).</p></li>
+<li><p>|Upgrade| header field whose value MUST include the “websocket”
+keyword.</p></li>
+<li><p>|Connection| header field whose value MUST include the “Upgrade”
+token.</p></li>
+<li><p>|Sec-websocket-Key|. The value of this header field MUST be a nonce
+consisting of a randomly selected 16-byte value that has been
+base64-encoded (see section 4 of [RFC4648]). The nonce MUST be
+selected randomly for each connection.</p></li>
+<li><p>|Sec-websocket-Version|. The value of this header field MUST be 13.</p></li>
+</ol>
+<p>The |Host| |Upgrade|, |Connection|, |Sec -Websocket-key| and
+|Sec-websocket-Version| headers are implicitly set by the
+websock_Open() during the handshake. Any other headers to be used in
+connection upgrade request must be set by the caller.</p>
+</section>
+<section id="definition">
+<h2>Definition<a class="headerlink" href="#definition" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id19">
+<caption><span class="caption-text">Table : websock_open - parameters</span><a class="headerlink" href="#id19" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>websock_handle_t</p>
+<p>websock_open(websock_config_t *ws_cfg)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id20">
+<caption><span class="caption-text">Table : websock_close - parameters</span><a class="headerlink" href="#id20" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>**
+Parameter**</p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>cfg</em></p></td>
+<td><p>Pointer to properly initialized configuration DS of
+type websock_config_t</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="return">
+<h2>Return<a class="headerlink" href="#return" title="Permalink to this heading"></a></h2>
+<p>Success: Pointer to websocket connection handle</p>
+<p>Error: NULL</p>
+</section>
+<section id="websock-close">
+<h2>websock_close<a class="headerlink" href="#websock-close" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-1">
+<span id="id1"></span><h2>Overview<a class="headerlink" href="#overview-1" title="Permalink to this heading"></a></h2>
+<p>This function is used to close the connection.</p>
+</section>
+<section id="definition-1">
+<span id="id2"></span><h2>Definition<a class="headerlink" href="#definition-1" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id21">
+<caption><span class="caption-text">Table : websock_send_text - parameters</span><a class="headerlink" href="#id21" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>void</p>
+<p>websock_close(websock_handle_t h)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters-1">
+<span id="id3"></span><h2>Parameters<a class="headerlink" href="#parameters-1" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id22">
+<caption><span class="caption-text">Table : websock_send_binary - parameters</span><a class="headerlink" href="#id22" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p><em>Parameter*</em></p>
+</th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>handle</em></p></td>
+<td><p>Handle returned by websock_open</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="return-1">
+<span id="id4"></span><h2>Return<a class="headerlink" href="#return-1" title="Permalink to this heading"></a></h2>
+<p>None.</p>
+</section>
+<section id="websock-send-text">
+<h2>websock_send_text<a class="headerlink" href="#websock-send-text" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-2">
+<span id="id5"></span><h2>Overview<a class="headerlink" href="#overview-2" title="Permalink to this heading"></a></h2>
+<p>This function is used to send “text” data over websocket connection.</p>
+</section>
+<section id="definition-2">
+<span id="id6"></span><h2>Definition<a class="headerlink" href="#definition-2" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id23">
+<caption><span class="caption-text">Table : websock_recv - parameters</span><a class="headerlink" href="#id23" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>websock_send_text(websock_handle_t handle, char *payload, int len)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters-2">
+<span id="id7"></span><h2>Parameters<a class="headerlink" href="#parameters-2" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p><em>Parameter*</em></p>
+</th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>handle</em></p></td>
+<td><p>Handle returned by websock_open</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>payload</em></p></td>
+<td><p>Message payload</p></td>
+</tr>
+<tr class="row-even"><td><p><em>len</em></p></td>
+<td><p>Payload length</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="return-2">
+<span id="id8"></span><h2>Return<a class="headerlink" href="#return-2" title="Permalink to this heading"></a></h2>
+<p>Success: 0</p>
+<p>Error: -1</p>
+</section>
+<section id="websock-send-binary">
+<h2>websock_send_binary<a class="headerlink" href="#websock-send-binary" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-3">
+<span id="id9"></span><h2>Overview<a class="headerlink" href="#overview-3" title="Permalink to this heading"></a></h2>
+<p>This function is used to send “binary” data over websocket connection.</p>
+</section>
+<section id="definition-3">
+<span id="id10"></span><h2>Definition<a class="headerlink" href="#definition-3" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>websock_send_binary(websock_handle_t handle, char *payload, int len)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters-3">
+<span id="id11"></span><h2>Parameters<a class="headerlink" href="#parameters-3" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Parameter</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>handle</em></p></td>
+<td><p>Handle returned by websock_open</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>payload</em></p></td>
+<td><p>Message payload</p></td>
+</tr>
+<tr class="row-even"><td><p><em>len</em></p></td>
+<td><p>Payload length</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="return-3">
+<span id="id12"></span><h2>Return<a class="headerlink" href="#return-3" title="Permalink to this heading"></a></h2>
+<p>Success: 0</p>
+<p>Error: -1</p>
+</section>
+<section id="websock-recv">
+<h2>websock_recv<a class="headerlink" href="#websock-recv" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-4">
+<span id="id13"></span><h2>Overview<a class="headerlink" href="#overview-4" title="Permalink to this heading"></a></h2>
+<p>This function receives websocket messages. This internally handles
+websocket close and ping messages. This is a blocking call, and blocks
+for the data for the specified timeout.</p>
+<p><strong>Note</strong>: This API needs to be kept calling in loop in a separate thread
+context.</p>
+</section>
+<section id="definition-4">
+<span id="id14"></span><h2>Definition<a class="headerlink" href="#definition-4" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>websock_recv(websock_handle_t handle, websock_msg_hdr_t *msg_hdr,</p>
+<p>char *buf, int *len, int timeout)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters-4">
+<span id="id15"></span><h2>Parameters<a class="headerlink" href="#parameters-4" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>**
+Parameter**</p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>handle</em></p></td>
+<td><p>Handle returned by websock_open</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>msg_hdr</em></p></td>
+<td><p>Pointer to structure of type websock_msg_hdr_t used to
+pass on the websocket message header information to
+the calling application</p></td>
+</tr>
+<tr class="row-even"><td><p><em>buf</em></p></td>
+<td><p>Pointer to buffer to copy payload data</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>len</em></p></td>
+<td><p>Max buf length</p></td>
+</tr>
+<tr class="row-even"><td><p><em>timeout</em></p></td>
+<td><p>Receive timeout</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="return-4">
+<span id="id16"></span><h2>Return<a class="headerlink" href="#return-4" title="Permalink to this heading"></a></h2>
+<p>Success: Received bytes. &gt;=0</p>
+<p>Error: -1</p>
+</section>
+<section id="application-example">
+<h2>Application Example<a class="headerlink" href="#application-example" title="Permalink to this heading"></a></h2>
+<p>For the example code, refer: <em>examples/websocket</em> application.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="utils_apiref.html" class="btn btn-neutral float-left" title="Utils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../3.%20Solutions/Solutions%20-%20Landing%20Page.html" class="btn btn-neutral float-right" title="AT Commands" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

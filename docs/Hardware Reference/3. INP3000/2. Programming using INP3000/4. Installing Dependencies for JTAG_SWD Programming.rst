@@ -1,0 +1,41 @@
+Installing Dependencies for JTAG_SWD Programming
+----------------------------------------------------------------
+
+The following dependencies need to be installed on the host PC to flash
+the application image to Talaria TWO over JTAG/SWD:
+
+1. Python 3.1x
+
+   a. Download and install python v 3.1x from:
+      https://www.python.org/downloads/.
+
+   b. Add Python application path and OpenOCD path to the environment
+      variables path in: System Properties->Advance->Environment
+      Variables->Path->Edit->New and click OK.
+
+..
+
+   **Note**: For the download procedure of OpenOCD, refer sections:
+   *Node.js Installation* to *OpenOCD Installation* of the document:
+   UG_Eclipse_Setup_Windows.pdf (*sdk_x.y\\doc\\user_guides*).
+
+   |Graphical user interface, text, application Description
+   automatically generated|
+
+   Figure 14: Python application path to environment variables path
+
+2. Pyserial, pyelftools
+
+..
+
+   Install pyserial, pyelftools and pyftdi by executing the following
+   command:
+
++-----------------------------------------------------------------------+
+| pip3 install pyserial pyelftools pyftdi                               |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+.. |Graphical user interface, text, application Description automatically generated| image:: media/image1.png
+   :width: 3.14961in
+   :height: 2.99213in

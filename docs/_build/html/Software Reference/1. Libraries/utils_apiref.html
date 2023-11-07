@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Utils &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Websocket" href="websock_apiref.html" />
+    <link rel="prev" title="sslwrap" href="sslwrap_apiref.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/Support.html">Support</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../Software_Reference_Landing_Page.html">Software Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../Software_Reference_Landing_Page.html#libraries">Libraries</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html">1.  alarm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#fota">2.  fota</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#http">3.  http</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#mdns">4.  mdns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#mqtt">5.  mqtt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#prov">6.  prov</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#sntp">7.  sntp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#ssl-wrap">8.  ssl_wrap</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="1.%20Libraries-Landing.html#utils">9.  utils</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Utils</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Libraries-Landing.html#websocket">10. websocket</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Software_Reference_Landing_Page.html#solutions">Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Software_Reference_Landing_Page.html#cloud-frameworks">Cloud Frameworks</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Tools/Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../Software_Reference_Landing_Page.html">Software Reference</a></li>
+          <li class="breadcrumb-item"><a href="1.%20Libraries-Landing.html">1.  alarm</a></li>
+      <li class="breadcrumb-item active">Utils</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Software Reference/1. Libraries/utils_apiref.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="utils">
+<h1>Utils<a class="headerlink" href="#utils" title="Permalink to this heading"></a></h1>
+<p>Utils API provide a variety of frequently used general purpose
+functionalities for the Talaria TWO platform.</p>
+<section id="features-and-limitations">
+<h2>Features and Limitations<a class="headerlink" href="#features-and-limitations" title="Permalink to this heading"></a></h2>
+<p>This component provides the following features:</p>
+<ol class="arabic simple">
+<li><p>File system initialization and file access.</p></li>
+<li><p>System utility function like software reset.</p></li>
+<li><p>Wi-Fi connection profile initialization.</p></li>
+</ol>
+</section>
+<section id="header-file-s">
+<h2>Header file/s<a class="headerlink" href="#header-file-s" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>components/utils/inc/fs_defines.h</p></li>
+<li><p>components/utils/inc/fs_utils.h</p></li>
+<li><p>components/utils/inc/utils.h</p></li>
+<li><p>components/utils/inc/wifi_utils.h</p></li>
+<li><p>components/utils/inc/net_utils.h</p></li>
+</ol>
+</section>
+<section id="api-reference">
+<h2>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this heading"></a></h2>
+</section>
+<section id="utils-mount-rootfs">
+<h2>utils_mount_rootfs<a class="headerlink" href="#utils-mount-rootfs" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<p>This API mounts the root FS. Root FS is used by the user application to
+store application specific files like certificates, partition file (if
+SSBL is used), FOTA configuration file and others.</p>
+<p>This is in-fact a wrapper function for os_mount() API.</p>
+</section>
+<section id="definition">
+<h2>Definition<a class="headerlink" href="#definition" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id42">
+<caption><span class="caption-text">Table : utils_is_file_present – parameters</span><a class="headerlink" href="#id42" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>utils_mount_rootfs (void)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h2>
+<p>None</p>
+</section>
+<section id="return">
+<h2>Return<a class="headerlink" href="#return" title="Permalink to this heading"></a></h2>
+<p>Success: 0</p>
+<p>Error: -1</p>
+</section>
+<section id="utils-is-file-present">
+<h2>utils_is_file_present<a class="headerlink" href="#utils-is-file-present" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-1">
+<span id="id1"></span><h2>Overview<a class="headerlink" href="#overview-1" title="Permalink to this heading"></a></h2>
+<p>Used to check if a file is present in at a specified path or not in root
+FS.</p>
+</section>
+<section id="definition-1">
+<span id="id2"></span><h2>Definition<a class="headerlink" href="#definition-1" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id43">
+<caption><span class="caption-text">Table : utils_file_size_get - parameters</span><a class="headerlink" href="#id43" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>utils_is_file_present (char *path)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters-1">
+<span id="id3"></span><h2>Parameters<a class="headerlink" href="#parameters-1" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id44">
+<caption><span class="caption-text">Table : utils_file_get - parameters</span><a class="headerlink" href="#id44" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Parameter</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>path</em></p></td>
+<td><p>Path of the file</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="return-1">
+<span id="id4"></span><h2>Return<a class="headerlink" href="#return-1" title="Permalink to this heading"></a></h2>
+<p>If the file is present – 1</p>
+<p>If the file is not present - 0</p>
+</section>
+<section id="utils-file-size-get">
+<h2>utils_file_size_get<a class="headerlink" href="#utils-file-size-get" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-2">
+<span id="id5"></span><h2>Overview<a class="headerlink" href="#overview-2" title="Permalink to this heading"></a></h2>
+<p>Used to get the size of the file at a specified path in root FS.</p>
+</section>
+<section id="definition-2">
+<span id="id6"></span><h2>Definition<a class="headerlink" href="#definition-2" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id45">
+<caption><span class="caption-text">Table : utils_file_store – parameters</span><a class="headerlink" href="#id45" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>utils_file_size_get (char *path)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters-2">
+<span id="id7"></span><h2>Parameters<a class="headerlink" href="#parameters-2" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id46">
+<caption><span class="caption-text">Table : show_heap – parameters</span><a class="headerlink" href="#id46" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p><em>Parameter*</em></p>
+</th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>path</em></p></td>
+<td><p>Path of the file</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="return-2">
+<span id="id8"></span><h2>Return<a class="headerlink" href="#return-2" title="Permalink to this heading"></a></h2>
+<p>File size: &gt;= 0</p>
+<p>Error: &lt; 0</p>
+</section>
+<section id="utils-file-get">
+<h2>utils_file_get<a class="headerlink" href="#utils-file-get" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-3">
+<span id="id9"></span><h2>Overview<a class="headerlink" href="#overview-3" title="Permalink to this heading"></a></h2>
+<p>Used to get the content of a file into a buffer.</p>
+<p><strong>Note</strong>: If the buffer return is not freed, it will result in a memory
+leak.</p>
+</section>
+<section id="definition-3">
+<span id="id10"></span><h2>Definition<a class="headerlink" href="#definition-3" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id47">
+<caption><span class="caption-text">Table : network_profile_new_from_ssid_pw – parameters</span><a class="headerlink" href="#id47" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>char *</p>
+<p>utils_file_get (char *path, int *len)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters-3">
+<span id="id11"></span><h2>Parameters<a class="headerlink" href="#parameters-3" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id48">
+<caption><span class="caption-text">Table : network_profile_new_from_ssid_bssid_pw – parameters</span><a class="headerlink" href="#id48" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p><em>Parameter*</em></p>
+</th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>path</em></p></td>
+<td><p>Path of the file</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Len</em></p></td>
+<td><p>Used to return the length of the file</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="return-3">
+<span id="id12"></span><h2>Return<a class="headerlink" href="#return-3" title="Permalink to this heading"></a></h2>
+<p>Success : Pointer to buffer having the content of the file.</p>
+<p>Failure : NULL</p>
+</section>
+<section id="utils-file-store">
+<h2>utils_file_store<a class="headerlink" href="#utils-file-store" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-4">
+<span id="id13"></span><h2>Overview<a class="headerlink" href="#overview-4" title="Permalink to this heading"></a></h2>
+<p>Used to store the content of a buffer into a file.</p>
+<p><strong>Note</strong>: There is no way to amend the data with this API. This will
+store the data from the beginning of the file, replacing any older data
+if present.</p>
+</section>
+<section id="definition-4">
+<span id="id14"></span><h2>Definition<a class="headerlink" href="#definition-4" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id49">
+<caption><span class="caption-text">Table : network_profile_new_from_boot_args – parameters</span><a class="headerlink" href="#id49" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>utils_file_store (char *path, char *buf, int *len)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters-4">
+<span id="id15"></span><h2>Parameters<a class="headerlink" href="#parameters-4" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id50">
+<caption><span class="caption-text">Table : is_valid_ip – parameters</span><a class="headerlink" href="#id50" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p><em>Parameter*</em></p>
+</th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>path</em></p></td>
+<td><p>Path of the file</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>buf</em></p></td>
+<td><p>Buffer having data to be store in the specified file</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Len</em></p></td>
+<td><p>Lenth/size of data present in the buffer</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="return-4">
+<span id="id16"></span><h2>Return<a class="headerlink" href="#return-4" title="Permalink to this heading"></a></h2>
+<p>Success : Pointer to buffer having the content of the file.</p>
+<p>Failure : NULL</p>
+</section>
+<section id="reset-device">
+<h2>reset_device<a class="headerlink" href="#reset-device" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-5">
+<span id="id17"></span><h2>Overview<a class="headerlink" href="#overview-5" title="Permalink to this heading"></a></h2>
+<p>Used to soft reset the device.</p>
+</section>
+<section id="definition-5">
+<span id="id18"></span><h2>Definition<a class="headerlink" href="#definition-5" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id51">
+<caption><span class="caption-text">Table : wifi_connect_to_network – parameters</span><a class="headerlink" href="#id51" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>void</p>
+<p>reset_device (void)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="show-heap">
+<h2>show_heap<a class="headerlink" href="#show-heap" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-6">
+<span id="id19"></span><h2>Overview<a class="headerlink" href="#overview-6" title="Permalink to this heading"></a></h2>
+<p>Used to print the heap available runtime and is used for debugging.</p>
+</section>
+<section id="definition-6">
+<span id="id20"></span><h2>Definition<a class="headerlink" href="#definition-6" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void</p>
+<p>show_heap (const char *function, int line_number)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters-5">
+<span id="id21"></span><h2>Parameters<a class="headerlink" href="#parameters-5" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><ul class="simple">
+<li></li>
+</ul>
+<p><em>Parameter*</em></p>
+</th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>function</em></p></td>
+<td><p>Name of the function from where this is getting
+called</p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+<p>line_number*</p>
+</td>
+<td><p>Line number at which this function is getting called</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="network-profile-new-from-ssid-pw">
+<h2>network_profile_new_from_ssid_pw<a class="headerlink" href="#network-profile-new-from-ssid-pw" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-7">
+<span id="id22"></span><h2>Overview<a class="headerlink" href="#overview-7" title="Permalink to this heading"></a></h2>
+<p>Used to allocate new network profile structure from SSID and Passphrase.</p>
+</section>
+<section id="definition-7">
+<span id="id23"></span><h2>Definition<a class="headerlink" href="#definition-7" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>network_profile_new_from_ssid_pw(struct network_profile **np_ret,
+char *ssid, char *passphrase)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters-6">
+<span id="id24"></span><h2>Parameters<a class="headerlink" href="#parameters-6" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Parameter</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>np_ret</em></p></td>
+<td><p>Newly allocated network_profile structure</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>ssid</em></p></td>
+<td><p>SSID of AP</p></td>
+</tr>
+<tr class="row-even"><td><p><em>passphrase</em></p></td>
+<td><p>Passphrase of AP</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="return-5">
+<span id="id25"></span><h2>Return<a class="headerlink" href="#return-5" title="Permalink to this heading"></a></h2>
+<p>Success: 0</p>
+<p>Error: Negative error number</p>
+</section>
+<section id="network-profile-new-from-ssid-bssid-pw">
+<h2>network_profile_new_from_ssid_bssid_pw<a class="headerlink" href="#network-profile-new-from-ssid-bssid-pw" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-8">
+<span id="id26"></span><h2>Overview<a class="headerlink" href="#overview-8" title="Permalink to this heading"></a></h2>
+<p>Used to allocate new network profile structure from SSID, BSSID and
+passphrase.</p>
+</section>
+<section id="definition-8">
+<span id="id27"></span><h2>Definition<a class="headerlink" href="#definition-8" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>network_profile_new_from_ssid_bssid_pw(struct network_profile
+**np_ret, char *ssid, uint8_t *bssid, char *passphrase)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters-7">
+<span id="id28"></span><h2>Parameters<a class="headerlink" href="#parameters-7" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Parameter</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>np_ret</em></p></td>
+<td><p>Newly allocated network_profile structure</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>ssid</em></p></td>
+<td><p>SSID of AP</p></td>
+</tr>
+<tr class="row-even"><td><p><em>bssid</em></p></td>
+<td><p>BSSID of AP</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>passphrase</em></p></td>
+<td><p>Passphrase of AP</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="return-6">
+<span id="id29"></span><h2>Return<a class="headerlink" href="#return-6" title="Permalink to this heading"></a></h2>
+<p>Success: 0</p>
+<p>Error: Negative error number</p>
+</section>
+<section id="network-profile-new-from-boot-args">
+<h2>network_profile_new_from_boot_args<a class="headerlink" href="#network-profile-new-from-boot-args" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-9">
+<span id="id30"></span><h2>Overview<a class="headerlink" href="#overview-9" title="Permalink to this heading"></a></h2>
+<p>Used to allocate new network profile structure from bootargs.</p>
+</section>
+<section id="definition-9">
+<span id="id31"></span><h2>Definition<a class="headerlink" href="#definition-9" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>network_profile_new_from_boot_args(struct network_profile **np_ret)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters-8">
+<span id="id32"></span><h2>Parameters<a class="headerlink" href="#parameters-8" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Parameter</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>np_ret</em></p></td>
+<td><p>Newly allocated network_profile structure</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="return-7">
+<span id="id33"></span><h2>Return<a class="headerlink" href="#return-7" title="Permalink to this heading"></a></h2>
+<p>Success: 0</p>
+<p>Error: Negative error number</p>
+</section>
+<section id="is-valid-ip">
+<h2>is_valid_ip<a class="headerlink" href="#is-valid-ip" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-10">
+<span id="id34"></span><h2>Overview<a class="headerlink" href="#overview-10" title="Permalink to this heading"></a></h2>
+<p>Used to verify whether the argument passed is a valid IP address or not.</p>
+</section>
+<section id="definition-10">
+<span id="id35"></span><h2>Definition<a class="headerlink" href="#definition-10" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int</p>
+<p>is_valid_ip(char *ip_str_in);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters-9">
+<span id="id36"></span><h2>Parameters<a class="headerlink" href="#parameters-9" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Parameter</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>ip_str_in</em></p></td>
+<td><p>String form of IP address, which is to be validated</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="return-8">
+<span id="id37"></span><h2>Return<a class="headerlink" href="#return-8" title="Permalink to this heading"></a></h2>
+<p>Success: 0</p>
+<p>Error: 1</p>
+</section>
+<section id="wifi-connect-to-network">
+<h2>wifi_connect_to_network<a class="headerlink" href="#wifi-connect-to-network" title="Permalink to this heading"></a></h2>
+</section>
+<section id="overview-11">
+<span id="id38"></span><h2>Overview<a class="headerlink" href="#overview-11" title="Permalink to this heading"></a></h2>
+<p>Used to connect to a network.</p>
+</section>
+<section id="definition-11">
+<span id="id39"></span><h2>Definition<a class="headerlink" href="#definition-11" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>int wifi_connect_to_network (struct wcm_handle **p_wcm, int
+timeout_secs, bool *conn_status);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters-10">
+<span id="id40"></span><h2>Parameters<a class="headerlink" href="#parameters-10" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Parameter</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>p_wcm</em></p></td>
+<td><p>Double pointer to &#64;ref wcm_handle</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>timeout_secs</em></p></td>
+<td><p>Timeout to wait for wifi connection.
+-1 = infite, 0 = no wait, &gt;0 = wait_secs</p></td>
+</tr>
+<tr class="row-even"><td><p><em>conn_status</em></p></td>
+<td><p>Status of connection: Connected or Disconnected</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="return-9">
+<span id="id41"></span><h2>Return<a class="headerlink" href="#return-9" title="Permalink to this heading"></a></h2>
+<p>Success: 0</p>
+<p>Error: Negative Error Code</p>
+</section>
+<section id="application-example">
+<h2>Application Example<a class="headerlink" href="#application-example" title="Permalink to this heading"></a></h2>
+<p>For the example code, refer: <em>components/utils</em>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sslwrap_apiref.html" class="btn btn-neutral float-left" title="sslwrap" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="websock_apiref.html" class="btn btn-neutral float-right" title="Websocket" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

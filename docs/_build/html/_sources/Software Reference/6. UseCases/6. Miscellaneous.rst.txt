@@ -1,0 +1,54 @@
+Echo Enable/Disable
+-------------------
+
+Description 
+~~~~~~~~~~~~
+
+This use case is used to demonstrate echo enable and disable.
+
+Prerequisites 
+~~~~~~~~~~~~~~
+
+None.
+
+AT Command Sequence 
+~~~~~~~~~~~~~~~~~~~~
+
+.. table:: Table 30: Echo enable/disable - AT Commands
+
+   +---------------+------------------------------------------------------+
+   | **AT          | **Description**                                      |
+   | Command**     |                                                      |
+   +===============+======================================================+
+   | *at*          | Check communication state                            |
+   +---------------+------------------------------------------------------+
+   | *at+echo*     | Enable/Disable the Command Echo Feature              |
+   +---------------+------------------------------------------------------+
+
+Procedure 
+~~~~~~~~~~
+
+**Step 1**: Execute the followings commands on Talaria TWO:
+
++-----------------------------------------------------------------------+
+| at                                                                    |
+|                                                                       |
+| at+echo=1                                                             |
+|                                                                       |
+| at                                                                    |
+|                                                                       |
+| at+echo=0                                                             |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+Serial Log
+~~~~~~~~~~
+
+|Graphical user interface, text, application Description automatically
+generated|
+
+Figure 123: Echo enable/disable - Serial log
+
+.. |Graphical user interface, text, application Description automatically generated| image:: media/image1.png
+   :width: 6.29921in
+   :height: 2.04972in

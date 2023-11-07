@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analog to Digital Converter (ADC) &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Audio Over I2S" href="Example_for_Audio_over_I2S.html" />
+    <link rel="prev" title="Firmware Over The Air" href="../1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Software%20Reference/Software_Reference_Landing_Page.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Tools/Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../Applications%20-%20Landing%20Page.html">Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Applications%20-%20Landing%20Page.html#apps">Apps</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../Applications%20-%20Landing%20Page.html#examples">Examples</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Analog to Digital Converter (ADC)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adc-block-diagram">ADC block diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vbat-voltage">VBAT Voltage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vbat-block-diagram">VBAT block diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#source-code-walkthrough">Source Code Walkthrough</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#application-flow">Application flow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adc-apis">ADC APIs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#source-file">Source file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adc-c">adc.c</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#building">Building</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-application">Running the Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#programming-talaria-two">Programming Talaria TWO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expected-output">Expected Output</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Audio_over_I2S.html">Audio Over I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_BLE_WiFi_Bridge.html">BLE WiFi Bridge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Crash_handling.html">Crash Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_I2C.html">I2C</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_LPScan.html">LPS Scan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_MQTT.html">MQTT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Pulse_Width_Modulation.html">Pulse Width Modulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Radio_and_Module_Parameters.html">Radio and Module Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Secure_Files.html">Secure Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Socket_Wakeup.html">Socket Wakeup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_Software_SPI_Master.html">Software SPI Master</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_Chip_Monitor.html">Chip Monitor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_Filesystem.html">Filesystem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_GPIO.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_SNTP.html">SNTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_using_WiFi.html">WIFI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_for_WiFi_Power_Management.html">WiFi Power Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_BLE_5_0.html">BLE 5.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_BLE_Beacons.html">BLE Beacon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Custom_ATCMDLIB.html">Custom ATCMDLIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_HTTP_Client.html">HTTP Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_IFTTT.html">IFTTT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Low_Power_UART.html">Low Power UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_mDNS.html">mDNS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html">Provisioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#scan-data">Scan Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#configuration-data-format">Configuration Data Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#service">Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#characteristics">Characteristics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#application-flow">Application Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#sample-code-walkthrough">Sample Code Walkthrough</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#write-the-provisioning-file-into-talaria-two-filesystem">Write the Provisioning File into Talaria TWO Filesystem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#programming-talaria-two-board-with-elf">Programming Talaria TWO board with ELF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Provisioning.html#running-the-application-using-android-or-ios-app">Running the Application using Android or iOS App</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Unassociated_Mode.html">Unassociated Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Watchdog_Timer.html">Watchlog Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_WCM_Multi_AP.html">WCM Multi AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Example_using_Websock_Client.html">Websock Client</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../Applications%20-%20Landing%20Page.html">Applications</a></li>
+      <li class="breadcrumb-item active">Analog to Digital Converter (ADC)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Applications/2. Examples/Example_for_Analog_to_Digital_Converter.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>This application note provides details on using the Analog to Digital
+Converter (ADC) peripheral of Talaria TWO modules.</p>
+<section id="analog-to-digital-converter-adc">
+<h1>Analog to Digital Converter (ADC)<a class="headerlink" href="#analog-to-digital-converter-adc" title="Permalink to this heading"></a></h1>
+<p>Talaria TWO modules have a 10-bit effective SAR ADC for measuring the
+internal supply voltage and temperature levels in addition to measuring
+an external voltage level through a specified ADC port.</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Table 1: ADC Specifications</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>ADC Specification</strong></p></th>
+<th class="head"><p><strong>Details</strong></p></th>
+<th class="head"><p><strong>Unit</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ADC Input Channels</p></td>
+<td><p>VBAT, TEMP,
+EXT</p></td>
+<td><p>–</p></td>
+</tr>
+<tr class="row-odd"><td><p>External Voltage Input Range</p></td>
+<td><p>0 to 1.0</p></td>
+<td><p>V</p></td>
+</tr>
+<tr class="row-even"><td><p>Additional Delay for ADC Ready
+after Wakeup</p></td>
+<td><p>5</p></td>
+<td><p>μs</p></td>
+</tr>
+</tbody>
+</table>
+<section id="adc-block-diagram">
+<h2>ADC block diagram<a class="headerlink" href="#adc-block-diagram" title="Permalink to this heading"></a></h2>
+<p><a class="reference internal" href="../../_images/image110.png"><img alt="image1" src="../../_images/image110.png" style="width: 6.69291in; height: 4.09563in;" /></a></p>
+<p>Figure 1: ADC - Block Diagram</p>
+</section>
+<section id="vbat-voltage">
+<h2>VBAT Voltage<a class="headerlink" href="#vbat-voltage" title="Permalink to this heading"></a></h2>
+<p>VBat is the Voltage of the Battery. It could be used to power a
+component that takes Battery Voltage.</p>
+<p>Header J4 will switch between VBat and Vm_3.3V.</p>
+<p><a class="reference internal" href="../../_images/image22.png"><img alt="image2" src="../../_images/image22.png" style="width: 6.69291in; height: 3.27808in;" /></a></p>
+<p>Figure 2: J10 Battery connection</p>
+<p>When using a battery as a power source, there will be an additional
+current drawn from LED (D7 or D12 depending on board version). If
+attempting to measure an accurate module current drawn from the battery
+connection, the LED series resistor must be removed to disconnect the
+LED.</p>
+<p>It configures the clocking and power profile of the block to match the
+current source and optimize energy consumption. When the device is
+powered through the VBAT Domain most of the circuits are powered down to
+conserve energy.</p>
+<p>Based on the mode, The power for module is derived from either USB or
+shield header. A battery header is available which can be used as power
+source as well.</p>
+<ol class="loweralpha simple">
+<li><p>J4 at VM_3.3V for USB power</p></li>
+<li><p>J4 at VBAT and battery connect to J10 for Battery power</p></li>
+</ol>
+</section>
+<section id="vbat-block-diagram">
+<h2>VBAT block diagram<a class="headerlink" href="#vbat-block-diagram" title="Permalink to this heading"></a></h2>
+<p><a class="reference internal" href="../../_images/image32.png"><img alt="image3" src="../../_images/image32.png" style="width: 6.69291in; height: 3.28989in;" /></a></p>
+<p>Figure 3: VBAT-Block Diagram</p>
+</section>
+<section id="source-code-walkthrough">
+<h2>Source Code Walkthrough<a class="headerlink" href="#source-code-walkthrough" title="Permalink to this heading"></a></h2>
+</section>
+<section id="application-flow">
+<h2>Application flow<a class="headerlink" href="#application-flow" title="Permalink to this heading"></a></h2>
+<p>The application displays the raw value that varies according to the
+input provided to the ADC pin. Apart from the raw value measured out of
+the ADC pin, the internal temperature in integer Celsius and the VBAT in
+mv measured from source are also displayed.</p>
+<p>This sample application:</p>
+<ol class="arabic simple">
+<li><p>Reads the internal temperature and prints the value</p></li>
+<li><p>Reads the external ADC input and prints the value</p></li>
+<li><p>Prints the internal temperature in integer Celsius</p></li>
+</ol>
+</section>
+<section id="adc-apis">
+<h2>ADC APIs<a class="headerlink" href="#adc-apis" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>os_vbat()- Reads VBAT voltage</p></li>
+</ol>
+<blockquote>
+<div><p>This API is used to enable the VBAT mode. A back-up source must be
+connected to VBAT pin. The voltage value (in millivolt) on the VBAT
+pin is returned.</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>os_adc()- Reads external ADC input</p></li>
+</ol>
+<blockquote>
+<div><p>Displays the raw value to the input provided to the ADC pin.</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>os_core_temp() – Reads internal temperature</p></li>
+</ol>
+<blockquote>
+<div><p>The inner temperature (in integer Celsius) of the chip core is
+displayed.</p>
+</div></blockquote>
+</section>
+<section id="source-file">
+<h2>Source file<a class="headerlink" href="#source-file" title="Permalink to this heading"></a></h2>
+</section>
+<section id="adc-c">
+<h2>adc.c<a class="headerlink" href="#adc-c" title="Permalink to this heading"></a></h2>
+<p>Following is the example code which displays the ADC raw value for an
+external input voltage fed through the the ADC pin, VBAT and internal
+temperature of Talaria TWO.</p>
+<ol class="arabic simple">
+<li><p>os_adc()converts the analog input at the ADC pin and prints raw data
+as an output.</p></li>
+<li><p>os_vbat()prints the VBAT voltage in millivolt from the back-up source
+on the VBAT pin</p></li>
+<li><p>os_core_temp()reads the internal temperature and prints the
+temperature in internal Celsius type.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>VTaskDelay(1000);</p>
+<p>os_printf(“ADC External value: %d\n”,os_adc());</p>
+<p>os_printf(“V_BAT: %d mv\n”,os_vbat());</p>
+<p>os_printf(“Internal Temperature: %d Celsius\n”,os_core_temp());</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="building">
+<h2>Building<a class="headerlink" href="#building" title="Permalink to this heading"></a></h2>
+<p>To build the sample application, execute the following commands from SDK
+directory:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>cd examples/adc</p>
+<p>make</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The make command should generate the adc.elf in the out directory.</p>
+</section>
+<section id="running-the-application">
+<h2>Running the Application<a class="headerlink" href="#running-the-application" title="Permalink to this heading"></a></h2>
+</section>
+<section id="programming-talaria-two">
+<h2>Programming Talaria TWO<a class="headerlink" href="#programming-talaria-two" title="Permalink to this heading"></a></h2>
+<p>Program adc.elf <em>(freertos_sdk_x.y\examples\adc\bin)</em> using the
+Download tool:</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool provided with InnoPhase Talaria TWO SDK.</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down.</p></li>
+<li><p>ELF Input: Load the adc.elf by clicking on Select ELF File.</p></li>
+<li><p>Programming: Click on Prog Flash.</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="expected-output">
+<h2>Expected Output<a class="headerlink" href="#expected-output" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SRWWWWAE4 DWT comparators, range 0x8000</p>
+<p>Build $Id: git-ef87896f9 $</p>
+<p>flash: Gordon ready!</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PWWWAE</p>
+<p>Build $Id: git-bbd63ca $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-0063-009c-ffffffffffff</p>
+<p>ADC Example</p>
+<p>ADC External value:76</p>
+<p>V_BAT:3240 mv</p>
+<p>Internal Temperature:21 Celsius</p>
+<p>ADC External value:101</p>
+<p>V_BAT:3240 mv</p>
+<p>Internal Temperature:21 Celsius</p>
+<p>ADC External value:97</p>
+<p>V_BAT:3240 mv</p>
+<p>Internal Temperature:21 Celsius</p>
+<p>ADC External value:97</p>
+<p>V_BAT:3240 mv</p>
+<p>Internal Temperature:21 Celsius</p>
+<p>ADC External value:97</p>
+<p>V_BAT:3240 mv</p>
+<p>Internal Temperature:21 Celsius</p>
+<p>ADC External value:98</p>
+<p>V_BAT:3240 mv</p>
+<p>Internal Temperature:21 Celsius</p>
+<p>ADC External value:96</p>
+<p>V_BAT:3240 mv</p>
+<p>Internal Temperature:21 Celsius</p>
+<p>ADC External value:97</p>
+<p>V_BAT:3240 mv</p>
+<p>Internal Temperature:21 Celsius</p>
+<p>ADC External value:96</p>
+<p>V_BAT:3239 mv</p>
+<p>Internal Temperature:21 Celsius</p>
+<p>ADC External value:98</p>
+<p>V_BAT:3240 mv</p>
+<p>Internal Temperature:21 Celsius</p>
+<p>ADC External value:97</p>
+<p>V_BAT:3239 mv</p>
+<p>Internal Temperature:21 Celsius</p>
+<p>ADC External value:104</p>
+<p>V_BAT:3240 mv</p>
+<p>Internal Temperature:21 Celsius</p>
+<p>ADC External value:97</p>
+<p>V_BAT:3240 mv</p>
+<p>Internal Temperature:21 Celsius</p>
+<p>ADC External value:96</p>
+<p>V_BAT:3240 mv</p>
+<p>Internal Temperature:21 Celsius</p>
+<p>ADC External value:98</p>
+<p>V_BAT:3239 mv</p>
+<p>Internal Temperature:21 Celsius</p>
+<p>ADC External value:97</p>
+<p>V_BAT:3240 mv</p>
+<p>Internal Temperature:21 Celsius</p>
+<p>ADC External value:98</p>
+<p>V_BAT:3239 mv</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../1.%20Apps/5.%20Firmware_Over-The-Air-Upgrade.html" class="btn btn-neutral float-left" title="Firmware Over The Air" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Example_for_Audio_over_I2S.html" class="btn btn-neutral float-right" title="Audio Over I2S" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

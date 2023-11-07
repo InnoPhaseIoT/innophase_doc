@@ -1,0 +1,86 @@
+Generating the Application Image 
+---------------------------------
+
+This section describes generating an application image (.img) and its
+virtual image (.img.vm) using the ELF.
+
+In Windows 
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+An application image and its virtual image must be generated over
+command line for programming the application over JTAG/SWD. From the SDK
+directory, execute the following steps to generate the application
+image:
+
++-----------------------------------------------------------------------+
+| python .\\script\\boot.py --output app.img <path to the generated     |
+| elf> <boot argument 1> <boot argument 2>                              |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+For Example:
+
++-----------------------------------------------------------------------+
+| python .\\script\\boot.py --output app.img                            |
+| .\\examples\\http_client\\bin\\http_client.elf host=httpbin.org       |
+| path=/json port=443 secured=1 method=get ca_cert=/data/httpbin_ca.pem |
+| ssid=InnoPhase_AE_AP passphrase=innophaseae                           |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+This command generates the app.img and app.img.vm in the current
+directory.
+
+|image1|
+
+Figure 4: Generating the application image – Windows
+
+|A screenshot of a computer Description automatically generated|
+
+Figure 5: Application image and its VM image – Windows
+
+In Linux
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+To generate the application image in Linux, execute the following
+command from the SDK directory
+
++-----------------------------------------------------------------------+
+| sudo python3 ./script/boot.py --output <application image name> <path |
+| of the application>                                                   |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+For example:
+
++-----------------------------------------------------------------------+
+| sudo python3 ./script/boot.py --output app.img                        |
+| ./examples/http_client/bin/http_client.elf host=httpbin.org           |
+| path=/json port=443 secured=1 method=get ca_cert=/data/httpbin_ca.pem |
+| ssid=InnoPhase_AE_AP passphrase=innophaseae                           |
++=======================================================================+
++-----------------------------------------------------------------------+
+
+This command generates the app.img and app.img.vm in the current
+directory.
+
+|image2|
+
+Figure 6: Generating the application image – Linux
+
+|image3|
+
+Figure 7: Application image and its VM image – Linux
+
+.. |image1| image:: media/image1.png
+   :width: 6.69291in
+   :height: 0.68991in
+.. |A screenshot of a computer Description automatically generated| image:: media/image2.png
+   :width: 6.69291in
+   :height: 4.51229in
+.. |image2| image:: media/image3.png
+   :width: 6.69291in
+   :height: 0.70429in
+.. |image3| image:: media/image4.png
+   :width: 6.69291in
+   :height: 0.64857in

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tools &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Download Tool" href="1.%20Download%20Tool/DL%20Tool%20Landing%20Page.html" />
+    <link rel="prev" title="Application Development - Manual Procedure" href="../Development%20Environments/2.%20Windows/1.%20Eclipse%20Set-up/7.%20Application%20Development%20-%20Manual%20Procedure%20.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Software%20Reference/Software_Reference_Landing_Page.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#download-tool">Download Tool</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="1.%20Download%20Tool/DL%20Tool%20Landing%20Page.html">Download Tool</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#multi-purpose-demo-tool">Multi Purpose Demo Tool</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Multi-Purpose%20Demo%20Tool/MPD%20Tool%20-%20Landing%20Page.html">MPD Tool – Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#factory-loader">Factory Loader</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3.%20Factory%20Loader/Factory_Loader_Landing_Page.html">Prerequisites:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3.%20Factory%20Loader/Factory_Loader_Landing_Page.html#talaria-two-flash-layout">Talaria TWO Flash Layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3.%20Factory%20Loader/Factory_Loader_Landing_Page.html#innophase-elf-layout">InnoPhase ELF Layout</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tools</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Tools/Tools-landing page.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tools">
+<h1>Tools<a class="headerlink" href="#tools" title="Permalink to this heading"></a></h1>
+<p>Programming (Download), multi-purpose demo GUI tools are provided as
+part of the InnoPhase IoT EVK and SDK packages. These tools are
+available for both Windows and Linux platforms.</p>
+<p>The evaluation binaries and the associated programming tools for the
+INP301x EVB-A boards enable quick evaluation of the INP101x modules.</p>
+<section id="download-tool">
+<h2>Download Tool<a class="headerlink" href="#download-tool" title="Permalink to this heading"></a></h2>
+<p>The download tool is provided as a binary (for both Windows &amp; Linux
+platforms) in the InnoPhase IoT EVK and SDK packages. This tool is
+primarily used for programming the Talaria TWO module with applications.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Download%20Tool/DL%20Tool%20Landing%20Page.html">Download Tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Download%20Tool/DL%20Tool%20Landing%20Page.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Download%20Tool/DL%20Tool%20Landing%20Page.html#gui-overview">GUI Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Download%20Tool/DL%20Tool%20Landing%20Page.html#download-tool-usage">Download Tool Usage</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="multi-purpose-demo-tool">
+<h2>Multi Purpose Demo Tool<a class="headerlink" href="#multi-purpose-demo-tool" title="Permalink to this heading"></a></h2>
+<p>Talaria TWO MPD Demo Tool is a GUI tool that enables quick evaluation of
+power consumption and throughput performances of Talaria TWO modules.
+This tool is bundled with two applications:</p>
+<ol class="arabic simple">
+<li><p>Multipurpose Demo (MPD) primarily intended to verify power
+consumption under various protocol scenarios (such as TCP, UDP, HTTP
+etc.)</p></li>
+<li><p>iPerf3 application to showcase throughput performance</p></li>
+<li><p>Standard scan and Low power scan, which enables to configure
+different scan feature</p></li>
+</ol>
+<p>This GUI is intended for use with the INP3010 and INP3011 Talaria TWO
+evaluation boards to enable easy programming and accelerated
+evaluations.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Multi-Purpose%20Demo%20Tool/MPD%20Tool%20-%20Landing%20Page.html">MPD Tool – Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Multi-Purpose%20Demo%20Tool/1.%20Prerequisites/1.%20Prerequisites%20-%20Landing%20Page.html">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Multi-Purpose%20Demo%20Tool/2.%20GUI%20Overview/1.%20GUI%20Overview%20-%20Landing%20Page.html">GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Multi-Purpose%20Demo%20Tool/MPD%20Tool%20-%20Landing%20Page.html#mpd">MPD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Multi-Purpose%20Demo%20Tool/MPD%20Tool%20-%20Landing%20Page.html#iperf3">Iperf3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Multi-Purpose%20Demo%20Tool/MPD%20Tool%20-%20Landing%20Page.html#scan">Scan</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="factory-loader">
+<h2>Factory Loader<a class="headerlink" href="#factory-loader" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="3.%20Factory%20Loader/Factory_Loader_Landing_Page.html">Prerequisites:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3.%20Factory%20Loader/Factory_Loader_Landing_Page.html#talaria-two-flash-layout">Talaria TWO Flash Layout</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.%20Factory%20Loader/Factory_Loader_Landing_Page.html#boot-sector">Boot Sector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20Factory%20Loader/Factory_Loader_Landing_Page.html#boot-image">Boot Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20Factory%20Loader/Factory_Loader_Landing_Page.html#application-sector">Application Sector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20Factory%20Loader/Factory_Loader_Landing_Page.html#system-filesystem">System Filesystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.%20Factory%20Loader/Factory_Loader_Landing_Page.html#root-user-filesystem">Root/User Filesystem</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3.%20Factory%20Loader/Factory_Loader_Landing_Page.html#innophase-elf-layout">InnoPhase ELF Layout</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Development%20Environments/2.%20Windows/1.%20Eclipse%20Set-up/7.%20Application%20Development%20-%20Manual%20Procedure%20.html" class="btn btn-neutral float-left" title="Application Development - Manual Procedure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="1.%20Download%20Tool/DL%20Tool%20Landing%20Page.html" class="btn btn-neutral float-right" title="Download Tool" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

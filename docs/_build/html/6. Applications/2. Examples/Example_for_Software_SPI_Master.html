@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supported Modes and Configuration Options &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Supported Modes and Configuration Options</a><ul>
+<li><a class="reference internal" href="#data-length">Data Length</a></li>
+<li><a class="reference internal" href="#shift-direction">Shift Direction</a></li>
+<li><a class="reference internal" href="#clock-phase">Clock Phase</a></li>
+<li><a class="reference internal" href="#clock-polarity">Clock Polarity</a></li>
+<li><a class="reference internal" href="#pin-4-pin-modes">3-Pin / 4-Pin Modes</a></li>
+<li><a class="reference internal" href="#gpios">GPIOs</a></li>
+<li><a class="reference internal" href="#timing">Timing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#timing-diagram">Timing Diagram</a></li>
+<li><a class="reference internal" href="#iis2dlpc-3-axis-accelerometer-sample">IIS2DLPC 3-axis Accelerometer Sample</a><ul>
+<li><a class="reference internal" href="#running-the-application">Running the Application</a><ul>
+<li><a class="reference internal" href="#id3">**</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#code-overview">Code Overview</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spi-throughput">SPI Throughput</a><ul>
+<li><a class="reference internal" href="#running-the-application-1">Running the Application</a></li>
+<li><a class="reference internal" href="#expected-output">Expected Output</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Supported Modes and Configuration Options</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/6. Applications/2. Examples/Example_for_Software_SPI_Master.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>This application note describes the usage of the Software SPI Master
+(SSM) on Talaria TWO. SSM enables Talaria TWO to act as SPI master using
+the available GPIOs by generating and processing SPI signals in
+software. SSM supports a variety of operating modes and the number of
+SPI interfaces is limited only by the number of available GPIOs. This
+provides flexibility for Talaria TWO to interface with peripherals in
+diverse applications.</p>
+<section id="supported-modes-and-configuration-options">
+<h1>Supported Modes and Configuration Options<a class="headerlink" href="#supported-modes-and-configuration-options" title="Link to this heading"></a></h1>
+<p>This section describes the operating modes and options supported by SSM.
+These options are set in an instance of SPI options structure,
+spiopts_t.</p>
+<section id="data-length">
+<h2>Data Length<a class="headerlink" href="#data-length" title="Link to this heading"></a></h2>
+<p>SSM can be configured to transfer between 1 and 16 bits (inclusive) per
+call to spi_xfer().</p>
+</section>
+<section id="shift-direction">
+<h2>Shift Direction<a class="headerlink" href="#shift-direction" title="Link to this heading"></a></h2>
+<p>Transmit data can be shifted out with MSB first or LSB first.
+Additionally, SSM can be configured to interpret received data as either
+MSB first or LSB first. Shift direction can be configured independently
+for transmit and receive directions.</p>
+</section>
+<section id="clock-phase">
+<h2>Clock Phase<a class="headerlink" href="#clock-phase" title="Link to this heading"></a></h2>
+<p>SSM supports configuration of clock phase as 0 or 1. This setting is
+independent of clock polarity. Figure 1 illustrates how this option
+affects the clock generated by the SSM.</p>
+</section>
+<section id="clock-polarity">
+<h2>Clock Polarity<a class="headerlink" href="#clock-polarity" title="Link to this heading"></a></h2>
+<p>SSM supports configuration of clock polarity as 0 or 1. This setting is
+independent of clock phase. Figure 1 illustrates how this option affects
+the clock generated by the SSM.</p>
+</section>
+<section id="pin-4-pin-modes">
+<h2>3-Pin / 4-Pin Modes<a class="headerlink" href="#pin-4-pin-modes" title="Link to this heading"></a></h2>
+<p>SSM supports both 3-pin and 4-pin modes of operation. In 3-pin mode, no
+chip select (CS) is used.</p>
+</section>
+<section id="gpios">
+<h2>GPIOs<a class="headerlink" href="#gpios" title="Link to this heading"></a></h2>
+<p>SSM can be configured to use any GPIO for each of the SPI signals: CLK,
+MOSI, MISO, and CS (optional).</p>
+</section>
+<section id="timing">
+<h2>Timing<a class="headerlink" href="#timing" title="Link to this heading"></a></h2>
+<p>SSM supports configuration of the timing parameters as shown in Figure
+1.</p>
+</section>
+</section>
+<section id="timing-diagram">
+<h1>Timing Diagram<a class="headerlink" href="#timing-diagram" title="Link to this heading"></a></h1>
+<p>Figure 1 illustrates SPI signals generated by the Software SPI Master
+for each possible combination of clock polarity and phase. The diagram
+illustrates a 5-bit transfer in 4-wire mode. Timing parameters are also
+shown.</p>
+<p><a class="reference internal" href="../../_images/image1103.png"><img alt="image1" src="../../_images/image1103.png" style="width: 7.08661in; height: 3.99788in;" /></a></p>
+<p>Figure : Timing diagram illustrating SSM operation, 5-bit transfer shown</p>
+<p>Data is set up on the MOSI and MISO lines at the times indicated by
+vertical dotted lines in the diagram (except the last one at the end of
+the transfer). Data is sampled on the clock edges between the dotted
+lines.</p>
+</section>
+<section id="iis2dlpc-3-axis-accelerometer-sample">
+<h1>IIS2DLPC 3-axis Accelerometer Sample<a class="headerlink" href="#iis2dlpc-3-axis-accelerometer-sample" title="Link to this heading"></a></h1>
+<p>Software SPI Master is accompanied by a code sample that communicates
+with an IIS2DLPC 3-axis accelerometer over SPI. This sample is provided
+in the IIS2DLPC folder alongside the SSM code. The sample puts the
+IIS2DLPC in a particular operational mode and reads and displays
+acceleration values from the device. Communication with the IIS2DLPC is
+accomplished via the SSM.</p>
+<section id="running-the-application">
+<h2>Running the Application<a class="headerlink" href="#running-the-application" title="Link to this heading"></a></h2>
+<p>Before booting Talaria TWO with the sample application, the IIS2DPLC
+must be connected using 4 GPIOs for the SPI signals (CLK, MOSI, MISO,
+CS) as well as Power and Ground. By default, the sample application uses
+the GPIO to SPI signal mapping shown in Table 1. However, any available
+GPIOs can be used.</p>
+<p><strong>Note</strong>: With this mapping, the JTAG jumper must be removed from the
+baseboard so that GPIO18 is routed to the peripheral connector instead
+of being used for JTAG.</p>
+<table class="docutils align-default" id="id5">
+<caption><span class="caption-text">Table : Sample GPIO - SPI signal mapping</span><a class="headerlink" href="#id5" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>GPIO</strong></p></th>
+<th class="head"><p><strong>SPI Signal</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GPIO3</p></td>
+<td><p>CLK</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO4</p></td>
+<td><p>MOSI</p></td>
+</tr>
+<tr class="row-even"><td><p>GPIO14</p></td>
+<td><p>MISO</p></td>
+</tr>
+<tr class="row-odd"><td><p>GPIO18</p></td>
+<td><p>CS</p></td>
+</tr>
+</tbody>
+</table>
+<p>With this mapping, the connection between the peripheral connecter on
+Talaria TWO EVK and the IIS2DLPC looks as shown in Figure 2.</p>
+<p><a class="reference internal" href="../../_images/image266.png"><img alt="image2" src="../../_images/image266.png" style="width: 3.93701in; height: 3.25023in;" /></a></p>
+<p>Figure : Sample connection of IIS2DLPC to Talaria TWO EVK</p>
+<p>Once the IIS2DPLC has been connected to Talaria TWO, flash the sample
+app spi_sensor.elf using the Download Tool.</p>
+<p>Program spi_sensor.elf (<em>freertos_sdk_x.y\examples\spi\bin</em>) using
+the Download tool (<em>freertos_sdk_x.y\pc_tools\Download_Tool\bin)</em>:</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool provided with InnoPhase Talaria TWO SDK.</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down</p></li>
+<li><p>ELF Input: Load the spi_sensor.elf by clicking on Select ELF File.</p></li>
+<li><p>Boot arguments: Pass the following boot arguments. if a different
+GPIO other than the default pins in Table 1 are to be used for the
+SPI:</p></li>
+</ol>
+</li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>clk_pin=&lt;gpio pin&gt;, mosi_pin=&lt;gpio pin&gt;, miso_pin=&lt;gpio_pin&gt;,
+cs_pin=&lt;gpio_pin&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="loweralpha simple" start="4">
+<li><p>Programming: Prog RAM or Prog Flash as per requirement.</p></li>
+</ol>
+<section id="id3">
+<h3><a href="#id1"><span class="problematic" id="id2">**</span></a><a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p>Following is the sample output that is observed on the Download Tool
+console after flashing the spi_sensor.elf.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWAE</p>
+<p>4 DWT comparators, range 0x8000</p>
+<p>Build $Id: git-8bc43d639 $</p>
+<p>hio.baudrate=921600</p>
+<p>flash: Gordon ready!</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWAE</p>
+<p>Build $Id: git-6576f93 $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-0086-006f-ffffffffffff</p>
+<p>Bootargs: hio.transport=uart hio.maxsize=4096 ds.pf_method=2</p>
+<p>Using GPIOs: CLK [3] MOSI [4] MISO [14] CS [18]</p>
+<p>IIS2DLPC sanity check: [PASSED]</p>
+<p>IIS2DLPC device ID: [0x44]</p>
+<p>Acceleration (x, y, z):</p>
+<p>(32744, -32744, -32744)</p>
+<p>(32744, -32744, -32744)</p>
+<p>(32744, -32744, -32744)</p>
+<p>(32744, -32744, -32744)</p>
+<p>(32744, -32744, -32744)</p>
+<p>(32744, -32744, -32744)</p>
+<p>(32744, -32744, -32744)</p>
+<p>(32744, -32744, -32744)</p>
+<p>(32744, -32744, -32744)</p>
+<p>(32744, -32744, -32744)</p>
+<p>(32744, -32744, -32744)</p>
+<p>(32744, -32744, -32744)</p>
+<p>(32744, -32744, -32744)</p>
+<p>(32744, -32744, -32744)</p>
+<p>(32744, -32744, -32744)</p>
+<p>(32744, -32744, -32744)</p>
+<p>(32744, -32744, -32744)</p>
+<p>(32744, -32744, -32744)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="code-overview">
+<h2>Code Overview<a class="headerlink" href="#code-overview" title="Link to this heading"></a></h2>
+<p>Figure : Directory Structure</p>
+<ol class="arabic simple">
+<li><p><strong>IISDLPC</strong></p></li>
+</ol>
+<ol class="loweralpha simple">
+<li><p>accel.c</p></li>
+</ol>
+<blockquote>
+<div><p>The accel.c file contains the routines to configure the IIS2DLPC and
+read the acceleration values from the device.</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li><p>IISDLPC.c</p></li>
+</ol>
+<blockquote>
+<div><p>The IISDLPC.c file contains the functions for communicating with an
+IIS2DLPC 3-axis accelerometer using the software SPI master.</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="3">
+<li><p>IISDLPC.h</p></li>
+</ol>
+<blockquote>
+<div><p>This code contains IIS2DLPC register definitions and function
+prototypes for communicating with an IIS2DLPC 3-axis accelerometer
+using the software SPI master.</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p><strong>spi</strong></p>
+<ol class="loweralpha simple">
+<li><p>sw_spi.c</p></li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<div><p>This code contains the logic to enable software SPI master to measure
+the readings of the IISDLPC accelerometer and displays the readings
+from sensor periodically.</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li><p>sw_spi.h</p></li>
+</ol>
+<blockquote>
+<div><p>This code contains the software SPI master (SSM) definitions and
+function prototypes. It provides prototypes for the following
+functions that initiate, destroy and transfer.</p>
+</div></blockquote>
+<p>To use the Software SPI Master, set-up an instance of a spiopts_t
+structure to specify SSM options as well as the GPIOs that the SSM will
+use. Section 5 provides more details on the different operating modes
+and configuration options supported by the SSM.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>spiopts_t spiopts = { /* Set up SSM options here */ };</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Once a spiopts_t structure has been set up, initialize the SSM by
+calling the initialization function with a pointer to the options
+structure:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>spi_init(&amp;spiopts);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>This will allocate and set up the specified GPIOs for SSM operation,
+returning true if successful.</p>
+<p>After initialization, data is transferred over SPI by calling the
+transfer function:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>uint16_t data_rx, data_tx;</p>
+<p>data_rx = spi_xfer(&amp;spiopts, data_tx);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>This performs a bidirectional transfer of the number of bits specified
+in the spiopts_t structure. Transmit data in data_tx if the data length
+is configured to be less than 16 bits. Received data in data_rx.</p>
+<p>After the SSM Tx and Rx Operations, Call the destroy function to clean
+up the SSM and release the previously allocated GPIOs:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>spi_destroy(&amp;spiopts);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>A sample application that makes use of the SSM is described in section 7
+of this document.</p>
+<p>In software SPI master, SPI can be virtualized using software to
+simulate the physical SPI port. Its Initialization is based on user
+configuration. spi_init() initializes the GPIOs for software SPI master
+operation. Verify that the same pin is not assigned to more than one SPI
+function.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>if( spiopts-&gt;clk_pin == spiopts-&gt;mosi_pin ||</p>
+<p>spiopts-&gt;clk_pin == spiopts-&gt;miso_pin ||</p>
+<p>spiopts-&gt;mosi_pin == spiopts-&gt;miso_pin ||</p>
+<p>(spiopts-&gt;cs_en &amp;&amp; (spiopts-&gt;clk_pin == spiopts-&gt;cs_pin ||</p>
+<p>spiopts-&gt;mosi_pin == spiopts-&gt;cs_pin ||</p>
+<p>spiopts-&gt;miso_pin == spiopts-&gt;cs_pin )))</p>
+<p>{</p>
+<p>os_printf(“[SPI] ERROR: the same pin cannot be assigned to more than
+one SPI signal\n”);</p>
+<p>return false;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>os_gpio_request()configures the selected pin as GPIOs for SSM.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>if(!os_gpio_request(pin2gpio(spiopts-&gt;clk_pin)))</p>
+<p>{</p>
+<p>os_printf(“[SPI] ERROR: Could not configure CLK pin as GPIO\n”);</p>
+<p>return false;</p>
+<p>}</p>
+<p>if(!os_gpio_request(pin2gpio(spiopts-&gt;mosi_pin)))</p>
+<p>{</p>
+<p>os_printf(“[SPI] ERROR: Could not configure MOSI pin as GIPO\n”);</p>
+<p>os_gpio_free(pin2gpio(spiopts-&gt;clk_pin));</p>
+<p>return false;</p>
+<p>}</p>
+<p>if(!os_gpio_request(pin2gpio(spiopts-&gt;miso_pin)))</p>
+<p>{</p>
+<p>os_printf(“[SPI] ERROR: Could not configure MISO pin as GPIO\n”);</p>
+<p>os_gpio_free(pin2gpio(spiopts-&gt;clk_pin) |
+pin2gpio(spiopts-&gt;mosi_pin));</p>
+<p>return false;</p>
+<p>}</p>
+<p>if(spiopts-&gt;cs_en &amp;&amp; !os_gpio_request(pin2gpio(spiopts-&gt;cs_pin)))</p>
+<p>{</p>
+<p>os_printf(“[SPI] ERROR: Could not configure CS pin as GPIO\n”);</p>
+<p>os_gpio_free(pin2gpio(spiopts-&gt;clk_pin) |
+pin2gpio(spiopts-&gt;mosi_pin) | pin2gpio(spiopts-&gt;miso_pin));</p>
+<p>return false;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The GPIO output state is set before configuring as output value using
+os_gpio_set_pin().</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>gpio_write(pin2gpio(spiopts-&gt;clk_pin), spiopts-&gt;clk_pol);</p>
+<p>os_gpio_clr_pin(pin2gpio(spiopts-&gt;mosi_pin));</p>
+<p>if(spiopts-&gt;cs_en)</p>
+<p>os_gpio_set_pin(pin2gpio(spiopts-&gt;cs_pin));</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Configure GPIOs as input or output as appropriate:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>os_gpio_set_output(</p>
+<p>pin2gpio(spiopts-&gt;clk_pin) |</p>
+<p>pin2gpio(spiopts-&gt;mosi_pin) |</p>
+<p>(spiopts-&gt;cs_en ? pin2gpio(spiopts-&gt;cs_pin) : 0) );</p>
+<p>os_gpio_set_input(pin2gpio(spiopts-&gt;miso_pin));</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>spi_destroy() frees GPIOs previously set up for software SPI master
+operation.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>void spi_destroy(const spiopts_t * spiopts)</p>
+<p>{</p>
+<p>os_gpio_free(</p>
+<p>pin2gpio(spiopts-&gt;clk_pin) |</p>
+<p>pin2gpio(spiopts-&gt;mosi_pin) |</p>
+<p>pin2gpio(spiopts-&gt;miso_pin) |</p>
+<p>(spiopts-&gt;cs_en ? pin2gpio(spiopts-&gt;cs_pin) : 0) );</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>spi_xfer()performs a bidirectional data transfer using SSM. spi_init()
+must first be called with the SPI opts structure before this function is
+called. This function returns the received data.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>bool clk = (spiopts-&gt;clk_phase == spiopts-&gt;clk_pol);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>This is initialized to the clock level that will be set when the first
+bit is written out on MOSI.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>uint16_t mask_tx = spiopts-&gt;shiftdir_tx == MSB_FIRST ? (1 &lt;&lt;
+(spiopts-&gt;datalen-1)) : 1;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>This is initialized to select the first bit of data_tx to transmit.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>uint16_t data_rx = 0;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Extra bits are padded with 0s. This sets CS low. The CS line is normally
+held high, which disconnects the peripheral from the SPI bus. Just
+before data is sent to the peripheral, the line is brought low, which
+activates the peripheral.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>if(spiopts-&gt;cs_en)</p>
+<p>{</p>
+<p>os_gpio_clr_pin(pin2gpio(spiopts-&gt;cs_pin));</p>
+<p>os_wait_usec(spiopts-&gt;t_cs_clk);</p>
+<p>}</p>
+<p>/* Shift bits */</p>
+<p>for(uint8_t i = 0; i &lt; spiopts-&gt;datalen; i++)</p>
+<p>{</p>
+<p>bool bit_tx = data_tx &amp; mask_tx;</p>
+<p>bool bit_rx = 0;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Data is set at the same time as the clock is updated.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>os_gpio_set_value( (clk ? pin2gpio(spiopts-&gt;clk_pin) : 0) | (bit_tx
+? pin2gpio(spiopts-&gt;mosi_pin) : 0),</p>
+<p>(!clk ? pin2gpio(spiopts-&gt;clk_pin) : 0) | (!bit_tx ?
+pin2gpio(spiopts-&gt;mosi_pin) : 0) );</p>
+<p>os_wait_usec(spiopts-&gt;t_clk_setup);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The following code snippet samples the sensor rx data. It holds the
+clock for a second when it starts preparing for the next bit.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>clk = !clk;</p>
+<p>gpio_write(pin2gpio(spiopts-&gt;clk_pin), clk);</p>
+<p>bit_rx = os_gpio_get_value(pin2gpio(spiopts-&gt;miso_pin));</p>
+<p>if(spiopts-&gt;shiftdir_rx == MSB_FIRST)</p>
+<p>data_rx = (data_rx &lt;&lt; 1) | bit_rx;</p>
+<p>else</p>
+<p>data_rx = (data_rx &gt;&gt; 1) | ((uint16_t)bit_rx &lt;&lt;
+(spiopts-&gt;datalen-1));</p>
+<p>/* Hold */</p>
+<p>os_wait_usec(spiopts-&gt;t_clk_hold);</p>
+<p>/* Prepare for next bit */</p>
+<p>clk = !clk;</p>
+<p>if(spiopts-&gt;shiftdir_tx == MSB_FIRST)</p>
+<p>mask_tx &gt;&gt;= 1;</p>
+<p>else</p>
+<p>mask_tx &lt;&lt;= 1;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The following gpio_write() function sets the clock back to its polarity
+value:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>gpio_write(pin2gpio(spiopts-&gt;clk_pin), spiopts-&gt;clk_pol);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The following code block sets the ‘cs’ to high and master disables the
+communication through the SPI protocol with the slave:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>if(spiopts-&gt;cs_en)</p>
+<p>{ os_wait_usec(spiopts-&gt;t_cs_clk);</p>
+<p>os_gpio_set_pin(pin2gpio(spiopts-&gt;cs_pin)); }</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The sw_spi.h file contains the software SPI master (SSM) definitions and
+function prototypes. It provides prototypes for the following functions
+that initiate, destroy and transfer.</p>
+<p>The accel.c file contains the routines to configure the IIS2DLPC and
+reads acceleration values from the device by reading and writing from/to
+the IIS2DLPC registers. For communication with the IIS2DLPC, this code
+relies on functions and register definitions provided in IIS2DLPC.h and
+IIS2DLPC.c.</p>
+<p>The get_bootarg_pins() gets the GPIO pins for SPI signals via boot
+arguments.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>if(!get_bootarg_pins(&amp;clk_pin, &amp;mosi_pin, &amp;miso_pin, &amp;cs_pin))</p>
+<p>{</p>
+<p>print_usage();</p>
+<p>return 1;</p>
+<p>}</p>
+<p>os_printf(“Using GPIOs: CLK [%” PRIu8 “] MOSI [%” PRIu8 “] MISO [%”
+PRIu8 “] CS [%” PRIu8 “]\n”,</p>
+<p>clk_pin, mosi_pin, miso_pin, cs_pin);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>IIS2DLPC_init initializes SW SPI master for communication with IIS2DLPC.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>if(!IIS2DLPC_init(&amp;spiopts, clk_pin, mosi_pin, miso_pin, cs_pin))</p>
+<p>{</p>
+<p>os_printf(“Could not initialize software SPI master for IIS2DLPC
+communication; aborting\n”);</p>
+<p>return 2;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>IIS2DLPC_sanity_check runs a sanity check. This delay is only to make it
+easier to examine SPI signals with a scope and is not needed for proper
+operation. It gives time to examine the initial state of signals after
+reset and before the first transfer.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>if(IIS2DLPC_sanity_check(&amp;spiopts))</p>
+<p>{</p>
+<p>os_printf(“IIS2DLPC sanity check: [PASSED]\n”);</p>
+<p>}</p>
+<p>else</p>
+<p>{</p>
+<p>os_printf(“IIS2DLPC sanity check: [FAILED]\n”);</p>
+<p>os_printf(“Aborting\n”);</p>
+<p>return 3;</p>
+<p>}</p>
+<p>os_printf(“IIS2DLPC device ID: [0x%” PRIX8 “]\n”,
+IIS2DLPC_read_id(&amp;spiopts));</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>IISDLPC_set_mode sets the IIS2DLPC operating mode.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>IIS2DLPC_set_mode(&amp;spiopts);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>This code reads the values from the accelerometer through SPI.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>os_printf(“Acceleration (x, y, z):\n”);</p>
+<p>while(1)</p>
+<p>{</p>
+<p>accel_t accel = {0, 0, 0};</p>
+<p>char dispbuf[DISPBUF_LEN] = “”;</p>
+<p>IIS2DLPC_read_accel(&amp;spiopts, &amp;accel);</p>
+<p>snprintf(dispbuf, DISPBUF_LEN, “(%” PRId16 “, %” PRId16 “, %” PRId16
+“)”, accel.accel_x, accel.accel_y, accel.accel_z);</p>
+<p>os_printf(“%-*s\r”, DISPBUF_LEN-1, dispbuf);</p>
+<p>os_msleep(ACCEL_READ_PERIOD_MS);</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The get_bootarg_pins() retrieves GPIO pin numbers for SPI signals from
+boot arguments. If all pin numbers are valid, the pin numbers are stored
+in the locations pointed to by the pin_out arguments and the function
+returns true. Otherwise, the function returns false, and the memory
+pointed to by the pin_out arguments remain unchanged. Also, it prints
+all the pin details in the console. If no boot arguments are provided
+for the GPIO pins, the default pins are selected for SPI.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>uint8_t clk_pin = 0, mosi_pin = 0, miso_pin = 0, cs_pin = 0;</p>
+<p>if(!clk_pin_out || !mosi_pin_out || !miso_pin_out ||
+!cs_pin_out)</p>
+<p>return false;</p>
+<p>clk_pin = os_get_boot_arg_int(“clk_pin”, CLK_PIN_DEFAULT);</p>
+<p>mosi_pin = os_get_boot_arg_int(“mosi_pin”, MOSI_PIN_DEFAULT);</p>
+<p>miso_pin = os_get_boot_arg_int(“miso_pin”, MISO_PIN_DEFAULT);</p>
+<p>cs_pin = os_get_boot_arg_int(“cs_pin”, CS_PIN_DEFAULT);</p>
+<p>if(!gpio_pin_valid(clk_pin))</p>
+<p>{</p>
+<p>os_printf(“Invalid GPIO pin number specified for CLK\n”);</p>
+<p>return false;</p>
+<p>}</p>
+<p>if(!gpio_pin_valid(mosi_pin))</p>
+<p>{</p>
+<p>os_printf(“Invalid GPIO pin number specified for MOSI\n”);</p>
+<p>return false;</p>
+<p>}</p>
+<p>if(!gpio_pin_valid(miso_pin))</p>
+<p>{</p>
+<p>os_printf(“Invalid GPIO pin number specified for MISO\n”);</p>
+<p>return false;</p>
+<p>}</p>
+<p>if(!gpio_pin_valid(cs_pin))</p>
+<p>{</p>
+<p>os_printf(“Invalid GPIO pin number specified for CS\n”);</p>
+<p>return false;</p>
+<p>}</p>
+<p>*clk_pin_out = clk_pin;</p>
+<p>*mosi_pin_out = mosi_pin;</p>
+<p>*miso_pin_out = miso_pin;</p>
+<p>*cs_pin_out = cs_pin;</p>
+<p>return true;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>gpio_pin_valid() checks a GPIO pin number against the array of valid
+GPIO pin numbers. Returns true if the pin number appears in the list,
+false otherwise.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>for(size_t i = 0; i &lt; sizeof(VALID_GPIOS) / sizeof(VALID_GPIOS[0]);
+i++)</p>
+<p>if(pin == VALID_GPIOS[i])</p>
+<p>return true;</p>
+<p>return false;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The IIS2DLPC functions added in accel.c interact with the IIS2DLPC in a
+manner that is specific to these functions and the use of the device by
+this application. The IIS2DLPC_sanity_check() runs a sanity check by
+writing values to an IIS2DLPC R/W register and reading them back.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>uint8_t data8_initial = IIS2DLPC_read8(spiopts, IIS2DLPC_TAP_THS_X);</p>
+<p>if(!IIS2DLPC_reg_wr_test(spiopts, IIS2DLPC_TAP_THS_X, 0xAA, 0xAA))</p>
+<p>return false;</p>
+<p>if(!IIS2DLPC_reg_wr_test(spiopts, IIS2DLPC_TAP_THS_X, 0x55, 0x55))</p>
+<p>return false;</p>
+<p>if(!IIS2DLPC_reg_wr_test(spiopts, IIS2DLPC_TAP_THS_X, 0x0, 0x0))</p>
+<p>return false;</p>
+<p>if(!IIS2DLPC_reg_wr_test(spiopts, IIS2DLPC_TAP_THS_X, 0xFF, 0xFF))</p>
+<p>return false;</p>
+<p>if(!IIS2DLPC_reg_wr_test(spiopts, IIS2DLPC_TAP_THS_X, data8_initial,
+data8_initial))</p>
+<p>return false;</p>
+<p>return true;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>IIS2DLPC_reg_wr_test() writes a value to the IIS2DLPC register, reads
+the register, and compares the read value with an expected value.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>uint8_t data8_read = 0;</p>
+<p>IIS2DLPC_write8(spiopts, addr, data8_write);</p>
+<p>if((data8_read = IIS2DLPC_read8(spiopts, addr)) != data8_expected)</p>
+<p>{</p>
+<p>os_printf(“Register WR test: unexpected register value\n”);</p>
+<p>os_printf(“Addr: [0x%” PRIX8 “] Wrote: [0x%” PRIX8 “] Read: [0x%”
+PRIX8 “] Expected: [0x%” PRIX8 “]\n”,</p>
+<p>addr, data8_write, data8_read, data8_expected);</p>
+<p>return false;</p>
+<p>}</p>
+<p>return true;</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>IIS2DLPC_read_id() reads the device ID of the IIS2DLPC.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>return IIS2DLPC_read8(spiopts, IIS2DLPC_WHO_AM_I);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>IIS2DLPC_set_mode() sets the IIS2DLPC in the mode that will be used for
+this application. Here low noise, low power mode 4, 12.5Hz data rate, on
+demand mode and trigger acceleration reading via register bit are
+enabled.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>data8 = IIS2DLPC_read8(spiopts, IIS2DLPC_CTRL6);</p>
+<p>data8 = setbit(data8, IIS2DLPC_CTRL6_LOW_NOISE_OFFSET);</p>
+<p>IIS2DLPC_write8(spiopts, IIS2DLPC_CTRL6, data8);</p>
+<p>IIS2DLPC_write8(spiopts, IIS2DLPC_CTRL1,</p>
+<p>(0x2 &lt;&lt; IIS2DLPC_CTRL1_ODR_OFFSET) |</p>
+<p>(0x2 &lt;&lt; IIS2DLPC_CTRL1_MODE_OFFSET) |</p>
+<p>(0x3 &lt;&lt; IIS2DLPC_CTRL1_LP_MODE_OFFSET));</p>
+<p>data8 = IIS2DLPC_read8(spiopts, IIS2DLPC_CTRL3);</p>
+<p>data8 = setbit(data8, IIS2DLPC_CTRL3_SLP_MODE_SEL_OFFSET);</p>
+<p>IIS2DLPC_write8(spiopts, IIS2DLPC_CTRL3, data8);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>IIS2DLPC_read_accel()triggers an acceleration reading from the IIS2DLPC
+and waits for the result. IIS2DLPC_set_mode must be called before
+calling this function.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>data8 = IIS2DLPC_read8(spiopts, IIS2DLPC_CTRL3);</p>
+<p>data8 = setbit(data8, IIS2DLPC_CTRL3_SLP_MODE_1_OFFSET);</p>
+<p>IIS2DLPC_write8(spiopts, IIS2DLPC_CTRL3, data8);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>This reads the acceleration values from sensor:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>accel_x = IIS2DLPC_read8(spiopts, IIS2DLPC_OUT_X_L);</p>
+<p>accel_x |= (uint16_t)IIS2DLPC_read8(spiopts, IIS2DLPC_OUT_X_H) &lt;&lt; 8;</p>
+<p>accel_y = IIS2DLPC_read8(spiopts, IIS2DLPC_OUT_Y_L);</p>
+<p>accel_y |= (uint16_t)IIS2DLPC_read8(spiopts, IIS2DLPC_OUT_Y_H) &lt;&lt; 8;</p>
+<p>accel_z = IIS2DLPC_read8(spiopts, IIS2DLPC_OUT_Z_L);</p>
+<p>accel_z |= (uint16_t)IIS2DLPC_read8(spiopts, IIS2DLPC_OUT_Z_H) &lt;&lt; 8;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Acceleration values are stored in 16-bit 2’s complement format. This
+conversion relies on implementation-defined behavior.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>accel-&gt;accel_x = (int16_t)accel_x;</p>
+<p>accel-&gt;accel_y = (int16_t)accel_y;</p>
+<p>accel-&gt;accel_z = (int16_t)accel_z;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The functions in IISDLPC.c makes use of the SSM to communicate with an
+IIS2DLPC. This contains functions for communicating with an IIS2DLPC
+3-axis accelerometer using SSM.</p>
+<p>IIS2DLPC_init() initializes SSM for communication with an IIS2DLPC. This
+function sets up the supplied SPI options structure with values required
+for communicating with an IIS2DLPC and initializes the SSM with the
+options structure.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>spiopts-&gt;datalen = 16;</p>
+<p>spiopts-&gt;shiftdir_tx = MSB_FIRST;</p>
+<p>spiopts-&gt;shiftdir_rx = MSB_FIRST;</p>
+<p>spiopts-&gt;clk_phase = 0;</p>
+<p>spiopts-&gt;clk_pol = 1;</p>
+<p>spiopts-&gt;cs_en = true;</p>
+<p>spiopts-&gt;clk_pin = clk_pin;</p>
+<p>spiopts-&gt;mosi_pin = mosi_pin;</p>
+<p>spiopts-&gt;miso_pin = miso_pin;</p>
+<p>spiopts-&gt;cs_pin = cs_pin;</p>
+<p>spiopts-&gt;t_clk_setup = 25;</p>
+<p>spiopts-&gt;t_clk_hold = 25;</p>
+<p>spiopts-&gt;t_cs_clk = 25;</p>
+<p>spiopts-&gt;t_xfer_dly = 25;</p>
+<p>return spi_init(spiopts);</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>IIS2DLPC_destroy() cleans the resources (GPIOs) allocated by
+IIS2DLPC_init(). IIS2DLPC_read8() reads a byte from the IIS2DLPC device
+at a given address.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>uint16_t data_rx = 0;</p>
+<p>data_rx = spi_xfer(spiopts, 0x8000 | (uint16_t)(addr &amp; 0x7F) &lt;&lt; 8);</p>
+<p>return data_rx &amp; 0xFF;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>IIS2DLPC_write8() writes a byte to the IIS2DLPC device at a given
+address.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>spi_xfer(spiopts, (uint16_t)(addr &amp; 0x7F) &lt;&lt; 8 | data);</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>IIS2DLPC_init() initializes spiopts_t structure with the options
+required for communicating with an IIS2DLPC device. It has parameters
+for GPIO pin numbers to be used for SPI signals, which are registered in
+the structure. After initializing the structure, this function calls
+spi_init() to initialize the SSM.</p>
+<p>IIS2DLPC_read8() reads the value of an IIS2DLPC register at a given
+address and returns the data. This function must be passed as a pointer
+to spiopts_t structure previously initialized with IIS2DLPC_init().</p>
+<p>IIS2DLPC_write8() writes a value to an IIS2DLPC register at a given
+address. This function must be passed as a pointer to spiopts_t
+structure previously initialized with IIS2DLPC_init().</p>
+<p>IIS2DLPC_destroy() frees the resources previously allocated by
+IIS2DLPC_init() after the communication with the device is complete.</p>
+</section>
+</section>
+<section id="spi-throughput">
+<h1>SPI Throughput<a class="headerlink" href="#spi-throughput" title="Link to this heading"></a></h1>
+<p>The sample application (spi_throughput.c) demonstrates the SPI
+throughput measurement.</p>
+<p>This application transfers address and data bytes over the SPI
+interface. Each iteration transfers 1 R/W bit, 7 address bits, and data
+bits available in the RX_BUF_SZ buffer. After running the throughput
+test, the application prints the throughput (in kbps) over the console.</p>
+<p><strong>Application flow:</strong></p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt>Application writes ‘0’ on the ctrl register 2 (IIS2DLPC_CTRL2) to</dt><dd><p>select SPI 4 wire interface and this disables auto address
+increment.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Application reads the sensor ID (IIS2DLPC_WHO_AM_I) from the sensor</dt><dd><p>and prints it over the console.</p>
+</dd>
+</dl>
+</li>
+<li><p>Application now starts the throughput test.</p></li>
+<li><dl class="simple">
+<dt>After 100000 iterations, the application prints throughput over the</dt><dd><p>console.</p>
+</dd>
+</dl>
+</li>
+</ol>
+<section id="running-the-application-1">
+<span id="id4"></span><h2>Running the Application<a class="headerlink" href="#running-the-application-1" title="Link to this heading"></a></h2>
+<p>Before booting Talaria TWO with the sample application, IIS2DPLC must be
+connected using 4 GPIOs for the SPI signals (CLK, MOSI, MISO, CS) as
+well as Power and Ground. By default, the sample application uses the
+GPIO to SPI signal mapping shown in Table 1. However, any available
+GPIOs can be used. The connection between the peripheral connecter on
+Talaria TWO EVK and the IIS2DLPC is as shown in Figure 2.</p>
+<p><strong>Note</strong>: With signal mapping mentioned in Table 1, the JTAG jumper must
+be removed from the baseboard so that GPIO18 is routed to the peripheral
+connector instead of being used for JTAG.</p>
+<p>Once the IIS2DPLC has been connected to Talaria TWO, flash the sample
+application spi_throughput.elf using the Download Tool.</p>
+<p>Program spi_throughput.elf (<em>freertos_sdk_x.y\examples\spi\bin</em>)
+using the Download tool:</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool provided with InnoPhase Talaria TWO SDK.</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down</p></li>
+<li><p>ELF Input: Load the spi_throughput.elf by clicking on Select ELF
+File.</p></li>
+<li><p>Programming: Prog RAM or Prog Flash as per requirement.</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="expected-output">
+<h2>Expected Output<a class="headerlink" href="#expected-output" title="Link to this heading"></a></h2>
+<p>Following is a sample output observed on the Download Tool console after
+flashing spi_throughput.elf.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UART:SNWWWWAE</p>
+<p>4 DWT comparators, range 0x8000</p>
+<p>Build $Id: git-8bc43d639 $</p>
+<p>hio.baudrate=921600</p>
+<p>flash: Gordon ready!</p>
+<p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWAE</p>
+<p>Build $Id: git-6576f93 $</p>
+<p>Flash detected. flash.hw.uuid: 39483937-3207-0086-006f-ffffffffffff</p>
+<p>Bootargs: hio.transport=uart hio.maxsize=4096 ds.pf_method=2</p>
+<p>Chip ID: 0x44</p>
+<p>Running throughput test…</p>
+<p>100000 iterations</p>
+<p>40301883 usec</p>
+<p>205600000 bits transferred in 40 seconds (5101 kbps)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

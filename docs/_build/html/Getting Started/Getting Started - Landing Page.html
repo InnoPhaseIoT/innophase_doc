@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting Started &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="INP301x Package Contents" href="1.%20Prerequisites/1.%20Hardware-Prerequisites.html" />
+    <link rel="prev" title="InnoPhase IoT Programming Guide" href="../index.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#key-features">Key Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hardware-prerequisites">Hardware-Prerequisites</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="1.%20Prerequisites/1.%20Hardware-Prerequisites.html">INP301x Package Contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1.%20Prerequisites/1.%20Hardware-Prerequisites.html#description-of-the-board">Description of the Board</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1.%20Prerequisites/1.%20Hardware-Prerequisites.html#inp3000-programmer-board-version-4-0">INP3000 Programmer Board VERSION 4.0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1.%20Prerequisites/1.%20Hardware-Prerequisites.html#inp3000-programmer-board-version-3-0">INP3000 Programmer Board VERSION 3.0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1.%20Prerequisites/1.%20Hardware-Prerequisites.html#inp3000-programmer-board-version-2-1">INP3000 Programmer Board VERSION 2.1</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#software-prerequisites">Software-Prerequisites</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="1.%20Prerequisites/2.%20Software-Prerequisites.html">Software Development Kit</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#evaluation-and-development">Evaluation and development</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#debugging-an-application">Debugging an Application</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/1.%20Debugging%20using%20GDB.html">Debugging using GDB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/2.%20Coredump%20Generation%20and%20Analysis.html">Coredump Generation and Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#power-measurement">Power Measurement</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Power%20Measurement/Power%20Measurement.html">Power Management</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#memory-mapping">Memory Mapping</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2.%20Evaluation%20and%20Development/4.%20Memory%20Mapping/Memory%20mapping.html">Memory Mapping of a Standard Application</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#landing-page">Landing page</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2.%20Evaluation%20and%20Development/1.%20Landing%20Page.html">Evaluation &amp; Development</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#programming-basic-applications">Programming Basic Applications</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2.%20Evaluation%20and%20Development/2.%20Programming%20Basic%20Applications%20-%20Dev.html">Programming Basic Applications</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#command-line-interface-commands">Command Line Interface Commands</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html">Command Line Interface Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#boot-arguments">Boot Arguments</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html">Boot Arguments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Software%20Reference/Software_Reference_Landing_Page.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Tools/Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Getting Started</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Getting Started/Getting Started - Landing Page.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h1>
+<p>InnoPhase IoT software development kit is beneficial for development of
+integrated applications on Talaria TWO with InnoOS RTOS, lwIP network
+stack and GCC compiler-based SDK. It helps enable applications,
+networking and wireless (BLE/Wi-Fi) functionality on Talaria TWO.</p>
+<section id="key-features">
+<h2>Key Features<a class="headerlink" href="#key-features" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Ultra-low power 2.4GHz 802.11 b/g/n Wi-Fi connectivity</p></li>
+<li><p>Support for WPA2 (Personal &amp; Enterprise) and WPA3</p></li>
+<li><p>DTIM10 at 57uA enables Wi-Fi connected battery-based applications</p></li>
+<li><p>Full stack including MQTT, mbedTLS for supporting IoT
+Direct-to-Cloud for a variety of cloud services (AWS, Azure, Google
+Cloud, IBM Watson, etc.)</p></li>
+<li><p>BLE5.0 w/ Advanced Features LE Coding/FEC (Long-Range), 2M PHY,
+Extended Advertising</p></li>
+<li><p>Supports Wi-Fi Provisioning over BLE and local device management,
+plus BLE to Wi-Fi bridging</p></li>
+<li><p>Bluetooth GATT/GAP Profile support, and HCI interface option for
+host MCU-based BLE profile stacks</p></li>
+<li><p>Advanced security features including Secure Boot, PUF (Physically
+Unclonable Function) and hardware Crypto Engines</p></li>
+<li><p>Embedded 80MHz Arm Cortex-M3 w/ 512KB SRAM and 2MB Flash</p></li>
+<li><p>Eleven (11) configurable GPIO plus Tx Console port (on GPIO17)</p></li>
+<li><p>Dedicated ADC Input pin</p></li>
+<li><p>Integrated clocks and power management – only a single 3.3V supply
+needed</p></li>
+<li><p>PCB antenna, U.FL antenna connector, RF Pin, and ceramic antenna
+options</p></li>
+</ol>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
+<section id="hardware-prerequisites">
+<h3>Hardware-Prerequisites<a class="headerlink" href="#hardware-prerequisites" title="Permalink to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Prerequisites/1.%20Hardware-Prerequisites.html">INP301x Package Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Prerequisites/1.%20Hardware-Prerequisites.html#description-of-the-board">Description of the Board</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Prerequisites/1.%20Hardware-Prerequisites.html#block-diagram">Block Diagram</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Prerequisites/1.%20Hardware-Prerequisites.html#inp3000-programmer-board-version-4-0">INP3000 Programmer Board VERSION 4.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Prerequisites/1.%20Hardware-Prerequisites.html#inp3000-programmer-board-version-3-0">INP3000 Programmer Board VERSION 3.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Prerequisites/1.%20Hardware-Prerequisites.html#inp3000-programmer-board-version-2-1">INP3000 Programmer Board VERSION 2.1</a></li>
+</ul>
+</div>
+</section>
+<section id="software-prerequisites">
+<h3>Software-Prerequisites<a class="headerlink" href="#software-prerequisites" title="Permalink to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1.%20Prerequisites/2.%20Software-Prerequisites.html">Software Development Kit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Prerequisites/2.%20Software-Prerequisites.html#download-the-software-development-package-sdk">Download the Software Development Package (SDK)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.%20Prerequisites/2.%20Software-Prerequisites.html#sdk-package-contents-walkthrough">SDK Package Contents Walkthrough</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="evaluation-and-development">
+<h2>Evaluation and development<a class="headerlink" href="#evaluation-and-development" title="Permalink to this heading"></a></h2>
+<section id="debugging-an-application">
+<h3>Debugging an Application<a class="headerlink" href="#debugging-an-application" title="Permalink to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/1.%20Debugging%20using%20GDB.html">Debugging using GDB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/1.%20Debugging%20using%20GDB.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/1.%20Debugging%20using%20GDB.html#install-talaria-two-sdk">Install Talaria TWO SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/1.%20Debugging%20using%20GDB.html#required-software">Required Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/1.%20Debugging%20using%20GDB.html#installing-necessary-packages">Installing necessary packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/1.%20Debugging%20using%20GDB.html#installing-arm-toolchain">Installing ARM toolchain</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/1.%20Debugging%20using%20GDB.html#installing-python3-and-dependencies">Installing Python3 and dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/1.%20Debugging%20using%20GDB.html#installing-openocd">Installing OpenOCD</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/1.%20Debugging%20using%20GDB.html#start-the-gdb-session">Start the GDB Session</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/1.%20Debugging%20using%20GDB.html#connecting-jtag-swd-to-talaria-two-module">Connecting JTAG/SWD to Talaria TWO module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/1.%20Debugging%20using%20GDB.html#procedure-to-debug-using-gdb-through-jtag">Procedure to Debug using GDB through JTAG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/1.%20Debugging%20using%20GDB.html#procedure-to-debug-using-gdb-through-swd">Procedure to Debug using GDB through SWD</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/1.%20Debugging%20using%20GDB.html#procedure-to-debug-using-gdb-in-windows-cmd">Procedure to Debug using GDB in Windows CMD</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/1.%20Debugging%20using%20GDB.html#prerequisites-1">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/1.%20Debugging%20using%20GDB.html#openocd-setup">OpenOCD Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/1.%20Debugging%20using%20GDB.html#gdb-multiarch">GDB-Multiarch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/1.%20Debugging%20using%20GDB.html#procedure-to-debug-using-gdb">Procedure to Debug using GDB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/1.%20Debugging%20using%20GDB.html#start-a-gdb-session">Start a GDB session</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/2.%20Coredump%20Generation%20and%20Analysis.html">Coredump Generation and Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/2.%20Coredump%20Generation%20and%20Analysis.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/2.%20Coredump%20Generation%20and%20Analysis.html#install-talaria-two-sdk">Install Talaria TWO SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/2.%20Coredump%20Generation%20and%20Analysis.html#required-software">Required Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/2.%20Coredump%20Generation%20and%20Analysis.html#talaria-two-software-crash">Talaria TWO Software Crash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/2.%20Coredump%20Generation%20and%20Analysis.html#generate-coredump-from-within-gdb">Generate Coredump from within GDB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/2.%20Coredump%20Generation%20and%20Analysis.html#analyzing-the-coredump">Analyzing the Coredump</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Debugging%20an%20Application/2.%20Coredump%20Generation%20and%20Analysis.html#capturing-a-back-trace">Capturing a Back Trace</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="power-measurement">
+<h3>Power Measurement<a class="headerlink" href="#power-measurement" title="Permalink to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Power%20Measurement/Power%20Measurement.html">Power Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/3.%20Power%20Measurement/Power%20Measurement.html#using-battery-as-power-source">Using Battery as Power Source</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="memory-mapping">
+<h3>Memory Mapping<a class="headerlink" href="#memory-mapping" title="Permalink to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Evaluation%20and%20Development/4.%20Memory%20Mapping/Memory%20mapping.html">Memory Mapping of a Standard Application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/4.%20Memory%20Mapping/Memory%20mapping.html#flash-layout-development">Flash Layout – Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/4.%20Memory%20Mapping/Memory%20mapping.html#memory-mapping-vm-based-application">Memory Mapping – VM based application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/4.%20Memory%20Mapping/Memory%20mapping.html#flash-layout">Flash Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/4.%20Memory%20Mapping/Memory%20mapping.html#program-ram">Program RAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/4.%20Memory%20Mapping/Memory%20mapping.html#program-flash">Program Flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/4.%20Memory%20Mapping/Memory%20mapping.html#erase-flash">Erase Flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/4.%20Memory%20Mapping/Memory%20mapping.html#write-filesystem-to-flash">Write Filesystem to Flash</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="landing-page">
+<h3>Landing page<a class="headerlink" href="#landing-page" title="Permalink to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Evaluation%20and%20Development/1.%20Landing%20Page.html">Evaluation &amp; Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/1.%20Landing%20Page.html#environment-set-up-prerequisites">Environment Set-up Prerequisites</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/1.%20Landing%20Page.html#linux-users">Linux Users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/1.%20Landing%20Page.html#windows-user">Windows User</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2.%20Evaluation%20and%20Development/1.%20Landing%20Page.html#programming">Programming</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2.%20Evaluation%20and%20Development/1.%20Landing%20Page.html#debugging">Debugging</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2.%20Evaluation%20and%20Development/1.%20Landing%20Page.html#memory-mapping">Memory Mapping</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="programming-basic-applications">
+<h3>Programming Basic Applications<a class="headerlink" href="#programming-basic-applications" title="Permalink to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Evaluation%20and%20Development/2.%20Programming%20Basic%20Applications%20-%20Dev.html">Programming Basic Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/2.%20Programming%20Basic%20Applications%20-%20Dev.html#linux-cli-method">Linux/CLI Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/2.%20Programming%20Basic%20Applications%20-%20Dev.html#hello-world-application">Hello-World Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/2.%20Programming%20Basic%20Applications%20-%20Dev.html#programmer-tool">Programmer Tool</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="command-line-interface-commands">
+<h3>Command Line Interface Commands<a class="headerlink" href="#command-line-interface-commands" title="Permalink to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html">Command Line Interface Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#primary-scripts-for-cli-operations">Primary Scripts for CLI Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#boot-py">boot.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#flash-py">flash.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#storage-py">storage.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#device-interface-on-host-machine">Device Interface on Host Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#device-port-identification-on-linux-os">Device Port Identification on Linux OS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#device-port-identification-on-windows-os">Device Port Identification on Windows OS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#cli-command-syntax-and-list-parameters">CLI Command Syntax and List Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#using-boot-py">Using boot.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#using-flash-py">Using flash.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#using-storage-py">Using storage.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#use-cases">Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#linux-platform">Linux Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#reset-device">Reset Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#program-app-in-memory">Program App in Memory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#erase-image-or-program-new-image-in-flash">Erase Image or Program New Image in Flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#storage-data-file-read-write">Storage Data &amp; File: Read/Write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#network-profile">Network Profile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#id3">**</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#windows-platform-libusbk-installed">Windows Platform – libusbK Installed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#reset-device-1">Reset Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#program-app-in-memory-1">Program App in Memory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#erase-image-or-program-new-image-in-flash-1">Erase Image or Program New Image in Flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#storage-data-file-readwrite-1">Storage Data &amp; File: Read/Write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#reset-device-2">Reset Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#load-gordon">Load Gordon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#erase-image">Erase Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#storage-data-file-readwrite-2">Storage Data &amp; File: Read/Write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#sequence-of-cli-commands">Sequence of CLI Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/5.%20Command%20Line%20Interface%20Commands.html#flash-new-app-to-device-with-an-existing-app">Flash New App to Device with an Existing App</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="boot-arguments">
+<h3>Boot Arguments<a class="headerlink" href="#boot-arguments" title="Permalink to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html">Boot Arguments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#generic-syntax-for-passing-boot-arguments">Generic Syntax for Passing Boot Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#list-of-bootargs">List of Bootargs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#id1">Boot Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#host-interface">Host Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#host-interface-transport-type">Host Interface Transport Type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#syntax">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#host-interface-baudrate">Host Interface Baudrate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#syntax-1">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#example-1">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#host-interface-max-message-size">Host Interface Max Message Size</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#syntax-2">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#example-2">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#default-mac-address-for-the-device">Default MAC Address for the Device</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#syntax-3">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#example-3">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#console-baudrate">Console Baudrate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#syntax-4">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#example-4">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#coredump">Coredump</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#syntax-5">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#example-5">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#pin-configuration">PIN Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#syntax-6">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#example-6">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#gratuitous-arp-period">Gratuitous ARP Period</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#syntax-7">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#example-7">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#wi-fi-channels">Wi-Fi Channels</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#syntax-8">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#example-8">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#wi-fi-dynamic-listen-interval">Wi-Fi Dynamic Listen Interval</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#syntax-9">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#example-9">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#wi-fi-beacon-listen-interval">Wi-Fi Beacon Listen Interval</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#syntax-10">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#example-10">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#wi-fi-max-idle-period">Wi-Fi Max Idle Period</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#syntax-11">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#example-11">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#wi-fi-traffic-timeout">Wi-Fi Traffic Timeout</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#syntax-12">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#example-12">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#wi-fi-tx-power-save">Wi-Fi Tx Power Save</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#syntax-13">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#example-13">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#wi-fi-dtim-only-listening">Wi-Fi DTIM Only Listening</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#syntax-14">Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2.%20Evaluation%20and%20Development/6.%20Boot%20Arguments.html#example-14">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="InnoPhase IoT Programming Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="1.%20Prerequisites/1.%20Hardware-Prerequisites.html" class="btn btn-neutral float-right" title="INP301x Package Contents" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

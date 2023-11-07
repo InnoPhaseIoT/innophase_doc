@@ -1,0 +1,29 @@
+Software Requirements
+---------------------
+
+Following changes are required:
+
+Generic:
+
+1. Enable the TUN interface.
+
+2. Enable the selected GPIOs for host power control/wakeup mechanism.
+
+Interface specific:
+
+SDIO:
+
+1. Patch files should be applied to the kernel if provided.
+
+2. Enable the SDIO interface with the appropriate device tree
+   configuration.
+
+3. Compile and load the WLAN SDIO driver provided.
+
+SPI:
+
+1. Enable SPIDEV for SPI interface.
+
+2. Configure SPIDEV buffer size to 16KB.
+
+3. Enable the TUN interface.

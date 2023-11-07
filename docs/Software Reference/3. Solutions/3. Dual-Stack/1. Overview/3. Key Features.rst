@@ -1,0 +1,215 @@
+Key-Features
+--------------
+
+Dual-Stack solution provides the following system-level features, which
+helps the user integrate it as a full IoT solution.
+
+1. FOTA
+
+..
+
+   FOTA provides the following:
+
+a. Facility to check for the availability of new upgrades on the WLAN
+   firmware
+
+b. Securely download the image into flash
+
+c. Check the validity of the downloaded image
+
+d. Set the new image as the boot image.
+
+..
+
+   In conjunction with SSBL, it enables booting the latest downloaded
+   image. The firmware is downloaded into application image partition in
+   flash.
+
+   FOTA can be extended to support the upgradation of the host
+   application. This helps achieve complete product solution.
+
+   The solution also supports serial FOTA, in which the host can upgrade
+   the Talaria TWO Wi-Fi module firmware over SPI/SDIO interface. This
+   feature is provided through connection manager.
+
+2. Device Provisioning over BLE
+
+..
+
+   Provisioning is a method to configure parameters required for the
+   Wi-Fi Connection and cloud details. This can be achieved via Talaria
+   TWO BLE provisioning method. Mobile-based provisioning application
+   can be used for the same. This feature is provided through connection
+   manager.
+
+3. Connection Manager
+
+..
+
+   Connection Manager is a utility which is a stripped version of Wi-Fi
+   utilities like iwconfig that enables the application to use Wi-Fi
+   connection/disconnection and static/dynamic IP settings.
+
+   For more details on the connection management features and commands,
+   refer: `Connection Manager
+   Commands <#_Connection_Manager_Commands>`__
+
+4. Low Power
+
+..
+
+   This solution allows the host and/or Talaria TWO to be put to sleep.
+   There are two GPIOs available, one of which is used as a wakeup
+   source of host and other is used for the host to interrupt Talaria
+   TWO.
+
+   In idle mode, the host can go to sleep and can be woken up by Talaria
+   TWO using the GPIO. The advantage of this solution is, even if the
+   host is in sleep mode, Talaria TWO running on low power keeps the
+   device (keepalive) in an always connected state. Talaria TWO can wake
+   the host up by using the GPIO when it receives the wake-up command
+   from the cloud or from predefined events.
+
+5. Keepalive/Shadow service
+
+..
+
+   This is a feature supported by the Dual-Stack solution to achieve
+   maximum power saving without losing cloud connectivity.
+
+   It enables the device to stay connected to the cloud even when the
+   host is in sleep mode. When the host processor is in the sleep mode,
+   Talaria TWO acts as the shadow of the host. With the
+   keepalive/heartbeat mechanism, it keeps the device in an always
+   connected state. This ensures device availability even when the host
+   processor is in sleep.
+
+   The main advantage of this ultra-power saving option is in
+   high-performance devices like video/audio processing solutions.
+
+   Dual-Stack solution supports both MQTT and TCP based keep alive
+   connections. The entire operation can be described as two states:
+
+a. Normal State:
+
+   i.   Host processes the data (video/audio/sensor) and streams the
+        data to the cloud using Talaria TWO.
+
+   ii.  Host triggers Talaria TWO for the keepalive (heartbeat) process.
+
+   iii. Host closes the cloud data stream connection.
+
+b. Power save/keepalive state:
+
+   i.   Host goes to sleep.
+
+   ii.  Talaria TWO sends/receives the keepalive (heartbeat) packets to
+        the cloud.
+
+   iii. Talaria TWO wakes the up host when it receives a wake-up request
+        from the cloud using GPIO.
+
+   iv.  Talaria TWO goes back to normal state.
+
+6. Heartbeat
+
+..
+
+   Under normal working, if Talaria TWO crashes or hangs, host
+   application will not be able to detect this. The heartbeat feature
+   helps avoid this situation. Every 10 seconds, the host sends a
+   heartbeat signal to Talaria TWO and Talaria TWO acknowledges by
+   sending an indication of its normal working. If Talaria TWO stops
+   responding, the host detects the issue and notifies this in the
+   custom application: heartbeat_monitor.
+
+   By default, the heartbeat feature is disabled. To run this feature
+   along with tunadapter, provide heartbeat=1 as one of the parameters.
+   Heartbeat message frequency is set to 10 seconds.
+
+   Run the custom application (heartbeat_monitor), to monitor heartbeat
+   feature. When Talaria TWO crashes or is out-of-sync with the host,
+   the host notifies the custom application and displays the same. The
+   custom application is available at: *hapi/dual_stack/bins*. The
+   custom application waits for the indication message from the host and
+   once received, prints the message.
+
+7. Port-range Configuration
+
+..
+
+   Since Dual-Stack provides sockets on both host and Talaria TWO, the
+   source port needs to be partitioned and allocated to both Talaria TWO
+   and host. Based on this, Talaria TWO routes the packet to host or
+   sends it to LwIP.
+
+   Following boot arguments configures the source port ranges for both
+   host and Talaria TWO:
+
+.. table:: Table 1: Boot arguments to configure source port ranges
+
+   +-----------------------+-------------------------+--------------------+
+   | **Boot argument**     | **Description**         | **Default Values** |
+   +=======================+=========================+====================+
+   | d                     | Host starting source    | 70                 |
+   | s.host_src_port_start | port number             |                    |
+   +-----------------------+-------------------------+--------------------+
+   | ds.host_src_port_end  | Host ending source port | 40000              |
+   |                       | number                  |                    |
+   +-----------------------+-------------------------+--------------------+
+   | ds.local              | Talaria TWO starting    | 49152              |
+   | _udp_port_range_start | UDP source port number  |                    |
+   +-----------------------+-------------------------+--------------------+
+   | ds.loc                | Talaria TWO ending UDP  | 65535              |
+   | al_udp_port_range_end | source port number      |                    |
+   +-----------------------+-------------------------+--------------------+
+   | ds.local              | Talaria TWO starting    | 49152              |
+   | _tcp_port_range_start | TCP source port number  |                    |
+   +-----------------------+-------------------------+--------------------+
+   | ds.loc                | Talaria TWO ending TCP  | 65535              |
+   | al_tcp_port_range_end | source port number      |                    |
+   +-----------------------+-------------------------+--------------------+
+   | ds.dns_port_start     | Talaria TWO starting    | 49152              |
+   |                       | DNS source port number  |                    |
+   +-----------------------+-------------------------+--------------------+
+
+8. Packet Forward Configuration
+
+..
+
+   The packet forward configuration in the Dual-Stack solution extends
+   the flexibility to configure multiple rules for packet forwarding.
+
+   The packet forward module provides the following features:
+
+a. Packet forwarding based on multiple local port/port ranges
+
+b. Packet forwarding based on multiple remote IP/ports
+
+c. Ability to be configured dynamically, providing the control to have
+   product specific packet forwarding rule
+
+d. Ability to define the packet direction
+
+..
+
+   Following boot argument helps configure the source port ranges for
+   both Host and Talaria TWO:
+
+.. table:: Table 2: Boot argument for packet forwarding configuration
+
+   +-----------------------+-----------------------+----------------------+
+   | **Boot argument**     | **Description**       | **Default Value**    |
+   +=======================+=======================+======================+
+   | ds.pf_method          | Packet forward        | 2                    |
+   |                       | approach              |                      |
+   +-----------------------+-----------------------+----------------------+
+
+9. custom_fos application
+
+..
+
+   This application demonstrates the use of Firmware Upgrade Over
+   Serial. Using this application, Talaria TWO ELF can be upgraded from
+   the Host. Host provides the Talaria TWO ELF to be upgraded. The ELF
+   will be sent over serial using FOS HAPI commands.

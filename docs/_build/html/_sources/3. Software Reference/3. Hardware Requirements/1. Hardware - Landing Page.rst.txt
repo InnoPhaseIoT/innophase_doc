@@ -1,0 +1,43 @@
+The INP3201 Low Power Video Camera Reference Kit empowers embedded
+designers with IoT enabled Wi-Fi camera design for multiple video
+applications like video doorbell, IP camera, security camera, drones
+with camera, video conferencing devices and so on. The integrated T31ZX
+processor on the INP3201 RK acts as a Host processor used as an image
+processing unit and sending the image data to Talaria TWO for Wi-Fi
+transmission.
+
+This is designed as a hardware reference for end-application devices.
+
+This hardware guide describes designing a camera solution using INP10XX
+modules. It further demonstrates Talaria TWO’s multiple operating modes
+and helps evaluate its power save modes as well.
+
+.. table:: Table 1: Talaria TWO modules overview
+
+   +--------------+-------------------------------------------------------+
+   | **Module**   | **Module Description**                                |
+   +==============+=======================================================+
+   | INP1014      | Mini module with integrated PCB antenna               |
+   +--------------+-------------------------------------------------------+
+   | INP1015      | Mini module with u.fl connector for external antenna  |
+   +--------------+-------------------------------------------------------+
+
+**Note**: For module images, mechanical dimensions, footprint and PIN
+out details, refer: *Talaria TWO Module and SoC datasheet*
+(https://innophaseiot.com/portal/portal-hub/).
+
+The hardware design guidelines for the module can be can be broadly
+categorized into the following:
+
+1. Power supply
+
+2. Reset
+
+3. Peripheral interfacing
+
+4. Production programming
+
+5. RF/Antenna section
+
+Power supply, Reset & Peripheral interfacing remain same for all
+variations of the Talaria TWO module family.

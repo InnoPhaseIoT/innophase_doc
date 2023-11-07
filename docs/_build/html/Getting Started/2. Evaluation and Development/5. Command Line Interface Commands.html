@@ -1,0 +1,1926 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Command Line Interface Commands &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Boot Arguments" href="6.%20Boot%20Arguments.html" />
+    <link rel="prev" title="Programming Basic Applications" href="2.%20Programming%20Basic%20Applications%20-%20Dev.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../Getting%20Started%20-%20Landing%20Page.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Getting%20Started%20-%20Landing%20Page.html#key-features">Key Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Getting%20Started%20-%20Landing%20Page.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../Getting%20Started%20-%20Landing%20Page.html#evaluation-and-development">Evaluation and development</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Getting%20Started%20-%20Landing%20Page.html#debugging-an-application">Debugging an Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Getting%20Started%20-%20Landing%20Page.html#power-measurement">Power Measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Getting%20Started%20-%20Landing%20Page.html#memory-mapping">Memory Mapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Getting%20Started%20-%20Landing%20Page.html#landing-page">Landing page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Getting%20Started%20-%20Landing%20Page.html#programming-basic-applications">Programming Basic Applications</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../Getting%20Started%20-%20Landing%20Page.html#command-line-interface-commands">Command Line Interface Commands</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Command Line Interface Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Getting%20Started%20-%20Landing%20Page.html#boot-arguments">Boot Arguments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Software%20Reference/Software_Reference_Landing_Page.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Tools/Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+      <li class="breadcrumb-item active">Command Line Interface Commands</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Getting Started/2. Evaluation and Development/5. Command Line Interface Commands.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="command-line-interface-commands">
+<h1>Command Line Interface Commands<a class="headerlink" href="#command-line-interface-commands" title="Permalink to this heading"></a></h1>
+<p>This section serves as a reference guide for Talaria TWO CLI commands,
+its usage, use case or examples in different scenarios supported by
+Talaria TWO modules.</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
+<p>The subsequent sections introduce the use of commands in the CLI
+environment to access the Talaria TWO (T2) module and configure the
+device to perform various development, automation and testing tasks.</p>
+<p>These commands run Python scripts from the host machine (Windows or
+Linux), in conjunction with the application software that are loaded to
+and are running in the Talaria TWO device. The script files and the
+Talaria TWO reference/example applications are provided in the Talaria
+TWO SDK release package in the following folders:</p>
+<ol class="arabic simple">
+<li><p>freertos_sdk/apps: Talaria TWO applications that are the core and
+basic release applications.</p></li>
+<li><p>freertos_sdk/examples: Collection of Talaria TWO software apps along
+with components for Talaria TWO software development. They are
+organized in various technology areas and implementation examples,
+together with the projects and make files.</p></li>
+<li><p>freertos_sdk/script: Python scripts/utilities to configure and
+program the device.</p></li>
+<li><p>Other folders.</p></li>
+</ol>
+</section>
+<section id="primary-scripts-for-cli-operations">
+<h2>Primary Scripts for CLI Operations<a class="headerlink" href="#primary-scripts-for-cli-operations" title="Permalink to this heading"></a></h2>
+<p>Written in the Python language, three script files for executing CLI
+operations are provided in the SDK for the user’s convenience that can
+be used for evaluation, testing, and development of Talaria TWO based
+systems.</p>
+<ol class="arabic simple">
+<li><p>sdk/script/boot.py</p></li>
+<li><p>sdk/script/flash.py</p></li>
+<li><p>sdk/script/storage.py</p></li>
+</ol>
+<p>Based on the arguments provided command line, the scripts performs
+various functions.</p>
+</section>
+<section id="boot-py">
+<h2>boot.py<a class="headerlink" href="#boot-py" title="Permalink to this heading"></a></h2>
+<p>Following are the basic functionalities of boot.py:</p>
+<ol class="arabic simple">
+<li><p>Load app to memory (RAM) on Talaria TWO module:</p></li>
+</ol>
+<p>This script reads the application (in ELF format) provided in command
+line, along with the arguments to load the app to Talaria TWO in its
+memory, via the host and device interface. USB is used only in the
+evaluation, development or testing phase.</p>
+<ol class="arabic simple" start="2">
+<li><p>Write app to flash on Talaria TWO module:</p></li>
+</ol>
+<p>This script reads the application (in ELF format) provided in command
+line, along with the arguments to write the app to Talaria TWO in its
+flash, with the default handling by the script, via the host and device
+interface. USB is used only in the evaluation, development or testing
+phase.</p>
+<ol class="arabic simple" start="3">
+<li><p>Create .img file from ELF file</p></li>
+</ol>
+<p>This script reads the name of the app file (in ELF format) provided in
+command line to generate the .img file for flash download.</p>
+<p><strong>Note</strong>: Refer section <a class="reference external" href="#using-boot.py">Using boot.py</a> for more
+details.</p>
+</section>
+<section id="flash-py">
+<h2>flash.py<a class="headerlink" href="#flash-py" title="Permalink to this heading"></a></h2>
+<p>Script to read and write to the flash, which requires gordon.elf
+application.</p>
+<p>This section provides details on script usage and prerequisites.</p>
+<p><strong>Note</strong>: Refer section <a class="reference external" href="#using-flash.py">Using flash.py</a> for more
+details.</p>
+<p><strong>Prerequisite/precondition to run flash.py</strong>:</p>
+<ol class="arabic simple" start="4">
+<li><p>Program Talaria TWO with the Gordon app (gordon.elf)</p></li>
+<li><p>gordon.elf application is available from the following folder:
+<em>freertos_sdk_x.y/apps/gordon.elf</em>.</p></li>
+<li><p>Gordon is an application that enables access to Talaria TWO’s flash
+over Host I/O, including partitioning and filesystem access and raw
+reads/writes to flash.</p></li>
+<li><p>Boot.py script is used to program the gordon.elf onto Talaria TWO.
+Execute the following command to accomplish the same:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py [device] &lt;path&gt;/gordon.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Load app .img file to flash on Talaria TWO module:</strong></p>
+<p>This script reads the name of the app file (in .img format) provided in
+command line, along with the arguments to write the app to Talaria TWO
+in its flash with the write command and user-specified location (in
+hex), via the host and device interface (USB/Serial).</p>
+<p>Create image file (.img) from the ELF file of an application:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py –output &lt;output_path&gt;/app.img &lt;elf_path&gt;/app.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Read/Write Partition Table on module:</strong></p>
+<p>This script reads from/writes the partition table on the device (in the
+json file).</p>
+</section>
+<section id="storage-py">
+<h2>storage.py<a class="headerlink" href="#storage-py" title="Permalink to this heading"></a></h2>
+<p>Storage file access utility. Following are the basic file system access
+functionalities of storage.py:</p>
+<ol class="arabic simple">
+<li><p>Display the file system contents</p></li>
+<li><p>Read file from the device to store in the location on host</p></li>
+<li><p>Write file from the host to the device</p></li>
+<li><p>Write the network config file (.json file) into Talaria TWO file
+system to configure L2 parameters such as SSID, passphrase, BSSID,
+security type and certificates for EAP authentication</p></li>
+</ol>
+<p>Refer section <a class="reference external" href="#storage-data-file-readwrite">Storage Data &amp; File:
+Read/Write</a> for the details.</p>
+</section>
+<section id="device-interface-on-host-machine">
+<h2>Device Interface on Host Machine<a class="headerlink" href="#device-interface-on-host-machine" title="Permalink to this heading"></a></h2>
+<p>CLI commands are supported on both Linux and Windows OS. However, there
+are some limitations on the same functionality in the Windows
+environment, which are highlighted in the respective sections.</p>
+</section>
+<section id="device-port-identification-on-linux-os">
+<h2>Device Port Identification on Linux OS<a class="headerlink" href="#device-port-identification-on-linux-os" title="Permalink to this heading"></a></h2>
+<p>Generally, the host interface connected to the device takes the form of
+the device USB ports on Linux OS, /dev/ttyUSBn. Once connected to
+Talaria TWO EVB, the host detects 4 USB ports for the connected device.</p>
+<p>Type in the Ls command in Linux to list the USB ports:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>$ ls /dev/ttyUSB*</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image126.png"><img alt="Text Description automatically generated with medium confidence" src="../../_images/image126.png" style="width: 7.48031in; height: 0.93674in;" /></a></p>
+<p>Figure : USB ports</p>
+<p>From the ports listed, identify the following ports:</p>
+<ol class="arabic simple">
+<li><p>/dev/ttyUSB2: Connected to the peripheral UART of Talaria TWO module</p></li>
+<li><p>/dev/ttyUSB3: Connected to the console port (GPIO17) which is
+unidirectional UART from the Talaria TWO module. It operates at a
+high baud rate 2457600 (default), used for debug prints.</p></li>
+</ol>
+<p>With this information available, all CLI commands should use the
+following argument for the peripheral port to the device in the command
+line:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py –device /dev/ttyUSB2 –reset=evk42_bl
+./apps/hello_world/bin/hello_world.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>This loads the helloworld app provided in SDK to Talaria TWO memory.</p>
+<p>Launch miniterm, a small terminal application, to open the /dev/ttyUSB3
+device port.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>$ miniterm /dev/ttyUSB3 2457600</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>When an application runs on the device, it prints out debug messages
+through the console port.</p>
+<p><a class="reference internal" href="../../_images/image225.png"><img alt="Text Description automatically generated" src="../../_images/image225.png" style="width: 7.48031in; height: 1.6598in;" /></a></p>
+<p>Figure : Debug messages displayed through console port</p>
+<p>If there are multiple Talaria TWO devices where each of them has their
+own console port connected to the host via the USB interface, it will be
+sufficient to use the respective /dev/ttyUSBn with the command.</p>
+<p>For instance, two Talaria TWO devices with USB connected.</p>
+<p><a class="reference internal" href="../../_images/image313.png"><img alt="image1" src="../../_images/image313.png" style="width: 3.26695in; height: 0.25836in;" /></a><a class="reference internal" href="../../_images/image313.png"><img alt="image2" src="../../_images/image313.png" style="width: 3.26695in; height: 0.25836in;" /></a><a class="reference internal" href="../../_images/image410.png"><img alt="image3" src="../../_images/image410.png" style="width: 7.48031in; height: 1.0419in;" /></a></p>
+<p>Figure : 2 Talaria TWO devices with USB connected</p>
+<p>Figure 4 and Figure 5 show that the miniterm app is run on two separate
+terminals using respective device ports to communicate with the
+respective device.</p>
+<p><a class="reference internal" href="../../_images/image59.png"><img alt="image4" src="../../_images/image59.png" style="width: 3in; height: 0.18333in;" /></a><a class="reference internal" href="../../_images/image69.png"><img alt="image5" src="../../_images/image69.png" style="width: 7.48031in; height: 1.50444in;" /></a></p>
+<p>Figure : /dev/ttyUSB3</p>
+<p><a class="reference internal" href="../../_images/image59.png"><img alt="image6" src="../../_images/image59.png" style="width: 3in; height: 0.18333in;" /></a><a class="reference internal" href="../../_images/image79.png"><img alt="image7" src="../../_images/image79.png" style="width: 7.48031in; height: 1.35847in;" /></a></p>
+<p>Figure : /dev/ttyUSB7</p>
+</section>
+<section id="device-port-identification-on-windows-os">
+<h2>Device Port Identification on Windows OS<a class="headerlink" href="#device-port-identification-on-windows-os" title="Permalink to this heading"></a></h2>
+<p>On a Windows platform, some control functionalities associated with the
+CLI device-reset feature requires additional support provided by
+installation of the libusbK library.</p>
+<p>There are two ways for a Windows host to interface with the device EVB
+connected to the host via USB interface:</p>
+<ol class="arabic simple">
+<li><p>A Windows system with the libusbK installed (recommend)</p></li>
+</ol>
+<p>The library can be installed with the Zadig tool: <a class="reference external" href="https://zadig.akeo.ie/">https://zadig.akeo.ie/</a></p>
+<ol class="arabic simple" start="2">
+<li><p>A Windows system without the libusbK installed</p></li>
+</ol>
+<p>This is the default configuration when the EVB with USB is detected by
+Windows. It finds a generic, default USB/Serial driver to handle the
+device interface. In this setup, not all functionalities offered by the
+script tools are available.</p>
+<p>Depending on the environment where the libusbK is installed or not, CLI
+use can be described as follows:</p>
+<p><strong>On Windows Platform with libusbK installed (recommended)</strong></p>
+<p>On this serial communication setup, Windows host is communicating with
+the device using the libusbK driver.</p>
+<p>The libusbK’s installation and use by the host can be checked from the
+Windows Device Manager display.</p>
+<p><a class="reference internal" href="../../_images/image89.png"><img alt="Graphical user interface, text Description automatically generated" src="../../_images/image89.png" style="width: 7.48031in; height: 1.41522in;" /></a></p>
+<p>Figure : libusbK driver installation</p>
+<p>If there are multiple Talaria TWO devices connected, the Windows Device
+Manager appears:</p>
+<p><a class="reference internal" href="../../_images/image99.png"><img alt="Graphical user interface, text, application Description automatically generated" src="../../_images/image99.png" style="width: 7.48031in; height: 1.62708in;" /></a></p>
+<p>Figure : Multiple Talaria TWO devices connected</p>
+<p>With this setup in place, all CLI commands should use the following
+argument for the input port to the device in command line:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ftdi://ftdi:4232/3</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>where,</p>
+<ol class="arabic simple" start="3">
+<li><p>4232: Device ID for the FTDI 4232H device on EVK</p></li>
+<li><p>3: FTDI UART interface ID for the input/programming on EVK</p></li>
+</ol>
+<p>With this information available, all CLI commands should use the
+following argument for the peripheral port to the device in the command
+line:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python script\boot.py –device ftdi://ftdi:4232/3 –reset=evk42_bl
+apps/hello_world/bin/hello_world.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image109.png"><img alt="image8" src="../../_images/image109.png" style="width: 7.48031in; height: 1.21901in;" /></a></p>
+<p>Figure : Flashing to Talaria TWO</p>
+<p>This command loads the helloworld app provided in SDK to Talaria TWO
+memory.</p>
+<p>If there are multiple Talaria TWO devices where each of them has their
+own peripheral port connected to the host via the USB interface, the
+device specifier must be expanded with the serial ID of the device in
+the command line. This is accomplished with the keyword –SN. Execute
+the following steps:</p>
+<ol class="arabic simple">
+<li><p>Append to the device port with the following string:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ftdi://ftdi:4232:<strong>&lt;device_serial_id&gt;</strong>/3, which is followed by: –SN
+<strong>&lt;device_serial_id&gt;</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="2">
+<li><p>Peripheral port to the device in the command line:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python script\boot.py –device ftdi://ftdi:4232:<strong>10110001</strong>/3
+–reset=evk42_bl –SN <strong>10110001</strong>
+apps/hello_world/bin/hello_world.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image1112.png"><img alt="image9" src="../../_images/image1112.png" style="width: 7.48031in; height: 1.15114in;" /></a></p>
+<p>Figure 9: Expanding the device specifier</p>
+<p>&lt;device_serial_id&gt;:</p>
+<p>The hyphen ‘-‘ is a valid character in a serial ID of a device, if
+present. In other words, a serial ID of 11010391 is considered different
+than 1101-0391.</p>
+<p>Example of a device with serial ID 00166d4:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python script\boot.py –device ftdi://ftdi:4232:<strong>0016d4</strong>/3
+–reset=evk42_bl –SN <strong>0016d4</strong> apps/hello_world/bin/hello_world.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image1211.png"><img alt="image10" src="../../_images/image1211.png" style="width: 7.48031in; height: 1.21001in;" /></a></p>
+<p>Figure : Device with serial ID 0016d4</p>
+<p><strong>On Windows Platform using COM port (without the libusbK installed)</strong></p>
+<p>On this serial communication environment, Windows host is communicating
+with the device using the standard (default) USB/Serial driver.</p>
+<p><a class="reference internal" href="../../_images/image137.png"><img alt="Graphical user interface, text, application, chat or text message Description automatically generated" src="../../_images/image137.png" style="width: 4.72441in; height: 1.63298in;" /></a></p>
+<p>Figure : Standard (default) USB/serial driver</p>
+<p>In the listed ports, identify the following ports:</p>
+<ol class="arabic simple">
+<li><p>COM6: Connected to the peripheral UART of Talaria TWO module</p></li>
+<li><p>COM7: Connected to the console port (GPIO17) which is unidirectional
+UART from Talaria TWO module and operates at a high baud rate 2457600
+(default), used for debug print</p></li>
+</ol>
+<p>With this setup in place, all CLI commands can use the following
+argument for the input port to the device in the command line:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python script\boot.py –device COM6 apps\gordon.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>This command loads the gordon app provided in SDK to Talaria TWO memory.</p>
+</section>
+<section id="cli-command-syntax-and-list-parameters">
+<h2>CLI Command Syntax and List Parameters<a class="headerlink" href="#cli-command-syntax-and-list-parameters" title="Permalink to this heading"></a></h2>
+<p>All commands with arguments are entered in a space-separated fashion.</p>
+<p>Positional and Optional Arguments</p>
+<p>Arguments should be passed on to the app to be loaded into the Talaria
+TWO device with the script. There are two different types of arguments:</p>
+<ol class="arabic simple">
+<li><p>Positional Arguments</p></li>
+</ol>
+<p>Positional arguments must be included in the right order. Their
+positions in the sequence should be correct.</p>
+<ol class="arabic simple" start="2">
+<li><p>Optional Arguments</p></li>
+</ol>
+<p>Optional arguments are optional. Defaults will be used when the
+arguments are not specified in the command line.</p>
+</section>
+<section id="using-boot-py">
+<h2>Using boot.py<a class="headerlink" href="#using-boot-py" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Command syntax to run boot.py</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>&lt;path_script&gt;/boot.py [device] &lt;path_app_elf&gt;/app.elf [boot_args]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="2">
+<li><p>where,</p>
+<ol class="loweralpha simple">
+<li><p>&lt;path_script&gt;: Path to the script file. Default: Current folder</p></li>
+<li><p>[device]: Communication device ID with path.</p>
+<ol class="lowerroman simple">
+<li><p>If there is only one Talaria TWO device with USB interface
+connected:</p></li>
+<li><p>Examples: COMn(Windows), /dev/ttyUSBn(Linux),
+ftdi://ftdi:xxxxxx(Windows libusbK installed).</p></li>
+<li><p>If there are multiple Talaria TWO devices where each of them
+has their own peripheral port connected to the host via the
+USB interface:</p></li>
+<li><p>The device specifier must be expanded with the serial ID of
+the device in the command line. This is accomplished with the
+keyword –SN. Execute the following:</p></li>
+<li><p>Command for device ID to the device port as shown above with
+the string is as follows:</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py –device /dev/ttyUSB2 –SN 15100010 –reset=evk42_bl
+bins/iperf3.elf ssid=InnoPhase <a class="reference external" href="mailto:passphrase=Inno&#37;&#52;&#48;9070">passphrase=Inno<span>&#64;</span>9070</a></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>Refer section <a class="reference external" href="#device-interface-on-host-machine">Device Interface on Host
+Machine</a> for information on
+multiple device connection on the host machine (Linux and Windows).</p>
+<p>Default: Windows-none, Linux-/dev/ttyUSB2</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>&lt;path_app_elf&gt;: Path to the app ELF file</p></li>
+<li><p>[boot_args]: Bootargs. Examples: ssid=InnoPhase, <a class="reference external" href="mailto:passphrase=Inno&#37;&#52;&#48;9070">passphrase=Inno<span>&#64;</span>9070</a></p></li>
+</ol>
+<p>Examples:</p>
+<ol class="arabic simple">
+<li><p>If there is only one Talaria TWO device with USB interface connected:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Note: A single line command</p>
+<p>./script/boot.py –device /dev/ttyUSB2 –reset=evk42_bl
+bins/iperf3.elf ssid=InnoPhase <a class="reference external" href="mailto:passphrase=Inno&#37;&#52;&#48;9070">passphrase=Inno<span>&#64;</span>9070</a></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image148.png"><img alt="image11" src="../../_images/image148.png" style="width: 1.475in; height: 0.14167in;" /></a><a class="reference internal" href="../../_images/image156.png"><img alt="image12" src="../../_images/image156.png" style="width: 6.69291in; height: 2.31306in;" /></a></p>
+<p>Figure : Single Talaria TWO device with USB interface</p>
+<ol class="arabic simple" start="2">
+<li><p>If there are multiple Talaria TWO devices connected:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Note: A single line command</p>
+<p>./script/boot.py –device /dev/ttyUSB2 –SN 0016d4 –reset=evk42_bl
+bins/iperf3.elf ssid=Lucy <a class="reference external" href="mailto:passphrase=Password&#37;&#52;&#48;321">passphrase=Password<span>&#64;</span>321</a></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image148.png"><img alt="image13" src="../../_images/image148.png" style="width: 1.475in; height: 0.14167in;" /></a><a class="reference internal" href="../../_images/image167.png"><img alt="image14" src="../../_images/image167.png" style="width: 6.69291in; height: 2.46249in;" /></a></p>
+<p>Figure : Multiple Talaria TWO devices connected</p>
+<p>List Parameters (Manual in Script)</p>
+<p>Type boot.py –help to bring up the manual of the boot.py command list:</p>
+<p><a class="reference internal" href="../../_images/image148.png"><img alt="image15" src="../../_images/image148.png" style="width: 1.475in; height: 0.14167in;" /></a><a class="reference internal" href="../../_images/image176.png"><img alt="image16" src="../../_images/image176.png" style="width: 7.48031in; height: 7.58782in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image186.png"><img alt="image17" src="../../_images/image186.png" style="width: 7.48031in; height: 1.98832in;" /></a></p>
+<p>Figure : boot.py - command list</p>
+</section>
+<section id="using-flash-py">
+<h2>Using flash.py<a class="headerlink" href="#using-flash-py" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Command syntax to run flash.py</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>&lt;path_script&gt;/flash.py [device] &lt;pos_arg&gt; [boot_args]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>where:</p>
+<ol class="loweralpha simple">
+<li><p>&lt;path_script&gt;: Path to the script file. Default: Current folder</p></li>
+<li><p>[device]: Communication device ID with path.</p></li>
+</ol>
+<blockquote>
+<div><p>For example: COMn(Windows), /dev/ttyUSBn(Linux),
+ftdi://ftdi:xxxxxx(Windows libusbK installed).</p>
+<p>Default: Windows-none, Linux-/dev/ttyUSB2</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="3">
+<li><p>&lt;pos_arg&gt;: Positional argument</p></li>
+<li><p>[boot_args]: Bootargs</p></li>
+</ol>
+<p>Example:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/flash.py –device /dev/ttyUSB2 to_json ./brd_0183_part.json</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="2">
+<li><p>List Parameters (Manual in Script)</p></li>
+</ol>
+<p>Type flash.py –help to bring up the manual of the flash.py command
+list:</p>
+<p><a class="reference internal" href="../../_images/image148.png"><img alt="image18" src="../../_images/image148.png" style="width: 0.7in;" /></a><a class="reference internal" href="../../_images/image195.png"><img alt="image19" src="../../_images/image195.png" style="width: 7.08661in; height: 2.87927in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image206.png"><img alt="image20" src="../../_images/image206.png" style="width: 7.08661in; height: 1.01438in;" /></a></p>
+<p>Figure : flash.py - command list</p>
+</section>
+<section id="using-storage-py">
+<h2>Using storage.py<a class="headerlink" href="#using-storage-py" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Command syntax to run storage.py</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>&lt;path_script&gt;/storage.py [device] &lt;pos_arg&gt; [boot_args]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>where:</p>
+<ol class="loweralpha simple">
+<li><p>&lt;path_script&gt;: Path to the script file. Default: Current folder</p></li>
+<li><p>[device]: Communication device ID with path.</p></li>
+</ol>
+<blockquote>
+<div><p>For example: COMn, /dev/ttyUSBn, ftdi://ftdi:xxxxxx. Default:
+Windows-none, Linux-/dev/ttyUSB2</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="3">
+<li><p>&lt;pos_arg&gt;: Positional argument</p></li>
+<li><p>[boot_args]: Bootargs</p></li>
+</ol>
+<p>Example:</p>
+<p>Connect to the Access Point configured in your nprofile.json as</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/storage.py write nprofile.json /data/ nprofile.json</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="2">
+<li><p>List Parameters (Manual in Script)</p></li>
+</ol>
+<p>Type storage.py –help to bring up the manual of the storage.py command
+list:</p>
+<p><a class="reference internal" href="../../_images/image148.png"><img alt="image21" src="../../_images/image148.png" style="width: 0.86765in;" /></a><a class="reference internal" href="../../_images/image2111.png"><img alt="image22" src="../../_images/image2111.png" style="width: 7.08661in; height: 2.49869in;" /></a></p>
+<p>Figure : storage.py command script</p>
+</section>
+<section id="use-cases">
+<h2>Use Cases<a class="headerlink" href="#use-cases" title="Permalink to this heading"></a></h2>
+</section>
+<section id="linux-platform">
+<h2>Linux Platform<a class="headerlink" href="#linux-platform" title="Permalink to this heading"></a></h2>
+</section>
+<section id="reset-device">
+<h2>Reset Device<a class="headerlink" href="#reset-device" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Normal Device Reset</strong></p></li>
+</ol>
+<p>Reset the device.</p>
+<p><strong>Command syntax</strong>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py [device] <strong>–reset=evk42_bl</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image148.png"><img alt="image23" src="../../_images/image148.png" style="width: 1.475in; height: 0.14167in;" /></a><a class="reference internal" href="../../_images/image148.png"><img alt="image24" src="../../_images/image148.png" style="width: 1.475in; height: 0.14167in;" /></a><a class="reference internal" href="../../_images/image226.png"><img alt="image25" src="../../_images/image226.png" style="width: 7.08661in; height: 0.83109in;" /></a></p>
+<p>Figure : Normal device reset - terminal output</p>
+<ol class="arabic simple">
+<li><p><strong>Device Reset with Inhibiting-flash-boot (Boot loader mode)</strong></p></li>
+</ol>
+<blockquote>
+<div><p>Reset the device with the inhibiting-flash-boot feature.</p>
+<p>If the device has app code stored in flash from which the device will
+boot, this special reset command is required which will allow
+flashing of a new app code.</p>
+<p><strong>Command syntax</strong>:</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py [device] <strong>–reset=evk42_bl</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image148.png"><img alt="image26" src="../../_images/image148.png" style="width: 0.91667in;" /></a><a class="reference internal" href="../../_images/image234.png"><img alt="image27" src="../../_images/image234.png" style="width: 5.88192in; height: 0.50449in;" /></a></p>
+</div></blockquote>
+<p>Figure : inhibiting-flash-boot - terminal output</p>
+<blockquote>
+<div><p>This reset will trigger Talaria TWO to abort from device port link
+(expected).</p>
+<p><a class="reference internal" href="../../_images/image244.png"><img alt="image28" src="../../_images/image244.png" style="width: 5.90551in; height: 1.05263in;" /></a></p>
+</div></blockquote>
+<p>Figure : Abort from device port link</p>
+<blockquote>
+<div><p>Launch miniterm to resume the device port connection.</p>
+<p><a class="reference internal" href="../../_images/image254.png"><img alt="image29" src="../../_images/image254.png" style="width: 5.90551in; height: 0.59042in;" /></a></p>
+</div></blockquote>
+<p>Figure : Resume device port connection</p>
+<ol class="arabic simple" start="2">
+<li><p><strong>Reset with Inhibiting-flash-boot with booting Gordon</strong></p></li>
+</ol>
+<blockquote>
+<div><p>Reset the device with inhibiting-flash-boot and boot the gordon app.</p>
+<p>This combination of commands is for the host to obtain access to the
+storage on Talaria TWO and operate read/write data.</p>
+<p><strong>Command syntax</strong>:</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py [device] <strong>–reset=evk42_bl</strong> apps/gordon.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/image148.png"><img alt="image30" src="../../_images/image148.png" style="width: 0.84236in;" /></a><a class="reference internal" href="../../_images/image148.png"><img alt="image31" src="../../_images/image148.png" style="width: 0.86765in;" /></a><a class="reference internal" href="../../_images/image264.png"><img alt="image32" src="../../_images/image264.png" style="width: 5.90551in; height: 0.87719in;" /></a></p>
+</div></blockquote>
+<p>Figure : Inhibiting-flash-boot with booting Gordon - terminal output</p>
+</section>
+<section id="program-app-in-memory">
+<h2>Program App in Memory<a class="headerlink" href="#program-app-in-memory" title="Permalink to this heading"></a></h2>
+<p>Program app in Talaria TWO memory.</p>
+<p><strong>Command syntax</strong>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py [device] <strong>–reset=evk42</strong> &lt;path&gt;/app.elf [boot_args
+list]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image148.png"><img alt="image33" src="../../_images/image148.png" style="width: 0.86736in;" /></a> <a class="reference internal" href="../../_images/image274.png"><img alt="image34" src="../../_images/image274.png" style="width: 7.48031in; height: 1.21486in;" /></a></p>
+<p>Figure : Programming app in Talaria TWO memory - terminal output</p>
+</section>
+<section id="erase-image-or-program-new-image-in-flash">
+<h2>Erase Image or Program New Image in Flash<a class="headerlink" href="#erase-image-or-program-new-image-in-flash" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Erase Image in Flash</p></li>
+</ol>
+<p>The following command erases the app code in flash:</p>
+<ol class="loweralpha simple">
+<li><p>Reset device with inhibiting-flash-boot and load gordon.elf (if not
+done already)</p></li>
+<li><p>Flash empty.img</p></li>
+</ol>
+<p><strong>Command syntax</strong>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/flash.py [device] <strong>write 0x1000 &lt;path&gt;/empty.img</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image284.png"><img alt="image35" src="../../_images/image284.png" style="width: 6.88976in; height: 0.73377in;" /></a></p>
+<p>Figure : Flash empty.img</p>
+<p>Button reset to confirm the erase operation is a success.</p>
+<p><a class="reference internal" href="../../_images/image292.png"><img alt="image36" src="../../_images/image292.png" style="width: 6.88976in; height: 1.44596in;" /></a></p>
+<p>Figure : Erase operation success</p>
+<ol class="arabic simple" start="2">
+<li><p>Program New Image in Flash</p></li>
+</ol>
+<p><strong>Command syntax</strong>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py [device] <strong>–reset=evk42_bl</strong> <strong>–flash=all</strong>
+&lt;path&gt;/app.elf [boot_args_list]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image148.png"><img alt="image37" src="../../_images/image148.png" style="width: 0.86765in;" /></a><a class="reference internal" href="../../_images/image148.png"><img alt="image38" src="../../_images/image148.png" style="width: 0.86765in;" /></a><a class="reference internal" href="../../_images/image302.png"><img alt="image39" src="../../_images/image302.png" style="width: 6.88976in; height: 1.21783in;" /></a></p>
+<p>Figure : Program new image to flash</p>
+<p>Button reset to confirm the flash operation a success.</p>
+<p><a class="reference internal" href="../../_images/image314.png"><img alt="image40" src="../../_images/image314.png" style="width: 6.88976in; height: 1.53348in;" /></a></p>
+<p>Figure : Flash operation success</p>
+</section>
+<section id="storage-data-file-read-write">
+<h2>Storage Data &amp; File: Read/Write<a class="headerlink" href="#storage-data-file-read-write" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Read Partition Table from Device (to_json)</strong></p></li>
+</ol>
+<p>Reading file from device involves storage access. Hence, running of
+Gordon on the device is necessary.</p>
+<ol class="loweralpha simple">
+<li><p>Reset device with inhibiting-flash-boot and load gordon.elf (if not
+done already)</p></li>
+<li><p>Run the flash.py with the command: to_json</p></li>
+</ol>
+<p><strong>Command syntax</strong>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/flash.py [device] <strong>to_json</strong>
+&lt;user_specify_path&gt;/&lt;user_spefcify_name&gt;.json</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image148.png"><img alt="image41" src="../../_images/image148.png" style="width: 0.86736in;" /></a><a class="reference internal" href="../../_images/image148.png"><img alt="image42" src="../../_images/image148.png" style="width: 0.86736in;" /></a><a class="reference internal" href="../../_images/image321.png"><img alt="image43" src="../../_images/image321.png" style="width: 6.88976in; height: 0.91034in;" /></a></p>
+<p>Figure : Inhibiting-flash-boot and load gordon.elf</p>
+<p>Display of the board_356.json file</p>
+<p><a class="reference internal" href="../../_images/image331.png"><img alt="Text, timeline Description automatically generated" src="../../_images/image331.png" style="width: 3.93701in; height: 8.27202in;" /></a></p>
+<p>Figure : Display of the board_356.json file</p>
+<ol class="arabic simple" start="2">
+<li><p><strong>Write Partition Table in Device (from_json)</strong></p></li>
+</ol>
+<p>Writing file to device involves storage access. Hence, running of Gordon
+on the device is necessary.</p>
+<ol class="loweralpha simple">
+<li><p>Reset device with inhibiting-flash-boot and load gordon.elf (if not
+done already)</p></li>
+<li><p>Run the flash.py with the command: from_json</p></li>
+</ol>
+<p><strong>Command syntax</strong>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py [device] <strong>–reset=evk42_bl</strong> &lt;path&gt;/gordon.elf</p>
+<p>./script/flash.py [device] <strong>from_json</strong>
+&lt;user_specify_path&gt;/&lt;user_spefcify_name&gt;.json</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="3">
+<li><p><strong>Show File System Contents</strong></p></li>
+</ol>
+<p>Display the file system contents.</p>
+<ol class="loweralpha simple">
+<li><p>Reset device with inhibiting-flash-boot and load gordon.elf (if not
+done already)</p></li>
+<li><p>Run the storage.py with the command: tree</p></li>
+</ol>
+<p><strong>Command syntax</strong>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/storage.py <strong>tree</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image341.png"><img alt="image44" src="../../_images/image341.png" style="width: 6.88976in; height: 3.34672in;" /></a></p>
+<p>Figure : Show file system contents</p>
+<ol class="arabic simple" start="4">
+<li><p><strong>Read File and Store to Location on Host</strong></p></li>
+</ol>
+<p>Read file from the file system and store it in host.</p>
+<ol class="loweralpha simple">
+<li><p>Reset device with inhibiting-flash-boot and load gordon.elf (if not
+done already)</p></li>
+<li><p>Run the storage.py with the command: read</p></li>
+</ol>
+<p><strong>Command syntax</strong>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/storage.py <strong>read</strong> &lt;path_read&gt;/&lt;file_name_read&gt;
+<strong>–output</strong> &lt;path_write&gt;/&lt;file_name_write&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>The file is created:</p>
+<p><a class="reference internal" href="../../_images/image351.png"><img alt="Shape, rectangle Description automatically generated with medium confidence" src="../../_images/image351.png" style="width: 4.72441in; height: 0.99213in;" /></a></p>
+<p>Figure : File creation</p>
+<ol class="arabic simple" start="5">
+<li><p><strong>Write File to Device</strong></p></li>
+</ol>
+<p>Write file from host to the device in file system.</p>
+<ol class="loweralpha simple">
+<li><p>Reset device with inhibiting-flash-boot and load gordon.elf (if not
+done already)</p></li>
+<li><p>Run the storage.py with the command: write</p></li>
+</ol>
+<p><strong>Command syntax</strong>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/storage.py <strong>write</strong> &lt;path_read&gt;/&lt;file_name_read&gt;
+&lt;path_write&gt;/file_name_write&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image148.png"><img alt="image45" src="../../_images/image148.png" style="width: 0.94488in;" /></a><a class="reference internal" href="../../_images/image361.png"><img alt="image46" src="../../_images/image361.png" style="width: 6.88976in; height: 0.23885in;" /></a></p>
+<p>Figure : Running storage.py - write</p>
+<p>Use ./script/storage.py tree command to check the new file on Talaria
+TWO file system:</p>
+<p><a class="reference internal" href="../../_images/image148.png"><img alt="image47" src="../../_images/image148.png" style="width: 1.07083in; height: 0.10285in;" /></a><a class="reference internal" href="../../_images/image148.png"><img alt="image48" src="../../_images/image148.png" style="width: 1.07083in; height: 0.10285in;" /></a><a class="reference internal" href="../../_images/image371.png"><img alt="image49" src="../../_images/image371.png" style="width: 6.88976in; height: 1.88958in;" /></a></p>
+<p>Figure : Check new file on Talaria TWO file system</p>
+<p>Example: Load certificates</p>
+<ol class="loweralpha simple">
+<li><p>$ ./script/storage.py write rootCACert.pem /data/ca.pem</p></li>
+<li><p>$ ./script/storage.py write client_cert.pem /data/client.pem</p></li>
+<li><p>$ ./script/storage.py write client_key.pem /data/client.key</p></li>
+</ol>
+</section>
+<section id="network-profile">
+<h2>Network Profile<a class="headerlink" href="#network-profile" title="Permalink to this heading"></a></h2>
+<p>The Wi-Fi network profile stores the configuration of the Wi-Fi network
+with parameters such as SSID, passphrase, BSSID, security type etc.
+Network profile can be created from the JSON data.</p>
+<p>JSON data can be stored in either:</p>
+<ol class="arabic simple">
+<li><p>The filesystem: Build a network profile from a file in Talaria TWO
+filesystem given by the path in Talaria TWO filesystem</p></li>
+</ol>
+<p>or</p>
+<ol class="arabic simple" start="2">
+<li><p>A string: JSON string which describes and parses the network profile</p></li>
+</ol>
+<p>Characteristics of creating JSON network profile:</p>
+<ol class="arabic simple">
+<li><p>All network profiles MUST start with { and end with }.</p></li>
+<li><p>The network profile contents use the form (“key”: “value”) pairs.</p></li>
+<li><p>All the (“key”: “value”) pairs MUST be followed by a comma (,) EXCEPT
+the last row.</p></li>
+<li><p>There is NO COMMA at the end of the network profile.</p></li>
+<li><p>Mandatory fields MUST always be present, otherwise, parsing the
+network profile will fail.</p></li>
+<li><p>If a passphrase contains double quotes, for example: “my_secret”, a
+backslash MUST preceded the double quotes, i.e., “passphrase”:
+“\”my_secret\””.</p></li>
+</ol>
+<p><strong>Note</strong>:</p>
+<p>To avoid recomputing the PMK for each connection (WPA/WPA2-PSK), it can
+be stored in Talaria TWO’s flash. This can be done by a pmk_path key and
+the location of PMK file in Talaria TWO flash. There are two new keys to
+make it easier in creating network profiles:</p>
+<ol class="arabic simple">
+<li><p>security_type key which replaces the old np_type in network profiles
+and can have the following values depending the type of the network:</p>
+<ol class="loweralpha simple">
+<li><p>open</p></li>
+<li><p>wpa_psk or wpa2_psk</p></li>
+<li><p>wpa3_psk</p></li>
+<li><p>wpa23_psk</p></li>
+<li><p>enterprise</p></li>
+</ol>
+</li>
+<li><p>auth_type key which can ONLY be used when configuring enterprise
+network profiles and describes the authentication protocol. Values
+for auth_type can be:</p>
+<ol class="loweralpha simple">
+<li><p>eap_psk</p></li>
+<li><p>eap_tls</p></li>
+<li><p>eap_peap</p></li>
+</ol>
+</li>
+</ol>
+<p>Following are some examples of JSON data specifying different network
+profiles:</p>
+<ol class="arabic simple">
+<li><p><strong>Open security</strong>:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>{</p>
+<p>“security_type”: “open”</p>
+<p>“ssid”: “my_ap_ssid”</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Profile fields:</p>
+<ol class="loweralpha simple">
+<li><p>Mandatory – security_type, ssid</p></li>
+<li><p>Optional – bssid</p></li>
+</ol>
+<ol class="arabic simple" start="2">
+<li><p><strong>WPA/WPA2-PSK</strong>:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>{</p>
+<p>“security_type”: “wpa23_psk”,</p>
+<p>“ssid”: “my_wpa2_ap_ssid”,</p>
+<p>“passphrase”: “my_wpa2_passphrase”</p>
+<p>“pmk_path”: “sys/pmkey_fname.data”</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Profile fields:</p>
+<ol class="loweralpha simple">
+<li><p>Mandatory – security_type, ssid, passphrase</p></li>
+<li><p>Optional – bssid, pmk_path</p></li>
+</ol>
+<ol class="arabic simple" start="3">
+<li><p><strong>WPA/WPA2-PSK</strong> specifying one specific AP among several with same
+SSID. BSSID is the APs mac address:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>{</p>
+<p>“security_type”: “wpa2_psk”,</p>
+<p>“ssid”: “my_wpa2_ap_ssid”,</p>
+<p>“passphrase”: “my_wpa2_passphrase”,</p>
+<p>“bssid”: “my_ap_bssid”</p>
+<p>“pmk_path”: “/data/pmkey.data”</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Profile fields:</p>
+<ol class="loweralpha simple">
+<li><p>Mandatory – security_type, ssid, passphrase</p></li>
+<li><p>Optional – bssid, pmk_path</p></li>
+</ol>
+<ol class="arabic simple" start="4">
+<li><p><strong>WPA3-PSK (SAE)</strong> only:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>{</p>
+<p>“security_type”: “wpa3_psk”,</p>
+<p>“ssid”: “my_wpa3_ap_ssid”,</p>
+<p>“sae_password”: “my_sae_password”</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Profile fields</p>
+<ol class="loweralpha simple">
+<li><p>Mandatory: security_type, ssid, sae_password</p></li>
+<li><p>Optional : sae_password_id, bssid</p></li>
+</ol>
+<ol class="arabic simple" start="5">
+<li><p><strong>WPA/WPA2-PSK and WPA3-PSK.</strong> If WPA3 is available, it will be given
+a higher priority:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>{</p>
+<p>“security_type”: “wpa23_psk”,</p>
+<p>“ssid”: “my_wpa2_wpa3_ap_ssid”,</p>
+<p>“sae_password”: “my_sae_password”</p>
+<p>“passphrase”: “my_wpa2_passphrase”</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Profile fields</p>
+<ol class="loweralpha simple">
+<li><p>Mandatory: security_type, ssid, sae_password, passphrase</p></li>
+<li><p>Optional : bssid</p></li>
+</ol>
+<ol class="arabic simple" start="6">
+<li><p><strong>EAP-PSK</strong> Enterprise security:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>{</p>
+<p>“security_type”: “enterprise”,</p>
+<p>“auth_type”: “eap_psk”,</p>
+<p>“ssid”: “my_eap_psk_ap_ssid”,</p>
+<p>“passphrase”: “my_eap_psk_passphrase”,</p>
+<p>“identity”: “my_eap_identity”</p>
+<p>}</p>
+<p>Profile fields</p>
+<p>Mandatory: security_type, auth_type, ssid, passphrase, identity</p>
+<p>Optional : bssid }</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<section id="id3">
+<h3><a href="#id1"><span class="problematic" id="id2">**</span></a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<ol class="arabic simple" start="7">
+<li><p><strong>EAP-TLS</strong> Enterprise security.</p></li>
+</ol>
+<p><strong>Note</strong>: Storing the certificate and key files on flash is not part of
+the network profile functionality.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>{</p>
+<p>“security_type”: “enterprise”,</p>
+<p>“auth_type”: “eap_tls”,</p>
+<p>“ssid”: “my_eap_tls_ap_ssid”,</p>
+<p>“identity”: “my_eap_tls_identity”,</p>
+<p>“ca_path”: “/data/ca.pem”,</p>
+<p>“cert_path”: “/data/client.pem”,</p>
+<p>“pkey_path”: “/data/client.key”,</p>
+<p>“pkey_pwd”: “my_key_password”</p>
+<p>}</p>
+<p>Profile fields</p>
+<p>Mandatory: security_type, auth_type, ssid, identity, ca_path,
+cert_path, pkey_path</p>
+<p>Optional : bssid, pkey_pwd, dh_path, server_hostname</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="8">
+<li><p><strong>EAP-PEAP/MSCHAPv2</strong> Enterprise security:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>{</p>
+<p>“security_type”: “enterprise”,</p>
+<p>“auth_type”: “eap_peap”,</p>
+<p>“ssid”: “my_eap_peap-mschapv2_ssid”,</p>
+<p>“identity”: “my_eap_peap_identity”,</p>
+<p>“ca_path”: “/data/ca.pem”,</p>
+<p>“identity2”: “eap-peap”,</p>
+<p>“password”: “password”,</p>
+<p>“phase2auth”:”MSCHAPv2”</p>
+<p>}</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Profile fields</p>
+<ol class="loweralpha simple">
+<li><p>Mandatory: security_type, auth_type, ssid, identity, ca_path,
+identity2, password, phase2auth</p></li>
+<li><p>Optional : bssid, server_hostname.</p></li>
+</ol>
+<blockquote>
+<div><p><strong>Note</strong>: For “phase2auth”, the key MUST always be “phase2auth”:
+while the VALUE can be, For example: “MSCHAPv2”, “mschapv2” or
+“MsChAPv2” or any other similar lower/upper case letter combination.</p>
+</div></blockquote>
+<p><strong>Prerequisites:</strong></p>
+<p>To upload network profile into Talaria TWO file system, running of
+Gordon on the device is necessary.</p>
+<ol class="arabic simple">
+<li><p>Reset device with inhibiting-flash-boot and load gordon.elf (if not
+done already)</p></li>
+<li><p>Write network profile JSON to Talaria TWO</p></li>
+</ol>
+<p><strong>Command syntax:</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/storage.py [device] write
+&lt;user_specify_path&gt;/&lt;user_spefcify_name&gt;.json
+/data/&lt;user_specify_name&gt;.json</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: It is a single line command.</p>
+<p><strong>Steps:</strong></p>
+<ol class="arabic simple">
+<li><p>Create a Network Profile File(JSON file).</p></li>
+</ol>
+<p>Create a file and name anywhere in your PC and name it <strong>nprofile.json</strong>
+or <strong>&lt;file_name&gt;.json</strong>, and copy the following contents (we assume we
+are connecting to a WPA2-PSK network):</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>{</p>
+<p>“security_type”:”wpa23_psk”,</p>
+<p>“ssid”: “My-AP-Name”,</p>
+<p>“passphrase”: “0CD7AC607B”</p>
+<p>}</p>
+<p>nprofile.json file:</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="2">
+<li><p>To upload our network profile into Talaria file system, start
+<strong>gordon.elf</strong> and reset in bootloader mode.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py –reset=evk42_bl apps/gordon.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image148.png"><img alt="image50" src="../../_images/image148.png" style="width: 1.475in; height: 0.14167in;" /></a><a class="reference internal" href="../../_images/image148.png"><img alt="image51" src="../../_images/image148.png" style="width: 1.475in; height: 0.14167in;" /></a><a class="reference internal" href="../../_images/image381.png"><img alt="image52" src="../../_images/image381.png" style="width: 6.88976in; height: 1.63375in;" /></a></p>
+<p>Figure : Starting gordon.elf</p>
+<ol class="arabic simple" start="3">
+<li><p>Use <strong>storage.py</strong> to write the network config file
+(<strong>nprofile.json</strong>) into Talaria TWO file system in the partition
+/data.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/storage.py write nprofile.json /data/nprofile.json</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Command Log:</p>
+<p><a class="reference internal" href="../../_images/image148.png"><img alt="image53" src="../../_images/image148.png" style="width: 1.475in; height: 0.14167in;" /></a><a class="reference internal" href="../../_images/image148.png"><img alt="image54" src="../../_images/image148.png" style="width: 1.475in; height: 0.14167in;" /></a><a class="reference internal" href="../../_images/image391.png"><img alt="image55" src="../../_images/image391.png" style="width: 6.88976in; height: 0.81775in;" /></a></p>
+<p>Figure : Writing network config file</p>
+<ol class="arabic simple" start="4">
+<li><p>Program (RAM/FLASH) application to connect to the Access Point
+configured in <strong>nprofile.json</strong> as:</p>
+<ol class="loweralpha simple">
+<li><p>Program RAM:</p></li>
+</ol>
+</li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py –reset=evk42_bl
+examples/using_wifi/bin/wifi_connect.elf
+np_conf_path=/data/nprofile.json</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>Command Log:</p>
+<p><a class="reference internal" href="../../_images/image148.png"><img alt="image56" src="../../_images/image148.png" style="width: 1.475in; height: 0.14167in;" /></a><a class="reference internal" href="../../_images/image40.png"><img alt="image57" src="../../_images/image40.png" style="width: 6.49606in; height: 2.21795in;" /></a></p>
+</div></blockquote>
+<p>Figure : Program RAM to connect to AP</p>
+<ol class="loweralpha simple" start="2">
+<li><p>Program FLASH:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python ./script/boot.py –reset=evk42_bl –flash=all
+examples/using_wifi/bin/wifi_connect.elf
+np_conf_path=/data/nprofile.json</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>Command Log:</p>
+<p><a class="reference internal" href="../../_images/image148.png"><img alt="image58" src="../../_images/image148.png" style="width: 1.475in; height: 0.14167in;" /></a><a class="reference internal" href="../../_images/image411.png"><img alt="image59" src="../../_images/image411.png" style="width: 6.49606in; height: 2.47363in;" /></a></p>
+</div></blockquote>
+<p>Figure : Program Flash to connect to AP</p>
+</section>
+</section>
+<section id="windows-platform-libusbk-installed">
+<h2>Windows Platform – libusbK Installed<a class="headerlink" href="#windows-platform-libusbk-installed" title="Permalink to this heading"></a></h2>
+</section>
+<section id="reset-device-1">
+<span id="id4"></span><h2>Reset Device<a class="headerlink" href="#reset-device-1" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Device Reset</strong></p></li>
+</ol>
+<p>Reset the device.</p>
+<p><strong>Command syntax</strong>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python script\boot.py [device] <strong>–reset=evk42</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image421.png"><img alt="image60" src="../../_images/image421.png" style="width: 6.88976in; height: 0.59265in;" /></a></p>
+<p>Figure : Device reset</p>
+<ol class="arabic simple" start="2">
+<li><p><strong>Device Reset with Inhibiting-flash-boot</strong></p></li>
+</ol>
+<p>Reset the device with the inhibiting-flash-boot feature.</p>
+<p>If the device has app code stored in flash from which the device will
+boot, this special reset command is required which will allow to flash a
+new app code.</p>
+<p><strong>Command syntax</strong>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python script\boot.py [device] <strong>–reset=evk42_bl</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image431.png"><img alt="image61" src="../../_images/image431.png" style="width: 6.88976in; height: 0.65261in;" /></a></p>
+<p>Figure : Device Reset with Inhibiting-flash-boot</p>
+<p>The device has been put into the programming mode
+(inhibiting-flash-boot).</p>
+<ol class="arabic simple" start="3">
+<li><p><strong>Reset with Inhibiting-flash-boot and booting Gordon</strong></p></li>
+</ol>
+<p>Reset the device with inhibiting-flash-boot and boot Gordon app.</p>
+<p>This combination of commands is for the host to obtain access to the
+storage on Talaria TWO and operate read/write data.</p>
+<p><strong>Command syntax:</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python script\boot.py [device] <strong>–reset=evk42_bl</strong> apps\gordon.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image441.png"><img alt="image62" src="../../_images/image441.png" style="width: 6.88976in; height: 1.03219in;" /></a></p>
+<p>Figure : Reset with Inhibiting-flash-boot with booting Gordon</p>
+</section>
+<section id="program-app-in-memory-1">
+<span id="id5"></span><h2>Program App in Memory<a class="headerlink" href="#program-app-in-memory-1" title="Permalink to this heading"></a></h2>
+<p>Program app in Talaria TWO memory, assuming Talaria TWO has no code
+stored in flash to boot from.</p>
+<p><strong>Command syntax</strong>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python script\boot.py [device] <strong>–reset=evk42</strong> &lt;path&gt;\app.elf
+[boot_args_list]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image451.png"><img alt="image63" src="../../_images/image451.png" style="width: 7.48031in; height: 2.35145in;" /></a></p>
+<p>Figure : Program app in Talaria TWO memory</p>
+</section>
+<section id="erase-image-or-program-new-image-in-flash-1">
+<span id="id6"></span><h2>Erase Image or Program New Image in Flash<a class="headerlink" href="#erase-image-or-program-new-image-in-flash-1" title="Permalink to this heading"></a></h2>
+<p><strong>Erase Image in Flash</strong></p>
+<p>The following command erases the app code in flash:</p>
+<ol class="loweralpha simple">
+<li><p>Reset device with inhibiting-flash-boot and load gordon.elf (if not
+done so)</p></li>
+<li><p>Flash empty.img</p></li>
+</ol>
+<p><strong>Command syntax</strong>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python script\flash.py [device] <strong>write 0x1000 &lt;path&gt;\empty.img</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image461.png"><img alt="image64" src="../../_images/image461.png" style="width: 7.48031in; height: 0.62845in;" /></a></p>
+<p>Figure : Erase image in flash</p>
+<p><strong>Program New Image in Flash</strong></p>
+<p><strong>Command syntax</strong>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python script\boot.py [device] <strong>–reset=evk42_bl</strong> <strong>–flash=all</strong>
+&lt;path&gt;\app.elf [boot_args_list]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image471.png"><img alt="image65" src="../../_images/image471.png" style="width: 7.48031in; height: 2.1125in;" /></a></p>
+<p>Figure : Program new image in flash</p>
+</section>
+<section id="storage-data-file-readwrite-1">
+<span id="id7"></span><h2>Storage Data &amp; File: Read/Write<a class="headerlink" href="#storage-data-file-readwrite-1" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Read Partition Table from Device (to_json)</strong></p></li>
+</ol>
+<p>Reading file from device involves storage access. Hence, the running of
+Gordon on the device is necessary.</p>
+<ol class="loweralpha simple">
+<li><p>Reset device with inhibiting-flash-boot and load gordon.elf (if not
+done already)</p></li>
+<li><p>Run the flash.py with the command: to_json</p></li>
+</ol>
+<p><strong>Command syntax:</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python script\flash.py [device] <strong>to_json</strong>
+&lt;user_specify_path&gt;\&lt;user_spefcify_name&gt;.json</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image481.png"><img alt="image66" src="../../_images/image481.png" style="width: 6.88976in; height: 1.51192in;" /></a></p>
+<p>Figure : Read Partition Table from device</p>
+<p>Display of the board_0183.json file</p>
+<p><a class="reference internal" href="../../_images/image331.png"><img alt="image67" src="../../_images/image331.png" style="width: 3.93701in; height: 8.27202in;" /></a></p>
+<p>Figure : Display of the board_0183.json file</p>
+<ol class="arabic simple" start="2">
+<li><p><strong>Write Partition Table in Device (from_json)</strong></p></li>
+</ol>
+<p>Writing file to device involves storage access. Hence, running of Gordon
+on the device is necessary.</p>
+<ol class="loweralpha simple">
+<li><p>Reset device with inhibiting-flash-boot and load gordon.elf (if not
+done already)</p></li>
+<li><p>Run the flash.py with the command: from_json</p></li>
+</ol>
+<p><strong>Command syntax:</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python script\flash.py [device] <strong>from_json</strong>
+&lt;user_specify_path&gt;/&lt;user_spefcify_name&gt;.json</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image491.png"><img alt="image68" src="../../_images/image491.png" style="width: 6.88976in; height: 1.67906in;" /></a></p>
+<p>Figure : Write Partition Table in device</p>
+<ol class="arabic simple" start="3">
+<li><p><strong>Show File System Contents</strong></p></li>
+</ol>
+<p>Display the file system contents.</p>
+<ol class="loweralpha simple">
+<li><p>Reset device with inhibiting-flash-boot and load gordon.elf (if not
+done already)</p></li>
+<li><p>Run the storage.py with the command: tree</p></li>
+</ol>
+<p><strong>Command syntax</strong>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python script\storage.py [device] <strong>tree</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image50.png"><img alt="image69" src="../../_images/image50.png" style="width: 6.88976in; height: 2.91284in;" /></a></p>
+<p>Figure : Show file system contents</p>
+<ol class="arabic simple" start="4">
+<li><p><strong>Read File and Store to Location on Host</strong></p></li>
+</ol>
+<p>Read file from the file system and store it in host.</p>
+<ol class="loweralpha simple">
+<li><p>Reset device with inhibiting-flash-boot and load gordon.elf (if not
+done already)</p></li>
+<li><p>Run the storage.py with the command: read</p></li>
+</ol>
+<p><strong>Command syntax</strong>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python script\storage.py [device] <strong>read</strong>
+&lt;path_read&gt;\&lt;file_name_read&gt; <strong>–output</strong>
+&lt;path_write&gt;/&lt;file_name_write&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: Single line command.</p>
+<p><a class="reference internal" href="../../_images/image511.png"><img alt="image70" src="../../_images/image511.png" style="width: 6.88976in; height: 0.42423in;" /></a></p>
+<p>Figure : Read file and store to location on host</p>
+<p>The file is created as per user entry:</p>
+<p><a class="reference internal" href="../../_images/image521.png"><img alt="image71" src="../../_images/image521.png" style="width: 6.9685in; height: 0.88921in;" /></a></p>
+<p>Figure : File creation</p>
+<ol class="arabic simple" start="5">
+<li><p><strong>Write File to Device</strong></p></li>
+</ol>
+<p>Write file from host to the device in file system.</p>
+<ol class="loweralpha simple">
+<li><p>Reset device with inhibiting-flash-boot and load gordon.elf (if not
+done already)</p></li>
+<li><p>Run the storage.py with the command: write</p></li>
+</ol>
+<p><strong>Command syntax:</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python script\storage.py [device] <strong>write</strong>
+&lt;path_read&gt;\&lt;file_name_read&gt; &lt;path_write&gt;\file_name_write&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: A single line command.</p>
+<p><a class="reference internal" href="../../_images/image531.png"><img alt="image72" src="../../_images/image531.png" style="width: 6.88976in; height: 0.73172in;" /></a></p>
+<p>Figure : Write file to device</p>
+<p>Use the ./script/storage.py tree command to check the new file on
+Talaria TWO file system:</p>
+<p><a class="reference internal" href="../../_images/image541.png"><img alt="image73" src="../../_images/image541.png" style="width: 6.88976in; height: 3.08859in;" /></a></p>
+<p>Figure : Check new file on Talaria TWO file system</p>
+<p>To retrieve the COM ports on the device, the libusbK drivers need to be
+uninstalled.</p>
+<p>For more details on updating the libusbK drivers to COM port, refer
+section: <em>Update Driver from libusbK to COM Port</em> of document
+UG_Download_Tool.pdf (<em>freertos_sdk_x.y\pc_tools\Download_Tool\doc</em>).</p>
+<p><strong>Note</strong>: x and y in freertos_sdk_x.y refer to the SDK release version.</p>
+</section>
+<section id="reset-device-2">
+<span id="id8"></span><h2>Reset Device<a class="headerlink" href="#reset-device-2" title="Permalink to this heading"></a></h2>
+<p>All command reset is not supported under this setup.</p>
+<p>Depending on the requirement to reset the device manually, execute the
+following steps:</p>
+<ol class="arabic simple">
+<li><p>Reset the device manually:</p>
+<ol class="loweralpha simple">
+<li><p>Press the RESET button on Talaria TWO EVB</p></li>
+</ol>
+</li>
+<li><p>Inhibiting-flash-boot (to re-enable programming):</p>
+<ol class="loweralpha simple">
+<li><p>Short GPIO17 to GND</p></li>
+<li><p>Press the RESET button on EVB</p></li>
+<li><p>Un-short GPIO17 and GND</p></li>
+<li><p>Load gordon.elf from host, using boot.py</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="load-gordon">
+<h2>Load Gordon<a class="headerlink" href="#load-gordon" title="Permalink to this heading"></a></h2>
+<p>Load Gordon app to run the flash.py from host, assuming the image in
+device flash has been erased or has been placed in the
+inhibiting-flash-boot state.</p>
+<p><strong>Command syntax:</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python script\boot.py [device] apps\gordon.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="erase-image">
+<h2>Erase Image<a class="headerlink" href="#erase-image" title="Permalink to this heading"></a></h2>
+<p>The following command erases the app code in flash.</p>
+<ol class="arabic simple">
+<li><p>Reset device with inhibiting-flash-boot and load gordon.elf (if not
+done so)</p></li>
+<li><p>Flash empty.img</p></li>
+</ol>
+<p><strong>Command syntax</strong>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python script\flash.py [device] <strong>write 0x1000 &lt;path&gt;\empty.img</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image551.png"><img alt="image74" src="../../_images/image551.png" style="width: 7.48031in; height: 0.5116in;" /></a></p>
+<p>Figure : Erase image</p>
+<p>Button reset to confirm the erase operation is a success.</p>
+</section>
+<section id="storage-data-file-readwrite-2">
+<span id="id9"></span><h2>Storage Data &amp; File: Read/Write<a class="headerlink" href="#storage-data-file-readwrite-2" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Read Partition Table from Device (to_json)</strong></p></li>
+</ol>
+<p>Reading file from device involves storage access. Hence, running of
+Gordon on the device is necessary.</p>
+<ol class="loweralpha simple">
+<li><p>Reset device with inhibiting-flash-boot and load gordon.elf (if not
+done already)</p></li>
+<li><p>Run the flash.py with the command: to_json</p></li>
+</ol>
+<p><strong>Command syntax</strong>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python script\flash.py [device] <strong>to_json</strong>
+&lt;user_specify_path&gt;\&lt;user_spefcify_name&gt;.json</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Display of the board_0407.json file</p>
+<p><a class="reference internal" href="../../_images/image331.png"><img alt="image75" src="../../_images/image331.png" style="width: 2.75591in; height: 5.79041in;" /></a></p>
+<p>Figure : Display of the board_0407.json file</p>
+<ol class="arabic simple" start="2">
+<li><p><strong>Write Partition Table in Device (from_json)</strong></p></li>
+</ol>
+<p>Writing file to device involves storage access. Hence, running of Gordon
+on the device is necessary.</p>
+<ol class="loweralpha simple">
+<li><p>Reset device with inhibiting-flash-boot and load gordon.elf (if not
+done already)</p></li>
+<li><p>Run the flash.py with the command: from_json</p></li>
+</ol>
+<p><strong>Command syntax</strong>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python script\flash.py [device] <strong>from_json</strong>
+&lt;user_specify_path&gt;/&lt;user_spefcify_name&gt;.json</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="3">
+<li><p><strong>Show File System Contents</strong></p></li>
+</ol>
+<p>Display the file system contents.</p>
+<ol class="loweralpha simple">
+<li><p>Reset device with inhibiting-flash-boot and load gordon.elf (if not
+done already)</p></li>
+<li><p>Run the storage.py with the command: tree</p></li>
+</ol>
+<p><strong>Command syntax</strong>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python script\storage.py [device] <strong>tree</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../_images/image561.png"><img alt="A screen shot of a computer Description automatically generated" src="../../_images/image561.png" style="width: 6.88976in; height: 2.13902in;" /></a></p>
+<p>Figure : Show file system contents</p>
+<ol class="arabic simple" start="4">
+<li><p><strong>Read File and Store to Location on Host</strong></p></li>
+</ol>
+<p>Read file from the file system and store it in host.</p>
+<ol class="loweralpha simple">
+<li><p>Reset device with inhibiting-flash-boot and load gordon.elf (if not
+done already)</p></li>
+<li><p>Run the storage.py with the command: read</p></li>
+</ol>
+<p><strong>Command syntax:</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python script\storage.py [device] <strong>read</strong>
+&lt;path_read&gt;\&lt;file_name_read&gt; <strong>–output</strong>
+&lt;path_write&gt;/&lt;file_name_write&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: A single line command.</p>
+<p><a class="reference internal" href="../../_images/image571.png"><img alt="image76" src="../../_images/image571.png" style="width: 6.9685in; height: 0.70401in;" /></a></p>
+<p>Figure : Read file and store to location on host</p>
+<p>The file is created per user entry:</p>
+<p><a class="reference internal" href="../../_images/image581.png"><img alt="image77" src="../../_images/image581.png" style="width: 6.9685in; height: 0.834in;" /></a></p>
+<p>Figure : File creation</p>
+<ol class="arabic simple" start="3">
+<li><p><strong>Write File to Device</strong></p></li>
+</ol>
+<p>Write file from the host to the device in file system.</p>
+<ol class="loweralpha simple">
+<li><p>Reset device with inhibiting-flash-boot and load gordon.elf (if not
+done already)</p></li>
+<li><p>Run the storage.py with the command: write</p></li>
+</ol>
+<p><strong>Command syntax</strong>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>python script\storage.py [device] <strong>write</strong>
+&lt;path_read&gt;\&lt;file_name_read&gt; &lt;path_write&gt;\file_name_write&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: A single line command.</p>
+<p><a class="reference internal" href="../../_images/image591.png"><img alt="image78" src="../../_images/image591.png" style="width: 6.88976in; height: 0.34403in;" /></a></p>
+<p>Figure : Write file to device</p>
+<p>Use the ./script/storage.py tree command to check the new file on
+Talaria TWO file system:</p>
+<p><a class="reference internal" href="../../_images/image60.png"><img alt="image79" src="../../_images/image60.png" style="width: 6.88976in; height: 2.12115in;" /></a></p>
+<p>Figure : Check new file on Talaria TWO filesystem</p>
+</section>
+<section id="sequence-of-cli-commands">
+<h2>Sequence of CLI Commands<a class="headerlink" href="#sequence-of-cli-commands" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Reset with inhibiting-flash-boot and load Gordon</strong></p></li>
+</ol>
+<p><strong>Command Syntax:</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py –device /dev/ttyUSB2 –reset=evk42_bl
+apps/gordon.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="2">
+<li><p><strong>Write the Partition Table</strong></p></li>
+</ol>
+<p>Write the Partition Table which is a standard configuration,
+standard_part_table.json, to Talaria TWO device:</p>
+<p><strong>Command Syntax</strong>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/flash.py –device /dev/ttyUSB2 from_json
+tools/partition_files/standard_part_table.json</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: A single line command.</p>
+<ol class="arabic simple" start="3">
+<li><p><strong>Flash New App to Device</strong></p></li>
+</ol>
+<p>Write a new application, iperf3 with bootargs, to the device.</p>
+<p><strong>Command Syntax</strong>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py –device /dev/ttyUSB2 –reset=evk42_bl –flash=all
+./bins/iperf3.elf ssid=TP-LINK_Guest_864F passphrase=test13579</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Re-launch the console terminal app and reset Talaria TWO device.</p>
+</section>
+<section id="flash-new-app-to-device-with-an-existing-app">
+<h2>Flash New App to Device with an Existing App<a class="headerlink" href="#flash-new-app-to-device-with-an-existing-app" title="Permalink to this heading"></a></h2>
+<p>Write the new app, stw.elf, to flash.</p>
+<p>Command Syntax:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/boot.py –device /dev/ttyUSB2 –reset=evk42_bl –flash=all
+./bins/stw.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Re-launch the console terminal app and reset Talaria TWO device.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2.%20Programming%20Basic%20Applications%20-%20Dev.html" class="btn btn-neutral float-left" title="Programming Basic Applications" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="6.%20Boot%20Arguments.html" class="btn btn-neutral float-right" title="Boot Arguments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

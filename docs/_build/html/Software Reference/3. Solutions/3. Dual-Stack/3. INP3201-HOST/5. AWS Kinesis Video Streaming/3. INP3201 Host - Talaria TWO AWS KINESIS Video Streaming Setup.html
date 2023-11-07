@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talaria TWO AWS KINESIS Video Streaming Setup &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../../../../about.html" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="Multiple Streaming" href="5.%20Multiple%20Streaming.html" />
+    <link rel="prev" title="Preparing the SD Card and Booting INP3201 Board" href="2.%20Preparing%20the%20SD%20Card%20and%20Booting%20INP3201%20Board.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../../../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../Support/Support.html">Support</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../Software_Reference_Landing_Page.html">Software Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../Software_Reference_Landing_Page.html#libraries">Libraries</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../Software_Reference_Landing_Page.html#solutions">Solutions</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../Solutions%20-%20Landing%20Page.html">AT Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Solutions%20-%20Landing%20Page.html#stw-multi-proto">STW Multi-Proto</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../Solutions%20-%20Landing%20Page.html#dual-stack">Dual stack</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../Dual-Stack%20-%20Landing%20Page.html">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../Dual-Stack%20-%20Landing%20Page.html#connetion-manager">Connetion manager</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../Dual-Stack%20-%20Landing%20Page.html#inp3201-host">INP3201-HOST</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../Software_Reference_Landing_Page.html#cloud-frameworks">Cloud Frameworks</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../Tools/Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../Software_Reference_Landing_Page.html">Software Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../../Solutions%20-%20Landing%20Page.html">AT Commands</a></li>
+          <li class="breadcrumb-item"><a href="../../Dual-Stack%20-%20Landing%20Page.html">Overview</a></li>
+          <li class="breadcrumb-item"><a href="1.%20AWS%20Kinesis%20Video%20Streaming%20-%20Landing%20Page.html">AWS KINESIS Video Streaming</a></li>
+      <li class="breadcrumb-item active">Talaria TWO AWS KINESIS Video Streaming Setup</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/Software Reference/3. Solutions/3. Dual-Stack/3. INP3201-HOST/5. AWS Kinesis Video Streaming/3. INP3201 Host - Talaria TWO AWS KINESIS Video Streaming Setup.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="talaria-two-aws-kinesis-video-streaming-setup">
+<h1>Talaria TWO AWS KINESIS Video Streaming Setup<a class="headerlink" href="#talaria-two-aws-kinesis-video-streaming-setup" title="Permalink to this heading"></a></h1>
+<p>After the hardware setup (refer section: <a class="reference external" href="#_Getting_Started">Getting
+Started</a>), follow the subsequent steps to run the
+AWS KINESIS video streaming application. Use any serial port terminal
+application such as GTKTerm to issue the commands on T31z INP3201 Host.</p>
+<p><strong>Note</strong>: The video streaming set-up supports streaming from a single
+web connection/browser at a given time.</p>
+<p><strong>Method 1: Manual Setup</strong></p>
+<ol class="arabic simple">
+<li><p>Insert the kernel modules using the following command:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>insmod mmc_detect_test.ko</p>
+<p>insmod sdio-wlan.ko</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="2">
+<li><p>Start the tunadapter in the background.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./tunadapter board_conf=t31_innophase.conf &amp;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../../../../_images/image1101.png"><img alt="MicrosoftTeams-image (4)" src="../../../../../_images/image1101.png" style="width: 6.29931in; height: 5.34861in;" /></a></p>
+<p>Figure 1: Start tunadapter</p>
+<ol class="arabic simple" start="3">
+<li><p>Connect Talaria TWO to an Access Point. This can be achieved using
+either one of the following methods:</p>
+<ol class="loweralpha simple">
+<li><p>Execute the following set of commands:</p>
+<ol class="lowerroman simple">
+<li><p>Start provisioning:</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./conmgr provstart &lt;device_name&gt; &lt;manufacturer_name&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="lowerroman simple" start="2">
+<li><p>Get provisioning information (SSID and passphrase of the Access
+Point):</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./conmgr waitforprovinfo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="lowerroman simple" start="3">
+<li><p>Stop provisioning:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./conmgr provstop</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p><a class="reference internal" href="../../../../../_images/image259.png"><img alt="image1" src="../../../../../_images/image259.png" style="width: 1.49653in; height: 0.19167in;" /></a><a class="reference internal" href="../../../../../_images/image259.png"><img alt="image2" src="../../../../../_images/image259.png" style="width: 1.49653in; height: 0.19167in;" /></a><a class="reference internal" href="../../../../../_images/image259.png"><img alt="image3" src="../../../../../_images/image259.png" style="width: 1.49653in; height: 0.19167in;" /></a><a class="reference internal" href="../../../../../_images/image330.png"><img alt="image4" src="../../../../../_images/image330.png" style="width: 6.5748in; height: 2.61906in;" /></a></p>
+</div></blockquote>
+<p>Figure 2: Enabling Wi-Fi provisioning over BLE</p>
+<blockquote>
+<div><p><strong>Note</strong>: &lt;device_name&gt; will be visible in the BLE scan list on the
+mobile app.</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li><p>Enable Wi-Fi provisioning over BLE using the <a class="reference external" href="#_AWS_Streaming_APP">AWS_Streaming
+APP</a>. It can be used to enable Wi-Fi
+provisioning over BLE and stream video.</p></li>
+</ol>
+<blockquote>
+<div><p>For more details on passing the SSID and passphrase through the
+AWS_Sreaming mobile app, refer section: <em>Running the Application
+using Android or iOS app</em> from <em>Example_using_Provisioning.pdf</em>
+(<em>freertos_sdk_x.y\examples\prov\doc</em>).</p>
+<p><strong>Note</strong>: x and y in freertos_sdk_x.y refer to the SDK package
+release version.</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="3">
+<li><p><strong>Alternate method</strong>: Pass the SSID and passphrase of the appropriate
+AP by executing the following command:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./conmgr connect &lt;ssid&gt; &lt;password&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p><a class="reference internal" href="../../../../../_images/image428.png"><img alt="image5" src="../../../../../_images/image428.png" style="width: 6.41736in; height: 0.7in;" /></a></p>
+</div></blockquote>
+<p>Figure 3: Connect to AP</p>
+<ol class="arabic simple" start="4">
+<li><p>Run the NTP service from T31z host:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>[<a class="reference external" href="mailto:root&#37;&#52;&#48;Ingenic-g1_1">root<span>&#64;</span>Ingenic-g1_1</a>:ces_master]# ntpd -nqp pool.ntp.org</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../../../../_images/image523.png"><img alt="INP_NTPD_time" src="../../../../../_images/image523.png" style="width: 7.00764in; height: 0.46736in;" /></a></p>
+<p>Figure 4: Run NTP service</p>
+<ol class="arabic simple" start="5">
+<li><p>To start the video streaming, insert kernel modules and start RTSP
+server on T31z host:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>insmod /lib/modules/tx-isp-t31.ko</p>
+<p>insmod /lib/modules/sensor_gc2053_t31.ko data_interface=1</p>
+<p>insmod /lib/modules/avpu.ko clk_name=’vpll’ avpu_clk=400000000</p>
+<p>insmod /lib/modules/audio.ko</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="../../../../../_images/image615.png"><img alt="image6" src="../../../../../_images/image615.png" style="width: 6.94514in; height: 1.69583in;" /></a></p>
+<p>Figure 5: Insert ko modules</p>
+<ol class="arabic simple" start="6">
+<li><p>The following script configures the AWS access key, secret access
+key, region and starts streaming:</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../../../../_images/image714.png"><img alt="image7" src="../../../../../_images/image714.png" style="width: 3.70069in; height: 0.10833in;" /></a><a class="reference internal" href="../../../../../_images/image714.png"><img alt="image8" src="../../../../../_images/image714.png" style="width: 1.83333in; height: 0.1in;" /></a><a class="reference internal" href="../../../../../_images/image813.png"><img alt="MicrosoftTeams-image (2)" src="../../../../../_images/image813.png" style="width: 7.00764in; height: 1.82014in;" /></a></p>
+</div></blockquote>
+<p>Figure 6: Start kinesis video streaming</p>
+<blockquote>
+<div><p><strong>Note</strong>: For information on creating the AWS security credentials
+(access key, secret access key), refer <a class="reference external" href="#_Create_AWS_Security">Create AWS Security
+Credentials</a>.</p>
+</div></blockquote>
+<p><strong>Method 2 – Automated Shell Scripts</strong></p>
+<ol class="arabic simple">
+<li><p>Execute the init script file to automatically load kernel drivers,
+connect Wi-Fi, and start the AWS KINESIS Video Streaming after
+booting.</p></li>
+</ol>
+<p><strong>Note</strong>:</p>
+<ol class="loweralpha simple">
+<li><p>Change the SSID and passphrase in app_init.sh to the required
+configuration.</p></li>
+<li><p>Steaming duration is configurable. Modify the same in app_init.sh for
+the required duration.</p></li>
+</ol>
+<blockquote>
+<div><p>Use Delay=0 for uninterrupted streaming without entering the
+low-power mode.</p>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./T31_mcu_app &lt;Delay 0 to 300 sec&gt; &lt;Trun OFF devices 1= T31, 3= T31 &amp;
+T2 &gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="loweralpha simple" start="3">
+<li><p>Configure Talaria TWO Wi-Fi wakeup from MCU.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./conmgr wakeupconfig &lt;T2 wakeup GPIO pin&gt; &lt;GPIO level&gt; &lt;GPIO
+direction 0=output / 1= input&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="loweralpha simple" start="4">
+<li><p>Configure MCU wakeup from Talaria TWO.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./conmgr wakeupconfig &lt;MCU wakeup GPIO pin&gt; &lt;GPIO level&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="loweralpha simple" start="5">
+<li><p>Initialize the MQTT connection.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./sc scinit &lt;server name&gt; &lt;port number&gt; &lt;tranport&gt; &lt;mqtt id&gt; &lt;usr
+name&gt; &lt;password&gt; [ca cert] [client cert] [client key]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="loweralpha simple" start="6">
+<li><p>Close the MQTT connection.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./sc scdeinit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="loweralpha simple" start="7">
+<li><p>Update the streaming status.</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./sc scstatusupdate &lt; status : 1/0 &gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>where,</p>
+<p>1- ON, 0 - OFF</p>
+</div></blockquote>
+<p>app_init.sh script for INP3201 board with MCU loads the required kernel
+driver modules, starts the MQTT connection and turns the camera ON.
+Kinesis video streaming is then started for a specified time. The device
+is put to sleep mode in case of inactivity on the PIR sensor connected
+to the MCU.</p>
+<blockquote>
+<div><p><strong>Note</strong>: To put the INP3201 board with MCU in low-power mode,
+execute the following steps:</p>
+</div></blockquote>
+<ol class="loweralpha simple">
+<li><p>Start tunadapter in the background and connect to the AP:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./tunadapter board_conf =./t31.conf &amp;</p>
+<p>./conmgr connect &lt;ssid&gt; &lt;Pass&gt;</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="loweralpha simple" start="2">
+<li><p>Initiate Host shutdown:</p>
+<ol class="arabic simple">
+<li><p>Provide the number of seconds for which streaming needs to be
+enabled:</p></li>
+</ol>
+</li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./T31_mcu_app &lt;Delay&gt; 1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="2">
+<li><p>Configure the Host wakeup PIN:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./conmgr wakeupconfig 14 1 1</p>
+<p>./conmgr wakeupconfig 21 0</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p><strong>Note</strong>: For more information on configuring the Host wakeup PIN,
+refer section: <em>wakeupconfig – Configures Host Wakeup PIN</em> of
+UG_Dual-Stack.pdf
+(<em>\talaria_two_dual_stack\talaria_two_dual_stack_vx.y\doc</em>)</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>Get the previous wakeup reason:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./conmgr getwakeupreason</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="4">
+<li><p>Clear wakeup reason before initiating shutdown:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./conmgr wakeupreasoncls</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="5">
+<li><p>Trigger Host shutdown:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./conmgr shutdown</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple">
+<li><p>The following script configures the AWS access key, secret access
+key, region and starts streaming:</p></li>
+</ol>
+<blockquote>
+<div><p><a class="reference internal" href="../../../../../_images/image714.png"><img alt="image9" src="../../../../../_images/image714.png" style="width: 3.70069in; height: 0.10833in;" /></a><a class="reference internal" href="../../../../../_images/image714.png"><img alt="image10" src="../../../../../_images/image714.png" style="width: 1.83333in; height: 0.1in;" /></a><a class="reference internal" href="../../../../../_images/image913.png"><img alt="image11" src="../../../../../_images/image913.png" style="width: 7.08681in; height: 1.84028in;" /></a></p>
+</div></blockquote>
+<p>Figure 7: Script to configure AWS access parameters</p>
+<p><strong>Note</strong>: For information on creating the AWS security credentials
+(access key, secret access key), refer <a class="reference external" href="#_Create_AWS_Security">Create AWS Security
+Credentials</a>.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2.%20Preparing%20the%20SD%20Card%20and%20Booting%20INP3201%20Board.html" class="btn btn-neutral float-left" title="Preparing the SD Card and Booting INP3201 Board" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="5.%20Multiple%20Streaming.html" class="btn btn-neutral float-right" title="Multiple Streaming" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

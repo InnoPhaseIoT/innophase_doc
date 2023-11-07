@@ -1,0 +1,74 @@
+Evaluation & Development
+========================
+
+INP3010/3011/3012/3013/3014/3015 EVB-A Development Boards are equipped
+with all the features to evaluate Talaria TWO module’s performance and
+capabilities. They can be used for initial system integration and
+development as well.
+
+The SDK software package (freertos_sdk_x.y.zip) provides software APIs
+with ready-to-run firmware examples to support quick evaluation and
+development of MQTT/HTTP/HTTPS/AWS and AZURE IoT Cloud applications with
+Talaria TWO.
+
+It is necessary to set-up the programming environment to ensure that all
+the required tools are set-up to successfully write the code, compile
+and run applications on Talaria TWO.
+
+Environment Set-up Prerequisites
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Linux Users 
+^^^^^^^^^^^^
+
+Install the following tools:
+
+1. GCC and Cross Compilation tools
+
+2. GNU Toolchain for ARM Embedded
+
+3. Python3 and dependencies
+
+4. OpenOCD
+
+Eclipse users, refer: Eclipse_Setup_Linux for installing the required
+tools.
+
+Windows User 
+^^^^^^^^^^^^^
+
+Eclipse users, refer: Eclipse_Setup_Windows for installing the required
+tools.
+
+Get started by programming basic applications.
+
+Programming
+-----------
+
+There are two ways in which Talaria TWO can be programmed for evaluation
+and/or development:
+
+-  Programmer tool (Download Tool)
+
+-  Command Line Interface (CLI)
+
+Debugging
+---------
+
+For debugging an application during development, GDB is used.
+
+For real time debugging using Linux:
+
+1. Debugging using GDB
+
+2. Debugging using Coredump
+
+For real time debugging using Windows:
+
+1. Eclipse plugin
+
+Memory Mapping
+--------------
+
+Talaria TWO’s flash memory layout in both development and production
+phase.

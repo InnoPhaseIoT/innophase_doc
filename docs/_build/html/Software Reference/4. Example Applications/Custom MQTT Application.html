@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom MQTT Application &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Getting%20Started/Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Custom MQTT Application</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Software Reference/4. Example Applications/Custom MQTT Application.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="custom-mqtt-application">
+<h1>Custom MQTT Application<a class="headerlink" href="#custom-mqtt-application" title="Link to this heading"></a></h1>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading"></a></h2>
+<p>Custom MQTT (custom_mqtt) application is used to demonstrate MQTT client
+on Talaria TWO.</p>
+<p>This application can download the certificates onto Talaria TWO, start
+the MQTT connection, subscribe to a topic, publish message to MQTT
+server and close the MQTT connection.</p>
+<p>This application uses MQTT message IDs and group IDs provided by
+InnoPhase IoT as well as custom defined IDs.</p>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>GTKTerm or similar application.</p></li>
+<li><p>Access Point configured with WPA/WPA2 personal security.</p></li>
+<li><p>Mosquitto.exe from <a class="reference external" href="http://mosquitto.org/download/">http://mosquitto.org/download/</a>.</p></li>
+<li><p>Generate certificates from:</p>
+<ol class="loweralpha simple">
+<li><p>Download certificate authority file: <a class="reference external" href="https://test.mosquitto.org/">https://test.mosquitto.org/</a>.</p></li>
+<li><p>Generate client certificates: <a class="reference external" href="https://test.mosquitto.org/ssl/">https://test.mosquitto.org/ssl/</a>.</p></li>
+</ol>
+</li>
+</ol>
+<p><strong>Note</strong>: Ensure Talaria TWO is connected to an Access Point to run the
+custom MQTT application.</p>
+</section>
+<section id="command-description">
+<h2>Command Description<a class="headerlink" href="#command-description" title="Link to this heading"></a></h2>
+<p>Connect to an Access Point with specified SSID and passphrase.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>$ ./conmgr connect &lt;SSID&gt; &lt;passphrase&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Store the certificate.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./custom_mqtt {certstore} &lt;filename&gt; &lt;store as&gt;</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>where,</p>
+<ol class="arabic simple">
+<li><p>filename: Certificate file path (absolute) as on the Host</p></li>
+<li><p>store as: Path to be stored as in Talaria TWO filesystem. Must start
+with <em>/data/</em></p></li>
+</ol>
+<p>Start MQTT connection with Mosquitto server.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>$ ./custom_mqtt {mqttinit} &lt;server name&gt; &lt;port number&gt; &lt;transport&gt;
+&lt;mqtt id&gt; &lt;usr name&gt; &lt;password&gt; [ca cert] [client cert] [client key]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>where,</p>
+<ol class="arabic simple">
+<li><p>server name: MQTT broker address</p></li>
+<li><p>port number: Port number</p></li>
+<li><p>transport: Transport mode 0 -&gt; TCP , 1-&gt; TLS with Client auth</p></li>
+<li><p>mqtt id: MQTT client ID</p></li>
+<li><p>usr name: Username (use –no_un if no username is required)</p></li>
+<li><p>password: Password (use –no_pw if no password is required)</p></li>
+<li><p>ca cert: CA certificate name</p></li>
+<li><p>client cert: Client certificate name</p></li>
+<li><p>client key: Client key certificate name</p></li>
+</ol>
+<p>Close MQTT connection.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>$ ./custom_mqtt {mqttclose}</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="procedure">
+<h2>Procedure<a class="headerlink" href="#procedure" title="Link to this heading"></a></h2>
+<p>Execute the following operations on the Talaria TWO:</p>
+<p><strong>Step 1</strong>: Connect Talaria TWO to the desired network by providing SSID
+and passphrase.</p>
+<p><strong>Step 2</strong>: Store the client certificates on Talaria TWO.</p>
+<p><strong>Step 3</strong>: Start MQTT connection with Mosquitto server.</p>
+<p><strong>Step 4</strong>: Connect the backend Host machine to the same network as
+Talaria TWO and issue the commands to start MQTT client on Linux
+terminal to observe publish/subscribe messages.</p>
+<p><strong>Step 5</strong>: Close the MQTT connection.</p>
+</section>
+<section id="expected-output">
+<h2>Expected Output<a class="headerlink" href="#expected-output" title="Link to this heading"></a></h2>
+<section id="host-console-logs">
+<h3>Host Console Logs<a class="headerlink" href="#host-console-logs" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="../../_images/image190.png"><img alt="image1" src="../../_images/image190.png" style="width: 0.9in; height: 0.18333in;" /></a><a class="reference internal" href="../../_images/image249.png"><img alt="image2" src="../../_images/image249.png" style="width: 6.29921in; height: 0.648in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image190.png"><img alt="image3" src="../../_images/image190.png" style="width: 0.9in; height: 0.21667in;" /></a><a class="reference internal" href="../../_images/image190.png"><img alt="image4" src="../../_images/image190.png" style="width: 1.19097in; height: 0.15in;" /></a><a class="reference internal" href="../../_images/image190.png"><img alt="image5" src="../../_images/image190.png" style="width: 1.19097in; height: 0.1in;" /></a><a class="reference internal" href="../../_images/image190.png"><img alt="image6" src="../../_images/image190.png" style="width: 1.19134in; height: 0.15in;" /></a><a class="reference internal" href="../../_images/image190.png"><img alt="image7" src="../../_images/image190.png" style="width: 0.9in; height: 0.35in;" /></a><a class="reference internal" href="../../_images/image190.png"><img alt="image8" src="../../_images/image190.png" style="width: 0.9in; height: 0.13333in;" /></a><a class="reference internal" href="../../_images/image326.png"><img alt="A screenshot of a computer program Description automatically generated" src="../../_images/image326.png" style="width: 6.29921in; height: 4.62059in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image190.png"><img alt="image9" src="../../_images/image190.png" style="width: 0.3937in;" /></a><a class="reference internal" href="../../_images/image190.png"><img alt="image10" src="../../_images/image190.png" style="width: 0.3937in;" /></a><a class="reference internal" href="../../_images/image190.png"><img alt="image11" src="../../_images/image190.png" style="width: 0.9in; height: 0.21667in;" /></a><a class="reference internal" href="../../_images/image423.png"><img alt="A computer screen with white text Description automatically generated" src="../../_images/image423.png" style="width: 6.29921in; height: 1.60805in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image190.png"><img alt="image12" src="../../_images/image190.png" style="width: 0.9in; height: 0.25833in;" /></a><a class="reference internal" href="../../_images/image190.png"><img alt="image13" src="../../_images/image190.png" style="width: 0.9in; height: 0.11667in;" /></a><a class="reference internal" href="../../_images/image518.png"><img alt="A computer screen shot Description automatically generated" src="../../_images/image518.png" style="width: 6.29921in; height: 0.9583in;" /></a></p>
+<p>Figure 3: custom_mqtt - Host console logs</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>[root&#64;:ds]# reboot</p>
+<p>[root&#64;:ds]# umount: tmpfs busy - remounted read-only</p>
+<p>The system is going down NOW!</p>
+<p>Sent SIGTERM to all processes</p>
+<p>Sent SIGKILL to all processes</p>
+<p>Requesting system reboot[ 147.951504] sw_read: ERESTARTSYS</p>
+<p>[ 147.959702] sw_release</p>
+<p>[ 147.962204] sw_fasync: fd=-1, file=807a5960, mode=0</p>
+<p>[ 148.951328] Restarting system.</p>
+<p>[ 148.954522] Restarting after 4 ms</p>
+<p>U-Boot SPL 2013.07 (Nov 14 2022 - 10:37:43)</p>
+<p>Timer init</p>
+<p>CLK stop</p>
+<p>PLL init</p>
+<p>pll_init:366</p>
+<p>pll_cfg.pdiv = 10, pll_cfg.h2div = 5, pll_cfg.h0div = 5, pll_cfg.cdiv
+= 1, pll_2</p>
+<p>nf=116 nr = 1 od0 = 1 od1 = 2</p>
+<p>cppcr is 07405100</p>
+<p>CPM_CPAPCR 0740510d</p>
+<p>nf=100 nr = 1 od0 = 1 od1 = 2</p>
+<p>cppcr is 06405100</p>
+<p>CPM_CPMPCR 0640510d</p>
+<p>nf=100 nr = 1 od0 = 1 od1 = 2</p>
+<p>cppcr is 06405100</p>
+<p>CPM_CPVPCR 0640510d</p>
+<p>cppcr 0x9a7b5510</p>
+<p>apll_freq 1392000000</p>
+<p>mpll_freq 1200000000</p>
+<p>vpll_freq = 1200000000</p>
+<p>ddr sel mpll, cpu sel apll</p>
+<p>ddrfreq 600000000</p>
+<p>cclk 1392000000</p>
+<p>l2clk 696000000</p>
+<p>h0clk 240000000</p>
+<p>h2clk 240000000</p>
+<p>pclk 120000000</p>
+<p>CLK init</p>
+<p>SDRAM init</p>
+<p>sdram init start</p>
+<p>ddr_inno_phy_init ..!</p>
+<p>phy reg = 0x00000007, CL = 0x00000007</p>
+<p>ddr_inno_phy_init ..! 11: 00000004</p>
+<p>ddr_inno_phy_init ..! 22: 00000006</p>
+<p>ddr_inno_phy_init ..! 33: 00000006</p>
+<p>REG_DDR_LMR: 00000210</p>
+<p>REG_DDR_LMR: 00000310</p>
+<p>REG_DDR_LMR: 00000110</p>
+<p>REG_DDR_LMR, MR0: 00f73011</p>
+<p>T31_0x5: 00000007</p>
+<p>T31_0x15: 0000000c</p>
+<p>T31_0x4: 00000000</p>
+<p>T31_0x14: 00000002</p>
+<p>INNO_TRAINING_CTRL 1: 00000000</p>
+<p>INNO_TRAINING_CTRL 2: 000000a1</p>
+<p>T31_cc: 00000003</p>
+<p>INNO_TRAINING_CTRL 3: 000000a0</p>
+<p>T31_118: 0000003c</p>
+<p>T31_158: 0000003c</p>
+<p>T31_190: 0000001e</p>
+<p>T31_194: 0000001c</p>
+<p>jz-04 : 0x00000051</p>
+<p>jz-08 : 0x000000a0</p>
+<p>jz-28 : 0x00000024</p>
+<p>DDR PHY init OK</p>
+<p>INNO_DQ_WIDTH :00000003</p>
+<p>INNO_PLL_FBDIV :00000014</p>
+<p>INNO_PLL_PDIV :00000005</p>
+<p>INNO_MEM_CFG :00000051</p>
+<p>INNO_PLL_CTRL :00000018</p>
+<p>INNO_CHANNEL_EN :0000000d</p>
+<p>INNO_CWL :00000006</p>
+<p>INNO_CL :00000007</p>
+<p>DDR Controller init</p>
+<p>DDRC_STATUS 0x80000001</p>
+<p>DDRC_CFG 0x0aa88a42</p>
+<p>DDRC_CTRL 0x0000011c</p>
+<p>DDRC_LMR 0x00400008</p>
+<p>DDRC_DLP 0x00000000</p>
+<p>DDRC_TIMING1 0x050f0a06</p>
+<p>DDRC_TIMING2 0x021c0a07</p>
+<p>DDRC_TIMING3 0x200a0722</p>
+<p>DDRC_TIMING4 0x26240031</p>
+<p>DDRC_TIMING5 0xff060405</p>
+<p>DDRC_TIMING6 0x321c0505</p>
+<p>DDRC_REFCNT 0x00910603</p>
+<p>DDRC_MMAP0 0x000020f8</p>
+<p>DDRC_MMAP1 0x00002800</p>
+<p>DDRC_REMAP1 0x030e0d0c</p>
+<p>DDRC_REMAP2 0x07060504</p>
+<p>DDRC_REMAP3 0x0b0a0908</p>
+<p>DDRC_REMAP4 0x0f020100</p>
+<p>DDRC_REMAP5 0x13121110</p>
+<p>DDRC_AUTOSR_EN 0x00000000</p>
+<p>sdram init finished</p>
+<p>SDRAM init ok</p>
+<p>board_init_r</p>
+<p>image entry point: 0x80100000</p>
+<p>U-Boot 2013.07 (Nov 14 2022 - 10:37:43)</p>
+<p>Board: ISVP (XXXXXX)</p>
+<p>DRAM: 128 MiB</p>
+<p>Top of RAM usable for U-Boot at: 84000000</p>
+<p>Reserving 443k for U-Boot at: 83f90000</p>
+<p>Reserving 32784k for malloc() at: 81f8c000</p>
+<p>Reserving 32 Bytes for Board Info at: 81f8bfe0</p>
+<p>Reserving 124 Bytes for Global Data at: 81f8bf64</p>
+<p>Reserving 128k for boot params() at: 81f6bf64</p>
+<p>Stack Pointer at: 81f6bf48</p>
+<p>Now running in RAM - U-Boot at: 83f90000</p>
+<p>MMC: msc: 0</p>
+<p>the manufacturer c8</p>
+<p>SF: Detected GD25Q128</p>
+<p>In: serial</p>
+<p>Out: serial</p>
+<p>Err: serial</p>
+<p>Net: ====&gt;PHY not found!Jz4775-9161</p>
+<p>Hit any key to stop autoboot: 0</p>
+<p>the manufacturer c8</p>
+<p>SF: Detected GD25Q128</p>
+<p>—&gt;probe spend 4 ms</p>
+<p>SF: 2621440 bytes &#64; 0x40000 Read: OK</p>
+<p>—&gt;read spend 843 ms</p>
+<p>## Booting kernel from Legacy Image at 80600000 …</p>
+<p>Image Name: Linux-3.10.14__isvp_swan_1.0__</p>
+<p>Image Type: MIPS Linux Kernel Image (lzma compressed)</p>
+<p>Data Size: 1994978 Bytes = 1.9 MiB</p>
+<p>Load Address: 80010000</p>
+<p>Entry Point: 80450890</p>
+<p>Verifying Checksum … OK</p>
+<p>Uncompressing Kernel Image … OK</p>
+<p>Starting kernel …</p>
+<p>[ 0.000000] Initializing cgroup subsys cpu</p>
+<p>[ 0.000000] Initializing cgroup subsys cpuacct</p>
+<p>[ 0.000000] Linux version 3.10.14__isvp_swan_1.0__
+(<a class="reference external" href="mailto:lesly&#37;&#52;&#48;synergic">lesly<span>&#64;</span>synergic</a>) (gcc ver3</p>
+<p>[ 0.000000] bootconsole [early0] enabled</p>
+<p>[ 0.000000] CPU0 RESET ERROR PC:8020DE80</p>
+<p>[ 0.000000] [&lt;8020de80&gt;] __delay+0x0/0x10</p>
+<p>[ 0.000000] CPU0 revision is: 00d00100 (XXXXX)</p>
+<p>[ 0.000000] FPU revision is: 00b70000</p>
+<p>[ 0.000000] CCLK:1392MHz L2CLK:696Mhz H0CLK:200MHz H2CLK:200Mhz
+PCLK:100Mhz</p>
+<p>[ 0.000000] Determined physical RAM map:</p>
+<p>[ 0.000000] memory: 00593000 &#64; 00010000 (usable)</p>
+<p>[ 0.000000] memory: 0003d000 &#64; 005a3000 (usable after init)</p>
+<p>[ 0.000000] User-defined physical RAM map:</p>
+<p>[ 0.000000] memory: 04000000 &#64; 00000000 (usable)</p>
+<p>[ 0.000000] Zone ranges:</p>
+<p>[ 0.000000] Normal [mem 0x00000000-0x03ffffff]</p>
+<p>[ 0.000000] Movable zone start for each node</p>
+<p>[ 0.000000] Early memory node ranges</p>
+<p>[ 0.000000] node 0: [mem 0x00000000-0x03ffffff]</p>
+<p>[ 0.000000] Primary instruction cache 32kB, 8-way, VIPT, linesize 32
+bytes.</p>
+<p>[ 0.000000] Primary data cache 32kB, 8-way, VIPT, no aliases,
+linesize 32 bys</p>
+<p>[ 0.000000] pls check processor_id[0x00d00100],sc_jz not support!</p>
+<p>[ 0.000000] MIPS secondary cache 128kB, 8-way, linesize 32 bytes.</p>
+<p>[ 0.000000] Built 1 zonelists in Zone order, mobility grouping off.
+Total p6</p>
+<p>[ 0.000000] Kernel command line: console=ttyS1,115200n8 <a class="reference external" href="mailto:mem=64M&#37;&#52;&#48;0x0">mem=64M<span>&#64;</span>0x0</a>
+rmem=64M)</p>
+<p>[ 0.000000] PID hash table entries: 256 (order: -2, 1024 bytes)</p>
+<p>[ 0.000000] Dentry cache hash table entries: 8192 (order: 3, 32768
+bytes)</p>
+<p>[ 0.000000] Inode-cache hash table entries: 4096 (order: 2, 16384
+bytes)</p>
+<p>[ 0.000000] Memory: 58512k/65536k available (4389k kernel code, 7024k
+reserv)</p>
+<p>[ 0.000000] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=1,
+Nodes=1</p>
+<p>[ 0.000000] Preemptible hierarchical RCU implementation.</p>
+<p>[ 0.000000] NR_IRQS:358</p>
+<p>[ 0.000000] clockevents_config_and_register success.</p>
+<p>[ 0.000040] Calibrating delay loop… 1386.49 BogoMIPS (lpj=2772992)</p>
+<p>[ 0.029794] pid_max: default: 32768 minimum: 301</p>
+<p>[ 0.034662] Mount-cache hash table entries: 512</p>
+<p>[ 0.039568] Initializing cgroup subsys debug</p>
+<p>[ 0.043856] Initializing cgroup subsys freezer</p>
+<p>[ 0.049935] regulator-dummy: no parameters</p>
+<p>[ 0.054191] NET: Registered protocol family 16</p>
+<p>[ 0.069542] bio: create slab &lt;bio-0&gt; at 0</p>
+<p>[ 0.075026] jz-dma jz-dma: JZ SoC DMA initialized</p>
+<p>[ 0.080068] SCSI subsystem initialized</p>
+<p>[ 0.083958] usbcore: registered new interface driver usbfs</p>
+<p>[ 0.089492] usbcore: registered new interface driver hub</p>
+<p>[ 0.094928] usbcore: registered new device driver usb</p>
+<p>[ 0.100124] i2c-gpio i2c-gpio.1: using pins 57 (SDA) and 58 (SCL)</p>
+<p>[ 0.106312] (null): set:249 hold:250 dev=100000000 h=500 l=500</p>
+<p>[ 0.113771] Switching to clocksource jz_clocksource</p>
+<p>[ 0.118697] cfg80211: Calling CRDA to update world regulatory domain</p>
+<p>[ 0.125578] NET: Registered protocol family 2</p>
+<p>[ 0.130351] TCP established hash table entries: 512 (order: 0, 4096
+bytes)</p>
+<p>[ 0.137294] TCP bind hash table entries: 512 (order: -1, 2048 bytes)</p>
+<p>[ 0.143710] TCP: Hash tables configured (established 512 bind 512)</p>
+<p>[ 0.150011] TCP: reno registered</p>
+<p>[ 0.153251] UDP hash table entries: 256 (order: 0, 4096 bytes)</p>
+<p>[ 0.159166] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)</p>
+<p>[ 0.165703] NET: Registered protocol family 1</p>
+<p>[ 0.170302] RPC: Registered named UNIX socket transport module.</p>
+<p>[ 0.176280] RPC: Registered udp transport module.</p>
+<p>[ 0.181008] RPC: Registered tcp transport module.</p>
+<p>[ 0.185774] RPC: Registered tcp NFSv4.1 backchannel transport module.</p>
+<p>[ 0.192594] freq_udelay_jiffys[0].max_num = 10</p>
+<p>[ 0.197048] cpufreq udelay loops_per_jiffy</p>
+<p>[ 0.201442] 12000 23905 23905</p>
+<p>[ 0.204699] 24000 47810 47810</p>
+<p>[ 0.207973] 60000 119525 119525</p>
+<p>[ 0.211416] 120000 239051 239051</p>
+<p>[ 0.214948] 200000 398418 398418</p>
+<p>[ 0.218479] 300000 597627 597627</p>
+<p>[ 0.222010] 600000 1195255 1195255</p>
+<p>[ 0.225719] 792000 1577736 1577736</p>
+<p>[ 0.229427] 1008000 2008028 2008028</p>
+<p>[ 0.233224] 1200000 2390510 2390510</p>
+<p>[ 0.241282] squashfs: version 4.0 (2009/01/31) Phillip Lougher</p>
+<p>[ 0.247798] jffs2: version 2.2. © 2001-2006 Red Hat, Inc.</p>
+<p>[ 0.253627] msgmni has been set to 114</p>
+<p>[ 0.258430] io scheduler noop registered</p>
+<p>[ 0.262430] io scheduler cfq registered (default)</p>
+<p>[ 0.268212] jz-uart.1: ttyS1 at MMIO 0x10031000 (irq = 58) is a uart1</p>
+<p>[ 0.275802] console [ttyS1] enabled, bootconsole disabled</p>
+<p>[ 0.275802] console [ttyS1] enabled, bootconsole disabled</p>
+<p>[ 0.289612] brd: module loaded</p>
+<p>[ 0.294168] loop: module loaded</p>
+<p>[ 0.297913] zram: Created 2 device(s) …</p>
+<p>[ 0.302145] logger: created 256K log ‘log_main’</p>
+<p>[ 0.307206] jz TCU driver register completed</p>
+<p>[ 0.311969] wait stable.[289][cgu_ssi]</p>
+<p>[ 0.315926] the id code = c84018, the flash name is GD25Q127C</p>
+<p>[ 0.321864] the flash-&gt;board_info-&gt;quad_mode = 6b</p>
+<p>[ 0.326718] JZ SFC Controller for SFC channel 0 driver register</p>
+<p>[ 0.332842] 4 cmdlinepart partitions found on MTD device jz_sfc</p>
+<p>[ 0.338974] Creating 4 MTD partitions on “jz_sfc”:</p>
+<p>[ 0.343927] 0x000000000000-0x000000040000 : “boot”</p>
+<p>[ 0.349298] 0x000000040000-0x0000002c0000 : “kernel”</p>
+<p>[ 0.354790] 0x0000002c0000-0x000000ac0000 : “root”</p>
+<p>[ 0.360112] 0x000000ac0000-0x000001000000 : “appfs”</p>
+<p>[ 0.365522] SPI NOR MTD LOAD OK</p>
+<p>[ 0.368857] dma dma0chan17: Channel 17 have been requested.(phy id
+14,type 0)</p>
+<p>[ 0.377805] dma dma0chan18: Channel 18 have been requested.(phy id
+13,type 0)</p>
+<p>[ 0.386874] jz-ssi jz-ssi.0: master is unqueued, this is deprecated</p>
+<p>[ 0.393387] JZ SSI Controller for SPI channel 0 driver register</p>
+<p>[ 0.399546] tun: Universal TUN/TAP device driver, 1.6</p>
+<p>[ 0.404770] tun: (C) 1999-2004 Max Krasnyansky &lt;<a class="reference external" href="mailto:maxk&#37;&#52;&#48;qualcomm&#46;com">maxk<span>&#64;</span>qualcomm<span>&#46;</span>com</a>&gt;</p>
+<p>[ 0.411236] usbcore: registered new interface driver zd1201</p>
+<p>[ 0.417073] jz-dwc2 jz-dwc2: cgu clk gate get error</p>
+<p>[ 0.422144] DWC IN OTG MODE</p>
+<p>[ 0.425658] dwc2 dwc2: Keep PHY ON</p>
+<p>[ 0.429174] dwc2 dwc2: Using Buffer DMA mode</p>
+<p>[ 0.433588] dwc2 dwc2: Core Release: 3.00a</p>
+<p>[ 0.437854] dwc2 dwc2: DesignWare USB2.0 High-Speed Host Controller</p>
+<p>[ 0.444340] dwc2 dwc2: new USB bus registered, assigned bus number 1</p>
+<p>[ 0.451532] hub 1-0:1.0: USB hub found</p>
+<p>[ 0.455444] hub 1-0:1.0: 1 port detected</p>
+<p>[ 0.459602] dwc2 dwc2: DWC2 Host Initialized</p>
+<p>[ 0.464180] usbcore: registered new interface driver usb-storage</p>
+<p>[ 0.470642] jzmmc_v1.2 jzmmc_v1.2.0: vmmc regulator missing</p>
+<p>[ 0.476652] jzmmc_v1.2 jzmmc_v1.2.0: register success!</p>
+<p>[ 0.482076] jzmmc_v1.2 jzmmc_v1.2.1: vmmc regulator missing</p>
+<p>[ 0.487959] jzmmc_v1.2 jzmmc_v1.2.1: register success!</p>
+<p>[root&#64;:~]# cd config/ds</p>
+<p>[root&#64;:ds]# ./start.sh</p>
+<p>[root&#64;:ds]# [ 36.834768] wait stable.[289][cgu_msc1]</p>
+<p>[ 36.840434] cs:0x7, vnd:0xABCD, dev:0x1</p>
+<p>[ 36.844401] mmc1: new SDIO card at address 0001</p>
+<p>[ 36.851589] sdio_t2_probe: 793</p>
+<p>[ 36.857290] sw_uevent</p>
+<p>[ 36.861765] New device wlanSDIO0</p>
+<p>[root&#64;:ds]# ./tunadapter board_conf=board.conf&amp;</p>
+<p>[root&#64;:ds]# board_conf file=0</p>
+<p>Key file path = /etc</p>
+<p>Loading conf from board.conf</p>
+<p>Config Loaded: board.conf</p>
+<p>=========conf========</p>
+<p>platform=t31_without_powersave</p>
+<p>host_irq_num=12</p>
+<p>host_irq_dev=</p>
+<p>t2_irq_pin=0</p>
+<p>t2_irq_mode=0</p>
+<p>shutdown_gpio_s[ 42.685728] sw_open</p>
+<p>tates=pppppp——–p–p–p-</p>
+<p>powersave_support=0</p>
+<p>wakeup_pin=39</p>
+<p>t2_wakeup_pin=14</p>
+<p>wakeup_level_at_t2=1</p>
+<p>delay1=0</p>
+<p>delay2=0</p>
+<p>sleep_udelay=500</p>
+<p>./tunadapter: platform=t31_without_powersave</p>
+<p>Initializing hapi</p>
+<p>Opening Serial device /dev/wlanSDIO0</p>
+<p>Speed=0</p>
+<p>hapi_recv_thread:992 DEBUG:recv thread entry</p>
+<p>hapi_config:1606 DEBUG:hapi_config. 0 0 0 0</p>
+<p>hapi_config:1666 DEBUG:before calling hio_query</p>
+<p>hapi_hio_query:396 DEBUG:Connected to T2, max packet size is 4092</p>
+<p>hapi_hio_query:397 DEBUG:Firmware version: , patch version</p>
+<p>hapi_hio_query:398 DEBUG:Hapi version: 1</p>
+<p>hapi_config:1668 DEBUG:after calling hio_query</p>
+<p>Initializing tunadaptor interface</p>
+<p>hapi_wcm_create:112 DEBUG:WiFi interface created with mac addr:
+E2:69:3A:00:04:E</p>
+<p>Tunadaptor ready…</p>
+<p>ptsname:/dev/pts/0</p>
+<p>[root&#64;:ds]# ./conmgr connect innotest 123456789</p>
+<p>Connected</p>
+<p>Status : Success</p>
+<p>[root&#64;:ds]# ./custom_mqtt certstore aws_root_ca.crt /data/aws_root_c</p>
+<p>a.crt</p>
+<p>action:certstore:4</p>
+<p>Dest cert name(path on t2) /data/aws_root_ca.crt</p>
+<p>Send len = 256, index = 0 size=1188</p>
+<p>Send len = 256, index = 256 size=932</p>
+<p>Send len = 256, index = 512 size=676</p>
+<p>Send len = 256, index = 768 size=420</p>
+<p>Send len = 164, index = 1024 size=164[root&#64;:ds]#</p>
+<p>[root&#64;:ds]#</p>
+<p>[root&#64;:ds]#</p>
+<p>[root&#64;:ds]# ./custom_mqtt certstore aws_device_cert.crt /data/aws_de</p>
+<p>vice_cert.crt</p>
+<p>action:certstore:4</p>
+<p>Dest cert name(path on t2) /data/aws_device_cert.crt</p>
+<p>Send len = 256, index = 0 size=1225</p>
+<p>Send len = 256, index = 256 size=969</p>
+<p>Send len = 256, index = 512 size=713</p>
+<p>Send len = 256, index = 768 size=457</p>
+<p>Send len = 201, index = 1024 size=201[root&#64;:ds]#</p>
+<p>[root&#64;:ds]#</p>
+<p>[root&#64;:ds]# ./custom_mqtt certstore aws_device_pkey.key /data/aws_de</p>
+<p>vice_pkey.key</p>
+<p>action:certstore:4</p>
+<p>Dest cert name(path on t2) /data/aws_device_pkey.key</p>
+<p>Send len = 256, index = 0 size=1676</p>
+<p>Send len = 256, index = 256 size=1420</p>
+<p>Send len = 256, index = 512 size=1164</p>
+<p>Send len = 256, index = 768 size=908</p>
+<p>Send len = 256, index = 1024 size=652</p>
+<p>Send len = 256, index = 1280 size=396</p>
+<p>Send len = 140, index = 1536 size=140[root&#64;:ds]#</p>
+<p>[root&#64;:ds]#</p>
+<p>[root&#64; ds]# ./custom_mqtt mqttinit a3t0o11ohwlo2h-ats.iot.ap-south-1</p>
+<p>.amazonaws.com 8883 1 T2_MAC <a class="reference external" href="mailto:apps-dev&#37;&#52;&#48;innophaseiot&#46;com">apps-dev<span>&#64;</span>innophaseiot<span>&#46;</span>com</a> InnoCloud2020
+/data/aws_r</p>
+<p>oot_ca.crt /data/aws_device_cert.crt /data/aws_device_pkey.key</p>
+<p>action:mqttinit:11</p>
+<p>MQTT client connect status = 0</p>
+<p>MQTT client connect Success. mqtt_handle = 707144 (aca48)</p>
+<p>mqtt_publish 95</p>
+<p>Status : Success</p>
+<p>[root&#64;:ds]# ./custom_mqtt mqttclose</p>
+<p>action:mqttclose:2</p>
+<p>MQTT client disconnect sussess. status = 0</p>
+<p>[root&#64;:ds]#</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="list-of-message-ids-used">
+<h2>List of Message IDs Used<a class="headerlink" href="#list-of-message-ids-used" title="Link to this heading"></a></h2>
+<p>This application makes use of following message IDs and uses Group
+numbers 68 (HIO_GROUP_MQTT_CUSTOM), 80 (HIO_GROUP_FILE),
+71(HIO_GROUP_MQTT):</p>
+<ol class="arabic simple">
+<li><p>FILE_HIO_ADD_REQ</p></li>
+</ol>
+<p>This message will be sent to Talaria TWO when this application is
+invoked to store certificate files in Talaria TWO. Path of the file to
+be stored as, in the filesystem will be sent to Talaria TWO prior to
+certificate DATA to Talaria TWO.</p>
+<ol class="arabic simple" start="2">
+<li><p>FILE_HIO_SEND_REQ</p></li>
+</ol>
+<p>This message is sent to Talaria TWO to store the certificate. The
+certificate file is sent in multiple chunks of bytes. Hence, this
+message is sent with each chunk. Talaria TWO receives this message and
+replies with FILE_HIO_SEND_RSP with status.</p>
+<ol class="arabic simple" start="3">
+<li><p>FILE_HIO_DELETE_REQ</p></li>
+</ol>
+<p>This message will be sent to Talaria TWO to remove the certificate files
+from Talaria TWO filesystem when invoked with “certdel”</p>
+<ol class="arabic simple" start="4">
+<li><p>MQTT_CLIENT_CONNECT_REQ</p></li>
+</ol>
+<p>This message is sent to Talaria TWO to start the MQTT client. Talaria
+TWO receives this message and replies with MQTT_CLIENT_CONNECT_RSP along
+with the status.</p>
+<ol class="arabic simple" start="5">
+<li><p>MQTT_CLIENT_DISCONNECT_REQ</p></li>
+</ol>
+<p>This message is sent to Talaria TWO to close the MQTT client. Talaria
+TWO receives this message and replies with MQTT_CLIENT_DISCONNECT_RSP
+along with the status.</p>
+<ol class="arabic simple" start="6">
+<li><p>MQTT_CUSTOM_ITERATIVE_PUBLISH_REQ</p></li>
+</ol>
+<p>This message will be sent to Talaria TWO to request for publish message
+from MQTT server when there is any publish message received on the
+server.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

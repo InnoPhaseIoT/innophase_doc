@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programming Talaria TWO &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Programming Talaria TWO</a><ul>
+<li><a class="reference internal" href="#hardware-set-up">Hardware Set-up</a></li>
+<li><a class="reference internal" href="#procedure">Procedure</a><ul>
+<li><a class="reference internal" href="#id3">**</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Programming Talaria TWO</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/3. Software Reference/2. Evaluation Set-up &amp; Usage/3. Programming Talaria TWO.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="programming-talaria-two">
+<h1>Programming Talaria TWO<a class="headerlink" href="#programming-talaria-two" title="Link to this heading"></a></h1>
+<section id="hardware-set-up">
+<h2>Hardware Set-up<a class="headerlink" href="#hardware-set-up" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="../../_images/image137.png"><img alt="image1" src="../../_images/image137.png" style="width: 7.48031in; height: 5.70166in;" /></a></p>
+<p>Figure 8: Hardware set-up</p>
+<p><strong>Note</strong>:</p>
+<ol class="arabic simple">
+<li><p>For more details on the hardware requirements, refer section:
+<em>Hardware Requirements</em> of the document: UG_Dual-Stack.pdf
+(<em>talaria_two_dual_stack_vx.y\host\INP3201\doc</em>).</p></li>
+<li><p>For pin-outs details on INP3000 programmer board, refer
+UG_Programming_using_INP3000.pdf
+(<em>freertos_sdk_x.y\doc\user_guides\ug_programming_using_INP3000</em>).</p></li>
+</ol>
+</section>
+<section id="procedure">
+<h2>Procedure<a class="headerlink" href="#procedure" title="Link to this heading"></a></h2>
+<p>Program the Dual-Stack ELF (&lt;dual_stack_sdio&gt;.elf) onto Talaria TWO
+using the following steps:</p>
+<ol class="arabic simple">
+<li><p>Open a terminal on console machine and start openocd from FreeRTOS
+SDK root folder <em>(freertos_sdk_x.y\)</em>. This enables in-system
+programming on Talaria TWO.</p></li>
+</ol>
+<p>Command:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>sudo openocd -s ./conf/ -f ftdi_swd.cfg -f t2_swd.cfg</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Expected output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Open On-Chip Debugger 0.10.0</p>
+<p>Licensed under GNU GPL v2</p>
+<p>For bug reports, read</p>
+<p><a class="reference external" href="http://openocd.org/doc/doxygen/bugs.html">http://openocd.org/doc/doxygen/bugs.html</a></p>
+<p>adapter speed: 1000 kHz</p>
+<p>Info : FTDI SWD mode enabled</p>
+<p>cortex_m reset_config sysresetreq</p>
+<p>Info : clock speed 1000 kHz</p>
+<p>Info : SWD DPIDR 0x2ba01477</p>
+<p>Info : talaria_two.cpu: hardware has 6 breakpoints, 4 watchpoints</p>
+<p>Info : Talaria TWO rev. H0</p>
+<div class="line-block">
+<div class="line">cortex_m reset_config sysresetreq</div>
+<div class="line">Info : clock speed 1000 kHz</div>
+<div class="line">Info : SWD DPIDR 0x2ba01477</div>
+<div class="line">Info : talaria_two.cpu: hardware has 6 breakpoints, 4 watchpoints</div>
+<div class="line">Info : Talaria TWO rev. H0</div>
+</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="2">
+<li><p>Start arden.py script from SDK root folder <em>(sdk_x.y\)</em> on a new
+terminal:</p></li>
+</ol>
+<p>Command:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>sudo python3 ./script/arden.py ./apps/gordon-jtag/bin/gordon-jtag.elf</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Expected output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>[sudo] password for dell10:</p>
+<p>(re)connecting with openocd</p>
+<p>openocd version: ‘Open On-Chip Debugger 0.10.0’</p>
+<p>boot rom version of connected device: “yoda-h0-rom-16-0-gd5a8e586”</p>
+<p>starting up on localhost port 10000</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="3">
+<li><p>Run the script gdbrun.py from FreeRTOS SDK root folder
+<em>(freertos_sdk_x.y\)</em> on a new terminal. Given a HOST with running
+OpenOCD and UART relay, gdbrun.py connects to Host and load/boot an
+ELF image.</p></li>
+</ol>
+<p>Command:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>sudo python3 ./script/gdbrun.py
+./apps/gordon-jtag/bin/gordon-jtag.elf –noconsole –nowait</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="4">
+<li><p>The &lt;dual_stack_sdio&gt;.elf generates dualstack.img and
+dualstack.img.vm and they are flashed to Talaria TWO using the
+following sequence of commands.</p></li>
+</ol>
+<p>Command:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>sudo python3 ./script/boot.py –output dualstack.img
+./solutions/dual_stack/bin/dual_stack_sdio.elf hio.transport=sdio
+hio.maxsize=8192 hio.sdio_mhz=10 wifi.outq_max=32 hio.irq_min_gap=60
+hio.irq_retry_time=200 wifi.rts=2 wifi.pmode_cts=1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>:</p>
+<ol class="loweralpha simple">
+<li><p>To enable Host reboot when Talaria TWO reboots, use the following
+bootargs:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>krn.gpio=————–p—-p-p
+ds.host_pwroff_gpio_state=LLLLLL——–p–p–p-</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="loweralpha simple" start="2">
+<li><p>For video streaming, use the following bootargs:</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>hio.min_heap_for_burst_tx=24000 hio.max_data_ind=3</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="lowerroman simple">
+<li><p>The minimum heap required for burst mechanism is 24000.</p></li>
+<li><dl class="simple">
+<dt>hio.max_data_ind specifies the maximum number of packets which can</dt><dd><p>be queued in HIO for transmission.</p>
+</dd>
+</dl>
+</li>
+</ol>
+<p>Expected output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Loading ./solutions/dual_stack/bin/dual_stack_sdio.elf</p>
+<p>Entrypoint 0xb1159</p>
+<p>Wrote bootimage to</p>
+<p>.img 103_972 bytes</p>
+<p>Wrote vmimage to dualstack.img.vm 482_176 bytes</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Command:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/flash.py –device localhost:10000 part_write BOOT &#64;root/
+freertos_sdk_x.y/dualstack.img</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: Replace x and y in freertos_sdk_x.y with the appropriate SDK
+release version.</p>
+<p>Expected output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>write:
+[==================================================================&gt;]
+103972 bytes written to addr 4096</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Command:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./script/flash.py –device localhost:10000 part_write VIRT &#64;root/
+freertos_sdk_x.y/dualstack.img.vm</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Expected output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>write:
+[==================================================================&gt;]
+482176 bytes written to addr 262144</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<section id="id3">
+<h3><a href="#id1"><span class="problematic" id="id2">**</span></a><a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p>After flashing the dual_stack_sdio.elf, update the root.img with AWS
+certificates on /data partition.</p>
+<p>Copy the AWS IoT certificates (aws_device_cert.crt, aws_device_pkey.key
+&amp; aws_root_ca.crt) into the rootfs folder
+(<em>freertos_sdk_x.y/root_fs/root</em>) in the SDK package and use mklittlefs
+command to create a new root image.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./tools/mklittlefs/mklittlefs -s 0x40000 -c ./root_fs/root root.img</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Command:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>./pc_tools/T2_Flasher/bin/T2_Flasher_Linux –operation=write_part
+–partition=DATA ./root.img</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Expected output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>/tmp/_MEItbY8QH/bin</p>
+<p>Starting OpenOCD</p>
+<p>/tmp/_MEItbY8QH/bin/openocd/linux64/openocd_linux64 -s
+/tmp/_MEItbY8QH/bin/sdk-files -f
+/tmp/_MEItbY8QH/bin/openocd/interface/cmsis-dap.cfg -f t2_swd.cfg</p>
+<p>xPack OpenOCD, x86_64 Open On-Chip Debugger 0.10.0+dev
+(2020-10-13-17:27)</p>
+<p>Licensed under GNU GPL v2</p>
+<p>For bug reports, read</p>
+<p><a class="reference external" href="http://openocd.org/doc/doxygen/bugs.html">http://openocd.org/doc/doxygen/bugs.html</a></p>
+<p>DEPRECATED! use ‘adapter speed’ not ‘adapter_khz’</p>
+<p>cortex_m reset_config sysresetreq</p>
+<p>Error: couldn’t bind tcl to socket on port 6666: Address already in
+use</p>
+<p>(re)connecting with openocd</p>
+<p>Info : accepting ‘tcl’ connection on tcp/6666</p>
+<p>talaria_two</p>
+<p>Open On-Chip Debugger 0.10.0</p>
+<p>openocd version: ‘Open On-Chip Debugger 0.10.0’</p>
+<p>Connecting GDB</p>
+<p>Info : accepting ‘gdb’ connection on tcp/3333</p>
+<p>GDB: monitor reset halt</p>
+<p>Info : Talaria TWO rev. H0</p>
+<p>target halted due to debug-request, current mode: Thread</p>
+<p>xPSR: 0x01000000 pc: 0x00020f90 msp: 0x00041a78</p>
+<p>GDB: gdb load /tmp/_MEItbY8QH/bin/tinyflasher.elf</p>
+<p>GDB: write WAIT_OP at 0x7ffe8</p>
+<p>Starting TinyFlasher</p>
+<p>GDB: gdb continue</p>
+<p>GDB: write READ_PTABLE_OP at 0x7ffe8</p>
+<p>GDB: gdb continue</p>
+<p>waiting…</p>
+<p>operation complete</p>
+<p>GDB: write WAIT_OP at 0x7ffe8</p>
+<p>Read ptable contents from memory</p>
+<p>Flashing ./root.img at 0x100000</p>
+<p>GDB: write sector count at 0x7fff0</p>
+<p>GDB: write target flash addr at 0x7fff4</p>
+<p>GDB: write image binary to RAM staging location (0x80000)</p>
+<p>GDB: write FLASH_OP at 0x7ffe8</p>
+<p>GDB: gdb continue</p>
+<p>waiting…</p>
+<p>operation complete</p>
+<p>GDB: write WAIT_OP at 0x7ffe8</p>
+<p>Disconnecting OpenOCD</p>
+<p>DONE</p>
+<p>Info : dropped ‘tcl’ connection</p>
+<p>Info : dropped ‘gdb’ connection</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<p>Once flashing and root image update is complete, reset Talaria TWO and
+reboot T31ZX to start the demo application.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -50,7 +50,7 @@ downloadLink.href = "#";
 downloadLink.onclick = downloadPDF;
 
 var imgElement = document.createElement("img");
-imgElement.src = "_static/download_icon.png";
+imgElement.src = "https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/latest/_static/download_icon.png";
 
 var textNode = document.createTextNode(" Download");
 

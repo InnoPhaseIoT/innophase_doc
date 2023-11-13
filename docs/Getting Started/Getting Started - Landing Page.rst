@@ -7,7 +7,6 @@ stack and GCC compiler-based SDK. It helps enable applications,
 networking and wireless (BLE/Wi-Fi) functionality on Talaria TWO.
 
 **Key Features**
----------------
 
 1.  Ultra-low power 2.4GHz 802.11 b/g/n Wi-Fi connectivity
 

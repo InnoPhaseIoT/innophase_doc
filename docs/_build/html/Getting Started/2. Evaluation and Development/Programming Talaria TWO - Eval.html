@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programming Talaria TWO &mdash; InnoPhase 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Power Management" href="../3.%20Power%20Measurement/Power%20Measurement.html" />
+    <link rel="prev" title="Programming Basic Applications" href="Programming%20Basic%20Applications%20-%20Dev.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../../_static/js/custom.js" defer></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InnoPhase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../Getting%20Started%20-%20Landing%20Page.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Getting%20Started%20-%20Landing%20Page.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../Getting%20Started%20-%20Landing%20Page.html#evaluation-and-development">Evaluation and development</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Evaluation%26Developement-Landing.html">Evaluation &amp; Developement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Programming%20Basic%20Applications%20-%20Dev.html">Programming Basic Applications</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Programming Talaria TWO</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Getting%20Started%20-%20Landing%20Page.html#power-measurement">Power Measurement</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Software%20Reference/Software_Reference_Landing_Page.html">Software Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Development%20Environments/Development%20Environments%20-%20Landing%20Page.html">Development Environments</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Tools/Tools-landing%20page.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">Regulatory Notices</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InnoPhase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+      <li class="breadcrumb-item active">Programming Talaria TWO</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/Getting Started/2. Evaluation and Development/Programming Talaria TWO - Eval.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="programming-talaria-two">
+<h1>Programming Talaria TWO<a class="headerlink" href="#programming-talaria-two" title="Permalink to this heading"></a></h1>
+<p>Program t2_atcmds.elf (<em>Open_Web_SDK_x.y/at/bin</em>) using the Download
+tool provided with the EVK package:</p>
+<ol class="arabic simple">
+<li><p>Launch the Download tool</p></li>
+<li><p>In the GUI window:</p>
+<ol class="loweralpha simple">
+<li><p>Boot Target: Select the appropriate EVK from the drop-down.</p></li>
+<li><p>ELF Input: Load the t2_atcmds.elf by clicking on Select ELF File.</p></li>
+<li><p>Boot Arguments: Pass the following boot arguments:</p></li>
+</ol>
+</li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>baudrate=9600</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+<ol class="loweralpha simple" start="4">
+<li><p>Programming: Prog RAM or Prog Flash as per requirement.</p></li>
+</ol>
+<p>For more details on using the Download tool, refer: Download_Tool.</p>
+<p><strong>Note</strong>: x and y refer to the EVK release version. For example:
+<em>Open_Web_SDK_2.4/doc</em>.</p>
+<p>Console output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7</p>
+<p>ROM yoda-h0-rom-16-0-gd5a8e586</p>
+<p>FLASH:PNWWWWWWAEBuild $Id: git-34e3eddb8 $</p>
+<p>baudrate=9600</p>
+<p>Application Information:</p>
+<p>Name : atcmd</p>
+<p>Version : 2.0</p>
+<p>Build Date : Aug 8 2022</p>
+<p>Build Time : 03:58:11</p>
+<p>Heap Available: 311 KB (318608 Bytes)</p>
+<p>$App:git-b369bc3f</p>
+<p>SDK Ver: SDK_2.5</p>
+<p>At Command App</p>
+<p>addr e0:69:3a:00:13:90</p>
+<p>domain:1-11&#64;20before: magic1=0x0, val=0x0, magic2=0x0</p>
+<p>Crash detection logic initialized</p>
+<p>after: magic1=0x11223344, val=0x0, magic2=0x55667788</p>
+<p>Serial-to-Wireless: Ready</p>
+<p>starting thread-sock</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Programming%20Basic%20Applications%20-%20Dev.html" class="btn btn-neutral float-left" title="Programming Basic Applications" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../3.%20Power%20Measurement/Power%20Measurement.html" class="btn btn-neutral float-right" title="Power Management" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary &amp; Confidential.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

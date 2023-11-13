@@ -153,7 +153,7 @@ firmware. Following examples are available:
 Apps
 -------------
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     1. Apps/1. Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK
     1. Apps/2. Alarm
@@ -164,7 +164,7 @@ Apps
 Examples
 -------------
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     2. Examples/Example_for_Analog_to_Digital_Converter
     2. Examples/Example_for_Audio_over_I2S

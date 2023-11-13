@@ -1,5 +1,9 @@
+Regulatory Notices
+==================
+
+
 FCC/ISED Regulatory Notices
-===========================
+----------------------
 
 **Note**: Users must ensure to do their own EMC and safety assessment
 along with any RF spot checks as applicable while integrating Talaria

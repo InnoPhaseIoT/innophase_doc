@@ -1,8 +1,0 @@
-Production Programming
-======================
-
-Programming Over the Air
-------------------------
-
-Irrespective of the hardware interface, the host module can perform FOTA
-(Firmware Upgrade Over the Air).

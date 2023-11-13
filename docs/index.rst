@@ -66,38 +66,11 @@ Linux CPU-based (Hosted CPU):
 
    Hardware Reference/Hardware-Reference
 
-
-.. toctree::
-   :hidden:
-   :maxdepth: 2
-
-   Porting Guide/Porting-Guide
-
-.. toctree::
-   :hidden:
-   :maxdepth: 2
-
-   Disclaimers/Disclaimers
-
-.. toctree::
-   :hidden:
-   :maxdepth: 2
-
-   Appendix/Appendix-Landing_Page
-
-.. toctree::
-   :hidden:
-   :maxdepth: 2
-
-   Support/Support
-
-
 .. toctree::
    :hidden:
    :maxdepth: 2
 
    Software Reference/Software_Reference_Landing_Page
-
 
 .. toctree::
    :hidden:
@@ -105,21 +78,17 @@ Linux CPU-based (Hosted CPU):
 
    Development Environments/Development Environments - Landing Page
 
-
 .. toctree::
    :hidden:
    :maxdepth: 2
 
    Tools/Tools-landing page
 
-
 .. toctree::
    :hidden:
    :maxdepth: 2
 
    Applications/Applications - Landing Page
-
-
 
 .. toctree::
    :hidden:
@@ -133,12 +102,29 @@ Linux CPU-based (Hosted CPU):
 
    Security/Security - Landing Page
 
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+
+   Porting Guide/Porting-Guide
 
 .. toctree::
    :hidden:
    :maxdepth: 2
 
-   Backend Files - for cross referencing/Backend File Landing
+   Support/Support
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+
+   Disclaimers/Disclaimers
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+
+   Appendix/Appendix-Landing_Page
 
 .. toctree::
    :hidden:

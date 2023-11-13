@@ -1,9 +1,0 @@
-Hibernate Mode
-==============
-
-In the Hibernate mode, EN_CHIP/RST PIN must be held LOW (less than 0.6V)
-and the VDD must be ON (VDD 3V). In this mode, SRAM memory is not
-retained and the RTC will be OFF. Host connected to this PIN can put the
-module in Hibernate mode by a GPIO to save power. When released from the
-Hibernate mode, the module will work with a default software application
-stored in Flash. In this mode, the module consumes less than 1uA.

@@ -1,4 +1,0 @@
-Pre-set-up on Talaria TWO
--------------------------
-
-Set-up the Talaria TWO EVK as per the EVB-A start guide.

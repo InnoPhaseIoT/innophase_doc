@@ -21,6 +21,8 @@
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Programming Basic Applications" href="Programming%20Basic%20Applications%20-%20Dev.html" />
+    <link rel="prev" title="Software Development Kit" href="../1.%20Prerequisites/2.%20Software-Prerequisites.html" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="../../_static/js/custom.js" defer></script>
@@ -47,23 +49,28 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../Getting%20Started%20-%20Landing%20Page.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Getting%20Started%20-%20Landing%20Page.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../Getting%20Started%20-%20Landing%20Page.html#evaluation-and-development">Evaluation and development</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Evaluation &amp; Developement</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#operating-systems">Operating systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installing-python">Installing python</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installing-modules">Installing modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installing-modflow-2005">Installing MODFLOW-2005</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Programming%20Basic%20Applications%20-%20Dev.html">Programming Basic Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Programming%20Talaria%20TWO%20-%20Eval.html">Programming Talaria TWO</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Getting%20Started%20-%20Landing%20Page.html#power-measurement">Power Measurement</a></li>
+</ul>
+</li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../Hardware%20Reference/Hardware-Reference.html">Hardware-Reference</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../Support/Support.html">Support</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../Software%20Reference/Software_Reference_Landing_Page.html">Software Reference</a></li>
@@ -78,10 +85,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../../Applications/Applications%20-%20Landing%20Page.html">Applications</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">FCC/ISED Regulatory Notices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Regulatory%20Notices/Regulatory%20Notices.html">Regulatory Notices</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../Security/Security%20-%20Landing%20Page.html">Security</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Porting%20Guide/Porting-Guide.html">Porting-Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Support/Support.html">Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Disclaimers/Disclaimers.html">Disclaimer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Appendix/Appendix-Landing_Page.html">Appendix</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">About</span></p>
 <ul>
@@ -102,6 +121,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../Getting%20Started%20-%20Landing%20Page.html">Getting Started</a></li>
       <li class="breadcrumb-item active">Evaluation &amp; Developement</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/Getting Started/2. Evaluation and Development/Evaluation&amp;Developement-Landing.rst.txt" rel="nofollow"> View page source</a>
@@ -142,9 +162,8 @@ $<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">project</span><span class="o">/</span><span class="n">beaver</span><span class="o">-</span><span class="n">dam</span><span class="o">-</span><span class="n">water</span><span class="o">-</span><span class="n">storage</span>
 </pre></div>
 </div>
-</section>
 <section id="operating-systems">
-<h1>Operating systems<a class="headerlink" href="#operating-systems" title="Permalink to this heading"></a></h1>
+<h2>Operating systems<a class="headerlink" href="#operating-systems" title="Permalink to this heading"></a></h2>
 <p>The BDWS python code is cross platform (Windows, Mac, Linux), and code for the <code class="code docutils literal notranslate"><span class="pre">BDLoG</span></code> and <code class="code docutils literal notranslate"><span class="pre">BDSWEA</span></code> packages has been
 tested on Windows (10) and Ubuntu (16.04) operating systems.
 However, for use of the <code class="code docutils literal notranslate"><span class="pre">BDflopy</span></code> class Microsoft Windows is recommended as the USGS only provides compiled MODFLOW-2005
@@ -152,7 +171,7 @@ executables for this platform. USGS does provide source code that can be compile
 Code for the <code class="code docutils literal notranslate"><span class="pre">BDflopy</span></code> class is cross platform but has only been tested on Windows.</p>
 </section>
 <section id="dependencies">
-<h1>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading"></a></h1>
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>Python version 2.7.x is recommended.</p></li>
 <li><p>Python modules: <code class="code docutils literal notranslate"><span class="pre">gdal</span></code> <code class="code docutils literal notranslate"><span class="pre">numpy</span></code> <code class="code docutils literal notranslate"><span class="pre">flopy</span></code></p></li>
@@ -160,13 +179,13 @@ Code for the <code class="code docutils literal notranslate"><span class="pre">B
 </ol>
 </section>
 <section id="installing-python">
-<h1>Installing python<a class="headerlink" href="#installing-python" title="Permalink to this heading"></a></h1>
+<h2>Installing python<a class="headerlink" href="#installing-python" title="Permalink to this heading"></a></h2>
 <p>Python can be installed from a number of sources, including <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>. Anaconda is another option which
 provides additional tools for python <a class="reference external" href="https://www.anaconda.com/download/">https://www.anaconda.com/download/</a>. This is a recommended option for novice users.
 Python version 2.7.x is recommended.</p>
 </section>
 <section id="installing-modules">
-<h1>Installing modules<a class="headerlink" href="#installing-modules" title="Permalink to this heading"></a></h1>
+<h2>Installing modules<a class="headerlink" href="#installing-modules" title="Permalink to this heading"></a></h2>
 <p>Python modules can be installed with <code class="code docutils literal notranslate"><span class="pre">pip</span></code>.</p>
 <p>1. Make sure <code class="code docutils literal notranslate"><span class="pre">pip</span></code> is up-to-date. From a terminal or the Anaconda command prompt enter the following.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pip</span>
@@ -185,15 +204,19 @@ Python version 2.7.x is recommended.</p>
 <p>Only the <code class="code docutils literal notranslate"><span class="pre">BDflopy</span></code> class depends on the <code class="code docutils literal notranslate"><span class="pre">flopy</span></code> module</p>
 </section>
 <section id="installing-modflow-2005">
-<h1>Installing MODFLOW-2005<a class="headerlink" href="#installing-modflow-2005" title="Permalink to this heading"></a></h1>
+<h2>Installing MODFLOW-2005<a class="headerlink" href="#installing-modflow-2005" title="Permalink to this heading"></a></h2>
 <p>MODFLOW-2005 executables and documentation can be found at <a class="reference external" href="https://water.usgs.gov/ogw/modflow/mf2005.html">https://water.usgs.gov/ogw/modflow/mf2005.html</a>. Download and
 unpack the .zip file for your operating system. Unix users will need to compile the source code.</p>
+</section>
 </section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../1.%20Prerequisites/2.%20Software-Prerequisites.html" class="btn btn-neutral float-left" title="Software Development Kit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Programming%20Basic%20Applications%20-%20Dev.html" class="btn btn-neutral float-right" title="Programming Basic Applications" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

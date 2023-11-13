@@ -73,14 +73,6 @@ solution package – SDK.
 There are three versions of the INP3000 board which could be used for
 different applications:
 
-INP3000 Programmer Board VERSION 4.0
-====================================
-
-INP3000 Programmer Board VERSION 3.0
-====================================
-
-INP3000 Programmer Board VERSION 2.1
-====================================
 
 .. |image1| image:: media/image1.JPG
    :width: 5.90551in

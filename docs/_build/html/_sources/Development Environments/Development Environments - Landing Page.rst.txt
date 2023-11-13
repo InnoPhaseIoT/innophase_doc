@@ -19,7 +19,6 @@ an Ubuntu VirtualBox with a Windows 10 host.
 
     1. Linux/1. Environment Set-up/1. Software Installation.rst
     1. Linux/1. Environment Set-up/2. Standalone Ubuntu 20.rst
-    1. Linux/1. Environment Set-up/2. Standalone Ubuntu 21.rst
 
 Eclipse Set-up for Linux
 ~~~~~~~~~~~~~~~~~~~~~~~~

@@ -50,61 +50,29 @@ Hardware-Prerequisites
 ~~~~~~~~~~~~~~~~~~
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     1. Prerequisites/1. Hardware-Prerequisites
 
 Software-Prerequisites
 ~~~~~~~~~~~~~~~~~~
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     1. Prerequisites/2. Software-Prerequisites
 
 Evaluation and development
 --------------------------
-
-Debugging an Application
-~~~~~~~~~~~~~~~~~~~~~~~~
 .. toctree::
     :maxdepth: 2
-  2. Evaluation and Development/3. Debugging an Application/1. Debugging using GDB
-  2. Evaluation and Development/3. Debugging an Application/2. Coredump Generation and Analysis
+
+    2. Evaluation and Development/Evaluation&Developement-Landing
+    2. Evaluation and Development/Programming Basic Applications - Dev
+    2. Evaluation and Development/Programming Talaria TWO - Eval
+
 
 Power Measurement
-~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------
 .. toctree::
     :maxdepth: 2
-  2. Evaluation and Development/3. Power Measurement/Power Measurement
-
-
-Memory Mapping
-~~~~~~~~~~~~~~~~~~~~~~~~
-.. toctree::
-    :maxdepth: 2
-  2. Evaluation and Development/4. Memory Mapping/Memory mapping
-
-Landing page
-~~~~~~~~~~~~
-.. toctree::
-    :maxdepth: 2
-  2. Evaluation and Development/1. Landing Page
-
-Programming Basic Applications
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. toctree::
-    :maxdepth: 2
-  2. Evaluation and Development/2. Programming Basic Applications - Dev
-
-
-Command Line Interface Commands
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. toctree::
-    :maxdepth: 2
-  2. Evaluation and Development/5. Command Line Interface Commands
-
-Boot Arguments
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. toctree::
-    :maxdepth: 2
-  2. Evaluation and Development/6. Boot Arguments
+  3. Power Measurement/Power Measurement

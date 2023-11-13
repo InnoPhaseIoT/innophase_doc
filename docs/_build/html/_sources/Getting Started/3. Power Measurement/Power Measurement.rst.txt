@@ -1,3 +1,7 @@
+Power Management
+~~~~~~~~~~~~~~~~~
+
+
 The power consumption of the INP101x module is measured by either
 connecting a DMM on the jumper J4 or supplying power directly on J4
 using specialty power supplies like Otti Arc from Qiotech. Figure 9
@@ -9,7 +13,7 @@ Arc.
 Figure 9: Current measurement setup using Otti Arc
 
 Using Battery as Power Source
-=============================
+++++++++++++++++++++++++++++++
 
 Header J4 will switch between VBat and Vm_3.3V. Figure 10 shows VBat
 connection.

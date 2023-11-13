@@ -83,7 +83,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Find the original <li> with class "wy-breadcrumbs-aside"
     var originalLi = document.querySelector('li.wy-breadcrumbs-aside');
     var newImg = document.createElement('img');
-    newImg.src = '_static/logo.png';
+    // newImg.src = '_static/logo.png';
+    newImg.src = 'https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/latest/_static/logo.png';
     newImg.alt = 'Logo';
     newImg.className = 'headerimage';
     originalLi.parentNode.replaceChild(newImg, originalLi);

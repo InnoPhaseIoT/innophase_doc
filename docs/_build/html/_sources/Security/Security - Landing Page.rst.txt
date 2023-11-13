@@ -10,22 +10,19 @@ included to:
 -  Prevent loading of unauthorized applications and executing a flash
    readout of application contents
 
-
-Network Security
-----------------
-.. toctree::
-   :maxdepth: 2
-
-   Network Security/Secure Over the Air Upgrades.rst
-   Network Security/Secure Provisioning.rst
-   Network Security/Transport Layer Security.rst
-   Network Security/Wi-Fi.rst
-
-
 Secureboot
 ----------
 .. toctree::
    :maxdepth: 2
 
-   Secureboot/Secureboot.rst
+   2. Secureboot/Secureboot.rst
 
+Network Security
+----------------
+.. toctree::
+   :maxdepth: 2
+   
+   1. Network Security/1. Wi-Fi.rst
+   1. Network Security/2. Transport Layer Security.rst
+   1. Network Security/3. Secure Provisioning.rst
+   1. Network Security/4. Secure Over the Air Upgrades.rst

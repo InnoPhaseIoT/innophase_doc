@@ -1,16 +1,14 @@
 const searchElement = document.getElementsByClassName("icon icon-home")[0];
 
 const VersionsList = {
-    Version: "InnoOS-2.7",
+    Version: "freertos-3.0",
     "FreeRTOS-3.0":
         "https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/freertos-3.0",
-    "InnoOS-2.7":
-        "https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/innoos-2.7",
 };
 
 const ModulesList = {
     Module: "#",
-    "Talaria-TWO": "https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/latest",
+    "Talaria-TWO": "https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/freertos-3.0",
 };
 
 var selectList = document.createElement("select");
@@ -85,7 +83,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Find the original <li> with class "wy-breadcrumbs-aside"
     var originalLi = document.querySelector('li.wy-breadcrumbs-aside');
     var newImg = document.createElement('img');
-    newImg.src = '_static/logo.png';
+    // newImg.src = '_static/logo.png';
+    newImg.src = 'https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/latest/_static/logo.png';
     newImg.alt = 'Logo';
     newImg.className = 'headerimage';
     originalLi.parentNode.replaceChild(newImg, originalLi);

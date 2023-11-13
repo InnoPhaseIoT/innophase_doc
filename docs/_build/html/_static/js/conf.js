@@ -1,8 +1,8 @@
 const listVersions = [
   {
     'Version': "latest",
-    "1.0.0":
-      "https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/v1.0",
+    "FreeRTOS-3.0":
+      "https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/freertos-3.0",
   },
 ];
 

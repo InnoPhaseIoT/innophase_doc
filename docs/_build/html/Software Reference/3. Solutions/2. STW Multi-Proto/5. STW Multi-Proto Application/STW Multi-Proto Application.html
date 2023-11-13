@@ -295,7 +295,7 @@ calls the relevant Talaria TWO’s networking API to execute the request
 received from the host and returns a response.</p>
 <p>The communication between a HAPI-based application and the SMP
 application is illustrated in Figure 7.</p>
-<p><a class="reference internal" href="../../../../_images/image1131.png"><img alt="Diagram Description automatically generated" src="../../../../_images/image1131.png" style="width: 5.90551in; height: 5.30038in;" /></a></p>
+<p><a class="reference internal" href="../../../../_images/image169.png"><img alt="Diagram Description automatically generated" src="../../../../_images/image169.png" style="width: 5.90551in; height: 5.30038in;" /></a></p>
 <p>Figure 7: Exchange of request-response packets between Host and Talaria
 TWO</p>
 </section>
@@ -305,7 +305,7 @@ TWO</p>
 <p>After Talaria TWO powers up, a reset needs to be issued by the host
 application. This can be done by pulling down the reset pin low for a
 period of about 100 ms and then high for a period of about 100 ms.</p>
-<p><a class="reference internal" href="../../../../_images/image295.png"><img alt="A diagram of a data flow Description automatically generated" src="../../../../_images/image295.png" style="width: 4.72441in; height: 2.21222in;" /></a></p>
+<p><a class="reference internal" href="../../../../_images/image240.png"><img alt="A diagram of a data flow Description automatically generated" src="../../../../_images/image240.png" style="width: 4.72441in; height: 2.21222in;" /></a></p>
 <p>Figure 8: Talaria TWO reset sequence block diagram</p>
 <section id="code-walkthrough">
 <h2>Code Walkthrough<a class="headerlink" href="#code-walkthrough" title="Permalink to this heading"></a></h2>
@@ -653,7 +653,7 @@ sizeof(struct hapi_custom_msg_req), 0);</p>
 <p>The data to be sent by the host (in the msg buffer in this example) is
 copied to the request message buffer. Now, the packet to be sent to
 Talaria TWO is ready. The packet contains the following fields:</p>
-<p><a class="reference internal" href="../../../../_images/image347.png"><img alt="A picture containing histogram Description automatically generated" src="../../../../_images/image347.png" style="width: 5.90551in; height: 1.21448in;" /></a></p>
+<p><a class="reference internal" href="../../../../_images/image323.png"><img alt="A picture containing histogram Description automatically generated" src="../../../../_images/image323.png" style="width: 5.90551in; height: 1.21448in;" /></a></p>
 <p>Figure 9: Packet contents</p>
 <p>The host sends a message: “Hello from host”.</p>
 <p>The length of the packet is: sum of size of Payload+TRX ID+MSG ID+GROUP

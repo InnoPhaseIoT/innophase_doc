@@ -1,6 +1,3 @@
-Download Tool
---------------
-
 Download Tool is a GUI tool provided with the InnoPhase Talaria TWO SDK.
 The Download Tool is provided as binaries for Windows and Linux
 Operating Systems.
@@ -13,23 +10,17 @@ Figure 1: Block Diagram
    :width: 6.26806in
    :height: 2.51746in
 
-Prerequisites
-~~~~~~~~~~~~~~~
 .. toctree::
    :maxdepth: 2
 
    1. Prerequisites/1. Prerequisites - Landing Page.rst
 
-GUI Overview
-~~~~~~~~~~~~~~~
 
 .. toctree::
    :maxdepth: 2
 
    2. GUI Overview/1. GUI Overview - Landing Page.rst
 
-Download Tool Usage
-~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
    :maxdepth: 2

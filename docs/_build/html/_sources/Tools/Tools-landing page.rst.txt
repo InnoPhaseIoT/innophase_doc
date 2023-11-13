@@ -1,4 +1,4 @@
-Tools
+Tool
 ----------
 
 Programming (Download), multi-purpose demo GUI tools are provided as
@@ -14,6 +14,7 @@ Download Tool
 The download tool is provided as a binary (for both Windows & Linux
 platforms) in the InnoPhase IoT EVK and SDK packages. This tool is
 primarily used for programming the Talaria TWO module with applications.
+
 
 .. toctree::
    :maxdepth: 2

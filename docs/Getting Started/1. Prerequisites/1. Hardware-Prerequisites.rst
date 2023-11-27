@@ -6,18 +6,13 @@ INP301x Package Contents
 
 The package contains:
 
-1. INP3010\*, INP3014\*, INP3011*\*, INP3015*\*, INP3012 or INP3013
-   board
-
-2. Micro USB cable
-
-3. Antenna (INP3011 and INP3012 boards)
-
-4. Battery box
+- 1. INP3010\*, INP3014\*, INP3011*\*, INP3015*\*, INP3012 or INP3013 board
+- 2. Micro USB cable
+- 3. Antenna (INP3011 and INP3012 boards)
+- 4. Battery box
 
 |image1|
-
-Figure 1: INP301x EVB-A Board with INP101x module board installed
+            Figure 1: INP301x EVB-A Board with INP101x module board installed
 
 Description of the Board
 ========================
@@ -49,22 +44,17 @@ the evaluation board are:
 3. Power supply section: Based on the mode, the power for module is
    derived from either USB or shield header. A battery header is
    available which can be used as power source as well.
-
    a. J4 at VM_3.3V for USB power
-
    b. J4 at VBAT and battery connect to J10 for Battery power
 
 4. On board sensors are available to develop sensor to cloud
    applications.
 
 5. Switch:
-
    a. Set U3 switch to V33_ARD for Shield mode
-
    b. Set U3 switch to V_3.3V for Standalone mode
 
 INP3000 Programmer Board
-
 INP3000 programmer board provides a programming interface for Talaria
 TWO modules. It can be used in conjunction with the factory_loader
 scripts or other companion scripts found in Talaria TWO standalone
@@ -74,9 +64,9 @@ There are three versions of the INP3000 board which could be used for
 different applications:
 
 
-.. |image1| image:: media/image1.JPG
-   :width: 5.90551in
-   :height: 5.25375in
-.. |image2| image:: media/image2.png
+.. |image1| image:: media/images1.jpeg
+   :width: 6.90551in
+   :height: 4.25375in
+.. |image2| image:: media/images2.jpeg
    :width: 4.92153in
    :height: 2.91528in

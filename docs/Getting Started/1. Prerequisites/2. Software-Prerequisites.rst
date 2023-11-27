@@ -1,12 +1,9 @@
 Following are the software prerequisites to get started:
 
-1. Windows/Linux PC
-
-2. Wi-Fi Access Point
-
-3. Minicom/TeraTerm VT Utility installed on PC (add a download link)
-
-4. SDK package
+- 1. Windows/Linux PC
+- 2. Wi-Fi Access Point
+- 3. Minicom/TeraTerm VT Utility installed on PC (add a download link)
+- 4. SDK package
 
 Software Development Kit
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -20,7 +17,7 @@ steps:
 1. Go to the InnoPhase website (https://innophaseiot.com/) and click on
    Register.
 
-|A screenshot of a computer Description automatically generated|
+|image3|
 
 2. Provide the appropriate details to register onto the InnoPhase
    Customer Portal.
@@ -32,12 +29,12 @@ Portal.
 3. On successfully registering to the Customer Portal, the following
    screen will appear:
 
-|image1|\ |image2|
+|image4|
 
 4. Navigate to the Software Tab and download the appropriate software
    package(s):
 
-|image3|
+|image5|
 
 SDK Package Contents Walkthrough
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -55,22 +52,21 @@ Folder details are as follows:
 
 .. table:: Table 1: Application in the release package
 
-   +-------------+--------------------------------------------------------+
-   | *           | **Description**                                        |
-   | *Protocol** |                                                        |
-   +=============+========================================================+
-   | alarm       | Describes alarm functionality in Talaria TWO           |
-   +-------------+--------------------------------------------------------+
-   | helloworld  | Basic helloworld application                           |
-   +-------------+--------------------------------------------------------+
-   | ssbl        | Demonstrates running and switching between multiple    |
-   |             | applications on Talaria TWO using SSBL                 |
-   +-------------+--------------------------------------------------------+
-   | stw_        | Serial to Wi-Fi application used in hosted mode of     |
-   | multi_proto | operation                                              |
-   +-------------+--------------------------------------------------------+
-   | gordon.elf  | Flashing utility using UART interface                  |
-   +-------------+--------------------------------------------------------+
+   +-----------------+--------------------------------------------------------------+
+   | **Protocol**    | **Description**                                              |
+   |                 |                                                              |
+   +=================+==============================================================+
+   | alarm           | Describes alarm functionality in Talaria TWO                 |
+   +-----------------+--------------------------------------------------------------+
+   | helloworld      | Basic helloworld application                                 |
+   +-----------------+--------------------------------------------------------------+
+   | ssbl            | Demonstrates running and switching between multiple          |
+   |                 | applications on Talaria TWO using SSBL                       |
+   +-----------------+--------------------------------------------------------------+
+   | stw_multi_proto | Serial to Wi-Fi application used in hosted mode of operation |
+   +-----------------+--------------------------------------------------------------+
+   | gordon.elf      | Flashing utility using UART interface                        |
+   +-----------------+--------------------------------------------------------------+
 
 2. **binaries**: The product folder consists of firmware image for AT
    commands.
@@ -87,37 +83,22 @@ Folder details are as follows:
    directly use the function. The following protocols are available in
    the components folder serving as a library for applications:
 
-   a. alarm
-
-   b. checksum
-
-   c. cipher
-
-   d. device_ifc
-
-   e. fota
-
-   f. http
-
-   g. json
-
-   h. mdns
-
-   i. mqtt
-
-   j. out
-
-   k. prov
-
-   l. secureboot
-
-   m. sntp
-
-   n. ssl_wrap
-
-   o. utils
-
-   p. websocket
+   - alarm
+   - checksum
+   - cipher
+   - device_ifc
+   - fota
+   - http
+   - json
+   - mdns
+   - mqtt
+   - out
+   - prov
+   - secureboot
+   - sntp
+   - ssl_wrap
+   - utils
+   - websocket
 
 6. **conf**: Debugger configuration files.
 
@@ -183,85 +164,81 @@ b. user_guides
 
 .. table:: Table 2: Example applications
 
-   +-------------+--------------------------------------------------------+
-   | *           | **Description**                                        |
-   | *Protocol** |                                                        |
-   +=============+========================================================+
-   | at          | Demonstrates custom AT commands which the user can use |
-   | _custom_cmd | apart from the standard commands                       |
-   +-------------+--------------------------------------------------------+
-   | ble_beacons | Example codes describing the basic concept of          |
-   |             | Eddystone Beacon                                       |
-   |             |                                                        |
-   |             | -  Eddystone UID                                       |
-   |             |                                                        |
-   |             | -  Eddystone URL                                       |
-   |             |                                                        |
-   |             | -  Eddystone TLM                                       |
-   +-------------+--------------------------------------------------------+
-   | ble_        | Example code for receiving a text message from a       |
-   | wifi_bridge | connected BLE client and publishing it to a CloudMQTT  |
-   |             | broker                                                 |
-   +-------------+--------------------------------------------------------+
-   | c           | Describes the application for fetching the changes in  |
-   | hip_monitor | the values of device core temperature, Voltage of      |
-   |             | VBAT, external ADC and estimated current consumption   |
-   |             | of Talaria TWO device                                  |
-   +-------------+--------------------------------------------------------+
-   | cra         | Example code for using the crash handler API to handle |
-   | sh_handling | and debug error cases                                  |
-   +-------------+--------------------------------------------------------+
-   | gpio        | Example codes to use the GPIO interface. the interface |
-   |             | for GPIO                                               |
-   +-------------+--------------------------------------------------------+
-   | http_client | Example codes for using HTTP client APIs to connect to |
-   |             | HTTP servers in secured (HTTPS) and non-secured way    |
-   +-------------+--------------------------------------------------------+
-   | i2c         | Demonstrates usage of I2C on Talaria TWO               |
-   +-------------+--------------------------------------------------------+
-   | ifttt       | Example application for using Talaria TWO with IFTTT   |
-   +-------------+--------------------------------------------------------+
-   | lp_scan     | Demonstrates the basics of the Low Power Wi-Fi scan    |
-   |             | feature                                                |
-   +-------------+--------------------------------------------------------+
-   | mdns        | Demonstrates using the mDNS APIs provided by the mDNS  |
-   |             | module                                                 |
-   +-------------+--------------------------------------------------------+
-   | mqtt        | Example codes for using the publish/subscribe          |
-   |             | operation of MQTT in both secured and non-secured      |
-   |             | modes                                                  |
-   +-------------+--------------------------------------------------------+
-   | prov        | A demo Provisioning application using BLE for          |
-   |             | provisioning AP credentials at Talaria TWO from a      |
-   |             | mobile application                                     |
-   +-------------+--------------------------------------------------------+
-   | s           | Example application for reading and writing encrypted  |
-   | ecure_files | files from/to the filesystem                           |
-   +-------------+--------------------------------------------------------+
-   | unassoc     | Example codes describing Wi-Fi un-associated mode      |
-   |             | transmission APIs available in the SDK, call-back      |
-   |             | events, notifications and associated data structures   |
-   +-------------+--------------------------------------------------------+
-   | using_ble   | Introduction to BLE APIs through code samples          |
-   |             | consisting of a server and client application          |
-   +-------------+--------------------------------------------------------+
-   | using       | Demonstrates using the filesystem APIs to show case    |
-   | _filesystem | the filesystem functionalities on the Talaria TWO EVK  |
-   +-------------+--------------------------------------------------------+
-   | using_sntp  | Demonstrates fetching time from NTP server using SNTP  |
-   +-------------+--------------------------------------------------------+
-   | using_wifi  | Example codes describing the Wi-Fi connection manager  |
-   |             | APIs                                                   |
-   +-------------+--------------------------------------------------------+
-   | wat         | Demonstrates managing Talaria TWO watchdog timer using |
-   | chdog_timer | the functions provided by the watchdog driver          |
-   +-------------+--------------------------------------------------------+
-   | wcm_pm      | Demonstrates the Wi-Fi Connection Manager power        |
-   |             | management APIs                                        |
-   +-------------+--------------------------------------------------------+
-   | websocket   | Demonstrates using the WebSocket client APIs provided  |
-   |             | by the WebSocket module                                |
-   +-------------+--------------------------------------------------------+
+   +------------------+--------------------------------------------------------+
+   | **Protocol**     | **Description**                                        |
+   +==================+========================================================+
+   | at_custom_cmd    | Demonstrates custom AT commands which the user can use |
+   |                  | apart from the standard commands                       |
+   +------------------+--------------------------------------------------------+
+   | ble_beacons      | Example codes describing the basic concept of          |
+   |                  | Eddystone Beacon                                       |
+   |                  | -  Eddystone UID                                       |
+   |                  | -  Eddystone URL                                       |
+   |                  | -  Eddystone TLM                                       |
+   +------------------+--------------------------------------------------------+
+   | ble_wifi_bridge  | Example code for receiving a text message from a       |
+   |                  | connected BLE client and publishing it to a CloudMQTT  |
+   |                  | broker                                                 |
+   +------------------+--------------------------------------------------------+
+   | chip_monitor     | Describes the application for fetching the changes in  |
+   |                  | the values of device core temperature, Voltage of      |
+   |                  | VBAT, external ADC and estimated current consumption   |
+   |                  | of Talaria TWO device                                  |
+   +------------------+--------------------------------------------------------+
+   | cra sh_handling  | Example code for using the crash handler API to handle |
+   |                  | and debug error cases                                  |
+   +------------------+--------------------------------------------------------+
+   | gpio             | Example codes to use the GPIO interface. the interface |
+   |                  | for GPIO                                               |
+   +------------------+--------------------------------------------------------+
+   | http_client      | Example codes for using HTTP client APIs to connect to |
+   |                  | HTTP servers in secured (HTTPS) and non-secured way    |
+   +------------------+--------------------------------------------------------+
+   | i2c              | Demonstrates usage of I2C on Talaria TWO               |
+   +------------------+--------------------------------------------------------+
+   | ifttt            | Example application for using Talaria TWO with IFTTT   |
+   +------------------+--------------------------------------------------------+
+   | lp_scan          | Demonstrates the basics of the Low Power Wi-Fi scan    |
+   |                  | feature                                                |
+   +------------------+--------------------------------------------------------+
+   | mdns             | Demonstrates using the mDNS APIs provided by the mDNS  |
+   |                  | module                                                 |
+   +------------------+--------------------------------------------------------+
+   | mqtt             | Example codes for using the publish/subscribe          |
+   |                  | operation of MQTT in both secured and non-secured      |
+   |                  | modes                                                  |
+   +------------------+--------------------------------------------------------+
+   | prov             | A demo Provisioning application using BLE for          |
+   |                  | provisioning AP credentials at Talaria TWO from a      |
+   |                  | mobile application                                     |
+   +------------------+--------------------------------------------------------+
+   | secure_files     | Example application for reading and writing encrypted  |
+   |                  | files from/to the filesystem                           |
+   +------------------+--------------------------------------------------------+
+   | unassoc          | Example codes describing Wi-Fi un-associated mode      |
+   |                  | transmission APIs available in the SDK, call-back      |
+   |                  | events, notifications and associated data structures   |
+   +------------------+--------------------------------------------------------+
+   | using_ble        | Introduction to BLE APIs through code samples          |
+   |                  | consisting of a server and client application          |
+   +------------------+--------------------------------------------------------+
+   | using_filesystem | Demonstrates using the filesystem APIs to show case    |
+   |                  | the filesystem functionalities on the Talaria TWO EVK  |
+   +------------------+--------------------------------------------------------+
+   | using_sntp       | Demonstrates fetching time from NTP server using SNTP  |
+   +------------------+--------------------------------------------------------+
+   | using_wifi       | Example codes describing the Wi-Fi connection manager  |
+   |                  | APIs                                                   |
+   +------------------+--------------------------------------------------------+
+   | watchdog_timer   | Demonstrates managing Talaria TWO watchdog timer using |
+   |                  | the functions provided by the watchdog driver          |
+   +------------------+--------------------------------------------------------+
+   | wcm_pm           | Demonstrates the Wi-Fi Connection Manager power        |
+   |                  | management APIs                                        |
+   +------------------+--------------------------------------------------------+
+   | websocket        | Demonstrates using the WebSocket client APIs provided  |
+   |                  | by the WebSocket module                                |
+   +------------------+--------------------------------------------------------+
 
 9.  **FreeRTOS-Kernel**: FreeRTOS include files.
 
@@ -283,29 +260,18 @@ b. user_guides
     development on Talaria TWO. This directory further contains the
     following directories:
 
-    a. fcc_test – tool used for Wi-Fi/BLE testing and to set up required
-       test parameters.
+    - fcc_test tool: used for Wi-Fi/BLE testing and to set up required test parameters.
+    - fletcher32: tool used to create checksum files for checking the integrity of the configuration files. Currently part.json boot.json and fota_config.json files’ integrity is checked using the checksum.
+    - mklittlefs: tool used to create the file system image.
+    - partition_files: flash partition files used with SSBL setup (ssbl_part_table.json) and without SSBL setup (standard_part_table.json).
 
-    b. fletcher32 - tool used to create checksum files for checking the
-       integrity of the configuration files. Currently part.json,
-       boot.json and fota_config.json files’ integrity is checked using
-       the checksum.
-
-    c. mklittlefs - tool used to create the file system image.
-
-    d. partition_files - flash partition files used with SSBL setup
-       (ssbl_part_table.json) and without SSBL setup
-       (standard_part_table.json).
-
-.. |A screenshot of a computer Description automatically generated| image:: media/image1.png
+.. |image3| image:: media/image3.png
    :width: 5.90551in
    :height: 2.5654in
-.. |image1| image:: media/image2.png
-   :width: 0.53778in
-   :height: 0.12222in
-.. |image2| image:: media/image3.png
+.. |image4| image:: media/image4.png
    :width: 5.90551in
-   :height: 2.55874in
-.. |image3| image:: media/image4.png
+   :height: 2.5654in
+.. |image5| image:: media/image5.png
    :width: 5.90551in
-   :height: 2.65093in
+   :height: 2.5654in
+

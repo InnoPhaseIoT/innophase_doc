@@ -1,14 +1,19 @@
+.. _DL Tool Landing Page:
+
 Download Tool is a GUI tool provided with the InnoPhase Talaria TWO SDK.
 The Download Tool is provided as binaries for Windows and Linux
 Operating Systems.
 
 |image1|
 
-Figure 1: Block Diagram
-
-.. |image1| image:: media/image1.png
+.. |image1| image:: media/image12.png
    :width: 6.26806in
    :height: 2.51746in
+
+.. rst-class:: center
+
+Figure 1: Block Diagram
+
 
 .. toctree::
    :maxdepth: 2

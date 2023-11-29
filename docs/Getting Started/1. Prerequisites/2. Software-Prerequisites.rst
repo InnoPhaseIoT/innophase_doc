@@ -1,9 +1,14 @@
+.. _software prerequisites page:
+
+Prerequisites - Software
+########################
+
 Following are the software prerequisites to get started:
 
-- 1. Windows/Linux PC
-- 2. Wi-Fi Access Point
-- 3. Minicom/TeraTerm VT Utility installed on PC (add a download link)
-- 4. SDK package
+1. Windows/Linux PC
+2. Wi-Fi Access Point
+3. Minicom/TeraTerm VT Utility installed on PC (https://tera-term.en.softonic.com/)
+4. SDK package
 
 Software Development Kit
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -102,9 +107,7 @@ Folder details are as follows:
 
 6. **conf**: Debugger configuration files.
 
-7. **doc**:
-
-The doc folder contains the following sub-folders:
+7. **doc**: The doc folder contains the following sub-folders:
 
 a. reference_guides
 

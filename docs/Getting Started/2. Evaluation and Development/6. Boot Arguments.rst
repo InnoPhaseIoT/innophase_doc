@@ -1,3 +1,8 @@
+.. _bootargs page:
+
+Boot Arguments
+##############
+
 This section serves a reference guide for using Talaria TWO boot
 arguments (bootargs) and its usage in different scenarios using
 different feature and protocols. It is to be used as a reference guide
@@ -7,9 +12,6 @@ requirement.
 This section provides bootargs use case or examples for all layers from
 hardware interface to Wi-Fi configurations and it needs to be used as
 reference only.
-
-Boot Arguments
---------------
 
 Boot arguments are a list of key value pairs of the form <key>=<value>
 passed to the booted image

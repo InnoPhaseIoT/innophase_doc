@@ -1,5 +1,7 @@
-INP 3000
------------
+.. _inp3000 landing:
+
+INP3000
+#######
 
 
 The INP3000 programmer board provides a programming interface for

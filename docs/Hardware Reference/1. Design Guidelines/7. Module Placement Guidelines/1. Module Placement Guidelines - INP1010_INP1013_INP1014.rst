@@ -11,7 +11,7 @@ integrating on application PCB.
 In the above case, ensure that the antenna portion is outside of the
 application PCB as indicated in Figure 1.
 
-|image10|
+|image1|
 
 Figure 1: Antenna Keep Out Area
 
@@ -19,27 +19,27 @@ Figure 1: Antenna Keep Out Area
 specified as keep out area in the figure above on all the sides of the
 antenna X, Y and Z directions.
 
-|image11|
+|image2|
 
 Figure 2:Module placement
 
-|image12|
+|image3|
 
 Figure 3: INP1013 module with antenna portion outside application PCB
 
-|image13|
+|image4|
 
 Figure 4: INP1014 module with antenna portion outside application PCB
 
-.. |image10| image:: media/image10.png
+.. |image1| image:: media/image1.png
    :width: 7.48031in
    :height: 4.46026in
-.. |image11| image:: media/image11.png
+.. |image2| image:: media/image2.png
    :width: 7.48031in
    :height: 5.35622in
-.. |image12| image:: media/image12.png
+.. |image3| image:: media/image3.png
    :width: 7.48031in
    :height: 4.9114in
-.. |image13| image:: media/image13.png
+.. |image4| image:: media/image4.png
    :width: 7.48031in
    :height: 4.82116in

@@ -1,3 +1,5 @@
+.. _getting started landing page:
+
 Getting Started on Talaria TWO with FreeRTOS
 ############################################
 

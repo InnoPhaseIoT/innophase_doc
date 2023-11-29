@@ -1,6 +1,7 @@
+.. _hardware reference:
 
-Hardware-Reference
-=======================
+Talaria TWO Hardware
+##################
 
 The INP1010/INP1011/INP1012/INP1013/INP1014/INP1015 Talaria TWO modules
 are complete solutions with integrated wireless connectivity plus
@@ -37,7 +38,7 @@ as an evaluation platform for the INP101x modules.
    +-----------+-------------------------------------+-------------------+
 
 For more details on the Talaria TWO modules and SoCs, refer: Talaria TWO
-Module and SoC Datasheet.
+Module and SoC Datasheet (https://innophaseiot.com/portal/portal-hub/).
 
 INP3000 programmer board provides a programming interface for the
 Talaria TWO modules. It can be used with scripts provides in the Talaria

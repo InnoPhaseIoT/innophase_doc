@@ -1,3 +1,5 @@
+.. _prog basic apps page:
+
 Programming Basic Applications 
 ===============================
 

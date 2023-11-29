@@ -421,20 +421,16 @@ for JTAG.
 
 Figure 8: Hardware connections - JTAG
 
-|image9|
-
-Figure 9: Hardware connections - JTAG
-
 Pins 18,19,20 and 21 of Talaria TWO module are used for JTAG. However,
 these pins can also be used as GPIOs for the application by disabling
 the JTAG in the application.
 
 Similar to JTAG, SWD also allows programming and debugging on Talaria
-TWO but with a reduced hardware connection.
+TWO but with a reduced hardware connection as shown in Figure 9.
 
-|image10|
+|image9|
 
-Figure 10: Hardware connections - SWD
+Figure 9: Hardware connections - SWD
 
 For more information on GDB commands, refer:
 https://sourceware.org/gdb/current/onlinedocs/gdb/.
@@ -444,7 +440,7 @@ Procedure to Debug using GDB through JTAG
 
 This section provides details regarding debugging the application
 through JTAG. Make the connection between the debugger and Talaria TWO
-device as shown in Figure 10.
+device as shown in Figure 8.
 
 1. Open the SDK folder in Ubuntu terminal and type the following command
    to start OpenOCD:
@@ -455,9 +451,9 @@ device as shown in Figure 10.
 
 Console output:
 
-|image11|
+|image10|
 
-Figure 11: Running OpenOCD for JTAG
+Figure 10: Running OpenOCD for JTAG
 
 2. In a separate terminal, run the following command from the apps
    directory. In this directory, there is a .gdbinit file that
@@ -469,9 +465,9 @@ Figure 11: Running OpenOCD for JTAG
 
 Console output:
 
-|image12|
+|image11|
 
-Figure 12: Running GDB for JTAG
+Figure 11: Running GDB for JTAG
 
 Follow the procedure mentioned in section: *Start the GDB Session* to
 execute the GDB command.
@@ -493,9 +489,9 @@ device as shown in Figure 9.
 
 Console output:
 
-|image13|
+|image12|
 
-Figure 13: Running OpenOCD for JTAG
+Figure 12: Running OpenOCD for SWD
 
 2. In a separate terminal, run the following command from the apps
    directory. In this directory, there is a .gdbinit file that
@@ -508,9 +504,9 @@ Figure 13: Running OpenOCD for JTAG
 
 Console output:
 
-|image14|
+|image13|
 
-Figure 14: Running GDB for JTAG
+Figure 13: Running GDB for SWD
 
 3. Follow the procedure mentioned in section: *Start the GDB Session* to
    run the GDB commands.
@@ -552,9 +548,9 @@ Follow the installation procedure available in the above link. After
 completing the installation, click on Finish, which will create a popup
 for MSYS2 CMD line interface.
 
-|image15|
+|image14|
 
-Figure 15: Running MSYS2
+Figure 14: Running MSYS2
 
 Run the following command in MSYS2 terminal and proceed with
 installation.
@@ -564,9 +560,9 @@ installation.
     pacman -Syu  
 
 
-|image16|
+|image15|
 
-Figure 16: Installing mingw setup
+Figure 15: Installing mingw setup
 
 Once the installation is complete, the window will be automatically
 closed. Run MSYS2 MSYS from the Start menu and run the following command
@@ -588,18 +584,18 @@ GDB-Multiarch:
 
 Enter a selection number, for GDB-Multiarch.
 
-|image17|
+|image16|
 
-Figure 17: Iinstalling gdb-multiarch
+Figure 16: Iinstalling gdb-multiarch
 
 Add MSYS2 path in environmental variable to access GDB-Multiarch in
 command line. To add path to environment variable, follow the steps
 mentioned in section: *Add Paths to the Environment Variable* of the
 document for MSYS2: UG_Eclipse_Setup_Windows.pdf.
 
-|image18|
+|image17|
 
-Figure 18: Adding environment variable
+Figure 17: Adding environment variable
 
 .. _procedure-to-debug-using-gdb-1:
 
@@ -618,9 +614,9 @@ Following is the procedure to debug the VM-based applications using GDB:
 
 Console output:
 
-|image19|
+|image18|
 
-Figure 19: Running Openocd in windows CMD
+Figure 18: Running Openocd in windows CMD
 
 2. Use the Download Tool to flash the virtual image from the SDK
    directory.
@@ -641,9 +637,9 @@ Execute the make for using_wifi example application
 (*freertos_sdk_x.y\\examples\\using_wifi*) to generate the ELFs under the out
 folder.
 
-|image20|
+|image19|
 
-Figure 20: Running make command in windows CMD
+Figure 19: Running make command in windows CMD
 
 .gdbinit initialization file contains the information on Talaria TWO’s
 memory and the required scripts of the GDB sources. gdbinit file is
@@ -668,9 +664,9 @@ In a separate terminal, run the following command from the
 *freertos_sdk_x.y\\apps* folder. In this directory, there is a .gdbinit file that
 configures the GDB. Here, the RAM portion of the ELF gets loaded.
 
-|image21|
+|image20|
 
-Figure 21: Running GDB
+Figure 20: Running GDB
 
 1. Connect to OpenOCD by running ocd in the GDB prompt.
 

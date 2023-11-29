@@ -854,12 +854,3 @@ using GDB:
 .. |image20| image:: media/image20.png
    :width: 6.29921in
    :height: 5.27757in
-.. |image21| image:: media/image21.png
-   :width: 7.08661in
-   :height: 4.57553in
-.. |image22| image:: media/image22.png
-   :width: 5.90551in
-   :height: 0.82103in
-.. |image23| image:: media/image23.png
-   :width: 5.90551in
-   :height: 2.31644in

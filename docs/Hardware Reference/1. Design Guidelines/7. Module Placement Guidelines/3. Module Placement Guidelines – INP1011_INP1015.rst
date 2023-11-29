@@ -15,23 +15,3 @@ antenna manufacturer while placing the antenna onto the application PCB.
 |image7|
 
 Figure 1: u.fl to SMA connector for INP1011/INP1015
-
-Thermal Ground Pad
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Talaria TWO modules have thermal ground pads placed in the middle of the
-footprint. These modules should be grounded through four vias in each
-PAD. The size of each pad is 1.4mm x 1.9mm. The size of the via is
-12mils. Figure 2 shows the layout and via pattern for thermal
-conduction.
-
-|image8|
-
-Figure 2: Thermal ground pads
-
-.. |image7| image:: media/image7.png
-   :width: 7.48031in
-   :height: 4.90933in
-.. |image8| image:: media/image8.png
-   :width: 7.48031in
-   :height: 5.11001in

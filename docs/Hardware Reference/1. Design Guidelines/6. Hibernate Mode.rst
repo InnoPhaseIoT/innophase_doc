@@ -1,5 +1,7 @@
+.. _hibernate mode:
+
 Hibernate Mode
-==============
+##############
 
 In the Hibernate mode, EN_CHIP/RST PIN must be held LOW (less than 0.6V)
 and the VDD must be ON (VDD 3V). In this mode, SRAM memory is not

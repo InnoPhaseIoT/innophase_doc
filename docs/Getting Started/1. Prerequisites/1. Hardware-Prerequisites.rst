@@ -11,10 +11,10 @@ INP301x Package Contents
 
 The package contains:
 
-1. INP3010\*, INP3014\*, INP3011*\*, INP3015*\*, INP3012 or INP3013 board
-2. Micro USB cable
-3. Antenna (INP3011 and INP3012 boards)
-4. Battery box
+    - 1. INP3010\*, INP3014\*, INP3011*\*, INP3015*\*, INP3012 or INP3013 board
+    - 2. Micro USB cable
+    - 3. Antenna (INP3011 and INP3012 boards)
+    - 4. Battery box
 
 |image1|
             Figure 1: INP301x EVB-A Board with INP101x module board installed
@@ -78,6 +78,6 @@ different applications:
 .. |image1| image:: media/images1.jpeg
    :width: 6.90551in
    :height: 4.25375in
-.. |image2| image:: media/images2.jpeg
+.. |image2| image:: media/images2.png
    :width: 4.92153in
    :height: 2.91528in

@@ -70,14 +70,11 @@ This API initializes the FOTA module.
 Definition 
 ~~~~~~~~~~~
 
-.. table:: Table : fota_perform - parameters
+.. code:: c
 
-   +-----------------------------------------------------------------------+
-   | fota_handle_t \*                                                      |
-   |                                                                       |
-   | fota_init(void)                                                       |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+    fota_handle_t \*
+    fota_init(void)
+
 
 Return
 ~~~~~~
@@ -103,53 +100,47 @@ file.
 Definition
 ~~~~~~~~~~
 
-.. table:: Table : fota_commit - parameters
+.. code:: c
 
-   +-----------------------------------------------------------------------+
-   | int                                                                   |
-   |                                                                       |
-   | fota_perform(fota_handle_t \*f_handle, int check_for_update, int      |
-   | flags)                                                                |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+    int fota_perform(fota_handle_t \*f_handle, int check_for_update, int flags)
 
 Parameters
 ~~~~~~~~~~
 
 .. table:: Table : fota_deinit - parameters
 
-   +---------------+------------------------------------------------------+
-   | **Parameter** | **Description**                                      |
-   +===============+======================================================+
-   | *handle*      | Handle returned by fota_init()                       |
-   +---------------+------------------------------------------------------+
-   | *chec         | This can be FOTA_NO_CHECK_FOR_UPDATE /               |
-   | k_for_update* | FOTA_CHECK_FOR_UPDATE /                              |
-   |               | FOTA_FETCH_CFG_NO_CHECK_FOR_UPDATE                   |
-   |               |                                                      |
-   |               | 1. FOTA_NO_CHECK_FOR_UPDATE - No check done. FOTA is |
-   |               |    done using the currently available fota.config    |
-   |               |    file in the data fs.                              |
-   |               |                                                      |
-   |               | 2. FOTA_CHECK_FOR_UPDATE - Check if an update is     |
-   |               |    available before executing FOTA. foat.config file |
-   |               |    will be fetched from cloud and the package        |
-   |               |    version of the latest file is compared against    |
-   |               |    the fota.config file present in data fs. FOTA is  |
-   |               |    done only if the latest version is greater than   |
-   |               |    the one preset on the device.                     |
-   |               |                                                      |
-   |               | 3. FOTA_FETCH_CFG_NO_CHECK_FOR_UPDATE - foat.config  |
-   |               |    file will be fetched from the cloud. No check is  |
-   |               |    done using package version. Newly downloaded      |
-   |               |    fota.config file will be used for FOTA. This      |
-   |               |    option can be used only if availability of newer  |
-   |               |    package is confirmed using some other mechanism   |
-   |               |    (like, MQTT for example) and FOTA needs to be     |
-   |               |    done as per the latest fota.config in the cloud.  |
-   +---------------+------------------------------------------------------+
-   | *Flags*       | Not currently used. Always set to 0.                 |
-   +---------------+------------------------------------------------------+
+   +--------------------+------------------------------------------------------+
+   | **Parameter**      | **Description**                                      |
+   +====================+======================================================+
+   | *handle*           | Handle returned by fota_init()                       |
+   +--------------------+------------------------------------------------------+
+   | *check_for_update* | This can be FOTA_NO_CHECK_FOR_UPDATE /               |
+   |                    | FOTA_CHECK_FOR_UPDATE /                              |
+   |                    | FOTA_FETCH_CFG_NO_CHECK_FOR_UPDATE                   |
+   |                    |                                                      |
+   |                    | 1. FOTA_NO_CHECK_FOR_UPDATE - No check done. FOTA is |
+   |                    |    done using the currently available fota.config    |
+   |                    |    file in the data fs.                              |
+   |                    |                                                      |
+   |                    | 2. FOTA_CHECK_FOR_UPDATE - Check if an update is     |
+   |                    |    available before executing FOTA. foat.config file |
+   |                    |    will be fetched from cloud and the package        |
+   |                    |    version of the latest file is compared against    |
+   |                    |    the fota.config file present in data fs. FOTA is  |
+   |                    |    done only if the latest version is greater than   |
+   |                    |    the one preset on the device.                     |
+   |                    |                                                      |
+   |                    | 3. FOTA_FETCH_CFG_NO_CHECK_FOR_UPDATE - foat.config  |
+   |                    |    file will be fetched from the cloud. No check is  |
+   |                    |    done using package version. Newly downloaded      |
+   |                    |    fota.config file will be used for FOTA. This      |
+   |                    |    option can be used only if availability of newer  |
+   |                    |    package is confirmed using some other mechanism   |
+   |                    |    (like, MQTT for example) and FOTA needs to be     |
+   |                    |    done as per the latest fota.config in the cloud.  |
+   +--------------------+------------------------------------------------------+
+   | *Flags*            | Not currently used. Always set to 0.                 |
+   +--------------------+------------------------------------------------------+
 
 .. _return-1:
 
@@ -176,28 +167,22 @@ fota_perform() is a success.
 Definition
 ~~~~~~~~~~
 
-+-----------------------------------------------------------------------+
-| int                                                                   |
-|                                                                       |
-| fota_commit(fota_handle_t \*f_handle, int do_reset)                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: c
+
+    int fota_commit(fota_handle_t \*f_handle, int do_reset)
 
 .. _parameters-1:
 
 Parameters
 ~~~~~~~~~~
 
-+-----------+----------------------------------------------------------+
-| **Pa      | **Description**                                          |
-| rameter** |                                                          |
-+===========+==========================================================+
-| *         | Pointer to the FOTA handle that was returned by          |
-| f_handle* | fota_init()                                              |
-+-----------+----------------------------------------------------------+
-| *         | If set to 1, perform reset                               |
-| do_reset* |                                                          |
-+-----------+----------------------------------------------------------+
++--------------------+-------------------------------------------------------------+
+| **Parameter**      | **Description**                                             |
++====================+=============================================================+
+| *f_handle*         | Pointer to the FOTA handle that was returned by fota_init() |
++--------------------+-------------------------------------------------------------+
+| *do_reset*         | If set to 1, perform reset                                  |
++--------------------+-------------------------------------------------------------+
 
 .. _return-2:
 
@@ -224,23 +209,20 @@ other FOTA API calls.
 Definition
 ~~~~~~~~~~
 
-+-----------------------------------------------------------------------+
-| void fota_deinit(fota_handle_t \* f_handle)                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: c
+
+    void fota_deinit(fota_handle_t \* f_handle)
 
 .. _parameters-2:
 
 Parameters
 ~~~~~~~~~~
 
-+-----------+----------------------------------------------------------+
-| **Pa      | **Description**                                          |
-| rameter** |                                                          |
-+===========+==========================================================+
-| *         | Pointer to FOTA handle that was returned by fota_init()  |
-| f_handle* |                                                          |
-+-----------+----------------------------------------------------------+
++--------------------+----------------------------------------------------------+
+| **Parameter**      | **Description**                                          |
++====================+==========================================================+
+| *f_handle*         | Pointer to FOTA handle that was returned by fota_init()  |
++--------------------+----------------------------------------------------------+
 
 .. _return-3:
 

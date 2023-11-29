@@ -56,22 +56,19 @@ b. flash.py – Script to read and write to flash, which requires
 
 a. Program RAM:
 
-.. table:: : List of bootargs
+.. code:: shell
 
-   +-----------------------------------------------------------------------+
-   | <path_script>/boot.py [device] <path_app_elf>/app.elf [boot_args]     |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+    <path_script>/boot.py [device] <path_app_elf>/app.elf [boot_args]
+
 
 ..
 
 b. Program Flash:
 
-+-----------------------------------------------------------------------+
-| <path_script>/boot.py [device] --reset=evk42_bl_bl --flash=all        |
-| [additional commands] <path_app_elf>/app.elf [boot_args]              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    <path_script>/boot.py [device] --reset=evk42_bl_bl --flash=all [additional commands] <path_app_elf>/app.elf [boot_args]
+
 
 Based on the OS of the host machine and the interface in which the above
 commands are sent from, the [device] keyword can take different forms.
@@ -97,231 +94,227 @@ This section describes the list of boot arguments available to configure
 various software/hardware modules. Such as hardware/host interface, pin
 configuration, serial console, Wi-Fi operations, miscellaneous etc.
 
-+-------------------+----------+------+-----+------------------------+
-| **Argument name** | **B      | **Ty | **  | **Description**        |
-|                   | ootarg** | pe** | Def |                        |
-|                   |          |      | aul |                        |
-|                   |          |      | t** |                        |
-+===================+==========+======+=====+========================+
-| Host interface    | hio.     | int  | 921 | Select the baudrate    |
-| baud rate         | baudrate |      | 600 | for the HIO interface  |
-+-------------------+----------+------+-----+------------------------+
-| Host interface    | hio      | int  | 1   | Configure the maximum  |
-| max message size  | .maxsize |      | 600 | size of a host         |
-|                   |          |      |     | interface message sent |
-|                   |          |      |     | to Talaria TWO         |
-+-------------------+----------+------+-----+------------------------+
-| Host interface    | hio.t    | int  | NA  | Select the HIO         |
-| transport type    | ransport |      |     | interface as           |
-|                   |          |      |     | UART/SPI/SDIO:         |
-|                   |          |      |     |                        |
-|                   |          |      |     | -  hio.transport=uart  |
-+-------------------+----------+------+-----+------------------------+
-| Default MAC       | hwaddr   | st   | (r  | Default MAC address    |
-| address           |          | ring | and | for the device         |
-|                   |          |      | om) |                        |
-+-------------------+----------+------+-----+------------------------+
-| Console baud rate | krn.     | int  | 2   | Baudrate for the       |
-|                   | console. |      | 457 | serial interface for   |
-|                   | baudrate |      | 600 | console output         |
-+-------------------+----------+------+-----+------------------------+
-| Console buffer    | k        | int  | 1   | Select the size of the |
-|                   | rn.conso |      | 024 | console output buffer. |
-|                   | le.bufsz |      |     | The value should be an |
-|                   |          |      |     | even power-of-two (if  |
-|                   |          |      |     | not it will be rounded |
-|                   |          |      |     | down to the nearest    |
-|                   |          |      |     | lower power of two)    |
-+-------------------+----------+------+-----+------------------------+
-| Core dump         | krn.     | bool | 0   | Enable support for     |
-|                   | coredump |      |     | download of coredump   |
-|                   |          |      |     | using UART after a     |
-|                   |          |      |     | crash                  |
-+-------------------+----------+------+-----+------------------------+
-| Pin configuration | krn.gpio | st   | --- | Configure the state of |
-|                   |          | ring | --- | the 23 GPIO pins. Set  |
-|                   |          |      | --- | 23 characters          |
-|                   |          |      | --- | (starting with GPIO 0) |
-|                   |          |      | --- | with the following     |
-|                   |          |      | --- | meaning: '-' = No      |
-|                   |          |      | --- | change, 'k' = Power    |
-|                   |          |      | --- | save keep, 'K' = Power |
-|                   |          |      |     | save keep with pull    |
-|                   |          |      |     | up, 'H' = Output high, |
-|                   |          |      |     | 'L' = Output low, 'i'  |
-|                   |          |      |     | = Input, 'I' = Input   |
-|                   |          |      |     | with pull up, 'p' = No |
-|                   |          |      |     | pull up, 'P' = Pull up |
-+-------------------+----------+------+-----+------------------------+
-| Initialize system | krn      | int  | 0   | Initialize system time |
-| time              | .systime |      |     | to this number in      |
-|                   |          |      |     | seconds.               |
-+-------------------+----------+------+-----+------------------------+
-| Set antenna gain  | rf.ante  | Posi | 0   | Set antenna gain in    |
-|                   | nna_gain | tive |     | dBi, e.g. "2.15". Is   |
-|                   |          | dec  |     | used in calculation of |
-|                   |          | imal |     | output power to comply |
-|                   |          | nu   |     | with regulatory domain |
-|                   |          | mber |     | settings               |
-+-------------------+----------+------+-----+------------------------+
-| Virtual memory    | v        | int  | N   | The recommended way to |
-| flash location    | m.flash_ |      | one | place virtual memory   |
-|                   | location |      |     | image on flash is to   |
-|                   |          |      |     | add a dedicated        |
-|                   |          |      |     | partition. This        |
-|                   |          |      |     | setting makes it       |
-|                   |          |      |     | possible to use        |
-|                   |          |      |     | virtual memory without |
-|                   |          |      |     | such a partition       |
-+-------------------+----------+------+-----+------------------------+
-| Virtual memory    | vm.pages | int  | 256 | Set the virtual memory |
-| cache size        |          |      |     | cache size in number   |
-|                   |          |      |     | of pages. Each page is |
-|                   |          |      |     | 256 bytes, so the      |
-|                   |          |      |     | default results in 64  |
-|                   |          |      |     | kilobytes of cache     |
-+-------------------+----------+------+-----+------------------------+
-| Wi-Fi Announce    | wi       | bool | 1   | Announce that the      |
-| AMSDU capability  | fi.amsdu |      |     | device can receive     |
-|                   |          |      |     | AMSDUs                 |
-+-------------------+----------+------+-----+------------------------+
-| Gratuitous ARP    | wifi     | int  | 60  | Period in seconds for  |
-| period            | .arp_gra |      |     | gratuitous ARP         |
-|                   | t_period |      |     | announcements. Set to  |
-|                   |          |      |     | zero to disable        |
-+-------------------+----------+------+-----+------------------------+
-| Wi-Fi Channels    | wifi.    | st   | 1   | Set which Wi-Fi        |
-|                   | channels | ring | -13 | channels to use. Set   |
-|                   |          |      |     | "1-11,13" to use       |
-|                   |          |      |     | channels 1 to 11 and   |
-|                   |          |      |     | 13.                    |
-+-------------------+----------+------+-----+------------------------+
-| Wi-Fi Cloud Power | wifi.    | bool | 0   | Reduced power          |
-| Mode              | cloud_pm |      |     | consumption for units  |
-|                   |          |      |     | only communicating     |
-|                   |          |      |     | with the cloud.        |
-|                   |          |      |     | Internal LAN traffic   |
-|                   |          |      |     | may not work.          |
-+-------------------+----------+------+-----+------------------------+
-| Wi-Fi Dynamic     | wif      | bool | 0   | Listen to all beacons  |
-| listen interval   | i.dyn_li |      |     | if there has been      |
-|                   | sten_int |      |     | traffic recently       |
-+-------------------+----------+------+-----+------------------------+
-| Wi-Fi             | wifi.ht  | bool | 1   | Enable or disable HT   |
-| Enable/disable HT |          |      |     | mode (802.11n). When   |
-| (802.11n)         |          |      |     | disabled 802.11bg is   |
-|                   |          |      |     | enabled                |
-+-------------------+----------+------+-----+------------------------+
-| Wake time after   | w        | int  | 8   | Time in milliseconds   |
-| keep alive        | ifi.keep |      |     | to stay awake after a  |
-|                   | _alive_w |      |     | keep alive NULL frame  |
-|                   | ake_time |      |     |                        |
-+-------------------+----------+------+-----+------------------------+
-| Wi-Fi Beacon      | wifi     | int  | 0   | Configure how often    |
-| listen interval   | .listen_ |      |     | the device shall wake  |
-|                   | interval |      |     | up to listen for       |
-|                   |          |      |     | beacons. Set to 0 to   |
-|                   |          |      |     | listen to every DTIM   |
-|                   |          |      |     | beacon. Set to 1 to    |
-|                   |          |      |     | listen to every        |
-|                   |          |      |     | beacon.                |
-+-------------------+----------+------+-----+------------------------+
-| Wi-Fi Max idle    | wifi     | int  | 1   | This parameter         |
-| period            | .max_idl |      | 800 | specifies how many     |
-|                   | e_period |      |     | seconds the device can |
-|                   |          |      |     | be idle before it must |
-|                   |          |      |     | send a keep alive to   |
-|                   |          |      |     | the AP                 |
-+-------------------+----------+------+-----+------------------------+
-| Wi-Fi MSDU        | wi       | int  | 500 | This parameter         |
-| lifetime          | fi.msdu_ |      |     | specifies the time in  |
-|                   | lifetime |      |     | milliseconds for which |
-|                   |          |      |     | the WiFi MAC layer     |
-|                   |          |      |     | will try to send the   |
-|                   |          |      |     | frame before it is     |
-|                   |          |      |     | discarded              |
-+-------------------+----------+------+-----+------------------------+
-| Wi-Fi Nap scan    | wifi.    | int  | 1   | Turn off receiver for  |
-|                   | nap_scan |      |     | uninteresting frames   |
-|                   |          |      |     | during scan. When the  |
-|                   |          |      |     | receiver has started   |
-|                   |          |      |     | to receive a frame     |
-|                   |          |      |     | with high signal       |
-|                   |          |      |     | strength, and this     |
-|                   |          |      |     | frame is not a beacon  |
-|                   |          |      |     | or probe response, it  |
-|                   |          |      |     | can turn off the       |
-|                   |          |      |     | receiver ("take a      |
-|                   |          |      |     | nap") for the duration |
-|                   |          |      |     | of this frame to save  |
-|                   |          |      |     | power                  |
-+-------------------+----------+------+-----+------------------------+
-| Wi-Fi Nap scan    | wi       | int  | -70 | Threshold to determine |
-| RSSI threshold    | fi.nap_s |      |     | if a frame is strong   |
-|                   | can_rssi |      |     | or not when using the  |
-|                   |          |      |     | wifi.nap_scan function |
-+-------------------+----------+------+-----+------------------------+
-| Wi-Fi Nap in      | wifi     | int  | 0   | Turn off receiver for  |
-| station mode      | .nap_sta |      |     | uninteresting frames   |
-| (associated)      |          |      |     | in associated station  |
-|                   |          |      |     | mode                   |
-+-------------------+----------+------+-----+------------------------+
-| Wi-Fi Don’t       | wif      | int  | 0   | "Take a nap" for       |
-| receive multicast | i.only_b |      |     | multicast frames which |
-| frames which are  | roadcast |      |     | are not broadcast      |
-| not broadcast     |          |      |     | (address               |
-|                   |          |      |     | ff:ff:ff:ff:ff:ff)     |
-+-------------------+----------+------+-----+------------------------+
-| Wi-Fi PS poll     | wifi     | bool | 0   | Use Power Save poll to |
-|                   | .ps_poll |      |     | fetch incoming packets |
-|                   |          |      |     | when a beacon was      |
-|                   |          |      |     | missed                 |
-+-------------------+----------+------+-----+------------------------+
-| Wi-Fi Scan max    | w        | int  | 24  | Maximum time in        |
-| listen time       | ifi.scan |      |     | milliseconds to listen |
-|                   | _max_lis |      |     | on a channel during    |
-|                   | ten_time |      |     | scan. The time to send |
-|                   |          |      |     | the probe requests is  |
-|                   |          |      |     | not included in this   |
-|                   |          |      |     | time                   |
-+-------------------+----------+------+-----+------------------------+
-| Wi-Fi Scan max    | wifi.sc  | int  | 0   | When this number of    |
-| responses         | an_max_r |      |     | responses has been     |
-|                   | esponses |      |     | reached, the scan will |
-|                   |          |      |     | be stopped             |
-+-------------------+----------+------+-----+------------------------+
-| Wi-Fi Scan min    | w        | int  | 8   | Minimum time in        |
-| listen time       | ifi.scan |      |     | milliseconds to listen |
-|                   | _min_lis |      |     | on a channel during    |
-|                   | ten_time |      |     | scan                   |
-+-------------------+----------+------+-----+------------------------+
-| Wi-Fi Scan number | wifi     | int  | 2   | Number of probe        |
-| of probes         | .scan_nu |      |     | requests to send on    |
-|                   | m_probes |      |     | each channel during    |
-|                   |          |      |     | scan. Set to 1 or 2    |
-+-------------------+----------+------+-----+------------------------+
-| Wi-Fi Scan wait   | wif      | int  | 0   | Wait time in           |
-| time between      | i.scan_w |      |     | milliseconds between   |
-| channels          | ait_time |      |     | channel during scan    |
-+-------------------+----------+------+-----+------------------------+
-| Wi-Fi Traffic     | wifi     | int  | 12  | Set power save traffic |
-| timeout           | .traffic |      |     | timeout. The device    |
-|                   | _timeout |      |     | will stay awake and    |
-|                   |          |      |     | listen for incoming    |
-|                   |          |      |     | frames this time (in   |
-|                   |          |      |     | ms) after other frames |
-|                   |          |      |     | has been sent or       |
-|                   |          |      |     | received               |
-+-------------------+----------+------+-----+------------------------+
-| Wi-Fi Tx power    | wi       | bool | 0   | Outgoing frames will   |
-| save              | fi.tx_ps |      |     | be sent with the power |
-|                   |          |      |     | save bit set in the    |
-|                   |          |      |     | frame                  |
-+-------------------+----------+------+-----+------------------------+
-| Wi-Fi DTIM only   | wifi.d   | bool | 0   | Only listens to DTIMs  |
-|                   | tim_only |      |     | (no ps-poll at beacon  |
-|                   |          |      |     | miss).                 |
-+-------------------+----------+------+-----+------------------------+
++-------------------+--------------+----------+-----+---------------------------------+
+| **Argument name** | **Bootarg**  | **Type** | **Default**  | **Description**        |
++===================+==============+==========+==============+========================+
+| Host interface    | hio.baudrate | int      | 921          | Select the baudrate    |
+| baud rate         |              |          | 600          | for the HIO interface  |
++-------------------+--------------+----------+--------------+------------------------+
+| Host interface    | hio.maxsize  | int      | 1            | Configure the maximum  |
+| max message size  |              |          | 600          | size of a host         |
+|                   |              |          |              | interface message sent |
+|                   |              |          |              | to Talaria TWO         |
++-------------------+--------------+----------+--------------+------------------------+
+| Host interface    | hio.transport| int      | NA           | Select the HIO         |
+| transport type    |              |          |              | interface as           |
+|                   |              |          |              | UART/SPI/SDIO:         |
+|                   |              |          |              |                        |
+|                   |              |          |              | -  hio.transport=uart  |
++-------------------+--------------+----------+--------------+------------------------+
+| Default MAC       | hwaddr       | string   | (random)     | Default MAC address    |
+| address           |              |          |              | for the device         |
++-------------------+--------------+----------+--------------+------------------------+
+| Console baud rate | krn.console. | int      | 2457600      | Baudrate for the       |
+|                   | baudrate     |          |              | serial interface for   |
+|                   |              |          |              | console output         |
++-------------------+--------------+----------+--------------+------------------------+
+| Console buffer    | krn.console. | int      | 1024         | Select the size of the |
+|                   | bufsz        |          |              | console output buffer. |
+|                   |              |          |              | The value should be an |
+|                   |              |          |              | even power-of-two (if  |
+|                   |              |          |              | not it will be rounded |
+|                   |              |          |              | down to the nearest    |
+|                   |              |          |              | lower power of two)    |
++-------------------+--------------+----------+--------------+------------------------+
+| Core dump         | krn.coredump | bool     | 0            | Enable support for     |
+|                   |              |          |              | download of coredump   |
+|                   |              |          |              | using UART after a     |
+|                   |              |          |              | crash                  |
++-------------------+--------------+----------+--------------+------------------------+
+| Pin configuration | krn.gpio     | string   | ---          | Configure the state of |
+|                   |              |          | ---          | the 23 GPIO pins. Set  |
+|                   |              |          | ---          | 23 characters          |
+|                   |              |          | ---          | (starting with GPIO 0) |
+|                   |              |          | ---          | with the following     |
+|                   |              |          | ---          | meaning: '-' = No      |
+|                   |              |          | ---          | change, 'k' = Power    |
+|                   |              |          | ---          | save keep, 'K' = Power |
+|                   |              |          |              | save keep with pull    |
+|                   |              |          |              | up, 'H' = Output high, |
+|                   |              |          |              | 'L' = Output low, 'i'  |
+|                   |              |          |              | = Input, 'I' = Input   |
+|                   |              |          |              | with pull up, 'p' = No |
+|                   |              |          |              | pull up, 'P' = Pull up |
++-------------------+--------------+----------+--------------+------------------------+
+| Initialize system | krn.systime  | int      | 0            | Initialize system time |
+| time              |              |          |              | to this number in      |
+|                   |              |          |              | seconds.               |
++-------------------+--------------+----------+--------------+------------------------+
+| Set antenna gain  | rf.ante      | Positive | 0            | Set antenna gain in    |
+|                   | nna_gain     | decimal  |              | dBi, e.g. "2.15". Is   |
+|                   |              | number   |              | used in calculation of |
+|                   |              |          |              | output power to comply |
+|                   |              |          |              | with regulatory domain |
+|                   |              |          |              | settings               |
++-------------------+--------------+----------+--------------+------------------------+
+| Virtual memory    | vm.flash_loc | int      | None         | The recommended way to |
+| flash location    | ation        |          |              | place virtual memory   |
+|                   |              |          |              | image on flash is to   |
+|                   |              |          |              | add a dedicated        |
+|                   |              |          |              | partition. This        |
+|                   |              |          |              | setting makes it       |
+|                   |              |          |              | possible to use        |
+|                   |              |          |              | virtual memory without |
+|                   |              |          |              | such a partition       |
++-------------------+--------------+----------+--------------+------------------------+
+| Virtual memory    | vm.pages     | int      | 256          | Set the virtual memory |
+| cache size        |              |          |              | cache size in number   |
+|                   |              |          |              | of pages. Each page is |
+|                   |              |          |              | 256 bytes, so the      |
+|                   |              |          |              | default results in 64  |
+|                   |              |          |              | kilobytes of cache     |
++-------------------+--------------+----------+--------------+------------------------+
+| Wi-Fi Announce    | wifi.amsdu   | bool     | 1            | Announce that the      |
+| AMSDU capability  |              |          |              | device can receive     |
+|                   |              |          |              | AMSDUs                 |
++-------------------+--------------+----------+--------------+------------------------+
+| Gratuitous ARP    | wifi.arp_gra | int      | 60           | Period in seconds for  |
+| period            | t_period     |          |              | gratuitous ARP         |
+|                   |              |          |              | announcements. Set to  |
+|                   |              |          |              | zero to disable        |
++-------------------+--------------+----------+--------------+------------------------+
+| Wi-Fi Channels    | wifi.        | string   | 1-13         | Set which Wi-Fi        |
+|                   | channels     |          |              | channels to use. Set   |
+|                   |              |          |              | "1-11,13" to use       |
+|                   |              |          |              | channels 1 to 11 and   |
+|                   |              |          |              | 13.                    |
++-------------------+--------------+----------+--------------+------------------------+
+| Wi-Fi Cloud Power | wifi.        | bool     | 0            | Reduced power          |
+| Mode              | cloud_pm     |          |              | consumption for units  |
+|                   |              |          |              | only communicating     |
+|                   |              |          |              | with the cloud.        |
+|                   |              |          |              | Internal LAN traffic   |
+|                   |              |          |              | may not work.          |
++-------------------+--------------+----------+--------------+------------------------+
+| Wi-Fi Dynamic     | wifi.dyn_li  | bool     | 0            | Listen to all beacons  |
+| listen interval   | sten_int     |          |              | if there has been      |
+|                   |              |          |              | traffic recently       |
++-------------------+--------------+----------+--------------+------------------------+
+| Wi-Fi             | wifi.ht      | bool     | 1            | Enable or disable HT   |
+| Enable/disable HT |              |          |              | mode (802.11n). When   |
+| (802.11n)         |              |          |              | disabled 802.11bg is   |
+|                   |              |          |              | enabled                |
++-------------------+--------------+----------+--------------+------------------------+
+| Wake time after   | wifi.keep_al | int      | 8            | Time in milliseconds   |
+| keep alive        | ive_w        |          |              | to stay awake after a  |
+|                   | ake_time     |          |              | keep alive NULL frame  |
+|                   |              |          |              |                        |
++-------------------+--------------+----------+--------------+------------------------+
+| Wi-Fi Beacon      | wifi.listen_ | int      | 0            | Configure how often    |
+| listen interval   | interval     |          |              | the device shall wake  |
+|                   |              |          |              | up to listen for       |
+|                   |              |          |              | beacons. Set to 0 to   |
+|                   |              |          |              | listen to every DTIM   |
+|                   |              |          |              | beacon. Set to 1 to    |
+|                   |              |          |              | listen to every        |
+|                   |              |          |              | beacon.                |
++-------------------+--------------+----------+--------------+------------------------+
+| Wi-Fi Max idle    | wifi.max_idl | int      | 1800         | This parameter         |
+| period            | e_period     |          |              | specifies how many     |
+|                   |              |          |              | seconds the device can |
+|                   |              |          |              | be idle before it must |
+|                   |              |          |              | send a keep alive to   |
+|                   |              |          |              | the AP                 |
++-------------------+--------------+----------+--------------+------------------------+
+| Wi-Fi MSDU        | wifi.msdu_   | int      | 500          | This parameter         |
+| lifetime          | lifetime     |          |              | specifies the time in  |
+|                   |              |          |              | milliseconds for which |
+|                   |              |          |              | the WiFi MAC layer     |
+|                   |              |          |              | will try to send the   |
+|                   |              |          |              | frame before it is     |
+|                   |              |          |              | discarded              |
++-------------------+--------------+----------+--------------+------------------------+
+| Wi-Fi Nap scan    | wifi.nap_scan| int      | 1            | Turn off receiver for  |
+|                   |              |          |              | uninteresting frames   |
+|                   |              |          |              | during scan. When the  |
+|                   |              |          |              | receiver has started   |
+|                   |              |          |              | to receive a frame     |
+|                   |              |          |              | with high signal       |
+|                   |              |          |              | strength, and this     |
+|                   |              |          |              | frame is not a beacon  |
+|                   |              |          |              | or probe response, it  |
+|                   |              |          |              | can turn off the       |
+|                   |              |          |              | receiver ("take a      |
+|                   |              |          |              | nap") for the duration |
+|                   |              |          |              | of this frame to save  |
+|                   |              |          |              | power                  |
++-------------------+--------------+----------+--------------+------------------------+
+| Wi-Fi Nap scan    | wifi.nap_s   | int      | -70          | Threshold to determine |
+| RSSI threshold    | can_rssi     |          |              | if a frame is strong   |
+|                   |              |          |              | or not when using the  |
+|                   |              |          |              | wifi.nap_scan function |
++-------------------+--------------+----------+--------------+------------------------+
+| Wi-Fi Nap in      | wifi.nap_sta | int      | 0            | Turn off receiver for  |
+| station mode      |              |          |              | uninteresting frames   |
+| (associated)      |              |          |              | in associated station  |
+|                   |              |          |              | mode                   |
++-------------------+--------------+----------+--------------+------------------------+
+| Wi-Fi Don’t       | wifi.only_b  | int      | 0            | "Take a nap" for       |
+| receive multicast | roadcast     |          |              | multicast frames which |
+| frames which are  |              |          |              | are not broadcast      |
+| not broadcast     |              |          |              | (address               |
+|                   |              |          |              | ff:ff:ff:ff:ff:ff)     |
++-------------------+--------------+----------+--------------+------------------------+
+| Wi-Fi PS poll     | wifi.ps_poll | bool     | 0            | Use Power Save poll to |
+|                   |              |          |              | fetch incoming packets |
+|                   |              |          |              | when a beacon was      |
+|                   |              |          |              | missed                 |
++-------------------+--------------+----------+--------------+------------------------+
+| Wi-Fi Scan max    | wifi.scan    | int      | 24           | Maximum time in        |
+| listen time       | _max_lis     |          |              | milliseconds to listen |
+|                   | ten_time     |          |              | on a channel during    |
+|                   |              |          |              | scan. The time to send |
+|                   |              |          |              | the probe requests is  |
+|                   |              |          |              | not included in this   |
+|                   |              |          |              | time                   |
++-------------------+--------------+----------+--------------+------------------------+
+| Wi-Fi Scan max    | wifi.scan_max| int      | 0            | When this number of    |
+| responses         | _responses   |          |              | responses has been     |
+|                   |              |          |              | reached, the scan will |
+|                   |              |          |              | be stopped             |
++-------------------+--------------+----------+--------------+------------------------+
+| Wi-Fi Scan min    | wifi.scan    | int      | 8            | Minimum time in        |
+| listen time       | _min_lis     |          |              | milliseconds to listen |
+|                   | ten_time     |          |              | on a channel during    |
+|                   |              |          |              | scan                   |
++-------------------+--------------+----------+--------------+------------------------+
+| Wi-Fi Scan number | wifi.scan_nu | int      | 2            | Number of probe        |
+| of probes         | m_probes     |          |              | requests to send on    |
+|                   |              |          |              | each channel during    |
+|                   |              |          |              | scan. Set to 1 or 2    |
++-------------------+--------------+----------+--------------+------------------------+
+| Wi-Fi Scan wait   | wifi.scan_w  | int      | 0            | Wait time in           |
+| time between      | ait_time     |          |              | milliseconds between   |
+| channels          |              |          |              | channel during scan    |
++-------------------+--------------+----------+--------------+------------------------+
+| Wi-Fi Traffic     | wifi.traffic | int      | 12           | Set power save traffic |
+| timeout           | _timeout     |          |              | timeout. The device    |
+|                   |              |          |              | will stay awake and    |
+|                   |              |          |              | listen for incoming    |
+|                   |              |          |              | frames this time (in   |
+|                   |              |          |              | ms) after other frames |
+|                   |              |          |              | has been sent or       |
+|                   |              |          |              | received               |
++-------------------+--------------+----------+--------------+------------------------+
+| Wi-Fi Tx power    | wifi.tx_ps   | bool     | 0            | Outgoing frames will   |
+| save              |              |          |              | be sent with the power |
+|                   |              |          |              | save bit set in the    |
+|                   |              |          |              | frame                  |
++-------------------+--------------+----------+--------------+------------------------+
+| Wi-Fi DTIM only   | wifi.dtim_on | bool     | 0            | Only listens to DTIMs  |
+|                   |       ly     |          |              | (no ps-poll at beacon  |
+|                   |              |          |              | miss).                 |
++-------------------+--------------+----------+--------------+------------------------+
 
 Boot Arguments
 ^^^^^^^^^^^^^^
@@ -338,20 +331,15 @@ interface.
 Syntax
 ^^^^^^
 
-+-----------------------------------------------------------------------+
-| hio.transport=<transport_tpye>                                        |
-|                                                                       |
-| <transport_type>:                                                     |
-|                                                                       |
-| Type: int                                                             |
-|                                                                       |
-| Range: 0-2                                                            |
-|                                                                       |
-| Value: 0-UART (default),1-SPI, 2-SDIO                                 |
-|                                                                       |
-| **Note**: SDIO is not supported in the current release.               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    hio.transport=<transport_tpye>
+    <transport_type>:
+    Type: int
+    Range: 0-2
+    Value: 0-UART (default),1-SPI, 2-SDIO
+    **Note**: SDIO is not supported in the current release.
+
 
 Example
 ^^^^^^^
@@ -360,15 +348,15 @@ Configuring host interface transport type as UART.
 
 **Command**:
 
-+-----------------------------------------------------------------------+
-| ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl_bl            |
-| ./apps/hello_world/bin/hello_world.elf **hio.transport=0**            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl_bl
+    ./apps/hello_world/bin/hello_world.elf **hio.transport=0**
+
 
 **Note**: Single line command.
 
-|image1|\ |image2|
+|image2|
 
 Figure : Configuring host interface transport type as UART\ **
 **
@@ -381,45 +369,34 @@ Set the baudrate for the HIO interface
 .. _syntax-1:
 
 Syntax
-^^^^^^
+````````
 
-+-----------------------------------------------------------------------+
-| hio.baudrate=<baud_rate>                                              |
-|                                                                       |
-| <baud_rate>:                                                          |
-|                                                                       |
-| Type: int                                                             |
-|                                                                       |
-| Range: 300-921600                                                     |
-|                                                                       |
-| Value: 921600(default)                                                |
-|                                                                       |
-| Valid baudrate values: 300, 600, 1200, 2400, 4800, 9600, 14400,       |
-| 19200, 38400, 57600, 115200, 230400, 460800, 921600                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    hio.baudrate=<baud_rate>
+    <baud_rate>:
+        Type: int
+        Range: 300-921600
+        Value: 921600(default)
+        Valid baudrate values: 300, 600, 1200, 2400, 4800, 9600, 14400, 19200, 38400, 57600, 115200, 230400, 460800, 921600
+
 
 .. _example-1:
 
 Example
-^^^^^^^
+``````
 
 Set the baudrate for the HIO interface at 921600.
 
 **Command**:
 
-+-----------------------------------------------------------------------+
-| ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl_bl            |
-| ./apps/hello_world/bin/hello_world.elf                                |
-| **krn.console.baudrate=921600**                                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl_bl ./apps/hello_world/bin/hello_world.elf  **krn.console.baudrate=921600**
 
 **Note**: Single line command.
 
-|image3|\ |image4|
-
-Figure : Setting host interface baudrate
+|image3| \ Figure : Setting host interface baudrate
 
 Host Interface Max Message Size
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -430,39 +407,31 @@ TWO
 .. _syntax-2:
 
 Syntax
-^^^^^^
+````````
 
-+-----------------------------------------------------------------------+
-| hio.maxsize=<size_bytes>                                              |
-|                                                                       |
-| <size_bytes>:                                                         |
-|                                                                       |
-| Type: int                                                             |
-|                                                                       |
-| Value: 1600 (default)                                                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    hio.maxsize=<size_bytes>
+    <size_bytes>:
+        Type: int
+        Value: 1600 (default)
 
 .. _example-2:
 
 Example
-^^^^^^^
+````````
 
 Set the maximum size of a host message 1024 (bytes).
 
 **Command**:
 
-+-----------------------------------------------------------------------+
-| ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl_bl --speed    |
-| 2457600 ./apps/gordon.elf **hio.maxsize=1024**                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl_bl --speed 2457600 ./apps/gordon.elf **hio.maxsize=1024**
 
 **Note**: Single line command.
 
-|image5|\ |image6|
-
-Figure : Set maximum size of host message
+|image4| \ Figure : Set maximum size of host message
 
 Default MAC Address for the Device
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -472,39 +441,32 @@ Set default MAC address for the device.
 .. _syntax-3:
 
 Syntax
-^^^^^^
+````````````
 
-+-----------------------------------------------------------------------+
-| hwaddr =<mac_addr>                                                    |
-|                                                                       |
-| <mac_addr>:                                                           |
-|                                                                       |
-| Type: string                                                          |
-|                                                                       |
-| Value: no default.                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    hwaddr =<mac_addr>
+    <mac_addr>:
+        Type: string
+        Value: no default.
 
 .. _example-3:
 
 Example
-^^^^^^^
+````````````
 
 Set the default MAC address of the device as 01:02:03:04:05:06.
 
 **Command**:
 
-+-----------------------------------------------------------------------+
-| ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl               |
-| apps/hello_world/bin/hello_world.elf **hwaddr=01:02:03:04:05:06**     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl apps/hello_world/bin/hello_world.elf **hwaddr=01:02:03:04:05:06**
+
 
 **Note**: Single line command.
 
-|image7|\ |image8|
-
-Figure : Set default MAC address of the device
+|image5| \ Figure : Set default MAC address of the device
 
 Console Baudrate
 ~~~~~~~~~~~~~~~~
@@ -514,42 +476,33 @@ Set the baudrate for the serial interface for console output.
 .. _syntax-4:
 
 Syntax
-^^^^^^
+```````
 
-+-----------------------------------------------------------------------+
-| krn.console.baudrate=<baudrate>                                       |
-|                                                                       |
-| <baudrate>:                                                           |
-|                                                                       |
-| Type: int                                                             |
-|                                                                       |
-| Value: 2457600 (default)                                              |
-|                                                                       |
-| Valid baudrate values: 1200, 2400, 4800, 9600, 14400, 19200, 38400,   |
-| 57600, 115200, 230400, 460800, 921600, 2457600                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    krn.console.baudrate=<baudrate>
+    <baudrate>:
+        Type: int
+        Value: 2457600 (default)
+        Valid baudrate values: 1200, 2400, 4800, 9600, 14400, 19200, 38400, 57600, 115200, 230400, 460800, 921600, 2457600
+
 
 .. _example-4:
 
 Example
-^^^^^^^
+```````
 
 Set the baudrate for device console output at 115200.
 
 **Command**:
 
-+-----------------------------------------------------------------------+
-| ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl               |
-| apps/hello_world/bin/hello_world.elf **krn.console.baudrate=115200**  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl apps/hello_world/bin/hello_world.elf **krn.console.baudrate=115200**
 
 **Note**: Single line command.
 
-|image9|\ |image10|
-
-Figure : Set baudrate for device console output
+|image6| \ Figure : Set baudrate for device console output
 
 Coredump
 ~~~~~~~~
@@ -559,41 +512,31 @@ Enable support for download of coredump using UART after a crash.
 .. _syntax-5:
 
 Syntax
-^^^^^^
+```````
+.. code:: shell
 
-+-----------------------------------------------------------------------+
-| krn.coredump=<ena/dis>                                                |
-|                                                                       |
-| <ena/dis>:                                                            |
-|                                                                       |
-| Type: int                                                             |
-|                                                                       |
-| Range: 0-1                                                            |
-|                                                                       |
-| Value: 0-disabled (default), 1-enabled                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+    krn.coredump=<ena/dis>
+    <ena/dis>:
+        Type: int
+        Range: 0-1
+        Value: 0-disabled (default), 1-enabled
 
 .. _example-5:
 
 Example
-^^^^^^^
+```````
 
 Enable the coredump via UART after a crash.
 
 **Command:**
 
-+-----------------------------------------------------------------------+
-| ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl               |
-| apps/hello_world/bin/hello_world.elf **krn.coredump=1**               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl apps/hello_world/bin/hello_world.elf **krn.coredump=1**
 
 **Note**: Single line command.
 
-|image11|\ |image12|
-
-Figure : Enable coredump via UART after crash
+|image7| \ Figure : Enable coredump via UART after crash
 
 PIN Configuration
 ~~~~~~~~~~~~~~~~~
@@ -603,60 +546,41 @@ Configure the state of the 23 GPIO PINS.
 .. _syntax-6:
 
 Syntax
-^^^^^^
+```````
 
-+-----------------------------------------------------------------------+
-| krn.gpio=-----------------------                                      |
-|                                                                       |
-| <----------------------->:                                            |
-|                                                                       |
-| Type: String of 23 characters                                         |
-|                                                                       |
-| Options for each character:                                           |
-|                                                                       |
-| -  '-' : No change                                                    |
-|                                                                       |
-| -  'k' : Power save keep                                              |
-|                                                                       |
-| -  'K' : Power save keep with pull up                                 |
-|                                                                       |
-| -  'H' : Output high                                                  |
-|                                                                       |
-| -  'L' : Output low                                                   |
-|                                                                       |
-| -  'i' : Input                                                        |
-|                                                                       |
-| -  'I' : Input with pull up                                           |
-|                                                                       |
-| -  'p' : No pull up                                                   |
-|                                                                       |
-| -  'P' : Pull up                                                      |
-|                                                                       |
-| No default                                                            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    krn.gpio=-----------------------
+    <----------------------->:
+    Type: String of 23 characters Options for each character:
+        -  '-' : No change
+        -  'k' : Power save keep
+        -  'K' : Power save keep with pull up
+        -  'H' : Output high
+        -  'L' : Output low
+        -  'i' : Input
+        -  'I' : Input with pull up
+        -  'p' : No pull up
+        -  'P' : Pull up
+    No default
+
 
 .. _example-6:
 
 Example
-^^^^^^^
+````````
 
 Set the GPIO 13 pin as input with pull up:
 
 **Command:**
 
-+-----------------------------------------------------------------------+
-| ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl               |
-| apps/hello_world/bin/hello_world.elf                                  |
-| **krn.gpio=-------------I---------**                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl apps/hello_world/bin/hello_world.elf **krn.gpio=-------------I---------**
 
 **Note**: Single line command.
 
-|image13|\ |image14|
-
-Figure : Set the GPIO 13 pin as input with pull up
+|image8| \ Figure : Set the GPIO 13 pin as input with pull up
 
 Gratuitous ARP Period
 ~~~~~~~~~~~~~~~~~~~~~
@@ -667,40 +591,31 @@ zero to disable.
 .. _syntax-7:
 
 Syntax
-^^^^^^
+``````
 
-+-----------------------------------------------------------------------+
-| wifi.arp_grat_period=<arp_period>                                     |
-|                                                                       |
-| <arp_period>:                                                         |
-|                                                                       |
-| Type: int                                                             |
-|                                                                       |
-| Value: 0-disabled, 60-default, N-arp period in seconds                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    wifi.arp_grat_period=<arp_period>
+    <arp_period>:
+        Type: int
+        Value: 0-disabled, 60-default, N-arp period in seconds
 
 .. _example-7:
 
 Example
-^^^^^^^
+``````
 
 Set the ARP period to 90 (s).
 
 **Command**:
 
-+-----------------------------------------------------------------------+
-| ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl               |
-| examples/using_wifi/bin/wifi_connect.elf                              |
-| np_conf_path=/data/nprofile.json **wifi.arp_grat_period=90**          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl examples/using_wifi/bin/wifi_connect.elf np_conf_path=/data/nprofile.json **wifi.arp_grat_period=90**
 
 **Note**: Single line command.
 
-|image15|\ |image16|
-
-Figure : Set the ARP period to 90 (s)
+|image9| \ Figure : Set the ARP period to 90 (s)
 
 Wi-Fi Channels
 ~~~~~~~~~~~~~~
@@ -710,42 +625,32 @@ Set which Wi-Fi channels to use.
 .. _syntax-8:
 
 Syntax
-^^^^^^
+``````
+.. code:: shell
 
-+-----------------------------------------------------------------------+
-| wifi.channels=<channels>                                              |
-|                                                                       |
-| <channels>:                                                           |
-|                                                                       |
-| Type: string                                                          |
-|                                                                       |
-| Range: 1-13                                                           |
-|                                                                       |
-| Value: enter as a range and/or individual channels                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+    wifi.channels=<channels>
+    <channels>:
+        Type: string
+        Range: 1-1
+        Value: enter as a range and/or individual channels
 
 .. _example-8:
 
 Example
-^^^^^^^
+``````
 
 Set the Wi-Fi to use channels 1 to 6 and 11.
 
 **Command:**
 
-+-----------------------------------------------------------------------+
-| ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl               |
-| examples/using_wifi/bin/wifi_connect.elf                              |
-| np_conf_path=/data/nprofile.json **wifi.channels=1-6,11**             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl examples/using_wifi/bin/wifi_connect.elf np_conf_path=/data/nprofile.json **wifi.channels=1-6,11**
+
 
 **Note**: Single line command.
 
-|image17|\ |image18|
-
-Figure : Set the Wi-Fi to use channels 1 to 6 and 11
+|image10| \ Figure : Set the Wi-Fi to use channels 1 to 6 and 11
 
 Wi-Fi Dynamic Listen Interval
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -755,43 +660,33 @@ Configure the dynamic listening interval
 .. _syntax-9:
 
 Syntax
-^^^^^^
+```````
 
-+-----------------------------------------------------------------------+
-| wifi.dyn_listen_int=<dyn_listen_int>                                  |
-|                                                                       |
-| <dyn_listen_int>:                                                     |
-|                                                                       |
-| Type: int                                                             |
-|                                                                       |
-| Range: 0-1                                                            |
-|                                                                       |
-| Value: 0-disabled,1-listen to all beacons if there has been traffic   |
-| recently                                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    wifi.dyn_listen_int=<dyn_listen_int>
+    <dyn_listen_int>:
+        Type: int
+        Range: 0-1
+        Value: 0-disabled,1-listen to all beacons if there has been traffic recently
 
 .. _example-9:
 
 Example
-^^^^^^^
+```````
 
 Turn dynamic listening ON.
 
 **Command:**
 
-+-----------------------------------------------------------------------+
-| ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl               |
-| examples/using_wifi/bin/wifi_connect.elf                              |
-| np_conf_path=/data/nprofile.json **wifi.dyn_listen_int=1**            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl examples/using_wifi/bin/wifi_connect.elf np_conf_path=/data/nprofile.json **wifi.dyn_listen_int=1**
+
 
 **Note**: Single line command.
 
-|image19|\ |image20|
-
-Figure : Turning dynamic listening ON
+|image11| \ Figure : Turning dynamic listening ON
 
 Wi-Fi Beacon Listen Interval
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -801,43 +696,32 @@ Configure how often the device should wake up to listen for beacons.
 .. _syntax-10:
 
 Syntax
-^^^^^^
+``````
+.. code:: shell
 
-+-----------------------------------------------------------------------+
-| wifi.listen_interval=<listen_interval>                                |
-|                                                                       |
-| <listen_interval>:                                                    |
-|                                                                       |
-| Type: int                                                             |
-|                                                                       |
-| Range: 0-255                                                          |
-|                                                                       |
-| Value: 0-disabled, 1-listen to every beacon, N-listen to every N      |
-| beacon elapsed                                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+    wifi.listen_interval=<listen_interval>
+    <listen_interval>:
+        Type: int
+        Range: 0-255
+        Value: 0-disabled, 1-listen to every beacon, N-listen to every N beacon elapsed
 
 .. _example-10:
 
 Example
-^^^^^^^
+````````
 
 Set the beacon listening interval to 10.
 
 **Command:**
 
-+-----------------------------------------------------------------------+
-| ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl               |
-| examples/using_wifi/bin/wifi_connect.elf                              |
-| np_conf_path=/data/nprofile.json **wifi.listen_interval=10**          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl examples/using_wifi/bin/wifi_connect.elf np_conf_path=/data/nprofile.json **wifi.listen_interval=10**
+
 
 **Note**: Single line command.
 
-|image21|\ |image22|
-
-Figure : Set the beacon listening interval to 10
+|image12| \ Figure : Set the beacon listening interval to 10
 
 Wi-Fi Max Idle Period
 ~~~~~~~~~~~~~~~~~~~~~
@@ -848,40 +732,32 @@ send a keep alive to the AP.
 .. _syntax-11:
 
 Syntax
-^^^^^^
+````````
 
-+-----------------------------------------------------------------------+
-| wifi.max_idle_period=<max_idle>                                       |
-|                                                                       |
-| <max_idle>:                                                           |
-|                                                                       |
-| Type: int                                                             |
-|                                                                       |
-| Value: 1800 (default), N-max idle time in seconds                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    wifi.max_idle_period=<max_idle>
+    <max_idle>:
+        Type: int
+        Value: 1800 (default), N-max idle time in seconds
 
 .. _example-11:
 
 Example 
-^^^^^^^^
+``````
 
 Set the max idle time to 300 (s).
 
 **Command:**
 
-+-----------------------------------------------------------------------+
-| ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl               |
-| examples/using_wifi/bin/wifi_connect.elf                              |
-| np_conf_path=/data/nprofile.json **wifi.max_idle_period=300**         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl examples/using_wifi/bin/wifi_connect.elf np_conf_path=/data/nprofile.json **wifi.max_idle_period=300**
+
 
 **Note**: Single line command.
 
-|image23|\ |image24|
-
-Figure : Set the max idle time to 300 (s)
+|image13| \ Figure : Set the max idle time to 300 (s)
 
 Wi-Fi Traffic Timeout
 ~~~~~~~~~~~~~~~~~~~~~
@@ -896,40 +772,30 @@ keep the device awake forever.
 .. _syntax-12:
 
 Syntax
-^^^^^^
+``````
+.. code:: shell
 
-+-----------------------------------------------------------------------+
-| wifi.traffic_timeout=<timeout>                                        |
-|                                                                       |
-| <timeout>:                                                            |
-|                                                                       |
-| Type: int                                                             |
-|                                                                       |
-| Value: 12 (default), 0 (Disables sleep)                               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+    wifi.traffic_timeout=<timeout>
+    <timeout>:
+        Type: int
+        Value: 12 (default), 0 (Disables sleep)
 
 .. _example-12:
 
 Example
-^^^^^^^
+``````
 
 Set the traffic timeout value to 24 (ms).
 
 **Command:**
 
-+-----------------------------------------------------------------------+
-| ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl               |
-| examples/using_wifi/bin/wifi_connect.elf                              |
-| np_conf_path=/data/nprofile.json **wifi.traffic_timeout=24**          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl examples/using_wifi/bin/wifi_connect.el np_conf_path=/data/nprofile.json **wifi.traffic_timeout=24**
 
 **Note**: Single line command.
 
-|image25|\ |image26|
-
-Figure : Set the traffic timeout value to 24 (ms)
+|image14| \ Figure : Set the traffic timeout value to 24 (ms)
 
 Wi-Fi Tx Power Save
 ~~~~~~~~~~~~~~~~~~~
@@ -940,42 +806,33 @@ save bit set in the frame.
 .. _syntax-13:
 
 Syntax
-^^^^^^
+``````
 
-+-----------------------------------------------------------------------+
-| wifi.tx_ps=<dis/ena>                                                  |
-|                                                                       |
-| <dis/ena>:                                                            |
-|                                                                       |
-| Type: int                                                             |
-|                                                                       |
-| Range: 0-1                                                            |
-|                                                                       |
-| Value: 0-disabled (default), 1–enabled                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    wifi.tx_ps=<dis/ena>
+    <dis/ena>:
+        Type: int
+        Range: 0-1
+        Value: 0-disabled (default), 1–enabled
 
 .. _example-13:
 
 Example
-^^^^^^^
+``````
 
 Turn ON the Wi-Fi Tx power save mode.
 
 **Command:**
 
-+-----------------------------------------------------------------------+
-| ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl               |
-| examples/using_wifi/bin/wifi_connect.elf                              |
-| np_conf_path=/data/nprofile.json **wifi.tx_ps=1**                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl examples/using_wifi/bin/wifi_connect.elf np_conf_path=/data/nprofile.json **wifi.tx_ps=1**
+
 
 **Note**: Single line command.
 
-|image27|\ |image28|
-
-Figure : Turn ON the Wi-Fi Tx power save mode
+|image15| \ Figure : Turn ON the Wi-Fi Tx power save mode
 
 Wi-Fi DTIM Only Listening
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -987,134 +844,85 @@ interval.
 .. _syntax-14:
 
 Syntax
-^^^^^^
+```````
+.. code:: shell
 
-+-----------------------------------------------------------------------+
-| wifi.dtim_only = < dtim_only >                                        |
-|                                                                       |
-| < dtim_only > :                                                       |
-|                                                                       |
-| Type: int                                                             |
-|                                                                       |
-| Range: 0-1                                                            |
-|                                                                       |
-| Value: 0-disabled, 1-Does not switch to listen mode for every beacon  |
-| in case of beacon miss                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+    wifi.dtim_only = < dtim_only >
+    < dtim_only > :
+        Type: int
+        Range: 0-1
+        Value: 0-disabled, 1-Does not switch to listen mode for every beacon in case of beacon miss
+
 
 .. _example-14:
 
 Example
-^^^^^^^
+``````
 
 Turn DTIM only ON.
 
 **Command:**
 
-+-----------------------------------------------------------------------+
-| ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl               |
-| examples/using_wifi/bin/wifi_connect.elf                              |
-| np_conf_path=/sys/nprofile.json wifi.dtim_only=1                      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl examples/using_wifi/bin/wifi_connect.elf np_conf_path=/sys/nprofile.json wifi.dtim_only=1
+
 
 **Note**: Single line command.
 
-|image29|\ |image30|
+|image16| \ Figure 16: Turn ON the Wi-Fi DTIM only listening mode
 
-Figure : Turn ON the Wi-Fi DTIM only listening mode
+
 
 .. |Table Description automatically generated with medium confidence| image:: media/image1.png
    :width: 7.08661in
    :height: 1.49772in
-.. |image1| image:: media/image2.png
+.. |image1| image:: media/boot2.png
    :width: 1.59167in
    :height: 0.225in
-.. |image2| image:: media/image3.png
+.. |image2| image:: media/boot3.png
    :width: 7.48031in
    :height: 1.65708in
-.. |image3| image:: media/image2.png
-   :width: 1.5918in
-   :height: 0.22502in
-.. |image4| image:: media/image4.png
+.. |image3| image:: media/boot5.png
+   :width: 7.48031in
+   :height: 1.65708in
+.. |image4| image:: media/boot7.png
    :width: 7.48031in
    :height: 1.71595in
-.. |image5| image:: media/image2.png
-   :width: 1.5918in
-   :height: 0.22502in
-.. |image6| image:: media/image5.png
+.. |image5| image:: media/boot9.png
+   :width: 7.48031in
+   :height: 1.71595in
+.. |image6| image:: media/boot11.png
    :width: 7.48031in
    :height: 1.5167in
-.. |image7| image:: media/image2.png
-   :width: 1.59167in
-   :height: 0.16667in
-.. |image8| image:: media/image6.png
+.. |image7| image:: media/boot13.png
    :width: 7.48031in
-   :height: 1.60956in
-.. |image9| image:: media/image2.png
-   :width: 1.59167in
-   :height: 0.16667in
-.. |image10| image:: media/image7.png
+   :height: 1.71595in
+.. |image8| image:: media/boot15.png
    :width: 7.48031in
-   :height: 1.64872in
-.. |image11| image:: media/image2.png
-   :width: 1.59167in
-   :height: 0.16667in
-.. |image12| image:: media/image8.png
+   :height: 1.71595in
+.. |image9| image:: media/boot17.png
    :width: 7.48031in
-   :height: 1.68877in
-.. |image13| image:: media/image2.png
-   :width: 1.59167in
-   :height: 0.225in
-.. |image14| image:: media/image9.png
+   :height: 1.91595in
+.. |image10| image:: media/boot19.png
    :width: 7.48031in
-   :height: 1.72311in
-.. |image15| image:: media/image2.png
-   :width: 1.59097in
-   :height: 0.2in
-.. |image16| image:: media/image10.png
+   :height: 1.91595in
+.. |image11| image:: media/boot21.png
    :width: 7.48031in
-   :height: 2.75913in
-.. |image17| image:: media/image2.png
-   :width: 1.59167in
-   :height: 0.16667in
-.. |image18| image:: media/image11.png
+   :height: 1.91595in
+.. |image12| image:: media/boot23.png
    :width: 7.48031in
-   :height: 2.76309in
-.. |image19| image:: media/image2.png
-   :width: 1.59167in
-   :height: 0.225in
-.. |image20| image:: media/image12.png
+   :height: 1.91595in
+.. |image13| image:: media/boot25.png
    :width: 7.48031in
-   :height: 2.88989in
-.. |image21| image:: media/image2.png
-   :width: 1.59167in
-   :height: 0.225in
-.. |image22| image:: media/image13.png
+   :height: 1.91595in
+.. |image14| image:: media/boot27.png
    :width: 7.48031in
-   :height: 2.83842in
-.. |image23| image:: media/image2.png
-   :width: 1.59097in
-   :height: 0.175in
-.. |image24| image:: media/image14.png
+   :height: 1.91595in
+.. |image15| image:: media/boot29.png
    :width: 7.48031in
-   :height: 2.76514in
-.. |image25| image:: media/image2.png
-   :width: 1.59097in
-   :height: 0.175in
-.. |image26| image:: media/image15.png
+   :height: 1.91595in
+.. |image16| image:: media/boot31.png
    :width: 7.48031in
-   :height: 2.83772in
-.. |image27| image:: media/image2.png
-   :width: 1.59097in
-   :height: 0.18333in
-.. |image28| image:: media/image16.png
-   :width: 7.48031in
-   :height: 2.75102in
-.. |image29| image:: media/image2.png
-   :width: 1.59167in
-   :height: 0.225in
-.. |image30| image:: media/image17.png
-   :width: 7.48031in
-   :height: 2.81407in
+   :height: 2.31595in
+

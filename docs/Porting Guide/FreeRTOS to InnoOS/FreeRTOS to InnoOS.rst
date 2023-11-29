@@ -9,49 +9,29 @@ os_create_thread().
 
 .. table:: Table 1: Creating tasks - FreeRTOS and InnoOS
 
-   +-----------------------------------+----------------------------------+
-   | **FreeRTOS**                      | **InnoOS**                       |
-   +===================================+==================================+
-   | static void task(void \*arg)      | static void \* task(void \*arg)  |
-   |                                   |                                  |
-   | {                                 | {                                |
-   |                                   |                                  |
-   | int cnt = 0;                      | int cnt = 0;                     |
-   |                                   |                                  |
-   | for(;;) {                         | for (;;) {                       |
-   |                                   |                                  |
-   | printf("Count %d\\n", cnt++);     | os_printf("Count %d\\n", cnt++); |
-   |                                   |                                  |
-   | vTaskDelay(1000,                  | os_sleep_us(SYSTIME_SEC(1),      |
-   |                                   |                                  |
-   | portTICK_PERIOD_MS);              | OS_TIMEOUT_WAKEUP);              |
-   |                                   |                                  |
-   | }                                 | }                                |
-   |                                   |                                  |
-   | }                                 | return NULL;                     |
-   |                                   |                                  |
-   | :mark:`int main(void)`            | }                                |
-   |                                   |                                  |
-   | :mark:`{`                         | int main(void)                   |
-   |                                   |                                  |
-   | xTaskCreate(                      | {                                |
-   |                                   |                                  |
-   | task,                             | os_create_thread(                |
-   |                                   |                                  |
-   | "task",                           | "task",                          |
-   |                                   |                                  |
-   | 1024,                             | task,                            |
-   |                                   |                                  |
-   | NULL,                             | NULL,                            |
-   |                                   |                                  |
-   | 1,                                | 1,                               |
-   |                                   |                                  |
-   | NULL);                            | 1024);                           |
-   |                                   |                                  |
-   | return 0;                         | return 0;                        |
-   |                                   |                                  |
-   | }                                 | }                                |
-   +-----------------------------------+----------------------------------+
+    +---------------------------------------------+---------------------------------------------+
+    | **FreeRTOS**                                | **InnoOS**                                  |
+    +=============================================+=============================================+
+    | .. code:: shell                             | .. code:: shell                             |
+    |                                             |                                             |
+    | static void task(void *arg)                 | static void * task(void *arg)               |
+    | {                                           | {                                           |
+    |   int cnt = 0;                              |   int cnt = 0;                              |
+    |   for(;;) {                                 |   for (;;) {                                |
+    |     printf("Count %d\\n", cnt++);           |     os_printf("Count %d\\n", cnt++);        |
+    |     vTaskDelay(1000, portTICK_PERIOD_MS);   |     os_sleep_us(SYSTIME_SEC(1),             |
+    |  }                                          |     OS_TIMEOUT_WAKEUP);                     |
+    | }                                           |  }                                          |
+    | int main(void)                              |   return NULL;                              |
+    | {                                           | }                                           |
+    |  xTaskCreate(task,"task",1024,NULL,1,NULL); | int main(void)                              |
+    |  return 0;                                  | {                                           |
+    |  }                                          |   os_create_thread("task",task,NULL,1,1024);|
+    |                                             |   return 0;                                 |
+    |                                             | }                                           |
+    +---------------------------------------------+---------------------------------------------+
+
+
 
 Message Queues
 ==============
@@ -65,78 +45,48 @@ of failure.
 
 **FreeRTOS**
 
-.. table:: Table 2: Semaphore – differences
+Table 2: Semaphore – differences
+`````````````
 
-   +-----------------------------------------------------------------------+
-   | #define Q_SIZE 5 /\* number of items in queue \*/                     |
-   |                                                                       |
-   | #define I_SIZE sizeof(int) /\* size of each item \*/                  |
-   |                                                                       |
-   | #define Q_TX_TO 500 /\* timeout for send if queue is full \*/         |
-   |                                                                       |
-   | #define Q_RX_TO 500 /\* timeout for reception if queue is empty \*/   |
-   |                                                                       |
-   | xQueueHandle msg_queue;                                               |
-   |                                                                       |
-   | static void tx(void \*arg)                                            |
-   |                                                                       |
-   | {                                                                     |
-   |                                                                       |
-   | int item = 0xaddababe;                                                |
-   |                                                                       |
-   | for(;;) {                                                             |
-   |                                                                       |
-   | if (xQueueSend(msg_queue, &item, Q_TX_TO))                            |
-   |                                                                       |
-   | printf(“Send ok\\n”);                                                 |
-   |                                                                       |
-   | else                                                                  |
-   |                                                                       |
-   | printf(“Send failed\\n”);                                             |
-   |                                                                       |
-   | vTaskDelay(1000, portTICK_PERIOD_MS);                                 |
-   |                                                                       |
-   | }                                                                     |
-   |                                                                       |
-   | }                                                                     |
-   |                                                                       |
-   | static void rx(void \*arg)                                            |
-   |                                                                       |
-   | {                                                                     |
-   |                                                                       |
-   | int item;                                                             |
-   |                                                                       |
-   | for(;;) {                                                             |
-   |                                                                       |
-   | if (xQueueReceive(msg_queue, &item, Q_RX_TO)                          |
-   |                                                                       |
-   | printf(“Received %x\\n”, item);                                       |
-   |                                                                       |
-   | else                                                                  |
-   |                                                                       |
-   | printf(“Reception failed\\n”);                                        |
-   |                                                                       |
-   | }                                                                     |
-   |                                                                       |
-   | }                                                                     |
-   |                                                                       |
-   | int main(void)                                                        |
-   |                                                                       |
-   | {                                                                     |
-   |                                                                       |
-   | msg_queue = xQueueCreate(Q_SIZE, I_SIZE);                             |
-   |                                                                       |
-   | xTaskCreate(Rx, "Rx", 1024, NULL, 1, NULL);                           |
-   |                                                                       |
-   | xTaskCreate(Tx, "Tx", 1024, NULL, 1, NULL);                           |
-   |                                                                       |
-   | vTaskStartScheduler();                                                |
-   |                                                                       |
-   | return 0;                                                             |
-   |                                                                       |
-   | }                                                                     |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+.. code:: shell
+
+   #define Q_SIZE 5 /* number of items in queue */
+   #define I_SIZE sizeof(int) /* size of each item */
+   #define Q_TX_TO 500 /* timeout for send if queue is full */
+   #define Q_RX_TO 500 /* timeout for reception if queue is empty */
+   xQueueHandle msg_queue;
+   static void tx(void *arg)
+   {
+       int item = 0xaddababe;
+       for(;;) {
+           if (xQueueSend(msg_queue, &item, Q_TX_TO))
+               printf("Send ok\n");
+           else
+               printf("Send failed\n");
+           vTaskDelay(1000, portTICK_PERIOD_MS);
+       }
+   }
+
+   static void rx(void *arg)
+   {
+       int item;
+       for(;;) {
+           if (xQueueReceive(msg_queue, &item, Q_RX_TO))
+               printf("Received %x\n", item);
+           else
+               printf("Reception failed\n");
+       }
+   }
+
+   int main(void)
+   {
+       msg_queue = xQueueCreate(Q_SIZE, I_SIZE);
+       xTaskCreate(rx, "Rx", 1024, NULL, 1, NULL);
+       xTaskCreate(tx, "Tx", 1024, NULL, 1, NULL);
+       vTaskStartScheduler();
+       return 0;
+   }
+
 
 In InnoOS, every thread gets a message queue at os_create_thread().
 Hence, the message queues are not created separately. The message queues
@@ -154,75 +104,42 @@ message type.
 
 **InnoOS**
 
-+-----------------------------------------------------------------------+
-| #define MSG_TYPE 100                                                  |
-|                                                                       |
-| struct os_thread \*thread_rx;                                         |
-|                                                                       |
-| struct os_thread \*thread_tx;                                         |
-|                                                                       |
-| struct my_msg {                                                       |
-|                                                                       |
-| struct os_msg msg;                                                    |
-|                                                                       |
-| int data;                                                             |
-|                                                                       |
-| };                                                                    |
-|                                                                       |
-| static void \* tx(void \*arg)                                         |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| for (;;) {                                                            |
-|                                                                       |
-| struct my_msg \*msg = (struct my_msg \*)os_msg_alloc(MSG_TYPE, sizeof |
-| \*msg);                                                               |
-|                                                                       |
-| msg->data = 0xaddababe;                                               |
-|                                                                       |
-| os_sendmsg(thread_rx, &msg->msg);                                     |
-|                                                                       |
-| os_sleep_us(SYSTIME_SEC(1), OS_TIMEOUT_WAKEUP);                       |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| return NULL;                                                          |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| static void \* rx(void \*arg)                                         |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| for (;;) {                                                            |
-|                                                                       |
-| struct my_msg \*rec = (struct my_msg \*)os_recvmsg(false);            |
-|                                                                       |
-| os_printf("Received %x from %s\\n", rec->data,                        |
-|                                                                       |
-| os_thread_name(rec->msg.msg_sender));                                 |
-|                                                                       |
-| os_msg_release((struct os_msg \*)rec);                                |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| return NULL;                                                          |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| int main(void)                                                        |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| thread_tx = os_create_thread("tx", tx, NULL, 1, 1024);                |
-|                                                                       |
-| thread_rx = os_create_thread("rx", rx, NULL, 1, 1024);                |
-|                                                                       |
-| return 0;                                                             |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+   #define MSG_TYPE 100
+   struct os_thread *thread_rx;
+   struct os_thread *thread_tx;
+   struct my_msg {
+      struct os_msg msg;
+      int data;
+   };
+   static void * tx(void *arg)
+   {
+      for (;;) {
+         struct my_msg *msg = (struct my_msg *)os_msg_alloc(MSG_TYPE, sizeof *msg);
+         msg->data = 0xaddababe;
+         os_sendmsg(thread_rx, &msg->msg);
+         os_sleep_us(SYSTIME_SEC(1), OS_TIMEOUT_WAKEUP);
+      }
+      return NULL;
+   }
+   static void * rx(void *arg)
+   {
+      for (;;) {
+         struct my_msg *rec = (struct my_msg *)os_recvmsg(false);
+         os_printf("Received %x from %s\\n", rec->data,
+         os_thread_name(rec->msg.msg_sender));
+         os_msg_release((struct os_msg *)rec);
+      }
+      return NULL;
+   }
+   int main(void)
+   {
+      thread_tx = os_create_thread("tx", tx, NULL, 1, 1024);
+      thread_rx = os_create_thread("rx", rx, NULL, 1, 1024);
+      return 0;
+   }
+
 
 Soft Timers
 ===========
@@ -240,56 +157,35 @@ Preferably the work is handed over to another task/thread.
 
 **FreeRTOS**
 
-+-----------------------------------------------------------------------+
-| static void timer_callback(TimerHandle_t timer)                       |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| uint32_t cnt = (uint32_t)pvTimerGetTimerID(timer);                    |
-|                                                                       |
-| cnt++;                                                                |
-|                                                                       |
-| printf("cnt: %u\\n", cnt);                                            |
-|                                                                       |
-| if (cnt < 10)                                                         |
-|                                                                       |
-| /\* timer is auto-reloaded \*/                                        |
-|                                                                       |
-| vTimerSetTimerID(timer, (void\*)cnt);                                 |
-|                                                                       |
-| else {                                                                |
-|                                                                       |
-| xTimerStop(timer, 0);                                                 |
-|                                                                       |
-| printf("Ready\\n");                                                   |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| int main(void)                                                        |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| TimerHandle_t timer;                                                  |
-|                                                                       |
-| timer = xTimerCreate(                                                 |
-|                                                                       |
-| "timer",                                                              |
-|                                                                       |
-| 1000/portTICK_PERIOD_MS,                                              |
-|                                                                       |
-| pdTRUE, /\* auto-reloaded \*/                                         |
-|                                                                       |
-| (void\*) 0,                                                           |
-|                                                                       |
-| timer_callback);                                                      |
-|                                                                       |
-| xTimerStart(timer,0);                                                 |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: c
+
+    #include <stdio.h>
+    #include "FreeRTOS.h"
+    #include "timers.h"
+    static void timer_callback(TimerHandle_t timer)
+    {
+        uint32_t cnt = (uint32_t)pvTimerGetTimerID(timer);
+        cnt++;
+        printf("cnt: %u\n", cnt);
+        if (cnt < 10)
+        {
+            /* timer is auto-reloaded */
+            vTimerSetTimerID(timer, (void*)cnt);
+        }
+        else
+        {
+            xTimerStop(timer, 0);
+            printf("Ready\n");
+        }
+    }
+
+    int main(void)
+    {
+        TimerHandle_t timer;
+        timer = xTimerCreate("timer", 1000/portTICK_PERIOD_MS, pdTRUE, (void*)0, timer_callback);
+        xTimerStart(timer, 0);
+    }
+
 
 In InnoOS, the timers are called callouts, and the APIs are prefixed
 with callout\_.
@@ -301,56 +197,40 @@ macro.
 
 **InnoOS**
 
-+-----------------------------------------------------------------------+
-| #include <kernel/os.h>                                                |
-|                                                                       |
-| #include <kernel/callout.h>                                           |
-|                                                                       |
-| struct my_state {                                                     |
-|                                                                       |
-| struct callout timer;                                                 |
-|                                                                       |
-| uint32_t cnt;                                                         |
-|                                                                       |
-| } state;                                                              |
-|                                                                       |
-| static void \__irq                                                    |
-|                                                                       |
-| timer_callback(struct callout \*co)                                   |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| struct my_state \*state = container_of(co, struct my_state, timer);   |
-|                                                                       |
-| state->cnt++;                                                         |
-|                                                                       |
-| os_printf("cnt: %u\\n", state->cnt);                                  |
-|                                                                       |
-| if (state->cnt < 10)                                                  |
-|                                                                       |
-| /\* Reschedule the timer \*/                                          |
-|                                                                       |
-| callout_schedule(&state->timer, SYSTIME_SEC(1));                      |
-|                                                                       |
-| else                                                                  |
-|                                                                       |
-| os_printf("Ready\\n");                                                |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| int main(void)                                                        |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| callout_init(&state.timer, timer_callback);                           |
-|                                                                       |
-| callout_schedule(&state.timer, SYSTIME_SEC(1));                       |
-|                                                                       |
-| return 0;                                                             |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: c
+
+    #include <kernel/os.h>
+    #include <kernel/callout.h>
+
+    struct my_state {
+        struct callout timer;
+        uint32_t cnt;
+    } state;
+
+    static void __irq timer_callback(struct callout *co)
+    {
+        struct my_state *state = container_of(co, struct my_state, timer);
+        state->cnt++;
+        os_printf("cnt: %u\n", state->cnt);
+        if (state->cnt < 10)
+        {
+            /* Reschedule the timer */
+            callout_schedule(&state->timer, SYSTIME_SEC(1));
+        }
+        else
+        {
+            os_printf("Ready\n");
+        }
+    }
+
+    int main(void)
+    {
+        callout_init(&state.timer, timer_callback);
+        callout_schedule(&state.timer, SYSTIME_SEC(1));
+
+        return 0;
+    }
+
 
 Semaphores 
 ===========

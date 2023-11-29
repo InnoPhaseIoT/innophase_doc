@@ -8,9 +8,7 @@ using specialty power supplies like Otti Arc from Qiotech. Figure 9
 shows the connection setup to measure current consumption using Otti
 Arc.
 
-|A picture containing electronics Description automatically generated|
-
-Figure 9: Current measurement setup using Otti Arc
+|A picture containing electronics Description automatically generated| \ Figure 9: Current measurement setup using Otti Arc
 
 Using Battery as Power Source
 ++++++++++++++++++++++++++++++
@@ -18,9 +16,7 @@ Using Battery as Power Source
 Header J4 will switch between VBat and Vm_3.3V. Figure 10 shows VBat
 connection.
 
-|image1|
-
-Figure 10: J10 Battery connection
+|image1| \ Figure 10: J10 Battery connection
 
 **Note**: When using a battery as a power source there will be an
 additional current draw from LED (D7 or D12 depending on board version).
@@ -32,8 +28,8 @@ For more information on the Wi-Fi Connection Manager’s power management
 APIs, refer: the Wi-Fi Power Management application note.
 
 .. |A picture containing electronics Description automatically generated| image:: media/image1.jpeg
-   :width: 4.92153in
-   :height: 2.39236in
+   :width: 7.48031in
+   :height: 3.65708in
 .. |image1| image:: media/image2.jpeg
-   :width: 4.92126in
-   :height: 2.39198in
+   :width: 7.48031in
+   :height: 3.65708in

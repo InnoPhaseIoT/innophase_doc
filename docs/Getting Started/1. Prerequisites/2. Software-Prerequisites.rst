@@ -5,10 +5,10 @@ Prerequisites - Software
 
 Following are the software prerequisites to get started:
 
-1. Windows/Linux PC
-2. Wi-Fi Access Point
-3. Minicom/TeraTerm VT Utility installed on PC (https://tera-term.en.softonic.com/)
-4. SDK package
+    - Windows/Linux PC
+    - Wi-Fi Access Point
+    - Minicom/TeraTerm VT Utility installed on PC (add a download link)
+    - SDK package
 
 Software Development Kit
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -109,58 +109,57 @@ Folder details are as follows:
 
 7. **doc**: The doc folder contains the following sub-folders:
 
-a. reference_guides
+    a. reference_guides
+       i.   api_reference_guide: API reference guide describes the
+            programmers APIs.
 
-   i.   api_reference_guide: API reference guide describes the
-        programmers APIs.
+       ii.  bootargs_reference_guide: Bootargs reference guide describes the
+            use of Talaria TWO boot arguments (bootargs) in different
+            scenarios using different feature and protocols.
 
-   ii.  bootargs_reference_guide: Bootargs reference guide describes the
-        use of Talaria TWO boot arguments (bootargs) in different
-        scenarios using different feature and protocols.
+       iii. cli_reference_guide: CLI reference guide serves as a reference
+            guide for Talaria TWO CLI commands, its usage, use case or
+            examples in different scenarios supported by Talaria TWO
+            modules.
 
-   iii. cli_reference_guide: CLI reference guide serves as a reference
-        guide for Talaria TWO CLI commands, its usage, use case or
-        examples in different scenarios supported by Talaria TWO
-        modules.
+    b. user_guides
 
-b. user_guides
+       i.    ug_evb_a: Talaria TWO Evaluation Board an overview of the
+             evaluation board explaining its key features and functions
 
-   i.    ug_evb_a: Talaria TWO Evaluation Board an overview of the
-         evaluation board explaining its key features and functions
+       ii.   ug_eclipse_setup_windows: Eclipse setup in Windows describes
+             developing an application using Eclipse and Talaria TWO SDK
 
-   ii.   ug_eclipse_setup_windows: Eclipse setup in Windows describes
-         developing an application using Eclipse and Talaria TWO SDK
+       iii.  ug_eclipse_setup_linux: Eclipse setup in Linux describes the
+             procedure to build and debug an application on Eclipse IDE
+             using Talaria TWO SDK
 
-   iii.  ug_eclipse_setup_linux: Eclipse setup in Linux describes the
-         procedure to build and debug an application on Eclipse IDE
-         using Talaria TWO SDK
+       iv.   ug_env_setup_linux: Environment set-up with Talaria TWO for
+             Linux describes setting up the development environment for
+             Talaria TWO\ :sup:`TM` SDK on an Ubuntu VirtualBox with a
+             Windows 10 host
 
-   iv.   ug_env_setup_linux: Environment set-up with Talaria TWO for
-         Linux describes setting up the development environment for
-         Talaria TWO\ :sup:`TM` SDK on an Ubuntu VirtualBox with a
-         Windows 10 host
+       v.    ug_wsl: Windows Subsystem for Linux describes developing an
+             application using Windows Subsystem for Linux (WSL) and Talaria
+             TWO SDK
 
-   v.    ug_wsl: Windows Subsystem for Linux describes developing an
-         application using Windows Subsystem for Linux (WSL) and Talaria
-         TWO SDK
+       vi.   ug_coredump_generation_and_anaysis: Coredump generation and
+             analysis describes generating a coredump file used for
+             analyzing the cause of the crash.
 
-   vi.   ug_coredump_generation_and_anaysis: Coredump generation and
-         analysis describes generating a coredump file used for
-         analyzing the cause of the crash.
+       vii.  ug_debugging_using_gdb: Debugging using GDB describes the
+             procedure for debugging the applications using GDB to work with
+             OpenOCD
 
-   vii.  ug_debugging_using_gdb: Debugging using GDB describes the
-         procedure for debugging the applications using GDB to work with
-         OpenOCD
+       viii. porting_guide_innoos_to_freeRTOS: Porting guide describes the
+             procedure to port InnoOS code to FreeRTOS.
 
-   viii. porting_guide_innoos_to_freeRTOS: Porting guide describes the
-         procedure to port InnoOS code to FreeRTOS.
+       ix.   ug_firmware_sdk: Firmware SDK user guide describes developing
+             applications for the Talaria TWO device.
 
-   ix.   ug_firmware_sdk: Firmware SDK user guide describes developing
-         applications for the Talaria TWO device.
-
-   x.    ug_memory_mapping: Memory mapping describes the flash memory
-         mapping of standard applications with details on the flash
-         memory layout.
+       x.    ug_memory_mapping: Memory mapping describes the flash memory
+             mapping of standard applications with details on the flash
+             memory layout.
 
 8. **examples**: Demo/sample applications that the user can run on
    Talaria TWO firmware. Following examples are available:

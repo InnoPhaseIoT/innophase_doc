@@ -1,4 +1,4 @@
-http client
+Http client
 ------------
 
 HTTP is a stateless application-level protocol used for data transfer.
@@ -47,24 +47,20 @@ connection with the remote server using http_client_open API.
 
 .. table:: Table : http_client_config_t - parameters
 
-   +----------------+-----------------------------------------------------+
-   | **hostname**   | Host name or the IP address of the server. Example, |
-   |                | “google.com” or “192.168.1.1”                       |
-   +================+=====================================================+
-   | **port**       | Server port                                         |
-   +----------------+-----------------------------------------------------+
-   | **secured**    | 0 – HTTP                                            |
-   |                |                                                     |
-   |                | 1- HTTPS without server verification                |
-   |                |                                                     |
-   |                | 2 – HTTPS with server certificate validation        |
-   +----------------+-----------------------------------------------------+
-   | **             | SSL configuration for secured connection            |
-   | ssl_wrap_cfg_t |                                                     |
-   | ssl_cfg**      |                                                     |
-   +----------------+-----------------------------------------------------+
-   | **time_out**   | Connect timeout in seconds                          |
-   +----------------+-----------------------------------------------------+
+   +----------------------------+-----------------------------------------------------+
+   | **hostname**               | Host name or the IP address of the server. Example, |
+   |                            | “google.com” or “192.168.1.1”                       |
+   +============================+=====================================================+
+   | **port**                   | Server port                                         |
+   +----------------------------+-----------------------------------------------------+
+   | **secured**                | - 0 – HTTP                                          |
+   |                            | - 1 - HTTPS without server verification             |
+   |                            | - 2 – HTTPS with server certificate validation      |
+   +----------------------------+-----------------------------------------------------+
+   | **ssl_wrap_cfg_tssl_cfg**  | SSL configuration for secured connection            |
+   +----------------------------+-----------------------------------------------------+
+   | **time_out**               | Connect timeout in seconds                          |
+   +----------------------------+-----------------------------------------------------+
 
 http_client_resp_info_t
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -74,23 +70,22 @@ from the server when HTTP GET is done using the http_client_get API.
 
 .. table:: Table : http_client_resp_info_t - parameters
 
-   +----------------+-----------------------------------------------------+
-   | *              | HTTP response status code                           |
-   | *status_code** |                                                     |
-   +================+=====================================================+
-   | **resp_hdrs**  | Response headers. Array of strings                  |
-   +----------------+-----------------------------------------------------+
-   | **resp_body**  | Response body len                                   |
-   +----------------+-----------------------------------------------------+
-   | **resp_len**   | Resp len, currently available in the resp_body      |
-   +----------------+-----------------------------------------------------+
-   | **re           | Total length of the response body. If 0, no total   |
-   | sp_total_len** | length available beforehand as the body maybe sent  |
-   |                | using chunked or multipart encoding                 |
-   +----------------+-----------------------------------------------------+
-   | **more_data**  | More data will be followed. The callback will be    |
-   |                | called again                                        |
-   +----------------+-----------------------------------------------------+
+   +-------------------+-----------------------------------------------------+
+   | **status_code**   | HTTP response status code                           |
+   +===================+=====================================================+
+   | **resp_hdrs**     | Response headers. Array of strings                  |
+   +-------------------+-----------------------------------------------------+
+   | **resp_body**     | Response body len                                   |
+   +-------------------+-----------------------------------------------------+
+   | **resp_len**      | Resp len, currently available in the resp_body      |
+   +-------------------+-----------------------------------------------------+
+   | **resp_total_len**| Total length of the response body. If 0, no total   |
+   |                   | length available beforehand as the body maybe sent  |
+   |                   | using chunked or multipart encoding                 |
+   +-------------------+-----------------------------------------------------+
+   | **more_data**     | More data will be followed. The callback will be    |
+   |                   | called again                                        |
+   +-------------------+-----------------------------------------------------+
 
 API Reference
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -107,26 +102,22 @@ for the connection is passed using http_client_config_t.
 Definition
 ~~~~~~~~~~
 
-.. table:: Table : http_client_open – parameters
+.. code:: c
 
-   +-----------------------------------------------------------------------+
-   | http_client_handle_t                                                  |
-   |                                                                       |
-   | http_client_open(http_client_config_t \*cfg)                          |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+    http_client_handle_t
+    http_client_open(http_client_config_t \*cfg)
+
 
 Parameters
 ~~~~~~~~~~
 
 .. table:: Table : http_client_get - parameters
 
-   +-----------+----------------------------------------------------------+
-   | **Pa      | **Description**                                          |
-   | rameter** |                                                          |
-   +===========+==========================================================+
-   | *cfg*     | Pointer to the data structure http_client_config_t       |
-   +-----------+----------------------------------------------------------+
+   +--------------------+----------------------------------------------------------+
+   | **Parameter**      | **Description**                                          |
+   +====================+==========================================================+
+   | *cfg*              | Pointer to the data structure http_client_config_t       |
+   +--------------------+----------------------------------------------------------+
 
 Return
 ~~~~~~
@@ -151,16 +142,12 @@ until the whole response is received.
 
 Definition
 ~~~~~~~~~~
+.. code:: c
 
-.. table:: Table : http_client_post - parameters
+    int
+    http_client_get(http_client_handle_t handle, char \*uri,
+    http_client_resp_cb cb, void \*cb_ctx, int time_out)
 
-   +-----------------------------------------------------------------------+
-   | int                                                                   |
-   |                                                                       |
-   | http_client_get(http_client_handle_t handle, char \*uri,              |
-   | http_client_resp_cb cb, void \*cb_ctx, int time_out)                  |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
 
 .. _parameters-1:
 
@@ -169,17 +156,15 @@ Parameters
 
 .. table:: Table : http_client_set_req_hdr - parameters
 
-   +----------+-----------------------------------------------------------+
-   | **Par    | **Description**                                           |
-   | ameter** |                                                           |
-   +==========+===========================================================+
-   | *handle* | Handle returned by http_client_open()                     |
-   +----------+-----------------------------------------------------------+
-   | *uri*    | HTTP URI to GET                                           |
-   +----------+-----------------------------------------------------------+
-   | *cb*     | User application callback to be called when response is   |
-   |          | received from the server                                  |
-   +----------+-----------------------------------------------------------+
+   +------------------+-----------------------------------------------------------------------------------+
+   | **Parameter**    | **Description**                                                                   |
+   +==================+===================================================================================+
+   | *handle*         | Handle returned by http_client_open()                                             |
+   +------------------+-----------------------------------------------------------------------------------+
+   | *uri*            | HTTP URI to GET                                                                   |
+   +------------------+-----------------------------------------------------------------------------------+
+   | *cb*             | User application callback to be called when response is received from the server  |
+   +------------------+-----------------------------------------------------------------------------------+
 
 .. _return-1:
 
@@ -208,42 +193,32 @@ before calling this API.
 Definition 
 ~~~~~~~~~~~
 
-.. table:: Table : http_client_close - parameters
+.. code:: c
 
-   +-----------------------------------------------------------------------+
-   | int                                                                   |
-   |                                                                       |
-   | http_client_post(http_client_handle_t handle, char \*uri,             |
-   |                                                                       |
-   | char \*buff, int buff_len,                                            |
-   |                                                                       |
-   | http_client_resp_cb cb, void \*cb_ctx,                                |
-   |                                                                       |
-   | int time_out)                                                         |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+    int
+    http_client_post(http_client_handle_t handle, char \*uri, char \*buff, int buff_len, http_client_resp_cb cb, void \*cb_ctx int time_out)
+
 
 .. _parameters-2:
 
 Parameters
 ~~~~~~~~~~
 
-+-----------+----------------------------------------------------------+
-| **Pa      | **Description**                                          |
-| rameter** |                                                          |
-+===========+==========================================================+
-| *handle*  | Handle returned by http_client_open()                    |
-+-----------+----------------------------------------------------------+
-| *uri*     | HTTP URI to POST                                         |
-+-----------+----------------------------------------------------------+
-| *buff*    | Buffer having data to be sent to server                  |
-+-----------+----------------------------------------------------------+
-| *         | Length of the data present in the buff. This is the      |
-| buff_len* | length of the data to be POSTed                          |
-+-----------+----------------------------------------------------------+
-| *cb*      | User application callback to be called when response is  |
-|           | received from the server                                 |
-+-----------+----------------------------------------------------------+
++--------------------+----------------------------------------------------------+
+| **Parameter**      | **Description**                                          |
++====================+==========================================================+
+| *handle*           | Handle returned by http_client_open()                    |
++--------------------+----------------------------------------------------------+
+| *uri*              | HTTP URI to POST                                         |
++--------------------+----------------------------------------------------------+
+| *buff*             | Buffer having data to be sent to server                  |
++--------------------+----------------------------------------------------------+
+| *buff_len*         | Length of the data present in the buff. This is the      |
+|                    | length of the data to be POSTed                          |
++--------------------+----------------------------------------------------------+
+| *cb*               | User application callback to be called when response is  |
+|                    | received from the server                                 |
++--------------------+----------------------------------------------------------+
 
 .. _return-2:
 
@@ -270,30 +245,25 @@ using this API.
 Definition 
 ~~~~~~~~~~~
 
-+-----------------------------------------------------------------------+
-| int                                                                   |
-|                                                                       |
-| http_client_set_req_hdr(http_client_handle_t handle,                  |
-|                                                                       |
-| const char \*hdrname, const char \*hdrval)                            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: c
+
+    int http_client_set_req_hdr(http_client_handle_t handle, const char \*hdrname, const char \*hdrval)
+
 
 .. _parameters-3:
 
 Parameters
 ~~~~~~~~~~
 
-+-----------+----------------------------------------------------------+
-| **Par     | **Description**                                          |
-| ameters** |                                                          |
-+===========+==========================================================+
-| *handle*  | HTTP connection handle                                   |
-+-----------+----------------------------------------------------------+
-| *hdrname* | Name part of the header. For example: “content length”   |
-+-----------+----------------------------------------------------------+
-| *hdrval*  | Value part of the header. For example: “1024”            |
-+-----------+----------------------------------------------------------+
++--------------------+----------------------------------------------------------+
+| **Parameters**     | **Description**                                          |
++====================+==========================================================+
+| *handle*           | HTTP connection handle                                   |
++--------------------+----------------------------------------------------------+
+| *hdrname*          | Name part of the header. For example: “content length”   |
++--------------------+----------------------------------------------------------+
+| *hdrval*           | Value part of the header. For example: “1024”            |
++--------------------+----------------------------------------------------------+
 
 .. _return-3:
 
@@ -319,24 +289,20 @@ This API is used for closing the connection.
 Definition 
 ~~~~~~~~~~~
 
-+-----------------------------------------------------------------------+
-| int                                                                   |
-|                                                                       |
-| http_client_close(http_client_handle_t handle)                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: c
+
+    int http_client_close(http_client_handle_t handle)
 
 .. _parameters-4:
 
 Parameters
 ~~~~~~~~~~
 
-+-----------+----------------------------------------------------------+
-| **Pa      | **Description**                                          |
-| rameter** |                                                          |
-+===========+==========================================================+
-| *handle*  | HTTP connection handle                                   |
-+-----------+----------------------------------------------------------+
++---------------+----------------------------------------------------------+
+| **Parameter** | **Description**                                          |
++===============+==========================================================+
+| *handle*      | HTTP connection handle                                   |
++---------------+----------------------------------------------------------+
 
 .. _return-4:
 

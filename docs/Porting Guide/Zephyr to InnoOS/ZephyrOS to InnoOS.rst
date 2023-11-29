@@ -20,14 +20,9 @@ The function os_create_thread, takes five input parameters:
 
 Following is the prototype of the function os_create_thread:
 
-.. table:: Table 1: Create a thread
-
-   +-----------------------------------------------------------------------+
-   | struct os_thread \*os_create_thread(const char \*name,                |
-   | os_entrypoint_t entry, os_threadarg_t arg, uint32_t flags, size_t     |
-   | stacksz);                                                             |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+.. code:: shell
+    Table 1: Create a thread
+    struct os_thread \*os_create_thread(const char \*name, os_entrypoint_t entry, os_threadarg_t arg, uint32_t flags, size_tstacksz)
 
 Contrary to ZephyrOS, in InnoOS the entry function always returns NULL.
 It is not possible to pass more than one argument to the entry function.
@@ -39,61 +34,31 @@ on how a thread is created:
 
 .. table:: Table 2: Message queues
 
-   +----------------------------------+-----------------------------------+
-   | **ZephyrOS**                     | **InnoOS**                        |
-   +==================================+===================================+
-   | static void task(void)           | static void \* task(void \*arg)   |
-   |                                  |                                   |
-   | {                                | {                                 |
-   |                                  |                                   |
-   | int cnt = 0;                     | int cnt = 0;                      |
-   |                                  |                                   |
-   | for (;;){                        | for (;;) {                        |
-   |                                  |                                   |
-   | printk(“Count %d\\n”,cnt++);     | os_printf("Count %d\\n", cnt++);  |
-   |                                  |                                   |
-   | k_sleep(K_SECONDS(1));           | os_sleep_us(SYSTIME_SEC(1),       |
-   |                                  |                                   |
-   | }                                | }                                 |
-   |                                  |                                   |
-   | }                                | return NULL; }                    |
-   |                                  |                                   |
-   | int main(void)                   | int main(void)                    |
-   |                                  |                                   |
-   | {                                | {                                 |
-   |                                  |                                   |
-   | K_                               | os_create_thread(                 |
-   | THREAD_STACK_DEFINE(stack,1024); |                                   |
-   |                                  | "task",                           |
-   | static struct k_thread           |                                   |
-   | my_thread;                       | task,                             |
-   |                                  |                                   |
-   | k_thread_create(                 | NULL,                             |
-   |                                  |                                   |
-   | &my_thread,                      | 1,                                |
-   |                                  |                                   |
-   | stack,                           | 1024);                            |
-   |                                  |                                   |
-   | K_THREAD_STACK_SIZEOF(stack),    | return 0;                         |
-   |                                  |                                   |
-   | (k_thread_entry_t) task,         | }                                 |
-   |                                  |                                   |
-   | NULL,                            |                                   |
-   |                                  |                                   |
-   | NULL,                            |                                   |
-   |                                  |                                   |
-   | NULL,                            |                                   |
-   |                                  |                                   |
-   | 1,                               |                                   |
-   |                                  |                                   |
-   | 0,                               |                                   |
-   |                                  |                                   |
-   | K_NO_WAIT) ;                     |                                   |
-   |                                  |                                   |
-   | return 0;                        |                                   |
-   |                                  |                                   |
-   | }                                |                                   |
-   +----------------------------------+-----------------------------------+
+   +------------------------------------+-----------------------------------+
+   | **ZephyrOS**                       | **InnoOS**                        |
+   +====================================+===================================+
+   |  .. code:: c                       | .. code:: c                       |
+   |                                    |                                   |
+   | static void task(void)             | static void \* task(void \*arg)   |
+   | {                                  | {                                 |
+   | int cnt = 0;                       | int cnt = 0;                      |
+   | for (;;){                          | for (;;) {                        |
+   | printk(“Count %d\\n”,cnt++);       | os_printf("Count %d\\n", cnt++);  |
+   | k_sleep(K_SECONDS(1));             | os_sleep_us(SYSTIME_SEC(1),       |
+   |  }                                 | }                                 |
+   | }                                  | return NULL; }                    |
+   | int main(void)                     | int main(void)                    |
+   | {                                  | {                                 |
+   | K_THREAD_STACK_DEFINE(stack,1024); | os_create_thread("task",task,NULL |
+   | static struct k_thread,my_thread   | 1, 1024);                         |
+   | k_thread_create(&my_thread,        | return 0;                         |
+   | &my_thread,                        | }                                 |
+   | stack,K_THREAD_STACK_SIZEOF(stack),|                                   |
+   | (k_thread_entry_t) task,NULL,NULL, |                                   |
+   | NULL,1,0,K_NO_WAIT);               |                                   |
+   | return 0;                          |                                   |
+   | }                                  |                                   |
+   +------------------------------------+-----------------------------------+
 
 Message Queues 
 ~~~~~~~~~~~~~~~
@@ -127,6 +92,8 @@ to wait for a specific message type.
    +----------------------------------+-----------------------------------+
    | **ZephyrOS**                     | **InnoOS**                        |
    +==================================+===================================+
+   |  .. code:: c                     | .. code:: c                       |
+   |                                  |                                   |
    | struct k_msgq msgq;              | #define MSG_TYPE 100              |
    |                                  |                                   |
    | K_THREAD_STACK_DEFINE(stack1,    | struct os_thread \*thread_rx;     |
@@ -254,6 +221,8 @@ possibility to schedule the callout to start after a few microseconds.
    +----------------------------------+-----------------------------------+
    | **ZephyrOS**                     | **InnoOS**                        |
    +==================================+===================================+
+   |  .. code:: c                     | .. code:: c                       |
+   |                                  |                                   |
    | uint32_t cnt=0;                  | #include <kernel/os.h>            |
    |                                  |                                   |
    | struct k_timer timer;            | #include <kernel/callout.h>       |
@@ -320,18 +289,14 @@ semaphores. Table 4 depicts the different functions.
 
 .. table:: Table 5: Work queue
 
-   +----------------------------------+-----------------------------------+
-   | **ZephyrOS**                     | **InnoOS**                        |
-   +==================================+===================================+
-   | struct k_sem semaphore;          | struct os_semaphore semaphore;    |
-   |                                  |                                   |
-   | k_sem_init(&semaphore, 1,        | os_sem_init(&semaphore, 1);       |
-   | MAX_VALUE);                      | os_sem_wait_timeout(&semaphore,   |
-   |                                  | timeout);                         |
-   | k_sem_take(&semaphore, timeout); |                                   |
-   |                                  | os_sem_post(&semaphore);          |
-   | k_sem_give(&semaphore);          |                                   |
-   +----------------------------------+-----------------------------------+
+   +-------------------------------------+--------------------------------------------+
+   | **ZephyrOS**                        | **InnoOS**                                 |
+   +=====================================+============================================+
+   | struct k_sem semaphore;             | struct os_semaphore semaphore;             |
+   | k_sem_init(&semaphore, 1,MAX_VALUE);| os_sem_init(&semaphore, 1);                |
+   | k_sem_take(&semaphore, timeout);    | os_sem_wait_timeout(&semaphore,timeout);   |
+   | k_sem_give(&semaphore);            | os_sem_post(&semaphore);                   |
+   +-------------------------------------+--------------------------------------------+
 
 InnoOS has the API os_sem_wait(&semaphore), which is without a timeout
 and blocks until the semaphore is taken. The same behavior can be
@@ -348,19 +313,16 @@ of both writing to the systems work queue:
 +----------------------------------+-----------------------------------+
 | **ZephyrOS**                     | **InnoOS**                        |
 +==================================+===================================+
+|  .. code:: c                     | .. code:: c                       |
+|                                  |                                   |
 | struct my_state{                 | struct my_state {                 |
 |                                  |                                   |
 | struct k_work mining;            | struct os_work mining;            |
-|                                  |                                   |
 | };                               | };                                |
-|                                  |                                   |
 | static void                      | static void                       |
-|                                  |                                   |
 | working_in_a_coalmine(struct     | working_in_a_coalmine(struct      |
 | k_work \*work)                   | os_work \*work)                   |
-|                                  |                                   |
 | {                                | {                                 |
-|                                  |                                   |
 | struct my_state \*state =        | struct my_state \*state =         |
 | CONTAINER_OF(work,               | container_of(work, struct         |
 |                                  | my_state,                         |
@@ -375,19 +337,16 @@ of both writing to the systems work queue:
 | interrupt_service_receive(struct |                                   |
 | my_state \*state)                | interrupt_service_receive(struct  |
 |                                  | my_state \*state)                 |
-| {                                |                                   |
 |                                  | {                                 |
 | k_work_submit(&state->mining);   |                                   |
 |                                  | os_q                              |
 | }                                | ueue_system_work(&state->mining); |
 |                                  |                                   |
 | static void                      | }                                 |
-|                                  |                                   |
 | init_mining(struct my_state      | static void                       |
 | \*state)                         |                                   |
 |                                  | init_mining(struct my_state       |
 | {                                | \*state)                          |
-|                                  |                                   |
 | //Associate the work function    | {                                 |
 | with the struct k_work object    |                                   |
 |                                  | //Associate the work function     |
@@ -395,6 +354,5 @@ of both writing to the systems work queue:
 | working_in_a_coalmine);          |                                   |
 |                                  | os_init_work(&state->mining,      |
 | }                                | working_in_a_coalmine);           |
-|                                  |                                   |
 |                                  | }                                 |
 +----------------------------------+-----------------------------------+

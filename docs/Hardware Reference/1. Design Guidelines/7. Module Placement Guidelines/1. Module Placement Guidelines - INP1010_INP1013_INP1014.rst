@@ -1,45 +1,45 @@
+.. _module placement - 1010:
+
 Module Placement Guidelines – INP1010/INP1013/INP1014 
-======================================================
+#####################################################
 
 Talaria TWO family of modules should be placed at the edge of the
-application PCB for better RF performance as indicated in Figure 21.
+application PCB for better RF performance as indicated in Figure 1.
 INP1010/13/14 modules have antenna on them which makes it easy for
 integrating on application PCB.
 
 In the above case, ensure that the antenna portion is outside of the
-application PCB as indicated in Figure 21.
+application PCB as indicated in Figure 1.
 
-|A close-up of a circuit board Description automatically generated|
+|image10|
 
-Figure 21: Antenna Keep Out Area
+Figure 1: Antenna Keep Out Area
 
 **Note**: No metal layer or metal blocking is allowed in the area
 specified as keep out area in the figure above on all the sides of the
 antenna X, Y and Z directions.
 
-|A picture containing text, scoreboard Description automatically
-generated|
+|image11|
 
-Figure 22:Module placement
+Figure 2:Module placement
 
-|A picture containing text, electronics, circuit Description
-automatically generated|
+|image12|
 
-Figure 23: INP1013 module with antenna portion outside application PCB
+Figure 3: INP1013 module with antenna portion outside application PCB
 
-|image1|
+|image13|
 
-Figure 24: INP1014 module with antenna portion outside application PCB
+Figure 4: INP1014 module with antenna portion outside application PCB
 
-.. |A close-up of a circuit board Description automatically generated| image:: media/image1.png
+.. |image10| image:: media/image10.png
    :width: 7.48031in
    :height: 4.46026in
-.. |A picture containing text, scoreboard Description automatically generated| image:: media/image2.png
+.. |image11| image:: media/image11.png
    :width: 7.48031in
    :height: 5.35622in
-.. |A picture containing text, electronics, circuit Description automatically generated| image:: media/image3.jpeg
+.. |image12| image:: media/image12.png
    :width: 7.48031in
    :height: 4.9114in
-.. |image1| image:: media/image4.jpeg
+.. |image13| image:: media/image13.png
    :width: 7.48031in
    :height: 4.82116in

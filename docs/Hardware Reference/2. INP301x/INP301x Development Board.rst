@@ -1,18 +1,19 @@
+.. _inp301x:
+
 INP301x Development Board
-----------------------------
+#########################
 
 Jumpers on the Board
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-|Graphical user interface Description automatically generated|
+|image1|
 
-Figure 3: INP301x EVB-A control and connectivity points
+Figure 1: INP301x EVB-A control and connectivity points
 
 .. table:: Table 1: Jumper Information
 
    +-----------+----------------------------------------------------------+
-   | *         | **Mode and Operation**                                   |
-   | *Jumper** |                                                          |
+   | **Jumper**| **Mode and Operation**                                   |
    +===========+==========================================================+
    | J1        | IO header                                                |
    +-----------+----------------------------------------------------------+
@@ -39,6 +40,8 @@ Figure 3: INP301x EVB-A control and connectivity points
    | U3        | Switch between Stand-alone mode and Arduino Shield Mode  |
    +-----------+----------------------------------------------------------+
 
+
+
 Power Supply and Mode Switch
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -51,11 +54,11 @@ following ways:
 
 3. A battery header is also available to provide power to the module
 
-|Diagram, schematic Description automatically generated|
+|image2|
 
-Figure 4: Power supply section
+Figure 2: Power supply section
 
-The power supply section is shown in Figure 4. The INP101x module
+The power supply section is shown in Figure 2. The INP101x module
 requires 3.3V supply. The DPDT switch (U3) selects between USB and
 Arduino header supply using the common net Vm_3.3V. The jumper J4 is
 used to select between battery supply and Vm_3.3V. The same jumper can
@@ -66,12 +69,14 @@ IO Header (J1)
 
 The J1 header brings out all the IOs from INP101x module. These IOs can
 be used for debug, and/or any external interfacing needs. The pinout of
-this header is shown in Figure 5. To work with on board sensor, pins 1 &
+this header is shown in Figure 3. To work with on board sensor, pins 1 &
 2 needs to be shorted.
 
-|image1|
+|image3|
 
-Figure 5: IO Header
+Figure 3: IO Header
+
+
 
 Shield Headers (JP1 to JP4)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -89,18 +94,20 @@ following capability:
 3. Remaining GPIOs are available on JP2 and JP4
 
 Note that INP301x supports 2.5V IO as the default configuration. The
-shield header connections are as shown in JP2 of Figure 6.
+shield header connections are as shown in JP2 of Figure 4.
 
-|image2|
+|image4|
 
-Figure 6: Arduino UNO shield compatible jumpers
+Figure 4: Arduino UNO shield compatible jumpers
+
+
 
 On Board Sensors
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-|image3|
+|image5|
 
-Figure 7: On board sensors
+Figure 5: On board sensors
 
 The INP301x board has following sensors available on board for quick
 prototyping/testing:
@@ -115,6 +122,8 @@ To use the sensors, J7, J8, pins 1 & 2 of J1 should be connected. This
 enables power connection to the sensors on board, I2C connection on
 GPIOs 3 & 4.
 
+
+
 Functional Description
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -128,6 +137,7 @@ board:
 More details about each mode are available in subsequent sections.
 Switching between the modes is handled by DPDT switch U3 for power, and
 multi-port SPDT switch U1 for the GPIOs.
+
 
 Stand-alone Mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -167,6 +177,7 @@ module. The UART on C-bus is used for programming the INP101x module.
 The CONSOLE port is a unidirectional UART from INP101x module that
 operates at high baud rate of 2457600, used for debug prints.
 
+
 Shield Mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -189,10 +200,9 @@ Connect GPIO4 of Talaria TWO (J1 Connector) to Pin2 of CN6 connector.
 Talaria TWO uses this GPIO4 pin to interrupt ST when Talaria TWO wants
 to send data/notification to ST.
 
-|A circuit board with wires and wires Description automatically
-generated|
+|image6|
 
-Figure 8: INP3010 EVB-A as Wi-Fi Shield
+Figure 6: INP3010 EVB-A as Wi-Fi Shield
 
 Antenna
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -252,6 +262,7 @@ FCC/ISED, EU(RED) and TELEC.
    |          | Antenna    | TRACE          |                             |
    +----------+------------+----------------+-----------------------------+
 
+
 INP1011/INP1012/INP1015
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -286,6 +297,7 @@ Talaria TWO INP1013 module has been certified with SMD chip antenna
    |           | antenna        | 0AT42B100 |                            |
    +-----------+----------------+-----------+----------------------------+
 
+
 INP1014
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -305,21 +317,21 @@ for FCC/ISED and TELEC.
    |           |                | Trace     |                            |
    +-----------+----------------+-----------+----------------------------+
 
-.. |Graphical user interface Description automatically generated| image:: media/image1.png
+.. |image1| image:: media/image1.png
    :width: 4.92153in
    :height: 3.14861in
-.. |Diagram, schematic Description automatically generated| image:: media/image2.png
+.. |image2| image:: media/image2.png
    :width: 4.92153in
    :height: 2.60625in
-.. |image1| image:: media/image3.png
+.. |image3| image:: media/image3.png
    :width: 4.92153in
    :height: 2.20833in
-.. |image2| image:: media/image4.png
+.. |image4| image:: media/image4.png
    :width: 4.92126in
    :height: 5.16986in
-.. |image3| image:: media/image5.png
+.. |image5| image:: media/image5.png
    :width: 4.92153in
    :height: 3.51042in
-.. |A circuit board with wires and wires Description automatically generated| image:: media/image6.jpeg
+.. |image6| image:: media/image6.png
    :width: 2.75591in
    :height: 4.94207in

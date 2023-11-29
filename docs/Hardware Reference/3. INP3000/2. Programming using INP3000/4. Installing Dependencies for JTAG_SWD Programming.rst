@@ -1,3 +1,5 @@
+.. _installing dependencies for jtag and swd:
+
 Installing Dependencies for JTAG_SWD Programming
 ----------------------------------------------------------------
 
@@ -13,29 +15,24 @@ the application image to Talaria TWO over JTAG/SWD:
       variables path in: System Properties->Advance->Environment
       Variables->Path->Edit->New and click OK.
 
-..
-
    **Note**: For the download procedure of OpenOCD, refer sections:
    *Node.js Installation* to *OpenOCD Installation* of the document:
-   UG_Eclipse_Setup_Windows.pdf (*sdk_x.y\\doc\\user_guides*).
+   UG_Eclipse_Setup_Windows.pdf
 
-   |Graphical user interface, text, application Description
-   automatically generated|
+   |image9|
 
-   Figure 14: Python application path to environment variables path
+   Figure 1: Python application path to environment variables path
 
 2. Pyserial, pyelftools
-
-..
 
    Install pyserial, pyelftools and pyftdi by executing the following
    command:
 
-+-----------------------------------------------------------------------+
-| pip3 install pyserial pyelftools pyftdi                               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-.. |Graphical user interface, text, application Description automatically generated| image:: media/image1.png
+     pip3 install pyserial pyelftools pyftdi
+
+
+.. |image9| image:: media/image9.png
    :width: 3.14961in
    :height: 2.99213in

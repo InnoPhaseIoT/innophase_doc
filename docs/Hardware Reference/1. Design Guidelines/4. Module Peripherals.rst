@@ -1,5 +1,7 @@
+.. _module peripherals:
+
 Module Peripherals
-==================
+##################
 
 Talaria TWO modules have a rich set of peripherals in a compact
 formfactor with UART, SPI, ADC, PWM I2C, I2S and multiple GPIOs. It is
@@ -21,10 +23,9 @@ module.
 Module supports standard baudrates starting from 300 to 2560000, 921600
 being the default baudrate.
 
-|Graphical user interface Description automatically
-generated|\ |Diagram, schematic Description automatically generated|
+|image4|
 
-Figure 4: Host with UART Interface
+Figure 1: Host with UART Interface
 
 .. table:: Table 2: UART PINS
 
@@ -77,9 +78,9 @@ works at a very high baudrate of 2457600.
 It is important to have this PIN available on a header for debug
 purposes.
 
-|image1|\ |Diagram Description automatically generated|
+|image5|
 
-Figure 5: Console for debug messages
+Figure 2: Console for debug messages
 
 Layout Considerations:
 
@@ -158,10 +159,9 @@ l: Default power-up GPIO
 
 n: Function supported on GPIO
 
-|image2|\ |A computer circuit board with wires and a black background
-Description automatically generated|
+|image6|
 
-Figure 6: MCU/MPU SPI Master Host
+Figure 3: MCU/MPU SPI Master Host
 
 Layout Considerations:
 
@@ -222,15 +222,15 @@ on the 5 GPIOs specified in Table 5.
    |            | SDIO_DATA3 |   |   |   |   |   |   |   |   |   |   |   |   |
    +------------+------------+---+---+---+---+---+---+---+---+---+---+---+---+
 
-|image3|\ |image4|
+|image7|
 
-Figure 7: MPU/MCU SDIO Interface host
+Figure 4: MPU/MCU SDIO Interface host
 
 Talaria TWO SDIO interface schematics reference is as shown in Figure 8.
 
-|image5|
+|image8|
 
-Figure 8: SDIO Block Diagram
+Figure 5: SDIO Block Diagram
 
 To enable the sleep and wakeup mechanism, two additional GPIOs are
 required. GPIO20 is an output from Talaria TWO which will put the Host
@@ -331,17 +331,17 @@ SAR ADC is os_adc().
 To connect the ADC to an external analog voltage, follow the reference
 design circuit in Figure 9.
 
-|image6|
+|image9|
 
-Figure 9: ADC Signal Conditioning
+Figure 6: ADC Signal Conditioning
 
 For low power consumption during ADC measurement, circuit in Figure 10
 is suggested. This uses a MOSFET to turn ON and OFF the buffer circuit
 during ADC measurement.
 
-|image7|
+|image10|
 
-Figure 10: ADC with Low power
+Figure 7: ADC with Low power
 
 PWM Interface
 -------------
@@ -409,50 +409,50 @@ functions which are set as default on power-up.
    |        | SWO |   |   |   |   |   |   |   |   |   |   |   |   |
    +--------+-----+---+---+---+---+---+---+---+---+---+---+---+---+
 
-|image8|
+|image11|
 
-Figure 11: SWD connector on the Talaria TWO
+Figure 8: SWD connector on the Talaria TWO
 
-|Table Description automatically generated with medium confidence|
+|image12|
 
-Figure 12: JTAG Connector on Talaria TWO
+Figure 9: JTAG Connector on Talaria TWO
 
-.. |Graphical user interface Description automatically generated| image:: media/image1.png
+.. |image4| image:: media/image4.png
    :width: 0.87233in
    :height: 0.84167in
-.. |Diagram, schematic Description automatically generated| image:: media/image2.jpeg
+.. |image5| image:: media/image5.jpeg
    :width: 7.48031in
    :height: 4.72079in
-.. |image1| image:: media/image3.png
+.. |image6| image:: media/image6.png
    :width: 0.57004in
    :height: 0.55in
-.. |Diagram Description automatically generated| image:: media/image4.jpeg
+.. |image7| image:: media/image7.jpeg
    :width: 7.48031in
    :height: 3.29018in
-.. |image2| image:: media/image5.png
+.. |image8| image:: media/image8.png
    :width: 0.82051in
    :height: 0.79167in
-.. |A computer circuit board with wires and a black background Description automatically generated| image:: media/image6.png
+.. |image9| image:: media/image9.png
    :width: 7.4696in
    :height: 4.72441in
-.. |image3| image:: media/image5.png
+.. |image10| image:: media/image10.png
    :width: 0.82051in
    :height: 0.79167in
-.. |image4| image:: media/image7.jpeg
+.. |image11| image:: media/image11.jpeg
    :width: 7.28346in
    :height: 4.7237in
-.. |image5| image:: media/image8.jpeg
+.. |image12| image:: media/image12.jpeg
    :width: 7.48031in
    :height: 5.05582in
-.. |image6| image:: media/image9.emf
+.. |image13| image:: media/image13.emf
    :width: 4.72441in
    :height: 3.03837in
-.. |image7| image:: media/image10.emf
+.. |image14| image:: media/image14.emf
    :width: 3.54331in
    :height: 4.18874in
-.. |image8| image:: media/image11.png
+.. |image15| image:: media/image15.png
    :width: 7.48031in
    :height: 3.51456in
-.. |Table Description automatically generated with medium confidence| image:: media/image12.png
+.. |image16| image:: media/image16.png
    :width: 7.48031in
    :height: 2.4243in

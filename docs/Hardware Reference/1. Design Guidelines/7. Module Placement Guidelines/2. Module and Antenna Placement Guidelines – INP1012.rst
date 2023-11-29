@@ -1,5 +1,7 @@
+.. _module placement - 1012:
+
 Module and Antenna Placement Guidelines – INP1012
-=================================================
+#################################################
 
 Talaria TWO module INP1012 does not have an antenna on the module. The
 following are the guidelines to be executed to place the antenna on the
@@ -9,9 +11,9 @@ application PCB.
    connection.
 
 2. Feed Line coming out of the module should be 50Ω impedance matched as
-   shown in Figure 25.
+   shown in Figure 1.
 
-3. Figure 25 indicates the connector placement for the antenna.
+3. Figure 1 indicates the connector placement for the antenna.
 
 4. Follow the clearance area specification provided by the antenna
    manufacturer.
@@ -22,18 +24,17 @@ application PCB.
 6. If a connector is placed on the application PCB, ensure it is 50Ω Ohm
    impedance connector.
 
-|Graphical user interface, application Description automatically
-generated|
+|image5|
 
-Figure 25: Antenna placement diagram
+Figure 1: Antenna placement diagram
 
-|Qr code Description automatically generated|
+|image6|
 
-Figure 26: INP1012 module antenna connector placement
+Figure 2: INP1012 module antenna connector placement
 
-.. |Graphical user interface, application Description automatically generated| image:: media/image1.png
+.. |image5| image:: media/image5.png
    :width: 7.48031in
    :height: 4.02208in
-.. |Qr code Description automatically generated| image:: media/image2.png
+.. |image6| image:: media/image6.png
    :width: 7.48031in
    :height: 4.60623in

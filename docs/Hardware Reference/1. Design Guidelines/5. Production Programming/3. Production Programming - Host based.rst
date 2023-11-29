@@ -1,42 +1,39 @@
+.. host-based programming:
 
 Host-based Programming
-----------------------
+######################
 
 Talaria TWO module when connected to the Host microcontroller/processor
 can also perform firmware upgrade. Host Interface SPI/UART block diagram
-is as shown in Figure 18.
+is as shown in Figure 1.
 
-|Graphical user interface Description automatically
-generated|\ |Diagram, schematic Description automatically generated|
+|image7|
 
-Figure 18: Host Programming UART/SPI Slave
+Figure 1: Host Programming UART/SPI Slave
 
-|image1|
+|image8|
 
-Figure 19: Evaluation board connector details
+Figure 2: Evaluation board connector details
 
-The cable part number: 161340801 as shown in Figure 19 will be provided
+The cable part number: 161340801 as shown in Figure 2 will be provided
 for programming. The mating connector for the same, with part number:
-532610871 is as shown in Figure 20. This connector can be used on the
+532610871 is as shown in Figure 3. This connector can be used on the
 factory setup application board along with the factory loader software
 application to program the modules.
 
-|image2|
+|image9|
 
-Figure 20: Programming Connector
+Figure 3: Programming Connector
 
-Ensure to isolate the programing header from the host communication
+Ensure to isolate the programming header from the host communication
 MCU/MPU header by adding jumper options on the application board.
 
-.. |Graphical user interface Description automatically generated| image:: media/image1.png
+.. |image7| image:: media/image7.png
    :width: 0.82051in
    :height: 0.79167in
-.. |Diagram, schematic Description automatically generated| image:: media/image2.jpeg
+.. |image8| image:: media/image8.png
    :width: 7.48031in
    :height: 4.72079in
-.. |image1| image:: media/image3.emf
+.. |image9| image:: media/image9.png
    :width: 7.48031in
    :height: 2.89015in
-.. |image2| image:: media/image4.emf
-   :width: 7.48031in
-   :height: 1.1435in

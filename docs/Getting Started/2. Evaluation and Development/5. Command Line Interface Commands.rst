@@ -1,9 +1,11 @@
+.. _cli page:
+
+Command Line Interface Commands
+###############################
+
 This section serves as a reference guide for Talaria TWO CLI commands,
 its usage, use case or examples in different scenarios supported by
 Talaria TWO modules.
-
-Command Line Interface Commands
-----------------------------
 
 The subsequent sections introduce the use of commands in the CLI
 environment to access the Talaria TWO (T2) module and configure the

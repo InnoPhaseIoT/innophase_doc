@@ -1,3 +1,5 @@
+.. _evalanddev landing page:
+
 Evaluation & Development
 ========================
 
@@ -35,8 +37,6 @@ Windows User
 
 Eclipse users, refer: Eclipse_Setup_Windows for installing the required tools.
 
-Get started by programming basic applications.
-
 Programming
 -----------
 
@@ -49,18 +49,18 @@ and/or development:
 Debugging
 ---------
 
-For debugging an application during development, GDB is used.
-For real time debugging using Linux:
-    - :ref:`Debugging using GDB<Debugging using GDB>`
-    - :ref:`Debugging using Coredump<Debugging using Coredump>`
+GDB is used for debugging an application during development:
 
-For real time debugging using Windows:
+1. For real time debugging using Linux:
+    - Debugging using GDB
+    - Debugging using Coredump
+
+2. For real time debugging using Windows:
     - Eclipse plugin
 
 Memory Mapping
 --------------
 
-Talaria TWO’s flash memory layout in both development and production
-phase.
+Talaria TWO’s flash memory layout in both development and production phase.
 
-    - :ref:`Memory Mapping of a Standard Application<Memory Mapping of a Standard Application>`
+    - Memory Mapping of a Standard Application

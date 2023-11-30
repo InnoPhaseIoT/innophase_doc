@@ -1,3 +1,5 @@
+.. _inp3000 prog board 3.0:
+
 INP3000 Programmer Board
 ========================
 

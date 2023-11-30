@@ -1,6 +1,7 @@
-Applications
-=============
+.. applications:
 
+Applications
+############
 
 The FreeRTOS SDK software package provides software APIs with
 ready-to-run firmware examples to support quick evaluation and
@@ -31,6 +32,7 @@ package:
 | iot_aws    | Demonstrates using Talaria TWO board and the SDK with   |
 |            | Amazon Web Services (AWS) IoT                           |
 +------------+---------------------------------------------------------+
+
 
 Examples: Demo/sample applications that the user can run on Talaria TWO
 firmware. Following examples are available:

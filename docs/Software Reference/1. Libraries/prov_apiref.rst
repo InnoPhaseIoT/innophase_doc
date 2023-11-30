@@ -1,5 +1,8 @@
-Provision
------------
+.. _prov apiref:
+
+Provisionining API Reference
+############################
+
 Provisioning component provides APIs and definitions to facilitate the
 provisioning service. Provisioning is done over BLE, and the
 configuration data is stored in the file system.
@@ -40,7 +43,7 @@ prov_start_prams_t
 
 This data structure is used during provisioning module initialization.
 
-.. table:: Table : prov_start_prams_t – parameters
+.. table:: Table 1: prov_start_prams_t – parameters
 
    +-----------------+----------------------------------------------------+
    | **method**      | Only provisioning over BLE is supported currently  |
@@ -78,7 +81,7 @@ the new configuration file received and is written into data fs.
 Definition
 ~~~~~~~~~~
 
-.. table:: Table : prov_start - parameters
+.. table:: Table 2: prov_start - parameters
 
    +-----------------------------------------------------------------------+
    | int                                                                   |
@@ -90,7 +93,7 @@ Definition
 Parameters
 ~~~~~~~~~~
 
-.. table:: Table : prov_conf_param_str_get - parameters
+.. table:: Table 3: prov_conf_param_str_get - parameters
 
    +------------+---------------------------------------------------------+
    | **P        | **Description**                                         |
@@ -122,7 +125,7 @@ This API gets the configuration parameters of type string. For example:
 Definition 
 ~~~~~~~~~~~
 
-.. table:: Table : prov_conf_param_int_get – parameters
+.. table:: Table 4: prov_conf_param_int_get – parameters
 
    +-----------------------------------------------------------------------+
    | const char \*                                                         |

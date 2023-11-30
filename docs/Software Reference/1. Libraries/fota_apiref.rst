@@ -1,5 +1,7 @@
-FirmWare Over The Air
------------------------
+.. _fota apiref:
+
+Firmware Over The Air API Reference
+###################################
 
 Firmware-Over-the-Air (FOTA) allows for wireless delivery of firmware
 updates and/or configurations to embedded devices.
@@ -107,7 +109,7 @@ Definition
 Parameters
 ~~~~~~~~~~
 
-.. table:: Table : fota_deinit - parameters
+.. table:: Table 1: fota_deinit - parameters
 
    +--------------------+------------------------------------------------------+
    | **Parameter**      | **Description**                                      |

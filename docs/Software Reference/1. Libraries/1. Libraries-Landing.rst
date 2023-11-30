@@ -1,4 +1,7 @@
+.. _sw libraries:
 
+Libraries
+#########
 
 The Talaria TWO FreeRTOS SDK provides the following pre-designed and
 reusable set of libraries for developing applications:

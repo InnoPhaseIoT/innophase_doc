@@ -1,5 +1,8 @@
-mdns
---------
+.. _mdns apiref:
+
+mDNS API Reference
+##################
+
 mDNS is a protocol that provides DNS like facility to advertise and
 discover services in a local area network. The mDNS based service
 discovery is defined by two RFCs, 6762 and 6763.
@@ -46,7 +49,7 @@ This data structure is used to pass information about the discovered
 service. Information is passed through the callback function provided
 while calling the mdns_service_discover API.
 
-.. table:: Table : mdns_srvc_info_t - parameters
+.. table:: Table 1: mdns_srvc_info_t - parameters
 
    +----------------+--------------------------------------------------------------------------+
    | **instance**   | Service Instance name. max limit 63 bytes. Example:                      |
@@ -70,7 +73,7 @@ mdns_hnreg_param_t
 This data structure is used to pass parameters while registering the
 Host Name. Following are some of the important parameters:
 
-.. table:: Table : mdns_hnreg_param_t - parameters
+.. table:: Table 2: mdns_hnreg_param_t - parameters
 
    +--------------+---------------------------------------------------------+
    | **hostname** | Host name of the device. Keep this unique in the N/w.   |
@@ -89,7 +92,7 @@ mdns_srvreg_param_t
 This data structure is used to pass the parameters while registering a
 service. Following are some of the important parameters:
 
-.. table:: Table : mdns_srvreg_param_t – parameters
+.. table:: Table 3: mdns_srvreg_param_t – parameters
 
    +----------------------+--------------------------------------------------------------------+
    | **srvc_name**        | Service name. Example: “prov”                                      |
@@ -116,7 +119,7 @@ mdns_srvcdisc_param_t
 This data structure is used for passing the parameters while discovering
 for service of specific type.
 
-.. table:: Table : mdns_srvcdisc_param_t - parameters
+.. table:: Table 4: mdns_srvcdisc_param_t - parameters
 
    +-------------------+--------------------------------------------------------------------+
    | **srvc_sub_type** | Name of the subtype excluding "\_sub". "\_sub" is added implicitly |

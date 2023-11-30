@@ -1,4 +1,6 @@
-Firmware Over The Air
+.. _fota app:
+
+Firmware Over The Air Application
 ----------------------
 
 Firmware-Over-the-Air (FOTA) allows wireless delivery of firmware
@@ -10,6 +12,10 @@ a customer provided application.
 
 Topology
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+|image55|
+
+Figure 1: Topology
+
 
 Overview 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -42,7 +48,6 @@ List of APIs
       fota_init() and other FOTA API calls.
 
 For more information on the APIs, refer: fota_apiref.pdf
-(*/components/fota/doc).*
 
 Features & Limitations 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -99,8 +104,7 @@ Figure 2 provides the proposed layout of Flash memory when using SSBL.
 To use SSBL, Flash must at least contain SSBL, filesystem, and one
 application.
 
-|Graphical user interface, application Description automatically
-generated|
+|image56|
 
 Figure 2: Flash layout when using the SSBL
 
@@ -112,10 +116,7 @@ the boot ROM boots the SSBL application which in turn loads the final
 application
 
 For detailed documentation on Flash layout, refer:
-Application_for_using_SSBL.pdf *(freertos_sdk_x.y/apps/ssbl/doc/)*.
-
-**Note**: x and y in freertos_sdk_x.y refers to the FreeRTOS SDK release
-version.
+Application_for_using_SSBL.pdf
 
 Partition Table File (part.json)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -129,76 +130,43 @@ Each of the image information entry in the array gives image name,
 version, starting sector and other information about the application.
 Following is the basic content:
 
-+-----------------------------------------------------------------------+
-| {                                                                     |
-|                                                                       |
-| "image" : [                                                           |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "name" : "fota",                                                      |
-|                                                                       |
-| "version" : "1.0",                                                    |
-|                                                                       |
-| "start_sector" : 32,                                                  |
-|                                                                       |
-| "bootargs_start": 1,                                                  |
-|                                                                       |
-| "ssid" : "inno_test",                                                 |
-|                                                                       |
-| "passphrase" : "1234567890",                                          |
-|                                                                       |
-| "bootargs_end" : 1                                                    |
-|                                                                       |
-| },                                                                    |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "name" : "test_app",                                                  |
-|                                                                       |
-| "version" : "1.0",                                                    |
-|                                                                       |
-| "start_sector" : 154,                                                 |
-|                                                                       |
-| "bootargs_start": 1,                                                  |
-|                                                                       |
-| "ssid" : "inno_test",                                                 |
-|                                                                       |
-| "passphrase" : "1234567890",                                          |
-|                                                                       |
-| "bootargs_end" : 1                                                    |
-|                                                                       |
-| },                                                                    |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "name" : "test_app",                                                  |
-|                                                                       |
-| "version" : "0.0",                                                    |
-|                                                                       |
-| "start_sector" : 230,                                                 |
-|                                                                       |
-| "bootargs_start": 1,                                                  |
-|                                                                       |
-| "ssid" : "inno_test",                                                 |
-|                                                                       |
-| "passphrase" : "1234567890",                                          |
-|                                                                       |
-| "bootargs_end" : 1                                                    |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| ],                                                                    |
-|                                                                       |
-| "baudrate" : 2560000,                                                 |
-|                                                                       |
-| "timeout" : 0,                                                        |
-|                                                                       |
-| "verbose" : 1                                                         |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      {
+  "image"   : [
+    {
+      "name"  : "fota",
+      "version" : "1.0",
+      "start_sector"  : 32,
+      "bootargs_start": 1,
+      "ssid" : "inno_test",
+      "passphrase" : "1234567890",
+      "bootargs_end" : 1
+    },
+    {
+      "name"  : "test_app",
+      "version" : "1.0",
+      "start_sector"  : 154,
+      "bootargs_start": 1,
+      "ssid" : "inno_test",
+      "passphrase" : "1234567890",
+      "bootargs_end" : 1
+    },
+    {
+      "name"  : "test_app",
+      "version" : "0.0",
+      "start_sector"  : 230,
+      "bootargs_start": 1,
+      "ssid" : "inno_test",
+      "passphrase" : "1234567890",
+      "bootargs_end" : 1
+    }
+    ],
+    "baudrate"    : 2560000,
+    "timeout" : 0,
+    "verbose" : 1
+}
+
 
 In the part.json file from the above example, the start sector
 computation for applications can be done as:
@@ -226,14 +194,12 @@ file. SSBL gets the index of the image to be loaded from this file.
 
 Following is the content:
 
-+-----------------------------------------------------------------------+
-| {                                                                     |
-|                                                                       |
-| image : 0                                                             |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      { 
+   image : 0 
+}
+
 
 FOTA Configuration File (fota_config.json)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -264,54 +230,31 @@ downloaded. Each object will have the following tokens:
 
 Following is the basic content of the file:
 
-+-----------------------------------------------------------------------+
-| {                                                                     |
-|                                                                       |
-| "package_version" : "1.0",                                            |
-|                                                                       |
-| "files" : [                                                           |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "type" : "configuration",                                             |
-|                                                                       |
-| "name" : "fota.config",                                               |
-|                                                                       |
-| "hostname" : "innotestota.s3.us-east-2.amazonaws.com",                |
-|                                                                       |
-| "port" : 443,                                                         |
-|                                                                       |
-| "secured" : 2,                                                        |
-|                                                                       |
-| "uri" : "/fota_config.json",                                          |
-|                                                                       |
-| "ca_cert" : "/data/fota_ca_cert.pem"                                  |
-|                                                                       |
-| },                                                                    |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "type" : "firmware",                                                  |
-|                                                                       |
-| "name" : "test_app",                                                  |
-|                                                                       |
-| "hostname" : "innotestota.s3.us-east-2.amazonaws.com",                |
-|                                                                       |
-| "port" : 443,                                                         |
-|                                                                       |
-| "secured" : 2,                                                        |
-|                                                                       |
-| "uri" : "/test_app.elf",                                              |
-|                                                                       |
-| "ca_cert" : "/data/fota_ca_cert.pem"                                  |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| ]                                                                     |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      {
+  "package_version"    : "1.0",    
+  "files"   : [
+     {
+        "type" : "configuration",
+        "name" : "fota.config",
+        "hostname" : "innotestota.s3.us-east-2.amazonaws.com",
+        "port" : 443,
+        "secured" : 2,      
+        "uri" : "/fota_config.json",
+        "ca_cert" : "/data/fota_ca_cert.pem"
+    },
+    {
+        "type" : "firmware",
+        "name" : "test_app",
+        "hostname" : "innotestota.s3.us-east-2.amazonaws.com",
+        "port" : 443,
+        "secured" : 2,
+        "uri" : "/test_app.elf",
+        "ca_cert" : "/data/fota_ca_cert.pem"
+    }    
+    ] 
+}
 
 The group of Firmware and files and its information present in this file
 is considered as a package. Each fota_config.json file will have a
@@ -463,13 +406,13 @@ image will run.
 Flow Diagram
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-|image1|
+|image57|
 
 Figure 3: Flow Diagram
 
 Continued from the previous flow diagram:
 
-|image2|
+|image58|
 
 Figure 4: Flow Diagram - continued
 
@@ -486,26 +429,22 @@ fota_init_param needs to be initialized appropriately before passing it
 onto the fota_init() function. Following is the definition for
 fota_init_param:
 
-+-----------------------------------------------------------------------+
-| typedef struct {                                                      |
-|                                                                       |
-|     uint32_t \*cipher_key; /\**cipher key used with secureboot*/      |
-|                                                                       |
-| }fota_init_param_t;                                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      typedef struct {
+    uint32_t *cipher_key; /**cipher key used with secureboot*/
+}fota_init_param_t;
+
 
 cipher_key in fota_init_param will be NULL in case of non-secureboot. In
 case of secureboot, this should be initialized appropriately.
 
-+-----------------------------------------------------------------------+
-| fota_handle_t \*handle;                                               |
-|                                                                       |
-| fota_init_param_t \*fota_init_param;                                  |
-|                                                                       |
-| handle=fota_init(&fota_init_param);                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      fota_handle_t *handle;
+fota_init_param_t *fota_init_param;
+handle=fota_init(&fota_init_param);
+
 
 FOTA Perform
 ~~~~~~~~~~~~
@@ -515,112 +454,71 @@ remote fota_config.json file, compares the package version with the
 local fota_config.json file, and only perform FOTA if the package
 version on the cloud is higher than the one present on device.
 
-+-----------------------------------------------------------------------+
-| int                                                                   |
-|                                                                       |
-| fota_perform(fota_handle_t \*f_handle, int check_for_update,          |
-|                                                                       |
-| int flags)                                                            |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| fota_files_info_t \*files_info;                                       |
-|                                                                       |
-| int ret = FOTA_ERROR_NONE;                                            |
-|                                                                       |
-| int update_available;                                                 |
-|                                                                       |
-| os_printf("\\n%s check_for_update = %d",                              |
-|                                                                       |
-| \__FUNCTION\_\_, check_for_update);                                   |
-|                                                                       |
-| if(check_for_update == 1)                                             |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| ret = fota_update_check(f_handle, &update_available);                 |
-|                                                                       |
-| if(ret){                                                              |
-|                                                                       |
-| os_printf("\\nError: fota_update_check");                             |
-|                                                                       |
-| return ret;                                                           |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| if(!update_available){                                                |
-|                                                                       |
-| os_printf("\\nError: No new update available");                       |
-|                                                                       |
-| return FOTA_ERROR_NO_NEW_UPDATE;                                      |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      int
+fota_perform(fota_handle_t *f_handle, int check_for_update,
+             int flags)
+{
+    fota_files_info_t *files_info;
+    int ret = FOTA_ERROR_NONE;
+    int update_available;
+
+    os_printf("\n%s check_for_update = %d",
+                    __FUNCTION__, check_for_update);
+    if(check_for_update == 1)
+    {
+        ret = fota_update_check(f_handle, &update_available);
+        if(ret){
+            os_printf("\nError: fota_update_check");
+            return ret;
+        }
+        if(!update_available){
+            os_printf("\nError: No new update available");
+            return FOTA_ERROR_NO_NEW_UPDATE;
+         }
 
 The fota_perform() API parameter check_for_update==2 downloads the
 remote fota_config.json file and no check is performed.
 
-+-----------------------------------------------------------------------+
-| else if(check_for_update == 2){                                       |
-|                                                                       |
-| ret = fota_config_file_download(f_handle);                            |
-|                                                                       |
-| if(!ret){                                                             |
-|                                                                       |
-| return ret;                                                           |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      else if(check_for_update == 2){
+        ret = fota_config_file_download(f_handle);
+        if(!ret){
+            return ret;
+        }
+
 
 Based on the type of the file files_info->type, FOTA is performed as
 needed.
 
-+-----------------------------------------------------------------------+
-| /\* Loop through the files list*/                                     |
-|                                                                       |
-| while(files_info){                                                    |
-|                                                                       |
-| os_printf(“\\n type = %s”, files_info->type);                         |
-|                                                                       |
-| if(!strcmp (files_info->type, “configuration")){                      |
-|                                                                       |
-| files_info = files_info->next;                                        |
-|                                                                       |
-| continue;                                                             |
-|                                                                       |
-| }else if(!strcmp(files_info->type, "firmware")){                      |
-|                                                                       |
-| ret = fota_firmware_download(f_handle, files_info);                   |
-|                                                                       |
-| if(ret){                                                              |
-|                                                                       |
-| break;                                                                |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| }else if(!strcmp(files_info->type, "file")){                          |
-|                                                                       |
-| ret = fota_file_download(f_handle, files_info);                       |
-|                                                                       |
-| if(!ret){                                                             |
-|                                                                       |
-| break;                                                                |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| files_info = files_info->next;                                        |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| return ret;                                                           |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      /* Loop through the files list*/
+    while(files_info){
+        os_printf(“\n type = %s”, files_info->type);
+        if(!strcmp (files_info->type, “configuration")){
+            files_info = files_info->next;
+            continue;
+        }else if(!strcmp(files_info->type, "firmware")){
+
+            ret = fota_firmware_download(f_handle, files_info);
+            if(ret){
+                break;
+            }
+        }else if(!strcmp(files_info->type, "file")){
+            ret = fota_file_download(f_handle, files_info);
+            if(!ret){
+                break;
+            }
+        }
+        files_info = files_info->next;
+    }
+
+    return ret;
+}
+
 
 FOTA Commit
 ~~~~~~~~~~~
@@ -631,62 +529,38 @@ firmware as the default.
 This function will check if the fota_config.json, part.json and
 boot.json file is updated successfully and resets the device.
 
-+-----------------------------------------------------------------------+
-| fota_commit(fota_handle_t \*f_handle, int do_reset)                   |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| int rval;                                                             |
-|                                                                       |
-| /\*Mark that fota was in progress*/                                   |
-|                                                                       |
-| os_printf("\\n%s", \__FUNCTION\_\_);                                  |
-|                                                                       |
-| if(utils_file_touch(FOTA_IN_PROGRESS_FILE_PATH) < 0){                 |
-|                                                                       |
-| return -1;                                                            |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| if(FOTA_ERROR_NONE != (rval = fota_update_config_file(f_handle))){    |
-|                                                                       |
-| os_printf("\\nError: updating config file failed");                   |
-|                                                                       |
-| return rval;                                                          |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| if(FOTA_ERROR_NONE != (rval = fota_update_part_file(f_handle))){      |
-|                                                                       |
-| os_printf("\\nError: updating part file failed");                     |
-|                                                                       |
-| return rval;                                                          |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| if(FOTA_ERROR_NONE != (rval = fota_set_boot_index(f_handle))){        |
-|                                                                       |
-| os_printf("\\nError: updating boot.json failed");                     |
-|                                                                       |
-| return rval;                                                          |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| /\*Fota is success*/                                                  |
-|                                                                       |
-| unlink(FOTA_IN_PROGRESS_FILE_PATH);                                   |
-|                                                                       |
-| os_printf("\\n\\n\\n\\n");                                            |
-|                                                                       |
-| /\*Reboot the device*/                                                |
-|                                                                       |
-| if(do_reset == 1) {                                                   |
-|                                                                       |
-| reset_device();                                                       |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      fota_commit(fota_handle_t *f_handle, int do_reset)
+{
+    int rval;
+    /*Mark that fota was in progress*/
+    os_printf("\n%s", __FUNCTION__);
+    if(utils_file_touch(FOTA_IN_PROGRESS_FILE_PATH) < 0){
+        return -1;
+    }
+
+    if(FOTA_ERROR_NONE != (rval = fota_update_config_file(f_handle))){
+        os_printf("\nError: updating config file failed");
+        return rval;
+    }
+    if(FOTA_ERROR_NONE != (rval = fota_update_part_file(f_handle))){
+        os_printf("\nError: updating part file failed");
+        return rval;
+    }
+
+    if(FOTA_ERROR_NONE != (rval = fota_set_boot_index(f_handle))){
+        os_printf("\nError: updating boot.json failed");
+        return rval;
+    }
+    /*Fota is success*/
+    unlink(FOTA_IN_PROGRESS_FILE_PATH);
+    os_printf("\n\n\n\n");
+    /*Reboot the device*/
+    if(do_reset == 1) {
+        reset_device();
+     }
+
 
 Deinitialize FOTA
 ~~~~~~~~~~~~~~~~~
@@ -700,112 +574,88 @@ It frees up memory allocated for the new configuration file
 Frees up application partition information used during the image
 download. (f_handle->image_info_list).
 
-+-----------------------------------------------------------------------+
-| void fota_deinit(fota_handle_t \* f_handle)                           |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| fota_image_info_t \*img_p, \*prev_img;                                |
-|                                                                       |
-| fota_files_info_t \*p, \*prev;                                        |
-|                                                                       |
-| if(NULL == f_handle)                                                  |
-|                                                                       |
-| return;                                                               |
-|                                                                       |
-| sector_cache_deinit();                                                |
-|                                                                       |
-| vPortFree(f_handle->recv_buff);                                       |
-|                                                                       |
-| if (f_handle->cipher_key != NULL)                                     |
-|                                                                       |
-| vPortFree(f_handle->cipher_key);                                      |
-|                                                                       |
-| img_p = f_handle->image_info_list;                                    |
-|                                                                       |
-| while(img_p){                                                         |
-|                                                                       |
-| prev_img = img_p;                                                     |
-|                                                                       |
-| img_p = img_p->next;                                                  |
-|                                                                       |
-| vPortFree(prev_img);                                                  |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      void fota_deinit(fota_handle_t * f_handle)
+{
+    fota_image_info_t *img_p, *prev_img;
+    fota_files_info_t *p, *prev;
+
+    if(NULL == f_handle)
+        return;
+
+    sector_cache_deinit();
+    vPortFree(f_handle->recv_buff);
+    if (f_handle->cipher_key != NULL)
+        vPortFree(f_handle->cipher_key);
+    img_p =  f_handle->image_info_list;
+    while(img_p){
+        prev_img = img_p;
+        img_p = img_p->next;
+        vPortFree(prev_img);
+    }
+
 
 Frees up memory used to store the local fota_config.json
 (f_handle->cfg).
 
-+-----------------------------------------------------------------------+
-| if(f_handle->cfg){                                                    |
-|                                                                       |
-| p = f_handle->cfg->files_info_list;                                   |
-|                                                                       |
-| while(p){                                                             |
-|                                                                       |
-| prev = p;                                                             |
-|                                                                       |
-| p = p->next;                                                          |
-|                                                                       |
-| vPortFree(prev);                                                      |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| vPortFree(f_handle->cfg); }                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      if(f_handle->cfg){
+        p = f_handle->cfg->files_info_list;
+        while(p){
+            prev = p;
+            p = p->next;
+            vPortFree(prev);
+        }
+        vPortFree(f_handle->cfg);  }
+
 
 Frees up memory used to store remote fota_config.json
 (f_handle->cfg_remote).
 
-+-----------------------------------------------------------------------+
-| if(f_handle->cfg_remote){                                             |
-|                                                                       |
-| p = f_handle->cfg_remote->files_info_list;                            |
-|                                                                       |
-| while(p){                                                             |
-|                                                                       |
-| prev = p;                                                             |
-|                                                                       |
-| p = p->next;                                                          |
-|                                                                       |
-| vPortFree(prev);                                                      |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| vPortFree(f_handle->cfg_remote);                                      |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      if(f_handle->cfg_remote){
+        p = f_handle->cfg_remote->files_info_list;
+        while(p){
+            prev = p;
+            p = p->next;
+            vPortFree(prev);
+        }
+        vPortFree(f_handle->cfg_remote);
+    }
+}
+
 
 Decrement the JSON reference count of part.json, fota_cofig.json and
 remote fota_config.json and free up FOTA handle.
 
-+-----------------------------------------------------------------------+
-| json_decref(f_handle->json_part);                                     |
-|                                                                       |
-| json_decref(f_handle->json_cfg);                                      |
-|                                                                       |
-| json_decref(f_handle->json_cfg_remote);                               |
-|                                                                       |
-| /\* free f_handle*/                                                   |
-|                                                                       |
-| vPortFree(f_handle);                                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      json_decref(f_handle->json_part);
+json_decref(f_handle->json_cfg);
+json_decref(f_handle->json_cfg_remote);
+/* free f_handle*/
+vPortFree(f_handle);
+
 
 Block Diagram 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Figure 5 block diagram represents memory layout before SSBL executes.
 
+|image59|
+
+Figure 5: Flash layout
+
 SSBL will initially load FOTA application present at image index=0 of
 boot.json file as shown in Figure 6.
+
+|image60|
+
+Figure 6: Before FOTA
+
 
 FOTA app will download the test_app.elf from the cloud based on the
 fota_config.json package version comparison. The test_app.elf on the
@@ -813,6 +663,11 @@ cloud replaces test_app.elf (version="0.0") at index=2, sector 230.
 
 The boot.json gets updated to index=2. When the module gets reset, SSBL
 will boot the application at index=2.
+
+|image61|
+
+Figure 7: After FOTA
+
 
 AWS Set-up
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -831,18 +686,14 @@ Building and running of FOTA applications can be achieved in two ways:
 Using Script
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With SDK directory as the current directory, execute the following
+With FreeRTOS SDK directory as the current directory, execute the following
 command:
 
-+-----------------------------------------------------------------------+
-| cd <freertos_sdk>                                                     |
-|                                                                       |
-| cp ./apps/fota/bin/fota.elf.strip ./apps/fota/bin/fota_stripped.elf   |
-|                                                                       |
-| python3 ./script/program_flash.py -i apps/fota/bin/fota_stripped.elf  |
-| -spt tools/partition_files/ssbl_part_table.json                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      cd <freertos_sdk>
+cp ./apps/fota/bin/fota.elf.strip ./apps/fota/bin/fota_stripped.elf
+python3 ./script/program_flash.py -i apps/fota/bin/fota_stripped.elf -spt tools/partition_files/ssbl_part_table.json 
 
 where,
 
@@ -852,7 +703,7 @@ where,
 
    -i <elf_path or elf folder>
 
-   For example: *apps/fota* in SDK or complete ELF path (For example:
+   For example: *apps/fota* in FreeRTOS SDK or complete ELF path (For example:
    *apps/fota/bin/fota_stripped.elf*)
 
 2. Optional arguments:
@@ -865,16 +716,15 @@ where,
       reset at the end. Please reset using the below command in case of
       this option
 
-+-----------------------------------------------------------------------+
-| ./script/boot.py --device /dev/ttyUSB2 --reset=evk42                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      ./script/boot.py --device /dev/ttyUSB2 --reset=evk42
 
 After successful programming, open miniterm at baud rate of 2457600 and
 reset the EVB either by using the above command or by pressing the reset
 button on the EVB.
 
-   |image3|
+   |image62|
 
 Figure 8: Miniterm console output
 
@@ -901,29 +751,27 @@ Using Manual Programming Discrete Commands
 Build
 ~~~~~
 
-+-----------------------------------------------------------------------+
-| cd <freertos_sdk>/apps/fota                                           |
-|                                                                       |
-| make                                                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      cd <freertos_sdk>/apps/fota 
+make
+
 
 Expected output:
 
-|Graphical user interface, text Description automatically generated with
-medium confidence|
+|image63|
 
 Figure 9: Build fota.img file – Output
+
 
 Create Root Filesystem Image
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------------------------------------------------------------------+
-| cd <freertos_sdk>                                                     |
-|                                                                       |
-| python3 ./script/build_rootfs_generic.py --folder_path apps/fota/     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      cd <freertos_sdk>
+python3 ./script/build_rootfs_generic.py --folder_path apps/fota/
+
 
 Flash Required Images
 ~~~~~~~~~~~~~~~~~~~~~
@@ -933,68 +781,59 @@ into Talaria TWO EVB under the SDK directory:
 
 Load Flash Helper
 
-+-----------------------------------------------------------------------+
-| cd <freertos_sdk>                                                     |
-|                                                                       |
-| ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl               |
-| ./apps/gordon.elf                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      cd <freertos_sdk>
+./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl ./apps/gordon.elf
+
 
 Invalidate the boot image
 
-+-----------------------------------------------------------------------+
-| dd if=/dev/zero of=./empty.img bs=1K count=1                          |
-|                                                                       |
-| ./script/flash.py --device /dev/ttyUSB2 write 0x1000 ./empty.img      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      dd if=/dev/zero of=./empty.img bs=1K count=1
+./script/flash.py --device /dev/ttyUSB2 write 0x1000 ./empty.img
+
 
 Write Partition
 
-+-----------------------------------------------------------------------+
-| ./script/flash.py --device /dev/ttyUSB2 from_json                     |
-| ./tools/partition_files/ssbl_part_table.json                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      ./script/flash.py --device /dev/ttyUSB2 from_json ./tools/partition_files/ssbl_part_table.json
 
 Download root fs image
 
-+-----------------------------------------------------------------------+
-| ./script/flash.py --device /dev/ttyUSB2 write 0x180000                |
-| ./apps/fota/root.img                                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      ./script/flash.py --device /dev/ttyUSB2 write 0x180000 ./apps/fota/root.img
 
 Download SSBL
 
-+-----------------------------------------------------------------------+
-| ./script/flash.py --device /dev/ttyUSB2 write 0x1000                  |
-| ./apps/ssbl/fast_ssbl.img                                             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      ./script/flash.py --device /dev/ttyUSB2 write 0x1000 ./apps/ssbl/fast_ssbl.img
+
 
 Download fota.img
 
-+-----------------------------------------------------------------------+
-| ./script/flash.py --device /dev/ttyUSB2 write 0x20000                 |
-| ./apps/fota/out/fota.img                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      ./script/flash.py --device /dev/ttyUSB2 write 0x20000 ./apps/fota/out/fota.img
+
 
 Open a miniterm at baud rate of 2457600 and reset the EVB:
 
-|image4|
+|image64|
 
 Figure 10: Miniterm console output
 
 Reset the board either by giving the following command or by pressing
 the reset button on the EVB:
 
-+-----------------------------------------------------------------------+
-| ./script/boot.py --device /dev/ttyUSB2 --reset=evk42                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      ./script/boot.py --device /dev/ttyUSB2 --reset=evk42
+
 
 **Note**: Since GDB does not work with SSBL, it is not possible to use
 GDB for debugging as of now.
@@ -1024,342 +863,186 @@ TWO EVB. The following observation is made:
 
 Console output:
 
-+-----------------------------------------------------------------------+
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PWAE                                                            |
-|                                                                       |
-| WWWWAE4 DWT comparators, range 0x8000                                 |
-|                                                                       |
-| Build $Id: git- adea113 $                                             |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff   |
-|                                                                       |
-| Build $Id: git- adea113 $                                             |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff   |
-|                                                                       |
-| Bootargs: vm.flash_location=0x0003ba00 passphrase=1234567890          |
-| ssid=innotest                                                         |
-|                                                                       |
-| Application Information:                                              |
-|                                                                       |
-|    ------------------------                                           |
-|                                                                       |
-|    Name : FOTA application                                            |
-|                                                                       |
-|    Version : 1.0                                                      |
-|                                                                       |
-| Build Date : Oct 13 2023                                              |
-|                                                                       |
-| Build Time : 16:07:24                                                 |
-|                                                                       |
-|    Heap Available: 293 KB (300312 Bytes)                              |
-|                                                                       |
-|    [APP]data fs mounted                                               |
-|                                                                       |
-|    [0.032,797] rfdrv: unknown module type (0)                         |
-|                                                                       |
-|    addr e0:69:3a:00:41:0c                                             |
-|                                                                       |
-|    network profile created for ssid: innotest                         |
-|                                                                       |
-|    Connecting to added network : innotest                             |
-|                                                                       |
-|    [1.450,212] CONNECT:d4:da:21:54:d3:c6 Channel:13 rssi:-41 dBm      |
-|                                                                       |
-|    wcm_notify_callback :WCM_NOTIFY_MSG_LINK_UP                        |
-|                                                                       |
-|    wcm_notify_callback :CM_NOTIFY_MSG_ADDRESS                         |
-|                                                                       |
-|    [2.097,894] MYIP 192.168.31.211                                    |
-|                                                                       |
-|    [2.097,942] IPv6 [fe80::e269:3aff:fe00:410c]-link                  |
-|                                                                       |
-|    wcm_notify_callback :\_NOTIFY_MSG_CONNECTED                        |
-|                                                                       |
-|    Connected to added network : innotest                              |
-|                                                                       |
-|    [APP]N/w Connection done..                                         |
-|                                                                       |
-|    fota_json_init: /data/fota_config.json f = 0x000af80               |
-|                                                                       |
-|    Parsing rootfs FOTA config file**\*                                |
-|                                                                       |
-|    package_version = 1.0                                              |
-|                                                                       |
-|    Package version = 1.0                                              |
-|                                                                       |
-|    type = configuration                                               |
-|                                                                       |
-|    name = fota.config                                                 |
-|                                                                       |
-|    version, <null>                                                    |
-|                                                                       |
-|    protocol, <null>                                                   |
-|                                                                       |
-|    hostname = innotestota.s3.us-east-2.amazonaws.com                  |
-|                                                                       |
-|    port = 443                                                         |
-|                                                                       |
-|    secured = 2                                                        |
-|                                                                       |
-|    uri = /fota_config.json                                            |
-|                                                                       |
-|    url, <null>                                                        |
-|                                                                       |
-|    hash, <null>                                                       |
-|                                                                       |
-|    ca_cert = /data/fota_ca_cert.pem                                   |
-|                                                                       |
-|    type = firmware                                                    |
-|                                                                       |
-|    name = test_app                                                    |
-|                                                                       |
-|    version, <null>                                                    |
-|                                                                       |
-|    protocol, <null>                                                   |
-|                                                                       |
-|    hostname = innotestota.s3.us-east-2.amazonaws.com                  |
-|                                                                       |
-|    port = 443                                                         |
-|                                                                       |
-|    secured = 2                                                        |
-|                                                                       |
-|    uri = /test_app.elf                                                |
-|                                                                       |
-|    url, <null>                                                        |
-|                                                                       |
-|    hash, <null>                                                       |
-|                                                                       |
-|    ca_cert = /data/fota_ca_cert.pem                                   |
-|                                                                       |
-|    Fota Init Success: bedf0                                           |
-|                                                                       |
-|    [APP]Perform Fota                                                  |
-|                                                                       |
-|    fota_perform check_for_update = 1                                  |
-|                                                                       |
-|    fota_config_file_download 1078                                     |
-|                                                                       |
-|    fota_http_connect 688getting cert:/data/fota_ca_cert.pem           |
-|                                                                       |
-|    fota_http_connect:host=innotestota.s3.us-east-2.amazonaws.com      |
-|    port=443                                                           |
-|                                                                       |
-|    Calling http_client_open()                                         |
-|                                                                       |
-|    . [SSL_WRAP]Checking input configurations...                       |
-|                                                                       |
-|    . [SSL_WRAP]Seeding the random number generator...                 |
-|                                                                       |
-|    . [SSL_WRAP]Loading the CA root certificate ...Cert Len = 1189     |
-|                                                                       |
-|    . [SSL_WRAP]Connecting to tcp                                      |
-|    innotestota.s3.us-east-2.amazonaws.com:443...                      |
-|                                                                       |
-|    . [SSL_WRAP]Setting up the SSL/TLS structure...                    |
-|                                                                       |
-|    . [SSL_WRAP]setting configurations..                               |
-|                                                                       |
-|    >auth mode = 2 (0- skip, 1- optional, 2- required                  |
-|                                                                       |
-|    >max fragment len = 0                                              |
-|                                                                       |
-|    >Handshake timeout = 30 Sec                                        |
-|                                                                       |
-|    . [SSL_WRAP]Performing the SSL/TLS handshake...                    |
-|                                                                       |
-|    . [SSL_WRAP] Handshake done. ok                                    |
-|                                                                       |
-|    . [SSL_WRAP]Verifying peer X.509 certificate.                      |
-|                                                                       |
-|    fota_config_file_download 1091                                     |
-|                                                                       |
-|    package_version = 3.1                                              |
-|                                                                       |
-|    Package version = 3.1                                              |
-|                                                                       |
-|    type = configuration                                               |
-|                                                                       |
-|    name = fota.config                                                 |
-|                                                                       |
-|    version, <null>                                                    |
-|                                                                       |
-|    protocol, <null>                                                   |
-|                                                                       |
-|    hostname = innotestota.s3.us-east-2.amazonaws.com                  |
-|                                                                       |
-|    port = 443                                                         |
-|                                                                       |
-|    secured = 2                                                        |
-|                                                                       |
-|    uri = /fota_config.json                                            |
-|                                                                       |
-|    url, <null>                                                        |
-|                                                                       |
-|    hash, <null>                                                       |
-|                                                                       |
-|    ca_cert = /data/fota_ca_cert.pem                                   |
-|                                                                       |
-|    type = firmware                                                    |
-|                                                                       |
-|    name = test_app                                                    |
-|                                                                       |
-|    version, <null>                                                    |
-|                                                                       |
-|    protocol, <null>                                                   |
-|                                                                       |
-|    hostname = innotestota.s3.us-east-2.amazonaws.com                  |
-|                                                                       |
-|    port = 443                                                         |
-|                                                                       |
-|    secured = 2                                                        |
-|                                                                       |
-|    uri = /test_app.elf                                                |
-|                                                                       |
-|    url, <null>                                                        |
-|                                                                       |
-|    hash, <null>                                                       |
-|                                                                       |
-|    ca_cert = /data/fota_ca_cert.pem                                   |
-|                                                                       |
-|    utils_num_str_cmp                                                  |
-|                                                                       |
-|    3                                                                  |
-|                                                                       |
-|    1                                                                  |
-|                                                                       |
-|    1                                                                  |
-|                                                                       |
-|    0                                                                  |
-|                                                                       |
-|    deci1 = 3, fracn1 = 1, deci2 = 1, fracn2 = 0                       |
-|                                                                       |
-|    Using the Remote config (Newly fetched) file                       |
-|                                                                       |
-|    type = configuration                                               |
-|                                                                       |
-|    type = firmware                                                    |
-|                                                                       |
-|    fota_json_init: /data/part.json f = 0x000b8958                     |
-|                                                                       |
-|    Image array size = 3                                               |
-|                                                                       |
-|    name = fota                                                        |
-|                                                                       |
-|    name = test_app                                                    |
-|                                                                       |
-|    version = 1.0                                                      |
-|                                                                       |
-|    start_sector = 165                                                 |
-|                                                                       |
-|    name = test_app                                                    |
-|                                                                       |
-|    version = 0.0                                                      |
-|                                                                       |
-|    start_sector = 258                                                 |
-|                                                                       |
-|    utils_num_str_cmp                                                  |
-|                                                                       |
-|    1                                                                  |
-|                                                                       |
-|    0                                                                  |
-|                                                                       |
-|    0                                                                  |
-|                                                                       |
-|    0                                                                  |
-|                                                                       |
-|    deci1 = 1, fracn1 = 0, deci2 = 0, fracn2 = 0                       |
-|                                                                       |
-|    Selected index = 2                                                 |
-|                                                                       |
-|    Download the new f/w @ sector = 258                                |
-|                                                                       |
-|    fota_http_connect 688getting cert:/data/fota_ca_cert.pem           |
-|                                                                       |
-|    fota_http_connect:host=innotestota.s3.us-east-2.amazonaws.com      |
-|    port=443                                                           |
-|                                                                       |
-|    Calling http_client_open()                                         |
-|                                                                       |
-|    . [SSL_WRAP]Checking input configurations...                       |
-|                                                                       |
-|    . [SSL_WRAP]Seeding the random number generator...                 |
-|                                                                       |
-|    . [SSL_WRAP]Loading the CA root certificate ...Cert Len = 1189     |
-|                                                                       |
-|    . [SSL_WRAP]Connecting to tcp                                      |
-|    innotestota.s3.us-east-2.amazonaws.com:443...                      |
-|                                                                       |
-|    . [SSL_WRAP]Setting up the SSL/TLS structure...                    |
-|                                                                       |
-|    . [SSL_WRAP]setting configurations..                               |
-|                                                                       |
-|    >auth mode = 2 (0- skip, 1- optional, 2- required                  |
-|                                                                       |
-|    >max fragment len = 0                                              |
-|                                                                       |
-|    >Handshake timeout = 30 Sec                                        |
-|                                                                       |
-|    . [SSL_WRAP]Performing the SSL/TLS handshake...                    |
-|                                                                       |
-|    . [SSL_WRAP] Handshake done. ok                                    |
-|                                                                       |
-|    . [SSL_WRAP]Verifying peer X.509 certificate.                      |
-|                                                                       |
-|    All data received                                                  |
-|                                                                       |
-|    Fw download complete                                               |
-|                                                                       |
-|    next index = 2                                                     |
-|                                                                       |
-|    fota_commit                                                        |
-|                                                                       |
-|    utils_num_str_add                                                  |
-|                                                                       |
-|    0                                                                  |
-|                                                                       |
-|    0                                                                  |
-|                                                                       |
-|    2                                                                  |
-|                                                                       |
-|    0                                                                  |
-|                                                                       |
-|    deci1 = 0, fracn1 = 0, deci2 = 2, fracn2 = 0                       |
-|                                                                       |
-|    utils_num_str_add : out_str = 2.0                                  |
-|                                                                       |
-|    fota_update_part_file: !!!Updated new version = 2.0                |
-|                                                                       |
-|    fota_json_init: /data/boot.json f = 0x000a8908                     |
-|                                                                       |
-|    Setting next boot index = 2                                        |
-|                                                                       |
-|    Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                |
-|                                                                       |
-|    ROM yoda-h0-rom-16-0-gd5a8e586                                     |
-|                                                                       |
-|    FLASH:PWAE                                                         |
-|                                                                       |
-|    WWWWAE4 DWT comparators, range 0x8000                              |
-|                                                                       |
-|    Build $Id: git-adea113 $                                           |
-|                                                                       |
-|    Flash detected. flash.hw.uuid:                                     |
-|    39483937-3207-0051-002a-ffffffffffff                               |
-|                                                                       |
-|    4 DWT comparators, range 0x8000                                    |
-|                                                                       |
-|    Build $Id: git-13f33b8d7 $                                         |
-|                                                                       |
-|    vm.flash_location=0x0010c300 passphrase=87654321 ssid=innotest     |
-|                                                                       |
-|    Hello World                                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+ROM yoda-h0-rom-16-0-gd5a8e586
+FLASH:PWAE
+WWWWAE4 DWT comparators, range 0x8000
+Build $Id: git- adea113 $
+Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff
+Build $Id: git- adea113 $
+Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff
+Bootargs: vm.flash_location=0x0003ba00 passphrase=1234567890 ssid=innotest
+
+Application Information:
+------------------------
+Name       : FOTA application
+Version    : 1.0
+Build Date : Oct 13 2023
+Build Time : 16:07:24
+Heap Available: 293 KB (300312 Bytes)
+[APP]data fs mounted
+[0.032,797] rfdrv: unknown module type (0)
+addr e0:69:3a:00:41:0c
+network profile created for ssid: innotest
+
+Connecting to added network : innotest
+[1.450,212] CONNECT:d4:da:21:54:d3:c6 Channel:13 rssi:-41 dBm
+wcm_notify_callback :WCM_NOTIFY_MSG_LINK_UP
+wcm_notify_callback :CM_NOTIFY_MSG_ADDRESS
+[2.097,894] MYIP 192.168.31.211
+[2.097,942] IPv6 [fe80::e269:3aff:fe00:410c]-link
+wcm_notify_callback :_NOTIFY_MSG_CONNECTED
+
+Connected to added network : innotest
+
+[APP]N/w Connection done..
+fota_json_init: /data/fota_config.json  f = 0x000af80
+Parsing rootfs FOTA config file***
+package_version = 1.0
+Package version = 1.0
+type = configuration
+name = fota.config
+version, <null>
+protocol, <null>
+hostname = innotestota.s3.us-east-2.amazonaws.com
+port = 443
+secured = 2
+uri = /fota_config.json
+url, <null>
+hash, <null>
+ca_cert = /data/fota_ca_cert.pem
+type = firmware
+name = test_app
+version, <null>
+protocol, <null>
+hostname = innotestota.s3.us-east-2.amazonaws.com
+port = 443
+secured = 2
+uri = /test_app.elf
+url, <null>
+hash, <null>
+ca_cert = /data/fota_ca_cert.pem
+Fota Init Success: bedf0
+[APP]Perform Fota
+fota_perform check_for_update = 1
+fota_config_file_download 1078
+fota_http_connect 688getting cert:/data/fota_ca_cert.pem
+
+fota_http_connect:host=innotestota.s3.us-east-2.amazonaws.com port=443
+Calling http_client_open()
+  . [SSL_WRAP]Checking input configurations...
+  . [SSL_WRAP]Seeding the random number generator...
+  . [SSL_WRAP]Loading the CA root certificate ...Cert Len = 1189
+  . [SSL_WRAP]Connecting to tcp innotestota.s3.us-east-2.amazonaws.com:443...
+  . [SSL_WRAP]Setting up the SSL/TLS structure...
+  . [SSL_WRAP]setting configurations..
+>auth mode = 2 (0- skip, 1- optional, 2- required
+>max fragment len = 0
+>Handshake timeout = 30 Sec
+. [SSL_WRAP]Performing the SSL/TLS handshake...
+. [SSL_WRAP] Handshake done. ok
+. [SSL_WRAP]Verifying peer X.509 certificate.
+
+fota_config_file_download 1091
+package_version = 3.1
+Package version = 3.1
+type = configuration
+name = fota.config
+version, <null>
+protocol, <null>
+hostname = innotestota.s3.us-east-2.amazonaws.com
+port = 443
+secured = 2
+uri = /fota_config.json
+url, <null>
+hash, <null>
+ca_cert = /data/fota_ca_cert.pem
+type = firmware
+name = test_app
+version, <null>
+protocol, <null>
+hostname = innotestota.s3.us-east-2.amazonaws.com
+port = 443
+secured = 2
+uri = /test_app.elf
+url, <null>
+hash, <null>
+ca_cert = /data/fota_ca_cert.pem
+utils_num_str_cmp
+3
+1
+1
+0
+deci1 = 3, fracn1 = 1, deci2 = 1, fracn2 = 0
+
+Using the Remote config (Newly fetched) file
+type = configuration
+type = firmware
+fota_json_init: /data/part.json  f = 0x000b8958
+Image array size = 3
+name = fota
+name = test_app
+version = 1.0
+start_sector = 165
+name = test_app
+version = 0.0
+start_sector = 258
+utils_num_str_cmp
+1
+0
+0
+0
+deci1 = 1, fracn1 = 0, deci2 = 0, fracn2 = 0
+
+Selected index = 2
+Download the new f/w @ sector = 258
+
+fota_http_connect 688getting cert:/data/fota_ca_cert.pem
+
+fota_http_connect:host=innotestota.s3.us-east-2.amazonaws.com port=443
+Calling http_client_open()
+  . [SSL_WRAP]Checking input configurations...
+  . [SSL_WRAP]Seeding the random number generator...
+  . [SSL_WRAP]Loading the CA root certificate ...Cert Len = 1189
+  . [SSL_WRAP]Connecting to tcp innotestota.s3.us-east-2.amazonaws.com:443...
+  . [SSL_WRAP]Setting up the SSL/TLS structure...
+  . [SSL_WRAP]setting configurations..
+>auth mode = 2 (0- skip, 1- optional, 2- required
+>max fragment len = 0
+>Handshake timeout = 30 Sec
+. [SSL_WRAP]Performing the SSL/TLS handshake...
+. [SSL_WRAP] Handshake done. ok
+. [SSL_WRAP]Verifying peer X.509 certificate.
+
+All data received
+Fw download complete
+next index = 2
+fota_commit
+utils_num_str_add
+0
+0
+2
+0
+deci1 = 0, fracn1 = 0, deci2 = 2, fracn2 = 0
+
+utils_num_str_add : out_str = 2.0
+fota_update_part_file: !!!Updated new version = 2.0
+fota_json_init: /data/boot.json  f = 0x000a8908
+Setting next boot index = 2
+
+Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+ROM yoda-h0-rom-16-0-gd5a8e586
+FLASH:PWAE
+WWWWAE4 DWT comparators, range 0x8000
+Build $Id: git-adea113 $
+Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff
+4 DWT comparators, range 0x8000
+Build $Id: git-13f33b8d7 $
+vm.flash_location=0x0010c300 passphrase=87654321 ssid=innotest
+Hello World
+
 
 In case of any error, due to network failure or Wi-Fi disconnection, the
 program will exit. Upon resetting the EVB by pressing the reset button,
@@ -1387,466 +1070,281 @@ Flashing and Testing
 
 2. Build the filesystem (root_secure.img)
 
-+-----------------------------------------------------------------------+
-| cd <freertos_sdk>                                                     |
-|                                                                       |
-| python ./script/build_rootfs_generic.py --folder_path apps/fota       |
-| --secure True --keyfile ./apps/ssbl/enroll.json                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      cd <freertos_sdk>
+python ./script/build_rootfs_generic.py --folder_path apps/fota --secure True --keyfile ./apps/ssbl/enroll.json
+
 
 3. Create signed and encrypted ELF (fota.elf.enc)
 
-+-----------------------------------------------------------------------+
-| cd <freertos_sdk>/apps/fota                                           |
-|                                                                       |
-| make clean                                                            |
-|                                                                       |
-| make SECUREBOOT=1 KEY=<freertos_sdk>/apps/ssbl/enroll.json            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      cd <freertos_sdk>/apps/fota
+make clean
+make SECUREBOOT=1 KEY=<freertos_sdk>/apps/ssbl/enroll.json
+
 
 4. Flash application at 0x20000
 
-+-----------------------------------------------------------------------+
-| cd <freertos_sdk>                                                     |
-|                                                                       |
-| ./script/flash.py write 0x20000 apps/fota/out/fota.elf.enc            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      cd <freertos_sdk>
+./script/flash.py write 0x20000 apps/fota/out/fota.elf.enc
+
 
 5. Flash the filesystem
 
-+-----------------------------------------------------------------------+
-| cd <freertos_sdk>                                                     |
-|                                                                       |
-| ./script/flash.py write 0x180000 apps/fota/root_secure.img            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      cd <freertos_sdk>
+./script/flash.py write 0x180000 apps/fota/root_secure.img
+
 
 .. _expected-output-1:
 
 Expected Output
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------------------------------------------------------------------+
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PNWWAE                                                          |
-|                                                                       |
-| FIRST:SWWWWAHE                                                        |
-|                                                                       |
-| Si Build $Id: git-adea113 $                                           |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff   |
-|                                                                       |
-| \**\* Warning! Make sure to remove this code section once in          |
-| production \**\*                                                      |
-|                                                                       |
-| secureboot_secret:                                                    |
-|                                                                       |
-| 6cd                                                                   |
-| 7d2c0c1f5820b83a69b0c1bb961a3a01502ae21b198236a3013b3456bc661ac000000 |
-|                                                                       |
-| \**\* Warning! Make sure to remove this code section once in          |
-| production \**\*                                                      |
-|                                                                       |
-| cipher key:                                                           |
-| 4e3b0b9792183c53ecc78a38c64a45c071b97bc40b0baba308ed76db8a46cef1      |
-|                                                                       |
-| public key:                                                           |
-| 20b003d2f297be2c5e2c83a7e9f9a5b9eff49111acf4fddbcc0301480e3           |
-| 59de6dc809c49652aeb6d63329abf5a52155c766345c28fed3024741c8ed01589d28b |
-|                                                                       |
-| Build $Id: git-adea113 $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff   |
-|                                                                       |
-| Bootargs: vm.flash_location= 0x0003be00 passphrase=1234567890         |
-| ssid=innotest                                                         |
-|                                                                       |
-| Application Information:                                              |
-|                                                                       |
-| Name       : FOTA application                                         |
-|                                                                       |
-| Version    : 1.0                                                      |
-|                                                                       |
-| Build Date : Oct 13 2023                                              |
-|                                                                       |
-| Build Time : 16:07:24                                                 |
-|                                                                       |
-| Heap Available: 240 KB (246040 Bytes)                                 |
-|                                                                       |
-| [APP]root fs mounted                                                  |
-|                                                                       |
-| [1.716,504] rfdrv: unknown module type (0)                            |
-|                                                                       |
-| addr f8:e9:43:c6:08:ef                                                |
-|                                                                       |
-| network profile created for ssid: innotest                            |
-|                                                                       |
-| Connecting to added network : innotest                                |
-|                                                                       |
-| [2.768,898] CONNECT:60:32:b1:33:b5:7b Channel:11 rssi:-38 dBm         |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP                   |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS                   |
-|                                                                       |
-| [7.508,564] MYIP 192.168.1.16                                         |
-|                                                                       |
-| [7.508,612] IPv6 [fe80::fae9:43ff:fec6:8ef]-link                      |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED                 |
-|                                                                       |
-| Connected to added network : innotest                                 |
-|                                                                       |
-| [APP]N/w Connection done..                                            |
-|                                                                       |
-| Parsing rootfs FOTA config file**\*                                   |
-|                                                                       |
-| package_version = 1.0                                                 |
-|                                                                       |
-| Package version = 1.0                                                 |
-|                                                                       |
-| type = configuration                                                  |
-|                                                                       |
-| name = fota.config                                                    |
-|                                                                       |
-| version, <null>                                                       |
-|                                                                       |
-| protocol, <null>                                                      |
-|                                                                       |
-| hostname = innosecuredfota.s3.amazonaws.com                           |
-|                                                                       |
-| port = 443                                                            |
-|                                                                       |
-| secured = 2                                                           |
-|                                                                       |
-| uri = /fota_config.json                                               |
-|                                                                       |
-| url, <null>                                                           |
-|                                                                       |
-| hash, <null>                                                          |
-|                                                                       |
-| ca_cert = /data/fota_ca_cert.pem                                      |
-|                                                                       |
-| type = firmware                                                       |
-|                                                                       |
-| name = wifi_scan                                                      |
-|                                                                       |
-| version, <null>                                                       |
-|                                                                       |
-| protocol, <null>                                                      |
-|                                                                       |
-| hostname = innosecuredfota.s3.amazonaws.com                           |
-|                                                                       |
-| port = 443                                                            |
-|                                                                       |
-| secured = 2                                                           |
-|                                                                       |
-| uri = /wifi_scan.elf.enc                                              |
-|                                                                       |
-| url, <null>                                                           |
-|                                                                       |
-| hash, <null>                                                          |
-|                                                                       |
-| ca_cert = /data/fota_ca_cert.pem                                      |
-|                                                                       |
-| Fota Init Success: b1728                                              |
-|                                                                       |
-| [APP]Perform Fota                                                     |
-|                                                                       |
-| fota_perform check_for_update = 1                                     |
-|                                                                       |
-| fota_config_file_download 1078                                        |
-|                                                                       |
-| fota_http_connect 688getting cert:/data/fota_ca_cert.pem              |
-|                                                                       |
-| fota_http_connect:host=innosecuredfota.s3.amazonaws.com port=443      |
-|                                                                       |
-| Calling http_client_open()                                            |
-|                                                                       |
-|   . [SSL_WRAP]Checking input configurations...                        |
-|                                                                       |
-|   . [SSL_WRAP]Seeding the random number generator...                  |
-|                                                                       |
-|   . [SSL_WRAP]Loading the CA root certificate ...Cert Len = 1201      |
-|                                                                       |
-|   . [SSL_WRAP]Connecting to tcp                                       |
-| innosecuredfota.s3.amazonaws.com:443...                               |
-|                                                                       |
-|   . [SSL_WRAP]Setting up the SSL/TLS structure...                     |
-|                                                                       |
-|   . [SSL_WRAP]setting configurations..                                |
-|                                                                       |
-| >auth mode = 2 (0- skip, 1- optional, 2- required                     |
-|                                                                       |
-| >max fragment len = 0                                                 |
-|                                                                       |
-| >Handshake timeout = 30 Sec                                           |
-|                                                                       |
-| . [SSL_WRAP]Performing the SSL/TLS handshake...                       |
-|                                                                       |
-| . [SSL_WRAP] Handshake done. ok                                       |
-|                                                                       |
-| . [SSL_WRAP]Verifying peer X.509 certificate.                         |
-|                                                                       |
-| fota_config_file_download 1091                                        |
-|                                                                       |
-| package_version = 2.0                                                 |
-|                                                                       |
-| Package version = 2.0                                                 |
-|                                                                       |
-| type = configuration                                                  |
-|                                                                       |
-| name = fota.config                                                    |
-|                                                                       |
-| version, <null>                                                       |
-|                                                                       |
-| protocol, <null>                                                      |
-|                                                                       |
-| hostname = innosecuredfota.s3.amazonaws.com                           |
-|                                                                       |
-| port = 443                                                            |
-|                                                                       |
-| secured = 2                                                           |
-|                                                                       |
-| uri = /fota_config.json                                               |
-|                                                                       |
-| url, <null>                                                           |
-|                                                                       |
-| hash, <null>                                                          |
-|                                                                       |
-| ca_cert = /data/fota_ca_cert.pem                                      |
-|                                                                       |
-| type = firmware                                                       |
-|                                                                       |
-| name = wifi_scan                                                      |
-|                                                                       |
-| version, <null>                                                       |
-|                                                                       |
-| protocol, <null>                                                      |
-|                                                                       |
-| hostname = innosecuredfota.s3.amazonaws.com                           |
-|                                                                       |
-| port = 443                                                            |
-|                                                                       |
-| secured = 2                                                           |
-|                                                                       |
-| uri = /wifi_scan.elf.enc                                              |
-|                                                                       |
-| url, <null>                                                           |
-|                                                                       |
-| hash, <null>                                                          |
-|                                                                       |
-| ca_cert = /data/fota_ca_cert.pem                                      |
-|                                                                       |
-| utils_num_str_cmp                                                     |
-|                                                                       |
-| 2                                                                     |
-|                                                                       |
-| 0                                                                     |
-|                                                                       |
-| 1                                                                     |
-|                                                                       |
-| 0                                                                     |
-|                                                                       |
-| deci1 = 2, fracn1 = 0, deci2 = 1, fracn2 = 0                          |
-|                                                                       |
-| Using the Remote config (Newly fetched) file                          |
-|                                                                       |
-| type = configuration                                                  |
-|                                                                       |
-| type = firmware                                                       |
-|                                                                       |
-| Image array size = 3                                                  |
-|                                                                       |
-| name = fota                                                           |
-|                                                                       |
-| name = wifi_scan                                                      |
-|                                                                       |
-| version = 1.0                                                         |
-|                                                                       |
-| start_sector = 200                                                    |
-|                                                                       |
-| name = wifi_scan                                                      |
-|                                                                       |
-| version = 2.0                                                         |
-|                                                                       |
-| start_sector = 300                                                    |
-|                                                                       |
-| utils_num_str_cmp                                                     |
-|                                                                       |
-| 1                                                                     |
-|                                                                       |
-| 0                                                                     |
-|                                                                       |
-| 2                                                                     |
-|                                                                       |
-| 0                                                                     |
-|                                                                       |
-| deci1 = 1, fracn1 = 0, deci2 = 2, fracn2 = 0                          |
-|                                                                       |
-| Selected index = 1                                                    |
-|                                                                       |
-| Download the new f/w @ sector = 200                                   |
-|                                                                       |
-| fota_http_connect 688getting cert:/data/fota_ca_cert.pem              |
-|                                                                       |
-| fota_http_connect:host=innosecuredfota.s3.amazonaws.com port=443      |
-|                                                                       |
-| Calling http_client_open()                                            |
-|                                                                       |
-|   . [SSL_WRAP]Checking input configurations...                        |
-|                                                                       |
-|   . [SSL_WRAP]Seeding the random number generator...                  |
-|                                                                       |
-|   . [SSL_WRAP]Loading the CA root certificate ...Cert Len = 1201      |
-|                                                                       |
-|   . [SSL_WRAP]Connecting to tcp                                       |
-| innosecuredfota.s3.amazonaws.com:443...                               |
-|                                                                       |
-|   . [SSL_WRAP]Setting up the SSL/TLS structure...                     |
-|                                                                       |
-|   . [SSL_WRAP]setting configurations..                                |
-|                                                                       |
-| >auth mode = 2 (0- skip, 1- optional, 2- required                     |
-|                                                                       |
-| >max fragment len = 0                                                 |
-|                                                                       |
-| >Handshake timeout = 30 Sec                                           |
-|                                                                       |
-| . [SSL_WRAP]Performing the SSL/TLS handshake...                       |
-|                                                                       |
-| . [SSL_WRAP] Handshake done. ok                                       |
-|                                                                       |
-| . [SSL_WRAP]Verifying peer X.509 certificate.                         |
-|                                                                       |
-| All data received                                                     |
-|                                                                       |
-| Fw download complete                                                  |
-|                                                                       |
-| next index = 1                                                        |
-|                                                                       |
-| fota_commit                                                           |
-|                                                                       |
-| utils_num_str_add                                                     |
-|                                                                       |
-| 1                                                                     |
-|                                                                       |
-| 0                                                                     |
-|                                                                       |
-| 2                                                                     |
-|                                                                       |
-| 0                                                                     |
-|                                                                       |
-| deci1 = 1, fracn1 = 0, deci2 = 2, fracn2 = 0                          |
-|                                                                       |
-| utils_num_str_add : out_str = 3.0                                     |
-|                                                                       |
-| fota_update_part_file: !!!Updated new version = 3.0                   |
-|                                                                       |
-| Setting next boot index = 1                                           |
-|                                                                       |
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PNWWAE                                                          |
-|                                                                       |
-| FIRST:SWWWWAHE                                                        |
-|                                                                       |
-| Si Build $Id: git-adea113 $                                           |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff   |
-|                                                                       |
-| \**\* Warning! Make sure to remove this code section once in          |
-| production \**\*                                                      |
-|                                                                       |
-| secureboot_secret:                                                    |
-|                                                                       |
-| 6cd                                                                   |
-| 7d2c0c1f5820b83a69b0c1bb961a3a01502ae21b198236a3013b3456bc661ac000000 |
-|                                                                       |
-| \**\* Warning! Make sure to remove this code section once in          |
-| production \**\*                                                      |
-|                                                                       |
-| cipher key:                                                           |
-| 4e3b0b9792183c53ecc78a38c64a45c071b97bc40b0baba308ed76db8a46cef1      |
-|                                                                       |
-| public key:                                                           |
-| 20b003d2f297be2c5e2c83a7e9f9a5b9eff49111acf4fddbcc0301480e3           |
-| 59de6dc809c49652aeb6d63329abf5a52155c766345c28fed3024741c8ed01589d28b |
-|                                                                       |
-| Build $Id: git-adea113 $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff   |
-|                                                                       |
-| Bootargs: vm.flash_location=0x000dd400 passphrase=1234567890          |
-| ssid=innotest                                                         |
-|                                                                       |
-| SDK Ver: SDK_2.6.3master                                              |
-|                                                                       |
-| Wifi Scan Demo App                                                    |
-|                                                                       |
-| [1.814,917] rfdrv: unknown module type (0)                            |
-|                                                                       |
-| addr f8:e9:43:c6:08:ef                                                |
-|                                                                       |
-| Scan parameters:                                                      |
-|                                                                       |
-|     channel_masks: 255 255 255 255 255 255 255 255                    |
-|                                                                       |
-|     bssid: 0xFFFFFFFFFFFF                                             |
-|                                                                       |
-|     txrate: 0                                                         |
-|                                                                       |
-|     waittime: 0                                                       |
-|                                                                       |
-|     ie list: 0x                                                       |
-|                                                                       |
-| Found 9 nets:                                                         |
-|                                                                       |
-| 04:42:1a:bd:6e:08 on channel  1 @ -38 'asusax55u_iop'                 |
-| 'WPA2/WPA3-Enterprise+MFPR'                                           |
-|                                                                       |
-| 74:da:88:a6:9c:ea on channel  1 @ -39 'low_rssi' 'WPA2-PSK'           |
-|                                                                       |
-| 58:11:22:71:ee:10 on channel  1 @ -40 'ASUS_Outside' 'WPA2-PSK'       |
-|                                                                       |
-| 38:6b:1c:c0:da:38 on channel 11 @ -42 'connect_Idle_stability'        |
-| 'WPA-PSK/WPA2-PSK Mixed Mode'                                         |
-|                                                                       |
-| d4:5d:64:d9:5c:a0 on channel 1 @ -45 'test_shetty' 'WPA2-PSK+MFPR'    |
-|                                                                       |
-| 24:4b:fe:5e:fd:d8 on channel 1 @ -50 'Asus_86U_2G_iop' 'WPA2-PSK'     |
-|                                                                       |
-| 62:d4:f7:bf:fe:47 on channel 10 @ -52 '' 'WPA2-PSK'                   |
-|                                                                       |
-| 98:da:c4:d5:89:9b on channel 11 @ -58 'TP-Link_BLE' 'WPA2-PSK'        |
-|                                                                       |
-| b0:39:56:93:83:31 on channel 6 @ -62 'innotest_open123' 'OPEN'        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-.. |Graphical user interface, application Description automatically generated| image:: media/image1.png
+      -BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+ROM yoda-h0-rom-16-0-gd5a8e586
+FLASH:PNWWAE
+FIRST:SWWWWAHE
+Si Build $Id: git-adea113 $
+Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff
+*** Warning! Make sure to remove this code section once in production ***
+secureboot_secret:
+6cd7d2c0c1f5820b83a69b0c1bb961a3a01502ae21b198236a3013b3456bc661ac000000
+
+*** Warning! Make sure to remove this code section once in production ***
+cipher key: 4e3b0b9792183c53ecc78a38c64a45c071b97bc40b0baba308ed76db8a46cef1
+public key: 20b003d2f297be2c5e2c83a7e9f9a5b9eff49111acf4fddbcc0301480e359de6dc809c49652aeb6d63329abf5a52155c766345c28fed3024741c8ed01589d28b
+Build $Id: git-adea113 $
+Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff
+Bootargs: vm.flash_location= 0x0003be00 passphrase=1234567890 ssid=innotest
+
+Application Information:
+
+Name       : FOTA application
+Version    : 1.0
+Build Date : Oct 13 2023
+Build Time : 16:07:24
+Heap Available: 240 KB (246040 Bytes)
+
+[APP]root fs mounted
+[1.716,504] rfdrv: unknown module type (0)
+addr f8:e9:43:c6:08:ef
+network profile created for ssid: innotest
+
+Connecting to added network : innotest
+[2.768,898] CONNECT:60:32:b1:33:b5:7b Channel:11 rssi:-38 dBm
+wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+[7.508,564] MYIP 192.168.1.16
+[7.508,612] IPv6 [fe80::fae9:43ff:fec6:8ef]-link
+wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
+
+Connected to added network : innotest
+
+[APP]N/w Connection done..
+Parsing rootfs FOTA config file***
+package_version = 1.0
+Package version = 1.0
+type = configuration
+name = fota.config
+version, <null>
+protocol, <null>
+hostname = innosecuredfota.s3.amazonaws.com
+port = 443
+secured = 2
+uri = /fota_config.json
+url, <null>
+hash, <null>
+ca_cert = /data/fota_ca_cert.pem
+type = firmware
+name = wifi_scan
+version, <null>
+protocol, <null>
+hostname = innosecuredfota.s3.amazonaws.com
+port = 443
+secured = 2
+uri = /wifi_scan.elf.enc
+url, <null>
+hash, <null>
+ca_cert = /data/fota_ca_cert.pem
+Fota Init Success: b1728
+[APP]Perform Fota
+fota_perform check_for_update = 1
+fota_config_file_download 1078
+fota_http_connect 688getting cert:/data/fota_ca_cert.pem
+
+fota_http_connect:host=innosecuredfota.s3.amazonaws.com port=443
+Calling http_client_open()
+  . [SSL_WRAP]Checking input configurations...
+  . [SSL_WRAP]Seeding the random number generator...
+  . [SSL_WRAP]Loading the CA root certificate ...Cert Len = 1201
+  . [SSL_WRAP]Connecting to tcp innosecuredfota.s3.amazonaws.com:443...
+  . [SSL_WRAP]Setting up the SSL/TLS structure...
+  . [SSL_WRAP]setting configurations..
+>auth mode = 2 (0- skip, 1- optional, 2- required
+>max fragment len = 0
+>Handshake timeout = 30 Sec
+. [SSL_WRAP]Performing the SSL/TLS handshake...
+. [SSL_WRAP] Handshake done. ok
+. [SSL_WRAP]Verifying peer X.509 certificate.
+
+fota_config_file_download 1091
+package_version = 2.0
+Package version = 2.0
+type = configuration
+name = fota.config
+version, <null>
+protocol, <null>
+hostname = innosecuredfota.s3.amazonaws.com
+port = 443
+secured = 2
+uri = /fota_config.json
+url, <null>
+hash, <null>
+ca_cert = /data/fota_ca_cert.pem
+type = firmware
+name = wifi_scan
+version, <null>
+protocol, <null>
+hostname = innosecuredfota.s3.amazonaws.com
+port = 443
+secured = 2
+uri = /wifi_scan.elf.enc
+url, <null>
+hash, <null>
+ca_cert = /data/fota_ca_cert.pem
+utils_num_str_cmp
+2
+0
+1
+0
+deci1 = 2, fracn1 = 0, deci2 = 1, fracn2 = 0
+
+Using the Remote config (Newly fetched) file
+type = configuration
+type = firmware
+Image array size = 3
+name = fota
+name = wifi_scan
+version = 1.0
+start_sector = 200
+name = wifi_scan
+version = 2.0
+start_sector = 300
+utils_num_str_cmp
+1
+0
+2
+0
+deci1 = 1, fracn1 = 0, deci2 = 2, fracn2 = 0
+
+Selected index = 1
+Download the new f/w @ sector = 200
+
+fota_http_connect 688getting cert:/data/fota_ca_cert.pem
+
+fota_http_connect:host=innosecuredfota.s3.amazonaws.com port=443
+Calling http_client_open()
+  . [SSL_WRAP]Checking input configurations...
+  . [SSL_WRAP]Seeding the random number generator...
+  . [SSL_WRAP]Loading the CA root certificate ...Cert Len = 1201
+  . [SSL_WRAP]Connecting to tcp innosecuredfota.s3.amazonaws.com:443...
+  . [SSL_WRAP]Setting up the SSL/TLS structure...
+  . [SSL_WRAP]setting configurations..
+>auth mode = 2 (0- skip, 1- optional, 2- required
+>max fragment len = 0
+>Handshake timeout = 30 Sec
+. [SSL_WRAP]Performing the SSL/TLS handshake...
+. [SSL_WRAP] Handshake done. ok
+. [SSL_WRAP]Verifying peer X.509 certificate.
+
+All data received
+Fw download complete
+next index = 1
+fota_commit
+utils_num_str_add
+1
+0
+2
+0
+deci1 = 1, fracn1 = 0, deci2 = 2, fracn2 = 0
+
+utils_num_str_add : out_str = 3.0
+fota_update_part_file: !!!Updated new version = 3.0
+Setting next boot index = 1
+
+Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+ROM yoda-h0-rom-16-0-gd5a8e586
+FLASH:PNWWAE
+FIRST:SWWWWAHE
+Si Build $Id: git-adea113 $
+Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff
+*** Warning! Make sure to remove this code section once in production ***
+secureboot_secret:
+6cd7d2c0c1f5820b83a69b0c1bb961a3a01502ae21b198236a3013b3456bc661ac000000
+
+*** Warning! Make sure to remove this code section once in production ***
+cipher key: 4e3b0b9792183c53ecc78a38c64a45c071b97bc40b0baba308ed76db8a46cef1
+public key: 20b003d2f297be2c5e2c83a7e9f9a5b9eff49111acf4fddbcc0301480e359de6dc809c49652aeb6d63329abf5a52155c766345c28fed3024741c8ed01589d28b
+Build $Id: git-adea113 $
+Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff
+Bootargs: vm.flash_location=0x000dd400 passphrase=1234567890 ssid=innotest
+SDK Ver: SDK_2.6.3master
+Wifi Scan Demo App
+[1.814,917] rfdrv: unknown module type (0)
+addr f8:e9:43:c6:08:ef
+Scan parameters:
+    channel_masks: 255 255 255 255 255 255 255 255
+    bssid: 0xFFFFFFFFFFFF
+    txrate: 0
+    waittime: 0
+    ie list: 0x
+Found 9 nets:
+04:42:1a:bd:6e:08 on channel  1 @ -38 'asusax55u_iop' 'WPA2/WPA3-Enterprise+MFPR'
+74:da:88:a6:9c:ea on channel  1 @ -39 'low_rssi' 'WPA2-PSK'
+58:11:22:71:ee:10 on channel  1 @ -40 'ASUS_Outside' 'WPA2-PSK'
+38:6b:1c:c0:da:38 on channel 11 @ -42 'connect_Idle_stability' 'WPA-PSK/WPA2-PSK Mixed Mode'
+d4:5d:64:d9:5c:a0 on channel 1 @ -45 'test_shetty' 'WPA2-PSK+MFPR'
+24:4b:fe:5e:fd:d8 on channel 1 @ -50 'Asus_86U_2G_iop' 'WPA2-PSK'
+62:d4:f7:bf:fe:47 on channel 10 @ -52 '' 'WPA2-PSK'
+98:da:c4:d5:89:9b on channel 11 @ -58 'TP-Link_BLE' 'WPA2-PSK'
+b0:39:56:93:83:31 on channel 6 @ -62 'innotest_open123' 'OPEN'
+
+
+.. |image55| image:: media/image55.png
    :width: 6.69291in
    :height: 0.85424in
-.. |image1| image:: media/image2.png
+.. |image56| image:: media/image56.png
    :width: 5.90551in
    :height: 8.10291in
-.. |image2| image:: media/image3.png
+.. |image57| image:: media/image57.png
    :width: 5.90551in
    :height: 7.88474in
-.. |image3| image:: media/image4.png
+.. |image58| image:: media/image58.png
    :width: 6.49606in
    :height: 0.37358in
-.. |Graphical user interface, text Description automatically generated with medium confidence| image:: media/image5.png
+.. |image59| image:: media/image59.png
    :width: 6.29921in
    :height: 0.34912in
-.. |image4| image:: media/image4.png
+.. |image60| image:: media/image60.png
+   :width: 6.23702in
+   :height: 0.36226in
+.. |image61| image:: media/image61.png
+   :width: 6.23702in
+   :height: 0.36226in
+.. |image62| image:: media/image62.png
+   :width: 6.23702in
+   :height: 0.36226in
+.. |image63| image:: media/image63.png
+   :width: 6.23702in
+   :height: 0.36226in
+.. |image64| image:: media/image64.png
    :width: 6.23702in
    :height: 0.36226in

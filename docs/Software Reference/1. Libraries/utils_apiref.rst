@@ -1,5 +1,7 @@
-Utils
----------
+.. utils apiref:
+
+Utils API Reference
+###################
 
 Utils API provide a variety of frequently used general purpose
 functionalities for the Talaria TWO platform.
@@ -46,7 +48,7 @@ This is in-fact a wrapper function for os_mount() API.
 Definition
 ~~~~~~~~~~
 
-.. table:: Table : utils_is_file_present – parameters
+.. table:: Table 1: utils_is_file_present – parameters
 
    +-----------------------------------------------------------------------+
    | int                                                                   |
@@ -83,7 +85,7 @@ FS.
 Definition 
 ~~~~~~~~~~~
 
-.. table:: Table : utils_file_size_get - parameters
+.. table:: Table 2: utils_file_size_get - parameters
 
    +-----------------------------------------------------------------------+
    | int                                                                   |
@@ -97,7 +99,7 @@ Definition
 Parameters
 ~~~~~~~~~~
 
-.. table:: Table : utils_file_get - parameters
+.. table:: Table 3: utils_file_get - parameters
 
    +---------------+------------------------------------------------------+
    | **Parameter** | **Description**                                      |
@@ -129,7 +131,7 @@ Used to get the size of the file at a specified path in root FS.
 Definition 
 ~~~~~~~~~~~
 
-.. table:: Table : utils_file_store – parameters
+.. table:: Table 4: utils_file_store – parameters
 
    +-----------------------------------------------------------------------+
    | int                                                                   |
@@ -143,7 +145,7 @@ Definition
 Parameters
 ~~~~~~~~~~
 
-.. table:: Table : show_heap – parameters
+.. table:: Table 5: show_heap – parameters
 
    +--------------+-------------------------------------------------------+
    | *            | **Description**                                       |
@@ -179,7 +181,7 @@ leak.
 Definition 
 ~~~~~~~~~~~
 
-.. table:: Table : network_profile_new_from_ssid_pw – parameters
+.. table:: Table 6: network_profile_new_from_ssid_pw – parameters
 
    +-----------------------------------------------------------------------+
    | char \*                                                               |
@@ -193,7 +195,7 @@ Definition
 Parameters
 ~~~~~~~~~~
 
-.. table:: Table : network_profile_new_from_ssid_bssid_pw – parameters
+.. table:: Table 7: network_profile_new_from_ssid_bssid_pw – parameters
 
    +--------------+-------------------------------------------------------+
    | *            | **Description**                                       |
@@ -232,7 +234,7 @@ if present.
 Definition 
 ~~~~~~~~~~~
 
-.. table:: Table : network_profile_new_from_boot_args – parameters
+.. table:: Table 8: network_profile_new_from_boot_args – parameters
 
    +-----------------------------------------------------------------------+
    | int                                                                   |
@@ -246,7 +248,7 @@ Definition
 Parameters
 ~~~~~~~~~~
 
-.. table:: Table : is_valid_ip – parameters
+.. table:: Table 9: is_valid_ip – parameters
 
    +--------------+-------------------------------------------------------+
    | *            | **Description**                                       |
@@ -283,7 +285,7 @@ Used to soft reset the device.
 Definition 
 ~~~~~~~~~~~
 
-.. table:: Table : wifi_connect_to_network – parameters
+.. table:: Table 10: wifi_connect_to_network – parameters
 
    +-----------------------------------------------------------------------+
    | void                                                                  |

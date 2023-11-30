@@ -140,8 +140,7 @@ of failure.
    }
 
 
-Soft Timers
-===========
+**Soft Timers**
 
 In InnoOS, the timers are called callouts, and the APIs are prefixed
 with callout\_.
@@ -228,8 +227,7 @@ Preferably the work is handed over to another task/thread.
     }
 
 
-Semaphores
-===========
+**Semaphores**
 
 The differences between FreeRTOS and InnoOS when it comes to semaphores
 are very small. lists the functions required.

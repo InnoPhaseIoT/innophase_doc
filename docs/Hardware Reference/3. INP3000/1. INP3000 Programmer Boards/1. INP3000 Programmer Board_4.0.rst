@@ -6,12 +6,11 @@ INP3000 Programmer Board
 VERSION 4.0
 -----------
 
-|Diagram Description automatically generated|
+|image1|
 
 Figure 1: INP3000 programmer kit contents - version 4.0
 
-|A picture containing text, electronics, circuit Description
-automatically generated|
+|image2d|
 
 Figure 2: INP3000 programmer board – version 4.0
 
@@ -37,9 +36,9 @@ The INP3000 version 4.0 board supports only SWD programming and does not
 support JTAG programming. JTAG is supported in versions 3.0 and lower.
 All the other connectors are same as version 3.0 board.
 
-.. |Diagram Description automatically generated| image:: media/image1.jpeg
+.. |image1| image:: media/image1.png
    :width: 5.11811in
    :height: 5.46412in
-.. |A picture containing text, electronics, circuit Description automatically generated| image:: media/image2.jpeg
+.. |image2| image:: media/image2.png
    :width: 5.11811in
    :height: 3.9166in

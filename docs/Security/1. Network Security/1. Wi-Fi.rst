@@ -1,3 +1,5 @@
+.. _nw wifi:
+
 Network Security – Wi-Fi
 ========================
 

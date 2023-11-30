@@ -1,3 +1,5 @@
+.. _nw secure prov:
+
 Secure Provisioning
 ===================
 
@@ -10,6 +12,3 @@ provisioned:
 -  Just Work Method
 
 -  Passkey Method
-
-For more information on the secure provisioning methods, refer to the
-Provisioning application.

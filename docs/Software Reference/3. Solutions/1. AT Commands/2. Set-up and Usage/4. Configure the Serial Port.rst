@@ -1,3 +1,5 @@
+.. _at cmds config serial port:
+
 Configure the Serial Port 
 --------------------------
 
@@ -18,11 +20,10 @@ e. Flow Control: None
 Using Teraterm, select USB Port #5 and baudrate 9600 since the firmware
 is configured with baudrate=9600.
 
-|Graphical user interface, application Description automatically
-generated|
+|image3|
 
-Figure 4: Tera Term Setup
+Figure 1: Tera Term Setup
 
-.. |Graphical user interface, application Description automatically generated| image:: media/image1.png
+.. |image3| image:: media/image3.png
    :width: 7.48031in
    :height: 5.93921in

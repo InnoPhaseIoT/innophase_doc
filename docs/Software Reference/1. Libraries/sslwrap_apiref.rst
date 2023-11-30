@@ -1,5 +1,7 @@
-sslwrap
----------
+.. _sslwrap apiref:
+
+SSL/TLS API Reference
+#####################
 
 Talaria TWO uses mbed TLS library for the implementation of SSL/TLS.
 This component provides wrapper functions for the commonly used
@@ -23,7 +25,7 @@ ssl_auth_mode_t
 
 This enum defines the various authentication modes.
 
-.. table:: Table : ssl_auth_mode_t - authentication modes
+.. table:: Table 1: ssl_auth_mode_t - authentication modes
 
    +-----------------------+----------------------------------------------+
    | **S                   | Peer certificate is not checked (default on  |
@@ -45,7 +47,7 @@ ssl_wrap_cert_t
 This data structure is used to provide information about the certificate
 like CA cert, Client cert and Client Key.
 
-.. table:: Table : ssl_wrap_cert_t – parameters
+.. table:: Table 2: ssl_wrap_cert_t – parameters
 
    +-----------------+----------------------------------------------------+
    | **path**        | Not used currently. Path of the certificate in     |
@@ -62,7 +64,7 @@ ssl_wrap_cfg_t
 This data structure is used to pass the parameters while opening an SSL
 connection with the remote server using ssl_wrap_connect API.
 
-.. table:: Table : ssl_wrap_cfg_t - parameters
+.. table:: Table 3: ssl_wrap_cfg_t - parameters
 
    +-----------------+----------------------------------------------------+
    | **ca_cert**     | CA certificate information. This is a pointer to   |
@@ -86,7 +88,7 @@ http_client_resp_info_t
 This data structure is used to pass information about the data received
 from the server when HTTP GET is done using the http_client_get API.
 
-.. table:: Table : http_client_resp_info_t - parameters
+.. table:: Table 4: http_client_resp_info_t - parameters
 
    +-------------+--------------------------------------------------------+
    | **st        | HTTP response status code                              |
@@ -123,7 +125,7 @@ This API is used to securely connect to remote server using SSL/TLS.
 Definition 
 ~~~~~~~~~~~
 
-.. table:: Table : ssl_wrap_connect – parameters
+.. table:: Table 5: ssl_wrap_connect – parameters
 
    +-----------------------------------------------------------------------+
    | ssl_wrap_handle_t                                                     |
@@ -135,7 +137,7 @@ Definition
 Parameters
 ~~~~~~~~~~
 
-.. table:: Table : ssl_wrap_read - parameters
+.. table:: Table 6: ssl_wrap_read - parameters
 
    +--------------+-------------------------------------------------------+
    | *            | **Description**                                       |
@@ -173,7 +175,7 @@ for the data.
 Definition
 ~~~~~~~~~~
 
-.. table:: Table : ssl_wrap_write - parameters
+.. table:: Table 7: ssl_wrap_write - parameters
 
    +-----------------------------------------------------------------------+
    | int                                                                   |
@@ -187,7 +189,7 @@ Definition
 Parameters
 ~~~~~~~~~~
 
-.. table:: Table : ssl_wrap_read_timeout - parameters
+.. table:: Table 8: ssl_wrap_read_timeout - parameters
 
    +--------------+-------------------------------------------------------+
    | *            | **Description**                                       |

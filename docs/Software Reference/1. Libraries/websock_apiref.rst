@@ -1,5 +1,7 @@
-Websocket
------------
+.. websock apiref:
+
+WebSocket API Reference
+#######################
 
 This module implements the WebSocket client functionality. WebSocket is
 a communication protocol providing full duplex, asynchronous
@@ -36,7 +38,7 @@ websock_config_t
 This data structure is used to pass the parameters while opening a
 websocket connection with the remote server using websock_open API.
 
-.. table:: Table : websock_config_t - parameters
+.. table:: Table 1: websock_config_t - parameters
 
    +----------------+-----------------------------------------------------+
    | **hostname**   | Host name or the IP address of the server           |
@@ -67,7 +69,7 @@ websock_msg_hdr_t
 This data structure is used to pass information about the data received
 from the server.
 
-.. table:: Table : websock_msg_hdr_t - parameters
+.. table:: Table 2: websock_msg_hdr_t - parameters
 
    +----------------+-----------------------------------------------------+
    | **fin**        | End of message                                      |
@@ -124,7 +126,7 @@ connection upgrade request must be set by the caller.
 Definition 
 ~~~~~~~~~~~
 
-.. table:: Table : websock_open - parameters
+.. table:: Table 3: websock_open - parameters
 
    +-----------------------------------------------------------------------+
    | websock_handle_t                                                      |
@@ -136,7 +138,7 @@ Definition
 Parameters
 ~~~~~~~~~~
 
-.. table:: Table : websock_close - parameters
+.. table:: Table 4: websock_close - parameters
 
    +-------------+--------------------------------------------------------+
    | **          | **Description**                                        |
@@ -168,7 +170,7 @@ This function is used to close the connection.
 Definition 
 ~~~~~~~~~~~
 
-.. table:: Table : websock_send_text - parameters
+.. table:: Table 5: websock_send_text - parameters
 
    +-----------------------------------------------------------------------+
    | void                                                                  |
@@ -182,7 +184,7 @@ Definition
 Parameters
 ~~~~~~~~~~
 
-.. table:: Table : websock_send_binary - parameters
+.. table:: Table 6: websock_send_binary - parameters
 
    +--------------+-------------------------------------------------------+
    | *            | **Description**                                       |
@@ -213,7 +215,7 @@ This function is used to send “text” data over websocket connection.
 Definition 
 ~~~~~~~~~~~
 
-.. table:: Table : websock_recv - parameters
+.. table:: Table 7: websock_recv - parameters
 
    +-----------------------------------------------------------------------+
    | int                                                                   |

@@ -1,3 +1,5 @@
+.. _generating data fs image:
+
 Generating the Data FS Image
 ----------------------------
 Data image is a user file system which is a .img format. Data FS
@@ -23,76 +25,71 @@ execute the following instruction which generates an image file which
 needs to be flashed to Talaria TWO:
 
 For generating data.img in Windows, execute the following command from
-the SDK directory:
+the FreeRTOS SDK directory:
 
-+-----------------------------------------------------------------------+
-| .\\tools\\mklittlefs\\mklittlefs -s 40000 -c < path to the data       |
-| folder which needs to be updated > .\\< path to store the generated   |
-| data.img>\\data.img                                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      .\tools\mklittlefs\mklittlefs -s 40000 -c < path to the data folder which needs to be updated > .\< path to store the generated data.img>\data.img
+
 
 **Note:** For example, the http_client application needs a certificate
 to connect to the server. Copy the files to the data directory and
 execute this instruction to create a data.img:
 
-+-----------------------------------------------------------------------+
-|    .\\tools\\mklittlefs\\mklittlefs.exe -s 0x40000 -c                 |
-|    .\\examples\\http_client\\cert\\data .\\data.img                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    .\tools\mklittlefs\mklittlefs.exe -s 0x40000 -c .\examples\http_client\cert\data .\data.img
+
 
 This command generates data.img in the current directory.
 
-|image1|
+|image5|
 
-Figure 8: Generating the data image - Windows
+Figure 1: Generating the data image - Windows
 
-|A screenshot of a computer program Description automatically generated|
+|image6|
 
-Figure 9: Generated data image – Windows
+Figure 2: Generated data image – Windows
 
 In Linux
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 For generating data.img in Linux, execute the following command from the
-SDK directory:
+FreeRTOS SDK directory:
 
-+-----------------------------------------------------------------------+
-| ./tools/mklittlefs/mklittlefs -s 40000 -c < path to the data folder   |
-| which needs to be updated > < path to store the generated data.img>   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+     ./tools/mklittlefs/mklittlefs -s 40000 -c < path to the data folder which needs to be updated > < path to store the generated data.img>
+
 
 **Note:** For example, the http_client application needs a certificate
 to connect to the server. Copy the files to the data directory and
 execute this instruction to create a data.img:
 
-+-----------------------------------------------------------------------+
-|    ./tools/mklittlefs/mklittlefs -s 40000 -c                          |
-|    ./examples/http_client/cert/data/ ./data.img                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+     ./tools/mklittlefs/mklittlefs -s 40000 -c ./examples/http_client/cert/data/ ./data.img /httpbin_ca.pem
+
 
 This command generates data.img in the current directory.
 
-|image2|
+|image7|
 
-Figure 10: Generating the data image - Linux
+Figure 3: Generating the data image - Linux
 
-|image3|
+|image8|
 
-Figure 11: Generated data image -Linux
+Figure 4: Generated data image -Linux
 
-.. |image1| image:: media/image1.png
+.. |image5| image:: media/image5.png
    :width: 6.69291in
    :height: 0.39898in
-.. |A screenshot of a computer program Description automatically generated| image:: media/image2.png
+.. |image6| image:: media/image6.png
    :width: 5.90551in
    :height: 4.77165in
-.. |image2| image:: media/image3.png
+.. |image7| image:: media/image7.png
    :width: 6.69291in
    :height: 0.22747in
-.. |image3| image:: media/image4.png
+.. |image8| image:: media/image8.png
    :width: 6.69291in
    :height: 0.38683in

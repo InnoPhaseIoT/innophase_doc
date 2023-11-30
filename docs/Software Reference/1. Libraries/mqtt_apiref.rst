@@ -1,5 +1,7 @@
-mqtt
------
+.. _mqtt apiref:
+
+MQTT API Reference
+##################
 
 MQTT is a messaging protocol based on publish-subscribe pattern. It
 works on top of the TCP/IP protocol and is used in IoT.
@@ -48,7 +50,7 @@ This initializes the connection handle passed to the API.
 Definition 
 ~~~~~~~~~~~
 
-.. table:: Table : MQTTNetworkInit - parameters
+.. table:: Table 1: MQTTNetworkInit - parameters
 
    +-----------------------------------------------------------------------+
    | void MQTTNetworkInit(MQTTNetwork\* handle)                            |
@@ -58,7 +60,7 @@ Definition
 Parameter
 ~~~~~~~~~
 
-.. table:: Table : MQTTNetworkConnect - parameters
+.. table:: Table 2: MQTTNetworkConnect - parameters
 
    +------------+---------------------------------------------------------+
    | **P        | **Description**                                         |
@@ -89,7 +91,7 @@ will be non-secured.
 Definition 
 ~~~~~~~~~~~
 
-.. table:: Table : MQTTNetworkDisconnect - parameters
+.. table:: Table 3: MQTTNetworkDisconnect - parameters
 
    +-----------------------------------------------------------------------+
    | int                                                                   |
@@ -101,7 +103,7 @@ Definition
 Parameters
 ~~~~~~~~~~
 
-.. table:: Table : MQTTNetworkInit_Tls – parameters
+.. table:: Table 4: MQTTNetworkInit_Tls – parameters
 
    +------------+---------------------------------------------------------+
    | **P        | **Description**                                         |
@@ -138,7 +140,7 @@ This function disconnects the MQTT connection.
 Definition 
 ~~~~~~~~~~~
 
-.. table:: Table : MQTTNetworkConnect_Tls - parameters
+.. table:: Table 5: MQTTNetworkConnect_Tls - parameters
 
    +-----------------------------------------------------------------------+
    | void MQTTNetworkDisconnect(MQTTNetwork \*handle)                      |
@@ -150,7 +152,7 @@ Definition
 Parameters
 ~~~~~~~~~~
 
-.. table:: Table : MQTTNetworkDisconnect_Tls - parameters
+.. table:: Table 6: MQTTNetworkDisconnect_Tls - parameters
 
    +--------------+-------------------------------------------------------+
    | *            | **Description**                                       |
@@ -183,7 +185,7 @@ SSL(TLS). This initializes the connection handle passed to the API.
 Definition 
 ~~~~~~~~~~~
 
-.. table:: Table : MQTTNetworkInit_Ws - parameters
+.. table:: Table 7: MQTTNetworkInit_Ws - parameters
 
    +-----------------------------------------------------------------------+
    | void MQTTNetworkInit_Tls(MQTTNetwork\* handle)                        |
@@ -195,7 +197,7 @@ Definition
 Parameters
 ~~~~~~~~~~
 
-.. table:: Table : MQTTNetworkDisconnect_Ws - parameters
+.. table:: Table 8: MQTTNetworkDisconnect_Ws - parameters
 
    +-------------+--------------------------------------------------------+
    | **          | **Description**                                        |

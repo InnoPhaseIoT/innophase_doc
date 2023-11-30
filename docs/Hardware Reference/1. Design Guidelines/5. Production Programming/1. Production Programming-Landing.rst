@@ -1,12 +1,12 @@
+.. _production programming landing:
 
+Production Programming
+######################
 
-Production programming of Talaria TWO module can be done in the
-following three ways:
+Production programming of Talaria TWO module can be done in the following three ways:
 
 1. PC-based programming
-
 2. Host-based programming
-
 3. Programming Over the Air
 
 **Note**: The schematics and the user guide for the programmer board
@@ -18,8 +18,8 @@ To obtain access to the customer portal, contact InnoPhase IoT sales
 team: sales@innophaseiot.com.
 
 
-Production Programming - PC based
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+PC-based
+~~~~~~~~
 
 .. toctree::
     :maxdepth: 2
@@ -27,8 +27,8 @@ Production Programming - PC based
     2. Production Programming - PC based.rst
 
 
-Production Programming - Host based
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Host based
+~~~~~~~~~~
 
 .. toctree::
     :maxdepth: 2
@@ -36,8 +36,8 @@ Production Programming - Host based
     3. Production Programming - Host based.rst
 
 
-Production Programming - Programming Over the Air
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Programming Over the Air
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
     :maxdepth: 2

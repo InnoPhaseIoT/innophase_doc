@@ -1,5 +1,7 @@
+.. _support:
+
 Support
--------------
+#######
 
 1. Sales Support: Contact an InnoPhase sales representative via email –
    sales@innophaseiot.com

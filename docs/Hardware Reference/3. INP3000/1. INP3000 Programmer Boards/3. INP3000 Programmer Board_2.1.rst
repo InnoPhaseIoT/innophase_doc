@@ -1,17 +1,18 @@
+.. _inp3000 prog board 2.1:
+
 INP3000 Programmer Board
 ========================
 
 VERSION 2.1
 -----------
 
-|A picture containing text, electronics Description automatically
-generated|
+|image6|
 
-Figure 6: INP3000 programmer board – version 2.1
+Figure 1: INP3000 programmer board – version 2.1
 
-Table 8 provides the description of each jumper:
+Table 1 provides the description of each jumper:
 
-.. table:: Table 8: INP3000 jumpers with description
+.. table:: Table 1: INP3000 jumpers with description
 
    +-------------------+--------------------------------------------------+
    | **Jumper**        | **Description**                                  |
@@ -34,26 +35,24 @@ Table 8 provides the description of each jumper:
    +-------------------+--------------------------------------------------+
 
 When programming a Talaria TWO module on an INP1014, they can be
-connected using a 20-pin ribbon cable as shown in Figure 7.
+connected using a 20-pin ribbon cable as shown in Figure 2.
 
-|A close-up of a circuit board Description automatically generated with
-low confidence|
+|image7|
 
-Figure 7: INP3000 programmer board with Talaria TWO module
+Figure 2: INP3000 programmer board with Talaria TWO module
 
 Connecting via UART interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-|Graphical user interface, text, application, chat or text message
-Description automatically generated|
+|image8|
 
-   Figure 8: UART connection diagram
+Figure 3: UART connection diagram
 
-Figure 8 is the connection diagram showing the connection of INP3000
-programmer board to a Talaria TWO module via UART. Table 9 provides the
+Figure 3 is the connection diagram showing the connection of INP3000
+programmer board to a Talaria TWO module via UART. Table 2 provides the
 description of each connection:
 
-.. table:: Table 9: UART Connection & Description
+.. table:: Table 2: UART Connection & Description
 
    +------------------------+---------------------------------------------+
    | **Connection**         | **Description**                             |
@@ -69,32 +68,28 @@ description of each connection:
    +------------------------+---------------------------------------------+
 
 To use UART, ensure that the J7 jumpers are configured as shown in
-Figure 9.
+Figure 3.
 
-|A picture containing text, electronics, circuit Description
-automatically generated|
+|image9|
 
-Figure 9: INP3000 programmer board version 2.1 - UART jumper setting
+Figure 4: INP3000 programmer board version 2.1 - UART jumper setting
 
-Once connected as shown in Figure 8 and Figure 9, Talaria TWO module can
+Once connected as shown in Figure 3 and Figure 4, Talaria TWO module can
 be programmed via the factory loader script or the Talaria TWO download
 tool.
-
-For more information on the factory loader, refer:
-UG_Factory_Loader.pdf.
 
 Connecting via SPI interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-|image1|
+|image10|
 
-Figure 10: SPI connection diagram
+Figure 5: SPI connection diagram
 
-Figure 10 is the connection diagram showing the connection of INP3000
-programmer board to a Talaria TWO module via SPI. Table 10 provides the
+Figure 5 is the connection diagram showing the connection of INP3000
+programmer board to a Talaria TWO module via SPI. Table 3 provides the
 description for each connection:
 
-.. table:: Table 10: SPI Connection & Description
+.. table:: Table 3: SPI Connection & Description
 
    +--------------------+-------------------------------------------------+
    | **Connection**     | **Description**                                 |
@@ -113,28 +108,27 @@ description for each connection:
    |                    | is 2457600)                                     |
    +--------------------+-------------------------------------------------+
 
-To use SPI, ensure that the J7 jumpers are as shown in Figure 11.
+To use SPI, ensure that the J7 jumpers are as shown in Figure 6.
 
-|A model of a building Description automatically generated with low
-confidence|
+|image11|
 
-Figure 11: INP3000 programmer board version 2.1 - SPI jumper setting
+Figure 6: INP3000 programmer board version 2.1 - SPI jumper setting
 
-.. |A picture containing text, electronics Description automatically generated| image:: media/image1.png
+.. |image6| image:: media/image6.png
    :width: 5.11811in
    :height: 4.06154in
-.. |A close-up of a circuit board Description automatically generated with low confidence| image:: media/image2.png
+.. |image7| image:: media/image7.png
    :width: 4.72441in
    :height: 3.14077in
-.. |Graphical user interface, text, application, chat or text message Description automatically generated| image:: media/image3.png
+.. |image8| image:: media/image8.png
    :width: 3.34375in
    :height: 2.30208in
-.. |A picture containing text, electronics, circuit Description automatically generated| image:: media/image4.jpeg
+.. |image9| image:: media/image9.jpeg
    :width: 4.72441in
    :height: 3.44826in
-.. |image1| image:: media/image5.png
+.. |image10| image:: media/image10.png
    :width: 3.34375in
    :height: 3.03125in
-.. |A model of a building Description automatically generated with low confidence| image:: media/image6.jpeg
+.. |image11| image:: media/image11.jpeg
    :width: 4.72441in
    :height: 2.92874in

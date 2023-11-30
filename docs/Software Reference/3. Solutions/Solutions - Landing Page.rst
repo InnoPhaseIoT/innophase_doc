@@ -1,4 +1,7 @@
+.. _solutions:
 
+Solutions
+#########
 
 Talaria TWO works by communicating with a host application through a
 series of message exchanges back and forth. In this case, the host

@@ -1,12 +1,14 @@
+.. _inp3000 prog board 3.0:
+
 INP3000 Programmer Board
 ========================
 
 VERSION 3.0
 -----------
 
-|A picture containing text Description automatically generated|
+|image3|
 
-Figure 3: INP3000 programmer kit contents - version 3.0
+Figure 1: INP3000 programmer kit contents - version 3.0
 
 Table 2 provides the description of each Connector on the board:
 
@@ -121,9 +123,9 @@ SW1 Switch settings for SPI and UART:
    | Position 6            | OFF                  | ON                   |
    +-----------------------+----------------------+----------------------+
 
-|Diagram, schematic Description automatically generated|
+|image4|
 
-Figure 4: Switch settings to select between SPI and UART
+Figure 2: Switch settings to select between SPI and UART
 
 J6 JTAG Connector Pin-out:
 
@@ -143,19 +145,19 @@ J6 JTAG Connector Pin-out:
    | GND             | 9             | 10            | EN_CHIP/\_RST    |
    +-----------------+---------------+---------------+------------------+
 
-|image1|
+|image5|
 
-Figure 5: Connectors for application board
+Figure 3: Connectors for application board
 
 Use the mating connector on the Molex cable connected to FTDI board
-version 3.0 in Figure 5 to independently program the Talaria TWO module.
+version 3.0 in Figure 3 to independently program the Talaria TWO module.
 
-.. |A picture containing text Description automatically generated| image:: media/image1.png
+.. |image3| image:: media/image3.png
    :width: 5.11811in
    :height: 4.9996in
-.. |Diagram, schematic Description automatically generated| image:: media/image2.png
+.. |image4| image:: media/image4.png
    :width: 4.72441in
    :height: 3.80687in
-.. |image1| image:: media/image3.png
+.. |image5| image:: media/image5.png
    :width: 5.90551in
    :height: 2.74984in

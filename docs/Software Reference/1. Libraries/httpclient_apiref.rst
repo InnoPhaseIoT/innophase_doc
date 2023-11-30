@@ -1,5 +1,7 @@
-Http client
-------------
+.. _httpclient apiref:
+
+HTTPClient API Reference
+########################
 
 HTTP is a stateless application-level protocol used for data transfer.
 This section provides information about the HTTP Client APIs and data
@@ -45,7 +47,7 @@ http_client_config_t
 This data structure is used to pass the parameters while opening a HTTP
 connection with the remote server using http_client_open API.
 
-.. table:: Table : http_client_config_t - parameters
+.. table:: Table 1: http_client_config_t - parameters
 
    +----------------------------+-----------------------------------------------------+
    | **hostname**               | Host name or the IP address of the server. Example, |
@@ -68,7 +70,7 @@ http_client_resp_info_t
 This data structure is used to pass information about the data received
 from the server when HTTP GET is done using the http_client_get API.
 
-.. table:: Table : http_client_resp_info_t - parameters
+.. table:: Table 2: http_client_resp_info_t - parameters
 
    +-------------------+-----------------------------------------------------+
    | **status_code**   | HTTP response status code                           |
@@ -111,7 +113,7 @@ Definition
 Parameters
 ~~~~~~~~~~
 
-.. table:: Table : http_client_get - parameters
+.. table:: Table 3: http_client_get - parameters
 
    +--------------------+----------------------------------------------------------+
    | **Parameter**      | **Description**                                          |
@@ -154,7 +156,7 @@ Definition
 Parameters
 ~~~~~~~~~~
 
-.. table:: Table : http_client_set_req_hdr - parameters
+.. table:: Table 4: http_client_set_req_hdr - parameters
 
    +------------------+-----------------------------------------------------------------------------------+
    | **Parameter**    | **Description**                                                                   |

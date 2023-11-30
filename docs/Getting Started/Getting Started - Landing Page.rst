@@ -1,8 +1,10 @@
-Getting Started
-===============
+.. _getting started landing page:
+
+Getting Started on Talaria TWO with FreeRTOS
+############################################
 
 InnoPhase IoT software development kit is beneficial for development of
-integrated applications on Talaria TWO with InnoOS RTOS, lwIP network
+integrated applications on Talaria TWO with FreeRTOS, lwIP network
 stack and GCC compiler-based SDK. It helps enable applications,
 networking and wireless (BLE/Wi-Fi) functionality on Talaria TWO.
 

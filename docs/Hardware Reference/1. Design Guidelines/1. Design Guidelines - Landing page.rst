@@ -1,3 +1,7 @@
+.. _design guidelines landing:
+
+Design Guidelines
+#################
 
 Design guidelines can be broadly categorized into the following
 sections:

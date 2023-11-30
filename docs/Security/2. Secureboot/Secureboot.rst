@@ -1,3 +1,5 @@
+.. security secureboot:
+
 Secureboot
 ------------
 

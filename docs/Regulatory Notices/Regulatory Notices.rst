@@ -1,5 +1,7 @@
+.. _reg notices:
+
 Regulatory Notices
-==================
+##################
 
 
 FCC/ISED Regulatory Notices

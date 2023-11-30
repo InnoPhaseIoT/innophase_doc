@@ -1,5 +1,7 @@
+.. _security:
+
 Security
-========
+########
 
 This section describes the different security features available as part
 of the Talaria TWO InnoPhase IoT solutions. These security features are

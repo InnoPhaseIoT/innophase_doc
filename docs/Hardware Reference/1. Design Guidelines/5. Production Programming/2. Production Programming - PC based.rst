@@ -1,7 +1,7 @@
-
+.. _pc-based programming:
 
 PC-based Programming
---------------------
+####################
 
 There are two ways in which the module can be programmed using the PC:
 
@@ -33,15 +33,14 @@ PC with 6 pins listed in Table 10.
    | 6                                 | GND                               |
    +-----------------------------------+-----------------------------------+
 
-The block diagram for the same is discussed in Figure 13 and the
+The block diagram for the same is discussed in Figure 1 and the
 schematics can be extracted from the evaluation board schematics listed
 on the InnoPhase IoT website:
 https://innophaseiot.com/wp-content/uploads/modules/INP301x-EVB-A-Schematics.pdf.
 
-|Graphical user interface Description automatically generated|\ |Diagram
-Description automatically generated|
+|image1|
 
-Figure 13: UART-based Programming
+Figure 1: UART-based Programming
 
 In case of a custom application board, it is recommended to use the
 INP3000 programmer board to program the module. The INP3000 programmer
@@ -52,27 +51,27 @@ The mating connector for the same is 532610671 Pitch 1.25mm, (*PicoBlade
 PCB Header, Single Row, Right-Angle, Surface mount, Tin (Sn) Plating,
 Friction Lock, 6 Circuits*).
 
-|A close-up of a cable Description automatically generated|
+|image2|
 
-Figure 14: Molex cable part number 151340601
+Figure 2: Molex cable part number 151340601
 
-|image1|
+|image3|
 
-Figure 15: Mating connector part number 532610671
+Figure 3: Mating connector part number 532610671
 
-|Diagram Description automatically generated with medium confidence|
+|image4|
 
-Figure 16: Programming Cable PIN-OUTs J7
+Figure 4: Programming Cable PIN-OUTs J7
 
 SWD-based Programming
 ~~~~~~~~~~~~~~~~~~~~~
 
 To perform SWD-based programming, the module must be connected as shown
-in Figure 18.
+in Figure 5.
 
-|image2|
+|image5|
 
-Figure 18: SWD-based programming
+Figure 5: SWD-based programming
 
 In case of a custom application board, it is recommended to use the
 INP3000 programmer board to program the module. The INP3000 programmer
@@ -110,28 +109,25 @@ following connector details:
    | 10                                | EN_CHIP/RST                       |
    +-----------------------------------+-----------------------------------+
 
-|image3|
+|image6|
 
-Figure 19: SWD Connector on the application board
+Figure 6: SWD Connector on the application board
 
-.. |Graphical user interface Description automatically generated| image:: media/image1.png
+.. |image1| image:: media/image1.png
    :width: 0.59595in
    :height: 0.575in
-.. |Diagram Description automatically generated| image:: media/image2.jpeg
+.. |image2| image:: media/image2.png
    :width: 7.48031in
    :height: 3.4863in
-.. |A close-up of a cable Description automatically generated| image:: media/image3.png
+.. |image3| image:: media/image3.png
    :width: 3.14961in
    :height: 1.87549in
-.. |image1| image:: media/image4.png
+.. |image4| image:: media/image4.png
    :width: 3.14961in
    :height: 2.11003in
-.. |Diagram Description automatically generated with medium confidence| image:: media/image5.png
+.. |image5| image:: media/image5.png
    :width: 7.48031in
    :height: 2.1966in
-.. |image2| image:: media/image6.png
+.. |image6| image:: media/image6.png
    :width: 7.48031in
    :height: 3.26392in
-.. |image3| image:: media/image7.png
-   :width: 7.48031in
-   :height: 3.0208in

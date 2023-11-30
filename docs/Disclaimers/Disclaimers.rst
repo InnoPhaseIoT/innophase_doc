@@ -1,5 +1,7 @@
+.. _disclaimer:
+
 Disclaimer
-==============
+##########
 
 Limited warranty and liability — Information in this document is
 believed to be accurate and reliable. However, InnoPhase IoT

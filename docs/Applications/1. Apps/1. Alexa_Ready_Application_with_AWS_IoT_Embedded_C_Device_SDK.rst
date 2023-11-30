@@ -1,5 +1,7 @@
-Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK
---------------------------------------------
+.. _app alexa-ready:
+
+Alexa-Ready Application with AWS IoT Embedded C Device SDK
+##########################################################
 
 Alexa Ready application on Talaria TWO uses AWS IoT Embedded C Device
 SDK available on Talaria TWO to interact with the Device Shadow Service
@@ -63,7 +65,7 @@ a layered architecture as shown in Figure 1.
 
 |image1|
 
-Figure : SDK architecture & modules
+Figure 1: SDK architecture & modules
 
 MQTT Connection 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -142,7 +144,7 @@ Shadows can be named or unnamed (classic). The topics used by each
 differ only in the topic prefix. Table 1 shows the topic prefix used by
 each shadow type.
 
-.. table:: Table : Topic prefix used by each shadow type
+.. table:: Table 1: Topic prefix used by each shadow type
 
    +-------------------------------------------+--------------------------+
    | **ShadowTopicPrefix value**               | **Shadow type**          |
@@ -153,7 +155,7 @@ each shadow type.
    | s/things/thingName/shadow/name/shadowName |                          |
    +-------------------------------------------+--------------------------+
 
-.. table:: Table : ShadowTopicPrefix
+.. table:: Table 2: ShadowTopicPrefix
 
    +------------------+------------------------+--------------------------+
    | **Topic**        | **Meaning**            | **Action a device should |
@@ -256,7 +258,7 @@ keep the device state matched to the changes in its shadows by:
 
 While a device is connected, it publishes these messages when indicated.
 
-.. table:: Table : Indication
+.. table:: Table 3: Indication
 
    +----------------------------+--------------------+--------------------+
    | **Indication**             | **Topic**          | **Payload**        |
@@ -312,11 +314,10 @@ Will be initialized with pParams.
 
 Returns an IoT Error Type defining successful/failed Initialization.
 
-+-----------------------------------------------------------------------+
-| IoT_Error_t aws_iot_shadow_init(AWS_IoT_Client \*pClient,             |
-| ShadowInitParameters_t \*pParams);                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      IoT_Error_t aws_iot_shadow_init(AWS_IoT_Client *pClient, ShadowInitParameters_t *pParams);
+
 
 aws_iot_shadow_connect()
 --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~----------------------
@@ -329,11 +330,9 @@ holds Shadow Connection parameters.
 
 Returns an IoT Error Type defining successful/failed Connection.
 
-+-----------------------------------------------------------------------+
-| IoT_Error_t aws_iot_shadow_connect(AWS_IoT_Client \*pClient,          |
-| ShadowConnectParameters_t \*pParams);                                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      IoT_Error_t aws_iot_shadow_connect(AWS_IoT_Client *pClient, ShadowConnectParameters_t *pParams);
 
 aws_iot_shadow_yield()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -359,11 +358,10 @@ message and/or read the messages from the TLS buffer.
 
 Returns an IoT Error Type defining successful/failed Yield.
 
-+-----------------------------------------------------------------------+
-| IoT_Error_t aws_iot_shadow_yield(AWS_IoT_Client \*pClient, uint32_t   |
-| timeout);                                                             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      IoT_Error_t aws_iot_shadow_yield(AWS_IoT_Client *pClient, uint32_t timeout);
+
 
 (\*fpActionCallback_t)()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -381,39 +379,27 @@ pReceivedJsonDocument is received JSON document when Accepted,
 pContextData is the void\* data passed in during the action call
 (Update, Get or Delete).
 
-+-----------------------------------------------------------------------+
-| typedef void (\*fpActionCallback_t)(const char \*pThingName,          |
-| ShadowActions_t action, Shadow_Ack_Status_t status, const char        |
-| \*pReceivedJsonDocument, void \*pContextData);                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-+-----------------------------------------------------------------------+
-| /\*\*                                                                 |
-|                                                                       |
-| \* @brief Thing Shadow Acknowledgment enum                            |
-|                                                                       |
-| \*/                                                                   |
-|                                                                       |
-| typedef enum {                                                        |
-|                                                                       |
-| SHADOW_ACK_TIMEOUT, SHADOW_ACK_REJECTED, SHADOW_ACK_ACCEPTED          |
-|                                                                       |
-| } Shadow_Ack_Status_t;                                                |
-|                                                                       |
-| /\*\*                                                                 |
-|                                                                       |
-| \* @brief Thing Shadow Action type enum                               |
-|                                                                       |
-| \*/                                                                   |
-|                                                                       |
-| typedef enum {                                                        |
-|                                                                       |
-| SHADOW_GET, SHADOW_UPDATE, SHADOW_DELETE                              |
-|                                                                       |
-| } ShadowActions_t;                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+      typedef void (*fpActionCallback_t)(const char *pThingName, ShadowActions_t action, Shadow_Ack_Status_t status, const char *pReceivedJsonDocument, void *pContextData);
+
+.. code:: shell
+
+      /**
+ * @brief Thing Shadow Acknowledgment enum
+*/
+typedef enum {
+	SHADOW_ACK_TIMEOUT, SHADOW_ACK_REJECTED, SHADOW_ACK_ACCEPTED
+} Shadow_Ack_Status_t;
+
+/**
+ * @brief Thing Shadow Action type enum
+*/
+typedef enum {
+	SHADOW_GET, SHADOW_UPDATE, SHADOW_DELETE
+} ShadowActions_t;
+
+
 
 aws_iot_shadow_update()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -471,13 +457,10 @@ one-off update, then isPersistentSubscribe should be set to false.
 
 Returns an IoT Error Type defining successful/failed Update action.
 
-+-----------------------------------------------------------------------+
-| IoT_Error_t aws_iot_shadow_update(AWS_IoT_Client \*pClient, const     |
-| char \*pThingName, char \*pJsonString, fpActionCallback_t callback,   |
-| void \*pContextData, uint8_t timeout_seconds, bool                    |
-| isPersistentSubscribe);                                               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      IoT_Error_t aws_iot_shadow_update(AWS_IoT_Client *pClient, const char *pThingName, char *pJsonString, fpActionCallback_t callback, void *pContextData, uint8_t timeout_seconds, bool isPersistentSubscribe);
+
 
 aws_iot_shadow_get()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -493,12 +476,10 @@ aws_iot_shadow_update().
 
 Returns an IoT Error Type defining successful/failed Get action.
 
-+-----------------------------------------------------------------------+
-| IoT_Error_t aws_iot_shadow_get(AWS_IoT_Client \*pClient, const char   |
-| \*pThingName, fpActionCallback_t callback, void \*pContextData,       |
-| uint8_t timeout_seconds, bool isPersistentSubscribe);                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      IoT_Error_t aws_iot_shadow_get(AWS_IoT_Client *pClient, const char *pThingName, fpActionCallback_t callback, void *pContextData, uint8_t timeout_seconds, bool isPersistentSubscribe);
+
 
 aws_iot_shadow_delete()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -518,12 +499,10 @@ aws_iot_shadow_update().
 
 Returns an IoT Error Type defining successful/failed Delete action.
 
-+-----------------------------------------------------------------------+
-| IoT_Error_t aws_iot_shadow_delete(AWS_IoT_Client \*pClient, const     |
-| char \*pThingName, fpActionCallback_t callback, void \*pContextData,  |
-| uint8_t timeout_seconds, bool isPersistentSubscriptions);             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      IoT_Error_t aws_iot_shadow_delete(AWS_IoT_Client *pClient, const char *pThingName, fpActionCallback_t callback, void *pContextData, uint8_t timeout_seconds, bool isPersistentSubscriptions);
+
 
 aws_iot_shadow_register_delta()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -541,11 +520,11 @@ later in this app note.
 
 Returns an IoT Error Type defining successful/failed delta registration.
 
-+-----------------------------------------------------------------------+
-| IoT_Error_t aws_iot_shadow_register_delta(AWS_IoT_Client \*pClient,   |
-| jsonStruct_t \*pStruct);                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      IoT_Error_t aws_iot_shadow_register_delta(AWS_IoT_Client *pClient, jsonStruct_t *pStruct);
+
+
 
 aws_iot_shadow_reset_last_received_version()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -554,10 +533,9 @@ This API is the used Reset the last received version number to zero and
 is useful when the Thing Shadow is deleted and the local version needs
 to be rest.
 
-+-----------------------------------------------------------------------+
-| void aws_iot_shadow_reset_last_received_version(void);                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      void aws_iot_shadow_reset_last_received_version(void);
 
 aws_iot_shadow_get_last_received_version()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -579,10 +557,10 @@ received before the delta.
 
 Returns version number of the last received response.
 
-+-----------------------------------------------------------------------+
-| uint32_t aws_iot_shadow_get_last_received_version(void);              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      uint32_t aws_iot_shadow_get_last_received_version(void);
+
 
 aws_iot_shadow_enable_discard_old_delta_msgs()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -594,10 +572,10 @@ messages if we use QoS 0. To avoid getting called for the same message,
 this functionality should be enabled. If enabled, all the old messages
 will be ignored.
 
-+-----------------------------------------------------------------------+
-| void aws_iot_shadow_enable_discard_old_delta_msgs(void);              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      void aws_iot_shadow_enable_discard_old_delta_msgs(void);
+
 
 aws_iot_shadow_disable_discard_old_delta_msgs()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -605,10 +583,10 @@ aws_iot_shadow_disable_discard_old_delta_msgs()
 This API disables the ignoring of delta messages with old version
 number.
 
-+-----------------------------------------------------------------------+
-| void aws_iot_shadow_disable_discard_old_delta_msgs(void);             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      void aws_iot_shadow_disable_discard_old_delta_msgs(void);
+
 
 aws_iot_shadow_set_autoreconnect_status()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -622,11 +600,10 @@ holds the value to set the autoreconnect option to.
 
 Returns an IoT Error Type defining successful/failed operation.
 
-+-----------------------------------------------------------------------+
-| IoT_Error_t aws_iot_shadow_set_autoreconnect_status(AWS_IoT_Client    |
-| \*pClient, bool newStatus);                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      IoT_Error_t aws_iot_shadow_set_autoreconnect_status(AWS_IoT_Client *pClient, bool newStatus);
+
 
 aws_iot_shadow_disconnect()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -638,10 +615,10 @@ Parameter pClient is MQTT Client used as the protocol layer.
 
 Returns an IoT Error Type defining successful/failed disconnect status.
 
-+-----------------------------------------------------------------------+
-| IoT_Error_t aws_iot_shadow_disconnect(AWS_IoT_Client \*pClient);      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      IoT_Error_t aws_iot_shadow_disconnect(AWS_IoT_Client *pClient);
+
 
 aws_iot_shadow_free()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -654,10 +631,10 @@ aws_iot_shadow_init().
 
 Returns an IoT Error Type defining successful/failed freeing.
 
-+-----------------------------------------------------------------------+
-| IoT_Error_t aws_iot_shadow_disconnect(AWS_IoT_Client \*pClient);      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      IoT_Error_t aws_iot_shadow_disconnect(AWS_IoT_Client *pClient);
+
 
 aws_iot_shadow_init_json_document()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -681,11 +658,10 @@ string was not filled up.
 **Note**: The JSON library used for this SDK is JSMN which does not use
 any dynamic memory allocation.
 
-+-----------------------------------------------------------------------+
-| IoT_Error_t aws_iot_shadow_init_json_document(char \*pJsonDocument,   |
-| size_t maxSizeOfJsonDocument);                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      IoT_Error_t aws_iot_shadow_init_json_document(char *pJsonDocument, size_t maxSizeOfJsonDocument);
+
 
 structure jsonStruct_t
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -695,66 +671,38 @@ iot_shadow_add_reported() and/or iot_shadow_add_desired(), are used to
 fill the JSON document’s reported or desired section with the values we
 want to report/desire. The relevant structure is as follows:
 
-+-----------------------------------------------------------------------+
-| /\*\*                                                                 |
-|                                                                       |
-| \* @brief This is the struct form of a JSON Key value pair            |
-|                                                                       |
-| \*/                                                                   |
-|                                                                       |
-| struct jsonStruct {                                                   |
-|                                                                       |
-| const char \*pKey; ///< JSON key                                      |
-|                                                                       |
-| void \*pData; ///< pointer to the data (JSON value)                   |
-|                                                                       |
-| size_t dataLength; ///< Length (in bytes) of pData                    |
-|                                                                       |
-| JsonPrimitiveType type; ///< type of JSON                             |
-|                                                                       |
-| jsonStructCallback_t cb; ///< callback to be executed on receiving    |
-| the Key value pair                                                    |
-|                                                                       |
-| };                                                                    |
-|                                                                       |
-| /\*\*                                                                 |
-|                                                                       |
-| \* @brief All the JSON object types enum                              |
-|                                                                       |
-| \*                                                                    |
-|                                                                       |
-| \* JSON number types need to be split into proper integer / floating  |
-| point data types and sizes on embedded platforms.                     |
-|                                                                       |
-| \*/                                                                   |
-|                                                                       |
-| typedef enum {                                                        |
-|                                                                       |
-| SHADOW_JSON_INT32,                                                    |
-|                                                                       |
-| SHADOW_JSON_INT16,                                                    |
-|                                                                       |
-| SHADOW_JSON_INT8,                                                     |
-|                                                                       |
-| SHADOW_JSON_UINT32,                                                   |
-|                                                                       |
-| SHADOW_JSON_UINT16,                                                   |
-|                                                                       |
-| SHADOW_JSON_UINT8,                                                    |
-|                                                                       |
-| SHADOW_JSON_FLOAT,                                                    |
-|                                                                       |
-| SHADOW_JSON_DOUBLE,                                                   |
-|                                                                       |
-| SHADOW_JSON_BOOL,                                                     |
-|                                                                       |
-| SHADOW_JSON_STRING,                                                   |
-|                                                                       |
-| SHADOW_JSON_OBJECT                                                    |
-|                                                                       |
-| } JsonPrimitiveType;                                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      /**
+ * @brief This is the struct form of a JSON Key value pair
+ */
+struct jsonStruct {
+	const char *pKey; ///< JSON key
+	void *pData; ///< pointer to the data (JSON value)
+	size_t dataLength; ///< Length (in bytes) of pData
+	JsonPrimitiveType type; ///< type of JSON
+	jsonStructCallback_t cb; ///< callback to be executed on receiving the Key value pair
+}; 
+
+/**
+ * @brief All the JSON object types enum
+ *
+ * JSON number types need to be split into proper integer / floating point data types and sizes on embedded platforms.
+ */
+typedef enum {
+	SHADOW_JSON_INT32,
+	SHADOW_JSON_INT16,
+	SHADOW_JSON_INT8,
+	SHADOW_JSON_UINT32,
+	SHADOW_JSON_UINT16,
+	SHADOW_JSON_UINT8,
+	SHADOW_JSON_FLOAT,
+	SHADOW_JSON_DOUBLE,
+	SHADOW_JSON_BOOL,
+	SHADOW_JSON_STRING,
+	SHADOW_JSON_OBJECT
+} JsonPrimitiveType;
+
 
 aws_iot_shadow_add_reported()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -783,11 +731,10 @@ passed in the arguments.
 Returns an IoT Error Type defining if the buffer was null or the entire
 string was not filled up.
 
-+-----------------------------------------------------------------------+
-| IoT_Error_t aws_iot_shadow_add_reported(char \*pJsonDocument, size_t  |
-| maxSizeOfJsonDocument, uint8_t count, ...);                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      IoT_Error_t aws_iot_shadow_add_reported(char *pJsonDocument, size_t maxSizeOfJsonDocument, uint8_t count, ...);
+
 
 aws_iot_shadow_add_desired()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -819,11 +766,10 @@ string was not filled up.
 **Note**: Both ‘desired’ and ‘reported’ section are not mandatory. Most
 devices might just use the reported section.
 
-+-----------------------------------------------------------------------+
-| IoT_Error_t aws_iot_shadow_add_desired(char \*pJsonDocument, size_t   |
-| maxSizeOfJsonDocument, uint8_t count, ...);                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      IoT_Error_t aws_iot_shadow_add_desired(char *pJsonDocument, size_t maxSizeOfJsonDocument, uint8_t count, ...);
+
 
 aws_iot_finalize_json_document()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -846,11 +792,10 @@ used to fill the JSON document.
 Returns an IoT Error Type defining if the buffer was null or the entire
 string was not filled up.
 
-+-----------------------------------------------------------------------+
-| IoT_Error_t aws_iot_finalize_json_document(char \*pJsonDocument,      |
-| size_t maxSizeOfJsonDocument);                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      IoT_Error_t aws_iot_finalize_json_document(char *pJsonDocument, size_t maxSizeOfJsonDocument);
+
 
 When action Update is called after finalize, there could a situation of
 multiple other services trying to update the same shadow. To
@@ -879,11 +824,11 @@ the pJsonDocument that can be used to fill the JSON document.
 Returns an IoT Error Type defining if the buffer was null or the entire
 string was not filled up.
 
-+-----------------------------------------------------------------------+
-| IoT_Error_t aws_iot_fill_with_client_token(char                       |
-| \*pBufferToBeUpdatedWithClientToken, size_t maxSizeOfJsonDocument);   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      IoT_Error_t aws_iot_fill_with_client_token(char *pBufferToBeUpdatedWithClientToken, size_t maxSizeOfJsonDocument);
+
+
 
 Auto Reconnect Feature
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1045,14 +990,14 @@ skill, and search for innophase alexa skill as shown in Figure 2.
 
 |image2|
 
-Figure : Locating and enabling skill via amazon.com in browser -- 1
+Figure 2: Locating and enabling skill via amazon.com in browser -- 1
 
 Click the link of the skill and look for Enable. Once enabled from here,
 this skill will show up in Alexa App logged in to same account as well.
 
 |image3|
 
-Figure : Locating and enabling skill via amazon.com in browser -- 2
+Figure 3: Locating and enabling skill via amazon.com in browser -- 2
 
 Method 2 - Enabling Via Amazon Alexa App
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1063,7 +1008,7 @@ shown in Figure 4.
 
 |image4|
 
-Figure : Locating and enabling skill via Alexa phone app
+Figure 4: Locating and enabling skill via Alexa phone app
 
 Linking the Alexa account to the Skill
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1076,7 +1021,7 @@ next screen) where it asks for an Amazon account, as shown in Figure 5.
 
 |image5|
 
-Figure : Amazon account – credentials asked for account linking
+Figure 5: Amazon account – credentials asked for account linking
 
 Ensure you use the same account you have used for Alexa app to login.
 
@@ -1086,10 +1031,9 @@ skipped and you will directly see a prompt as shown in Figure 6.
 
 Provide permission for accessing email address and name by the Skill.
 
-|Graphical user interface Description automatically generated with
-medium confidence|\ |image6|
+|image6|
 
-Figure : Permissions asked to access profile for Account Linking
+Figure 6: Permissions asked to access profile for Account Linking
 
 **Note**: This permission is asked only for the first time of account
 linking. Disabling the Skill and enabling it again with account linking
@@ -1103,7 +1047,7 @@ appear. This completes the Alexa skill setup in your Amazon account.
 
 |image7|
 
-Figure : Amazon Alexa Account Successfully linked to the InnoPhase Smart
+Figure 7: Amazon Alexa Account Successfully linked to the InnoPhase Smart
 Home Demo Alexa Skill
 
 Request for AWS IoT Thing creation & Certs created for the Thing
@@ -1142,10 +1086,8 @@ Program the ELFs, certificate and key onto Talaria TWO using the
 Download tool.
 
 Launch the Download tool provided with InnoPhase Talaria TWO FreeRTOS
-SDK: (*freertos_sdk_x.y\\pc_tools\\Download_Tool\\bin*).
+SDK:
 
-**Note**: x and y in freertos_sdk_x.y refers to the FreeRTOS SDK release
-version.
 
 Show File System Contents
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1174,9 +1116,6 @@ To write files into Talaria TWO, user must create a folder with the name
 data and must create a sub folder (/data/certs/aws/alexa_ready) which is
 the default sub-folder used and place all certificates, keys into it.
 Using the Download tool, files must be written to file system.
-
-For more information on using the Download Tool, refer:
-UG_Download_Tool.pdf (*freertos_sdk_x.y\\pc_tools\\Download_Tool\\doc).*
 
 Programming Talaria TWO board with ELF
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1214,13 +1153,9 @@ tool:
 
    d. Boot Arguments: Pass the following boot arguments:
 
-+-----------------------------------------------------------------------+
-| aws_host=a3t0o11ohwlo2h-ats.iot.us-east-1.amazonaws.com,              |
-| aws_port=8883,suspend=1,no_mcast=1,thing_name=INNO_ENDPOINT_xxxxxxxx  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-..
+      aws_host=a3t0o11ohwlo2h-ats.iot.us-east-1.amazonaws.com, aws_port=8883,suspend=1,no_mcast=1,thing_name=INNO_ENDPOINT_xxxxxxxx
 
    where,
 
@@ -1250,188 +1185,97 @@ v.   thing_name: Unique Thing name received. Replace xxxxxx with
    These boot arguments are used to configure the timeouts in AWS IoT
    SDK.
 
-+-----------------------------------------------------------------------+
-| aws_keepAliveIntervalInSec=120,aws_tlsHandshake                       |
-| Timeout_ms=60000,aws_mqttCommandTimeout_ms=60000,aws_sslRead_timeout_ |
-| ms=10,aws_sslReadRetry_timeout_ms=20,aws_sslWriteRetry_timeout_ms=20, |
-| aws_shaddowActionAckTimeout_sec=60,aws_mqttPingResponseTimeout_sec=60 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      aws_keepAliveIntervalInSec=120,aws_tlsHandshakeTimeout_ms=60000,aws_mqttCommandTimeout_ms=60000,aws_sslRead_timeout_ms=10,aws_sslReadRetry_timeout_ms=20,aws_sslWriteRetry_timeout_ms=20,aws_shaddowActionAckTimeout_sec=60,aws_mqttPingResponseTimeout_sec=60
+
 
 a. Programming: Prog RAM or Prog Flash as per requirement.
 
 Console log after programming:
 
-+-----------------------------------------------------------------------+
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PNWWWWWAEBuild $Id: git-b664be2af $                             |
-|                                                                       |
-| aws_host=a3t0o11ohwlo2h-ats.iot.us-east-1.amazonaws.com aws_port=8883 |
-| suspend=1 no_mcast=< 1 thing_name=INNO_ENDPOINT_6GBTSRZ8              |
-| np_conf_path=/sys/nprofile.json ssid=InnoPhase passphrase=43083191    |
-|                                                                       |
-| $App:git-38ca4ab7                                                     |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Innoswitch Demo App                                                   |
-|                                                                       |
-| Mounting file system                                                  |
-|                                                                       |
-| read_certs() success                                                  |
-|                                                                       |
-| addr e0:69:3a:00:2c:3e                                                |
-|                                                                       |
-| added network profile successfully, will try connecting..             |
-|                                                                       |
-| [2.769,774] CONNECT:d2:01:2a:d2:4a:2d Channel:11 rssi:-24 dBm         |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP                   |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS                   |
-|                                                                       |
-| [4.805,318] MYIP 192.168.224.237                                      |
-|                                                                       |
-| [4.805,402] IPv6 [fe80::e269:3aff:fe00:2c3e]-link                     |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED                 |
-|                                                                       |
-| Shadow Connect                                                        |
-|                                                                       |
-| Root Done[0]Loading the client cert. and key. size TLSDataParams:2080 |
-|                                                                       |
-| Loading the client cert done.... ret[0]                               |
-|                                                                       |
-| Client pkey loaded[0]                                                 |
-|                                                                       |
-| . Connecting to                                                       |
-| a3t0o11ohwlo2h-ats.iot.us-east-1.amazonaws.com/8883... ok             |
-|                                                                       |
-| . Setting up the SSL/TLS structure... This certificate has no flags   |
-|                                                                       |
-| This certificate has no flags                                         |
-|                                                                       |
-| This certificate has no flags                                         |
-|                                                                       |
-| SSL/TLS handshake. DONE ..ret:0                                       |
-|                                                                       |
-| ok                                                                    |
-|                                                                       |
-| [ Protocol is TLSv1.2 ]                                               |
-|                                                                       |
-| [ Ciphersuite is TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256 ]              |
-|                                                                       |
-| [ Record expansion is 29 ]                                            |
-|                                                                       |
-| . Verifying peer X.509 certificate...                                 |
-|                                                                       |
-| ok                                                                    |
-|                                                                       |
-| Shadow Connected                                                      |
-|                                                                       |
-| init_and_connect_aws_iot. ret:0                                       |
-|                                                                       |
-| LED Off                                                               |
-|                                                                       |
-| Update Shadow: {"state":{"reported":{"powerState":"OFF"}},            |
-| "clientToken":"INNO_ENDPOINT_6GBTSRZ8-0"}                             |
-|                                                                       |
-| Delta - Switch state changed to ON                                    |
-|                                                                       |
-| LED On                                                                |
-|                                                                       |
-| Update Shadow: {"state":{"reported":{"powerState":"ON"}},             |
-| "clientToken":"INNO_ENDPOINT_6GBTSRZ8-1"}                             |
-|                                                                       |
-| Update Accepted !!                                                    |
-|                                                                       |
-| Update Accepted !!                                                    |
-|                                                                       |
-| Delta - Switch state changed to OFF                                   |
-|                                                                       |
-| LED Off                                                               |
-|                                                                       |
-| Update Shadow: {"state":{"reported":{"powerState":"OFF"}},            |
-| "clientToken":"INNO_ENDPOINT_6GBTSRZ8-2"}                             |
-|                                                                       |
-| Update Accepted !!                                                    |
-|                                                                       |
-| Delta - Switch state changed to ON                                    |
-|                                                                       |
-| LED On                                                                |
-|                                                                       |
-| Update Shadow: {"state":{"reported":{"powerState":"ON"}},             |
-| "clientToken":"INNO_ENDPOINT_6GBTSRZ8-3"}                             |
-|                                                                       |
-| Update Accepted !!                                                    |
-|                                                                       |
-| Delta - Switch state changed to OFF                                   |
-|                                                                       |
-| LED Off                                                               |
-|                                                                       |
-| Update Shadow: {"state":{"reported":{"powerState":"OFF"}},            |
-| "clientToken":"INNO_ENDPOINT_6GBTSRZ8-4"}                             |
-|                                                                       |
-| Update Accepted !!                                                    |
-|                                                                       |
-| Delta - Switch state changed to ON                                    |
-|                                                                       |
-| LED On                                                                |
-|                                                                       |
-| Update Shadow: {"state":{"reported":{"powerState":"ON"}},             |
-| "clientToken":"INNO_ENDPOINT_6GBTSRZ8-5"}                             |
-|                                                                       |
-| Update Accepted !!                                                    |
-|                                                                       |
-| Delta - Switch state changed to OFF                                   |
-|                                                                       |
-| LED Off                                                               |
-|                                                                       |
-| Update Shadow: {"state":{"reported":{"powerState":"OFF"}},            |
-| "clientToken":"INNO_ENDPOINT_6GBTSRZ8-6"}                             |
-|                                                                       |
-| Update Accepted !!                                                    |
-|                                                                       |
-| Delta - Switch state changed to ON                                    |
-|                                                                       |
-| LED On                                                                |
-|                                                                       |
-| Update Shadow: {"state":{"reported":{"powerState":"ON"}},             |
-| "clientToken":"INNO_ENDPOINT_6GBTSRZ8-7"}                             |
-|                                                                       |
-| Update Accepted !!                                                    |
-|                                                                       |
-| Delta - Switch state changed to OFF                                   |
-|                                                                       |
-| LED Off                                                               |
-|                                                                       |
-| Update Shadow: {"state":{"reported":{"powerState":"OFF"}},            |
-| "clientToken":"INNO_ENDPOINT_6GBTSRZ8-8"}                             |
-|                                                                       |
-| Update Accepted !!                                                    |
-|                                                                       |
-| Delta - Switch state changed to ON                                    |
-|                                                                       |
-| LED On                                                                |
-|                                                                       |
-| Update Shadow: {"state":{"reported":{"powerState":"ON"}},             |
-| "clientToken":"INNO_ENDPOINT_6GBTSRZ8-9"}                             |
-|                                                                       |
-| Update Accepted !!                                                    |
-|                                                                       |
-| Delta - Switch state changed to OFF                                   |
-|                                                                       |
-| LED Off                                                               |
-|                                                                       |
-| Update Shadow: {"state":{"reported":{"powerState":"OFF"}},            |
-| "clientToken":"INNO_ENDPOINT_6GBTSRZ8-10"}                            |
-|                                                                       |
-| Update Accepted !!                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+ROM yoda-h0-rom-16-0-gd5a8e586
+FLASH:PNWWWWWAEBuild $Id: git-b664be2af $
+aws_host=a3t0o11ohwlo2h-ats.iot.us-east-1.amazonaws.com aws_port=8883 suspend=1 no_mcast=< 1 thing_name=INNO_ENDPOINT_6GBTSRZ8 np_conf_path=/sys/nprofile.json ssid=InnoPhase passphrase=43083191
+$App:git-38ca4ab7
+SDK Ver: FREERTOS_SDK_1.0
+Innoswitch Demo App
+Mounting file system
+read_certs() success
+addr e0:69:3a:00:2c:3e
+added network profile successfully, will try connecting..
+[2.769,774] CONNECT:d2:01:2a:d2:4a:2d Channel:11 rssi:-24 dBm
+wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+[4.805,318] MYIP 192.168.224.237
+[4.805,402] IPv6 [fe80::e269:3aff:fe00:2c3e]-link
+wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
+Shadow Connect
+
+ Root Done[0]Loading the client cert. and key. size TLSDataParams:2080
+
+ Loading the client cert done.... ret[0]
+ Client pkey loaded[0]
+  . Connecting to a3t0o11ohwlo2h-ats.iot.us-east-1.amazonaws.com/8883... ok
+  . Setting up the SSL/TLS structure...  This certificate has no flags
+  This certificate has no flags
+  This certificate has no flags
+SSL/TLS handshake. DONE ..ret:0
+ ok
+    [ Protocol is TLSv1.2 ]
+    [ Ciphersuite is TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256 ]
+    [ Record expansion is 29 ]
+. Verifying peer X.509 certificate...
+ ok
+Shadow Connected
+init_and_connect_aws_iot. ret:0
+LED Off 
+Update Shadow: {"state":{"reported":{"powerState":"OFF"}}, "clientToken":"INNO_ENDPOINT_6GBTSRZ8-0"}
+Delta - Switch state changed to ON
+LED On 
+Update Shadow: {"state":{"reported":{"powerState":"ON"}}, "clientToken":"INNO_ENDPOINT_6GBTSRZ8-1"}
+Update Accepted !!
+Update Accepted !!
+Delta - Switch state changed to OFF
+LED Off 
+Update Shadow: {"state":{"reported":{"powerState":"OFF"}}, "clientToken":"INNO_ENDPOINT_6GBTSRZ8-2"}
+Update Accepted !!
+Delta - Switch state changed to ON
+LED On 
+Update Shadow: {"state":{"reported":{"powerState":"ON"}}, "clientToken":"INNO_ENDPOINT_6GBTSRZ8-3"}
+Update Accepted !!
+Delta - Switch state changed to OFF
+LED Off 
+Update Shadow: {"state":{"reported":{"powerState":"OFF"}}, "clientToken":"INNO_ENDPOINT_6GBTSRZ8-4"}
+Update Accepted !!
+Delta - Switch state changed to ON
+LED On 
+Update Shadow: {"state":{"reported":{"powerState":"ON"}}, "clientToken":"INNO_ENDPOINT_6GBTSRZ8-5"}
+Update Accepted !!
+Delta - Switch state changed to OFF
+LED Off 
+Update Shadow: {"state":{"reported":{"powerState":"OFF"}}, "clientToken":"INNO_ENDPOINT_6GBTSRZ8-6"}
+Update Accepted !!
+Delta - Switch state changed to ON
+LED On 
+Update Shadow: {"state":{"reported":{"powerState":"ON"}}, "clientToken":"INNO_ENDPOINT_6GBTSRZ8-7"}
+Update Accepted !!
+Delta - Switch state changed to OFF
+LED Off 
+Update Shadow: {"state":{"reported":{"powerState":"OFF"}}, "clientToken":"INNO_ENDPOINT_6GBTSRZ8-8"}
+Update Accepted !!
+Delta - Switch state changed to ON
+LED On 
+Update Shadow: {"state":{"reported":{"powerState":"ON"}}, "clientToken":"INNO_ENDPOINT_6GBTSRZ8-9"}
+Update Accepted !!
+Delta - Switch state changed to OFF
+LED Off 
+Update Shadow: {"state":{"reported":{"powerState":"OFF"}}, "clientToken":"INNO_ENDPOINT_6GBTSRZ8-10"}
+Update Accepted !!
+
 
 Programming Talaria TWO board with innoswitch_ble_provisioning.elf 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1463,8 +1307,6 @@ either an Android or iOS device.
    (*freertos_sdk_x.y\\apps\\ble_provisioning\\mobile_app*) from the
    phone (Android or iOS).
 
-**Note**: x and y in *freertos\_*\ sdk_x.y refer to the FreeRTOS SDK
-release version.
 
 2. To connect to the Talaria TWO BLE Server, wait for the application to
    complete the scanning and look for Inno_Ble_WiFiProvisioning and
@@ -1472,12 +1314,12 @@ release version.
 
 |image8|
 
-Figure : Android - Scanning for Talaria TWO BLE Server for Wi-Fi
+Figure 8: Android - Scanning for Talaria TWO BLE Server for Wi-Fi
 Provisioning
 
 |image9|
 
-Figure : iOS - Scanning for Talaria TWO BLE Server for Wi-Fi
+Figure 9: iOS - Scanning for Talaria TWO BLE Server for Wi-Fi
 Provisioning
 
 Android phone connects as a BLE Client to Talaria TWO device at this
@@ -1486,181 +1328,121 @@ stage.
 3. Android application scans for the nearby available Wi-Fi networks and
    displays them in a list view.
 
-|Graphical user interface, text, application, email Description
-automatically generated|
-
-Figure : Android - Available Wi-Fi networks as scanned by Android Phone
-
 |image10|
 
-Figure : iOS - Available Wi-Fi networks as scanned by Android Phone
+Figure 10: Android - Available Wi-Fi networks as scanned by Android Phone
+
+|image11|
+
+Figure 11: iOS - Available Wi-Fi networks as scanned by Android Phone
 
 4. Select the SSID of the AP you want to connect to. A passphrase needs
    to be provided for the SSID.
 
-|Graphical user interface, text, application Description automatically
-generated|
+|image12|
 
-Figure : Android - Providing the passphrase
+Figure 12: Android - Providing the passphrase
 
-|image11|
+|image13|
 
-Figure : iOS - Providing the passphrase
+Figure 13: iOS - Providing the passphrase
 
 5. Once the passphrase is entered, click on Done. If the provided
    passphrase is correct, connection is established successfully. If
    not, an error message is shown.
 
-|Graphical user interface, application, PowerPoint Description
-automatically generated|
+|image14|
 
-Figure : Android - Connecting successful
+Figure 14: Android - Connecting successful
 
-|Graphical user interface, text, application, chat or text message
-Description automatically generated|
+|image15|
 
-Figure : iOS - Connecting successful
+Figure 15: iOS - Connecting successful
 
-|Graphical user interface, application Description automatically
-generated|
+|image16|
 
-Figure : Android - Error in connection
+Figure 16: Android - Error in connection
 
-|image12|
+|image17|
 
-Figure : iOS - Error in connection
+Figure 17: iOS - Error in connection
 
 6. On establishing the connection successfully, the android application
    should transfer the Wi-Fi credentials using custom GATT Service and
    Characteristics we created.
 
-|Shape Description automatically generated with low confidence|
+|image18|
 
-Figure : Android - Connection successful
+Figure 18: Android - Connection successful
 
-|image13|
+|image19|
 
-Figure : iOS - Connection successful
+Figure 19: iOS - Connection successful
 
 Talaria TWO will try to connect to the provisioned network and provide
 the following console output:
 
-+-----------------------------------------------------------------------+
-| UART:SNWWWWWAEBuild $Id: git-65f6c1f46 $                              |
-|                                                                       |
-| aws_host=a3t0o11ohwlo2h-ats.iot.us-east-1.amazonaws.com aws_port=8883 |
-| suspend=1 no_mcast=< 1 thing_name=INNO_ENDPOINT_6GBTSRZ8              |
-|                                                                       |
-| Inno_Ble_WiFiProvisioning started                                     |
-|                                                                       |
-| [63.146,804] BT connect[0]: ia:60:4d:89:ec:f3:51 aa:05:04:03:02:01:00 |
-| phy2:0/0 phyC:00                                                      |
-|                                                                       |
-| Client connected                                                      |
-|                                                                       |
-| client reading status:waiting                                         |
-|                                                                       |
-| WiFi Details SSID: InnoPhase, PASSWORD: 43083191                      |
-|                                                                       |
-| addr e0:69:3a:00:13:90                                                |
-|                                                                       |
-| client reading status:waiting                                         |
-|                                                                       |
-| client reading status:waiting                                         |
-|                                                                       |
-| Connecting to WiFi...                                                 |
-|                                                                       |
-| added network successfully, will try connecting..                     |
-|                                                                       |
-| connecting to network status: 0                                       |
-|                                                                       |
-| connection attempt timer started. current timein                      |
-| microseconds:[66337388]                                               |
-|                                                                       |
-| [66.879,059] CONNECT:00:5f:67:cd:c5:a6 Channel:6 rssi:-32 dBm         |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP                   |
-|                                                                       |
-| client reading status:waiting                                         |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS                   |
-|                                                                       |
-| [67.638,187] MYIP 192.168.0.104                                       |
-|                                                                       |
-| [67.638,466] IPv6 [fe80::e269:3aff:fe00:1390]-link                    |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED                 |
-|                                                                       |
-| Cancelling the connection timeout timer. current timein               |
-| microseconds:[67639064]                                               |
-|                                                                       |
-| client reading status : success                                       |
-|                                                                       |
-| status sent to phone app, now calling common_server_destroy and       |
-| bt_gap_destroy                                                        |
-|                                                                       |
-| $App:git-cd11dc34                                                     |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Innoswitch Demo App                                                   |
-|                                                                       |
-| Mounting file system                                                  |
-|                                                                       |
-| read_certs() success                                                  |
-|                                                                       |
-| Shadow Connect                                                        |
-|                                                                       |
-| Root Done[0]Loading the client cert. and key. size TLSDataParams:2080 |
-|                                                                       |
-| Loading the client cert done.... ret[0]                               |
-|                                                                       |
-| Client pkey loaded[0]                                                 |
-|                                                                       |
-| . Connecting to                                                       |
-| a3t0o11ohwlo2h-ats.iot.us-east-1.amazonaws.com/8883... ok             |
-|                                                                       |
-| . Setting up the SSL/TLS structure... This certificate has no flags   |
-|                                                                       |
-| This certificate has no flags                                         |
-|                                                                       |
-| This certificate has no flags                                         |
-|                                                                       |
-| SSL/TLS handshake. DONE ..ret:0                                       |
-|                                                                       |
-| ok                                                                    |
-|                                                                       |
-| [ Protocol is TLSv1.2 ]                                               |
-|                                                                       |
-| [ Ciphersuite is TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256 ]              |
-|                                                                       |
-| [ Record expansion is 29 ]                                            |
-|                                                                       |
-| . Verifying peer X.509 certificate...                                 |
-|                                                                       |
-| ok                                                                    |
-|                                                                       |
-| Shadow Connected                                                      |
-|                                                                       |
-| init_and_connect_aws_iot. ret:0                                       |
-|                                                                       |
-| LED Off                                                               |
-|                                                                       |
-| Update Shadow: {"state":{"reported":{"powerState":"OFF"}},            |
-| "clientToken":"INNO_ENDPOINT_6GBTSRZ8-0"}                             |
-|                                                                       |
-| Delta - Switch state changed to ON                                    |
-|                                                                       |
-| LED On                                                                |
-|                                                                       |
-| Update Shadow: {"state":{"reported":{"powerState":"ON"}},             |
-| "clientToken":"INNO_ENDPOINT_6GBTSRZ8-1"}                             |
-|                                                                       |
-| Update Accepted !!                                                    |
-|                                                                       |
-| Update Accepted !!                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      UART:SNWWWWWAEBuild $Id: git-65f6c1f46 $
+aws_host=a3t0o11ohwlo2h-ats.iot.us-east-1.amazonaws.com aws_port=8883 suspend=1 no_mcast=< 1 thing_name=INNO_ENDPOINT_6GBTSRZ8
+Inno_Ble_WiFiProvisioning started
+[63.146,804] BT connect[0]: ia:60:4d:89:ec:f3:51 aa:05:04:03:02:01:00 phy2:0/0 phyC:00
+Client connected
+client reading status:waiting
+WiFi Details  SSID: InnoPhase, PASSWORD: 43083191
+
+addr e0:69:3a:00:13:90
+client reading status:waiting
+client reading status:waiting
+Connecting to WiFi...
+added network successfully, will try connecting..
+connecting to network status: 0
+
+ connection attempt timer started. current timein microseconds:[66337388] 
+[66.879,059] CONNECT:00:5f:67:cd:c5:a6 Channel:6 rssi:-32 dBm
+wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+client reading status:waiting
+wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+[67.638,187] MYIP 192.168.0.104
+[67.638,466] IPv6 [fe80::e269:3aff:fe00:1390]-link
+wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
+
+ Cancelling the connection timeout timer. current timein microseconds:[67639064] 
+client reading status : success
+status sent to phone app, now calling common_server_destroy and bt_gap_destroy 
+$App:git-cd11dc34
+SDK Ver: FREERTOS_SDK_1.0
+Innoswitch Demo App
+Mounting file system
+read_certs() success
+Shadow Connect
+
+ Root Done[0]Loading the client cert. and key. size TLSDataParams:2080
+
+ Loading the client cert done.... ret[0]
+ Client pkey loaded[0]
+  . Connecting to a3t0o11ohwlo2h-ats.iot.us-east-1.amazonaws.com/8883... ok
+  . Setting up the SSL/TLS structure...  This certificate has no flags
+  This certificate has no flags
+  This certificate has no flags
+SSL/TLS handshake. DONE ..ret:0
+ ok
+    [ Protocol is TLSv1.2 ]
+    [ Ciphersuite is TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256 ]
+    [ Record expansion is 29 ]
+. Verifying peer X.509 certificate...
+ ok
+Shadow Connected
+init_and_connect_aws_iot. ret:0
+LED Off 
+Update Shadow: {"state":{"reported":{"powerState":"OFF"}}, "clientToken":"INNO_ENDPOINT_6GBTSRZ8-0"}
+Delta - Switch state changed to ON
+LED On 
+Update Shadow: {"state":{"reported":{"powerState":"ON"}}, "clientToken":"INNO_ENDPOINT_6GBTSRZ8-1"}
+Update Accepted !!
+Update Accepted !!
+
 
 Jumper Setting on Talaria TWO EVB
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1678,17 +1460,17 @@ with the Alexa speaker which is linked with User’s Alexa account.
 For testing with a Phone, go to the Devices -> Switches and refresh the
 page if the Inno Switch is not found here.
 
-|image14|
+|image20|
 
-Figure : Devices – Switches -- InnoSwitch
+Figure 20: Devices – Switches -- InnoSwitch
 
 Tap on Inno Switch to find power on/off control. The switch can be
 controlled from here by tapping on the Power Button, and the results
 will be reflected in LED status and Console of Talaria TWO EVB.
 
-|image15|
+|image21|
 
-Figure : InnoSwitch power on-off control
+Figure 21: InnoSwitch power on-off control
 
 Optionally, for controlling the device with Voice Interaction, you will
 need an Alexa enabled speaker (e.g., Amazon Echo) logged in with same
@@ -1702,153 +1484,83 @@ Following voice commands are used to control the switch operation:
 
 Console log while interacting with the device is as follows:
 
-+-----------------------------------------------------------------------+
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PNWWWWWAEBuild $Id: git-b664be2af $                             |
-|                                                                       |
-| aws_host=a3t0o11ohwlo2h-ats.iot.us-east-1.amazonaws.com aws_port=8883 |
-| suspend=1 no_mcast=< 1 thing_name=INNO_ENDPOINT_6GBTSRZ8              |
-|                                                                       |
-| Inno_Ble_WiFiProvisioning started                                     |
-|                                                                       |
-| [22.113,536] BT connect[0]: ia:7c:36:ff:b4:67:18 aa:05:04:03:02:01:00 |
-| phy2:0/0 phyC:00                                                      |
-|                                                                       |
-| Client connected                                                      |
-|                                                                       |
-| client reading status:waiting                                         |
-|                                                                       |
-| WiFi Details SSID:InnoPhase, PASSWORD: 43083191                       |
-|                                                                       |
-| addr e0:69:3a:00:2c:3e                                                |
-|                                                                       |
-| client reading status:waiting                                         |
-|                                                                       |
-| client reading status:waiting                                         |
-|                                                                       |
-| Connecting to WiFi...                                                 |
-|                                                                       |
-| added network successfully, will try connecting..                     |
-|                                                                       |
-| connecting to network status: 0                                       |
-|                                                                       |
-| connection attempt timer started. current timein                      |
-| microseconds:[25293138]                                               |
-|                                                                       |
-| [25.832,396] CONNECT:e8:48:b8:fb:35:70 Channel:6 rssi:-71 dBm         |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP                   |
-|                                                                       |
-| client reading status:waiting                                         |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS                   |
-|                                                                       |
-| [26.705,681] MYIP 192.168.0.116                                       |
-|                                                                       |
-| [26.705,845] IPv6 [fe80::e269:3aff:fe00:2c3e]-link                    |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED                 |
-|                                                                       |
-| Cancelling the connection timeout timer. current timein               |
-| microseconds:[26706029]                                               |
-|                                                                       |
-| client reading status : success                                       |
-|                                                                       |
-| status sent to phone app, now calling common_server_destroy and       |
-| bt_gap_destroy                                                        |
-|                                                                       |
-| $App:git-38ca4ab7                                                     |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Innoswitch Demo App                                                   |
-|                                                                       |
-| Mounting file system                                                  |
-|                                                                       |
-| read_certs() success                                                  |
-|                                                                       |
-| Shadow Connect                                                        |
-|                                                                       |
-| Root Done[0]Loading the client cert. and key. size TLSDataParams:2080 |
-|                                                                       |
-| Loading the client cert done.... ret[0]                               |
-|                                                                       |
-| Client pkey loaded[0]                                                 |
-|                                                                       |
-| . Connecting to                                                       |
-| a3t0o11ohwlo2h-ats.iot.us-east-1.amazonaws.com/8883... ok             |
-|                                                                       |
-| . Setting up the SSL/TLS structure... This certificate has no flags   |
-|                                                                       |
-| This certificate has no flags                                         |
-|                                                                       |
-| This certificate has no flags                                         |
-|                                                                       |
-| SSL/TLS handshake. DONE ..ret:0                                       |
-|                                                                       |
-| ok                                                                    |
-|                                                                       |
-| [ Protocol is TLSv1.2 ]                                               |
-|                                                                       |
-| [ Ciphersuite is TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256 ]              |
-|                                                                       |
-| [ Record expansion is 29 ]                                            |
-|                                                                       |
-| . Verifying peer X.509 certificate...                                 |
-|                                                                       |
-| ok                                                                    |
-|                                                                       |
-| Shadow Connected                                                      |
-|                                                                       |
-| init_and_connect_aws_iot. ret:0                                       |
-|                                                                       |
-| LED Off                                                               |
-|                                                                       |
-| Update Shadow: {"state":{"reported":{"powerState":"OFF"}},            |
-| "clientToken":"INNO_ENDPOINT_6GBTSRZ8-0"}                             |
-|                                                                       |
-| Update Accepted !!                                                    |
-|                                                                       |
-| Delta - Switch state changed to ON                                    |
-|                                                                       |
-| LED On                                                                |
-|                                                                       |
-| Update Shadow: {"state":{"reported":{"powerState":"ON"}},             |
-| "clientToken":"INNO_ENDPOINT_6GBTSRZ8-1"}                             |
-|                                                                       |
-| Update Accepted !!                                                    |
-|                                                                       |
-| Delta - Switch state changed to OFF                                   |
-|                                                                       |
-| LED Off                                                               |
-|                                                                       |
-| Update Shadow: {"state":{"reported":{"powerState":"OFF"}},            |
-| "clientToken":"INNO_ENDPOINT_6GBTSRZ8-2"}                             |
-|                                                                       |
-| Update Accepted !!                                                    |
-|                                                                       |
-| Delta - Switch state changed to ON                                    |
-|                                                                       |
-| LED On                                                                |
-|                                                                       |
-| Update Shadow: {"state":{"reported":{"powerState":"ON"}},             |
-| "clientToken":"INNO_ENDPOINT_6GBTSRZ8-3"}                             |
-|                                                                       |
-| Update Accepted !!                                                    |
-|                                                                       |
-| Delta - Switch state changed to OFF                                   |
-|                                                                       |
-| LED Off                                                               |
-|                                                                       |
-| Update Shadow: {"state":{"reported":{"powerState":"OFF"}},            |
-| "clientToken":"INNO_ENDPOINT_6GBTSRZ8-4"}                             |
-|                                                                       |
-| Update Accepted !!                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+ROM yoda-h0-rom-16-0-gd5a8e586
+FLASH:PNWWWWWAEBuild $Id: git-b664be2af $
+aws_host=a3t0o11ohwlo2h-ats.iot.us-east-1.amazonaws.com aws_port=8883 suspend=1 no_mcast=< 1 thing_name=INNO_ENDPOINT_6GBTSRZ8
+Inno_Ble_WiFiProvisioning started
+[22.113,536] BT connect[0]: ia:7c:36:ff:b4:67:18 aa:05:04:03:02:01:00 phy2:0/0 phyC:00
+Client connected
+client reading status:waiting
+
+
+WiFi Details  SSID:InnoPhase, PASSWORD: 43083191
+
+addr e0:69:3a:00:2c:3e
+client reading status:waiting
+client reading status:waiting
+Connecting to WiFi...
+added network successfully, will try connecting..
+connecting to network status: 0
+
+ connection attempt timer started. current timein microseconds:[25293138] 
+[25.832,396] CONNECT:e8:48:b8:fb:35:70 Channel:6 rssi:-71 dBm
+wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+client reading status:waiting
+wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+[26.705,681] MYIP 192.168.0.116
+[26.705,845] IPv6 [fe80::e269:3aff:fe00:2c3e]-link
+wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
+
+ Cancelling the connection timeout timer. current timein microseconds:[26706029] 
+client reading status : success
+status sent to phone app, now calling common_server_destroy and bt_gap_destroy 
+$App:git-38ca4ab7
+SDK Ver: FREERTOS_SDK_1.0
+Innoswitch Demo App
+Mounting file system
+read_certs() success
+Shadow Connect
+
+ Root Done[0]Loading the client cert. and key. size TLSDataParams:2080
+
+ Loading the client cert done.... ret[0]
+ Client pkey loaded[0]
+  . Connecting to a3t0o11ohwlo2h-ats.iot.us-east-1.amazonaws.com/8883... ok
+  . Setting up the SSL/TLS structure...  This certificate has no flags
+  This certificate has no flags
+  This certificate has no flags
+SSL/TLS handshake. DONE ..ret:0
+ ok
+    [ Protocol is TLSv1.2 ]
+    [ Ciphersuite is TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256 ]
+    [ Record expansion is 29 ]
+. Verifying peer X.509 certificate...
+ ok
+Shadow Connected
+init_and_connect_aws_iot. ret:0
+LED Off 
+Update Shadow: {"state":{"reported":{"powerState":"OFF"}}, "clientToken":"INNO_ENDPOINT_6GBTSRZ8-0"}
+Update Accepted !!
+Delta - Switch state changed to ON
+LED On 
+Update Shadow: {"state":{"reported":{"powerState":"ON"}}, "clientToken":"INNO_ENDPOINT_6GBTSRZ8-1"}
+Update Accepted !!
+Delta - Switch state changed to OFF
+LED Off 
+Update Shadow: {"state":{"reported":{"powerState":"OFF"}}, "clientToken":"INNO_ENDPOINT_6GBTSRZ8-2"}
+Update Accepted !!
+Delta - Switch state changed to ON
+LED On 
+Update Shadow: {"state":{"reported":{"powerState":"ON"}}, "clientToken":"INNO_ENDPOINT_6GBTSRZ8-3"}
+Update Accepted !!
+Delta - Switch state changed to OFF
+LED Off 
+Update Shadow: {"state":{"reported":{"powerState":"OFF"}}, "clientToken":"INNO_ENDPOINT_6GBTSRZ8-4"}
+Update Accepted !!
+
 
 .. |image1| image:: media/image1.png
    :width: 7.48031in
@@ -1865,54 +1577,54 @@ Console log while interacting with the device is as follows:
 .. |image5| image:: media/image5.png
    :width: 3.14961in
    :height: 4.17991in
-.. |Graphical user interface Description automatically generated with medium confidence| image:: media/image6.jpeg
+.. |image6| image:: media/image6.png
    :width: 1.87932in
    :height: 0.46667in
-.. |image6| image:: media/image7.png
+.. |image7| image:: media/image7.png
    :width: 5.90551in
    :height: 3.41619in
-.. |image7| image:: media/image8.png
+.. |image8| image:: media/image8.png
    :width: 5.90551in
    :height: 3.17269in
-.. |image8| image:: media/image9.jpeg
+.. |image9| image:: media/image9.jpeg
    :width: 2.3622in
    :height: 4.97907in
-.. |image9| image:: media/image10.png
+.. |image10| image:: media/image10.png
    :width: 2.3622in
    :height: 4.05258in
-.. |Graphical user interface, text, application, email Description automatically generated| image:: media/image11.jpeg
+.. |image11| image:: media/image11.png
    :width: 2.3622in
    :height: 4.98826in
-.. |image10| image:: media/image12.png
+.. |image12| image:: media/image12.png
    :width: 2.36172in
    :height: 3.9875in
-.. |Graphical user interface, text, application Description automatically generated| image:: media/image13.jpeg
+.. |image13| image:: media/image13.png
    :width: 2.3622in
    :height: 4.98102in
-.. |image11| image:: media/image14.png
+.. |image14| image:: media/image14.png
    :width: 2.36181in
    :height: 4.05293in
-.. |Graphical user interface, application, PowerPoint Description automatically generated| image:: media/image15.jpeg
+.. |image15| image:: media/image15.png
    :width: 2.3622in
    :height: 4.98826in
-.. |Graphical user interface, text, application, chat or text message Description automatically generated| image:: media/image16.png
+.. |image16| image:: media/image16.png
    :width: 2.36181in
    :height: 4.05293in
-.. |Graphical user interface, application Description automatically generated| image:: media/image17.jpeg
+.. |image17| image:: media/image17.png
    :width: 2.3622in
    :height: 5.0124in
-.. |image12| image:: media/image18.png
+.. |image18| image:: media/image18.png
    :width: 2.36181in
    :height: 4.06127in
-.. |Shape Description automatically generated with low confidence| image:: media/image9.jpeg
+.. |image19| image:: media/image19.png
    :width: 2.3622in
    :height: 4.9593in
-.. |image13| image:: media/image10.png
+.. |image20| image:: media/image20.png
    :width: 2.3622in
    :height: 4.05258in
-.. |image14| image:: media/image19.png
+.. |image21| image:: media/image21.png
    :width: 5.90551in
    :height: 4.58502in
-.. |image15| image:: media/image20.png
+.. |image22| image:: media/image22.png
    :width: 5.90551in
    :height: 3.23342in

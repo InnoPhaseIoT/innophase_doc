@@ -1,4 +1,7 @@
-.. _Memory Mapping of a Standard Application:
+.. _memory mapping page:
+
+Memory Mapping
+##############
 
 This section describes the flash memory mapping of standard applications
 with details on the flash memory layout in both development and
@@ -25,7 +28,7 @@ to 511, where each sector is 4096 bytes.
 
 |image1|
 
-Figure : Memory mapping - standard application
+Figure 1: Memory mapping - standard application
 
 Flash Layout – Development
 ==========================
@@ -52,10 +55,10 @@ Figure 2 shows the entire filesystem layout. The boot sector starts from
 
    Any application size can be known using the following command:
 
-+-----------------------------------------------------------------------+
-| arm-none-eabi-size app_name.elf                                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+     arm-none-eabi-size app_name.elf  
+
 
 3. data/user filesystem: User data is stored in this sector. Maximum
    size of the user filesystem is 300 sectors, close to half of the
@@ -76,22 +79,19 @@ single application.
 
 |image2|
 
-Figure : Flash layout
+Figure 2: Flash layout
 
 Memory Mapping – VM based application
 =====================================
 
 Figure 3 shows the memory layout for an ELF.
 
-SDK 2.3 release onwards, all applications are virtual. The map file of
-any application consists of .text, .data, .bss and .virtual segments.
-
 VM application is used to allow more memory available to the
 application.
 
-|Diagram Description automatically generated|
+|image3|
 
-Figure : Memory mapping - VM based application
+Figure 3: Memory mapping - VM based application
 
 Flash Layout 
 =============
@@ -153,13 +153,13 @@ b. Without SSBL, the application which is flashed is loaded onto Virtual
 5. system FS: Calibration information generated during production or
    testing (RF testing) is stored in this sector.
 
-|image3|
+|image4|
 
-Figure : Flash layout - when using SSBL
+Figure 4: Flash layout - when using SSBL
 
-|A picture containing rectangle Description automatically generated|
+|image5|
 
-Figure : Flash layout - without using SSBL
+Figure 5: Flash layout - without using SSBL
 
 Program RAM
 ===========
@@ -170,19 +170,20 @@ boot.py will create a VM partition and add it to partition table.
 
 Command:
 
-+-----------------------------------------------------------------------+
-| python3 script/boot.py --device /dev/ttyUSB2 --reset=evk42            |
-| ./apps/hello_world/bin/hello_world.elf                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image4|\ |image5|
+      python3 script/boot.py --device /dev/ttyUSB2 --reset=evk42
+      ./apps/hello_world/bin/hello_world.elf    
 
-Figure : Program RAM – Terminal
 
-|image6|\ |image7|
 
-Figure : Program RAM - Console output
+|image6|
+
+Figure 6: Program RAM – Terminal
+
+|image7|
+
+Figure 7: Program RAM - Console output
 
 Program Flash
 =============
@@ -193,21 +194,21 @@ is not erased even after reset.
 
 Command:
 
-+-----------------------------------------------------------------------+
-| python3 script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl         |
-| --flash=all ./bins/iperf3.elf ssid=xxxxxxxx passphrase=xxxxxxx        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image8| |image9|
+     python3 script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl
+     --flash=all ./bins/iperf3.elf ssid=xxxxxxxx passphrase=xxxxxxx
 
-Figure : Program Flash - Terminal
+
+|image8|
+
+Figure 8: Program Flash - Terminal
 
 Expected output:
 
-|image10|\ |image11|
+|image9|
 
-Figure : Program Flash - Console output
+Figure 9: Program Flash - Console output
 
 Erase Flash
 ===========
@@ -231,32 +232,32 @@ applications to Flash.
 
 Loading gordon.elf:
 
-+-----------------------------------------------------------------------+
-| python3 script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl         |
-| apps/gordon.elf                                                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image12|\ |image13|
+      python3 script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl
+      apps/gordon.elf 
 
-Figure : Loading gordon.elf - Terminal
+
+|image10|
+
+Figure 10: Loading gordon.elf - Terminal
 
 Erasing the boot sector:
 
-+-----------------------------------------------------------------------+
-| python3 script/flash.py --device /dev/ttyUSB2 erase 1 63              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image14|\ |image15|
+    python3 script/flash.py --device /dev/ttyUSB2 erase 1 63   
 
-Figure : Erasing the boot sector – Terminal
+
+|image11|
+
+Figure 11: Erasing the boot sector – Terminal
 
 Expected output:
 
-|image16|
+|image12|
 
-Figure : Erase Flash - Console output
+Figure 12: Erase Flash - Console output
 
 Write Filesystem to Flash
 =========================
@@ -266,33 +267,33 @@ tools/mklittlefs.
 
 Create root.img:
 
-+-----------------------------------------------------------------------+
-| ./mklittlefs -s 0x40000 -c ../../root_fs/root root.img                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      ./mklittlefs -s 0x40000 -c ../../root_fs/root root.img 
+
 
 Load Gordon and write root.img:
 
-+-----------------------------------------------------------------------+
-| python3 script/boot.py --device /dev/ttyUSB2 --reset=evk42            |
-| apps/gordon.elf                                                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      python3 script/boot.py --device /dev/ttyUSB2 --reset=evk42
+      apps/gordon.elf  
+
 
 Write image to flash:
 
-+-----------------------------------------------------------------------+
-| python3 script/flash.py --device /dev/ttyUSB2 write 0xD0000           |
-| ./tools/mklittlefs/root.img                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      python3 script/flash.py --device /dev/ttyUSB2 write 0xD0000
+      ./tools/mklittlefs/root.img   
+
 
 **Note**: 0xD0000 is used as DATA sector starts with sector number 208
 (208*4096 = 0xD0000).
 
-|Text Description automatically generated with low confidence|
+|image13|
 
-Figure : Sector number
+Figure 13: Sector number
 
 .. |image1| image:: media/image1.png
    :width: 7.48031in
@@ -300,49 +301,32 @@ Figure : Sector number
 .. |image2| image:: media/image2.png
    :width: 7.48031in
    :height: 0.86048in
-.. |Diagram Description automatically generated| image:: media/image3.png
+.. |image3| image:: media/image3.png
    :width: 7.48031in
    :height: 1.47581in
-.. |image3| image:: media/image4.png
+.. |image4| image:: media/image4.png
    :width: 7.08661in
    :height: 0.74439in
-.. |A picture containing rectangle Description automatically generated| image:: media/image5.png
+.. |image5| image:: media/image5.png
    :width: 7.08661in
    :height: 1.08384in
-.. |image4| image:: media/image6.png
-   :width: 0.85in
-.. |image5| image:: media/image7.png
-   :width: 7.48031in
-   :height: 0.58527in
 .. |image6| image:: media/image6.png
    :width: 0.85in
-.. |image7| image:: media/image8.png
+.. |image7| image:: media/image7.png
    :width: 7.48031in
-   :height: 3.23385in
-.. |image8| image:: media/image6.png
-   :width: 0.85007in
+   :height: 0.58527in
+.. |image8| image:: media/image8.png
+   :width: 0.85in
 .. |image9| image:: media/image9.png
    :width: 7.48031in
-   :height: 1.07287in
-.. |image10| image:: media/image6.png
+   :height: 3.23385in
+.. |image10| image:: media/image10.png
    :width: 0.85007in
-.. |image11| image:: media/image10.png
+.. |image11| image:: media/image11.png
+   :width: 7.48031in
+   :height: 1.07287in
+.. |image12| image:: media/image12.png
+   :width: 0.85007in
+.. |image13| image:: media/image13.png
    :width: 7.48031in
    :height: 2.0183in
-.. |image12| image:: media/image6.png
-   :width: 0.85007in
-.. |image13| image:: media/image11.png
-   :width: 7.48031in
-   :height: 0.77781in
-.. |image14| image:: media/image6.png
-   :width: 0.975in
-   :height: 0.10515in
-.. |image15| image:: media/image12.png
-   :width: 7.48031in
-   :height: 0.54094in
-.. |image16| image:: media/image13.png
-   :width: 7.48031in
-   :height: 1.86641in
-.. |Text Description automatically generated with low confidence| image:: media/image14.png
-   :width: 3.14961in
-   :height: 1.43786in

@@ -1,5 +1,7 @@
-sntp
-------
+.. _sntp apiref:
+
+SNTP API Reference
+##################
 
 This section describes the minimal implementation of SNTPv4 as specified
 in RFC 4330. It is simple "SNTP" client for the lwIP raw API.

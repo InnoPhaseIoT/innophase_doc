@@ -1,5 +1,7 @@
-Alarm Api ref
---------------
+.. _alarm apiref:
+
+Alarm API Reference
+###################
 
 Alarm provides the mechanism to schedule activities for the future which
 are either repeating or are executed in one shot. This section provides
@@ -38,7 +40,7 @@ alarm_tm
 
 Store the alarm date and time from user API.
 
-.. table:: Table : alarm_tm - Data structure definitions
+.. table:: Table 1: alarm_tm - Data structure definitions
 
    +--------------------+----------------------------------------------------------+
    | **tm_year**        | Year                                                     |
@@ -58,7 +60,7 @@ alarm_info
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 Store alarm information. .
 
-.. table:: Table : alarm_info - Data structure definitions
+.. table:: Table 2: alarm_info - Data structure definitions
 
    +--------------------------+-----------------------------------------------------------+
    | **alarm_timesec**        | Alarm time in seconds                                     |
@@ -131,7 +133,7 @@ Definition
 Parameters
 ~~~~~~~~~~
 
-.. table:: Table : alarm_delete - parameter description
+.. table:: Table 3: alarm_delete - parameter description
 
    +----------------------+-----------------------------------------------------------------------+
    | **Parameter**        | **Description**                                                       |

@@ -10,7 +10,7 @@ VERSION 4.0
 
 Figure 1: INP3000 programmer kit contents - version 4.0
 
-|image2d|
+|image2|
 
 Figure 2: INP3000 programmer board – version 4.0
 

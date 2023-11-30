@@ -1,6 +1,7 @@
+.. _porting guide:
 
-Porting-Guide
-=============
+Porting Guides
+##############
 
 
 Free RTOS to InnoOS

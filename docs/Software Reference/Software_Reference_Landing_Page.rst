@@ -1,5 +1,7 @@
-Software Reference
-==================
+.. _software reference:
+
+Talaria TWO Software
+##################
 
 
 Libraries

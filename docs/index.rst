@@ -129,6 +129,12 @@ Linux CPU-based (Hosted CPU):
 .. toctree::
    :hidden:
    :maxdepth: 2
+
+   glossary
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
    :caption: About
 
    about

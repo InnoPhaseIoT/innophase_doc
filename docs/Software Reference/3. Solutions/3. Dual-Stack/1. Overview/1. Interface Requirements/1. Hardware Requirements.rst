@@ -1,3 +1,5 @@
+.. _ds hw requirements:
+
 Hardware Requirements 
 ----------------------
 
@@ -5,19 +7,17 @@ Talaria TWO module supports SPI and SDIO interfaces for host
 communication. The interface can be specified by the following boot
 argument in Talaria TWO during firmware ELF programming:
 
-.. table:: Table 1: SPI interface - PIN details
+.. code:: shell
 
-   +-----------------------------------------------------------------------+
-   | hio.transport=[spi|sdio]                                              |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+      hio.transport=[spi|sdio]
+
 
 1. With SPI interface, Talaria TWO module runs as SPI slave. Host must
    run as the SPI master. The maximum SPI clock frequency supported is
    25MHz. Pins of the Talaria TWO module are fixed. Table 1 provides the
    details:
 
-.. table:: Table 2: SDIO interface - PIN details
+.. table:: Table 1: SPI interface - PIN details
 
    +-----------------------+-----------------------+-----------------------+
    | **PIN NUMBER@T2**     | **PIN NAME@T2**       | **PINAME@HOST**       |
@@ -33,14 +33,15 @@ argument in Talaria TWO during firmware ELF programming:
    | GPIO_4                | IRQ (interrupt)       | HOST IRQ              |
    +-----------------------+-----------------------+-----------------------+
 
-   |Diagram Description automatically generated|
+|image1|
 
-Figure 2: SPI interface for host communication
+Figure 1: SPI interface for host communication
 
 2. With SDIO interface, Talaria TWO module runs as SDIO device with the
    SDIO clock at 10MHz. Host must run as the SDIO host. Pins of the
    Talaria TWO module are fixed. Table 2 provides the details:
 
+.. table:: Table 2: SDIO interface - PIN details
 +-----------------------+-----------------------+-----------------------+
 | **PIN NUMBER@T2**     | **PIN NAME@T2**       | **PINAME@HOST**       |
 +=======================+=======================+=======================+
@@ -57,15 +58,13 @@ Figure 2: SPI interface for host communication
 | GPIO_5                | DATA3                 | SD-DATA3              |
 +-----------------------+-----------------------+-----------------------+
 
-   |image1|
+|image2|
 
-Figure 3: SDIO interface for host communication
+Figure 2: SDIO interface for Host communication
 
 3. Two additional GPIOs are required for the following functionalities:
 
    a. Talaria TWO Wakeup
-
-..
 
    This is usually controlled by the host. It is used by the host to
    wake up the Talaria TWO module from sleep. GPIO-14 is used for this
@@ -75,16 +74,14 @@ Figure 3: SDIO interface for host communication
 
 b. Host Power Control
 
-..
-
    This connection is controlled by Talaria TWO module and is used to
    turn ON/OFF the host. GPIO-3(SPI)/GPIO-20(SDIO) is used for this
    operation on Talaria TWO module and can be altered depending on the
    GPIO availability.
 
-.. |Diagram Description automatically generated| image:: media/image1.png
+.. |image1| image:: media/image1.png
    :width: 6.41111in
    :height: 4.08264in
-.. |image1| image:: media/image2.png
+.. |image2| image:: media/image2.png
    :width: 6.42847in
    :height: 4.16875in

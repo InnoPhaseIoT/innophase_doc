@@ -1,6 +1,6 @@
 .. _inp3000 prog board 2.1:
 
-INP3000 Programmer Board
+INP3000 Programmer Board 2.1
 ========================
 
 VERSION 2.1
@@ -123,12 +123,12 @@ Figure 6: INP3000 programmer board version 2.1 - SPI jumper setting
 .. |image8| image:: media/image8.png
    :width: 3.34375in
    :height: 2.30208in
-.. |image9| image:: media/image9.jpeg
+.. |image9| image:: media/image9.png
    :width: 4.72441in
    :height: 3.44826in
 .. |image10| image:: media/image10.png
    :width: 3.34375in
    :height: 3.03125in
-.. |image11| image:: media/image11.jpeg
+.. |image11| image:: media/image11.jpg
    :width: 4.72441in
    :height: 2.92874in

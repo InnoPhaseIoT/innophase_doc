@@ -5,9 +5,8 @@ Reset
 
 This PIN is used to reset the module.
 
-1. LOW on this PIN puts the module in a reset stage
-
-2. HIGH on this PIN releases the module from reset
+    - LOW on this PIN puts the module in a reset stage
+    - HIGH on this PIN releases the module from reset
 
 During the reset stage, all the GPIOs must be LOW or in an undriven
 state. EN_CHIP/RST must be held below 0.6V to reset device.
@@ -26,7 +25,7 @@ delay to settle down after power-up or after a reset.
 
 Figure 2: Reset circuit
 
-.. |image2| image:: media/image2.jpg
+.. |image2| image:: media/image2.png
    :width: 6.69291in
    :height: 2.1992in
 .. |image3| image:: media/image3.png

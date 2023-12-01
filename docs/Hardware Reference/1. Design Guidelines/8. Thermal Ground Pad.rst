@@ -13,6 +13,6 @@ conduction.
 
 Figure 1: Thermal ground pads
 
-.. |image17| image:: media/image17.jpeg
+.. |image17| image:: media/image17.png
    :width: 7.48031in
    :height: 5.11001in

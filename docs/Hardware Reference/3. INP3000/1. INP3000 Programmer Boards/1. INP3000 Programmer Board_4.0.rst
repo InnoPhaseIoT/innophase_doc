@@ -1,6 +1,6 @@
 .. _inp3000 prog board 4.0:
 
-INP3000 Programmer Board
+INP3000 Programmer Board 4.0
 ========================
 
 VERSION 4.0

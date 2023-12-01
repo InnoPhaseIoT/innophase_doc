@@ -13,7 +13,7 @@ TWO SDK.
 INP 3000 Programmer Boards
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    
    1. INP3000 Programmer Boards/3. INP3000 Programmer Board_2.1.rst
    1. INP3000 Programmer Boards/2. INP3000 Programmer Board_3.0.rst
@@ -22,7 +22,7 @@ INP 3000 Programmer Boards
 Programming Using INP 3000
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    2. Programming using INP3000/1. Prerequisites.rst
    2. Programming using INP3000/2. Generating the Application Image.rst

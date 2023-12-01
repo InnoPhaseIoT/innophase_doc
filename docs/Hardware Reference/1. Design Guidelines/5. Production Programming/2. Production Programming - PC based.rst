@@ -114,11 +114,11 @@ following connector details:
 Figure 6: SWD Connector on the application board
 
 .. |image1| image:: media/image1.png
-   :width: 0.59595in
-   :height: 0.575in
-.. |image2| image:: media/image2.png
    :width: 7.48031in
    :height: 3.4863in
+.. |image2| image:: media/image2.png
+   :width: 3.14961in
+   :height: 1.87549in
 .. |image3| image:: media/image3.png
    :width: 3.14961in
    :height: 1.87549in
@@ -127,7 +127,7 @@ Figure 6: SWD Connector on the application board
    :height: 2.11003in
 .. |image5| image:: media/image5.png
    :width: 7.48031in
-   :height: 2.1966in
+   :height: 3.4863in
 .. |image6| image:: media/image6.png
    :width: 7.48031in
-   :height: 3.26392in
+   :height: 4.26392in

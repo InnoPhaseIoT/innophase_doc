@@ -6,15 +6,11 @@ Design Guidelines
 Design guidelines can be broadly categorized into the following
 sections:
 
-1. Power supply
-
-2. Reset
-
-3. Peripheral interfacing
-
-4. Production programming
-
-5. RF/Antenna section
+    - Power supply
+    - Reset
+    - Peripheral interfacing
+    - Production programming
+    - RF/Antenna section
 
 Power supply, Reset & Peripheral interfacing remain same for all
 variations of the Talaria TWO module family.
@@ -29,7 +25,7 @@ Production Programming
 Module Placement Guidelines
 -------------
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    7. Module Placement Guidelines/1. Module Placement Guidelines - INP1010_INP1013_INP1014.rst
    7. Module Placement Guidelines/2. Module and Antenna Placement Guidelines – INP1012.rst
@@ -58,7 +54,7 @@ Module Peripherals
 --------------------
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     4. Module Peripherals
 

@@ -318,11 +318,11 @@ for FCC/ISED and TELEC.
    +-----------+----------------+-----------+----------------------------+
 
 .. |image1| image:: media/image1.png
-   :width: 4.92153in
+   :width: 7.92153in
    :height: 3.14861in
 .. |image2| image:: media/image2.png
-   :width: 4.92153in
-   :height: 2.60625in
+   :width: 7.92153in
+   :height: 3.60625in
 .. |image3| image:: media/image3.png
    :width: 4.92153in
    :height: 2.20833in
@@ -333,5 +333,5 @@ for FCC/ISED and TELEC.
    :width: 4.92153in
    :height: 3.51042in
 .. |image6| image:: media/image6.png
-   :width: 2.75591in
-   :height: 4.94207in
+   :width: 7.92153in
+   :height: 5.14861in

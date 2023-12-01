@@ -61,7 +61,7 @@ certificates.
 
 .. code:: shell
 
-      .\pc_tools\T2_Flasher\bin\T2_Flasher_Windows.exe --operation=write_part --partition=DATA .\<path to the generated data image>\data.img 
+    .\pc_tools\T2_Flasher\bin\T2_Flasher_Windows.exe --operation=write_part --partition=DATA .\<path to the generated data image>\data.img
 
 
 The following output is observed after flashing the data image:
@@ -79,10 +79,9 @@ a. To generate the application image, refer section: *In Windows*. In
      .\pc_tools\T2_Flasher\bin\T2_Flasher_Windows.exe --operation=write_part --partition=BOOT .\<path to the generated application image>\app.img
 
 
-   The following output is observed after flashing the application
-   image:
+The following output is observed after flashing the application image:
 
-   |image14|
+|image14|
 
 Figure 5: SWD - Flashing the application image - console output
 
@@ -94,10 +93,9 @@ b. In the same terminal, flash the VM image of the application by
      .\pc_tools\T2_Flasher\bin\T2_Flasher_Windows.exe --operation=write_part --partition=VIRT .\<path to the generated application image.vm>\app.img.vm
 
 
-   The following output is observed after flashing the application’s VM
-   image:
+The following output is observed after flashing the application’s VM image:
 
-   |image15|
+|image15|
 
 Figure 6: SWD - Flashing application's VM image - console output
 
@@ -208,6 +206,9 @@ prompt windows to terminate OpenOCD.
 
 7. On INP3000 version 4.0, the console output can be seen using the
    Download Tool by clicking on a reset button.
+For more details on using the Download tool, refer document: UG_Download_Tool.pdf (path: sdk_x.y\pc_tools\Download_Tool\doc).
+
+|image36|
 
 
 .. |image10| image:: media/image10.png
@@ -231,7 +232,7 @@ prompt windows to terminate OpenOCD.
 .. |image16| image:: media/image16.png
    :width: 5.51181in
    :height: 7.43752in
-.. |image17| image:: media/image17.png
+.. |image17| image:: media/image35.png
    :width: 5.90551in
    :height: 0.72616in
 .. |image18| image:: media/image18.png
@@ -248,4 +249,7 @@ prompt windows to terminate OpenOCD.
    :height: 4.1976in
 .. |image22| image:: media/image22.png
    :width: 6.69291in
+   :height: 4.19529in
+.. |image36| image:: media/image36.png
+   :width: 7.69291in
    :height: 4.19529in

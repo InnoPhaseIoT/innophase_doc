@@ -32,7 +32,7 @@ application contains the logic to execute a sequence of the events.
 AT Commands
 -----------
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    1. AT Commands/ATCommands_Landing_Page.rst
    
@@ -40,7 +40,7 @@ STW Multi-Proto
 ------------------------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    2. STW Multi-Proto/STW Multi-Proto - Landing Page.rst
 
@@ -48,6 +48,6 @@ Dual stack
 ---------------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    3. Dual-Stack/Dual-Stack - Landing Page.rst

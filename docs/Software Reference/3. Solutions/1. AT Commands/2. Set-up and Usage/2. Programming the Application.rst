@@ -16,6 +16,8 @@ Prog RAM or Prog Flash as per requirement.
 
 Console output:
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .. code:: shell
 
    Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
@@ -43,6 +45,52 @@ starting thread-sock0, val=0x0, magic2=0x0
 Crash detection logic initialized
 after: magic1=0x11223344, val=0x0, magic2=0x55667788
 Serial-to-Wireless: Ready
+=======
+=======
+>>>>>>> Stashed changes
+.. code-block:: shell
+
+    Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+    ROM yoda-h0-rom-16-0-gd5a8e586
+    FLASH:PNWWWWWAE
+    Build $Id: git-831e563 $
+    Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff
+
+    Application Information:
+
+    ------------------------
+
+    Name : atcmd
+
+    Version : 2.0
+
+    Build Date : Oct 2 2023
+
+    Build Time : 23:34:29
+
+    Heap Available: 268 KB (274456 Bytes)
+
+    $App:git-e608081
+
+    SDK Ver: FREERTOS_SDK_1.0
+
+    At Command App
+
+    addr e0:69:3a:00:16:d4
+
+    domain:1-11@20before: magic1=0x
+
+    starting thread-sock0, val=0x0, magic2=0x0
+
+    Crash detection logic initialized
+
+    after: magic1=0x11223344, val=0x0, magic2=0x55667788
+
+    Serial-to-Wireless: Ready
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
 
 The boot arguments are the configuration parameters that can specify
@@ -56,9 +104,21 @@ baudrate being 115200.
 
 Argument for setting baudrate 115200:
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .. code:: shell
 
    baudrate=115200
+=======
+.. code-block:: shell
+
+    baudrate=115200
+>>>>>>> Stashed changes
+=======
+.. code-block:: shell
+
+    baudrate=115200
+>>>>>>> Stashed changes
 
 
 Using Script (Ubuntu only)
@@ -67,9 +127,21 @@ Using Script (Ubuntu only)
 With FreeRTOS SDK directory as the current directory, execute the
 following command:
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .. code:: shell
 
    python3 ./script/program_flash.py -i binaries/product/at -spt tools/partition_files/ssbl_part_table.json
+=======
+.. code-block:: python
+
+    python3 ./script/program_flash.py -i binaries/product/at -spt tools/partition_files/ssbl_part_table.json
+>>>>>>> Stashed changes
+=======
+.. code-block:: python
+
+    python3 ./script/program_flash.py -i binaries/product/at -spt tools/partition_files/ssbl_part_table.json
+>>>>>>> Stashed changes
 
 where,
 
@@ -112,10 +184,24 @@ Figure 1: Miniterm console output
 Reset the board either by giving the following command or by pressing
 the reset button on the EVB:
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .. code:: shell
 
    ./script/boot.py --device /dev/ttyUSB2 --reset=evk42
+=======
+=======
+>>>>>>> Stashed changes
+
+.. code:: shell
+
+    ./script/boot.py --device /dev/ttyUSB2 --reset=evk42
+
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
 .. |image1| image:: media/image1.png
    :width: 7.48031in
-   :height: 0.43019in
+   :height: 4.43019in

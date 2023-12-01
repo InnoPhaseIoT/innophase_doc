@@ -63,7 +63,7 @@ INP 301x
 INP 3000
 -------------
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    3. INP3000/INP3000 Programmer Board - Landing.rst
 

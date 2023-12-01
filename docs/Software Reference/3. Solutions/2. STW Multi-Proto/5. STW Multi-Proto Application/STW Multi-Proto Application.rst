@@ -1,3 +1,5 @@
+.. _stw mp app:
+
 STW Multi Proto Application
 ----------------------------
 
@@ -141,28 +143,19 @@ struct hio_api \*api, void \*ctx) API to register the HIO message group.
 
 The first argument struct hio_api \*api has the following prototype:
 
-+-----------------------------------------------------------------------+
-| static const struct hio_api hio_api = {                               |
-|                                                                       |
-| .group = 0,                                                           |
-|                                                                       |
-| .num_handlers = n,                                                    |
-|                                                                       |
-| .handler = {                                                          |
-|                                                                       |
-| Handler_1,                                                            |
-|                                                                       |
-| .                                                                     |
-|                                                                       |
-| .                                                                     |
-|                                                                       |
-| Handler_n,                                                            |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| };                                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+        static const struct hio_api hio_api = {
+    .group = 0,
+    .num_handlers = n,
+    .handler = {
+        Handler_1,
+          .
+          .                  
+        Handler_n,
+    }
+};
+
 
 The hio_api struct specifies the following:
 
@@ -182,11 +175,11 @@ calls the relevant Talaria TWO’s networking API to execute the request
 received from the host and returns a response.
 
 The communication between a HAPI-based application and the SMP
-application is illustrated in Figure 7.
+application is illustrated in Figure 1.
 
-|Diagram Description automatically generated|
+|image1|
 
-Figure 7: Exchange of request-response packets between Host and Talaria
+Figure 1: Exchange of request-response packets between Host and Talaria
 TWO
 
 Talaria TWO Reset Sequence
@@ -196,9 +189,9 @@ After Talaria TWO powers up, a reset needs to be issued by the host
 application. This can be done by pulling down the reset pin low for a
 period of about 100 ms and then high for a period of about 100 ms.
 
-|A diagram of a data flow Description automatically generated|
+|image2|
 
-Figure 8: Talaria TWO reset sequence block diagram
+Figure 2: Talaria TWO reset sequence block diagram
 
 Code Walkthrough
 ~~~~~~~~~~~~~~~~~~~~
@@ -207,20 +200,15 @@ Code Walkthrough
 The application first mounts the filesystem to access the certificates
 and network configuration files.
 
-+-----------------------------------------------------------------------+
-| rval = utils_mount_rootfs();                                          |
-|                                                                       |
-| if(0 != rval) {                                                       |
-|                                                                       |
-| os_printf("Muonting rootfs failed.!\\n");                             |
-|                                                                       |
-| while(1);                                                             |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| os_printf("\\n[APP]root fs mounted, rval = %d", rval);                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+        rval = utils_mount_rootfs();
+    if(0 != rval) {
+        os_printf("Muonting rootfs failed.!\n");
+        while(1);
+    }
+    os_printf("\n[APP]root fs mounted, rval = %d", rval);
+
 
 The application enables the API groups depending on the flag value set
 in the make file (i.e., HAVE\_<GROUP>_HIO). The HIO transport driver
@@ -232,156 +220,96 @@ the WCM group is the first HIO group which is being initialized, the HIO
 transport driver initialization occurs and the corresponding interface
 i.e., UART/SPI/SDIO is configured on Talaria TWO.
 
-+-----------------------------------------------------------------------+
-| #if HAVE_WCM_HIO==1                                                   |
-|                                                                       |
-| strcat(banner, ", wcm");                                              |
-|                                                                       |
-| wcm_hio_init();                                                       |
-|                                                                       |
-| num_groups_registered ++;                                             |
-|                                                                       |
-| #endif                                                                |
-|                                                                       |
-| #if HAVE_SOCK_HIO==1                                                  |
-|                                                                       |
-| strcat(banner, ", sock");                                             |
-|                                                                       |
-| sock_hio_init();                                                      |
-|                                                                       |
-| num_groups_registered ++;                                             |
-|                                                                       |
-| #endif                                                                |
-|                                                                       |
-| #if HAVE_MDNS_HIO==1                                                  |
-|                                                                       |
-| strcat(banner, ", mdns");                                             |
-|                                                                       |
-| mdns_hio_init();                                                      |
-|                                                                       |
-| num_groups_registered ++;                                             |
-|                                                                       |
-| #endif                                                                |
-+=======================================================================+
-|                                                                       |
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+        #if HAVE_WCM_HIO==1
+    strcat(banner, ", wcm");
+    wcm_hio_init();
+    num_groups_registered ++;
+#endif
+
+#if HAVE_SOCK_HIO==1
+    strcat(banner, ", sock");
+    sock_hio_init();
+    num_groups_registered ++;
+#endif
+
+#if HAVE_MDNS_HIO==1
+    strcat(banner, ", mdns");
+    mdns_hio_init();
+    num_groups_registered ++;
+#endif
+
 
 The following block initializes the MQTT, TLS, BT, HTTP, FOTA, FOS,
 unassoc, provisioning and GPIO groups:
 
-+-----------------------------------------------------------------------+
-| #if HAVE_MQTT_HIO==1                                                  |
-|                                                                       |
-| strcat(banner, ", mqtt");                                             |
-|                                                                       |
-| mqtt_hio_init();                                                      |
-|                                                                       |
-| num_groups_registered ++;                                             |
-|                                                                       |
-| #endif                                                                |
-|                                                                       |
-| #if HAVE_TLS_HIO==1                                                   |
-|                                                                       |
-| strcat(banner, ", tls");                                              |
-|                                                                       |
-| tls_hio_init();                                                       |
-|                                                                       |
-| num_groups_registered ++;                                             |
-|                                                                       |
-| #endif                                                                |
-|                                                                       |
-| #if HAVE_BT_HIO==1                                                    |
-|                                                                       |
-| strcat(banner, ", bt");                                               |
-|                                                                       |
-| register_bt_host_hio();                                               |
-|                                                                       |
-| num_groups_registered ++;                                             |
-|                                                                       |
-| #endif                                                                |
-|                                                                       |
-| #if HAVE_HTTP_HIO==1                                                  |
-|                                                                       |
-| strcat(banner, ", http");                                             |
-|                                                                       |
-| hio_http_client_init();                                               |
-|                                                                       |
-| num_groups_registered ++;                                             |
-|                                                                       |
-| #endif                                                                |
-|                                                                       |
-| #if HAVE_HTTPS_HIO==1                                                 |
-|                                                                       |
-| strcat(banner, ", https");                                            |
-|                                                                       |
-| tls_hio_init();                                                       |
-|                                                                       |
-| num_groups_registered ++;                                             |
-|                                                                       |
-| #endif                                                                |
-|                                                                       |
-| #if HAVE_FOTA_APP==1                                                  |
-|                                                                       |
-| strcat(banner, ", FOTA");                                             |
-|                                                                       |
-| hio_fota_init();                                                      |
-|                                                                       |
-| num_groups_registered ++;                                             |
-|                                                                       |
-| #endif                                                                |
-|                                                                       |
-| #if HAVE_FOS_APP==1                                                   |
-|                                                                       |
-| strcat(banner, ", FOS");                                              |
-|                                                                       |
-| hio_fos_init();                                                       |
-|                                                                       |
-| num_groups_registered ++;                                             |
-|                                                                       |
-| #endif                                                                |
-|                                                                       |
-| #if HAVE_UNASSOC_SUPPORT==1                                           |
-|                                                                       |
-| strcat(banner, ", UNASSOC");                                          |
-|                                                                       |
-| unassoc_api_init();                                                   |
-|                                                                       |
-| num_groups_registered ++;                                             |
-|                                                                       |
-| #endif                                                                |
-|                                                                       |
-| #if HAVE_PROV_APP==1                                                  |
-|                                                                       |
-| strcat(banner, ", PROV");                                             |
-|                                                                       |
-| hio_prov_init();                                                      |
-|                                                                       |
-| num_groups_registered ++;                                             |
-|                                                                       |
-| #endif                                                                |
-|                                                                       |
-| #if HAVE_FILE_HIO==1                                                  |
-|                                                                       |
-| strcat(banner, ", file");                                             |
-|                                                                       |
-| hio_file_init();                                                      |
-|                                                                       |
-| num_groups_registered ++;                                             |
-|                                                                       |
-| #endif                                                                |
-|                                                                       |
-| #if HAVE_AWS_HIO==1                                                   |
-|                                                                       |
-| strcat(banner, ", aws");                                              |
-|                                                                       |
-| aws_app_init();                                                       |
-|                                                                       |
-| num_groups_registered ++;                                             |
-|                                                                       |
-| #endif                                                                |
-+=======================================================================+
-|                                                                       |
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+        #if HAVE_MQTT_HIO==1
+    strcat(banner, ", mqtt");
+    mqtt_hio_init();
+    num_groups_registered ++;
+#endif
+
+#if HAVE_TLS_HIO==1
+    strcat(banner, ", tls");
+    tls_hio_init();
+    num_groups_registered ++;
+#endif
+
+#if HAVE_BT_HIO==1
+    strcat(banner, ", bt");
+    register_bt_host_hio();
+    num_groups_registered ++;
+#endif
+
+#if HAVE_HTTP_HIO==1
+    strcat(banner, ", http");
+    hio_http_client_init();
+    num_groups_registered ++;
+#endif
+
+#if HAVE_HTTPS_HIO==1
+    strcat(banner, ", https");
+    tls_hio_init();
+    num_groups_registered ++;
+#endif
+#if HAVE_FOTA_APP==1
+    strcat(banner, ", FOTA");
+    hio_fota_init();
+    num_groups_registered ++;
+#endif
+
+#if HAVE_FOS_APP==1
+    strcat(banner, ", FOS");
+    hio_fos_init();
+    num_groups_registered ++;
+#endif
+
+#if HAVE_UNASSOC_SUPPORT==1
+    strcat(banner, ", UNASSOC");
+    unassoc_api_init();
+    num_groups_registered ++;
+#endif
+
+#if HAVE_PROV_APP==1
+    strcat(banner, ", PROV");
+    hio_prov_init();
+    num_groups_registered ++;
+#endif
+
+#if HAVE_FILE_HIO==1
+    strcat(banner, ", file");
+    hio_file_init();
+    num_groups_registered ++;
+#endif
+
+#if HAVE_AWS_HIO==1
+    strcat(banner, ", aws");
+    aws_app_init();
+    num_groups_registered ++;
+#endif
 
 register_hio_packet_hook() function displays the group_id and msg_id of
 every packet being sent and received on Talaria TWO.
@@ -390,88 +318,60 @@ First, the hook functions to display the packet data being received by
 Talaria TWO (input hook) and the packet data being sent by Talaria TWO
 (output hook) are defined.
 
-+-----------------------------------------------------------------------+
-| void hio_input_packet_info(struct packet \*pkt)                       |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| os_printf("input-hook\\n");                                           |
-|                                                                       |
-| show_packet_info(pkt);                                                |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| void hio_output_packet_info(struct packet \*pkt)                      |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| os_printf("output-hook\\n");                                          |
-|                                                                       |
-| show_packet_info(pkt);                                                |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+        void hio_input_packet_info(struct packet *pkt)
+{
+    os_printf("input-hook\n");
+    show_packet_info(pkt);
+}
+void hio_output_packet_info(struct packet *pkt)
+{
+    os_printf("output-hook\n");
+    show_packet_info(pkt);
+}
+
 
 The show_packet_info() function extracts the GROUP ID and the MSGID and
 displays it.
 
-+-----------------------------------------------------------------------+
-| void show_packet_info(struct packet \*pkt)                            |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| const struct hio_msghdr \*hdr;                                        |
-|                                                                       |
-| hdr = packet_data(pkt);                                               |
-|                                                                       |
-| uint32_t group = hdr->group, msgid = hdr->msgid;                      |
-|                                                                       |
-| os_printf("hio: group=%d.msgid=%d\\n", group, msgid);                 |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+        void show_packet_info(struct packet *pkt)
+{
+    const struct hio_msghdr *hdr;
+    hdr = packet_data(pkt);
+    uint32_t group = hdr->group, msgid = hdr->msgid;
+    os_printf("hio: group=%d.msgid=%d\n", group, msgid);
+}
 
 Now, the register_hio_packet_hook() function registers the input packet
 hook and the output packet hook callback functions.
 
-+-----------------------------------------------------------------------+
-| void register_hio_packet_hook()                                       |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| int ret;                                                              |
-|                                                                       |
-| ret = hio_packet_hook_register(hio_input_packet_info,                 |
-|                                                                       |
-| hio_output_packet_info);                                              |
-|                                                                       |
-| os_printf("Packet hook register status = %d\\n", ret);                |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+        void register_hio_packet_hook()
+{
+    int ret;
+    ret = hio_packet_hook_register(hio_input_packet_info,
+            hio_output_packet_info);
+    os_printf("Packet hook register status = %d\n", ret);
+}
+
 
 The application will register the HIO packet hook by calling the
 register_hio_packet_hook () function when the bootarg displ_pkt_info=1
 is issued.
 
-+-----------------------------------------------------------------------+
-| if(os_get_boot_arg_int("disp_pkt_info", 0) != 0) {                    |
-|                                                                       |
-| /\* Register packet hook.                                             |
-|                                                                       |
-| \* Hook will print the msg_id and group_id of every packets sent and  |
-| received                                                              |
-|                                                                       |
-| \*/                                                                   |
-|                                                                       |
-| register_hio_packet_hook();                                           |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+          if(os_get_boot_arg_int("disp_pkt_info", 0) != 0) {
+        /* Register packet hook.
+         * Hook will print the msg_id and group_id of every packets sent and received
+         */
+        register_hio_packet_hook();
+    }
+
 
 Finally, if LWIP is running, the iPerf3 server is started and SNTP is
 initialized.
@@ -531,39 +431,33 @@ api/custom.h in the example application:
 
 5. Custom response message
 
-+-----------------------------------------------------------------------+
-| #define HIO_GROUP_CUSTOM 158                                          |
-|                                                                       |
-| #define HAPI_CUSTOM_MSG_REQ 0x03                                      |
-|                                                                       |
-| #define HAPI_CUSTOM_MSG_RSP 0x83                                      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+        #define HIO_GROUP_CUSTOM     158
+
+#define HAPI_CUSTOM_MSG_REQ 0x03 
+#define HAPI_CUSTOM_MSG_RSP 0x83
+
 
 Following is the structure defined for a custom request message:
 
-+-----------------------------------------------------------------------+
-| struct hapi_custom_msg_req {                                          |
-|                                                                       |
-| char echo_req[MAX_MSG_SIZE]; /\*Request message from host*/           |
-|                                                                       |
-| };                                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+        struct hapi_custom_msg_req {
+    char echo_req[MAX_MSG_SIZE]; /*Request message from host*/
+};
+
 
 Corresponding structure for a custom response message also needs to be
 defined:
 
-+-----------------------------------------------------------------------+
-| struct hapi_custom_msg_rsp {                                          |
-|                                                                       |
-| uint32_t status; /\**< result status, zero is success \*/             |
-|                                                                       |
-| char echo_rsp[MAX_MSG_SIZE]; /\**< response from T2 \*/               |
-|                                                                       |
-| };                                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+        struct hapi_custom_msg_rsp {
+    uint32_t status; /**< result status, zero is success */
+    char echo_rsp[MAX_MSG_SIZE]; /**< response from T2 */
+};
+
 
 A function to send and receive a packet to/from Talaria TWO (i.e.,
 api_send_custom_msg()) is defined in *hapi\\lib\\src\\hapi_custom.c.*
@@ -574,72 +468,52 @@ the required memory and return a pointer of type struct hapi_packet. The
 definitions of struct hapi_packet, struct hapi_msg_frame and struct
 hapi_msg_hdr are as follows:
 
-+-----------------------------------------------------------------------+
-| /\* Headers for all device communication ----- \*/                    |
-|                                                                       |
-| struct hapi_msg_hdr {                                                 |
-|                                                                       |
-| uint8_t group;                                                        |
-|                                                                       |
-| uint8_t msgid;                                                        |
-|                                                                       |
-| uint16_t trxid;                                                       |
-|                                                                       |
-| };                                                                    |
-|                                                                       |
-| struct hapi_msg_frame {                                               |
-|                                                                       |
-| uint16_t size; // sizeof data + msghdr                                |
-|                                                                       |
-| struct hapi_msg_hdr msg_hdr;                                          |
-|                                                                       |
-| };                                                                    |
-|                                                                       |
-| /\* Packet definition ----------------------- \*/                     |
-|                                                                       |
-| #define HAPI_PACKET_MAGIC 0x600D                                      |
-|                                                                       |
-| struct hapi_packet {                                                  |
-|                                                                       |
-| uint16_t magic;                                                       |
-|                                                                       |
-| struct hapi_msg_frame frame;                                          |
-|                                                                       |
-| void \* msg;                                                          |
-|                                                                       |
-| struct hapi_packet \* next;                                           |
-|                                                                       |
-| };                                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+        /* Headers for all device communication ----- */
+struct hapi_msg_hdr {
+    uint8_t group;
+    uint8_t  msgid;
+    uint16_t trxid;
+};
+
+struct hapi_msg_frame {
+    uint16_t size;      // sizeof data + msghdr
+    struct hapi_msg_hdr msg_hdr;
+};
+
+/* Packet definition ----------------------- */
+
+#define HAPI_PACKET_MAGIC 0x600D
+
+struct hapi_packet {
+    uint16_t magic;
+    struct hapi_msg_frame frame;
+    void * msg;
+    struct hapi_packet * next;
+};
 
 The pkt_out variable contains the pointer to the struct hapi_packet type
 created. The hapi_pkt_msg(pkt_out) API returns a pointer to the message
 buffer in the packet created.
 
-+-----------------------------------------------------------------------+
-| struct hapi_custom_msg_req \*req;                                     |
-|                                                                       |
-| struct hapi_packet \*pkt_out =                                        |
-|                                                                       |
-| hapi_pkt_msg_alloc(hapi, HIO_GROUP_CUSTOM, HAPI_CUSTOM_MSG_REQ,       |
-| sizeof(struct hapi_custom_msg_req), 0);                               |
-|                                                                       |
-| req = hapi_pkt_msg(pkt_out);                                          |
-|                                                                       |
-| /\* update req fields \*/                                             |
-|                                                                       |
-| memcpy(req->echo_req, msg, sizeof(req->echo_req));                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+        struct hapi_custom_msg_req *req;
+    struct hapi_packet *pkt_out =
+    hapi_pkt_msg_alloc(hapi, HIO_GROUP_CUSTOM, HAPI_CUSTOM_MSG_REQ, sizeof(struct hapi_custom_msg_req), 0);
+    req = hapi_pkt_msg(pkt_out);
+    /* update req fields */
+	 memcpy(req->echo_req, msg, sizeof(req->echo_req));
+
 
 The data to be sent by the host (in the msg buffer in this example) is
 copied to the request message buffer. Now, the packet to be sent to
 Talaria TWO is ready. The packet contains the following fields:
 
-|A picture containing histogram Description automatically generated|
+|image3|
 
-Figure 9: Packet contents
+Figure 3: Packet contents
 
 The host sends a message: “Hello from host”.
 
@@ -651,48 +525,34 @@ application calls the hapi_send_recv_validate() API to send the packet
 (i.e., pkt_out) and blocks until a response is received from Talaria
 TWO.
 
-+-----------------------------------------------------------------------+
-| struct hapi_packet \*pkt_in =                                         |
-|                                                                       |
-| hapi_send_recv_validate(hapi, pkt_out, HIO_GROUP_CUSTOM,              |
-| HAPI_CUSTOM_MSG_RSP);                                                 |
-|                                                                       |
-| if (pkt_in == NULL) {                                                 |
-|                                                                       |
-| /\* Unexpected behaviour \*/                                          |
-|                                                                       |
-| printf("%s failed.\\n", \__FUNCTION\_\_);                             |
-|                                                                       |
-| goto end;                                                             |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+        struct hapi_packet *pkt_in =
+        hapi_send_recv_validate(hapi, pkt_out, HIO_GROUP_CUSTOM, HAPI_CUSTOM_MSG_RSP);
+    if (pkt_in == NULL) {
+        /* Unexpected behaviour */
+        printf("%s failed.\n", __FUNCTION__);
+        goto end;
+    }	
+
 
 On receiving the response packet from Talaria TWO,
 hapi_send_recv_validate()will return the pointer to the received
 response packet.
 
-+-----------------------------------------------------------------------+
-| struct hapi_custom_msg_rsp \*rsp = hapi_pkt_msg(pkt_in);              |
-|                                                                       |
-| if (rsp->status != 0) {                                               |
-|                                                                       |
-| /\* Unexpected behaviour \*/                                          |
-|                                                                       |
-| printf("%s status failed.\\n", \__FUNCTION\_\_);                      |
-|                                                                       |
-| goto end;                                                             |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| ok = true;                                                            |
-|                                                                       |
-| printf("recieved :%s-%d\\r\\n",rsp->echo_rsp,test);                   |
-|                                                                       |
-| memcpy(rsp->echo_rsp,resp_msg , sizeof(req->echo_req));               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+        struct hapi_custom_msg_rsp *rsp = hapi_pkt_msg(pkt_in);
+    if (rsp->status != 0) {
+        /* Unexpected behaviour */
+        printf("%s status failed.\n", __FUNCTION__);
+        goto end;
+    }
+
+   ok = true;
+   printf("recieved :%s-%d\r\n",rsp->echo_rsp,test);
+   memcpy(rsp->echo_rsp,resp_msg , sizeof(req->echo_req));
+
 
 The contents of the message buffer of the received packet are copied
 into a buffer for the application to process it.
@@ -718,24 +578,18 @@ application.
    corresponding GROUP ID and MSGID is received. Following is the
    definition of struct hio_api:
 
-+-----------------------------------------------------------------------+
-| struct hio_api {                                                      |
-|                                                                       |
-| uint16_t group;                                                       |
-|                                                                       |
-| uint16_t num_handlers;                                                |
-|                                                                       |
-| struct packet \*(\*const handler[])(void \*ctx, struct packet \*pkt); |
-|                                                                       |
-| };                                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-..
+        struct hio_api {
+uint16_t group;
+uint16_t num_handlers;
+struct packet *(*const handler[])(void *ctx, struct packet *pkt);
+};
 
-   Refer document: Talaria_TWO_Host_API_Reference_Guide.pdf (path:
-   *sdk_x.y\\doc\\reference_guides\\api_reference_guide*) for more
-   information on struct hio_api.
+
+Refer document: Talaria_TWO_Host_API_Reference_Guide.pdf (path:
+*freertos_sdk_x.y\\doc\\reference_guides\\api_reference_guide*) for more
+information on struct hio_api.
 
 4. Register the custom group by calling the hio_api_init(const struct
    hio_api \*api, void \*ctx) API.
@@ -746,107 +600,75 @@ application.
    ones defined in api/custom_group.h file in HAPI-based host
    application.
 
-+-----------------------------------------------------------------------+
-| #define HIO_GROUP_CUSTOM 158                                          |
-|                                                                       |
-| #define HAPI_CUSTOM_MSG_REQ 0x03                                      |
-|                                                                       |
-| #define HAPI_CUSTOM_MSG_RSP 0x83                                      |
-|                                                                       |
-| struct hapi_custom_msg_req {                                          |
-|                                                                       |
-| char echo_req[MAX_MSG_SIZE]; /\*Request message from host*/           |
-|                                                                       |
-| };                                                                    |
-|                                                                       |
-| struct hapi_custom_msg_rsp {                                          |
-|                                                                       |
-| uint32_t status; /\**< result status, zero is success \*/             |
-|                                                                       |
-| char echo_rsp[MAX_MSG_SIZE]; /\**< response from T2 \*/               |
-|                                                                       |
-| };                                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+        #define HIO_GROUP_CUSTOM     158
+
+#define HAPI_CUSTOM_MSG_REQ 0x03 
+#define HAPI_CUSTOM_MSG_RSP 0x83
+
+struct hapi_custom_msg_req {
+    char echo_req[MAX_MSG_SIZE]; /*Request message from host*/
+};
+
+struct hapi_custom_msg_rsp {
+    uint32_t status; /**< result status, zero is success */
+    char echo_rsp[MAX_MSG_SIZE]; /**< response from T2 */
+};
+
 
 6. The required functions to register the custom group and the handlers
    are defined in custom_group.c.
 
-..
-
    custom_data_send_recieve handler receives request packet, extracts
    the content of the packet, and sends a response packet.
 
-+-----------------------------------------------------------------------+
-| static struct packet \*custom_data_send_recieve(void \*ctx, struct    |
-| packet \*msg)                                                         |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| struct hapi_custom_msg_req \*req = packet_data(msg);                  |
-|                                                                       |
-| os_printf("host sent:%s\\r\\n",req->echo_req);                        |
-|                                                                       |
-| return custom_send_resp();                                            |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+        static struct packet *custom_data_send_recieve(void *ctx, struct packet *msg)
+{
+    struct hapi_custom_msg_req *req = packet_data(msg);
+    os_printf("host sent:%s\r\n",req->echo_req);
+    return custom_send_resp();
+}
+
 
 7. custom_send resp() function creates a response packet, copies the
    payload to be included in the response packet and returns a pointer
    of type struct packet.
 
-+-----------------------------------------------------------------------+
-| static struct packet\* custom_send_resp(void)                         |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| char t2_rsp[64] = "Resp from T2";                                     |
-|                                                                       |
-| struct packet \*pkt;                                                  |
-|                                                                       |
-| struct hapi_custom_msg_rsp \*rsp;                                     |
-|                                                                       |
-| pkt = OS_ERROR_ON_NULL(alloc_custom_data_rsp(&rsp));                  |
-|                                                                       |
-| rsp->status = 0;                                                      |
-|                                                                       |
-| memcpy(rsp->echo_rsp, t2_rsp,sizeof(t2_rsp));                         |
-|                                                                       |
-| return pkt;                                                           |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+        static struct packet* custom_send_resp(void)
+{  
+    char t2_rsp[64] = "Resp from T2";	
+    struct packet *pkt;
+    struct hapi_custom_msg_rsp *rsp;
+    pkt = OS_ERROR_ON_NULL(alloc_custom_data_rsp(&rsp));
+    rsp->status  = 0;
+    memcpy(rsp->echo_rsp, t2_rsp,sizeof(t2_rsp));       
+    return pkt;
+}  
+
 
 8. alloc_custom_data_rsp() function creates a packet by allocating
    memory for the response packet to be sent. The payload – “Resp from
    Talaria TWO” is copied to the message buffer of the packet created
    and the pointer to the created packet is returned by this function.
 
-+-----------------------------------------------------------------------+
-| static inline struct packet \* alloc_custom_data_rsp(struct           |
-| hapi_custom_msg_rsp \**rsp)                                           |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| struct packet \*pkt = packet_alloc(sizeof(struct hio_msghdr) + sizeof |
-| \**rsp);                                                              |
-|                                                                       |
-| if (pkt) {                                                            |
-|                                                                       |
-| pfrag_reserve(packet_first_frag(pkt), sizeof(struct hio_msghdr));     |
-|                                                                       |
-| \*rsp = packet_insert_tail(pkt, sizeof \**rsp);                       |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| return pkt;                                                           |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+        static inline struct packet * alloc_custom_data_rsp(struct hapi_custom_msg_rsp **rsp)
+{   
+    struct packet *pkt = packet_alloc(sizeof(struct hio_msghdr) + sizeof **rsp);
+    if (pkt) {
+        pfrag_reserve(packet_first_frag(pkt), sizeof(struct hio_msghdr));
+        *rsp = packet_insert_tail(pkt, sizeof **rsp);
+    }
+  return pkt;
+}
+
+
 
 9. pfrag_reserve() API returns the data and the address of head of the
    linked list in which the packet is included. packet_insert_tail
@@ -854,17 +676,15 @@ application.
    address of the packet created is returned. custom_send_resp()
    function copies the response message payload and returns the packet.
 
-..
-
    This packet is sent to the host by the custom_data_send_recieve()
    handler. The host now receives the response packet from Talaria TWO.
 
-.. |Diagram Description automatically generated| image:: media/image1.png
+.. |image1| image:: media/image1.png
    :width: 5.90551in
    :height: 5.30038in
-.. |A diagram of a data flow Description automatically generated| image:: media/image2.png
+.. |image2| image:: media/image2.png
    :width: 4.72441in
    :height: 2.21222in
-.. |A picture containing histogram Description automatically generated| image:: media/image3.png
+.. |image3| image:: media/image3.png
    :width: 5.90551in
    :height: 1.21448in

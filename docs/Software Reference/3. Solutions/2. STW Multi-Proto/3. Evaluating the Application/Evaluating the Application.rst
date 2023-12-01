@@ -1,3 +1,5 @@
+.. _stw mp building the app:
+
 Building the Application
 ------------------------
 

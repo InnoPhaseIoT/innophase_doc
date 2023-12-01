@@ -1,3 +1,5 @@
+.. _ds key features:
+
 Key-Features
 --------------
 
@@ -5,21 +7,16 @@ Dual-Stack solution provides the following system-level features, which
 helps the user integrate it as a full IoT solution.
 
 1. FOTA
-
-..
-
+   
    FOTA provides the following:
 
-a. Facility to check for the availability of new upgrades on the WLAN
-   firmware
+      - Facility to check for the availability of new upgrades on the WLAN firmware
 
-b. Securely download the image into flash
+      - Securely download the image into flash
 
-c. Check the validity of the downloaded image
+      - Check the validity of the downloaded image
 
-d. Set the new image as the boot image.
-
-..
+      - Set the new image as the boot image.
 
    In conjunction with SSBL, it enables booting the latest downloaded
    image. The firmware is downloaded into application image partition in
@@ -34,8 +31,6 @@ d. Set the new image as the boot image.
 
 2. Device Provisioning over BLE
 
-..
-
    Provisioning is a method to configure parameters required for the
    Wi-Fi Connection and cloud details. This can be achieved via Talaria
    TWO BLE provisioning method. Mobile-based provisioning application
@@ -43,8 +38,6 @@ d. Set the new image as the boot image.
    manager.
 
 3. Connection Manager
-
-..
 
    Connection Manager is a utility which is a stripped version of Wi-Fi
    utilities like iwconfig that enables the application to use Wi-Fi
@@ -55,8 +48,6 @@ d. Set the new image as the boot image.
    Commands <#_Connection_Manager_Commands>`__
 
 4. Low Power
-
-..
 
    This solution allows the host and/or Talaria TWO to be put to sleep.
    There are two GPIOs available, one of which is used as a wakeup
@@ -71,8 +62,6 @@ d. Set the new image as the boot image.
    from the cloud or from predefined events.
 
 5. Keepalive/Shadow service
-
-..
 
    This is a feature supported by the Dual-Stack solution to achieve
    maximum power saving without losing cloud connectivity.
@@ -113,8 +102,6 @@ b. Power save/keepalive state:
 
 6. Heartbeat
 
-..
-
    Under normal working, if Talaria TWO crashes or hangs, host
    application will not be able to detect this. The heartbeat feature
    helps avoid this situation. Every 10 seconds, the host sends a
@@ -135,8 +122,6 @@ b. Power save/keepalive state:
    once received, prints the message.
 
 7. Port-range Configuration
-
-..
 
    Since Dual-Stack provides sockets on both host and Talaria TWO, the
    source port needs to be partitioned and allocated to both Talaria TWO
@@ -175,23 +160,18 @@ b. Power save/keepalive state:
 
 8. Packet Forward Configuration
 
-..
-
    The packet forward configuration in the Dual-Stack solution extends
    the flexibility to configure multiple rules for packet forwarding.
 
    The packet forward module provides the following features:
 
-a. Packet forwarding based on multiple local port/port ranges
+      - Packet forwarding based on multiple local port/port ranges
 
-b. Packet forwarding based on multiple remote IP/ports
+      - Packet forwarding based on multiple remote IP/ports
 
-c. Ability to be configured dynamically, providing the control to have
-   product specific packet forwarding rule
+      - Ability to be configured dynamically, providing the control to have product specific packet forwarding rule
 
-d. Ability to define the packet direction
-
-..
+      - Ability to define the packet direction
 
    Following boot argument helps configure the source port ranges for
    both Host and Talaria TWO:
@@ -206,8 +186,6 @@ d. Ability to define the packet direction
    +-----------------------+-----------------------+----------------------+
 
 9. custom_fos application
-
-..
 
    This application demonstrates the use of Firmware Upgrade Over
    Serial. Using this application, Talaria TWO ELF can be upgraded from

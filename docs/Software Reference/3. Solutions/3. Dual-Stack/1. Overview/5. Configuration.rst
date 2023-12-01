@@ -1,3 +1,5 @@
+.. _ds config:
+
 Configuration
 ---------------
 
@@ -11,7 +13,7 @@ same, board_conf file can be used to make this update.
 Following are the list of parameters which can be updated using the
 board_conf file:
 
-.. table:: Table 7: List of parameters - board_conf file
+.. table:: Table 1: List of parameters - board_conf file
 
    +-------------------+-----------------------+--------+-------+-------+
    | **Parameter**     | **Description**       | **     | **De  | **Ra  |

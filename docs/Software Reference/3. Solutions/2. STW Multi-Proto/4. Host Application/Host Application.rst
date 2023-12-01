@@ -1,3 +1,5 @@
+.. _stw mp host app:
+
 Host Application
 ------------------
 
@@ -27,9 +29,9 @@ architecture and the communication mechanism between the host
 application (using the HAPI APIs and the SMP application running on
 Talaria TWO.
 
-|Diagram Description automatically generated|
+|image1|
 
-Figure 5: Talaria TWO HAPI SW Stack
+Figure 1: Talaria TWO HAPI SW Stack
 
 The host application follows a protocol to exchange the commands/data
 with Talaria TWO’s SMP application. The HAPI layer contains the
@@ -42,28 +44,22 @@ following sub layers:
    provides the APIs to the host/user application. Each of these groups
    provide APIs of a particular type depending on the functionality.
 
-..
 
-   For example, Wi-Fi group provides Wi-Fi related APIs, BLE group
-   provides BLE related APIs etc.
+For example, Wi-Fi group provides Wi-Fi related APIs, BLE group provides BLE related APIs etc.
 
-   Each of these groups have a unique GROUP ID. Each of the commands
-   sent from a given group will have a unique MSGID.
+Each of these groups have a unique GROUP ID. Each of the commands sent from a given group will have a unique MSGID.
 
-   For example, The Wi-Fi group provides APIs to connect with a unique
-   MSGID and disconnect with another MSGID to an AP.
+For example, The Wi-Fi group provides APIs to connect with a unique MSGID and disconnect with another MSGID to an AP.
 
-   For every HAPI group in the host application, there is a
-   corresponding HIO group in the SMP application which receives the
-   request messages and sends a response message.
+For every HAPI group in the host application, there is a corresponding HIO group in the SMP application which receives the 
+request messages and sends a response message.
 
-   The user application calls the HAPI API and provides the required
-   payload through the arguments and the corresponding HAPI group will
-   generate a frame in the following format:
+The user application calls the HAPI API and provides the required payload through the arguments and the corresponding HAPI group will
+generate a frame in the following format:
 
-   |Table Description automatically generated|
+|image2|
 
-Figure 6: Frame format of a request packet
+Figure 2: Frame format of a request packet
 
 Each frame will contain the following fields.
 
@@ -83,9 +79,9 @@ blocks until the response from the Talaria TWO is received. Upon
 receiving the response, the receive thread unblocks and sends the
 response to the user application.
 
-.. |Diagram Description automatically generated| image:: media/image1.png
+.. |image1| image:: media/image1.png
    :width: 3.93701in
    :height: 4.42702in
-.. |Table Description automatically generated| image:: media/image2.png
+.. |image2| image:: media/image2.png
    :width: 5.90551in
    :height: 1.21873in

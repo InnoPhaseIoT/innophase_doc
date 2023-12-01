@@ -1,3 +1,5 @@
+.. _at cmds fota config:
+
 FOTA Capabilities (Wi-Fi)
 -------------------------
 
@@ -34,56 +36,33 @@ config file will be more than that in the local config file.
 The remote fota_config.json file at the server will have necessary
 information to download the firmware.
 
-+-----------------------------------------------------------------------+
-| {                                                                     |
-|                                                                       |
-| "package_version" : "3.0",                                            |
-|                                                                       |
-| "files" : [                                                           |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "type" : "configuration",                                             |
-|                                                                       |
-| "name" : "fota.config",                                               |
-|                                                                       |
-| "protocol" : "http",                                                  |
-|                                                                       |
-| "hostname" : "192.168.1.202",                                         |
-|                                                                       |
-| "port" : 80,                                                          |
-|                                                                       |
-| "secured" : 0,                                                        |
-|                                                                       |
-| "uri" : "xxx/fota_config_new.json"                                    |
-|                                                                       |
-| },                                                                    |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "type" : "firmware",                                                  |
-|                                                                       |
-| "name" : "atcmd",                                                     |
-|                                                                       |
-| "version" : "3.0",                                                    |
-|                                                                       |
-| "protocol" : "http",                                                  |
-|                                                                       |
-| "hostname" : "192.168.1.202",                                         |
-|                                                                       |
-| "port" : 80,                                                          |
-|                                                                       |
-| "secured" : 0,                                                        |
-|                                                                       |
-| "uri" : "/xxx/t2_atcmds.elf"                                          |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| ]                                                                     |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      {
+        "package_version"    : "3.0",
+        "files"   : [
+         {
+            "type" : "configuration",
+            "name" : "fota.config",
+            "protocol" : "http",
+            "hostname" : "192.168.1.202",
+            "port" : 80,
+            "secured" : 0,      
+            "uri" : "xxx/fota_config_new.json" 
+        },
+        {
+            "type" : "firmware",
+            "name" : "atcmd",
+            "version" : "3.0",
+            "protocol" : "http",
+            "hostname" : "192.168.1.202",
+            "port" : 80,
+            "secured" : 0,
+            "uri" : "/xxx/t2_atcmds.elf"
+        }    
+        ] 
+    }
+
 
 On booting, after at+fota=1 is issued, the device refers to the
 configuration section of the local config file, downloads the new
@@ -106,70 +85,44 @@ image integrity is checked.
 
 For example:
 
-+-----------------------------------------------------------------------+
-| Freertos_sdk_x.y/binaries/product/at/bin$ sha256sum t2_atcmds.elf     |
-|                                                                       |
-| 0200ac047cf0bff69d9b71a12144d1bec088aad865bb17484605f305709fd1f2      |
-| t2_atcmds.elf                                                         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      freertos_sdk_x.y/binaries/product/at/bin$ sha256sum t2_atcmds.elf
+0200ac047cf0bff69d9b71a12144d1bec088aad865bb17484605f305709fd1f2  t2_atcmds.elf
+
 
 2. Copy the output string to fota_config_new.json to update the hash.
    Following is a remote fota_config.json with hash:
 
-+-----------------------------------------------------------------------+
-| {                                                                     |
-|                                                                       |
-| "package_version" : "3.0",                                            |
-|                                                                       |
-| "files" : [                                                           |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "type" : "configuration",                                             |
-|                                                                       |
-| "name" : "fota.config",                                               |
-|                                                                       |
-| "protocol" : "http",                                                  |
-|                                                                       |
-| "hostname" : "192.168.1.202",                                         |
-|                                                                       |
-| "port" : 80,                                                          |
-|                                                                       |
-| "secured" : 0,                                                        |
-|                                                                       |
-| "uri" : "/**xxx**/fota_config_new.json"                               |
-|                                                                       |
-| },                                                                    |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "type" : "firmware",                                                  |
-|                                                                       |
-| "name" : "atcmd",                                                     |
-|                                                                       |
-| "version" : "3.0",                                                    |
-|                                                                       |
-| "protocol" : "http",                                                  |
-|                                                                       |
-| "hostname" : "192.168.1.202",                                         |
-|                                                                       |
-| "port" : 80,                                                          |
-|                                                                       |
-| "secured" : 0,                                                        |
-|                                                                       |
-| "uri" : "/xxx/t2_atcmds.elf"                                          |
-|                                                                       |
-| "hash" :                                                              |
-| "0200ac047cf0bff69d9b71a12144d1bec088aad865bb17484605f305709fd1f2"    |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| ]                                                                     |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      {
+        "package_version"    : "3.0",
+    
+        "files"   : [
+         {
+            "type" : "configuration",
+            "name" : "fota.config",
+            "protocol" : "http",
+            "hostname" : "192.168.1.202",
+            "port" : 80,
+            "secured" : 0,      
+            "uri" : "/xxx/fota_config_new.json" 
+        },
+        {
+            "type" : "firmware",
+            "name" : "atcmd",
+            "version" : "3.0",
+            "protocol" : "http",
+            "hostname" : "192.168.1.202",
+            "port" : 80,
+            "secured" : 0,
+            "uri" : "/xxx/t2_atcmds.elf"
+            "hash" : "0200ac047cf0bff69d9b71a12144d1bec088aad865bb17484605f305709fd1f2"
+        }    
+        ] 
+    }
+
 
 JSON File Validation
 --------------------

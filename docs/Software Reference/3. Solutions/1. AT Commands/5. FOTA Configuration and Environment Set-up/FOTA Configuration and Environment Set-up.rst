@@ -1,5 +1,8 @@
 .. _at cmds fota config:
 
+FOTA Configuration and Environment Set-up
+#########################################
+
 FOTA Capabilities (Wi-Fi)
 -------------------------
 

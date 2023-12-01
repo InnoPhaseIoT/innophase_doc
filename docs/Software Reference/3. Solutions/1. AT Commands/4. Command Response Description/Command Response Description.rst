@@ -1,3 +1,5 @@
+.. _at cmds response desc:
+
 Socket Command Responses
 ------------------------
 
@@ -145,6 +147,7 @@ Socket Command Responses
    | Socket     | “CLOSE:<SOC ID>”                                        |
    | Close      |                                                         |
    +------------+---------------------------------------------------------+
+
 
 Command Response IDs
 --------------------

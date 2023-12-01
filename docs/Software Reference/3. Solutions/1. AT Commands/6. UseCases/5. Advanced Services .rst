@@ -1,3 +1,5 @@
+.. _at cmds uc as:
+
 Advance Services
 ------------------
 
@@ -25,7 +27,7 @@ Android device installed with native BLE app (BLE Scanner/nRF Connect).
 AT Command Sequence 
 ~~~~~~~~~~~~~~~~~~~~
 
-.. table:: Table 26: BLE Provisioning - AT Commands
+.. table:: Table 1: BLE Provisioning - AT Commands
 
    +----------------------------------------+-----------------------------+
    | **AT Command**                         | **Description**             |
@@ -130,78 +132,62 @@ Procedure
 
 **Step 1**: Execute the following commands on Talaria TWO:
 
-.. table:: Table 27: BLE Provisioning - AT Commands
+.. code:: shell
 
-   +-----------------------------------------------------------------------+
-   | at                                                                    |
-   |                                                                       |
-   | at+btinit                                                             |
-   |                                                                       |
-   | at+blecfg=02:03:04:1f:cc:9e,0,InnoPhase_prov                          |
-   |                                                                       |
-   | at+blesrvstart                                                        |
-   |                                                                       |
-   | at+bleservcfg=11111111111111111111111111111111                        |
-   |                                                                       |
-   | at+blechradd=11111111111111111111111111111111,2A29,a,3                |
-   |                                                                       |
-   | at+bleservadd=11111111111111111111111111111111                        |
-   |                                                                       |
-   | at+bleadvcfg=100,0,1600,0                                             |
-   |                                                                       |
-   | at+bleadvstart                                                        |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+      at
+at+btinit
+at+blecfg=02:03:04:1f:cc:9e,0,InnoPhase_prov
+at+blesrvstart
+at+bleservcfg=11111111111111111111111111111111
+at+blechradd=11111111111111111111111111111111,2A29,a,3
+at+bleservadd=11111111111111111111111111111111
+at+bleadvcfg=100,0,1600,0
+at+bleadvstart 
 
-|image1|
 
-Figure 94: BLE Provisioning- serial log
+|image94|
+
+Figure 1: BLE Provisioning- serial log
 
 **Step 2**: Launch BLE Scanner app from the Android device and connect
 to Talaria TWO GATT Server with the BLE name: InnoPhase_Prov.
 
-|image2|
+|image95|
 
-Figure 95: InnoPhase_Prov-GATT server
+Figure 2: InnoPhase_Prov-GATT server
 
 **Step 3**: Once the BLE connection is established successfully, send
 data/Write Request by pressing W from BLE central. Here, add the SSID
 and passphrase of the network.
 
-|image3|
+|image96|
 
-Figure 96: BLE write to add the SSID and Passphrase
+Figure 3: BLE write to add the SSID and Passphrase
 
 Data received from the BLE central app on Talaria TWO. Send an
 acknowledgment of the write request from Talaria TWO using following
 command on serial terminal:
 
-.. table:: Table 28: BLE Provisioning - AT Commands
+.. code:: shell
 
-   +-----------------------------------------------------------------------+
-   | at+blecharwrdata=2a29,14                                              |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+      at+blecharwrdata=2a29,14
 
-|image4|
+|image97|
 
-Figure 97: Acknowledgment of Write request
+Figure 4: Acknowledgment of Write request
 
 **Step 4**: Connect to the network with SSID=IP and
 Passphrase=Inno@9070.
 
-.. table:: Table 29: FOTA - AT commands
+.. code:: shell
 
-   +-----------------------------------------------------------------------+
-   | at+wcon=IP,Inno@9070                                                  |
-   |                                                                       |
-   | at+wstatus=0                                                          |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+      at+wcon=IP,Inno@9070
+at+wstatus=0
 
-|image5|
 
-Figure 98: WLAN connection
+|image98|
+
+Figure 5: WLAN connection
 
 Secure BLE Provisioning Passkey method
 ~~~~~~~~~~~~~~~~~~~~
@@ -236,6 +222,7 @@ Android/ iOS device installed with BLE app (BLE Scanner/nRF Connect).
 AT Command Sequence 
 ~~~~~~~~~~~~~~~~~~~~
 
+.. table:: Table 2: BLE Provisioning - AT Commands
 +----------------------------------------+-----------------------------+
 | **AT Command**                         | **Description**             |
 +========================================+=============================+
@@ -348,7 +335,7 @@ AT Command Sequence
 
 For more details on the AT command parameters, refer BT/BLE commands
 section of UG_AT_Commands.pdf
-*(freertos_sdk_x.y\\binaries\\product\\at\\doc)*.
+
 
 .. _procedure-1:
 
@@ -357,94 +344,82 @@ Procedure
 
 **Step 1**: Execute the following commands on Talaria TWO:
 
-+-----------------------------------------------------------------------+
-| at                                                                    |
-|                                                                       |
-| at+btinit                                                             |
-|                                                                       |
-| at+blecfg=01:01:06:06:01:01,0,innophase                               |
-|                                                                       |
-| at+blesrvstart                                                        |
-|                                                                       |
-| at+bleservcfg=11111111111111111111111111111111                        |
-|                                                                       |
-| at+blechradd=11111111111111111111111111111111, 0x2a19,a,3             |
-|                                                                       |
-| at+bleservadd=11111111111111111111111111111111                        |
-|                                                                       |
-| at+bleadvcfg=32,0,160,480                                             |
-|                                                                       |
-| at+blesmpcfg=0,0,1,1,0,0,16,1                                         |
-|                                                                       |
-| at+bleadvstart                                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image6|
+      at
+at+btinit
+at+blecfg=01:01:06:06:01:01,0,innophase
+at+blesrvstart
+at+bleservcfg=11111111111111111111111111111111
+at+blechradd=11111111111111111111111111111111, 0x2a19,a,3
+at+bleservadd=11111111111111111111111111111111
+at+bleadvcfg=32,0,160,480
+at+blesmpcfg=0,0,1,1,0,0,16,1
+at+bleadvstart 
 
-Figure 99: BLE Provisioning- serial log
+
+|image99|
+
+Figure 6: BLE Provisioning- serial log
 
 **Step 2**: Launch nRF Connect app from the iOS device and scan. Talaria
 TWO GATT Server with the BLE name innophase will be listed. Click on
 connect.
 
-|Graphical user interface Description automatically generated|
+|image100|
 
-Figure 100: innophase-GATT server
+Figure 7: innophase-GATT server
 
 The passkey for pairing will be generated and shown on the AT command
 line.
 
-|image7|
+|image101|
 
-Figure 101: Randomly generated 6-digit Passkey
+Figure 8: Randomly generated 6-digit Passkey
 
 **Step 3**: Add the 6-digit passkey “707476” to the app and click on
 Pair. Now the BLE GATT connection is created.
 
-|A screenshot of a computer Description automatically generated with
-medium confidence|
+|image102|
 
-Figure 102: Pairing request
+Figure 9: Pairing request
 
 **Step 4:** Once the BLE connection is established successfully, send
 data/Write Request by pressing W from BLE central. Here, add the SSID
 and passphrase of the network.
 
-|image8|
+|image103|
 
-Figure 103: BLE write to add the SSID and Passphrase
+Figure 10: BLE write to add the SSID and Passphrase
 
 An asynchronous message on Talaria TWO will be displayed for the Write
 Request sent from the BLE central app.
 
-|image9|
+|image104|
 
-Figure 104: Async data reception from mobile app
+Figure 11: Async data reception from mobile app
 
 Send an acknowledgment of the write request from Talaria TWO using
 following command:
 
-+-----------------------------------------------------------------------+
-| at+blecharwrdata=2a19,1F                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image10|
+      at+blecharwrdata=2a19,1F
 
-Figure 105: Acknowledgment of Write request
+|image105|
+
+Figure 12: Acknowledgment of Write request
 
 **Step 4**: Connect to the network with SSID= InnoPhase_AE and
 Passphrase= Inno@1234.
 
-+-----------------------------------------------------------------------+
-| at+wcon= InnoPhase_AE,Inno@1234                                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image11|
+      at+wcon= InnoPhase_AE,Inno@1234
 
-Figure 106: WLAN connection
+|image106|
+
+Figure 13: WLAN connection
 
 Secure BLE Provisioning Just Works Method
 ~~~~~~~~~~~~~~~~~~~~
@@ -479,6 +454,7 @@ Two Talaria TWO devices programmed with t2_atcmds.elf
 AT Command Sequence 
 ~~~~~~~~~~~~~~~~~~~~
 
+.. table:: Table 3: Secure BLE Provisioning Just Works Method - AT Commands
 +-----------------------------------+----------------------------------+
 | **AT Command**                    | **Description**                  |
 +===================================+==================================+
@@ -591,32 +567,23 @@ Procedure
 **Step 1**: On the first Talaria TWO board (BLE peripheral), execute the
 following commands:
 
-+-----------------------------------------------------------------------+
-| at                                                                    |
-|                                                                       |
-| at+btinit                                                             |
-|                                                                       |
-| at+blecfg=02:01:04:1f:cc:9e,0,innophase                               |
-|                                                                       |
-| at+blesrvstart                                                        |
-|                                                                       |
-| at+bleservcfg=11111111111111111111111111111111                        |
-|                                                                       |
-| at+blechradd=11111111111111111111111111111111,0x2a19,a,3              |
-|                                                                       |
-| at+bleservadd=11111111111111111111111111111111                        |
-|                                                                       |
-| at+bleadvcfg=32,0,160,480                                             |
-|                                                                       |
-| at+blesmpcfg=0,0,1,1,0,0,16,1                                         |
-|                                                                       |
-| at+bleadvstart                                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image12|
+      at
+at+btinit
+at+blecfg=02:01:04:1f:cc:9e,0,innophase
+at+blesrvstart
+at+bleservcfg=11111111111111111111111111111111
+at+blechradd=11111111111111111111111111111111,0x2a19,a,3
+at+bleservadd=11111111111111111111111111111111
+at+bleadvcfg=32,0,160,480
+at+blesmpcfg=0,0,1,1,0,0,16,1
+at+bleadvstart
 
-Figure 107: BLE Peripheral- serial log
+
+|image107|
+
+Figure 14: BLE Peripheral- serial log
 
 **Step 2**: Configure the second Talaria TWO board as BLE central. Scan
 for BLE devices and connect to the desired BLE device.
@@ -628,52 +595,43 @@ Write GATT characteristic with parameters connection id: 0, handle: 1,
 length: 51 bytes, data: 31 and Send SSID and PWD for the desired network
 using at+blecharw command.
 
-+-----------------------------------------------------------------------+
-| at                                                                    |
-|                                                                       |
-| at+btinit                                                             |
-|                                                                       |
-| at+blescancfg=5000,96,48,96,24,1                                      |
-|                                                                       |
-| at+blecfg=02:03:05:05:03:02,0,central                                 |
-|                                                                       |
-| at+blescan                                                            |
-|                                                                       |
-| at+blecon=9e-cc-1f-04-01-02,0                                         |
-|                                                                       |
-| at+bleauth=0,0,1,0,1,0                                                |
-|                                                                       |
-| at+blecharwr=0,1,51,31,SSID=InnoPhase_AE:PWD=Inno@1234                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image13|
+      at
+at+btinit
+at+blescancfg=5000,96,48,96,24,1
+at+blecfg=02:03:05:05:03:02,0,central
+at+blescan
+at+blecon=9e-cc-1f-04-01-02,0
+at+bleauth=0,0,1,0,1,0
+at+blecharwr=0,1,51,31,SSID=InnoPhase_AE:PWD=Inno@1234
 
-Figure 108: BLE central- serial log
+
+|image108|
+
+Figure 15: BLE central- serial log
 
 For the data received from the BLE central device, Send an
 acknowledgment of the write request from peripheral.
 
-+-----------------------------------------------------------------------+
-| at+blecharwrdata=2a19,1f                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image14|
+      at+blecharwrdata=2a19,1f
 
-Figure 109: Acknowledgement of Write request
+|image109|
+
+Figure 16: Acknowledgement of Write request
 
 **Step 4**: Issue at+wcon command to connect to an AP with SSID
 "InnoPhase_AE" and passphrase "Inno@1234" from the first EVB(T1)
 
-+-----------------------------------------------------------------------+
-| at+wcon= InnoPhase_AE,Inno@1234                                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+..code:: shell
 
-|image15|
+      at+wcon= InnoPhase_AE,Inno@1234
 
-Figure 110: WLAN connection
+|image110|
+
+Figure 17: WLAN connection
 
 FOTA
 ~~~~~~~~~~~~~~~~~~~~
@@ -708,6 +666,7 @@ Prerequisites
 AT Command Sequence 
 ~~~~~~~~~~~~~~~~~~~~
 
+.. table:: Table 3: FOTA - AT Commands
 +------------+---------------------------------------------------------+
 | **AT       | **Description**                                         |
 | Command**  |                                                         |
@@ -751,14 +710,13 @@ The FOTA demo process involves the following steps:
 Execute the following command on ubuntu terminal from SDK directory to
 generate the hash value:
 
-+-----------------------------------------------------------------------+
-| sha256sum binaries/product/at/bin/atcmds.elf                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image16|
+      sha256sum binaries/product/at/bin/atcmds.elf
 
-Figure 111: Generate the hash value
+|image111|
+
+Figure 18: Generate the hash value
 
 **Modification of fota_config.json file**:
 
@@ -772,59 +730,53 @@ Change the following fields in the fota_config.json
 
 3. “hash” value.
 
-+-----------------------------------------------------------------------+
-| {                                                                     |
-|                                                                       |
-| "package_version" : "2.0",                                            |
-|                                                                       |
-| "files" : [                                                           |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "type" : "configuration",                                             |
-|                                                                       |
-| "name" : "fota.config",                                               |
-|                                                                       |
-| "protocol" : "http",                                                  |
-|                                                                       |
-| "hostname" : "192.168.201.233",                                       |
-|                                                                       |
-| "port" : 80,                                                          |
-|                                                                       |
-| "secured" : 0,                                                        |
-|                                                                       |
-| "uri" : "/FOTA/fota_config.json"                                      |
-|                                                                       |
-| },                                                                    |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "type" : "firmware",                                                  |
-|                                                                       |
-| "name" : "atcmd",                                                     |
-|                                                                       |
-| "version" : "2.1",                                                    |
-|                                                                       |
-| "protocol" : "http",                                                  |
-|                                                                       |
-| "hostname" : "192.168.201.233",                                       |
-|                                                                       |
-| "port" : 80,                                                          |
-|                                                                       |
-| "secured" : 0,                                                        |
-|                                                                       |
-| "uri" : "/FOTA/t2_atcmds.elf",                                        |
-|                                                                       |
-| "hash" :                                                              |
-| "a93ce95fddea0f635f726311d0f8c912909858bfb8c9b4d4204ec5971d9d1aa4 "   |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| ]                                                                     |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      {
+   "package_version"	: "2.0",	
+ 
+  "files"   : [
+ 
+     {
+ 
+    	"type" : "configuration",
+ 
+    	"name" : "fota.config",
+ 
+    	"protocol" : "http",
+ 
+        "hostname" : "192.168.201.233",
+ 
+    	"port" : 80,
+ 
+    	"secured" : 0,  	
+ 
+    	"uri" : "/FOTA/fota_config.json"
+ 
+    },
+ 
+    {
+     	"type" : "firmware",
+ 
+    	"name" : "atcmd",
+ 
+    	"version" : "2.1",
+ 
+    	"protocol" : "http",
+ 
+    	"hostname" : "192.168.201.233",
+ 
+    	"port" : 80,
+ 
+    	"secured" : 0,
+ 
+    	"uri" : "/FOTA/t2_atcmds.elf",
+ 
+    	"hash" : "a93ce95fddea0f635f726311d0f8c912909858bfb8c9b4d4204ec5971d9d1aa4 "
+     }	
+     ]
+ }
+
 
 **Server Setup**:
 
@@ -837,10 +789,9 @@ Change the following fields in the fota_config.json
 
 ..
 
-   |Graphical user interface, text, application Description
-   automatically generated|
+|image112|
 
-   Figure 112: Apache server setup link
+Figure 19: Apache server setup link
 
 c. Place the modified fota_config.json and t2_atcmds.elf under the
    Apache folder htdocs by creating any default folder.
@@ -850,10 +801,9 @@ c. Place the modified fota_config.json and t2_atcmds.elf under the
    For example: **FOTA**. The same path is added in the “uri” section of
    fota_config.json file.
 
-   |Graphical user interface, text, application, email Description
-   automatically generated|
+   |image113|
 
-   Figure 113: Folder to add the JSON and elf file
+   Figure 20: Folder to add the JSON and elf file
 
    **Note**: If using hash to verify the image integrity, ensure to
    place the same t2_atcmds.elf in *\\Apache24\\htdocs\\FOTA* folder for
@@ -866,9 +816,9 @@ c. Place the modified fota_config.json and t2_atcmds.elf under the
 
 ..
 
-   |A screenshot of a computer Description automatically generated|
+   |image114|
 
-   Figure 114: HTTP File Server setup link
+   Figure 21: HTTP File Server setup link
 
 b. Open the HFS tool and create a folder (for example: FOTA) and to
    this, copy the modified fota_config.json and t2_atcmds.elf. Same path
@@ -876,9 +826,9 @@ b. Open the HFS tool and create a folder (for example: FOTA) and to
 
 ..
 
-   |image17|
+   |image115|
 
-   Figure 115: Folder to add the JSON and elf file
+   Figure 22: Folder to add the JSON and elf file
 
 c. Check the server accessibility by sending HTTP GET from the browser
    as shown:
@@ -890,9 +840,9 @@ c. Check the server accessibility by sending HTTP GET from the browser
    192.168.1.216 is the server IP address (IP address of the laptop) and
    80 is the server port.
 
-   |image18|
+   |image116|
 
-   Figure 116: HTTP get from browser to verify server accessibility
+   Figure 23: HTTP get from browser to verify server accessibility
 
 **Programming and running the application**:
 
@@ -900,60 +850,54 @@ c. Check the server accessibility by sending HTTP GET from the browser
    directory to generate root image and flash root image, SSBL partition
    table and t2_atcmds.elf.
 
-+-----------------------------------------------------------------------+
-| python3 ./script/program_flash.py --no_reset -i                       |
-| binaries/product/at/bin/atcmds.elf -spt                               |
-| tools/partition_files/ssbl_part_table.json                            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image19|
+      python3 ./script/program_flash.py --no_reset -i binaries/product/at/bin/atcmds.elf -spt tools/partition_files/ssbl_part_table.json
 
-Figure 117 Generated root image
 
-|image20|
+|image117|
 
-Figure 118: Flashing the AT command ELF
+Figure 24: Generated root image
+
+|image118|
+
+Figure 25: Flashing the AT command ELF
 
 2. In any terminal window, open miniterm at baud rate of 2457600 to view
    CONSOLE logs for Talaria TWO.
 
-+-----------------------------------------------------------------------+
-| miniterm.py /dev/ttyUSB3 2457600                                      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|Text Description automatically generated|
+      miniterm.py /dev/ttyUSB3 2457600
 
-Figure 119: Miniterm console
+
+|image119|
+
+Figure 26: Miniterm console
 
 **Note:** After programming Talaria TWO, it is recommended to reset the
 module either using the following command from SDK directory or press
 the reset button on the EVB.
 
-+-----------------------------------------------------------------------+
-| ./script/boot.py --device /dev/ttyUSB2 --reset=evk42                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image21|
+      ./script/boot.py --device /dev/ttyUSB2 --reset=evk42
 
-Figure 120: Talaria TWO reset – console
+|image120|
+
+Figure 27: Talaria TWO reset – console
 
 3. The module boots up with the programmed at command ELF. Issue the
    following commands on the serial terminal to perform the FOTA
    operation.
 
-+-----------------------------------------------------------------------+
-| at                                                                    |
-|                                                                       |
-| at+wcon=InnoPhase,Inno@1234                                           |
-|                                                                       |
-| at+wstatus=0                                                          |
-|                                                                       |
-| at+fota=1                                                             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code :: shell
+
+      at
+at+wcon=InnoPhase,Inno@1234
+at+wstatus=0
+at+fota=1
+
 
 **Note:** Updating the configuration file in Talaria TWO’s root
 filesystem:
@@ -967,10 +911,9 @@ b. Execute the following command to update the FOTA configuration file
 c. Open the miniterm (miniterm.py /dev/ttyUSB3 2457600) to check the
    console logs on Talaria TWO
 
-+-----------------------------------------------------------------------+
-| at+fotacfgadd=<len>                                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      at+fotacfgadd=<len>
 
 ..
 
@@ -983,599 +926,381 @@ d. Transfer the updated config file from minicom.
    Press CTRL-A Z-> Enter S -> Select ascii -> Select folder where
    config is located -> select continue.
 
-   |image22|
+   |image121|
 
-   Figure 121: Updated file received - Talaria TWO console
+   Figure 28: Updated file received - Talaria TWO console
 
 Serial Log
 ~~~~~~~~~~
 
-|image23|
+|image122|
 
-Figure 122: FOTA - serial log
+Figure 29: FOTA - serial log
 
 Talaria TWO console output when at+fota command is issued on the serial
 terminal:
 
-+-----------------------------------------------------------------------+
-| CMD:~Hexdump of uartbuf before processing, len=10                     |
-|                                                                       |
-| 7E 04 00 00 00 10 0E 00 63 00 \| ~.......c.                           |
-|                                                                       |
-| Zero arguments                                                        |
-|                                                                       |
-| cmd:~:2                                                               |
-|                                                                       |
-| resp-len:28                                                           |
-|                                                                       |
-| CMD:atHexdump of uartbuf before processing, len=3                     |
-|                                                                       |
-| 61 74 00 \| at.                                                       |
-|                                                                       |
-| Zero arguments                                                        |
-|                                                                       |
-| cmd:at:2                                                              |
-|                                                                       |
-| Ready                                                                 |
-|                                                                       |
-| resp-len:9                                                            |
-|                                                                       |
-| CMD:at+wcon=InnoPhase,Inno@1234Hexdump of uartbuf before processing,  |
-| len=28                                                                |
-|                                                                       |
-| 61 74 2B 77 63 6F 6E 3D 49 6E 6E 6F 50 68 61 73 \| at+wcon=InnoPhas   |
-|                                                                       |
-| 65 2C 49 6E 6E 6F 40 31 32 33 34 00 \| e,Inno@1234.                   |
-|                                                                       |
-| cmd:at+wcon=InnoPhase,Inno@1234:8                                     |
-|                                                                       |
-| arg:InnoPhase,Inno@1234                                               |
-|                                                                       |
-| ssid:0x00059e2c                                                       |
-|                                                                       |
-| passphrase:0x00059e36SSID:InnoPhase,timeo=0xaba9500                   |
-|                                                                       |
-| add_network_profile:0                                                 |
-|                                                                       |
-| [43.201,304] CONNECT:b0:95:75:5c:d2:8f Channel:11 rssi:-8 dBm         |
-|                                                                       |
-| MSG:202                                                               |
-|                                                                       |
-| notify                                                                |
-|                                                                       |
-| MSG:200                                                               |
-|                                                                       |
-| notify[43.242,749] MYIP 192.168.0.146                                 |
-|                                                                       |
-| [43.242,913] IPv6 [fe80::e269:3aff:fe00:167e]-link                    |
-|                                                                       |
-| MSG:204                                                               |
-|                                                                       |
-| notify                                                                |
-|                                                                       |
-| resp-len:9                                                            |
-|                                                                       |
-| CMD:at+wstatus=0Hexdump of uartbuf before processing, len=13          |
-|                                                                       |
-| 61 74 2B 77 73 74 61 74 75 73 3D 30 00 \| at+wstatus=0.               |
-|                                                                       |
-| cmd:at+wstatus=0:11                                                   |
-|                                                                       |
-| arg:0                                                                 |
-|                                                                       |
-| str:0:1                                                               |
-|                                                                       |
-| string : 0 : endptr : :0                                              |
-|                                                                       |
-| IP:192.168.0.146:255.255.255.0:192.168.0.1                            |
-|                                                                       |
-| resp-len:49                                                           |
-|                                                                       |
-| resp-len:9                                                            |
-|                                                                       |
-| CMD:at+fota=1Hexdump of uartbuf before processing, len=10             |
-|                                                                       |
-| 61 74 2B 66 6F 74 61 3D 31 00 \| at+fota=1.                           |
-|                                                                       |
-| cmd:at+fota=1:8                                                       |
-|                                                                       |
-| arg:1                                                                 |
-|                                                                       |
-| option:1:                                                             |
-|                                                                       |
-| str:1:1                                                               |
-|                                                                       |
-| string : 1 : endptr : :0                                              |
-|                                                                       |
-| End of command line                                                   |
-|                                                                       |
-| option:<null>:                                                        |
-|                                                                       |
-| fota_json_init: /root/fota_config.json f = 0x000be1f8                 |
-|                                                                       |
-| Parsing rootfs FOTA config file**\*                                   |
-|                                                                       |
-| package_version = 1.0                                                 |
-|                                                                       |
-| Package version = 1.0                                                 |
-|                                                                       |
-| type = configuration                                                  |
-|                                                                       |
-| name = fota.config                                                    |
-|                                                                       |
-| version, <null>                                                       |
-|                                                                       |
-| protocol = http                                                       |
-|                                                                       |
-| hostname = 192.168.0.177                                              |
-|                                                                       |
-| port = 80                                                             |
-|                                                                       |
-| secured = 0                                                           |
-|                                                                       |
-| uri = /FOTA/fota_config.json                                          |
-|                                                                       |
-| url, <null>                                                           |
-|                                                                       |
-| hash, <null>                                                          |
-|                                                                       |
-| configuration                                                         |
-|                                                                       |
-| fota.config                                                           |
-|                                                                       |
-| http                                                                  |
-|                                                                       |
-| 192.168.0.177                                                         |
-|                                                                       |
-| 80                                                                    |
-|                                                                       |
-| 0                                                                     |
-|                                                                       |
-| /FOTA/fota_config.json                                                |
-|                                                                       |
-| <null>                                                                |
-|                                                                       |
-| <null>                                                                |
-|                                                                       |
-| type = firmware                                                       |
-|                                                                       |
-| name = atcmd                                                          |
-|                                                                       |
-| version = 2.2                                                         |
-|                                                                       |
-| protocol = http                                                       |
-|                                                                       |
-| hostname = 192.168.0.177                                              |
-|                                                                       |
-| port = 80                                                             |
-|                                                                       |
-| secured = 0                                                           |
-|                                                                       |
-| uri = /FOTA/t2_atcmds.elf                                             |
-|                                                                       |
-| url, <null>                                                           |
-|                                                                       |
-| hash =                                                                |
-| 34aadc96b19b4aff23b08400523d427435be8aa0ff82b6084820165ceadc9174      |
-|                                                                       |
-| firmware                                                              |
-|                                                                       |
-| atcmd                                                                 |
-|                                                                       |
-| http                                                                  |
-|                                                                       |
-| 192.168.0.177                                                         |
-|                                                                       |
-| 80                                                                    |
-|                                                                       |
-| 0                                                                     |
-|                                                                       |
-| /FOTA/t2_atcmds.elf                                                   |
-|                                                                       |
-| <null>                                                                |
-|                                                                       |
-| 2.2                                                                   |
-|                                                                       |
-| Fota Init Success: bc388                                              |
-|                                                                       |
-| Performing Fota..cc                                                   |
-|                                                                       |
-| check_for_update = 1                                                  |
-|                                                                       |
-| auto_reset=1                                                          |
-|                                                                       |
-| fota_perform check_for_update = 1                                     |
-|                                                                       |
-| fota_config_file_download 1049                                        |
-|                                                                       |
-| fota_http_connect:host=192.168.0.177 port=80                          |
-|                                                                       |
-| Calling http_client_open()                                            |
-|                                                                       |
-| fota_config_file_download 1062                                        |
-|                                                                       |
-| Parsing Remote FOTA config file**\*                                   |
-|                                                                       |
-| package_version = 2.0                                                 |
-|                                                                       |
-| Package version = 2.0                                                 |
-|                                                                       |
-| type = configuration                                                  |
-|                                                                       |
-| name = fota.config                                                    |
-|                                                                       |
-| version, <null>                                                       |
-|                                                                       |
-| protocol = http                                                       |
-|                                                                       |
-| hostname = 192.168.0.177                                              |
-|                                                                       |
-| port = 80                                                             |
-|                                                                       |
-| secured = 0                                                           |
-|                                                                       |
-| uri = /FOTA/fota_config.json                                          |
-|                                                                       |
-| url, <null>                                                           |
-|                                                                       |
-| hash, <null>                                                          |
-|                                                                       |
-| configuration                                                         |
-|                                                                       |
-| fota.config                                                           |
-|                                                                       |
-| http                                                                  |
-|                                                                       |
-| 192.168.0.177                                                         |
-|                                                                       |
-| 80                                                                    |
-|                                                                       |
-| 0                                                                     |
-|                                                                       |
-| /FOTA/fota_config.json                                                |
-|                                                                       |
-| <null>                                                                |
-|                                                                       |
-| <null>                                                                |
-|                                                                       |
-| type = firmware                                                       |
-|                                                                       |
-| name = atcmd                                                          |
-|                                                                       |
-| version = 2.1                                                         |
-|                                                                       |
-| protocol = http                                                       |
-|                                                                       |
-| hostname = 192.168.0.177                                              |
-|                                                                       |
-| port = 80                                                             |
-|                                                                       |
-| secured = 0                                                           |
-|                                                                       |
-| uri = /FOTA/t2_atcmds.elf                                             |
-|                                                                       |
-| url, <null>                                                           |
-|                                                                       |
-| hash =                                                                |
-| 34aadc96b19b4aff23b08400523d427435be8aa0ff82b6084820165ceadc9174      |
-|                                                                       |
-| firmware                                                              |
-|                                                                       |
-| atcmd                                                                 |
-|                                                                       |
-| http                                                                  |
-|                                                                       |
-| 192.168.0.177                                                         |
-|                                                                       |
-| 80                                                                    |
-|                                                                       |
-| 0                                                                     |
-|                                                                       |
-| /FOTA/t2_atcmds.elf                                                   |
-|                                                                       |
-| <null>                                                                |
-|                                                                       |
-| 2.1                                                                   |
-|                                                                       |
-| utils_num_str_cmp                                                     |
-|                                                                       |
-| 2                                                                     |
-|                                                                       |
-| 0                                                                     |
-|                                                                       |
-| 1                                                                     |
-|                                                                       |
-| 0                                                                     |
-|                                                                       |
-| deci1 = 2, fracn1 = 0, deci2 = 1, fracn2 = 0                          |
-|                                                                       |
-| Using the Remote config (Newly fetched) file                          |
-|                                                                       |
-| type = configuration                                                  |
-|                                                                       |
-| type = firmware                                                       |
-|                                                                       |
-| fota_json_init: /root/part.json f = 0x000bd3c8                        |
-|                                                                       |
-| Image array size = 2                                                  |
-|                                                                       |
-| name = atcmd                                                          |
-|                                                                       |
-| version = 1.0                                                         |
-|                                                                       |
-| start_sector = 32                                                     |
-|                                                                       |
-| 1.0 :32                                                               |
-|                                                                       |
-| name = atcmd                                                          |
-|                                                                       |
-| version = 0.0                                                         |
-|                                                                       |
-| start_sector = 232                                                    |
-|                                                                       |
-| 0.0 :232                                                              |
-|                                                                       |
-| utils_num_str_cmp                                                     |
-|                                                                       |
-| 1                                                                     |
-|                                                                       |
-| 0                                                                     |
-|                                                                       |
-| 0                                                                     |
-|                                                                       |
-| 0                                                                     |
-|                                                                       |
-| deci1 = 1, fracn1 = 0, deci2 = 0, fracn2 = 0                          |
-|                                                                       |
-| Selected index = 1                                                    |
-|                                                                       |
-| Download the new f/w @ sector = 232                                   |
-|                                                                       |
-| fota_http_connect:host=192.168.0.177 port=80                          |
-|                                                                       |
-| Calling http_client_open().                                           |
-|                                                                       |
-| fota_http_cb: resp->resp_len = 1252, resp->resp_total_len = 614932    |
-| total_rcvd_len= 1252                                                  |
-|                                                                       |
-| fota_http_cb: resp->resp_len = 1460, resp->resp_total_len = 614932    |
-| total_rcvd_len= 541452                                                |
-|                                                                       |
-| fota_http_cb: resp->resp_len = 1460, resp->resp_total_len = 614932    |
-| total_rcvd_len= 579412                                                |
-|                                                                       |
-| fota_http_cb: resp->resp_len = 1460, resp->resp_total_len = 614932    |
-| total_rcvd_len= 614452                                                |
-|                                                                       |
-| . fota_http_cb: resp->resp_len = 480, resp->resp_total_len = 614932   |
-| total_rcvd_len= 614932                                                |
-|                                                                       |
-| sector_cache_flush_all                                                |
-|                                                                       |
-| Fw download complete                                                  |
-|                                                                       |
-| image size = 614932                                                   |
-|                                                                       |
-| image hash:                                                           |
-| 34aadc96b19b4aff23b0840523d427435be8aa0ff82b684820165ceadc9174        |
-|                                                                       |
-| hash from cfg:                                                        |
-| 34aadc96b19b4aff23b0840523d427435be8aa0ff82b684820165ceadc9174        |
-|                                                                       |
-| Image integity verified. ok.                                          |
-|                                                                       |
-| next index = 1                                                        |
-|                                                                       |
-| Performing Fota Commit.....                                           |
-|                                                                       |
-| fota_commit                                                           |
-|                                                                       |
-| utils_num_str_add                                                     |
-|                                                                       |
-| 0                                                                     |
-|                                                                       |
-| 0                                                                     |
-|                                                                       |
-| 2                                                                     |
-|                                                                       |
-| 0                                                                     |
-|                                                                       |
-| deci1 = 0, fracn1 = 0, deci2 = 2, fracn2 = 0                          |
-|                                                                       |
-| utils_num_str_add : out_str = 2.0                                     |
-|                                                                       |
-| fota_update_part_file: !!!Updated new version = 2.0                   |
-|                                                                       |
-| fota_json_init: /root/boot.json f = 0x000b3718                        |
-|                                                                       |
-| Setting next boot index = 1                                           |
-|                                                                       |
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PWAE                                                            |
-|                                                                       |
-| WWWWWAE[0.017,903] heapsize is less than requested 29952 < 30000      |
-|                                                                       |
-| Build $Id: git-4304eac2 $Build $Id: git-4304eac2 $                    |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff   |
-|                                                                       |
-| Bootargs: vm.flash_location=0x0003fc00 passphrase=123467890           |
-| ssid=innotest                                                         |
-|                                                                       |
-| Application Information:                                              |
-|                                                                       |
-| ------------------------                                              |
-|                                                                       |
-| Name : atcmd                                                          |
-|                                                                       |
-| Version : 2.0                                                         |
-|                                                                       |
-| Build Date : Oct 25 2023                                              |
-|                                                                       |
-| Build Time : 23:34:21                                                 |
-|                                                                       |
-| Heap Available: 268 KB (274456 Bytes)                                 |
-|                                                                       |
-| $App:git-6f5f99b                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| At Command App                                                        |
-|                                                                       |
-| addr e0:69:3a:00:16:d4                                                |
-|                                                                       |
-| domain:1-11@20before: magic1=0x0, val=0x0, magic2=0x0                 |
-|                                                                       |
-| Crash detection logic initialized                                     |
-|                                                                       |
-| after: magic1=0x11223344, val=0x0, magic2=0x55667788                  |
-|                                                                       |
-| Serial-to-Wireless: Ready                                             |
-|                                                                       |
-| starting thread-sock                                                  |
-|                                                                       |
-| SSBL Application                                                      |
-|                                                                       |
-| Boot indx = 1                                                         |
-|                                                                       |
-| Getting Addres of first virt section, name = .virt0 offset = 16c00    |
-|                                                                       |
-| vm_flash_location= =fec00                                             |
-|                                                                       |
-| Elf Load OK...                                                        |
-|                                                                       |
-| Boot-args:                                                            |
-|                                                                       |
-| vm.flash_location=0x000fec00                                          |
-|                                                                       |
-| Build $Id: git-4304eac2 $                                             |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff   |
-|                                                                       |
-| Bootargs: vm.flash_location=0x0003fc00 passphrase=123467890           |
-| ssid=innotest                                                         |
-|                                                                       |
-| Application Information:                                              |
-|                                                                       |
-| ------------------------                                              |
-|                                                                       |
-| Name : atcmd                                                          |
-|                                                                       |
-| Version : 2.0                                                         |
-|                                                                       |
-| Build Date : Oct 25 2023                                              |
-|                                                                       |
-| Build Time : 23:34:21                                                 |
-|                                                                       |
-| Heap Available: 268 KB (274456 Bytes)                                 |
-|                                                                       |
-| $App:git-6f5f99b                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| At Command App                                                        |
-|                                                                       |
-| addr e0:69:3a:00:16:d4                                                |
-|                                                                       |
-| domain:1-11@20before: magic1=0x0, val=0x0, magic2=0x0                 |
-|                                                                       |
-| Crash detection logic initialized                                     |
-|                                                                       |
-| after: magic1=0x11223344, val=0x0, magic2=0x55667788                  |
-|                                                                       |
-| Serial-to-Wireless: Ready                                             |
-|                                                                       |
-| starting thread-sock                                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-.. |image1| image:: media/image1.png
+      CMD:~ Hexdump of uartbuf before processing, len=10
+7E 04 00 00 00 10 0E 00  63 00                    |  ~.......c. 
+ Zero arguments
+cmd:~ :2
+ resp-len:28
+CMD:atHexdump of uartbuf before processing, len=3
+61 74 00                                          |  at. 
+
+ Zero arguments
+cmd:at:2
+Ready
+ resp-len:9
+CMD:at+wcon=InnoPhase,Inno@1234Hexdump of uartbuf before processing, len=28
+61 74 2B 77 63 6F 6E 3D  49 6E 6E 6F 50 68 61 73  |  at+wcon=InnoPhas 
+65 2C 49 6E 6E 6F 40 31  32 33 34 00              |  e,Inno@1234. 
+
+cmd:at+wcon=InnoPhase,Inno@1234:8
+
+ arg:InnoPhase,Inno@1234
+
+ ssid:0x00059e2c
+ passphrase:0x00059e36SSID:InnoPhase,timeo=0xaba9500
+add_network_profile:0
+[43.201,304] CONNECT:b0:95:75:5c:d2:8f Channel:11 rssi:-8 dBm
+
+MSG:202
+ notify
+MSG:200
+
+ notify[43.242,749] MYIP 192.168.0.146
+[43.242,913] IPv6 [fe80::e269:3aff:fe00:167e]-link
+MSG:204
+
+ notify
+ resp-len:9
+CMD:at+wstatus=0Hexdump of uartbuf before processing, len=13
+61 74 2B 77 73 74 61 74  75 73 3D 30 00           |  at+wstatus=0. 
+
+cmd:at+wstatus=0:11
+
+ arg:0
+ str:0:1
+ string : 0 : endptr : :0
+IP:192.168.0.146:255.255.255.0:192.168.0.1
+ resp-len:49
+ resp-len:9
+CMD:at+fota=1Hexdump of uartbuf before processing, len=10
+61 74 2B 66 6F 74 61 3D  31 00                    |  at+fota=1. 
+
+cmd:at+fota=1:8
+ arg:1
+ option:1:
+
+ str:1:1
+
+ string : 1 : endptr : :0
+
+End of command line
+
+ option:<null>:
+fota_json_init: /root/fota_config.json  f = 0x000be1f8
+Parsing rootfs FOTA config file***
+package_version = 1.0
+Package version = 1.0
+type = configuration
+name = fota.config
+version, <null>
+protocol = http
+hostname = 192.168.0.177
+port = 80
+secured = 0
+uri = /FOTA/fota_config.json
+url, <null>
+hash, <null>
+configuration
+	fota.config
+	http
+	192.168.0.177
+	80
+	0
+	/FOTA/fota_config.json
+	<null>
+	<null>
+type = firmware
+name = atcmd
+version = 2.2
+protocol = http
+hostname = 192.168.0.177
+port = 80
+secured = 0
+uri = /FOTA/t2_atcmds.elf
+url, <null>
+hash = 34aadc96b19b4aff23b08400523d427435be8aa0ff82b6084820165ceadc9174
+firmware
+	atcmd
+	http
+	192.168.0.177
+	80
+	0
+	/FOTA/t2_atcmds.elf
+	<null>
+	2.2
+Fota Init Success: bc388
+
+Performing Fota..cc
+
+check_for_update = 1
+auto_reset=1
+fota_perform check_for_update = 1
+fota_config_file_download 1049
+fota_http_connect:host=192.168.0.177 port=80
+Calling http_client_open()
+fota_config_file_download 1062
+Parsing Remote FOTA config file***
+package_version = 2.0
+Package version = 2.0
+type = configuration
+name = fota.config
+version, <null>
+protocol = http
+hostname = 192.168.0.177
+port = 80
+secured = 0
+uri = /FOTA/fota_config.json
+url, <null>
+hash, <null>
+configuration
+	fota.config
+	http
+	192.168.0.177
+	80
+	0
+	/FOTA/fota_config.json
+	<null>
+	<null>
+type = firmware
+name = atcmd
+version = 2.1
+protocol = http
+hostname = 192.168.0.177
+port = 80
+secured = 0
+uri = /FOTA/t2_atcmds.elf
+url, <null>
+hash = 34aadc96b19b4aff23b08400523d427435be8aa0ff82b6084820165ceadc9174
+firmware
+	atcmd
+	http
+	192.168.0.177
+	80
+	0
+	/FOTA/t2_atcmds.elf
+	<null>
+	2.1
+utils_num_str_cmp
+ 2
+ 0
+ 1
+ 0
+
+deci1 = 2, fracn1 = 0, deci2 = 1, fracn2 = 0
+
+Using the Remote config (Newly fetched) file
+ type = configuration
+ type = firmware
+fota_json_init: /root/part.json  f = 0x000bd3c8
+Image array size = 2
+name = atcmd
+version = 1.0
+start_sector = 32
+1.0 :32
+name = atcmd
+version = 0.0
+start_sector = 232
+0.0 :232
+utils_num_str_cmp
+ 1
+ 0
+ 0
+ 0
+deci1 = 1, fracn1 = 0, deci2 = 0, fracn2 = 0
+
+Selected index = 1
+Download the new f/w @ sector = 232
+
+fota_http_connect:host=192.168.0.177 port=80
+Calling http_client_open().
+	fota_http_cb: resp->resp_len = 1252, resp->resp_total_len = 614932 total_rcvd_len= 1252
+	fota_http_cb: resp->resp_len = 1460, resp->resp_total_len = 614932 total_rcvd_len= 541452
+	fota_http_cb: resp->resp_len = 1460, resp->resp_total_len = 614932 total_rcvd_len= 579412
+	fota_http_cb: resp->resp_len = 1460, resp->resp_total_len = 614932 total_rcvd_len= 614452
+.	fota_http_cb: resp->resp_len = 480, resp->resp_total_len = 614932 total_rcvd_len= 614932
+
+sector_cache_flush_all
+Fw download complete
+ image size = 614932
+image hash:    34aadc96b19b4aff23b0840523d427435be8aa0ff82b684820165ceadc9174
+hash from cfg: 34aadc96b19b4aff23b0840523d427435be8aa0ff82b684820165ceadc9174
+Image integity verified. ok.
+next index = 1
+Performing Fota Commit.....
+
+fota_commit
+utils_num_str_add
+ 0
+ 0
+ 2
+ 0
+deci1 = 0, fracn1 = 0, deci2 = 2, fracn2 = 0
+
+utils_num_str_add : out_str = 2.0
+fota_update_part_file: !!!Updated new version = 2.0
+fota_json_init: /root/boot.json  f = 0x000b3718
+Setting next boot index = 1
+
+Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+ROM yoda-h0-rom-16-0-gd5a8e586
+FLASH:PWAE
+WWWWWAE[0.017,903] heapsize is less than requested 29952 < 30000
+Build $Id: git-4304eac2 $Build $Id: git-4304eac2 $
+Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff
+Bootargs: vm.flash_location=0x0003fc00 passphrase=123467890 ssid=innotest
+
+
+Application Information:
+------------------------
+Name       : atcmd
+Version    : 2.0
+Build Date : Oct 25 2023
+Build Time : 23:34:21
+Heap Available: 268 KB (274456 Bytes)
+$App:git-6f5f99b
+SDK Ver: FREERTOS_SDK_1.0
+At Command App
+addr e0:69:3a:00:16:d4
+
+domain:1-11@20before: magic1=0x0, val=0x0, magic2=0x0
+Crash detection logic initialized
+after: magic1=0x11223344, val=0x0, magic2=0x55667788
+Serial-to-Wireless: Ready
+
+starting thread-sock
+SSBL Application
+
+Boot indx = 1
+Getting Addres of first virt section, name = .virt0 offset = 16c00
+vm_flash_location= =fec00
+Elf Load OK...
+
+Boot-args:
+vm.flash_location=0x000fec00
+
+Build $Id: git-4304eac2 $
+Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff
+Bootargs: vm.flash_location=0x0003fc00 passphrase=123467890 ssid=innotest
+
+Application Information:
+------------------------
+Name       : atcmd
+Version    : 2.0
+Build Date : Oct 25 2023
+Build Time : 23:34:21
+Heap Available: 268 KB (274456 Bytes)
+$App:git-6f5f99b
+SDK Ver: FREERTOS_SDK_1.0
+At Command App
+addr e0:69:3a:00:16:d4
+
+domain:1-11@20before: magic1=0x0, val=0x0, magic2=0x0
+Crash detection logic initialized
+after: magic1=0x11223344, val=0x0, magic2=0x55667788
+Serial-to-Wireless: Ready
+
+starting thread-sock
+
+.. |image94| image:: media/image94.png
    :width: 7.48031in
    :height: 4.82228in
-.. |image2| image:: media/image2.png
+.. |image95| image:: media/image95.png
    :width: 3.14961in
    :height: 6.54504in
-.. |image3| image:: media/image3.png
+.. |image96| image:: media/image96.png
    :width: 3.14961in
    :height: 6.50612in
-.. |image4| image:: media/image4.png
+.. |image97| image:: media/image97.png
    :width: 7.48031in
    :height: 3.7674in
-.. |image5| image:: media/image5.png
+.. |image98| image:: media/image98.png
    :width: 7.48031in
    :height: 4.26119in
-.. |image6| image:: media/image6.png
+.. |image99| image:: media/image99.png
    :width: 7.48031in
    :height: 4.86623in
-.. |Graphical user interface Description automatically generated| image:: media/image7.png
+.. |image100| image:: media/image100.png
    :width: 3.45773in
    :height: 4.62565in
-.. |image7| image:: media/image8.png
+.. |image101| image:: media/image101.png
    :width: 7.48031in
    :height: 5.67299in
-.. |A screenshot of a computer Description automatically generated with medium confidence| image:: media/image9.png
+.. |image102| image:: media/image102.png
    :width: 3.14961in
    :height: 4.49323in
-.. |image8| image:: media/image10.png
+.. |image103| image:: media/image103.png
    :width: 3.14961in
    :height: 3.96416in
-.. |image9| image:: media/image11.png
+.. |image104| image:: media/image104.png
    :width: 7.48031in
    :height: 5.67299in
-.. |image10| image:: media/image12.png
+.. |image105| image:: media/image105.png
    :width: 7.48031in
    :height: 5.72366in
-.. |image11| image:: media/image13.png
+.. |image106| image:: media/image106.png
    :width: 7.48031in
    :height: 6.09125in
-.. |image12| image:: media/image14.png
+.. |image107| image:: media/image107.png
    :width: 5.90551in
    :height: 4.47366in
-.. |image13| image:: media/image15.png
+.. |image108| image:: media/image108.png
    :width: 3.14961in
    :height: 3.97739in
-.. |image14| image:: media/image16.png
+.. |image109| image:: media/image109.png
    :width: 7.48031in
    :height: 6.04372in
-.. |image15| image:: media/image17.png
+.. |image110| image:: media/image110.png
    :width: 7.48031in
    :height: 7.48031in
-.. |image16| image:: media/image18.png
+.. |image111| image:: media/image111.png
    :width: 7.5in
    :height: 0.79097in
-.. |Graphical user interface, text, application Description automatically generated| image:: media/image19.png
+.. |image112| image:: media/image112.png
    :width: 6.29921in
    :height: 3.35246in
-.. |Graphical user interface, text, application, email Description automatically generated| image:: media/image20.png
+.. |image113| image:: media/image113.png
    :width: 5.90551in
    :height: 3.1661in
-.. |A screenshot of a computer Description automatically generated| image:: media/image21.png
+.. |image114| image:: media/image114.png
    :width: 5.90551in
    :height: 2.7918in
-.. |image17| image:: media/image22.png
+.. |image115| image:: media/image115.png
    :width: 6.29921in
    :height: 3.10075in
-.. |image18| image:: media/image23.png
+.. |image116| image:: media/image116.png
    :width: 6.29921in
    :height: 2.786in
-.. |image19| image:: media/image24.png
+.. |image117| image:: media/image117.png
    :width: 6.88976in
    :height: 0.83124in
-.. |image20| image:: media/image25.png
+.. |image118| image:: media/image118.png
    :width: 6.88976in
    :height: 2.50264in
-.. |Text Description automatically generated| image:: media/image26.png
+.. |image119| image:: media/image119.png
    :width: 6.88976in
    :height: 1.09677in
-.. |image21| image:: media/image27.png
+.. |image120| image:: media/image120.png
    :width: 6.88976in
    :height: 4.77046in
-.. |image22| image:: media/image28.png
+.. |image121| image:: media/image121.png
    :width: 6.49606in
    :height: 3.14459in
-.. |image23| image:: media/image29.png
+.. |image122| image:: media/image122.png
    :width: 7.48031in
    :height: 3.0402in

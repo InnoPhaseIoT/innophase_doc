@@ -1,3 +1,7 @@
+.. _ds landing:
+
+Dual-Stack Solution
+###################
 
 Dual-Stack is a hosted solution with Talaria TWO Wi-Fi module which
 helps replace the normal Wi-Fi driver concept of Linux stack. This

@@ -1,3 +1,5 @@
+.. _at cmds uc wo:
+
 Wireless Operations
 --------------------
 
@@ -49,27 +51,20 @@ Procedure
 
 Execute the following commands on Talaria TWO:
 
-.. table:: Table 2: Suspend/Deep sleep Mode - AT Commands
+.. code:: shell
 
-   +-----------------------------------------------------------------------+
-   | at                                                                    |
-   |                                                                       |
-   | at+wscan                                                              |
-   |                                                                       |
-   | at+wcon=InnoPhase,Inno@9070                                           |
-   |                                                                       |
-   | at+wstatus=0                                                          |
-   |                                                                       |
-   | at+wdis                                                               |
-   |                                                                       |
-   | at+wstatus=0                                                          |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+      at
+at+wscan
+at+wcon=InnoPhase,Inno@9070
+at+wstatus=0
+at+wdis
+at+wstatus=0
+
 
 Serial Log
 ~~~~~~~~~~
 
-|Text Description automatically generated|
+|image1|
 
 Figure 1: Station Mode – Serial log
 
@@ -97,7 +92,7 @@ Basic Terminology in 802.11 Power Save:
    Interval. Beacon interval is represented in Time Unit (TU). Each TU
    is 1024 microsecond. If Beacon interval is 100TU, it means 102.4ms.
 
-|image1|
+|image2|
 
 Figure 2: Sleep state machine
 
@@ -124,7 +119,7 @@ Personal/Enterprise protocols).
 
 **AT Command Sequence**
 
-.. table:: Table 3: Always Active Mode - AT Commands
+.. table:: Table 2: Always Active Mode - AT Commands
 
    +----------------------+-----------------------------------------------+
    | **AT Command**       | **Description**                               |
@@ -153,29 +148,22 @@ at+wstatus command. Put the module into deep sleep mode for about 10 sec
 (10000ms). Once the module timeouts (10 sec), it will respond with
 "WAKEUP" message and switch to active mode.
 
-.. table:: Table 4: Listen Interval based Wakeup - AT Commands
+.. code:: shell
 
-   +-----------------------------------------------------------------------+
-   | at                                                                    |
-   |                                                                       |
-   | at+wcon=InnoPhase,Inno@1020                                           |
-   |                                                                       |
-   | at+wstatus=0                                                          |
-   |                                                                       |
-   | at+syssleep=10000                                                     |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+      at 
+at+wcon=InnoPhase,Inno@1020
+at+wstatus=0
+at+syssleep=10000
 
 **Serial Log**
 
-|image2|
+|image3|
 
 Figure 3: Suspend/Deep sleep Mode - Serial log
 
 **OTTI Log**
 
-|A screenshot of a computer Description automatically generated with
-medium confidence|
+|image4|
 
 Figure 4: Suspend/Deep sleep Mode - OTTI log
 
@@ -200,7 +188,7 @@ Personal/Enterprise protocols).
 
 **AT Command Sequence**
 
-.. table:: Table 5: Dynamic Listen Interval - AT Commands
+.. table:: Table 3: Dynamic Listen Interval - AT Commands
 
    +---------------------+------------------------------------------------+
    | **AT Command**      | **Description**                                |
@@ -257,29 +245,22 @@ active mode. Connect the Talaria TWO module to an AP of SSID "InnoPhase"
 and passphrase "Inno@1020". Check the WLAN status with at+wstatus
 command.
 
-.. table:: Table 6: Low Power Optimization - AT Commands
+.. code:: shell
 
-   +-----------------------------------------------------------------------+
-   | at                                                                    |
-   |                                                                       |
-   | at+wpmcfg=3,0,0,0                                                     |
-   |                                                                       |
-   | at+wcon=InnoPhase,Inno@1020                                           |
-   |                                                                       |
-   | at+wstatus=0                                                          |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+      at 
+at+wpmcfg=3,0,0,0
+at+wcon=InnoPhase,Inno@1020
+at+wstatus=0
 
 **Serial Log**
 
-|image3|
+|image5|
 
 Figure 5: Always Active Mode - Serial log
 
 **OTTI Log**
 
-|A picture containing graphical user interface Description automatically
-generated|
+|image6|
 
 Figure 6: Always Active Mode - OTTI log
 
@@ -309,7 +290,7 @@ Personal/Enterprise protocols).
 
 **AT Command Sequence**
 
-.. table:: Table 7: Upon suspend mode timeout - AT Commands
+.. table:: Table 4: Upon suspend mode timeout - AT Commands
 
    +-------------------------+--------------------------------------------+
    | **AT Command**          | **Description**                            |
@@ -379,30 +360,24 @@ for every 10th Beacon. Connect the Talaria TWO module to an AP of SSID
 at+wstatus command. Put the module into deep sleep mode for about 60 sec
 (60000ms).
 
-.. table:: Table 8: GPIO Interrupt - AT Commands
+.. code:: shell
 
-   +-----------------------------------------------------------------------+
-   | at                                                                    |
-   |                                                                       |
-   | at+wpmcfg=10,12,0,0                                                   |
-   |                                                                       |
-   | at+wcon=InnoPhase,Inno@1020                                           |
-   |                                                                       |
-   | at+wstatus=0                                                          |
-   |                                                                       |
-   | at+syssleep=60000                                                     |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+      at 
+at+wpmcfg=10,12,0,0
+at+wcon=InnoPhase,Inno@1020
+at+wstatus=0
+at+syssleep=60000
+
 
 **Serial Log**
 
-|image4|
+|image7|
 
 Figure 7: Listen Interval based Wakeup - Serial log
 
 **OTTI Log**
 
-|Chart Description automatically generated|
+|image8|
 
 Figure 8: Listen Interval based Wakeup - OTTI log
 
@@ -428,7 +403,7 @@ Personal/Enterprise protocols).
 
 **AT Command Sequence**
 
-.. table:: Table 9: Network data reception - AT Commands
+.. table:: Table 5: Network data reception - AT Commands
 
    +----------------------+-----------------------------------------------+
    | **AT Command**       | **Description**                               |
@@ -496,31 +471,25 @@ module to an AP of SSID "InnoPhase" and passphrase "Inno@1020". Check
 the WLAN status with at+wstatus command. Put the module into deep sleep
 mode for about 60 sec (60000ms).
 
-.. table:: Table 10: BLE Peripheral - AT Commands
+.. code:: shell
 
-   +-----------------------------------------------------------------------+
-   | at                                                                    |
-   |                                                                       |
-   | at+wpmcfg=10,12,0,1                                                   |
-   |                                                                       |
-   | at+wcon=InnoPhase,Inno@1020                                           |
-   |                                                                       |
-   | at+wstatus=0                                                          |
-   |                                                                       |
-   | at+syssleep=60000                                                     |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+      at 
+at+wpmcfg=10,12,0,1
+at+wcon=InnoPhase,Inno@1020
+at+wstatus=0
+at+syssleep=60000
+
 
 **Serial Log**
 
-|image5|
+|image9|
 
 Figure 9: Dynamic Listen Interval - Serial log
 
 Connect the laptop to the same Access Point “InnoPhase” to which the
 Talaria TWO is connected.
 
-|Graphical user interface, text Description automatically generated|
+|image10|
 
 Figure 10: Connect to InnoPhase AP
 
@@ -531,13 +500,13 @@ traffic, and hence Dynamic listen interval is enabled on Talaria TWO.
 To generate traffic, execute the ping command from the Windows Command
 Prompt.
 
-|image6|
+|image11|
 
 Figure 11: Connect to InnoPhase AP Command Prompt
 
 **OTTI Log**
 
-|Graphical user interface, chart Description automatically generated|
+|image12|
 
 Figure 12: Dynamic Listen Interval - OTTI log
 
@@ -555,7 +524,7 @@ Personal/Enterprise protocols.
 
 **AT Command Sequence**
 
-.. table:: Table 11: BLE IO capabilities - AT Commands
+.. table:: Table 6: BLE IO capabilities - AT Commands
 
    +--------------------------+-------------------------------------------+
    | **AT Command**           | **Description**                           |
@@ -644,26 +613,22 @@ Connect the Talaria TWO to an AP of SSID "InnoPhase" and passphrase
 "Inno@1020". Check the WLAN status with at+wstatus command. Put the
 module into deep sleep mode for about 60 sec (60000ms).
 
-+-----------------------------------------------------------------------+
-| at                                                                    |
-|                                                                       |
-| at+wpmcfg=10,12,0,0,1,1,1,1,1                                         |
-|                                                                       |
-| at+wcon=InnoPhase,Inno@1020 at+wstatus=0                              |
-|                                                                       |
-| at+syssleep=60000                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      at 
+at+wpmcfg=10,12,0,0,1,1,1,1,1
+at+wcon=InnoPhase,Inno@1020 at+wstatus=0 
+at+syssleep=60000
 
 **Serial Log**
 
-|image7|
+|image13|
 
 Figure 13: Low Power Optimization - Serial log
 
 **OTTI Log**
 
-|Chart, histogram Description automatically generated|
+|image14|
 
 Figure 14: Low Power Optimization - OTTI log
 
@@ -688,6 +653,7 @@ Personal/Enterprise protocols).
 
 **AT Command Sequence**
 
+.. table:: Table 7: Suspend Mode Timeout - AT Commands
 +----------------+-----------------------------------------------------+
 | **AT Command** | **Description**                                     |
 +================+=====================================================+
@@ -710,28 +676,24 @@ Personal/Enterprise protocols).
 sleep mode for 30secs and wakeup based on timeout (30secs in this
 example).
 
-+-----------------------------------------------------------------------+
-| at                                                                    |
-|                                                                       |
-| at+wscan                                                              |
-|                                                                       |
-| at+wcon=InnoPhase,Inno@9070                                           |
-|                                                                       |
-| at+wstatus=0                                                          |
-|                                                                       |
-| at+syssleep=30000                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      at
+at+wscan
+at+wcon=InnoPhase,Inno@9070
+at+wstatus=0
+at+syssleep=30000
+
 
 **Serial Log**
 
-|image8|
+|image15|
 
 Figure 15: Upon suspend mode timeout - Serial log
 
 **OTII Log**
 
-|image9|
+|image16|
 
 Figure 16: Upon suspend mode timeout – OTII log
 
@@ -769,6 +731,7 @@ Personal/Enterprise protocols).
 
 **AT Command Sequence**
 
+.. table:: Table 8: GPIO Interrupt - AT Commands
 +--------------+-------------------------------------------------------+
 | **AT         | **Description**                                       |
 | Command**    |                                                       |
@@ -796,30 +759,25 @@ mode and wakeup based on GPIO14 interrupt. GPIO14 is configured for low
 wakeup level (which implies, generate interrupt when the GPIO14 is low
 level).
 
-+-----------------------------------------------------------------------+
-| at                                                                    |
-|                                                                       |
-| at+wscan                                                              |
-|                                                                       |
-| at+wcon=InnoPhase,Inno@9070                                           |
-|                                                                       |
-| at+wstatus=0                                                          |
-|                                                                       |
-| at+wakeupcfg=14,0,0,0                                                 |
-|                                                                       |
-| at+syssleep=0                                                         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      at
+at+wscan
+at+wcon=InnoPhase,Inno@9070
+at+wstatus=0
+at+wakeupcfg=14,0,0,0
+at+syssleep=0
+
 
 **Serial Log**
 
-|image10|
+|image17|
 
 Figure 17: GPIO Interrupt - Serial log
 
 **OTTI Log**
 
-|image11|
+|image18|
 
 Figure 18: GPIO Interrupt - OTTI log
 
@@ -849,6 +807,7 @@ sleep till timeout.
 
 **AT Command Sequence**
 
+.. table:: Table 9: Network Data Reception - AT Commands
 +------------+---------------------------------------------------------+
 | **AT       | **Description**                                         |
 | Command**  |                                                         |
@@ -873,40 +832,32 @@ sleep till timeout.
 
 **Step 1**: Execute the following commands on Talaria TWO:
 
-+-----------------------------------------------------------------------+
-| at                                                                    |
-|                                                                       |
-| at+wscan                                                              |
-|                                                                       |
-| at+wcon=InnoPhase,Inno@9070                                           |
-|                                                                       |
-| at+wstatus=0                                                          |
-|                                                                       |
-| at+socsrv=0,0,0,9000                                                  |
-|                                                                       |
-| at+syssleep=10000                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      at
+at+wscan
+at+wcon=InnoPhase,Inno@9070
+at+wstatus=0
+at+socsrv=0,0,0,9000
+at+syssleep=10000
 
 **Step 2**: Connect your laptop to the same access point InnoPhase to
 which the Talaria TWO is connected.
 
-|image12|\ |Graphical user interface, text, application, chat or text
-message Description automatically generated|
+|image19|
 
-   Figure 19: Connect to InnoPhase
+Figure 19: Connect to InnoPhase
 
 **Step 3**: Using Hercules tool create TCP client and connect to server
 of IP 192.1681.18 server socket and port 9000.
 
-|Graphical user interface, text, application Description automatically
-generated|
+|image20|
 
 Figure 20: Hercules tool - create TCP client
 
 **Serial Log**
 
-|image13|
+|image21|
 
 Figure 21: Network data reception - Serial log
 
@@ -942,6 +893,7 @@ Android device installed with BLE app like BLE Scanner or nRF Connect.
 AT Command Sequence
 ~~~~~~~~~~~~~~~~~~~
 
+.. table:: Table 10: BLE Peripheral - AT Commands
 +------------------------------------------+---------------------------+
 | **AT Command**                           | **Description**           |
 +==========================================+===========================+
@@ -1046,42 +998,34 @@ Procedure
 
 **Step 1**: Execute the following commands on Talaria TWO:
 
-+-----------------------------------------------------------------------+
-| at                                                                    |
-|                                                                       |
-| at+btinit                                                             |
-|                                                                       |
-| at+blecfg=02:03:04:1f:cc:9e,0,InnoPhase                               |
-|                                                                       |
-| at+blesrvstart                                                        |
-|                                                                       |
-| at+bleservcfg=11111111111111111111111111111111                        |
-|                                                                       |
-| at+blechradd=11111111111111111111111111111111,2A29,a,3                |
-|                                                                       |
-| at+bleservadd=11111111111111111111111111111111                        |
-|                                                                       |
-| at+bleadvcfg=100,0,1600,0                                             |
-|                                                                       |
-| at+bleadvstart                                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image14|
+      at
+at+btinit
+at+blecfg=02:03:04:1f:cc:9e,0,InnoPhase
+at+blesrvstart
+at+bleservcfg=11111111111111111111111111111111
+at+blechradd=11111111111111111111111111111111,2A29,a,3
+at+bleservadd=11111111111111111111111111111111 
+at+bleadvcfg=100,0,1600,0
+at+bleadvstart
+
+
+|image22|
 
 Figure 22: BLE Peripheral - serial log
 
 **Step 2**: Launch the BLE Scanner app from the Android device and
 connect to Talaria TWO GATT Server with the BLE name InnoPhase.
 
-|image15|
+|image23|
 
 Figure 23: Talaria TWO GATT Server
 
 **Step 3**: Once the BLE connection is established successfully send
 data/Write Request by pressing W from BLE central.
 
-|image16|
+|image24|
 
 Figure 24: Write request
 
@@ -1089,25 +1033,24 @@ Figure 24: Write request
 the Write Request sent from the device. Send an acknowledgment of the
 write request from Talaria TWO using following command:
 
-+-----------------------------------------------------------------------+
-| at+blecharwrdata=2a29,5                                               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image17|
+      at+blecharwrdata=2a29,5
+
+|image25|
 
 Figure 25: Write request from Talaria TWO
 
 Write request acknowledgement displayed on the device:
 
-|image18|
+|image26|
 
 Figure 26: Write request acknowledgment on device
 
 **Step 5**: Send Read request from device BLE central and send
 acknowledgement Read request data 6162636465 from Talaria TWO. 
 
-|image19|
+|image27|
 
 Figure 27: Read request on device
 
@@ -1115,18 +1058,18 @@ Figure 27: Read request on device
 the received Read request. Send data 6162636465 as acknowledgement for
 the received read request from Talaria TWO:
 
-+-----------------------------------------------------------------------+
-| at+blecharrddata=2a29,a,6162636465                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image20|
+      at+blecharrddata=2a29,a,6162636465
+
+
+|image28|
 
 Figure 28: Send data as an acknowledgement to Talaria TWO
 
 Acknowledgment of Read request displayed on the device.
 
-|image21|
+|image29|
 
 Figure 29: Read request acknowledgment on device
 
@@ -1153,6 +1096,7 @@ Android device installed with native BLE app (BLE Scanner/nRF Connect).
 AT Command Sequence 
 ~~~~~~~~~~~~~~~~~~~~
 
+.. table:: Table 11: BLE IO Capabilities - AT Commands
 +----------------------------------------+-----------------------------+
 | **AT Command**                         | **Description**             |
 +========================================+=============================+
@@ -1272,51 +1216,41 @@ Procedure
 
 **Step 1**: Execute the following commands on Talaria TWO:
 
-+-----------------------------------------------------------------------+
-| at                                                                    |
-|                                                                       |
-| at+btinit                                                             |
-|                                                                       |
-| at+blecfg=02:03:04:1f:cc:9e,0,InnoPhase_Secure                        |
-|                                                                       |
-| at+blesrvstart                                                        |
-|                                                                       |
-| at+bleservcfg=11111111111111111111111111111111                        |
-|                                                                       |
-| at+blechradd=11111111111111111111111111111111,2A29,a,3                |
-|                                                                       |
-| at+bleservadd=11111111111111111111111111111111                        |
-|                                                                       |
-| at+bleadvcfg=100,0,1600,0                                             |
-|                                                                       |
-| at+blesmpcfg=0,0,1,0,0,0,16,1                                         |
-|                                                                       |
-| at+bleadvstart                                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image22|
+      at
+at+btinit
+at+blecfg=02:03:04:1f:cc:9e,0,InnoPhase_Secure
+at+blesrvstart
+at+bleservcfg=11111111111111111111111111111111  
+at+blechradd=11111111111111111111111111111111,2A29,a,3
+at+bleservadd=11111111111111111111111111111111   
+at+bleadvcfg=100,0,1600,0
+at+blesmpcfg=0,0,1,0,0,0,16,1
+
+
+|image30|
 
 Figure 30: BLE IO capability - serial log
 
 **Step 2**: Launch BLE Scanner app from the Android device and connect
 to Talaria TWO GATT server with the BLE name InnoPhase_Secure
 
-|image23|
+|image31|
 
 Figure 31: Talaria TWO GATT Server
 
 **Step 3**: For the BLE GATT connection app requests for pairing as a
 pairing request, click on pair & connect.
 
-|image24|
+|image32|
 
 Figure 32: Pair request on the device
 
 **Step 4**: App requests for a confirmation Pair with InnoPhase_secure
 here click on Pair.
 
-|image25|
+|image33|
 
 Figure 33: Confirmation to pair
 
@@ -1324,18 +1258,18 @@ Now, the passkey for pairing is shown on the AT command line. Add the
 passkey to the app and click on OK. Now the BLE GATT connection is
 created.
 
-|image26|
+|image34|
 
 Figure 34: Pass key for pairing
 
-|image27|
+|image35|
 
 Figure 35: Add the passkey
 
 **Step 5**: Once the BLE connection is established successfully send
 data/Write Request by pressing W from BLE central.
 
-|image28|
+|image36|
 
 Figure 36: Write request- SMP
 
@@ -1343,25 +1277,24 @@ An asynchronous message on Talaria TWO will be displayed for the Write
 Request sent from the device. Send an acknowledgment of the write
 request from Talaria TWO using following command:
 
-+-----------------------------------------------------------------------+
-| at+blecharwrdata=2a29,5                                               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image29|
+      at+blecharwrdata=2a29,5
+
+|image37|
 
 Figure 37: Acknowledgment of Write request-SMP
 
 Write request acknowledgement displayed on the device:
 
-|image30|
+|image38|
 
 Figure 38: Write request acknowledgment on device-SMP
 
 **Step 6**: Send Read request from device BLE central and send
 acknowledgement Read request data 6162636465 from Talaria TWO. 
 
-|image31|
+|image39|
 
 Figure 39: Read Request- SMP
 
@@ -1369,144 +1302,140 @@ An asynchronous message will be displayed on Talaria TWO for the
 received Read request. Send data 6162636465 as acknowledgement for the
 received read request from Talaria TWO:
 
-+-----------------------------------------------------------------------+
-| at+blecharrddata=2a29,a,6162636465                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image32|
+      at+blecharrddata=2a29,a,6162636465
+
+|image40|
 
 Figure 40: Read request acknowledgment
 
 Acknowledgment of Read request displayed on the device:
 
-|image33|
+|image41|
 
 Figure 41: Read request acknowledgment on device
 
-.. |Text Description automatically generated| image:: media/image1.png
+.. |image1| image:: media/image1.png
    :width: 7.48031in
    :height: 3.89265in
-.. |image1| image:: media/image2.png
+.. |image2| image:: media/image2.png
    :width: 7.48031in
    :height: 5.36428in
-.. |image2| image:: media/image3.png
+.. |image3| image:: media/image3.png
    :width: 6.69291in
    :height: 3.48682in
-.. |A screenshot of a computer Description automatically generated with medium confidence| image:: media/image4.png
+.. |image4| image:: media/image4.png
    :width: 6.69291in
    :height: 3.94784in
-.. |image3| image:: media/image5.png
+.. |image5| image:: media/image5.png
    :width: 7.48031in
    :height: 4.18375in
-.. |A picture containing graphical user interface Description automatically generated| image:: media/image6.png
+.. |image6| image:: media/image6.png
    :width: 7.48031in
    :height: 4.81503in
-.. |image4| image:: media/image7.png
+.. |image7| image:: media/image7.png
    :width: 7.48031in
    :height: 5.55829in
-.. |Chart Description automatically generated| image:: media/image8.png
+.. |image8| image:: media/image8.png
    :width: 7.48031in
    :height: 4.22563in
-.. |image5| image:: media/image9.png
+.. |image9| image:: media/image9.png
    :width: 7.48031in
    :height: 4.53538in
-.. |Graphical user interface, text Description automatically generated| image:: media/image10.png
+.. |image10| image:: media/image10.png
    :width: 3.14961in
    :height: 5.09226in
-.. |image6| image:: media/image11.png
+.. |image11| image:: media/image11.png
    :width: 7.48031in
    :height: 5.7985in
-.. |Graphical user interface, chart Description automatically generated| image:: media/image12.png
+.. |image12| image:: media/image12.png
    :width: 7.48031in
    :height: 4.23315in
-.. |image7| image:: media/image13.png
+.. |image13| image:: media/image13.png
    :width: 7.48031in
    :height: 2.9188in
-.. |Chart, histogram Description automatically generated| image:: media/image14.png
+.. |image14| image:: media/image14.png
    :width: 7.48031in
    :height: 4.23041in
-.. |image8| image:: media/image15.png
+.. |image15| image:: media/image15.png
    :width: 6.29921in
    :height: 3.6165in
-.. |image9| image:: media/image16.png
+.. |image16| image:: media/image16.png
    :width: 6.29921in
    :height: 3.65419in
-.. |image10| image:: media/image17.png
+.. |image17| image:: media/image17.png
    :width: 7.48031in
    :height: 4.29542in
-.. |image11| image:: media/image18.png
+.. |image18| image:: media/image18.png
    :width: 7.48031in
    :height: 2.93047in
-.. |image12| image:: media/image19.png
+.. |image19| image:: media/image19.png
    :width: 0.64172in
    :height: 0.30836in
-.. |Graphical user interface, text, application, chat or text message Description automatically generated| image:: media/image20.png
+.. |image20| image:: media/image20.png
    :width: 2.75591in
    :height: 4.61993in
-.. |Graphical user interface, text, application Description automatically generated| image:: media/image21.png
+.. |image21| image:: media/image21.png
    :width: 5.90551in
    :height: 5.15162in
-.. |image13| image:: media/image22.png
+.. |image22| image:: media/image22.png
    :width: 7.48031in
    :height: 3.90727in
-.. |image14| image:: media/image23.png
+.. |image23| image:: media/image23.png
    :width: 7.48031in
    :height: 4.93599in
-.. |image15| image:: media/image24.png
+.. |image24| image:: media/image24.png
    :width: 3.14961in
    :height: 6.54325in
-.. |image16| image:: media/image25.png
+.. |image25| image:: media/image25.png
    :width: 3.14961in
    :height: 6.32579in
-.. |image17| image:: media/image26.png
+.. |image26| image:: media/image26.png
    :width: 7.48031in
    :height: 3.56205in
-.. |image18| image:: media/image25.png
+.. |image27| image:: media/image27.png
    :width: 3.14961in
    :height: 6.32579in
-.. |image19| image:: media/image25.png
+.. |image28| image:: media/image28.png
    :width: 3.14961in
    :height: 6.32554in
-.. |image20| image:: media/image27.png
+.. |image29| image:: media/image29.png
    :width: 7.48031in
    :height: 3.83405in
-.. |image21| image:: media/image28.png
+.. |image30| image:: media/image30.png
    :width: 3.14961in
    :height: 6.43829in
-.. |image22| image:: media/image29.png
+.. |image31| image:: media/image31.png
    :width: 7.48031in
    :height: 5.26928in
-.. |image23| image:: media/image30.png
+.. |image32| image:: media/image32.png
    :width: 3.14961in
    :height: 6.10576in
-.. |image24| image:: media/image31.png
+.. |image33| image:: media/image33.png
    :width: 3.14961in
    :height: 6.36891in
-.. |image25| image:: media/image32.png
+.. |image34| image:: media/image34.png
    :width: 3.14961in
    :height: 6.50534in
-.. |image26| image:: media/image33.png
+.. |image35| image:: media/image35.png
    :width: 7.48031in
    :height: 3.63958in
-.. |image27| image:: media/image34.png
+.. |image36| image:: media/image36.png
    :width: 3.14961in
    :height: 6.53958in
-.. |image28| image:: media/image35.png
+.. |image37| image:: media/image37.png
    :width: 3.14961in
    :height: 6.36466in
-.. |image29| image:: media/image36.png
+.. |image38| image:: media/image38.png
    :width: 7.48031in
    :height: 4.0887in
-.. |image30| image:: media/image37.png
+.. |image39| image:: media/image39.png
    :width: 3.14961in
    :height: 6.38897in
-.. |image31| image:: media/image37.png
+.. |image40| image:: media/image40.png
    :width: 3.14961in
    :height: 6.38957in
-.. |image32| image:: media/image38.png
+.. |image41| image:: media/image41.png
    :width: 7.48031in
    :height: 4.47003in
-.. |image33| image:: media/image39.png
-   :width: 3.14961in
-   :height: 6.39687in

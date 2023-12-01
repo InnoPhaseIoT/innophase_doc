@@ -142,3 +142,10 @@ UseCases
    6. UseCases/5. Advanced Services .rst
    6. UseCases/6. Miscellaneous.rst
 
+
+.. |image1| image:: media/image1.png
+   :width: 7.48031in
+   :height: 0.43019in
+.. |image2| image:: media/image2.png
+   :width: 7.48031in
+   :height: 0.43019in

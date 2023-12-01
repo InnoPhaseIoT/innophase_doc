@@ -1,3 +1,5 @@
+.. _ds tunadapter:
+
 Tunadapter
 ------------
 
@@ -7,7 +9,7 @@ communication. The TUN interface of this solution allows to tap the IP
 frame from the network stack, feed it to the HAPI interface and sends it
 to Talaria TWO over SPI/SDIO.
 
-.. table:: Table 5: TUN Adapter - command description
+.. table:: Table 1: TUN Adapter - command description
 
    +--------------+-------------------------------------------------------+
    | **Command**  | **Description**                                       |
@@ -16,13 +18,13 @@ to Talaria TWO over SPI/SDIO.
    | /tunadapter* | socket application.                                   |
    +--------------+-------------------------------------------------------+
 
-|image1|\ |image2|\ |image3|\ |A screenshot of a computer Description
-automatically generated|
+|image1|
 
-Figure 4: ./tunadapter
+Figure 1: ./tunadapter
 
 The tunadapter has the following optional command line arguments:
 
+.. table:: Table 2: tunadapter - optional command line arguments
 +------------------+---------------------------------------------------+
 | **Options**      | **Description**                                   |
 +==================+===================================================+
@@ -61,17 +63,8 @@ The tunadapter has the following optional command line arguments:
 |                  | For example: ./tunadapter heartbeat=1.            |
 +------------------+---------------------------------------------------+
 
-Table 6: tunadapter - optional command line arguments
+
 
 .. |image1| image:: media/image1.png
-   :width: 0.88264in
-   :height: 0.11667in
-.. |image2| image:: media/image1.png
-   :width: 0.88264in
-   :height: 0.35in
-.. |image3| image:: media/image1.png
-   :width: 0.88333in
-   :height: 0.43333in
-.. |A screenshot of a computer Description automatically generated| image:: media/image2.png
-   :width: 6.29921in
-   :height: 6.75013in
+   :width: 7.1in
+   :height: 4.1in

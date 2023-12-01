@@ -1,3 +1,8 @@
+.. _at cmds full:
+
+AT Commands
+###########
+
 **Note**: *Arguments in [ ] are optional and those in <> are mandatory.
 Command response column contains only response description and payload
 fields.*

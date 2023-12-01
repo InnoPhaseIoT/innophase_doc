@@ -1,3 +1,5 @@
+.. _at cmds uc np:
+
 Network protocols
 --------------------
 
@@ -19,7 +21,7 @@ Access Point configured with WPA/WPA2 personal security.
 AT Command Sequence
 ~~~~~~~~~~~~~~~~~~~
 
-.. table:: Table 12: Static IP Configuration - AT Commands
+.. table:: Table 1: Static IP Configuration - AT Commands
 
    +--------------+-------------------------------------------------------+
    | **AT         | **Description**                                       |
@@ -43,27 +45,21 @@ Procedure
 
 Execute the following commands on Talaria TWO:
 
-.. table:: Table 13: Ping and Reset Functionality - AT Commands
+.. code:: shell
 
-   +-----------------------------------------------------------------------+
-   | at                                                                    |
-   |                                                                       |
-   | at+wscan                                                              |
-   |                                                                       |
-   | at+wcfgset=1,192.168.1.8,255.255.255.0,192.168.1.8,8.8.8.8            |
-   |                                                                       |
-   | at+wcon=InnoPhase,Inno@9070                                           |
-   |                                                                       |
-   | at+wstatus=0                                                          |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+      at
+at+wscan
+at+wcfgset=1,192.168.1.8,255.255.255.0,192.168.1.8,8.8.8.8
+at+wcon=InnoPhase,Inno@9070
+at+wstatus=0
+
 
 Serial Log
 ~~~~~~~~~~
 
-|Text Description automatically generated|
+|image42|
 
-Figure 42: Static IP Configuration – Serial log
+Figure 1: Static IP Configuration – Serial log
 
 Ping and Reset Functionality
 ~~~~~~~~~~~~~~
@@ -88,7 +84,7 @@ Access Point configured with WPA/WPA2 personal security.
 AT Command Sequence 
 ~~~~~~~~~~~~~~~~~~~~
 
-.. table:: Table 14: TCP Server - AT Commands
+.. table:: Table 2: TCP Server - AT Commands
 
    +-------------+--------------------------------------------------------+
    | **AT        | **Description**                                        |
@@ -121,47 +117,37 @@ Procedure
 **Step 1**: Connect your laptop to the same access point “InnoPhase” to
 which the Talaria TWO is connected.
 
-|image1|\ |Graphical user interface, text Description automatically
-generated|
+|image43|
 
-Figure 43: Connecting to AP
+Figure 2: Connecting to AP
 
 **Step 2**: Check the IP address of the Windows laptop using ipconfig
 command.
 
-|image2|
+|image44|
 
-Figure 44: Checking IP address
+Figure 3: Checking IP address
 
 **Step 3**: Execute the following commands on Talaria TWO:
 
-.. table:: Table 15: TCP Client - AT Commands
+.. code:: shell
 
-   +-----------------------------------------------------------------------+
-   | at                                                                    |
-   |                                                                       |
-   | at+ver                                                                |
-   |                                                                       |
-   | at+wscan                                                              |
-   |                                                                       |
-   | at+wcon=InnoPhase,Inno@9070                                           |
-   |                                                                       |
-   | at+wstatus=0                                                          |
-   |                                                                       |
-   | at+nping=192.168.1.5                                                  |
-   |                                                                       |
-   | at+reset                                                              |
-   |                                                                       |
-   | at+wstatus=0                                                          |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+      at
+at+ver
+at+wscan
+at+wcon=InnoPhase,Inno@9070
+at+wstatus=0
+at+nping=192.168.1.5
+at+reset
+at+wstatus=0
+
 
 .. _serial-log-1:
 
 Serial Log
 ~~~~~~~~~~
 
-|image3|
+|image4|
 
 Figure 45: Ping and Reset Functionality - Serial log
 
@@ -193,7 +179,7 @@ Prerequisites
 AT Command Sequence 
 ~~~~~~~~~~~~~~~~~~~~
 
-.. table:: Table 16: UDP Server - AT Commands
+.. table:: Table 3: UDP Server - AT Commands
 
    +------------+---------------------------------------------------------+
    | **AT       | **Description**                                         |
@@ -222,55 +208,46 @@ Procedure
 
 **Step 1**: Execute the following commands on Talaria TWO:
 
-.. table:: Table 17: UDP Client – AT Commands
+.. code:: shell
 
-   +-----------------------------------------------------------------------+
-   | at                                                                    |
-   |                                                                       |
-   | at+wscan                                                              |
-   |                                                                       |
-   | at+wcon=InnoPhase,Inno@9070                                           |
-   |                                                                       |
-   | at+wstatus=0                                                          |
-   |                                                                       |
-   | at+socsrv=0,0,0,9000                                                  |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+      at
+at+wscan
+at+wcon=InnoPhase,Inno@9070
+at+wstatus=0
+at+socsrv=0,0,0,9000
 
-|image4|
 
-Figure 46: TCP Server – Serial log
+|image46|
+
+Figure 5: TCP Server – Serial log
 
 **Step 2**: Connect your laptop to the same access point “InnoPhase” to
 which the Talaria TWO is connected.
 
-|image5|\ |Graphical user interface, text Description automatically
-generated|
+|image47|
 
-Figure 47: Connecting to AP
+Figure 6: Connecting to AP
 
 **Step 3**: Start TCP client using Hercules and connect to Talaria TWO
 TCP server.
 
-|Graphical user interface, text, application, email Description
-automatically generated|
+|image48|
 
-Figure 48: Starting TCP client
+Figure 7: Starting TCP client
 
 **Step 4**: Log for data communication between application endpoints.
 
 **Note**: Send data from Talaria TWO using command
 at+socsend=1,ASCII,5,Hello.
 
-|Graphical user interface, text, application, chat or text message
-Description automatically generated|
+|image49|
 
-Figure 49: Log for data communication between application endpoints –
+Figure 8: Log for data communication between application endpoints –
 Tera Term
 
-|image6|
+|image50|
 
-Figure 50: Log for data communication between application endpoints -
+Figure 9: Log for data communication between application endpoints -
 Hercules
 
 TCP Client 
@@ -299,7 +276,7 @@ Prerequisites
 AT Command Sequence
 ~~~~~~~~~~~~~~~~~~~
 
-.. table:: Table 18: HTTP Client (non-secured) - AT Commands
+.. table:: Table 4: HTTP Client (non-secured) - AT Commands
 
    +------------+---------------------------------------------------------+
    | **AT       | **Description**                                         |
@@ -329,54 +306,44 @@ Procedure
 **Step 1**: Connect your laptop to the same access point “InnoPhase” to
 which the Talaria TWO is connected.
 
-|image7|\ |Graphical user interface, text Description automatically
-generated|
+|image51|
 
-Figure 51: Connecting to AP
+Figure 10: Connecting to AP
 
 **Step 2**: Using Hercules tool create TCP server socket.
 
-|Graphical user interface, application Description automatically
-generated|
+|image52|
 
-Figure 52: Creating TCP server socket
+Figure 11: Creating TCP server socket
 
 **Step 3**: Get IP address of the server/laptop using the command
 ipconfig.
 
-|image8|
+|image53|
 
-Figure 53: Getting the IP address
+Figure 12: Getting the IP address
 
 **Step 4**: Execute the following commands on Talaria TWO:
 
-.. table:: Table 19: HTTP Client (secured without server certificate
-validation) - AT Commands
+.. code:: shell
 
-   +-----------------------------------------------------------------------+
-   | at                                                                    |
-   |                                                                       |
-   | at+wscan                                                              |
-   |                                                                       |
-   | at+wcon=InnoPhase,Inno@9070                                           |
-   |                                                                       |
-   | at+wstatus=0                                                          |
-   |                                                                       |
-   | at+soccli=0,0,0,8000,192.168.1.5                                      |
-   |                                                                       |
-   | at+socsend=0,ASCII,12,Hello Server                                    |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+      at
+at+wscan
+at+wcon=InnoPhase,Inno@9070
+at+wstatus=0
+at+soccli=0,0,0,8000,192.168.1.5
+at+socsend=0,ASCII,12,Hello Server
+
 
 **Step 5**: Data communication between the application endpoints.
 
-|image9|
+|image54|
 
-Figure 54: Data communication – Tera Term
+Figure 13: Data communication – Tera Term
 
-|image10|
+|image55|
 
-Figure 55: Data communication - Hercules
+Figure 14: Data communication - Hercules
 
 UDP Server
 ~~~~~~~~~~~~~~
@@ -403,7 +370,7 @@ Prerequisites
 AT Command Sequence 
 ~~~~~~~~~~~~~~~~~~~~
 
-.. table:: Table 20: HTTP Client (secured with server certificate
+.. table:: Table 5: HTTP Client (secured with server certificate
 validation) – AT Commands
 
    +-------------+--------------------------------------------------------+
@@ -435,23 +402,23 @@ Procedure
 **Step 1**: Connect your laptop to the same access point InnoPhase to
 which the Talaria TWO is connected.
 
-|image11|\ |image12|
+|image56|
 
-Figure 56: Connecting to AP
+Figure 15: Connecting to AP
 
 **Step 2**: Start UDP client using Hercules and connect to Talaria TWO
 UDP server of IP address 192.168.1.2 and port 9000.
 
-|image13|
+|image57|
 
-Figure 57: Starting UDP Client
+Figure 16: Starting UDP Client
 
 **Step 3**: Get IP address of the server/laptop using the command
 ipconfig.
 
-|image14|
+|image58|
 
-Figure 58: ipconfig output
+Figure 17: ipconfig output
 
 **Step 4**: Execute the following commands to associate to an Access
 Point. Start the UDP server. Start the UDP client.
@@ -459,32 +426,25 @@ Point. Start the UDP server. Start the UDP client.
 UDP server socket can only receive data, hence a client socket should be
 created if data needs to be sent.
 
-.. table:: Table 21: MQTT Client - AT Commands
+.. code:: shell
 
-   +-----------------------------------------------------------------------+
-   | at                                                                    |
-   |                                                                       |
-   | at+wscan                                                              |
-   |                                                                       |
-   | at+wcon=InnoPhase,Inno@9070 at+wstatus=0                              |
-   |                                                                       |
-   | at+socsrv=0,1,1,9000                                                  |
-   |                                                                       |
-   | at+soccli=0,1,1,9000,192.168.1.6                                      |
-   |                                                                       |
-   | at+socsend=1,ASCII,5,HELLO                                            |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+      at 
+at+wscan
+at+wcon=InnoPhase,Inno@9070 at+wstatus=0 
+at+socsrv=0,1,1,9000
+at+soccli=0,1,1,9000,192.168.1.6
+at+socsend=1,ASCII,5,HELLO
+
 
 **Step 5**: Data communication between two application endpoints.
 
-|image15|
+|image59|
 
-Figure 59: Data communication – Tera Term
+Figure 18: Data communication – Tera Term
 
-|image16|
+|image60|
 
-Figure 60: Data communication - Hercules
+Figure 19: Data communication - Hercules
 
 UDP Client 
 ~~~~~~~~~~~~~~
@@ -512,7 +472,7 @@ Prerequisites
 AT Command Sequence 
 ~~~~~~~~~~~~~~~~~~~~
 
-.. table:: Table 22: Secure MQTT - AT Commands
+.. table:: Table 6: Secure MQTT - AT Commands
 
    +--------------+-------------------------------------------------------+
    | **AT         | **Description**                                       |
@@ -541,53 +501,44 @@ Procedure
 **Step 1**: Connect your laptop to the same access point “InnoPhase” to
 which the Talaria TWO is connected.
 
-|image17|\ |Graphical user interface, text Description automatically
-generated|
+|image61|
 
-Figure 61: Connecting to AP
+Figure 20: Connecting to AP
 
 **Step 2**: Using Hercules tool create UDP socket.
 
-|image18|
+|image62|
 
-Figure 62: Creating TCP server socket
+Figure 21: Creating TCP server socket
 
 **Step 3**: Get IP address of the server/laptop using the command
 ipconfig.
 
-|image19|\ |image20|
+|image63|
 
-Figure 63: Getting the IP address
+Figure 22: Getting the IP address
 
 **Step 4**: Execute the following commands on Talaria TWO:
 
-.. table:: Table 23: DNS Lookup – Get host IP by name - AT Commands
+.. code:: shell
 
-   +-----------------------------------------------------------------------+
-   | at                                                                    |
-   |                                                                       |
-   | at+wscan                                                              |
-   |                                                                       |
-   | at+wcon=InnoPhase,Inno@9070                                           |
-   |                                                                       |
-   | at+wstatus=0                                                          |
-   |                                                                       |
-   | at+soccli=0,1,1,8000,192.168.1.6                                      |
-   |                                                                       |
-   | at+socsend=0,ASCII,12,Hi InnoPhase                                    |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+      at
+at+wscan
+at+wcon=InnoPhase,Inno@9070
+at+wstatus=0
+at+soccli=0,1,1,8000,192.168.1.6
+at+socsend=0,ASCII,12,Hi InnoPhase
+
 
 **Step 5**: Data communication between the application endpoints.
 
-|Graphical user interface, text, application Description automatically
-generated|
+|image64|
 
-Figure 64: Data communication – Tera Term
+Figure 23: Data communication – Tera Term
 
-|image21|
+|image65|
 
-Figure 65: Data communication – Hercules
+Figure 24: Data communication – Hercules
 
 HTTP Client 
 ~~~~~~~~~~~~~~
@@ -617,7 +568,7 @@ Prerequisites
 AT Command Sequence
 ^^^^^^^^^^^^^^^^^^^
 
-.. table:: Table 24: Service Discovery using mDNS - AT Commands
+.. table:: Table 7: Service Discovery using mDNS - AT Commands
 
    +---------------+------------------------------------------------------+
    | **AT          | **Description**                                      |
@@ -648,48 +599,38 @@ Procedure
 **Step 1**: Connect your laptop to the same access point “InnoPhase” to
 which the Talaria TWO is connected.
 
-|image22|\ |Graphical user interface, text Description automatically
-generated|
+|image66|
 
-   Figure 66: Connecting to AP
+   Figure 25: Connecting to AP
 
 **Step 2**: Start HFS server and add data.txt file into the data path,
-as shown in Figure 67.
+as shown in Figure 26.
 
-|Graphical user interface, text, table Description automatically
-generated|
+|image67|
 
-Figure 67: Starting HFS server
+Figure 26: Starting HFS server
 
 **Step 3**: Execute the following commands on Talaria TWO:
 
-.. table:: Table 25: Get Time from NTP Server - AT Commands
+.. code:: shell
 
-   +-----------------------------------------------------------------------+
-   | at                                                                    |
-   |                                                                       |
-   | at+wscan                                                              |
-   |                                                                       |
-   | at+wcon=InnoPhase,Inno@9070                                           |
-   |                                                                       |
-   | at+wstatus=0                                                          |
-   |                                                                       |
-   | at+hchdrset=13,192.168.1.5                                            |
-   |                                                                       |
-   | at+hcstart=192.168.1.5,80                                             |
-   |                                                                       |
-   | at+hcreqsnd=0,1,/data.txt                                             |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+      at
+at+wscan
+at+wcon=InnoPhase,Inno@9070
+at+wstatus=0
+at+hchdrset=13,192.168.1.5
+at+hcstart=192.168.1.5,80
+at+hcreqsnd=0,1,/data.txt
+
 
 .. _serial-log-2:
 
 Serial Log
 ^^^^^^^^^^
 
-|image23|
+|image68|
 
-Figure 68: HTTP Client (non-secured) - Serial Log
+Figure 27: HTTP Client (non-secured) - Serial Log
 
 Secured HTTP Client without Server Certificate Validation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -716,6 +657,7 @@ Prerequisites
 AT Command Sequence 
 ^^^^^^^^^^^^^^^^^^^^
 
+.. table:: Table 8: Secured HTTP Client without Server Certificate Validation - AT Commands
 +--------------+-------------------------------------------------------+
 | **AT         | **Description**                                       |
 | Command**    |                                                       |
@@ -746,29 +688,23 @@ is used for connecting to the secure port.
 
 **Step 2:** Execute the following commands on Talaria TWO:
 
-+-----------------------------------------------------------------------+
-| at                                                                    |
-|                                                                       |
-| at+wscan                                                              |
-|                                                                       |
-| at+wcon=InnoPhase,Inno@9070                                           |
-|                                                                       |
-| at+wstatus=0                                                          |
-|                                                                       |
-| at+hcstart=httpbin.org,443,1                                          |
-|                                                                       |
-| at+hcclose=0                                                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      at
+at+wscan
+at+wcon=InnoPhase,Inno@9070
+at+wstatus=0
+at+hcstart=httpbin.org,443,1
+at+hcclose=0
 
 .. _serial-log-3:
 
 Serial Log
 ^^^^^^^^^^
 
-|image24|
+|image69|
 
-Figure 69: HTTP Client (secured without server certificate validation) -
+Figure 28: HTTP Client (secured without server certificate validation) -
 Serial log
 
 Secured HTTP Client (with Server Certificate Validation)
@@ -796,6 +732,7 @@ Prerequisites
 AT Command Sequence 
 ^^^^^^^^^^^^^^^^^^^^
 
+.. table:: Table 9: Secured HTTP Client (with Server Certificate Validation) - AT Commands
 +--------------+-------------------------------------------------------+
 | **AT         | **Description**                                       |
 | Command**    |                                                       |
@@ -829,31 +766,25 @@ the secure port (443).
 
 **Step 2:** Execute the following commands on Talaria TWO:
 
-+-----------------------------------------------------------------------+
-| at                                                                    |
-|                                                                       |
-| at+wscan                                                              |
-|                                                                       |
-| at+wcon=InnoPhase,Inno@9070                                           |
-|                                                                       |
-| at+wstatus=0                                                          |
-|                                                                       |
-| at+certadd=httpbin-org-chain,4754                                     |
-|                                                                       |
-| at+hcstart=httpbin.org,443,2,httpbin-org-chain                        |
-|                                                                       |
-| at+hcclose=0                                                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      at
+at+wscan
+at+wcon=InnoPhase,Inno@9070
+at+wstatus=0
+at+certadd=httpbin-org-chain,4754
+at+hcstart=httpbin.org,443,2,httpbin-org-chain
+at+hcclose=0
+
 
 .. _serial-log-4:
 
 Serial Log
 ^^^^^^^^^^
 
-|image25|
+|image70|
 
-Figure 70: HTTP Client (secured with server certificate validation) -
+Figure 29: HTTP Client (secured with server certificate validation) -
 Serial log
 
 MQTT Client 
@@ -882,6 +813,7 @@ Prerequisites
 AT Command Sequence
 ~~~~~~~~~~~~~~~~~~~
 
+.. table:: Table 10: MQTT Client - AT Commands
 +---------------+------------------------------------------------------+
 | **AT          | **Description**                                      |
 | Command**     |                                                      |
@@ -916,10 +848,9 @@ Procedure
 **Step 1**: Connect your laptop to the same access point “InnoPhase” to
 which the Talaria TWO is connected.
 
-|image26|\ |Graphical user interface, text Description automatically
-generated|
+|image71|
 
-Figure 71: Connecting to AP
+Figure 30: Connecting to AP
 
 **Step 2**: Start another MQTT client in the PC using MQTT.fx tool to
 send data to Talaria TWO using Publish method and receive data sent from
@@ -929,14 +860,13 @@ Configure the following settings from MQTT.fx to configure MQTT
 parameters for the public broker mqtt.eclipseprojects.io.Click on the
 settings button:
 
-|Graphical user interface, text, application, Word Description
-automatically generated|
+|image72|
 
-Figure 72: MQTT.fx – settings
+Figure 31: MQTT.fx – settings
 
-|image27|
+|image73|
 
-Figure 73: MQTT.fx - Connection Profile
+Figure 32: MQTT.fx - Connection Profile
 
 **Note**: Ensure the client ID is unique to the device.
 
@@ -946,51 +876,43 @@ successful connection.
 **Step 4**: Click on Subscribe and enter topic as PUBMSG to receive any
 data sent from Talaria TWO MQTT client.
 
-|image28|
+|image74|
 
-Figure 74: MQTT.fx – Subscribe
+Figure 33: MQTT.fx – Subscribe
 
 **Step 5**: Execute the following commands on Talaria TWO:
 
-+-----------------------------------------------------------------------+
-| at                                                                    |
-|                                                                       |
-| at+wscan                                                              |
-|                                                                       |
-| at+wcon=InnoPhase,Inno@9070                                           |
-|                                                                       |
-| at+wstatus=0                                                          |
-|                                                                       |
-| at+mqttconf=clientid,12345678                                         |
-|                                                                       |
-| at+mqttconf=admin,admin                                               |
-|                                                                       |
-| at+mqttconf=password,xyz                                              |
-|                                                                       |
-| at+mqttconn=mqtt.eclipseprojects.io,1883                              |
-|                                                                       |
-| at+mqttpub=0,PUBMSG,0,5,Hello                                         |
-|                                                                       |
-| at+mqttsub=0,SUBMSG,0                                                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image29|
+      at
+at+wscan
+at+wcon=InnoPhase,Inno@9070
+at+wstatus=0 
+at+mqttconf=clientid,12345678 
+at+mqttconf=admin,admin 
+at+mqttconf=password,xyz
 
-Figure 75: MQTT Client - Serial log
+at+mqttconn=mqtt.eclipseprojects.io,1883
+at+mqttpub=0,PUBMSG,0,5,Hello
+at+mqttsub=0,SUBMSG,0
+
+
+|image75|
+
+Figure 34: MQTT Client - Serial log
 
 **Step 6**: Click on Publish and enter topic as SUBMSG to send the data
 to Talaria TWO MQTT client.
 
-|image30|
+|image76|
 
-Figure 76: MQTT.fx – Publish
+Figure 35: MQTT.fx – Publish
 
 **Step 7**: Data communication between two application end points.
 
-|image31|
+|image77|
 
-Figure 77: Data communication
+Figure 36: Data communication
 
 Secure MQTT
 ~~~~~~~~~~~~~~
@@ -1026,28 +948,25 @@ Use any one of them to add the certificates:
 
 For more information on writing certificates, refer section: *Show File
 System Contents -> Write Files* of the document: UG_Download_Tool.pdf
-(*freertos_sdk_x.y\\pc_tools\\Download_Tool\\doc)*.
 
-**Note**: x and y in freertos_sdk_x.y refer to the SDK release version.
 
 2. Using AT Commands: The AT command will load the certificates on to
    the Talaria TWO’s RAM.
 
    a. Issue the below commands to load the certificates:
 
-+-----------------------------------------------------------------------+
-| at+certadd=<cert name>,<cert length>                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      at+certadd=<cert name>,<cert length>
 
 b. Once the command is issued, Talaria TWO will send “<” as response to
    the command:
 
 ..
 
-   |Shape, rectangle Description automatically generated|
+|image78|
 
-Figure 78: Command Validation
+Figure 37: Command Validation
 
 c. Send the certificate after receiving the command response (<).
 
@@ -1056,38 +975,36 @@ d. Go to File -> Send file… from the Tera Term and browse the
 
 ..
 
-   |image32|
+|image79|
 
-Figure 79: Send Certificate
+Figure 38: Send Certificate
 
-   |image33|
+|image80|
 
-Figure 80: Browse to add the Certificates
+Figure 39: Browse to add the Certificates
 
 e. Execute this step to add all three certificates:
 
 ..
 
-   |Text Description automatically generated with medium confidence|
+|image81|
 
-Figure 81: AT Commands- To add the certificate
+Figure 40: AT Commands- To add the certificate
 
-+-----------------------------------------------------------------------+
-| at                                                                    |
-|                                                                       |
-| at+certadd=mqtt_root_ca,1452                                          |
-|                                                                       |
-| at+certadd=mqtt_device_cert,1330                                      |
-|                                                                       |
-| at+certadd=client.key,1679                                            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      at 
+at+certadd=mqtt_root_ca,1452
+at+certadd=mqtt_device_cert,1330
+at+certadd=client.key,1679
+
 
 .. _at-command-sequence-10:
 
 AT Command Sequence 
 ~~~~~~~~~~~~~~~~~~~~
 
+.. table:: Table 11: MQTT Client - AT Commands
 +-----------------------+----------------------------------------------+
 | **AT Command**        | **Description**                              |
 +=======================+==============================================+
@@ -1113,29 +1030,20 @@ Procedure
 
 **Step 1**: Execute the following commands on Talaria TWO:
 
-+-----------------------------------------------------------------------+
-| at+wcon=InnoPhase,43083191                                            |
-|                                                                       |
-| at+mqttconf=clientid,789012                                           |
-|                                                                       |
-| at+mqttconf=username,innophase                                        |
-|                                                                       |
-| at+mqttconf=password,123                                              |
-|                                                                       |
-| at+mqttconf=kainterval,10                                             |
-|                                                                       |
-| at+mqttconn=test.mosquitto.org,8884,1,1                               |
-| ,/data/mqtt_root_ca.crt,/,/data/mqtt_device_cert.crt,/data/client.key |
-|                                                                       |
-| at+mqttsub=0,inno/test,0                                              |
-|                                                                       |
-| at+mqttpub=0,inno/test,0,5,hello                                      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image34|
+      at+wcon=InnoPhase,43083191
+at+mqttconf=clientid,789012
+at+mqttconf=username,innophase
+at+mqttconf=password,123 
+at+mqttconf=kainterval,10
+at+mqttconn=test.mosquitto.org,8884,1,1,/data/mqtt_root_ca.crt,/,/data/mqtt_device_cert.crt,/data/client.key 
+at+mqttsub=0,inno/test,0
+at+mqttpub=0,inno/test,0,5,hello
 
-Figure 82: Secure MQTT- serial log
+|image82|
+
+Figure 41: Secure MQTT- serial log
 
 **Step 2**: To observe Publish messages and to Subscribe any message,
 execute the following commands on the command prompt:
@@ -1144,61 +1052,54 @@ execute the following commands on the command prompt:
 
    a. Start a mosquito server to subscribe to inno/test topic:
 
-+-----------------------------------------------------------------------+
-| mosquitto_sub.exe -h test.mosquitto.org -P 8884 -u innophase -P 123   |
-| -t inno/test                                                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      mosquitto_sub.exe -h test.mosquitto.org -P 8884 -u innophase -P 123 -t inno/test
 
 ..
 
-   |image35|
+|image83|
 
-Figure 83: Command Prompt Output (Publish message)
+Figure 42: Command Prompt Output (Publish message)
 
 b. Issue the following command to publish message to the subscribed
    topic from the serial terminal:
 
-+-----------------------------------------------------------------------+
-| at+mqttpub=0,inno/test,0,5,hello                                      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
+      at+mqttpub=0,inno/test,0,5,hello
 ..
 
-   |image36|
+|image84|
 
-Figure 84: To publish
+Figure 43: To publish
 
 2. To subscribe
 
    a. Start a mosquito server to publish to inno/test topic:
 
-+-----------------------------------------------------------------------+
-| mosquitto_pub.exe -h test.mosquitto.org -P 8884 -u innophase -P 123   |
-| -t inno/test -m "Hii Innophase"                                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      mosquitto_pub.exe -h test.mosquitto.org -P 8884 -u innophase -P 123 -t inno/test -m "Hii Innophase"
 
 ..
 
-   |image37|
+|image85|
 
-Figure 85: Command Prompt Output (Subscribe message)
+Figure 44: Command Prompt Output (Subscribe message)
 
 b. Issue the following command to subscribe to inno/test topic on the
    serial terminal and get the published message:
 
-+-----------------------------------------------------------------------+
-| at+mqttsub=0,inno/test,0                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      at+mqttsub=0,inno/test,0
 
 ..
 
-   |image38|
+|image86|
 
-Figure 86: To subscribe
+Figure 45: To subscribe
 
 DNS Lookup – Get host IP by name
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1222,6 +1123,7 @@ Access Point configured with WPA/WPA2 personal security.
 AT Command Sequence 
 ~~~~~~~~~~~~~~~~~~~~
 
+.. table:: Table 12: MQTT Client - AT Commands
 +--------------+-------------------------------------------------------+
 | **AT         | **Description**                                       |
 | Command**    |                                                       |
@@ -1247,27 +1149,23 @@ Procedure
 
 **Step 1**: Execute the following commands on Talaria TWO:
 
-+-----------------------------------------------------------------------+
-| at                                                                    |
-|                                                                       |
-| at+wscan                                                              |
-|                                                                       |
-| at+wcon=InnoPhase,Inno@9070                                           |
-|                                                                       |
-| at+wstatus=0                                                          |
-|                                                                       |
-| at+nhostipget                                                         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      at
+at+wscan
+at+wcon=InnoPhase,Inno@9070
+at+wstatus=0
+at+nhostipget
+
 
 .. _serial-log-5:
 
 Serial Log
 ~~~~~~~~~~
 
-|image39|
+|image87|
 
-Figure 87: DNS Lookup – Get host IP by name - Serial log
+Figure 46: DNS Lookup – Get host IP by name - Serial log
 
 Service Discovery using mDNS
 ~~~~~~~~~~~~~~
@@ -1303,6 +1201,7 @@ Prerequisites
 AT Command Sequence 
 ~~~~~~~~~~~~~~~~~~~~
 
+.. table:: Table 13: MQTT Client - AT Commands
 +------------+---------------------------------------------------------+
 | *          | **Description**                                         |
 | *Command** |                                                         |
@@ -1338,9 +1237,9 @@ Procedure
 **Step 1**: Connect your laptop to the same access point “InnoPhase” to
 which the Talaria TWO is connected.
 
-|image40|
+|image88|
 
-Figure 88: Connecting to an Access Point
+Figure 47: Connecting to an Access Point
 
 **Step 2**: Issue the following commands to advertise the services on
 local network. Connect the Talaria TWO module to an AP of SSID
@@ -1350,55 +1249,49 @@ Check the WLAN status with at+wstatus command. Start the mDNS service
 and register to service name “Inno_Provisioning“ of service type “TCP”
 on port number 80 and “Provisioning” as service description.
 
-+-----------------------------------------------------------------------+
-| at                                                                    |
-|                                                                       |
-| at+wscan                                                              |
-|                                                                       |
-| at+wcon=InnoPhase,43083191                                            |
-|                                                                       |
-| at+wstatus=0                                                          |
-|                                                                       |
-| at+mdnsstart                                                          |
-|                                                                       |
-| at+mdnsreg=Inno_Provisioning,_http,1,80,Provisioning                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      at
+at+wscan
+at+wcon=InnoPhase,43083191
+at+wstatus=0
+at+mdnsstart
+at+mdnsreg=Inno_Provisioning,_http,1,80,Provisioning 
+
 
 **Step 3**: Start Bonjour Browser and Scan for the services that are
 announced by Talaria TWO.
 
-|image41|
+|image89|
 
-Figure 89: Starting Bonjour Browser and Scanning for the services
+Figure 48: Starting Bonjour Browser and Scanning for the services
 
 Alternate way of Service discovery can be done from a Windows command
 line, using the dns-sd command to browse for services that are being
 broadcast on the local network by Talaria TWO.
 
-|image42|
+|image90|
 
-Figure 90: Service discovery from Windows command line
+Figure 49: Service discovery from Windows command line
 
 Serial Log:
 
-|image43|
+|image91|
 
-Figure 91: Service Discovery using mDNS - Serial log
+Figure 50: Service Discovery using mDNS - Serial log
 
 **Step 3**: De-register mDNS service, registered using command
 AT+MDNSREG and stop the mDNS service using the following commands:
 
-+-----------------------------------------------------------------------+
-| at+mdnsdreg=0                                                         |
-|                                                                       |
-| at+mdnsstop                                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image44|
+      at+mdnsdreg=0
+at+mdnsstop
 
-Figure 92: De-registering from mDNS service
+
+|image92|
+
+Figure 51: De-registering from mDNS service
 
 Get Time from NTP Server
 ~~~~~~~~~~~~~~
@@ -1422,6 +1315,7 @@ Access Point configured with WPA/WPA2 personal security.
 AT Command Sequence 
 ~~~~~~~~~~~~~~~~~~~~
 
+.. table:: Table 14: MQTT Client - AT Commands
 +--------------+-------------------------------------------------------+
 | **AT         | **Description**                                       |
 | Command**    |                                                       |
@@ -1447,190 +1341,177 @@ Procedure
 
 **Step 1**: Execute the following commands on Talaria TWO:
 
-+-----------------------------------------------------------------------+
-| at                                                                    |
-|                                                                       |
-| at+wscan                                                              |
-|                                                                       |
-| at+wcon=InnoPhase,Inno@9070                                           |
-|                                                                       |
-| at+wstatus=0                                                          |
-|                                                                       |
-| at+ntptimeget                                                         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      at
+at+wscan
+at+wcon=InnoPhase,Inno@9070
+at+wstatus=0
+at+ntptimeget
+
 
 .. _serial-log-6:
 
 Serial Log
 ~~~~~~~~~~
 
-|image45|
+|image93|
 
-Figure 93: Get Time from NTP Server - Serial log
+Figure 52: Get Time from NTP Server - Serial log
 
-.. |Text Description automatically generated| image:: media/image1.png
+.. |image42| image:: media/image42.png
    :width: 7.48031in
    :height: 3.89762in
-.. |image1| image:: media/image2.png
+.. |image43| image:: media/image43.png
    :width: 0.64172in
    :height: 0.30836in
-.. |Graphical user interface, text Description automatically generated| image:: media/image3.png
+.. |image44| image:: media/image44.png
    :width: 3.14961in
    :height: 5.28344in
-.. |image2| image:: media/image4.png
+.. |image45| image:: media/image45.png
    :width: 7.48031in
    :height: 3.37856in
-.. |image3| image:: media/image5.png
+.. |image46| image:: media/image46.png
    :width: 7.48031in
    :height: 5.0487in
-.. |image4| image:: media/image6.png
+.. |image47| image:: media/image47.png
    :width: 7.48031in
    :height: 2.37106in
-.. |image5| image:: media/image2.png
+.. |image48| image:: media/image48.png
    :width: 0.64172in
    :height: 0.30836in
-.. |Graphical user interface, text, application, email Description automatically generated| image:: media/image7.png
+.. |image49| image:: media/image49.png
    :width: 5.51181in
    :height: 4.82421in
-.. |Graphical user interface, text, application, chat or text message Description automatically generated| image:: media/image8.png
+.. |image50| image:: media/image50.png
    :width: 6.29921in
    :height: 3.71379in
-.. |image6| image:: media/image8.png
+.. |image51| image:: media/image51.png
    :width: 6.29921in
    :height: 3.85857in
-.. |image7| image:: media/image2.png
+.. |image52| image:: media/image52.png
    :width: 0.64172in
    :height: 0.30836in
-.. |Graphical user interface, application Description automatically generated| image:: media/image9.png
+.. |image53| image:: media/image53.png
    :width: 5.51181in
    :height: 4.80772in
-.. |image8| image:: media/image10.png
+.. |image54| image:: media/image54.png
    :width: 7.48031in
    :height: 3.44512in
-.. |image9| image:: media/image11.png
+.. |image55| image:: media/image55.png
    :width: 7.48031in
    :height: 3.75291in
-.. |image10| image:: media/image11.png
+.. |image56| image:: media/image56.png
    :width: 5.90551in
    :height: 5.64058in
-.. |image11| image:: media/image2.png
+.. |image57| image:: media/image57.png
    :width: 0.64172in
    :height: 0.30836in
-.. |image12| image:: media/image12.png
+.. |image58| image:: media/image58.png
    :width: 3.14961in
    :height: 5.25593in
-.. |image13| image:: media/image13.png
+.. |image59| image:: media/image59.png
    :width: 4.72441in
    :height: 4.14591in
-.. |image14| image:: media/image14.png
+.. |image60| image:: media/image60.png
    :width: 7.08661in
    :height: 3.15095in
-.. |image15| image:: media/image15.png
+.. |image61| image:: media/image61.png
    :width: 7.48031in
    :height: 4.34277in
-.. |image16| image:: media/image16.png
+.. |image62| image:: media/image62.png
    :width: 5.90551in
    :height: 5.19685in
-.. |image17| image:: media/image2.png
+.. |image63| image:: media/image63.png
    :width: 0.64172in
    :height: 0.30836in
-.. |image18| image:: media/image17.png
+.. |image64| image:: media/image64.png
    :width: 5.90551in
    :height: 5.17486in
-.. |image19| image:: media/image18.png
+.. |image65| image:: media/image65.png
    :width: 1.49167in
    :height: 0.27014in
-.. |image20| image:: media/image19.png
+.. |image66| image:: media/image66.png
    :width: 7.48031in
    :height: 3.97424in
-.. |Graphical user interface, text, application Description automatically generated| image:: media/image20.png
+.. |image67| image:: media/image67.png
    :width: 7.08661in
    :height: 3.56599in
-.. |image21| image:: media/image20.png
+.. |image68| image:: media/image68.png
    :width: 4.72441in
    :height: 4.14882in
-.. |image22| image:: media/image2.png
+.. |image69| image:: media/image69.png
    :width: 0.64172in
    :height: 0.30836in
-.. |Graphical user interface, text, table Description automatically generated| image:: media/image21.png
+.. |image70| image:: media/image70.png
    :width: 5.51181in
    :height: 4.14182in
-.. |image23| image:: media/image22.png
+.. |image71| image:: media/image71.png
    :width: 7.48031in
    :height: 3.91585in
-.. |image24| image:: media/image23.png
+.. |image72| image:: media/image72.png
    :width: 7.48031in
    :height: 3.98215in
-.. |image25| image:: media/image24.png
+.. |image73| image:: media/image73.png
    :width: 7.48031in
    :height: 4.00536in
-.. |image26| image:: media/image2.png
+.. |image74| image:: media/image74.png
    :width: 0.64172in
    :height: 0.30836in
-.. |Graphical user interface, text, application, Word Description automatically generated| image:: media/image25.png
+.. |image75| image:: media/image75.png
    :width: 7.48031in
    :height: 5.61397in
-.. |image27| image:: media/image26.png
+.. |image76| image:: media/image76.png
    :width: 7.48031in
    :height: 5.43661in
-.. |image28| image:: media/image27.png
+.. |image77| image:: media/image77.png
    :width: 7.48031in
    :height: 2.54427in
-.. |image29| image:: media/image28.png
+.. |image78| image:: media/image78.png
    :width: 7.48031in
    :height: 3.90259in
-.. |image30| image:: media/image29.png
+.. |image79| image:: media/image79.png
    :width: 7.48031in
    :height: 2.59068in
-.. |image31| image:: media/image30.png
+.. |image80| image:: media/image80.png
    :width: 7.48031in
    :height: 3.41114in
-.. |Shape, rectangle Description automatically generated| image:: media/image31.png
+.. |image81| image:: media/image81.png
    :width: 6.49606in
    :height: 1.03387in
-.. |image32| image:: media/image32.png
+.. |image82| image:: media/image82.png
    :width: 6.49606in
    :height: 4.69706in
-.. |image33| image:: media/image33.png
+.. |image83| image:: media/image83.png
    :width: 6.49606in
    :height: 2.78269in
-.. |Text Description automatically generated with medium confidence| image:: media/image34.png
+.. |image84| image:: media/image84.png
    :width: 6.49606in
    :height: 1.48467in
-.. |image34| image:: media/image35.png
+.. |image85| image:: media/image85.png
    :width: 7.48031in
    :height: 2.49344in
-.. |image35| image:: media/image36.png
+.. |image86| image:: media/image86.png
    :width: 6.29921in
    :height: 1.46864in
-.. |image36| image:: media/image37.png
+.. |image87| image:: media/image87.png
    :width: 6.29921in
    :height: 0.29098in
-.. |image37| image:: media/image38.png
+.. |image88| image:: media/image88.png
    :width: 6.29921in
    :height: 0.68122in
-.. |image38| image:: media/image39.png
+.. |image89| image:: media/image89.png
    :width: 6.29921in
    :height: 0.83501in
-.. |image39| image:: media/image40.png
+.. |image90| image:: media/image90.png
    :width: 7.48031in
    :height: 2.62119in
-.. |image40| image:: media/image41.png
+.. |image91| image:: media/image91.png
    :width: 3.14961in
    :height: 5.09205in
-.. |image41| image:: media/image42.png
+.. |image92| image:: media/image92.png
    :width: 3.14961in
    :height: 4.63583in
-.. |image42| image:: media/image43.png
+.. |image93| image:: media/image93.png
    :width: 7.48031in
    :height: 2.23763in
-.. |image43| image:: media/image44.png
-   :width: 7.48031in
-   :height: 3.33573in
-.. |image44| image:: media/image45.png
-   :width: 7.48031in
-   :height: 3.77414in
-.. |image45| image:: media/image46.png
-   :width: 7.48031in
-   :height: 3.90259in

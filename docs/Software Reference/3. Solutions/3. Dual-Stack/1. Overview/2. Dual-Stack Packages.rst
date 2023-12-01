@@ -1,3 +1,5 @@
+.. _ds packages:
+
 Dual Stack Package
 ------------------
 Host Software Package

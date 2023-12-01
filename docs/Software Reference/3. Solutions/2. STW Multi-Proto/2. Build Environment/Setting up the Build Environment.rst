@@ -1,3 +1,5 @@
+.. _stw mp setting up build env:
+
 Setting up build environment
 ----------------------
 
@@ -7,6 +9,6 @@ For more details on setting up the build environment on:
 
 2. Linux environment, refer:
 
-a. UG_Environment_Setup_for_Linux.pdf
+    - UG_Environment_Setup_for_Linux.pdf
 
-b. UG_Eclipse_Setup_Linux.pdf
+    - UG_Eclipse_Setup_Linux.pdf

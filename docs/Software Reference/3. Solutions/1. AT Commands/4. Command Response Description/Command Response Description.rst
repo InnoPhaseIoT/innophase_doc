@@ -1,5 +1,8 @@
 .. _at cmds response desc:
 
+Command Response Description
+############################
+
 Socket Command Responses
 ------------------------
 

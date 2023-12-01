@@ -1,3 +1,5 @@
+.. _at cmds run app:
+
 Run the Application
 -------------------
 
@@ -35,10 +37,10 @@ b. AT+WSTATUS=0 parameter is used to get the IP address
 
    b. No IP implies WLAN state = Disconnected
 
-|Text Description automatically generated|
+|image4|
 
-Figure 5: AT Commands - Tera Term output
+Figure 1: AT Commands - Tera Term output
 
-.. |Text Description automatically generated| image:: media/runapp.png
+.. |image4| image:: media/image4.png
    :width: 7.48031in
    :height: 3.91168in

@@ -1,4 +1,6 @@
-INP301x Package Contents
+.. _3201 hw package contents:
+
+INP3201 Package Contents
 ------------------------
 
 1. INP3201 reference kit

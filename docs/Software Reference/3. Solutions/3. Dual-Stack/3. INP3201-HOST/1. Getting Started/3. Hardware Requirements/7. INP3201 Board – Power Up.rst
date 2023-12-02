@@ -1,3 +1,5 @@
+.. _3201 hw board powerup:
+
 INP3201 Board – Power Up
 --------------------------
 
@@ -13,24 +15,21 @@ steps:
 3. SW3 is the ON/OFF switch for the board.
 
 4. T31 console can be connected on connector J9. Use the INP3000
-   programmer board as indicated in Figure 10.
+   programmer board as indicated in Figure 1.
 
 5. If PIR is enabled, place the jumper J4. If PIR is completely
    disabled, remove jumper J4.
 
-..
+|image10|
 
-   |A picture containing electronics, automaton Description
-   automatically generated|
-
-Figure 10: Console with INP3000 board
+Figure 1: Console with INP3000 board
 
 6. Connector J8 on INP3201 can also be used for T31 console instead of
-   J9. Figure 11 depicts the connection details of the J9 connector.
+   J9. Figure 2 depicts the connection details of the J9 connector.
 
-|image1|
+|image11|
 
-Figure 11: T31 console on J8 connector
+Figure 2: T31 console on J8 connector
 
 Serial port setup for INP3201 T31 console on J9:
 
@@ -43,9 +42,9 @@ Serial port setup for INP3201 T31 console on J9:
 3. Once the board is powered and all the jumpers are in place, the
    console begins to print the T31 logs.
 
-.. |A picture containing electronics, automaton Description automatically generated| image:: media/image1.jpeg
+.. |image10| image:: media/image10.png
    :width: 4.76799in
    :height: 6.87917in
-.. |image1| image:: media/image2.png
+.. |image11| image:: media/image11.png
    :width: 4.72441in
    :height: 6.38515in

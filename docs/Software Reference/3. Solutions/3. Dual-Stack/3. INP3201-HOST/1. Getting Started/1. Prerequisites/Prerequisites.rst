@@ -1,3 +1,5 @@
+.. _3201 prerequisites:
+
 Prerequisites
 =============
 

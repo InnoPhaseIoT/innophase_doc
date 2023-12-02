@@ -1,4 +1,7 @@
+.. _3201 getting started:
 
+INP3201 Host
+############
 
 INP3201 Low Power Video Camera Reference Kit empowers embedded designers
 with IoT enabled Wi-Fi camera design for multiple video applications

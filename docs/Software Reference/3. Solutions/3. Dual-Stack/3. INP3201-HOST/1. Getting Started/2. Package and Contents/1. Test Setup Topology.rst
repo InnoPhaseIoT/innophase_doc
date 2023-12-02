@@ -1,12 +1,14 @@
+.. _3201 test setup topology:
+
 Test Setup Topology
 -------------------
 
-Figure 4 depicts the interaction between INP3201 and Talaria TWO module.
+Figure 1 depicts the interaction between INP3201 and Talaria TWO module.
 
-|A diagram of a computer Description automatically generated|
+|image1|
 
-Figure 4: Block diagram
+Figure 1: Block diagram
 
-.. |A diagram of a computer Description automatically generated| image:: media/image1.png
+.. |image1| image:: media/image1.png
    :width: 7.48031in
    :height: 4.48144in

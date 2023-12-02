@@ -1,12 +1,14 @@
+.. _3201 hw board overview:
+
 INP3201 Board Overview 
 --------------------------
 
 
-Figure 2 describes the construction of the INP3201 evaluation board.
+Figure 1 describes the construction of the INP3201 evaluation board.
 
-|image1|
+|image2|
 
-Figure 2: INP3201 block diagram
+Figure 1: INP3201 block diagram
 
 This block diagram has three major components:
 
@@ -32,26 +34,24 @@ This block diagram has three major components:
 INP3201 Board Description 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-|A close-up of a circuit board Description automatically generated|
+|image3|
 
-Figure 3: INP3201 Board - with MCU
+Figure 2: INP3201 Board - with MCU
 
-|A transparent box with a black object on it Description automatically
-generated|
+|image4|
 
-Figure 4: INP3201 board – without MCU
+Figure 3: INP3201 board – without MCU
 
-|A circuit board with many blue labels Description automatically
-generated|
+|image5|
 
-Figure 5: INP3201 board components
+Figure 4: INP3201 board components
 
-.. table:: Table 2: INP3201 components
+.. table:: Table 1: INP3201 components
 
    +--------------+-------------------------------------------------------+
    | **Sl.no      | **Description**                                       |
    | from**       |                                                       |
-   | Figure 5     |                                                       |
+   | Figure 4     |                                                       |
    +==============+=======================================================+
    | 1            | INP1014 module                                        |
    +--------------+-------------------------------------------------------+
@@ -119,9 +119,9 @@ Figure 5: INP3201 board components
 
 The silk-screen top helps identify the jumper on the board:
 
-|image2|
+|image6|
 
-Figure 6: INP3201 silk-screen top
+Figure 5: INP3201 silk-screen top
 
 INP3201 Working Modes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -137,9 +137,9 @@ the optional STM Power-save MCU will not be populated on board.
 On the INP3201 board, ensure to select the right jumper resistors to
 completely run in the MCU bypass mode without MCU. While using the
 INP3201 in MCU bypass mode, DNP (do not populate) the resistors
-mentioned in Table 3:
+mentioned in Table 2:
 
-.. table:: Table 3: DNP resistors for IN3201 in power-save MCU bypass
+.. table:: Table 2: DNP resistors for IN3201 in power-save MCU bypass
 mode
 
    +-----------------------------------+-----------------------------------+
@@ -173,13 +173,13 @@ the power-save mechanism of Talaria TWO and T31 by putting them to
 sleep/wakeup depending on the application. Based on the application, one
 can write the software on the STM power-save MCU for INP3201.
 
-**Note**: The dotted lines in the block diagram (Figure 2) are for
+**Note**: The dotted lines in the block diagram (Figure 1) are for
 INP3201 with power-save MCU.
 
 To enable the MCU, the following components must be mounted. Check the
 board to ensure the components are mounted.
 
-.. table:: Table 4: Enable MCU - components to be mounted
+.. table:: Table 3: Enable MCU - components to be mounted
 
    +-----------------------------------+-----------------------------------+
    | **Components**                    | **Net Name on Schematics**        |
@@ -211,7 +211,7 @@ board to ensure the components are mounted.
 
 Components to be unmounted:
 
-.. table:: Table 5: Enable MCU - components to be unmounted
+.. table:: Table 4: Enable MCU - components to be unmounted
 
    +-----------------------------------+-----------------------------------+
    | **Components**                    | **Net name on Schematics**        |
@@ -234,18 +234,18 @@ Components to be unmounted:
 For more details on the schematics, refer:
 INP3201_schematic_with_Low_Power_MCU.pdf.
 
-.. |image1| image:: media/image1.emf
+.. |image2| image:: media/image1.png
    :width: 7.28346in
    :height: 4.4854in
-.. |A close-up of a circuit board Description automatically generated| image:: media/image2.png
+.. |image3| image:: media/image3.png
    :width: 7.48031in
    :height: 6.14454in
-.. |A transparent box with a black object on it Description automatically generated| image:: media/image3.jpeg
+.. |image4| image:: media/image4.jpeg
    :width: 7.48031in
    :height: 5.50923in
-.. |A circuit board with many blue labels Description automatically generated| image:: media/image4.png
+.. |image5| image:: media/image5.png
    :width: 7.28346in
    :height: 5.81202in
-.. |image2| image:: media/image5.emf
+.. |image6| image:: media/image6.png
    :width: 7.28346in
    :height: 6.44724in

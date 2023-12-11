@@ -48,14 +48,16 @@ TWO SDK package.
 Design Guidelines
 ------------------
 .. toctree::
-   :maxdepth: 2
+   :hidden:
+   :maxdepth: 1
 
    1. Design Guidelines/1. Design Guidelines - Landing page
 
 INP 301x
 -------------
 .. toctree::
-   :maxdepth: 2
+   :hidden:
+   :maxdepth: 1
 
    2. INP301x/INP301x Development Board.rst
 
@@ -63,6 +65,7 @@ INP 301x
 INP 3000
 -------------
 .. toctree::
+   :hidden:
    :maxdepth: 1
 
    3. INP3000/INP3000 Programmer Board - Landing.rst

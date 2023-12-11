@@ -11,27 +11,25 @@ Applications: Production ready example applications which the user can
 run on Talaria TWO. Following applications are available in the release
 package:
 
-+------------+---------------------------------------------------------+
-| **         | **Description**                                         |
-| Protocol** |                                                         |
-+============+=========================================================+
-| alarm      | Describes alarm functionality in Talaria TWO            |
-+------------+---------------------------------------------------------+
-| helloworld | Basic helloworld application                            |
-+------------+---------------------------------------------------------+
-| ssbl       | Demonstrates running and switching between multiple     |
-|            | applications on Talaria TWO using SSBL                  |
-+------------+---------------------------------------------------------+
-| stw_m      | Serial to Wi-Fi application used in hosted mode of      |
-| ulti_proto | operation                                               |
-+------------+---------------------------------------------------------+
-| gordon.elf | Flashing utility using UART interface                   |
-+------------+---------------------------------------------------------+
-| fota       | Demonstrates the FOTA (Firmware Over The Air) process   |
-+------------+---------------------------------------------------------+
-| iot_aws    | Demonstrates using Talaria TWO board and the SDK with   |
-|            | Amazon Web Services (AWS) IoT                           |
-+------------+---------------------------------------------------------+
++-----------------+--------------------------------------------------------------+
+| **Protocol**    | **Description**                                              |
++=================+==============================================================+
+| alarm           | Describes alarm functionality in Talaria TWO                 |
++-----------------+--------------------------------------------------------------+
+| helloworld      | Basic helloworld application                                 |
++-----------------+--------------------------------------------------------------+
+| ssbl            | Demonstrates running and switching between multiple          |
+|                 | applications on Talaria TWO using SSBL                       |
++-----------------+--------------------------------------------------------------+
+| stw_multi_proto | Serial to Wi-Fi application used in hosted mode of operation |
++-----------------+--------------------------------------------------------------+
+| gordon.elf      | Flashing utility using UART interface                        |
++-----------------+--------------------------------------------------------------+
+| fota            | Demonstrates the FOTA (Firmware Over The Air) process        |
++-----------------+--------------------------------------------------------------+
+| iot_aws         | Demonstrates using Talaria TWO board and the SDK with        |
+|                 | Amazon Web Services (AWS) IoT                                |
++-----------------+--------------------------------------------------------------+
 
 
 Examples: Demo/sample applications that the user can run on Talaria TWO

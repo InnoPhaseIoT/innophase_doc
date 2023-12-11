@@ -1,3 +1,5 @@
+.. _MDEPMODE:
+
 MPD modes
 ============
 

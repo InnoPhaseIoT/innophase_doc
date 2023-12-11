@@ -3,90 +3,75 @@ Building AWS KINESIS Video Streaming Application
 ----------------------------------------------------------------
 1. Create an AWS folder and clone the ADK from the cloud.
 
-Git clone:
-https://github.com/aws-samples/amazon-kinesis-video-streams-media-interface.git
+Git clone: https://github.com/aws-samples/amazon-kinesis-video-streams-media-interface.git
 
-|image1|\ |image2|\ |A screenshot of a computer program Description
-automatically generated|
+|image1|
 
 Figure 30: Clone ADK from the cloud
 
 2. Run the following command for MIPS GCC5.40
 
-+-----------------------------------------------------------------------+
-| export                                                                |
-| PATH                                                                  |
-| /home/xxxx/ingenic/tools/mips-gcc540-glibc222-64bit-r3.3.0/bin/:$PATH |
-|                                                                       |
-| export CC=mips-linux-gnu-gcc                                          |
-|                                                                       |
-| export CXX=mips-linux-gnu-g++                                         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    export PATH /home/xxxx/ingenic/tools/mips-gcc540-glibc222-64bit-r3.3.0/bin/:$PATH
+    export CC=mips-linux-gnu-gcc
+    export CXX=mips-linux-gnu-g++
 
 **Note**: These exports can be added in the environment variables.
 Ensure to add the path for cross-compiler binaries.
 
-|image3|\ |image4|\ |image5|\ |image6|\ |image7|
+|image3|
 
 Figure 31: Export - MIPS GCC5.40
 
 3. Copy dependent files from Ingenic SDK to Amazon ADK
 
-+-----------------------------------------------------------------------+
-| cp -rf                                                                |
-| /home/xxx/INP3201_A                                                   |
-| WS_DEMO/T31_SNIPE_XXXXXXXX/FREERTOS_SDK_XXXXXXXX/ISVP-T31-1.1.5-XXXXX |
-| XXX/software/sdk/Ingenic-SDK-T31-1.1.5-XXXXXXXX/freertos_sdk/5.4.0/\* |
-| /home/xxxx/INPIOT_GIT/A                                               |
-| WS_KINESIS/amazon-kinesis-video-streams-media-interface/3rdparty/T31/ |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image8|\ |1|
+    cp -rf /home/xxx/INP3201_A WS_DEMO/T31_SNIPE_XXXXXXXX/FREERTOS_SDK_XXXXXXXX/ISVP-T31-1.1.5-XXXXX XXX/software/sdk/Ingenic-SDK-T31-1.1.5-XXXXXXXX/freertos_sdk/5.4.0/\* /home/xxxx/INPIOT_GIT/A WS_KINESIS/amazon-kinesis-video-streams-media-interface/3rdparty/T31/
+
+
+|image5|
 
 Figure 32: Copy dependent files
 
-4. Enter path: amazon-kinesis-video-streams-media-interface. Create a
-   folder ‘build’ and enter the folder.
+4. Enter path: amazon-kinesis-video-streams-media-interface. Create a folder ‘build’ and enter the folder.
 
-+-----------------------------------------------------------------------+
-| cd amazon-kinesis-video-streams-media-interface                       |
-|                                                                       |
-| mkdir build; cd build;                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
 
-|image9|\ |image10|\ |image11|\ |image12|\ |image13|\ |image14|\ |image15|
+.. code:: shell
+
+    cd amazon-kinesis-video-streams-media-interface
+    mkdir build;
+    cd build;
+
+|image12|
 
 Figure 33: Create build folder
 
 5. Check the cmake version installed. Run cmake to generate - makefile.
 
-+-----------------------------------------------------------------------+
-| /home/xxxx/ingenic/tools/cmake-3.13.3/build/bin/cmake –version        |
-|                                                                       |
-| /home/xxxx/ingenic/tools/cmake-3.13.3/build/bin/cmake ..              |
-| -DBUILD_WEBRTC_SAMPLES=ON -DBUILD_KVS_SAMPLES=ON -DBOARD=T31          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+
+.. code::
+
+    /home/xxxx/ingenic/tools/cmake-3.13.3/build/bin/cmake –version
+    /home/xxxx/ingenic/tools/cmake-3.13.3/build/bin/cmake ..
+    -DBUILD_WEBRTC_SAMPLES=ON -DBUILD_KVS_SAMPLES=ON -DBOARD=T31
+
 
 **Note**: After configuring the environment, install cmake 3.13.3 to
 user path and not the system path.
 
-|image16|\ |image17|\ |image18|\ |image19|\ |image20|\ |image21|
+|image18|
 
 Figure 34: Generate makefile
 
 6. Execute make to generate the executed file.
 
-+-----------------------------------------------------------------------+
-| make -j4                                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image22|\ |image23|\ |image24|\ |image25|\ |image26|\ |A screenshot of
-a computer Description automatically generated|
+    make -j4
+
+|image24|
 
 Figure 35: Execute make
 
@@ -94,49 +79,49 @@ Figure 35: Execute make
    necessary drivers in T31z and execute: kvswebrtcmaster-static to
    stream the video to AWS cloud.
 
-.. |image1| image:: media/image1.png
-   :width: 1.34444in
-   :height: 0.18958in
-.. |image2| image:: media/image1.png
-   :width: 1.34444in
-   :height: 0.18958in
+.. |image1| image:: media/image1.jpg
+   :width: 7.08681in
+   :height: 3.63056in
+.. |image2| image:: media/image1.jpg
+   :width: 7.08681in
+   :height: 3.63056in
 .. |A screenshot of a computer program Description automatically generated| image:: media/image2.png
    :width: 6.88958in
    :height: 2.57847in
-.. |image3| image:: media/image3.png
-   :width: 0.41944in
-   :height: 0.18611in
-.. |image4| image:: media/image1.png
-   :width: 1.39444in
-   :height: 0.69792in
-.. |image5| image:: media/image1.png
-   :width: 1.33333in
-   :height: 0.23194in
-.. |image6| image:: media/image1.png
+.. |image3| image:: media/image3.jpg
+   :width: 7.08681in
+   :height: 3.63056in
+.. |image4| image:: media/image1.jpg
+   :width: 7.08681in
+   :height: 3.63056in
+.. |image5| image:: media/image5.jpg
+   :width: 7.08681in
+   :height: 3.63056in
+.. |image6| image:: media/image1.jpg
    :width: 1.39444in
    :height: 0.19653in
-.. |image7| image:: media/image4.png
+.. |image7| image:: media/image4.jpg
    :width: 6.88958in
    :height: 4.11111in
-.. |image8| image:: media/image5.png
+.. |image8| image:: media/image5.jpg
    :width: 2.01684in
    :height: 0.16668in
-.. |1| image:: media/image6.jpeg
+.. |1| image:: media/image6.jpg
    :width: 7.08661in
    :height: 3.75067in
-.. |image9| image:: media/image1.png
+.. |image9| image:: media/image1.jpg
    :width: 1.36875in
    :height: 0.16944in
-.. |image10| image:: media/image1.png
+.. |image10| image:: media/image1.jpg
    :width: 1.36875in
    :height: 0.16944in
-.. |image11| image:: media/image1.png
+.. |image11| image:: media/image1.jpg
    :width: 1.36875in
    :height: 0.16944in
-.. |image12| image:: media/image1.png
-   :width: 1.36875in
-   :height: 0.16944in
-.. |image13| image:: media/image1.png
+.. |image12| image:: media/image12.jpg
+   :width: 7.08681in
+   :height: 3.63056in
+.. |image13| image:: media/image1.jpg
    :width: 1.36944in
    :height: 0.85278in
 .. |image14| image:: media/image3.png
@@ -149,8 +134,9 @@ Figure 35: Execute make
    :width: 0.71111in
 .. |image17| image:: media/image1.png
    :width: 0.71111in
-.. |image18| image:: media/image1.png
-   :width: 0.71111in
+.. |image18| image:: media/image18.jpg
+   :width: 7.08681in
+   :height: 3.63056in
 .. |image19| image:: media/image1.png
    :width: 0.79028in
 .. |image20| image:: media/image1.png
@@ -165,9 +151,9 @@ Figure 35: Execute make
 .. |image23| image:: media/image9.png
    :width: 0.29444in
    :height: 0.11111in
-.. |image24| image:: media/image10.png
-   :width: 0.76944in
-   :height: 0.17778in
+.. |image24| image:: media/image24.jpg
+   :width: 7.08681in
+   :height: 3.63056in
 .. |image25| image:: media/image9.png
    :width: 0.29444in
    :height: 0.11111in

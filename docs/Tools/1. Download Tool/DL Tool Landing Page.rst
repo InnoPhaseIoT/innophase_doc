@@ -16,18 +16,18 @@ Figure 1: Block Diagram
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    1. Prerequisites/1. Prerequisites - Landing Page.rst
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    2. GUI Overview/1. GUI Overview - Landing Page.rst
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
   3. Download Tool Usage/DL-Usage-Landing Page.rst

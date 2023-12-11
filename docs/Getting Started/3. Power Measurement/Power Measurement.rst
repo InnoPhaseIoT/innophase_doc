@@ -1,7 +1,7 @@
 .. _power management:
 
 Power Management
-~~~~~~~~~~~~~~~~~
++++++++++++++
 
 
 The power consumption of the INP101x module is measured by either

@@ -44,7 +44,7 @@ evaluation boards to enable easy programming and accelerated
 evaluations.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    2. Multi-Purpose Demo Tool/MPD Tool - Landing Page.rst
 
@@ -52,6 +52,6 @@ Factory Loader
 ~~~~~~~~~~~~~~~
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    3. Factory Loader/Factory_Loader_Landing_Page.rst

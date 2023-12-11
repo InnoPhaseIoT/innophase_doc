@@ -10,29 +10,29 @@ networking and wireless (BLE/Wi-Fi) functionality on Talaria TWO.
 
 **Key Features**
 
-1.  Ultra-low power 2.4GHz 802.11 b/g/n Wi-Fi connectivity
+1. Ultra-low power 2.4GHz 802.11 b/g/n Wi-Fi connectivity
 
-2.  Support for WPA2 (Personal & Enterprise) and WPA3
+2. Support for WPA2 (Personal & Enterprise) and WPA3
 
-3.  DTIM10 at 57uA enables Wi-Fi connected battery-based applications
+3. DTIM10 at 57uA enables Wi-Fi connected battery-based applications
 
-4.  Full stack including MQTT, mbedTLS for supporting IoT
-    Direct-to-Cloud for a variety of cloud services (AWS, Azure, Google
-    Cloud, IBM Watson, etc.)
+4. Full stack including MQTT, mbedTLS for supporting IoT
+   Direct-to-Cloud for a variety of cloud services (AWS, Azure, Google
+   Cloud, IBM Watson, etc.)
 
-5.  BLE5.0 w/ Advanced Features LE Coding/FEC (Long-Range), 2M PHY,
-    Extended Advertising
+5. BLE5.0 w/ Advanced Features LE Coding/FEC (Long-Range), 2M PHY,
+   Extended Advertising
 
-6.  Supports Wi-Fi Provisioning over BLE and local device management,
-    plus BLE to Wi-Fi bridging
+6. Supports Wi-Fi Provisioning over BLE and local device management,
+   plus BLE to Wi-Fi bridging
 
-7.  Bluetooth GATT/GAP Profile support, and HCI interface option for
-    host MCU-based BLE profile stacks
+7. Bluetooth GATT/GAP Profile support, and HCI interface option for
+   host MCU-based BLE profile stacks
 
-8.  Advanced security features including Secure Boot, PUF (Physically
-    Unclonable Function) and hardware Crypto Engines
+8. Advanced security features including Secure Boot, PUF (Physically
+   Unclonable Function) and hardware Crypto Engines
 
-9.  Embedded 80MHz Arm Cortex-M3 w/ 512KB SRAM and 2MB Flash
+9. Embedded 80MHz Arm Cortex-M3 w/ 512KB SRAM and 2MB Flash
 
 10. Eleven (11) configurable GPIO plus Tx Console port (on GPIO17)
 
@@ -52,30 +52,34 @@ Hardware-Prerequisites
 ~~~~~~~~~~~~~~~~~~
 
 .. toctree::
-    :maxdepth: 1
+   :maxdepth: 1
+   :hidden:
 
-    1. Prerequisites/1. Hardware-Prerequisites
+   1. Prerequisites/1. Hardware-Prerequisites
 
 Software-Prerequisites
 ~~~~~~~~~~~~~~~~~~
 .. toctree::
-    :maxdepth: 1
+   :maxdepth: 1
+   :hidden:
 
-    1. Prerequisites/2. Software-Prerequisites
+   1. Prerequisites/2. Software-Prerequisites
 
 Evaluation and development
 --------------------------
 .. toctree::
     :maxdepth: 1
+    :hidden:
 
     2. Evaluation and Development/1. Landing Page
     2. Evaluation and Development/2. Programming Basic Applications - Dev
     2. Evaluation and Development/5. Command Line Interface Commands
     2. Evaluation and Development/6. Boot Arguments
 
-
 Power Measurement
 --------------------------
 .. toctree::
     :maxdepth: 2
-  3. Power Measurement/Power Measurement
+    :hidden:
+
+    3. Power Measurement/Power Measurement

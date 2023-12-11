@@ -1,10 +1,13 @@
+
+Factory Loader
+``````````````
+
 Talaria TWO modules are shipped with a default Factory Loader (FL)
 program that assists in programming customer applications at a
 production facility using:
 
-1. UART/SPI only or
-
-2. Serial Wire Debug (SWD) or
+    - UART/SPI only or
+    - Serial Wire Debug (SWD) or
 
 3. A combination of UART/SPI/SWD and Wi-Fi
 
@@ -14,29 +17,25 @@ The FL content is described in Table 1:
 
 .. table:: Table 1: FL files with description
 
-   +---------------------+------------------------------------------------+
-   | **Filename**        | **Description**                                |
-   +=====================+================================================+
-   | factory_loader.elf  | Factory loader application in .elf format      |
-   +---------------------+------------------------------------------------+
-   | factory_loader.img  | Factory loader application in .img format      |
-   +---------------------+------------------------------------------------+
-   | factory_loader.py   | Companion script for the factory loader        |
-   |                     | application                                    |
-   +---------------------+------------------------------------------------+
-   | ap                  | Factory loader HIO API                         |
-   | i/factory_loader.py |                                                |
-   +---------------------+------------------------------------------------+
-   | hel                 | Simple helloworld application json             |
-   | loworld_config.json | configuration file                             |
-   +---------------------+------------------------------------------------+
-   | fota_config.json    | Advanced FOTA application json configuration   |
-   |                     | file                                           |
-   +---------------------+------------------------------------------------+
-   | UFS/\*              | Directory for sample user filesystem           |
-   +---------------------+------------------------------------------------+
-   | ELFS/\*             | Directory for sample prebuilt applications     |
-   +---------------------+------------------------------------------------+
+   +-----------------------+-------------------------------------------------------+
+   | **Filename**          | **Description**                                       |
+   +=======================+=======================================================+
+   | factory_loader.elf    | Factory loader application in .elf format             |
+   +-----------------------+-------------------------------------------------------+
+   | factory_loader.img    | Factory loader application in .img format             |
+   +-----------------------+-------------------------------------------------------+
+   | factory_loader.py     | Companion script for the factory loader application   |
+   +-----------------------+-------------------------------------------------------+
+   | api/factory_loader.py | Factory loader HIO API                                |
+   +-----------------------+-------------------------------------------------------+
+   | helloworld_config.json| Simple helloworld application json configuration file |
+   +-----------------------+-------------------------------------------------------+
+   | fota_config.json      | Advanced FOTA application json configuration file     |
+   +-----------------------+-------------------------------------------------------+
+   | UFS/\*                | Directory for sample user filesystem                  |
+   +-----------------------+-------------------------------------------------------+
+   | ELFS/\*               | Directory for sample prebuilt applications            |
+   +-----------------------+-------------------------------------------------------+
 
 The entire process of factory loading is configured using a JSON config
 file. On Talaria TWO, the factory loader application awaits instructions
@@ -49,72 +48,59 @@ building the filesystem and programming the Talaria TWO.
 
 Figure 1: Factory Loader block diagram
 
-Prerequisites:
---------------
+**Prerequisites:**
 
-1. Develop applications using the evaluation board or an application
-   such as AT-commands offered by InnoPhase IoT.
+    - 1. Develop applications using the evaluation board or an application such as AT-commands offered by InnoPhase IoT.
+    - 2. Be familiar with Talaria TWO devices’ flash memory layout and make key decisions such as using secureboot.
 
-2. Be familiar with Talaria TWO devices’ flash memory layout and make
-   key decisions such as using secureboot.
+Test the factory loading process using the EV boards prior to production deployment.
 
-Test the factory loading process using the EV boards prior to production
-deployment.
+**Talaria TWO Flash Layout**
 
-Talaria TWO Flash Layout
-------------------------
 
 |image2|
 
 Figure 9: Flash Layout using SSBL
 
-Boot Sector
-~~~~~~~~~~~
+**Boot Sector**
 
 The Boot Sector contains data such as:
 
-1. Devices keys
-
-2. Factory_code
-
-3. Partition table
-
-4. Device information
+    1. Devices keys
+    2. Factory_code
+    3. Partition table
+    4. Device information
 
 It is recommended that this section be modified only once during the
 factory programming process.
 
-Boot Image
-~~~~~~~~~~
+**Boot Image**
+
 
 The Boot Image is the default application image that is loaded with
 every boot. It is stored at fixed location in flash at 0x1000. The
 factory loader is programmed by default.
 
-Application Sector
-~~~~~~~~~~~~~~~~~~
+**Application Sector**
 
 The application sector is used to store one or more user applications.
 Applications should be flashed in a stripped ELF format to conserve
 space.
 
-System Filesystem
-~~~~~~~~~~~~~~~~~
+**System Filesystem**
 
 The System Filesystem is reserved for use by the Talaria TWO firmware.
 
 **Note**: Users **should not** modify this location.
 
-Root/User Filesystem
-~~~~~~~~~~~~~~~~~~~~
+**Root/User Filesystem**
 
 The root/user filesystem is available for use by the application to
 store application data. The SSBL reads certain files from this
 filesystem to determine the application to run from the application
 sector.
 
-InnoPhase ELF Layout
---------------------
+**InnoPhase ELF Layout**
 
 |Graphical user interface Description automatically generated with
 medium confidence|
@@ -124,6 +110,66 @@ Figure 10: ELF Layout
 Each application in the application sector is stored as shown in Figure
 10. In case of a non-VM based application, the .virt section is not
 present.
+
+Using INP3000 Programmer Board
++++++++++++
+
+.. toctree::
+   :maxdepth: 1
+
+   1. Using INP3000 Programmer Board/Using INP3000 Programmer Board.rst
+
+Using UART Interfaces
++++++++++++
+
+.. toctree::
+   :maxdepth: 1
+
+   2. Using UART Interfaces/Factory loader using other UART interfaces.rst
+
+
+Using SPI Interfaces
++++++++++++
+
+.. toctree::
+   :maxdepth: 1
+
+   3. Using SPI Interfaces/Factory loader using other SPI interfaces.rst
+
+Using JTAG and SWD Interfaces
++++++++++++
+
+.. toctree::
+   :maxdepth: 1
+
+   4. Using JTAG and SWD Interfaces/Factory Loader using JTAG and SWD.rst
+
+
+Design
++++++++++++
+
+.. toctree::
+   :maxdepth: 1
+
+   3. Factory Loader/5. Design
+
+
+Sample Scenarios
++++++++++++
+
+.. toctree::
+   :maxdepth: 1
+
+   6. Sample Scenarios/Sample Scenarios.rst
+
+Help
++++++++++++
+
+.. toctree::
+   :maxdepth: 1
+
+   7. Help/Factory Loader Help.rst
+
 
 .. |image1| image:: media/image1.png
    :width: 7.48031in

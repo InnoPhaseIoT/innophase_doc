@@ -2,10 +2,8 @@
 Appendix
 =============
 
-
-
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
 
    Building AWS KINESIS Video Streaming Application.rst
    Checking and Validating the Partition Table.rst

@@ -26,33 +26,33 @@ evaluations.
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    1. Prerequisites/1. Prerequisites - Landing Page.rst
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    2. GUI Overview/1. GUI Overview - Landing Page.rst
 
 MPD
 ----
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    3. MPD/MPD Modes.rst
 
 Iperf3
 ------
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    4. iPerf3/iPerf3 Modes.rst
 
 Scan
 ------
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    5. Scan/Scan Modes.rst

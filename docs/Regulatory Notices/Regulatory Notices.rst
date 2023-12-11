@@ -11,12 +11,12 @@ FCC/ISED Regulatory Notices
 along with any RF spot checks as applicable while integrating Talaria
 TWO modules onto their application/Host/final product.
 
+
 Modification Statement
 ----------------------
 
-Changes or modifications made to this equipment not expressly approved
-by InnoPhase IoT, Inc. may void the FCC authorization to operate this
-equipment.
+Changes or modifications made to this equipment not expressly approved by InnoPhase IoT, Inc. may void the FCC
+authorization to operate this equipment.
 
 Interference Statement
 ----------------------

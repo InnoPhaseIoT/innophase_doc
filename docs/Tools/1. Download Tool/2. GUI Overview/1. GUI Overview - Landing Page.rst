@@ -1,124 +1,27 @@
-GUI - Overview
----------------
+Download Tool GUI Overview
+==========================
 
-On launching the application, the GUI window as shown in Figure 11 will
-come into view.
+Download Tool supports two types of programming:
+    - Standard
+    - SSBL
 
-**Note**: In case of windows display setting Scale and layout is more
-than 125%, GUI window might go out of screen.
+On launching the Download Tool application, the following come into view:
+    - GUI window on top for Standard (default) and SSBL programming, represented by two different tabs as shown in Figure 9 and Figure 10
+    - Console window at the bottom for monitoring Talaria TWO module console output as shown in Figure 11
 
-|image1|\ |image2|
-
-Figure 11: Demo Tool GUI
-
-1. **Boot Target**: Connected EVKs appear in the EVK serial number
-   drop-down and the appropriate EVK can be selected.
-
-..
-
-   **Note**:
-
-   If any connected EVK devices do not have a serial number, the
-   Download tool will automatically handle this by generating a new
-   serial number and update the same onto the corresponding device.
-   During this process, the tool will indicate this in the status bar,
-   as shown in Figure 12.
-
-   Format of the new serial number:
-
-+-----------------------------------------------------------------------+
-| <year_stamp>-<integer>                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
-
-..
-
-   where,
-
-   - <year_stamp>: Current year. For example: 2023
-
-   - <integer>: Formed from the sum of last 3 octets (in decimal) of the
-   MAC address found in the device.
-
-   |image3|
-
-   Figure 12: Boot target – Serial number update
-
-   Since a new serial number is generated from the MAC address of the
-   device, devices with the same MAC address will get updated with the
-   same serial number. This is an expected behavior.
-
-   User can manually update the new serial number to the device
-   following the instructions mentioned in section: `New Serial Number
-   to Device – Manual Method <#_References>`__.
-
-2. **AP Options**: The SSID and Passphrase entered in the respective
-   fields will connect the EVK board to the Access Point. Once
-   connected, as per requirement MPD/iPerf3/Scan applications can be
-   loaded by selecting the appropriate tab.
-
-3. **Configure the Application**: Configure the Setup Parameters:
-
-   a. **Turn On deep sleep mode**: When the processor is idle or is
-      waiting for an event or data to occur or be received, turning ON
-      the Turn On deep sleep mode feature by checking the box adjacent
-      to the field will put Talaria TWO in a power saving mode.
-
-   b. **Select Regulatory Domain**: Depending on their region of
-      operation, the user can select any one of the following
-      appropriate regulatory domains to establish a connection between
-      the EVK board and the Access Point:
-
-      i.   FCC
-
-      ii.  ETSI
-
-      iii. TELEC
-
-      iv.  KCC
-
-4. **Program and Reset the Device**:
-
-   a. **RESET**:
-
-..
-
-   Reload the application in Flash memory
-
-b. **PROG RAM**:
-
-..
-
-   Program the application to RAM memory
-
-c. **PROG FLASH**:
-
-..
-
-   Program the application to Flash memory
-
-d. **CLEAR FLASH**:
-
-..
-
-   Erase the application in Flash memory
-
-**Note**:
-
-PROG RAM will clear the application from Flash. The user is alerted of
-the same during PROG RAM through a pop-up message as shown in Figure 13.
-User can select the Do not show again checkbox to stop this pop-up
-message from appearing next time.
+**Note**: In case of Windows display setting, if the Scale and Layout is more than 125%, GUI window might go out of screen.
 
 |A screenshot of a computer Description automatically generated|
 
-Figure 13: PROG RAM alert message
+Figure 9: Download Tool GUI – Standard Programming
 
-The console window is as shown in Figure *14*.
+|image2|\ |image3|
+
+Figure 10: Download Tool GUI – SSBL Programming
 
 |image4|
 
-Figure 14: Console window
+Figure 11: Download Tool Console
 
 The console window has the following icons (with Hover Text):
 
@@ -147,66 +50,64 @@ file.
    arrow pointing up Description automatically generated|: Embeds the
    console and GUI window together.
 
-Keeping this tool idle for a while (around 2 to 3 hours), may lead to
-loss of communication to the EVK device. This is indicated in the
-console as “Error communicating with FTDI device”, as show in Figure 15.
-Workaround for this is as follows:
+**Note**:
 
-1. Close the tool
+1. While loading the ELF using this tool, the existing Partition table
+   is validated as mentioned in section: `Checking and Validating the
+   Partition Table <#_Checking_and_Validating>`__.
 
-2. Unplug & re-plug the EVK
+2. Keeping this tool idle for a while (around 2 to 3 hours), may lead to
+   loss of communication to the EVK device. This is indicated in the
+   console as “Error communicating with FTDI device”, as show in Figure
+   12. Workaround for this is as follows:
 
-3. Re-open the tool again
+   a. Close the tool
 
-|image9|
+   b. Unplug & re-plug the EVK
 
-Figure 15: Error communicating with FTDI device
+   c. Re-open the tool again
+
+..
+
+   |A screen shot of a computer Description automatically generated|
+
+Figure 12: Error communicating with FTDI device
 
 .. |image1| image:: media/image1.png
-   :width: 0.64643in
-.. |image2| image:: media/image2.png
+   :width: 0.43264in
+.. |A screenshot of a computer Description automatically generated| image:: media/image2.png
    :width: 7.48031in
-   :height: 3.81799in
+   :height: 3.89075in
+.. |image2| image:: media/image1.png
+   :width: 0.56352in
+   :height: 0.12153in
 .. |image3| image:: media/image3.png
-   :width: 7.10382in
-   :height: 1.01295in
-.. |A screenshot of a computer Description automatically generated| image:: media/image4.png
    :width: 7.48031in
-   :height: 1.98921in
-.. |image4| image:: media/image5.png
+   :height: 3.89841in
+.. |image4| image:: media/image4.png
    :width: 7.48031in
-   :height: 2.33833in
-.. |A black and white sign with a down arrow Description automatically generated| image:: media/image6.png
+   :height: 2.35769in
+.. |A black and white sign with a down arrow Description automatically generated| image:: media/image5.png
    :width: 0.225in
    :height: 0.24514in
-.. |A grey square with a black arrow Description automatically generated| image:: media/image7.png
+.. |A grey square with a black arrow Description automatically generated| image:: media/image6.png
    :width: 0.21667in
    :height: 0.23194in
-.. |image5| image:: media/image8.png
+.. |image5| image:: media/image7.png
    :width: 0.20764in
    :height: 0.21667in
-.. |image6| image:: media/image9.png
+.. |image6| image:: media/image8.png
    :width: 0.20833in
    :height: 0.21458in
-.. |image7| image:: media/image10.png
+.. |image7| image:: media/image9.png
    :width: 0.21875in
    :height: 0.225in
-.. |image8| image:: media/image11.png
+.. |image8| image:: media/image10.png
    :width: 0.20833in
    :height: 0.20833in
-.. |A black and white image of a square and a square with an arrow pointing up Description automatically generated| image:: media/image12.png
+.. |A black and white image of a square and a square with an arrow pointing up Description automatically generated| image:: media/image11.png
    :width: 0.225in
    :height: 0.225in
-.. |image9| image:: media/image13.png
-   :width: 7.48031in
-   :height: 1.56384in
-
-
-.. toctree:: 
-   :maxdepth: 2
-
-   GUI Overview.rst
-   2. MPD.rst
-   3. iPerf3.rst
-   4. Scan.rst
-   5. Help.rst
+.. |A screen shot of a computer Description automatically generated| image:: media/image12.png
+   :width: 6.69291in
+   :height: 1.71992in

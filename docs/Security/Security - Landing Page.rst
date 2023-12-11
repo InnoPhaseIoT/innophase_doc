@@ -12,6 +12,13 @@ included to:
 -  Prevent loading of unauthorized applications and executing a flash
    readout of application contents
 
+Secureboot
+----------
+.. toctree::
+   :maxdepth: 2
+
+   2. Secureboot/Secureboot.rst
+
 Network Security
 ----------------
 .. toctree::
@@ -22,9 +29,3 @@ Network Security
    1. Network Security/3. Secure Provisioning.rst
    1. Network Security/4. Secure Over the Air Upgrades.rst
 
-Secureboot
-----------
-.. toctree::
-   :maxdepth: 2
-
-   2. Secureboot/Secureboot.rst

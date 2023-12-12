@@ -18,7 +18,6 @@ variations of the Talaria TWO module family.
 Production Programming
 ------------------------
 .. toctree::
-   :hidden:
     :maxdepth: 2
 
     5. Production Programming/1. Production Programming-Landing.rst
@@ -26,7 +25,6 @@ Production Programming
 Module Placement Guidelines
 -------------
 .. toctree::
-   :hidden:
    :maxdepth: 1
 
    7. Module Placement Guidelines/1. Module Placement Guidelines - INP1010_INP1013_INP1014.rst
@@ -39,7 +37,6 @@ Power supply to the model
 --------------------
 
 .. toctree::
-   :hidden:
     :maxdepth: 2
 
     2. Power Supply to the Module
@@ -58,7 +55,6 @@ Module Peripherals
 --------------------
 
 .. toctree::
-    :hidden:
     :maxdepth: 1
 
     4. Module Peripherals
@@ -67,7 +63,6 @@ Hibernate Mode
 --------------------
 
 .. toctree::
-    :hidden:
     :maxdepth: 2
 
     6. Hibernate Mode
@@ -76,7 +71,6 @@ Thermal Ground Pad
 --------------------
 
 .. toctree::
-    :hidden:
     :maxdepth: 2
 
    8. Thermal Ground Pad.rst

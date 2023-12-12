@@ -58,7 +58,8 @@ Linux CPU-based (Hosted CPU):
    :maxdepth: 2
    :caption: Contents
 
-   Getting Started/Getting Started - Landing Page
+   Getting Started/Introduction
+
 
 .. toctree::
    :hidden:

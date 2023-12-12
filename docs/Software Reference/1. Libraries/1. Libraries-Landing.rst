@@ -9,42 +9,42 @@ reusable set of libraries for developing applications:
 1.  alarm
 ----------
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     alarm_apiref.rst
 
 2.  fota
 -----------
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     fota_apiref.rst
 
 3.  http
 ---------
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     httpclient_apiref.rst
 
 4.  mdns
 -----------
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     mdns_apiref.rst
 
 5.  mqtt
 ----------
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     mqtt_apiref.rst
 
 6.  prov
 ----------
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     prov_apiref.rst
 
@@ -52,27 +52,27 @@ reusable set of libraries for developing applications:
 7.  sntp
 ---------
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     sntp_apiref.rst
 
 8.  ssl_wrap
 --------------
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     sslwrap_apiref.rst
 
 9.  utils
 -----------
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     utils_apiref.rst
 
 10. websocket
 ---------------
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     websock_apiref.rst

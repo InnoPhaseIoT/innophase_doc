@@ -27,8 +27,7 @@ notified by a pop-up message. The user will then have the option
 (Yes/No) to either flash the default partition table or terminate the
 action (i.e., correct the deviation manually and try again).
 
-|image1|\ |A screenshot of a computer Description automatically
-generated|
+|image26|
 
 Figure 34: Deviation from the standard programming partition – matches
 SSBL programming partition
@@ -37,7 +36,7 @@ If the user selects ‘No’ and chooses not to back-up to the local system,
 action is terminated requiring the user to manually correct the
 deviation to proceed further.
 
-|image2|\ |image3|
+|image28|
 
 Figure 35: Standard programming - action terminated
 
@@ -50,8 +49,7 @@ pop-up message. The user will then have the option (Yes/No) to either
 flash the default partition table or terminate the action (i.e., correct
 the deviation manually and try again).
 
-|A black rectangle with red border Description automatically
-generated|\ |image4|\ |image5|
+|image31|
 
 Figure 36: Deviation from the standard programming partition - no match
 
@@ -60,8 +58,7 @@ mentioned in Table 1, but with VIRT partition less than the application
 VM image size, a pop-up message notifies the same to the user with an
 option of overwriting existing partition with default partition table.
 
-|Graphical user interface, text, application Description automatically
-generated|
+|image32|
 
 Figure 37: VM image does not fit in partition
 
@@ -81,7 +78,7 @@ a. In case the backed-up contents of SYSFS does not fit into the
 
 ..
 
-   |image6|\ |image7|
+   |image34|
 
 Figure 38: Backed-up contents of SYSFS
 
@@ -92,7 +89,7 @@ i. If the user chooses to back-up to local system (option: Yes):
    The contents will be saved in the local system and the user will be
    notified with the folder path through a popup message.
 
-   |image8|\ |image9|
+   |image36|
 
    Figure 39: Contents saved in the local system
 
@@ -103,7 +100,7 @@ ii. If the user does not choose to back-up to local system (option: No):
    The action will be terminated, and user will be required to correct
    the deviation manually to proceed further.
 
-   |image10|\ |image11|
+   |image38|
 
    Figure 40: Action terminated requiring to correct the deviation
    manually
@@ -117,7 +114,7 @@ b. In case the back-up contents of DATA partition do not fit the
 
 ..
 
-   |image12|\ |image13|
+   |image40|
 
 Figure 41: Back-up contents of DATA partition
 
@@ -129,7 +126,7 @@ c. However, if the user does not choose to flash the default partition
    The action will be terminated, and the user will be required to
    correct the deviation manually to proceed further.
 
-   |image14|\ |image15|
+   |image42|
 
 Figure 42: User does not choose to flash default partition – action
 terminated
@@ -162,7 +159,7 @@ The user will then have the option (Yes/No) to either flash the default
 partition table or terminate the action (i.e., correct the deviation
 manually and try again).
 
-|image16|\ |image17|\ |image18|
+|image45|
 
 Figure 43: Deviation from the SSBL programming partition – matches
 default programming partition
@@ -171,7 +168,7 @@ If the user selects ‘No’ and chooses not to flash the default SSBL
 partition table, action is terminated requiring the user to manually
 correct the deviation to proceed further.
 
-|image19|\ |image20|\ |image21|
+|image48|
 
 Figure 44: SSBL programming - action terminated
 
@@ -236,3 +233,39 @@ Figure 44: SSBL programming - action terminated
 .. |image21| image:: media/image13.png
    :width: 7.48031in
    :height: 3.69722in
+.. |image26| image:: media/images26.png
+   :width: 7.48031in
+   :height: 3.69722in
+
+.. |image28| image:: media/images28.png
+   :width: 7.48031in
+   :height: 3.69722in
+.. |image31| image:: media/images31.png
+   :width: 7.48031in
+   :height: 3.69722in
+.. |image32| image:: media/images32.png
+   :width: 7.48031in
+   :height: 3.69722in
+.. |image34| image:: media/images34.png
+   :width: 7.48031in
+   :height: 3.69722in
+.. |image36| image:: media/images36.png
+   :width: 7.48031in
+   :height: 3.69722in
+.. |image38| image:: media/images38.png
+   :width: 7.48031in
+   :height: 3.69722in
+.. |image40| image:: media/images40.png
+   :width: 7.48031in
+   :height: 3.69722in
+.. |image42| image:: media/images42.png
+   :width: 7.48031in
+   :height: 3.69722in
+.. |image45| image:: media/images45.png
+   :width: 7.48031in
+   :height: 3.69722in
+.. |image48| image:: media/images48.png
+   :width: 7.48031in
+   :height: 3.69722in
+
+

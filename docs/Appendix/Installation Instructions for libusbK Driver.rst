@@ -17,14 +17,13 @@ libusbK. In case the current driver is not libusbK, use the drop-down
 menu to select libusbK and click on Replace Driver which will update the
 drivers to libusbK.
 
-|Graphical user interface, text, application, Word Description
-automatically generated|
+|Graphical user interface, text, application, Word Description automatically generated|
 
 Figure 9: Updating Talaria TWO USB driver to libusbK
 
-.. |A screenshot of a computer Description automatically generated| image:: media/image1.png
+.. |A screenshot of a computer Description automatically generated| image:: media/images65.png
    :width: 4.72441in
    :height: 2.08666in
-.. |Graphical user interface, text, application, Word Description automatically generated| image:: media/image2.png
+.. |Graphical user interface, text, application, Word Description automatically generated| image:: media/images66.png
    :width: 4.92083in
    :height: 2.15556in

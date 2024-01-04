@@ -7,8 +7,7 @@ To update and retrieve COM ports, follow the following steps:
    on the InnoPhase T2 Evaluation Board (Composite Parent). Click on
    Update Driver as shown in Figure 22.
 
-|A screenshot of a social media post Description automatically
-generated|
+|A screenshot of a social media post Description automatically generated|
 
 Figure 22: Device Manager
 
@@ -26,12 +25,12 @@ Figure 23: Update Devices
 
 Figure 24: Select the device driver
 
-.. |A screenshot of a social media post Description automatically generated| image:: media/image1.png
+.. |A screenshot of a social media post Description automatically generated| image:: media/images72.png
    :width: 6.88976in
    :height: 5.03998in
-.. |image1| image:: media/image2.png
+.. |image1| image:: media/images73.png
    :width: 6.88976in
    :height: 5.10022in
-.. |image2| image:: media/image3.png
+.. |image2| image:: media/images74.png
    :width: 6.88976in
    :height: 5.09244in

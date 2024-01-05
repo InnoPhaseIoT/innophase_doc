@@ -90,3 +90,8 @@ document.addEventListener('DOMContentLoaded', function () {
     originalLi.parentNode.replaceChild(newImg, originalLi);
 });
 
+var parentElement = document.querySelector('.rst-versions').parentNode;
+var divToRemove = document.querySelector('.rst-versions');
+parentElement.removeChild(divToRemove);
+
+

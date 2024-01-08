@@ -1,11 +1,13 @@
+.. _mpd gui scan:
+
 Scan
 ----
 
 The Scan tab allows the user to actively scan for nearby Access Points.
 
-|image1|
+|image8|
 
-Figure 18: Scan tab
+Figure 8: Scan tab
 
 **Choose the Scheme**: User can choose Standard Wi-Fi Scan or Low-Power
 Wi-Fi Smart Scan for scanning.
@@ -47,6 +49,6 @@ The following scan parameters can be configured from the tool:
    request. If this field is set to 0xffff, no probes will be sent and
    the scan will only be passive.
 
-.. |image1| image:: media/image1.png
+.. |image8| image:: media/image8.png
    :width: 7.48031in
    :height: 2.39143in

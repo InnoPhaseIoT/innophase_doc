@@ -1,9 +1,18 @@
+.. _3201 aws vs:
+
+
 AWS KINESIS Video Streaming
------------------------
+###########################
 
 This document describes the steps to setup and run the AWS KINESIS video
 streaming demo application using Talaria TWO Dual-Stack solution on
 INP3201 board.
+
+Getting Started
+***************
+
+Prerequisites
+-------------
 
 GTKTerm or similar application.
 

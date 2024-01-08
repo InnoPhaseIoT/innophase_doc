@@ -1,4 +1,4 @@
-.. dl elf inputs:
+.. _dl elf inputs:
 
 ELF Input
 ---------

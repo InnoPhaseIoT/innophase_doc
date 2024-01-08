@@ -1,33 +1,34 @@
+.. _mpd gui help:
+
 Help
 ----
 
 Help provides information about default Jumper/Switch settings. Clicking
-on Default Jumper Setting as shown in Figure 19 will pop-up new window
-with default Jumper/Switch settings information as shown in Figure 20.
+on Default Jumper Setting as shown in Figure 1 will pop-up new window
+with default Jumper/Switch settings information as shown in Figure 2.
 
-|image1|
+|image9|
 
-Figure 19: Help Frame
+Figure 1: Help Frame
 
-|A picture containing schematic Description automatically generated|
+|image10|
 
-Figure 20: Default Jumper/Switch setting Window
+Figure 2: Default Jumper/Switch setting Window
 
 **Note**: Default Jumper/Switch setting window will appear every time
-when tool is launched, as shown in Figure 21. To turn this feature OFF
+when tool is launched, as shown in Figure 3. To turn this feature OFF
 permanently, check the Do not show again option and close the window.
 
-|A picture containing graphical user interface Description automatically
-generated|
+|image11|
 
-Figure 21: Default Jumper/Switch setting Window during Tool Launch
+Figure 3: Default Jumper/Switch setting Window during Tool Launch
 
-.. |image1| image:: media/image1.png
+.. |image9| image:: media/image9.png
    :width: 7.48031in
    :height: 2.05726in
-.. |A picture containing schematic Description automatically generated| image:: media/image2.png
+.. |image10| image:: media/image10.png
    :width: 5.11811in
    :height: 7.88711in
-.. |A picture containing graphical user interface Description automatically generated| image:: media/image3.png
+.. |image11| image:: media/image11.png
    :width: 5.11811in
    :height: 7.94745in

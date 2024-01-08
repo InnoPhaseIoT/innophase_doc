@@ -1,3 +1,6 @@
+.. _3201 custom fos:
+
+
 Custom FOS Application
 ----------------------
 
@@ -19,10 +22,10 @@ Command Description
 
 Send ELF image to Talaria TWO.
 
-+-----------------------------------------------------------------------+
-| #./custom_fos <elf_path> <hash> <auto_reset>                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      #./custom_fos <elf_path> <hash> <auto_reset>   
+
 
 where,
 
@@ -42,10 +45,10 @@ Procedure
 
 Execute the following operations on Talaria TWO:
 
-+-----------------------------------------------------------------------+
-| #./custom_fos /root/t2_firmware.elf --no_hash 1                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      #./custom_fos /root/t2_firmware.elf --no_hash 1  
+
 
 Expected Output
 ~~~~~~~~~~~~~~~
@@ -53,37 +56,28 @@ Expected Output
 Host Console Logs
 ^^^^^^^^^^^^^^^^^
 
-|image1|\ |A computer screen with white text Description automatically
-generated|
+|image2|
 
-Figure 6: custom_fos - host console logs
+Figure 1: custom_fos - host console logs
 
 Host serial log – text output:
 
-+-----------------------------------------------------------------------+
-| [root@:]# ./custom_fos dual_stack.elf.strip                           |
-| fa57d8378e1a88c92ad5d691eb1108a66f434c4171db0779bf671bdfc403e7cc 1    |
-|                                                                       |
-| Args:                                                                 |
-|                                                                       |
-| t2 elf path = dual_stack.elf.strip                                    |
-|                                                                       |
-| hash =                                                                |
-| fa57d8378e1a88c92ad5d691eb1108a66f434c4171db0779bf671bdfc403e7cc      |
-|                                                                       |
-| autoreset = 1                                                         |
-|                                                                       |
-| file size = 650988                                                    |
-|                                                                       |
-| Fos Start: Resp status=0 : success                                    |
-|                                                                       |
-| file size = 650988                                                    |
-|                                                                       |
-| End of Reading t2 image file                                          |
-|                                                                       |
-| FOS Success                                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      [root@:]# ./custom_fos dual_stack.elf.strip fa57d8378e1a88c92ad5d691eb1108a66f434c4171db0779bf671bdfc403e7cc 1
+
+      Args:
+      t2 elf path = dual_stack.elf.strip
+      hash = fa57d8378e1a88c92ad5d691eb1108a66f434c4171db0779bf671bdfc403e7cc
+      autoreset = 1
+      
+      file size = 650988
+      Fos Start: Resp status=0 : success
+      
+      file size = 650988
+      End of Reading t2 image file
+      FOS Success
+
 
 List of Message IDs Used
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -113,9 +107,7 @@ the image and resets by itself it the auto reset flag is set.
 There is no necessity to call commit(), commit will be done implicitly
 as the image size is set during fos_start.
 
-.. |image1| image:: media/image1.png
-   :width: 1.45312in
-   :height: 0.17007in
-.. |A computer screen with white text Description automatically generated| image:: media/image2.png
+
+.. |image2| image:: media/image2.png
    :width: 7.48031in
    :height: 2.6008in

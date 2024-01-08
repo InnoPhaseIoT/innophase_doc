@@ -1,3 +1,5 @@
+.. _mpd prerequisites:
+
 Prerequisites 
 ==============
 
@@ -10,11 +12,11 @@ as well. The content of the release is shown in Figure 1
 Application INP_T2_Demo_Windows.exe is for Windows platform while
 INP_T2_Demo_Linux is for the Linux OS.
 
-|A screenshot of a computer Description automatically generated|
+|image1|
 
 Figure 1: Folder Contents
 
-.. |A screenshot of a computer Description automatically generated| image:: media/image1.png
+.. |image1| image:: media/image1.png
    :width: 7.48031in
    :height: 2.05864in
 

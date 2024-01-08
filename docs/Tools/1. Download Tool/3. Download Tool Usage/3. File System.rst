@@ -1,3 +1,5 @@
+.. _dl fs:
+
 File System 
 ------------
 
@@ -13,15 +15,13 @@ In case there are no files previously mounted on Talaria TWO, a new
 window opens displaying: No files mounted, please write some files using
 Write Files button.
 
-Refer section: `Write Files <#write-files>`__ for writing files to
+Refer section: `Write Files <#write-files>` for writing files to
 Talaria TWO.
 
-|A screenshot of a computer Description automatically generated|
+|image5|
 
-Figure 17: Show File System Contents
+Figure 1: Show File System Contents
 
-*
-*
 
 Read Files
 ^^^^^^^^^^
@@ -30,16 +30,16 @@ To save files to a directory, click on folder icon before Read Files
 button. This opens a new window where the appropriate folder can be
 selected. Once the path to read files is selected, click on Read Files.
 
-|image1|\ |image2|\ |image3|
+|image6|
 
-Figure 18: Select path to Read Files
+Figure 2: Select path to Read Files
 
 Before using the Write Files, user can read the file system with Read
 Files to retain a copy of the Talaria TWO file system contents.
 
-|image4|
+|image7|
 
-Figure 19: Read Files
+Figure 3: Read Files
 
 Write Files
 ^^^^^^^^^^^
@@ -65,9 +65,9 @@ files/certificates are present and click on Select Folder. Though the
 GUI window does not display the files present in the selected folder,
 all the files present in selected folder will be written to Talaria TWO.
 
-|image5|
+|image8|
 
-Figure 20: Write Files
+Figure 4: Write Files
 
 **Note**:
 
@@ -80,9 +80,9 @@ If the default partition table is used, the maximum limit is 120 Kbytes.
    Files to retrieve the existing files before initiating Write Files.
    On taking a back-up, click Yes as shown in Figure 21.
 
-|image6|
+|image9|
 
-Figure 21: Overwriting old files
+Figure 5: Overwriting old files
 
 Delete File
 ^^^^^^^^^^^
@@ -95,34 +95,28 @@ After deleting, the file system contents can be confirmed by clicking on
 Show File System Contents, where the said file will be deleted from the
 list.
 
-|image7|
+|image10|
 
-Figure 22: Delete File
+Figure 6: Delete File
 
 **Note**: Clicking on Clear Flash will only clear the application but
 not the file system contents.
 
-.. |A screenshot of a computer Description automatically generated| image:: media/image1.png
+.. |image5| image:: media/image5.png
    :width: 7.48031in
    :height: 3.72305in
-.. |image1| image:: media/image2.png
+.. |image6| image:: media/image6.png
    :width: 1.03333in
    :height: 0.25347in
-.. |image2| image:: media/image3.png
+.. |image7| image:: media/image7.png
    :width: 0.21319in
    :height: 0.2in
-.. |image3| image:: media/image4.png
+.. |image8| image:: media/image8.png
    :width: 7.48031in
    :height: 3.72907in
-.. |image4| image:: media/image5.png
+.. |image9| image:: media/image9.png
    :width: 7.48031in
    :height: 3.70206in
-.. |image5| image:: media/image6.png
+.. |image10| image:: media/image10.png
    :width: 7.48031in
    :height: 3.71637in
-.. |image6| image:: media/image7.png
-   :width: 7.48031in
-   :height: 3.72311in
-.. |image7| image:: media/image8.png
-   :width: 7.48031in
-   :height: 3.71645in

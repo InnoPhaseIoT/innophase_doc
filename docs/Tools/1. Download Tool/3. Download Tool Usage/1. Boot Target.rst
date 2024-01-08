@@ -1,12 +1,14 @@
+.. dl boot target:
+
 Boot Target
 -----------
 
 Connected EVKs appear in the EVK serial number drop-down and the
 appropriate EVK can be selected.
 
-|A white box with a black border Description automatically generated|
+|image1|
 
-Figure 13: Boot target - EVK selection
+Figure 1: Boot target - EVK selection
 
 **Note**:
 
@@ -17,10 +19,10 @@ the tool will indicate this in the status bar, as shown in Figure 14.
 
 Format of the new serial number:
 
-+-----------------------------------------------------------------------+
-| <year_stamp>-<integer>                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      <year_stamp>-<integer> 
+
 
 where,
 
@@ -29,9 +31,9 @@ where,
 - <integer>: Formed from the sum of last 3 octets (in decimal) of the
 MAC address found in the device.
 
-|image1|
+|image2|
 
-Figure 14: Boot target – Serial number update
+Figure 2: Boot target – Serial number update
 
 Since a new serial number is generated from the MAC address of the
 device, devices with the same MAC address will get updated with the same
@@ -39,11 +41,11 @@ serial number. This is an expected behavior.
 
 User can manually update the new serial number to the device following
 the instructions mentioned in section: `New Serial Number to Device –
-Manual Method <#_New_Serial_Number>`__.
+Manual Method <#_New_Serial_Number>`.
 
-.. |A white box with a black border Description automatically generated| image:: media/image1.png
+.. |image1| image:: media/image1.png
    :width: 7.26736in
    :height: 1.29375in
-.. |image1| image:: media/image2.png
+.. |image2| image:: media/image2.png
    :width: 7.48031in
    :height: 0.70955in

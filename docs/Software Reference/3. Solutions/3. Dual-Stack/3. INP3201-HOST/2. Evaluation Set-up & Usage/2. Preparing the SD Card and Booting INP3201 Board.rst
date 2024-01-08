@@ -1,4 +1,4 @@
-.. _3201 eval prep sd card:
+.._3201 eval prep sd card:
 
 
 Preparing the SD Card and Booting INP3201 Board

@@ -249,6 +249,6 @@ Info : dropped 'gdb' connection
 Once flashing and root image update is complete, reset Talaria TWO and
 reboot T31ZX to start the demo application.
 
-.. |image1| image:: media/image1.png
+.. |image4| image:: media/image4.png
    :width: 7.48031in
    :height: 5.70166in

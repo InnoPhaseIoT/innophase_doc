@@ -1,4 +1,4 @@
-.. dl boot target:
+.. _dl boot target:
 
 Boot Target
 -----------

@@ -1,8 +1,10 @@
-This application note provides details on using the Analog to Digital
-Converter (ADC) peripheral of Talaria TWO modules.
+.. _ex adc:
 
 Analog to Digital Converter (ADC)
 --------------------------------
+
+This application note provides details on using the Analog to Digital
+Converter (ADC) peripheral of Talaria TWO modules.
 
 Talaria TWO modules have a 10-bit effective SAR ADC for measuring the
 internal supply voltage and temperature levels in addition to measuring
@@ -25,7 +27,7 @@ an external voltage level through a specified ADC port.
 ADC block diagram
 ~~~~~~~~~~~~~~~~~~~
 
-|image1|
+|image2|
 
 Figure 1: ADC - Block Diagram
 
@@ -37,7 +39,7 @@ component that takes Battery Voltage.
 
 Header J4 will switch between VBat and Vm_3.3V.
 
-|image2|
+|image3|
 
 Figure 2: J10 Battery connection
 
@@ -63,7 +65,7 @@ b. J4 at VBAT and battery connect to J10 for Battery power
 VBAT block diagram
 ~~~~~~~~~~~~~~~~~~~
 
-|image3|
+|image4|
 
 Figure 3: VBAT-Block Diagram
 
@@ -129,16 +131,14 @@ temperature of Talaria TWO.
 3. os_core_temp()reads the internal temperature and prints the
    temperature in internal Celsius type.
 
-+-----------------------------------------------------------------------+
-| VTaskDelay(1000);                                                     |
-|                                                                       |
-| os_printf("ADC External value: %d\\n",os_adc());                      |
-|                                                                       |
-| os_printf("V_BAT: %d mv\\n",os_vbat());                               |
-|                                                                       |
-| os_printf("Internal Temperature: %d Celsius\\n",os_core_temp());      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      VTaskDelay(1000);  
+      os_printf("ADC External value: %d\n",os_adc());
+      os_printf("V_BAT: %d mv\n",os_vbat());
+      os_printf("Internal Temperature: %d Celsius\n",os_core_temp());
+
+
 
 Building
 ~~~~~~~~~~~~~~~~~~~
@@ -146,12 +146,12 @@ Building
 To build the sample application, execute the following commands from SDK
 directory:
 
-+-----------------------------------------------------------------------+
-| cd examples/adc                                                       |
-|                                                                       |
-| make                                                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      cd examples/adc
+      make
+
+
 
 The make command should generate the adc.elf in the out directory.
 
@@ -177,133 +177,77 @@ Download tool:
 Expected Output
 ~~~~~~~~~~~~~~~~~~~
 
-+-----------------------------------------------------------------------+
-| UART:SRWWWWAE4 DWT comparators, range 0x8000                          |
-|                                                                       |
-| Build $Id: git-ef87896f9 $                                            |
-|                                                                       |
-| flash: Gordon ready!                                                  |
-|                                                                       |
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PWWWAE                                                          |
-|                                                                       |
-| Build $Id: git-bbd63ca $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-0063-009c-ffffffffffff   |
-|                                                                       |
-| ADC Example                                                           |
-|                                                                       |
-| ADC External value:76                                                 |
-|                                                                       |
-| V_BAT:3240 mv                                                         |
-|                                                                       |
-| Internal Temperature:21 Celsius                                       |
-|                                                                       |
-| ADC External value:101                                                |
-|                                                                       |
-| V_BAT:3240 mv                                                         |
-|                                                                       |
-| Internal Temperature:21 Celsius                                       |
-|                                                                       |
-| ADC External value:97                                                 |
-|                                                                       |
-| V_BAT:3240 mv                                                         |
-|                                                                       |
-| Internal Temperature:21 Celsius                                       |
-|                                                                       |
-| ADC External value:97                                                 |
-|                                                                       |
-| V_BAT:3240 mv                                                         |
-|                                                                       |
-| Internal Temperature:21 Celsius                                       |
-|                                                                       |
-| ADC External value:97                                                 |
-|                                                                       |
-| V_BAT:3240 mv                                                         |
-|                                                                       |
-| Internal Temperature:21 Celsius                                       |
-|                                                                       |
-| ADC External value:98                                                 |
-|                                                                       |
-| V_BAT:3240 mv                                                         |
-|                                                                       |
-| Internal Temperature:21 Celsius                                       |
-|                                                                       |
-| ADC External value:96                                                 |
-|                                                                       |
-| V_BAT:3240 mv                                                         |
-|                                                                       |
-| Internal Temperature:21 Celsius                                       |
-|                                                                       |
-| ADC External value:97                                                 |
-|                                                                       |
-| V_BAT:3240 mv                                                         |
-|                                                                       |
-| Internal Temperature:21 Celsius                                       |
-|                                                                       |
-| ADC External value:96                                                 |
-|                                                                       |
-| V_BAT:3239 mv                                                         |
-|                                                                       |
-| Internal Temperature:21 Celsius                                       |
-|                                                                       |
-| ADC External value:98                                                 |
-|                                                                       |
-| V_BAT:3240 mv                                                         |
-|                                                                       |
-| Internal Temperature:21 Celsius                                       |
-|                                                                       |
-| ADC External value:97                                                 |
-|                                                                       |
-| V_BAT:3239 mv                                                         |
-|                                                                       |
-| Internal Temperature:21 Celsius                                       |
-|                                                                       |
-| ADC External value:104                                                |
-|                                                                       |
-| V_BAT:3240 mv                                                         |
-|                                                                       |
-| Internal Temperature:21 Celsius                                       |
-|                                                                       |
-| ADC External value:97                                                 |
-|                                                                       |
-| V_BAT:3240 mv                                                         |
-|                                                                       |
-| Internal Temperature:21 Celsius                                       |
-|                                                                       |
-| ADC External value:96                                                 |
-|                                                                       |
-| V_BAT:3240 mv                                                         |
-|                                                                       |
-| Internal Temperature:21 Celsius                                       |
-|                                                                       |
-| ADC External value:98                                                 |
-|                                                                       |
-| V_BAT:3239 mv                                                         |
-|                                                                       |
-| Internal Temperature:21 Celsius                                       |
-|                                                                       |
-| ADC External value:97                                                 |
-|                                                                       |
-| V_BAT:3240 mv                                                         |
-|                                                                       |
-| Internal Temperature:21 Celsius                                       |
-|                                                                       |
-| ADC External value:98                                                 |
-|                                                                       |
-| V_BAT:3239 mv                                                         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-.. |image1| image:: media/image1.png
-   :width: 6.69291in
-   :height: 4.09563in
+      UART:SRWWWWAE4 DWT comparators, range 0x8000
+      Build $Id: git-ef87896f9 $
+      flash: Gordon ready!
+      
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PWWWAE
+      Build $Id: git-bbd63ca $
+      Flash detected. flash.hw.uuid: 39483937-3207-0063-009c-ffffffffffff
+      ADC Example
+      ADC External value:76
+      V_BAT:3240 mv
+      Internal Temperature:21 Celsius
+      ADC External value:101
+      V_BAT:3240 mv
+      Internal Temperature:21 Celsius
+      ADC External value:97
+      V_BAT:3240 mv
+      Internal Temperature:21 Celsius
+      ADC External value:97
+      V_BAT:3240 mv
+      Internal Temperature:21 Celsius
+      ADC External value:97
+      V_BAT:3240 mv
+      Internal Temperature:21 Celsius
+      ADC External value:98
+      V_BAT:3240 mv
+      Internal Temperature:21 Celsius
+      ADC External value:96
+      V_BAT:3240 mv
+      Internal Temperature:21 Celsius
+      ADC External value:97
+      V_BAT:3240 mv
+      Internal Temperature:21 Celsius
+      ADC External value:96
+      V_BAT:3239 mv
+      Internal Temperature:21 Celsius
+      ADC External value:98
+      V_BAT:3240 mv
+      Internal Temperature:21 Celsius
+      ADC External value:97
+      V_BAT:3239 mv
+      Internal Temperature:21 Celsius
+      ADC External value:104
+      V_BAT:3240 mv
+      Internal Temperature:21 Celsius
+      ADC External value:97
+      V_BAT:3240 mv
+      Internal Temperature:21 Celsius
+      ADC External value:96
+      V_BAT:3240 mv
+      Internal Temperature:21 Celsius
+      ADC External value:98
+      V_BAT:3239 mv
+      Internal Temperature:21 Celsius
+      ADC External value:97
+      V_BAT:3240 mv
+      Internal Temperature:21 Celsius
+      ADC External value:98
+      V_BAT:3239 mv
+
+
+
 .. |image2| image:: media/image2.png
    :width: 6.69291in
-   :height: 3.27808in
+   :height: 4.09563in
 .. |image3| image:: media/image3.png
+   :width: 6.69291in
+   :height: 3.27808in
+.. |image4| image:: media/image4.png
    :width: 6.69291in
    :height: 3.28989in

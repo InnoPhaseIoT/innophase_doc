@@ -1,9 +1,11 @@
+.. _3201 aws vs setup:
+
 
 Talaria TWO AWS KINESIS Video Streaming Setup
 -----------------------------------------------
 
 After the hardware setup (refer section: `Getting
-Started <#_Getting_Started>`__), follow the subsequent steps to run the
+Started), follow the subsequent steps to run the
 AWS KINESIS video streaming application. Use any serial port terminal
 application such as GTKTerm to issue the commands on T31z INP3201 Host.
 
@@ -14,21 +16,20 @@ web connection/browser at a given time.
 
 1. Insert the kernel modules using the following command:
 
-+-----------------------------------------------------------------------+
-| insmod mmc_detect_test.ko                                             |
-|                                                                       |
-| insmod sdio-wlan.ko                                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+   insmod mmc_detect_test.ko
+   insmod sdio-wlan.ko
+
 
 2. Start the tunadapter in the background.
 
-+-----------------------------------------------------------------------+
-| ./tunadapter board_conf=t31_innophase.conf &                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|MicrosoftTeams-image (4)|
+      ./tunadapter board_conf=t31_innophase.conf &
+
+
+|image1|
 
 Figure 1: Start tunadapter
 
@@ -39,29 +40,26 @@ Figure 1: Start tunadapter
 
       i. Start provisioning:
 
-+-----------------------------------------------------------------------+
-| ./conmgr provstart <device_name> <manufacturer_name>                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+         .. code:: shell
 
-ii. Get provisioning information (SSID and passphrase of the Access
-    Point):
+                  ./conmgr provstart <device_name> <manufacturer_name> 
 
-+-----------------------------------------------------------------------+
-| ./conmgr waitforprovinfo                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
 
-iii. Stop provisioning:
+      ii. Get provisioning information (SSID and passphrase of the Access Point):
 
-+-----------------------------------------------------------------------+
-| ./conmgr provstop                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+         .. code:: shell
 
-..
+                  ./conmgr waitforprovinfo   
 
-   |image1|\ |image2|\ |image3|\ |image4|
+
+      iii. Stop provisioning:
+
+         .. code:: shell
+
+                  ./conmgr provstop   
+
+
+|image2|
 
 Figure 2: Enabling Wi-Fi provisioning over BLE
 
@@ -72,71 +70,60 @@ b. Enable Wi-Fi provisioning over BLE using the `AWS_Streaming
    APP <#_AWS_Streaming_APP>`__. It can be used to enable Wi-Fi
    provisioning over BLE and stream video.
 
-..
-
    For more details on passing the SSID and passphrase through the
    AWS_Sreaming mobile app, refer section: *Running the Application
    using Android or iOS app* from *Example_using_Provisioning.pdf*
    (*freertos_sdk_x.y\\examples\\prov\\doc*).
 
-   **Note**: x and y in freertos_sdk_x.y refer to the SDK package
-   release version.
 
 c. **Alternate method**: Pass the SSID and passphrase of the appropriate
    AP by executing the following command:
 
-+-----------------------------------------------------------------------+
-| ./conmgr connect <ssid> <password>                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+   .. code:: shell
 
-..
+        ./conmgr connect <ssid> <password>      
 
-   |image5|
+
+|image3|
 
 Figure 3: Connect to AP
 
 4. Run the NTP service from T31z host:
 
-+-----------------------------------------------------------------------+
-| [root@Ingenic-g1_1:ces_master]# ntpd -nqp pool.ntp.org                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|INP_NTPD_time|
+[root@:ces_master]# ntpd -nqp pool.ntp.org     
+
+
+|image4|
 
 Figure 4: Run NTP service
 
 5. To start the video streaming, insert kernel modules and start RTSP
    server on T31z host:
 
-+-----------------------------------------------------------------------+
-| insmod /lib/modules/tx-isp-t31.ko                                     |
-|                                                                       |
-| insmod /lib/modules/sensor_gc2053_t31.ko data_interface=1             |
-|                                                                       |
-| insmod /lib/modules/avpu.ko clk_name='vpll' avpu_clk=400000000        |
-|                                                                       |
-| insmod /lib/modules/audio.ko                                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image6|
+      insmod /lib/modules/tx-isp-t31.ko
+      insmod /lib/modules/sensor_gc2053_t31.ko data_interface=1
+      insmod /lib/modules/avpu.ko clk_name='vpll' avpu_clk=400000000
+      insmod /lib/modules/audio.ko
+
+
+|image5|
 
 Figure 5: Insert ko modules
 
 6. The following script configures the AWS access key, secret access
    key, region and starts streaming:
 
-..
-
-   |image7|\ |image8|\ |MicrosoftTeams-image (2)|
+|image6|
 
 Figure 6: Start kinesis video streaming
 
    **Note**: For information on creating the AWS security credentials
    (access key, secret access key), refer `Create AWS Security
-   Credentials <#_Create_AWS_Security>`__.
+   Credentials <#_Create_AWS_Security>`.
 
 **Method 2 – Automated Shell Scripts**
 
@@ -152,55 +139,47 @@ a. Change the SSID and passphrase in app_init.sh to the required
 b. Steaming duration is configurable. Modify the same in app_init.sh for
    the required duration.
 
-..
-
    Use Delay=0 for uninterrupted streaming without entering the
    low-power mode.
 
-+-----------------------------------------------------------------------+
-| ./T31_mcu_app <Delay 0 to 300 sec> <Trun OFF devices 1= T31, 3= T31 & |
-| T2 >                                                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+   .. code:: shell
+
+            ./T31_mcu_app <Delay 0 to 300 sec> <Trun OFF devices 1= T31, 3= T31 & T2 >
+
 
 c. Configure Talaria TWO Wi-Fi wakeup from MCU.
 
-+-----------------------------------------------------------------------+
-| ./conmgr wakeupconfig <T2 wakeup GPIO pin> <GPIO level> <GPIO         |
-| direction 0=output / 1= input>                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+   .. code:: shell
+
+            ./conmgr wakeupconfig <T2 wakeup GPIO pin> <GPIO level> <GPIO direction 0=output / 1= input>
+
 
 d. Configure MCU wakeup from Talaria TWO.
 
-+-----------------------------------------------------------------------+
-| ./conmgr wakeupconfig <MCU wakeup GPIO pin> <GPIO level>              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+   .. code:: shell
+
+         ./conmgr wakeupconfig <MCU wakeup GPIO pin> <GPIO level>
+
 
 e. Initialize the MQTT connection.
 
-+-----------------------------------------------------------------------+
-| ./sc scinit <server name> <port number> <tranport> <mqtt id> <usr     |
-| name> <password> [ca cert] [client cert] [client key]                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+   .. code:: shell
+
+         ./sc scinit <server name> <port number> <tranport> <mqtt id> <usr name> <password> [ca cert]  [client cert]  [client key]
+
 
 f. Close the MQTT connection.
 
-+-----------------------------------------------------------------------+
-| ./sc scdeinit                                                         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+   .. code:: shell
+
+            ./sc scdeinit  
+
 
 g. Update the streaming status.
 
-+-----------------------------------------------------------------------+
-| ./sc scstatusupdate < status : 1/0 >                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+   .. code:: shell
 
-..
+         ./sc scstatusupdate < status : 1/0 >   
 
    where,
 
@@ -217,33 +196,28 @@ to the MCU.
 
 a. Start tunadapter in the background and connect to the AP:
 
-+-----------------------------------------------------------------------+
-| ./tunadapter board_conf =./t31.conf &                                 |
-|                                                                       |
-| ./conmgr connect <ssid> <Pass>                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+   .. code:: shell
+
+         ./tunadapter board_conf =./t31.conf &
+         ./conmgr connect <ssid> <Pass>
+
 
 b. Initiate Host shutdown:
 
    1. Provide the number of seconds for which streaming needs to be
       enabled:
+      .. code:: shell
 
-+-----------------------------------------------------------------------+
-| ./T31_mcu_app <Delay> 1                                               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+            ./T31_mcu_app <Delay> 1  
+
 
 2. Configure the Host wakeup PIN:
 
-+-----------------------------------------------------------------------+
-| ./conmgr wakeupconfig 14 1 1                                          |
-|                                                                       |
-| ./conmgr wakeupconfig 21 0                                            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+   .. code:: shell
 
-..
+         ./conmgr wakeupconfig 14 1 1 
+         ./conmgr wakeupconfig 21 0
+
 
    **Note**: For more information on configuring the Host wakeup PIN,
    refer section: *wakeupconfig – Configures Host Wakeup PIN* of
@@ -252,77 +226,55 @@ b. Initiate Host shutdown:
 
 3. Get the previous wakeup reason:
 
-+-----------------------------------------------------------------------+
-| ./conmgr getwakeupreason                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+   .. code:: shell
+
+            ./conmgr getwakeupreason    
+
 
 4. Clear wakeup reason before initiating shutdown:
 
-+-----------------------------------------------------------------------+
-| ./conmgr wakeupreasoncls                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+   .. code:: shell
+
+
+            ./conmgr wakeupreasoncls    
+
 
 5. Trigger Host shutdown:
 
-+-----------------------------------------------------------------------+
-| ./conmgr shutdown                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+   .. code:: shell
+
+         ./conmgr shutdown   
+
 
 1. The following script configures the AWS access key, secret access
    key, region and starts streaming:
 
-..
-
-   |image9|\ |image10|\ |image11|
+   |image7|
 
 Figure 7: Script to configure AWS access parameters
 
 **Note**: For information on creating the AWS security credentials
 (access key, secret access key), refer `Create AWS Security
-Credentials <#_Create_AWS_Security>`__.
+Credentials <#_Create_AWS_Security>`.
 
-.. |MicrosoftTeams-image (4)| image:: media/image1.png
+.. |image1| image:: media/image1.png
    :width: 6.29931in
    :height: 5.34861in
-.. |image1| image:: media/image2.png
-   :width: 1.49653in
-   :height: 0.19167in
 .. |image2| image:: media/image2.png
-   :width: 1.49653in
-   :height: 0.19167in
-.. |image3| image:: media/image2.png
-   :width: 1.49653in
-   :height: 0.19167in
-.. |image4| image:: media/image3.png
    :width: 6.5748in
-   :height: 2.61906in
-.. |image5| image:: media/image4.png
+   :height: 7.61906in
+.. |image3| image:: media/image3.png
    :width: 6.41736in
-   :height: 0.7in
-.. |INP_NTPD_time| image:: media/image5.png
-   :width: 7.00764in
-   :height: 0.46736in
-.. |image6| image:: media/image6.png
+   :height: 7.7in
+.. |image4| image:: media/image4.png
+   :width: 6.00764in
+   :height: 7.46736in
+.. |image5| image:: media/image5.png
    :width: 6.94514in
-   :height: 1.69583in
+   :height: 7.69583in
+.. |image6| image:: media/image6.png
+   :width: 6.70069in
+   :height: 7.10833in
 .. |image7| image:: media/image7.png
-   :width: 3.70069in
-   :height: 0.10833in
-.. |image8| image:: media/image7.png
-   :width: 1.83333in
-   :height: 0.1in
-.. |MicrosoftTeams-image (2)| image:: media/image8.png
-   :width: 7.00764in
-   :height: 1.82014in
-.. |image9| image:: media/image7.png
-   :width: 3.70069in
-   :height: 0.10833in
-.. |image10| image:: media/image7.png
-   :width: 1.83333in
-   :height: 0.1in
-.. |image11| image:: media/image9.png
-   :width: 7.08681in
-   :height: 1.84028in
+   :width: 6.83333in
+   :height: 7.1in

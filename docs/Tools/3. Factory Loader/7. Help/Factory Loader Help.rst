@@ -1,19 +1,20 @@
+.. _fl help:
+
 Factory Loader Help
 -------------------
 
 The following command displays help information about the Factory
 loader:
 
-+-----------------------------------------------------------------------+
-| .\\script\\factory_loader.py -h                                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|A black screen with a black background Description automatically
-generated|
+      .\\script\\factory_loader.py -h  
 
-Figure 11: factory_loader help - console output
 
-.. |A black screen with a black background Description automatically generated| image:: media/image1.png
+|image1|
+
+Figure 1: factory_loader help - console output
+
+.. |image1| image:: media/image1.png
    :width: 7.48031in
    :height: 2.47543in

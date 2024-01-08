@@ -1,3 +1,5 @@
+.. dl elf inputs:
+
 ELF Input
 ---------
 
@@ -6,9 +8,9 @@ Standard Programming
 
 Load the application as per requirement by selecting an appropriate ELF.
 
-|A white box with a black border Description automatically generated|
+|image3|
 
-Figure 15: ELF input - Standard programming
+Figure 1: ELF input - Standard programming
 
 SSBL Programming
 ~~~~~~~~~~~~~~~~
@@ -24,15 +26,15 @@ Application_for_using_SSBL.pdf (*freertos_sdk_x.y/apps/ssbl/doc*).
 
 Before SSBL programming, write the necessary files onto Talaria TWO. For
 more details on writing files onto Talaria TWO, refer section: `Write
-Files <#_Write_Files>`__.
+Files <#_Write_Files>`.
 
-|A screenshot of a chat Description automatically generated|
+|image4|
 
-Figure 16: ELF input - SSBL programming
+Figure 2: ELF input - SSBL programming
 
-.. |A white box with a black border Description automatically generated| image:: media/image1.png
+.. |image3| image:: media/image3.png
    :width: 7.48031in
    :height: 1.33061in
-.. |A screenshot of a chat Description automatically generated| image:: media/image2.png
+.. |image4| image:: media/image4.png
    :width: 7.48031in
    :height: 1.53136in

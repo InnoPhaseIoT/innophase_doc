@@ -1,3 +1,5 @@
+.. _ex audiooveri2s:
+
 Audio Over I2S
 ---------------
 
@@ -15,7 +17,7 @@ A separate I2S-to-Analog convertor along with Audio Amplifier must be
 used along with Talaria TWO. In the given example MAX98357A
 I2S-to-Analog convertor used,as indicated in Figure 1.
 
-|Diagram Description automatically generated|
+|image5|
 
 Figure 1: Block Diagram
 
@@ -42,22 +44,22 @@ Required Dependencies on Ubuntu Host
 Install the dependencies - python3, numpy, mpg123 on the ubuntu host
 machine:
 
-+-----------------------------------------------------------------------+
-| sudo apt update                                                       |
-|                                                                       |
-| sudo apt install python3.8                                            |
-|                                                                       |
-| sudo apt install python3-pip                                          |
-|                                                                       |
-| pip install numpy                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      sudo apt update
+      sudo apt install python3.8 
+      sudo apt install python3-pip
+      pip install numpy
+
+
 
 Source Code Walkthrough 
 ~~~~~~~~~~~~~~~~~~~~
 
 Directory Structure
 ~~~~~~~~~~~~~~~~~~~~
+
+|image6|
 
 Figure 2: Directory structure
 
@@ -163,71 +165,61 @@ from the sample audio buffer of the application.
 The function os_gpio_mux_sel() configures the GPIO to be used as the
 peripheral pin required for I2S functionality.
 
-+-----------------------------------------------------------------------+
-| audio_pins = BIT(audio_gpio0) \| BIT(audio_gpio1) \|                  |
-| BIT(audio_gpio2);                                                     |
-|                                                                       |
-| os_gpio_mux_sel(GPIO_MUX_SEL_I2S_SCK, I2S_CLK_PIN);                   |
-|                                                                       |
-| os_gpio_mux_sel(GPIO_MUX_SEL_I2S_WS, I2S_WS_PIN);                     |
-|                                                                       |
-| os_gpio_mux_sel(GPIO_MUX_SEL_I2S_SD, I2S_DATA_PIN);                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      audio_pins = BIT(audio_gpio0) | BIT(audio_gpio1) | BIT(audio_gpio2);  
+      os_gpio_mux_sel(GPIO_MUX_SEL_I2S_SCK, I2S_CLK_PIN);
+      os_gpio_mux_sel(GPIO_MUX_SEL_I2S_WS, I2S_WS_PIN);
+      os_gpio_mux_sel(GPIO_MUX_SEL_I2S_SD, I2S_DATA_PIN);
+
+
+
 
 If the file is available in specified location, then the fseek() seeks
 to end of file to get file size.
 
-+-----------------------------------------------------------------------+
-| fseek(file, 0, SEEK_END);                                             |
-|                                                                       |
-| long file_size = ftell(file);                                         |
-|                                                                       |
-| fseek(file, 0, SEEK_SET);                                             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      fseek(file, 0, SEEK_END);
+      long file_size = ftell(file);
+      fseek(file, 0, SEEK_SET);
+
+
 
 After this, the pulse code modulation header and the audio data is
 extracted.
 
-+-----------------------------------------------------------------------+
-| void\* file_bytes = osal_alloc(header_size);                          |
-|                                                                       |
-| size_t n = fread(file_bytes, 1, header_size, file);                   |
-|                                                                       |
-| pr_debug("Read %d bytes of (%ld)\\n", n, file_size_inc_hdr);          |
-|                                                                       |
-| wav = (struct wave_file\*)file_bytes;                                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      void* file_bytes = osal_alloc(header_size);
+      size_t n = fread(file_bytes, 1, header_size, file);
+      pr_debug("Read %d bytes of (%ld)\n", n, file_size_inc_hdr);
+      wav = (struct wave_file*)file_bytes;
+
 
 The data_len is audio data length which is file length minus a potential
 audio header.
 
-+-----------------------------------------------------------------------+
-| size_t header_size = sizeof(struct wave_file);                        |
-|                                                                       |
-| data_len = file_size_inc_hdr - header_size;                           |
-|                                                                       |
-| assert(file_size_inc_hdr >= header_size);                             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      size_t header_size = sizeof(struct wave_file);
+      data_len = file_size_inc_hdr - header_size;
+      assert(file_size_inc_hdr >= header_size);
+
 
 The audio_open() function initializes an audio stream using the
 specified mode, I2S in this example.
 
-+-----------------------------------------------------------------------+
-| struct audio \*stream = audio_open(AUDIO_OUT_I2S, playback_rate, 0);  |
-|                                                                       |
-| if(!stream) {                                                         |
-|                                                                       |
-| pr_err("Failed to open audio stream.\\n");                            |
-|                                                                       |
-| return 0;                                                             |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      struct audio *stream = audio_open(AUDIO_OUT_I2S, playback_rate, 0);
+      if(!stream) {
+              pr_err("Failed to open audio stream.\n");
+              return 0;
+      }
+
+
+
 
 This loop starts the playback of audio signal through I2S. The
 audio_play()reads and buffers the contents of the file descriptor and
@@ -236,46 +228,33 @@ audio_play_buffer() plays the sample buffer. The buffer must contain
 samples of signed 16-bit values with the left and right channel
 interleaved.
 
-+-----------------------------------------------------------------------+
-| pr_info("Starting playback.\\n");                                     |
-|                                                                       |
-| int err = 0;                                                          |
-|                                                                       |
-| for(int i = 0; i < loops; i++) {                                      |
-|                                                                       |
-| if (file) {                                                           |
-|                                                                       |
-| // Make sure the file is seeked to audio data position                |
-|                                                                       |
-| fseek(file, sizeof(struct wave_file), SEEK_SET);                      |
-|                                                                       |
-| err = audio_play(stream, file, data_len);                             |
-|                                                                       |
-| } else {                                                              |
-|                                                                       |
-| err = audio_play_buffer(stream, sine_wave_size, sine_wave);           |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| if (err != 0) {                                                       |
-|                                                                       |
-| pr_err("Failed to play audio.\\n");                                   |
-|                                                                       |
-| break;                                                                |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| } pr_info("Playback finished.\\n");                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+          pr_info("Starting playback.\n");
+          int err = 0;
+          for(int i = 0; i < loops; i++) {
+              if (file) {
+                  // Make sure the file is seeked to audio data position
+                  fseek(file, sizeof(struct wave_file), SEEK_SET);
+                  err = audio_play(stream, file, data_len);
+              } else {
+                  err = audio_play_buffer(stream, sine_wave_size, sine_wave);
+              }
+              if (err != 0) {
+                  pr_err("Failed to play audio.\n");
+                  break;
+              }
+          }    pr_info("Playback finished.\n");
+
+
 
 The audio_close() releases the audio stream and shuts down the audio
 device by invalidating the struct audio pointer.
 
-+-----------------------------------------------------------------------+
-| audio_close(stream);                                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      audio_close(stream);
+
 
 Evaluating i2s_audio_flash Example Application
 ~~~~~~~~~~~~~~~~~~~~
@@ -309,10 +288,10 @@ the Download tool:
 
    c. Boot Arguments: Pass the following boot arguments:
 
-+-----------------------------------------------------------------------+
-| audio.filename=/data/<file.wav>, audio.mode=1                         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      audio.filename=/data/<file.wav>, audio.mode=1  
+
 
 d. File System:
 
@@ -333,44 +312,29 @@ f. Show File System Contents: Click on Show File System Contents to
 
 Console output:
 
-+-----------------------------------------------------------------------+
-| UART:SNWWWWAE                                                         |
-|                                                                       |
-| 4 DWT comparators, range 0x8000                                       |
-|                                                                       |
-| Build $Id: git-8bc43d639 $                                            |
-|                                                                       |
-| hio.baudrate=921600                                                   |
-|                                                                       |
-| flash: Gordon ready!                                                  |
-|                                                                       |
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PNWWWWAE                                                        |
-|                                                                       |
-| Build $Id: git-58974e3 $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-0083-00a1-ffffffffffff   |
-|                                                                       |
-| Bootargs: audio.filename=/data/plong.wav audio.mode=1                 |
-|                                                                       |
-| [0.018,670] Wav Samples: 22546                                        |
-|                                                                       |
-| [0.018,699] Wav Frames: 11273                                         |
-|                                                                       |
-| [0.018,729] Wav Chunk: 16                                             |
-|                                                                       |
-| [0.018,757] Wav sample rate 44100                                     |
-|                                                                       |
-| [0.018,792] Wav Duration: 0.5114                                      |
-|                                                                       |
-| [0.019,099] Starting playback.                                        |
-|                                                                       |
-| [0.528,699] Playback finished.                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      UART:SNWWWWAE
+      4 DWT comparators, range 0x8000
+      Build $Id: git-8bc43d639 $
+      hio.baudrate=921600
+      flash: Gordon ready!
+      
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PNWWWWAE
+      Build $Id: git-58974e3 $
+      Flash detected. flash.hw.uuid: 39483937-3207-0083-00a1-ffffffffffff
+      Bootargs: audio.filename=/data/plong.wav audio.mode=1
+      [0.018,670] Wav Samples: 22546
+      [0.018,699] Wav Frames: 11273
+      [0.018,729] Wav Chunk: 16
+      [0.018,757] Wav sample rate 44100
+      [0.018,792] Wav Duration:  0.5114
+      [0.019,099] Starting playback.
+      [0.528,699] Playback finished.
+
+
 
 Audio begins to play.
 
@@ -393,91 +357,68 @@ wcm_handle starts creating the Wi-Fi network interface.
 wcm_notify_enable() enables the callback function and IP address
 changes.
 
-+-----------------------------------------------------------------------+
-| const char \*ssid = os_get_boot_arg_str("ssid") ?: "";                |
-|                                                                       |
-| my_wcm_handle = wcm_create(NULL);                                     |
-|                                                                       |
-| wcm_notify_enable(my_wcm_handle, my_wcm_notify_cb, NULL);             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      const char *ssid = os_get_boot_arg_str("ssid") ?: "";
+      my_wcm_handle = wcm_create(NULL);
+      wcm_notify_enable(my_wcm_handle, my_wcm_notify_cb, NULL);
+
 
 network_profile adds a network profile to Wi-Fi Connection Manager. The
 np_conf_path pointer variable contains the path to network configuration
 file on Talaria TWO’s file system. File and the path to the network
 configuration file is provided through the boot arguments.
 
-+-----------------------------------------------------------------------+
-| /\*"/sys/nprofile.json"\*/                                            |
-|                                                                       |
-| const char \*np_conf_path = os_get_boot_arg_str("np_conf_path")?:     |
-| NULL;                                                                 |
-|                                                                       |
-| struct network_profile \*profile;                                     |
-|                                                                       |
-| if (np_conf_path != NULL) {                                           |
-|                                                                       |
-| /\* Create a Network Profile from a configuration file in             |
-|                                                                       |
-| \*the file system*/                                                   |
-|                                                                       |
-| rval = network_profile_new_from_file_system(&profile, np_conf_path);  |
-|                                                                       |
-| } else {                                                              |
-|                                                                       |
-| /\* Create a Network Profile using BOOT ARGS*/                        |
-|                                                                       |
-| rval = network_profile_new_from_boot_args(&profile);                  |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| if (rval < 0) {                                                       |
-|                                                                       |
-| pr_err("could not create network profile %d\\n", rval);               |
-|                                                                       |
-| return 0; }                                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+           /*"/sys/nprofile.json"*/
+          const char *np_conf_path = os_get_boot_arg_str("np_conf_path")?: NULL;
+          struct network_profile *profile;
+          if (np_conf_path != NULL) {
+              /* Create a Network Profile from a configuration file in
+               *the file system*/
+              rval = network_profile_new_from_file_system(&profile, np_conf_path);
+          } else {
+              /* Create a Network Profile using BOOT ARGS*/
+              rval = network_profile_new_from_boot_args(&profile);
+          }
+          if (rval < 0) {
+              pr_err("could not create network profile %d\n", rval);
+              return 0;     }
+
+
 
 The wcm_add_network_profile() adds the network profile to WCM.
 
-+-----------------------------------------------------------------------+
-| rval = wcm_add_network_profile(my_wcm_handle, profile);               |
-|                                                                       |
-| if (rval < 0) {                                                       |
-|                                                                       |
-| pr_err("could not associate network profile to wcm %d\\n", rval);     |
-|                                                                       |
-| return 0;                                                             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      rval = wcm_add_network_profile(my_wcm_handle, profile);
+          if (rval <  0) {
+              pr_err("could not associate network profile to wcm %d\n", rval);
+              return 0;
+
 
 wcm_auto_connect() starts the auto connection with Wi-Fi network.
 os_suspend_enable() enables the device deep sleep mode via boot
 argument.
 
-+-----------------------------------------------------------------------+
-| if(wcm_auto_connect(my_wcm_handle, 1) == 0)                           |
-|                                                                       |
-| if (os_get_boot_arg_int("suspend", 0) != 0)                           |
-|                                                                       |
-| os_suspend_enable();                                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      if(wcm_auto_connect(my_wcm_handle, 1) == 0)
+          if (os_get_boot_arg_int("suspend", 0) != 0)
+                  os_suspend_enable();
+
 
 os_gpio_mux_sel() selects the GPIOs for I2S communication. The
 audio_server() initiates the audio server on port 9999.
 
-+-----------------------------------------------------------------------+
-| os_gpio_mux_sel(GPIO_MUX_SEL_I2S_SCK, I2S_CLK_PIN);                   |
-|                                                                       |
-| os_gpio_mux_sel(GPIO_MUX_SEL_I2S_WS, I2S_WS_PIN);                     |
-|                                                                       |
-| os_gpio_mux_sel(GPIO_MUX_SEL_I2S_SD, I2S_DATA_PIN);                   |
-|                                                                       |
-| audio_server(9999);                                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      os_gpio_mux_sel(GPIO_MUX_SEL_I2S_SCK, I2S_CLK_PIN);
+      os_gpio_mux_sel(GPIO_MUX_SEL_I2S_WS, I2S_WS_PIN);
+      os_gpio_mux_sel(GPIO_MUX_SEL_I2S_SD, I2S_DATA_PIN);
+      audio_server(9999);
+
 
 struct wcm_handle handles the Wi-Fi Connection Manager. This handle is
 an opaque representation of an interface managed by the Wi-Fi Connection
@@ -485,14 +426,12 @@ Manager. The memory for this opaque struct is allocated in wcm_create
 and freed in wcm_destroy. The my_wcm_notify_cb() is a Wi-Fi Connection
 Manager callback function.
 
-+-----------------------------------------------------------------------+
-| struct wcm_handle \*my_wcm_handle;                                    |
-|                                                                       |
-| static void my_wcm_notify_cb(void \*ctx, struct os_msg \*msg)         |
-|                                                                       |
-| os_msg_release(msg);                                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      struct wcm_handle *my_wcm_handle;
+      static void my_wcm_notify_cb(void *ctx, struct os_msg *msg)
+      os_msg_release(msg);
+
 
 **audio_server.c**
 
@@ -503,93 +442,66 @@ packets over Wi-Fi.
 The function server_t*build_server() starts TCP/UDP server on initiated
 port according to the defined transport mode.
 
-+-----------------------------------------------------------------------+
-| static inline server_t\* build_server(int port)                       |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| #ifdef TRANSPORT_TCP                                                  |
-|                                                                       |
-| return tcp_server(port);                                              |
-|                                                                       |
-| #else                                                                 |
-|                                                                       |
-| return udp_server(port);                                              |
-|                                                                       |
-| #endif                                                                |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      static inline server_t* build_server(int port)
+      {
+      #ifdef TRANSPORT_TCP
+          return tcp_server(port);
+      #else
+          return udp_server(port);
+      #endif
+      }
+
 
 The server_accept() function allows the connection request from remote
 host i.e, the client. server_rx() function initiates the TCP/UDP server
 data reception, by executing the
 tcp_server_rx()/udp_server_rx()functions.
 
-+-----------------------------------------------------------------------+
-| static inline void server_accept(server_t \*srv)                      |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| #ifdef TRANSPORT_TCP                                                  |
-|                                                                       |
-| tcp_server_accept(srv);                                               |
-|                                                                       |
-| #endif                                                                |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| static inline int server_rx(server_t \*srv, void \*ptr, size_t len)   |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| #ifdef TRANSPORT_TCP                                                  |
-|                                                                       |
-| os_printf("tcp_server_rx\\r\\n");                                     |
-|                                                                       |
-| return tcp_server_rx(srv, ptr, len);                                  |
-|                                                                       |
-| #else                                                                 |
-|                                                                       |
-| return udp_server_rx(srv, ptr, len);                                  |
-|                                                                       |
-| #endif                                                                |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      static inline void server_accept(server_t *srv)
+      {
+      #ifdef TRANSPORT_TCP
+          tcp_server_accept(srv);
+      #endif
+      }
+      static inline int server_rx(server_t *srv, void *ptr, size_t len)
+      {
+      #ifdef TRANSPORT_TCP
+          os_printf("tcp_server_rx\r\n");
+          return tcp_server_rx(srv, ptr, len);
+      #else
+          return udp_server_rx(srv, ptr, len);
+      #endif
+      }
+
+
 
 server_cleanup() function frees the resources allocated, by executing
 the tcp\_ server_cleanup ()/udp\_ server_cleanup () functions.
 
-+-----------------------------------------------------------------------+
-| static inline void server_cleanup(server_t \*srv)                     |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| #ifdef TRANSPORT_TCP                                                  |
-|                                                                       |
-| return tcp_server_cleanup(srv);                                       |
-|                                                                       |
-| #else                                                                 |
-|                                                                       |
-| return udp_server_cleanup(srv);                                       |
-|                                                                       |
-| #endif                                                                |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      static inline void server_cleanup(server_t *srv)
+      {
+      #ifdef TRANSPORT_TCP
+          return tcp_server_cleanup(srv);
+      #else
+          return udp_server_cleanup(srv);
+      #endif
+      }
+
 
 The function build_server() binds the TCP/UDP server connection to a
 specific port, accepts the connections from the client by calling
 server_accept().
 
-+-----------------------------------------------------------------------+
-| server_t \*server = build_server(port);                               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      server_t \*server = build_server(port);       
+
 
 audio_open() initializes an audio stream using the specified mode and
 the audio_set_callback()function registers a call back function that is
@@ -597,62 +509,51 @@ invoked upon the completion of writing the packet containing audio data.
 If the audio is not enabled, it returns the start_time, which is a
 current system time in microseconds.
 
-+-----------------------------------------------------------------------+
-| #ifdef PWM_AUDIO_EN                                                   |
-|                                                                       |
-| struct audio \*stream = audio_open(AUDIO_OUT_I2S, 48000, 0X1);        |
-|                                                                       |
-| assert(stream);                                                       |
-|                                                                       |
-| audio_set_callback(stream, packet_played);                            |
-|                                                                       |
-| num_queued = 0;                                                       |
-|                                                                       |
-| #else                                                                 |
-|                                                                       |
-| uint64_t start_time = os_systime64();                                 |
-|                                                                       |
-| uint64_t bytes = 0;                                                   |
-|                                                                       |
-| #endif                                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      #ifdef PWM_AUDIO_EN
+              struct audio *stream = audio_open(AUDIO_OUT_I2S, 48000, 0X1);
+              assert(stream);
+              audio_set_callback(stream, packet_played);
+              num_queued = 0;
+      #else
+              uint64_t start_time = os_systime64();
+              uint64_t bytes = 0;
+      #endif
+
+
 
 server_rx() function receives the audio data packets from the client and
 inserts the packet to the packet linked list.
 
-+-----------------------------------------------------------------------+
-| server_rx(server, pfrag_insert_tail(frg, PACKET_SIZE), PACKET_SIZE)   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      server_rx(server, pfrag_insert_tail(frg, PACKET_SIZE), PACKET_SIZE) 
+
 
 After receiving the audio data packets, audio_write_packet() writes the
 chunk of samples available in packet to the audio device over i2s.
 
-+-----------------------------------------------------------------------+
-| audio_write_packet(stream, pkt);                                      |
-|                                                                       |
-| num_queued++;                                                         |
-|                                                                       |
-| os_printf(".%d", num_queued);                                         |
-|                                                                       |
-| while (num_queued>100);                                               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      audio_write_packet(stream, pkt);
+      num_queued++;
+      os_printf(".%d", num_queued);
+      while (num_queued>100);
+
+
 
 audio_close() release the audio stream and shuts down the audio device.
 The server_cleanup() cleans the server.
 
-+-----------------------------------------------------------------------+
-| #ifdef PWM_AUDIO_EN                                                   |
-|                                                                       |
-| audio_close(stream);                                                  |
-|                                                                       |
-| #endif                                                                |
-|                                                                       |
-| server_cleanup(server);                                               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      #ifdef PWM_AUDIO_EN
+       audio_close(stream);
+      #endif
+        server_cleanup(server);
+
+
 
 **tcp_server.h**: This header file which contains all the function
 prototypes need to create a TCP server in Talaria TWO.
@@ -670,124 +571,102 @@ The struct tcp_server is declared with the all the parameter data needed
 to create a TCP server. The memory for this opaque struct is allocated
 in tcp_server.
 
-+-----------------------------------------------------------------------+
-| struct tcp_server                                                     |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| struct netconn \*listen;                                              |
-|                                                                       |
-| struct netconn \*conn;                                                |
-|                                                                       |
-| struct netbuf \*buf;                                                  |
-|                                                                       |
-| void \*data;                                                          |
-|                                                                       |
-| uint16_t len;                                                         |
-|                                                                       |
-| uint8_t \*status;                                                     |
-|                                                                       |
-| };                                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      struct tcp_server
+      {
+          struct netconn *listen;
+          struct netconn *conn;
+          struct netbuf  *buf;
+          void    *data;
+          uint16_t len;
+          uint8_t  *status;
+      };
+
+
 
 The struct tcp_server \* tcp_server() creates the TCP server with the
 initialized port which will be the port used to created connection with
 clients.
 
-+-----------------------------------------------------------------------+
-| os_printf("Starting tcp-Server @ port %d\\n", port);                  |
-|                                                                       |
-| struct tcp_server \*server = osal_zalloc(sizeof \*server);            |
-|                                                                       |
-| assert(server);                                                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      os_printf("Starting tcp-Server @ port %d\n", port);
+       struct tcp_server *server = osal_zalloc(sizeof *server);
+       assert(server);
+
 
 The netconn_new() creates a new connection with the clients.
 netconn_bind() binds the connection to a specific local IP address and
 port post which netconn_listen()puts the TCP connection into listen
 state.
 
-+-----------------------------------------------------------------------+
-| server->listen = netconn_new(NETCONN_TCP);                            |
-|                                                                       |
-| assert(server->listen != NULL);                                       |
-|                                                                       |
-| netconn_bind(server->listen, IP_ADDR_ANY, port);                      |
-|                                                                       |
-| netconn_listen(server->listen);                                       |
-|                                                                       |
-| return server;                                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+          server->listen = netconn_new(NETCONN_TCP);
+          assert(server->listen != NULL);
+          netconn_bind(server->listen, IP_ADDR_ANY, port);
+          netconn_listen(server->listen);
+          return server;
+
+
 
 tcp_server_accept() function creates the TCP server and netconn_accept()
 waits for a new incoming connection. This function blocks the process
 until a connection request from the remote host arrives.
 
-+-----------------------------------------------------------------------+
-| void tcp_server_accept(struct tcp_server \*srv)                       |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| netconn_accept(srv->listen, &srv->conn);                              |
-|                                                                       |
-| os_printf("TCP server: Accepted new connection %p\\n", srv->conn);    |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      void tcp_server_accept(struct tcp_server *srv)
+      {
+          netconn_accept(srv->listen, &srv->conn);
+          os_printf("TCP server: Accepted new connection %p\n", srv->conn);
+      }
+
 
 tcp_server_cleanup() function cleans up the TCP server and
 netconn_delete() closes a net connection functions connection and frees
 the resources allocated .
 
-+-----------------------------------------------------------------------+
-| void tcp_server_cleanup(struct tcp_server \*srv)                      |
-|                                                                       |
-| { netconn_delete(srv->conn);                                          |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+
+.. code:: shell
+
+      void tcp_server_cleanup(struct tcp_server *srv)
+      {    netconn_delete(srv->conn);
+      }
+
 
 tcp_server_get_bytes() function receives data over TCP, processes the
 data and stores it in the buffer.
 
-+-----------------------------------------------------------------------+
-| static int tcp_server_get_bytes(struct tcp_server \*srv, void \*ptr,  |
-| uint16_t n)                                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      static int tcp_server_get_bytes(struct tcp_server *srv, void *ptr, uint16_t n)
+
 
 tcp_server_tx() function sends the TCP server data by calling.
 netconn_write()to send data over a TCP connection.
 
-+-----------------------------------------------------------------------+
-| int tcp_server_tx(struct tcp_server \*srv, const void \*ptr, size_t   |
-| len)                                                                  |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| netconn_write(srv->conn, ptr, len, NETCONN_COPY);                     |
-|                                                                       |
-| return 0;                                                             |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+
+.. code:: shell
+
+      int tcp_server_tx(struct tcp_server *srv, const void *ptr, size_t len)
+{
+    netconn_write(srv->conn, ptr, len, NETCONN_COPY);
+    return 0;
+}
+
 
 tcp_server_rx() function initiates the TCP server data reception by
 calling tcp_server_get_bytes() function to receive the data over TCP,
 processes the data and store it in the buffer.
 
-+-----------------------------------------------------------------------+
-| int tcp_server_rx(struct tcp_server \*srv, void \*ptr, size_t len)    |
-|                                                                       |
-| { return tcp_server_get_bytes(srv, ptr, len); }                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      int tcp_server_rx(struct tcp_server *srv, void *ptr, size_t len)
+      { 	return tcp_server_get_bytes(srv, ptr, len); }
+
+
 
 **udp_server.h**: This header file contains all the function prototypes
 need to create a UDP server in Talaria TWO.
@@ -804,96 +683,74 @@ The struct udp_server is declared with the all the parameter data need
 to create a UDP server. The memory for this opaque struct is allocated
 in udp_server.
 
-+-----------------------------------------------------------------------+
-| struct udp_server                                                     |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| struct netconn \*conn;                                                |
-|                                                                       |
-| struct netbuf \*buf;                                                  |
-|                                                                       |
-| void \*data;                                                          |
-|                                                                       |
-| uint16_t len;                                                         |
-|                                                                       |
-| uint8_t \*status;                                                     |
-|                                                                       |
-| };                                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+      struct udp_server
+      {
+          struct netconn *conn;
+          struct netbuf  *buf;
+          void    *data;
+          uint16_t len;
+          uint8_t  *status;
+      };
+
 
 The struct udp_server \*udp_server() creates the UDP server with the
 initialized port which will be the port used to create connection with
 clients.
 
-+-----------------------------------------------------------------------+
-| os_printf("Starting udp-Server @ port %d\\n", port);                  |
-|                                                                       |
-| struct udp_server \*srv = osal_zalloc(sizeof \*srv);                  |
-|                                                                       |
-| assert(srv);                                                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+          os_printf("Starting udp-Server @ port %d\n", port);
+          struct udp_server *srv = osal_zalloc(sizeof *srv);
+          assert(srv);
+
+
 
 netconn_new() creates a new connection with the clients through UDP.
 netconn_bind() binds a connection to a specific local IP address and
 port.
 
-+-----------------------------------------------------------------------+
-| srv->conn = netconn_new(NETCONN_UDP);                                 |
-|                                                                       |
-| assert(srv->conn);                                                    |
-|                                                                       |
-| netconn_bind(srv->conn, IP_ADDR_ANY, port);                           |
-|                                                                       |
-| return srv;                                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+          srv->conn = netconn_new(NETCONN_UDP);
+          assert(srv->conn);
+          netconn_bind(srv->conn, IP_ADDR_ANY, port);
+          return srv;
+
 
 The udp_server_cleanup() calls the netconn_delete()API to close a
 connection and frees the resources allocated by calling osal_free() .
 
-+-----------------------------------------------------------------------+
-| void udp_server_cleanup(struct udp_server \*srv)                      |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| if(srv->buf)                                                          |
-|                                                                       |
-| netbuf_delete(srv->buf);                                              |
-|                                                                       |
-| netconn_delete(srv->conn);                                            |
-|                                                                       |
-| osal_free(srv);                                                       |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      void udp_server_cleanup(struct udp_server *srv)
+      {
+          if(srv->buf)
+              netbuf_delete(srv->buf);
+          netconn_delete(srv->conn);
+          osal_free(srv);
+      }
+
 
 udp_server_get_bytes() function receives the data over UDP, processes
 the data and stores it in the buffer.
 
-+-----------------------------------------------------------------------+
-| static int udp_server_get_bytes(struct udp_server \*srv, void \*ptr,  |
-| uint16_t n)                                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      static int udp_server_get_bytes(struct udp_server *srv, void *ptr, uint16_t n)
+
 
 udp_server_rx() function initiates the UDP server data reception by
 calling the udp_server_get_bytes() function to receive the data over
 UDP, processes it and store it in the buffer.
 
-+-----------------------------------------------------------------------+
-| int udp_server_rx(struct udp_server \*srv, void \*ptr, size_t len)    |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| return udp_server_get_bytes(srv, ptr, len);                           |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      int udp_server_rx(struct udp_server *srv, void *ptr, size_t len)
+      {
+          return udp_server_get_bytes(srv, ptr, len);
+      }
+
 
 1. 
 
@@ -925,61 +782,43 @@ Program i2s_audio_wifi.elf
 
 Run the python script from the host PC to stream the audio raw data:
 
-+-----------------------------------------------------------------------+
-| ./script/audio_client.py <T2’s IP address>                            |
-| sample_audio/Happy_Birthday_song_50k.mp3                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      ./script/audio_client.py <T2’s IP address> sample_audio/Happy_Birthday_song_50k.mp3
+
 
 Console output:
 
-+-----------------------------------------------------------------------+
-| 4 DWT comparators, range 0x8000                                       |
-|                                                                       |
-| Build $Id: git-8bc43d639 $                                            |
-|                                                                       |
-| hio.baudrate=921600                                                   |
-|                                                                       |
-| flash: Gordon ready!                                                  |
-|                                                                       |
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PNWWWWWWWAE                                                     |
-|                                                                       |
-| Build $Id: git-58974e3 $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-0083-00a1-ffffffffffff   |
-|                                                                       |
-| Bootargs: np_conf_path=/data/nprofile.json ssid=InnoIOT               |
-| passphrase=InnoChip2023                                               |
-|                                                                       |
-| addr e0:69:3a:00:15:b0                                                |
-|                                                                       |
-| Connecting to added network : InnoIOT                                 |
-|                                                                       |
-| Starting WiFi-Com-Server @ port 9999                                  |
-|                                                                       |
-| Starting udp-Server @ port 9999                                       |
-|                                                                       |
-| [0.939,297] CONNECT:60:22:32:60:06:52 Channel:1 rssi:-70 dBm          |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP                   |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS                   |
-|                                                                       |
-| [3.676,131] MYIP 172.16.16.120                                        |
-|                                                                       |
-| [3.676,180] IPv6 [fe80::e269:3aff:fe00:15b0]-link                     |
-|                                                                       |
-| .1.2.3.4.5.6.7.8.9.10.11.12.13.14.15.16.17.18.19.20.21.               |
-| 22.23.24.25.26.27.28.29.30.31.32.33.34.35.36.37.38.39.40.40.41.42.43. |
-| 44.45.46.47.48.49.50.51.52.53.54.55.56.57.58.59.60.61.62.63.64.65.66. |
-| 67.68.69.70.71.72.73.74.75.76.77.78.79.80.81.82.83.84.85.86.87.88.89. |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-.. |Diagram Description automatically generated| image:: media/image1.jpeg
+      4 DWT comparators, range 0x8000
+      Build $Id: git-8bc43d639 $
+      hio.baudrate=921600
+      flash: Gordon ready!
+      
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PNWWWWWWWAE
+      Build $Id: git-58974e3 $
+      Flash detected. flash.hw.uuid: 39483937-3207-0083-00a1-ffffffffffff
+      Bootargs: np_conf_path=/data/nprofile.json ssid=InnoIOT passphrase=InnoChip2023
+      addr e0:69:3a:00:15:b0
+      
+      Connecting to added network : InnoIOT
+      
+      Starting WiFi-Com-Server @ port 9999
+      Starting udp-Server @ port 9999
+      [0.939,297] CONNECT:60:22:32:60:06:52 Channel:1 rssi:-70 dBm
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+      [3.676,131] MYIP 172.16.16.120
+      [3.676,180] IPv6 [fe80::e269:3aff:fe00:15b0]-link
+      .1.2.3.4.5.6.7.8.9.10.11.12.13.14.15.16.17.18.19.20.21.22.23.24.25.26.27.28.29.30.31.32.33.34.35.36.37.38.39.40.40.41.42.43.44.45.46.47.48.49.50.51.52.53.54.55.56.57.58.59.60.61.62.63.64.65.66.67.68.69.70.71.72.73.74.75.76.77.78.79.80.81.82.83.84.85.86.87.88.89.
+
+
+.. |image5| image:: media/image5.png
+   :width: 6.69291in
+   :height: 3.30947in
+.. |image6| image:: media/image6.png
    :width: 6.69291in
    :height: 3.30947in

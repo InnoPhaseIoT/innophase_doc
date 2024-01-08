@@ -41,23 +41,23 @@ Expected output:
 
 .. code:: shell
 
-    Open On-Chip Debugger 0.10.0
-Licensed under GNU GPL v2
-For bug reports, read
-	http://openocd.org/doc/doxygen/bugs.html
-adapter speed: 1000 kHz
-Info : FTDI SWD mode enabled
-cortex_m reset_config sysresetreq
-Info : clock speed 1000 kHz
-Info : SWD DPIDR 0x2ba01477
-Info : talaria_two.cpu: hardware has 6 breakpoints, 4 watchpoints
-Info : Talaria TWO rev. H0
+    	Open On-Chip Debugger 0.10.0
+	Licensed under GNU GPL v2
+	For bug reports, read
+		http://openocd.org/doc/doxygen/bugs.html
+	adapter speed: 1000 kHz
+	Info : FTDI SWD mode enabled
+	cortex_m reset_config sysresetreq
+	Info : clock speed 1000 kHz
+	Info : SWD DPIDR 0x2ba01477
+	Info : talaria_two.cpu: hardware has 6 breakpoints, 4 watchpoints
+	Info : Talaria TWO rev. H0
 
-cortex_m reset_config sysresetreq
-Info : clock speed 1000 kHz
-Info : SWD DPIDR 0x2ba01477
-Info : talaria_two.cpu: hardware has 6 breakpoints, 4 watchpoints
-Info : Talaria TWO rev. H0
+	cortex_m reset_config sysresetreq
+	Info : clock speed 1000 kHz
+	Info : SWD DPIDR 0x2ba01477
+	Info : talaria_two.cpu: hardware has 6 breakpoints, 4 watchpoints
+	Info : Talaria TWO rev. H0
 
 
 2. Start arden.py script from SDK root folder *(sdk_x.y\\)* on a new
@@ -74,11 +74,11 @@ Expected output:
 
 .. code:: shell
 
-    [sudo] password for dell10: 
-(re)connecting with openocd
-openocd version: 'Open On-Chip Debugger 0.10.0'
-boot rom version of connected device: "yoda-h0-rom-16-0-gd5a8e586"
-starting up on localhost port 10000
+    	[sudo] password for dell10: 
+	(re)connecting with openocd
+	openocd version: 'Open On-Chip Debugger 0.10.0'
+	boot rom version of connected device: "yoda-h0-rom-16-0-gd5a8e586"
+	starting up on localhost port 10000
 
 
 3. Run the script gdbrun.py from FreeRTOS SDK root folder
@@ -107,35 +107,32 @@ Command:
 
 **Note**:
 
-a. To enable Host reboot when Talaria TWO reboots, use the following
-   bootargs:
+1. To enable Host reboot when Talaria TWO reboots, use the following bootargs:
 
 .. code:: shell
 
     krn.gpio=--------------p----p-p ds.host_pwroff_gpio_state=LLLLLL--------p--p--p-
 
 
-b. For video streaming, use the following bootargs:
+2. For video streaming, use the following bootargs:
 
 .. code:: shell
 
     hio.min_heap_for_burst_tx=24000 hio.max_data_ind=3
 
+a.  The minimum heap required for burst mechanism is 24000.
 
-i.  The minimum heap required for burst mechanism is 24000.
-
-ii. hio.max_data_ind specifies the maximum number of packets which can
-       be queued in HIO for transmission.
+b. hio.max_data_ind specifies the maximum number of packets which can be queued in HIO for transmission.
 
 Expected output:
 
 .. code:: shell
-
-    Loading ./solutions/dual_stack/bin/dual_stack_sdio.elf
-Entrypoint 0xb1159
-Wrote bootimage to 
-.img 103_972 bytes
-Wrote vmimage to dualstack.img.vm 482_176 bytes
+	
+   	Loading ./solutions/dual_stack/bin/dual_stack_sdio.elf
+	Entrypoint 0xb1159
+	Wrote bootimage to 
+	.img 103_972 bytes
+	Wrote vmimage to dualstack.img.vm 482_176 bytes
 
 
 Command:
@@ -152,8 +149,8 @@ Expected output:
 
 .. code:: shell
 
-    write: [==================================================================>]
-103972 bytes written to addr 4096
+ 	write: [==================================================================>]
+	103972 bytes written to addr 4096
 
 
 
@@ -169,12 +166,12 @@ Expected output:
 .. code:: shell
 
     write: [==================================================================>]
-482176 bytes written to addr 262144
-
-
-
-**
-**
+	482176 bytes written to addr 262144
+	
+	
+	
+	**
+	**
 
 After flashing the dual_stack_sdio.elf, update the root.img with AWS
 certificates on /data partition.
@@ -200,27 +197,27 @@ Expected output:
 
 .. code:: shell
 
-    /tmp/_MEItbY8QH/bin
-Starting OpenOCD
-/tmp/_MEItbY8QH/bin/openocd/linux64/openocd_linux64 -s /tmp/_MEItbY8QH/bin/sdk-files -f /tmp/_MEItbY8QH/bin/openocd/interface/cmsis-dap.cfg -f t2_swd.cfg
-xPack OpenOCD, x86_64 Open On-Chip Debugger 0.10.0+dev (2020-10-13-17:27)
-Licensed under GNU GPL v2
-For bug reports, read
-	http://openocd.org/doc/doxygen/bugs.html
-DEPRECATED! use 'adapter speed' not 'adapter_khz'
-cortex_m reset_config sysresetreq
-Error: couldn't bind tcl to socket on port 6666: Address already in use
-(re)connecting with openocd
-Info : accepting 'tcl' connection on tcp/6666
-talaria_two
-Open On-Chip Debugger 0.10.0
-openocd version: 'Open On-Chip Debugger 0.10.0'
-Connecting GDB
-Info : accepting 'gdb' connection on tcp/3333
+ 	/tmp/_MEItbY8QH/bin
+	Starting OpenOCD
+	/tmp/_MEItbY8QH/bin/openocd/linux64/openocd_linux64 -s /tmp/_MEItbY8QH/bin/sdk-files -f /tmp/_MEItbY8QH/bin/openocd/interface/cmsis-dap.cfg -f t2_swd.cfg
+	xPack OpenOCD, x86_64 Open On-Chip Debugger 0.10.0+dev (2020-10-13-17:27)
+	Licensed under GNU GPL v2
+	For bug reports, read
+		http://openocd.org/doc/doxygen/bugs.html
+	DEPRECATED! use 'adapter speed' not 'adapter_khz'
+	cortex_m reset_config sysresetreq
+	Error: couldn't bind tcl to socket on port 6666: Address already in use
+	(re)connecting with openocd
+	Info : accepting 'tcl' connection on tcp/6666
+	talaria_two
+	Open On-Chip Debugger 0.10.0
+	openocd version: 'Open On-Chip Debugger 0.10.0'
+	Connecting GDB
+	Info : accepting 'gdb' connection on tcp/3333
 	GDB: monitor reset halt
-Info : Talaria TWO rev. H0
-target halted due to debug-request, current mode: Thread 
-xPSR: 0x01000000 pc: 0x00020f90 msp: 0x00041a78
+	Info : Talaria TWO rev. H0
+	target halted due to debug-request, current mode: Thread 
+	xPSR: 0x01000000 pc: 0x00020f90 msp: 0x00041a78
 	GDB: gdb load /tmp/_MEItbY8QH/bin/tinyflasher.elf
 	GDB: write WAIT_OP at 0x7ffe8
 	Starting TinyFlasher
@@ -231,7 +228,7 @@ xPSR: 0x01000000 pc: 0x00020f90 msp: 0x00041a78
 	operation complete
 	GDB: write WAIT_OP at 0x7ffe8
 	Read ptable contents from memory
-Flashing ./root.img at 0x100000
+	Flashing ./root.img at 0x100000
 	GDB: write sector count at 0x7fff0
 	GDB: write target flash addr at 0x7fff4
 	GDB: write image binary to RAM staging location (0x80000)
@@ -242,8 +239,8 @@ Flashing ./root.img at 0x100000
 	GDB: write WAIT_OP at 0x7ffe8
 	Disconnecting OpenOCD
 	DONE
-Info : dropped 'tcl' connection
-Info : dropped 'gdb' connection
+	Info : dropped 'tcl' connection
+	Info : dropped 'gdb' connection
 
 
 Once flashing and root image update is complete, reset Talaria TWO and

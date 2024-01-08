@@ -1,5 +1,7 @@
-GUI
-===
+.. _mpd gui overview:
+
+GUI Overview
+============
 
 On launching the application, the GUI window as shown in Figure 11 will
 come into view.
@@ -7,14 +9,13 @@ come into view.
 **Note**: In case of windows display setting Scale and layout is more
 than 125%, GUI window might go out of screen.
 
-|image1|\ |image2|
+|image1|
 
-Figure 11: Demo Tool GUI
+Figure 1: Demo Tool GUI
 
 1. **Boot Target**: Connected EVKs appear in the EVK serial number
    drop-down and the appropriate EVK can be selected.
 
-..
 
    **Note**:
 
@@ -26,12 +27,11 @@ Figure 11: Demo Tool GUI
 
    Format of the new serial number:
 
-+-----------------------------------------------------------------------+
-| <year_stamp>-<integer>                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-..
+      <year_stamp>-<integer>  
+
+
 
    where,
 
@@ -40,9 +40,9 @@ Figure 11: Demo Tool GUI
    - <integer>: Formed from the sum of last 3 octets (in decimal) of the
    MAC address found in the device.
 
-   |image3|
+   |image2|
 
-   Figure 12: Boot target – Serial number update
+   Figure 2: Boot target – Serial number update
 
    Since a new serial number is generated from the MAC address of the
    device, devices with the same MAC address will get updated with the
@@ -50,7 +50,7 @@ Figure 11: Demo Tool GUI
 
    User can manually update the new serial number to the device
    following the instructions mentioned in section: `New Serial Number
-   to Device – Manual Method <#_References>`__.
+   to Device – Manual Method <#_References>`.
 
 2. **AP Options**: The SSID and Passphrase entered in the respective
    fields will connect the EVK board to the Access Point. Once
@@ -81,25 +81,18 @@ Figure 11: Demo Tool GUI
 
    a. **RESET**:
 
-..
-
    Reload the application in Flash memory
 
 b. **PROG RAM**:
-
-..
 
    Program the application to RAM memory
 
 c. **PROG FLASH**:
 
-..
-
    Program the application to Flash memory
 
 d. **CLEAR FLASH**:
 
-..
 
    Erase the application in Flash memory
 
@@ -110,46 +103,43 @@ the same during PROG RAM through a pop-up message as shown in Figure 13.
 User can select the Do not show again checkbox to stop this pop-up
 message from appearing next time.
 
+|image3|
+
+Figure 3: PROG RAM alert message
+
+The console window is as shown in Figure 4.
+
 |image4|
 
-Figure 13: PROG RAM alert message
-
-The console window is as shown in Figure *14*.
-
-|A screenshot of a computer Description automatically generated|
-
-Figure 14: Console window
+Figure 4: Console window
 
 The console window has the following icons (with Hover Text):
 
-1. **Auto Scroll** |A black and white sign with a down arrow Description
-   automatically generated|: Enables scrolling of console content till
+1. **Auto Scroll** : Enables scrolling of console content till
    the end (default mode).
 
-2. **Pause Scroll** |A grey square with a black arrow Description
-   automatically generated|: Turns OFF Auto Scroll mode.
+2. **Pause Scroll** : Turns OFF Auto Scroll mode.
 
-3. **Clear Console** |image5|: Clears console window content.
+3. **Clear Console** : Clears console window content.
 
-4. **Save Logs** |image6|: Opens a file dialog with Console_Output.log
+4. **Save Logs** : Opens a file dialog with Console_Output.log
    as the default file name to save the logs.
 
 Note: Only upcoming data after starting the Save Logs is saved in the
 file.
 
-5. **Stop Save Logs** |image7| : Stops saving console logs to the file.
+5. **Stop Save Logs** : Stops saving console logs to the file.
    This icon appears after Save Logs is started successfully.
 
-6. **Pop Out** |image8|: Pops out the console window separate from the
+6. **Pop Out** : Pops out the console window separate from the
    GUI window.
 
-7. **Pop In** |A black and white image of a square and a square with an
-   arrow pointing up Description automatically generated|: Embeds the
+7. **Pop In** : Embeds the
    console and GUI window together.
 
 Keeping this tool idle for a while (around 2 to 3 hours), may lead to
 loss of communication to the EVK device. This is indicated in the
-console as “Error communicating with FTDI device”, as show in Figure 15.
+console as “Error communicating with FTDI device”, as show in Figure 5.
 Workaround for this is as follows:
 
 1. Close the tool
@@ -158,9 +148,9 @@ Workaround for this is as follows:
 
 3. Re-open the tool again
 
-|image9|
+|image5|
 
-Figure 15: Error communicating with FTDI device
+Figure 5: Error communicating with FTDI device
 
 .. |image1| image:: media/image1.png
    :width: 0.64643in
@@ -173,33 +163,9 @@ Figure 15: Error communicating with FTDI device
 .. |image4| image:: media/image4.png
    :width: 7.48031in
    :height: 2.54634in
-.. |A screenshot of a computer Description automatically generated| image:: media/image5.png
+.. |image5| image:: media/image5.png
    :width: 7.48031in
    :height: 2.33833in
-.. |A black and white sign with a down arrow Description automatically generated| image:: media/image6.png
-   :width: 0.225in
-   :height: 0.24514in
-.. |A grey square with a black arrow Description automatically generated| image:: media/image7.png
-   :width: 0.21667in
-   :height: 0.23194in
-.. |image5| image:: media/image8.png
-   :width: 0.20764in
-   :height: 0.21667in
-.. |image6| image:: media/image9.png
-   :width: 0.20833in
-   :height: 0.21458in
-.. |image7| image:: media/image10.png
-   :width: 0.21875in
-   :height: 0.225in
-.. |image8| image:: media/image11.png
-   :width: 0.20833in
-   :height: 0.20833in
-.. |A black and white image of a square and a square with an arrow pointing up Description automatically generated| image:: media/image12.png
-   :width: 0.225in
-   :height: 0.225in
-.. |image9| image:: media/image13.png
-   :width: 7.48031in
-   :height: 1.56384in
 
 
 .. toctree::

@@ -1,4 +1,4 @@
-.._3201 prog t2:
+.. _3201 prog t2:
 
 Programming Talaria TWO
 -----------------------

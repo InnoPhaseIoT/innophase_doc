@@ -1,3 +1,6 @@
+.. _3201 testing basic ops uc1:
+
+
 Use Case 1: Station Mode Wi-Fi Connection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -38,51 +41,46 @@ Console outputs:
 
 1. ./conmgr scan
 
-..
+|image1|
 
-   |Text Description automatically generated|
-
-Figure 9: ./conmgr scan – output
+Figure 1: ./conmgr scan – output
 
 2. ./conmgr connect innotest 123456789
 
-|A screenshot of a computer Description automatically generated|
+|image2|
 
-Figure 10: ./conmgr connect - output
+Figure 2: ./conmgr connect - output
 
 3. ./conmgr ip
 
-|A screenshot of a computer Description automatically generated with
-medium confidence|
+|image3|
 
-Figure 11: ./conmgr ip – output
+Figure 3: ./conmgr ip – output
 
 4. ./conmgr status
 
-|image1|
+|image4|
 
-Figure 12: ./conmgr status – output
+Figure 4: ./conmgr status – output
 
 5. ./conmgr disconnect
 
-..
+|image5|
 
-   |image2|
+Figure 5: ./conmgr disconnect – output
 
-Figure 13: ./conmgr disconnect – output
-
-.. |Text Description automatically generated| image:: media/image1.png
+.. |image1| image:: media/image1.png
    :width: 7.08661in
    :height: 3.53581in
-.. |A screenshot of a computer Description automatically generated| image:: media/image2.png
+.. |image2| image:: media/image2.png
    :width: 7.10694in
    :height: 0.91319in
-.. |A screenshot of a computer Description automatically generated with medium confidence| image:: media/image3.png
+.. |image3| image:: media/image3.png
    :width: 7.08661in
    :height: 2.02998in
-.. |image1| image:: media/image4.png
+.. |image4| image:: media/image4.png
    :width: 7.08661in
    :height: 5.32079in
-.. |image2| image:: media/image5.png
+.. |image5| image:: media/image5.png
    :width: 7.08661in
    :height: 0.87238in

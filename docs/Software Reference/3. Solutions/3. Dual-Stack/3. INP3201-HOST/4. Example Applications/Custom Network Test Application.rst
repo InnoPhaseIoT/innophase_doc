@@ -1,3 +1,6 @@
+.. _3201 custom nw test:
+
+
 Custom Network Test Application
 -------------------------------
 
@@ -22,17 +25,17 @@ Command Description
 
 Connect to an Access Point with the specified SSID and passphrase.
 
-+-----------------------------------------------------------------------+
-| $ ./conmgr connect <SSID> <passphrase>                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    $ ./conmgr connect <SSID> <passphrase>   
+
 
 Connect to a remote Host over TCP from Talaria TWO.
 
-+-----------------------------------------------------------------------+
-| # ./custom_nw cli <hostname> <port>                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    # ./custom_nw cli <hostname> <port>         
+
 
 where,
 
@@ -42,10 +45,10 @@ where,
 
 Close TCP connection with remote Host.
 
-+-----------------------------------------------------------------------+
-| # ./custom_nw close                                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    # ./custom_nw close      
+
 
 Procedure
 ~~~~~~~~~
@@ -70,25 +73,16 @@ Expected Output
 Host Console Logs
 ^^^^^^^^^^^^^^^^^
 
-+-----------------------------------------------------------------------+
-| pi@raspberrypi:~/dualstack_redesign/hapi $ ./dual_stack/bins/conmgr   |
-| connect WifiVirus stonewall300                                        |
-|                                                                       |
-| Connected                                                             |
-|                                                                       |
-| Status : Success                                                      |
-|                                                                       |
-| pi@raspberrypi:~/dualstack_redesign/hapi $                            |
-| ./dual_stack/bins/custom_nw cli 1 192.168.1.155 20022                 |
-|                                                                       |
-| Status : Success                                                      |
-|                                                                       |
-| pi@raspberrypi:~/dualstack_redesign/hapi $                            |
-| ./dual_stack/bins/custom_nw close                                     |
-|                                                                       |
-| Status : Success                                                      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    pi@raspberrypi:~/dualstack_redesign/hapi $ ./dual_stack/bins/conmgr connect WifiVirus stonewall300
+    Connected
+    Status : Success
+    pi@raspberrypi:~/dualstack_redesign/hapi $ ./dual_stack/bins/custom_nw cli 1 192.168.1.155 20022
+    Status : Success
+    pi@raspberrypi:~/dualstack_redesign/hapi $ ./dual_stack/bins/custom_nw close
+    Status : Success
+
 
 List of Message IDs Used
 ~~~~~~~~~~~~~~~~~~~~~~~~

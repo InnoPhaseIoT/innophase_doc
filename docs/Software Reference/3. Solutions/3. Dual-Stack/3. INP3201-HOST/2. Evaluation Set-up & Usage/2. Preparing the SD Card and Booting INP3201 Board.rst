@@ -1,3 +1,6 @@
+.. _3201 eval prep sd card:
+
+
 Preparing the SD Card and Booting INP3201 Board
 -----------------------------------------------
 
@@ -10,68 +13,52 @@ for the very first time.
 2. Create a new FAT partition in SDCARD – sdcard is enumerated as
    /dev/sda
 
-+-----------------------------------------------------------------------+
-| sudo fdisk /dev/sda                                                   |
-|                                                                       |
-| //For creating a new partition type n                                 |
-|                                                                       |
-| Command (m for help): n <enter>                                       |
-|                                                                       |
-| //Select default primary partition                                    |
-|                                                                       |
-| Select (p(default) - primary (1 primary, 0 extended, 3 free),         |
-|                                                                       |
-| e – extended(container for logical partitions)): <enter>              |
-|                                                                       |
-| //Use default partition number 1                                      |
-|                                                                       |
-| Partition number (1 - 4, default 1): <enter>                          |
-|                                                                       |
-| First sector (2048 – 62333951, default 2048): <enter>                 |
-|                                                                       |
-| Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048 – 62333951,       |
-| default 62333951): <enter>                                            |
-|                                                                       |
-| //Created a new partition 1 of ‘Linux’ and size of 29.7 GiB.          |
-|                                                                       |
-| //For writing the changes to SDCARD type w                            |
-|                                                                       |
-| Command (m for help): w <enter>                                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image1|\ |image2|\ |A screenshot of a computer program Description
-automatically generated with medium confidence|
+   sudo fdisk /dev/sda
+   //For creating a new partition type n
+   Command (m for help): n <enter>
 
-Figure 5: Create a new FAT partition
+   //Select default primary partition
+   Select (p(default) - primary (1 primary, 0 extended, 3 free), 
+   e – extended(container for logical partitions)): <enter>
+
+   //Use default partition number 1
+   Partition number (1 - 4, default 1): <enter>
+
+   First sector (2048 – 62333951, default 2048): <enter>
+   Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048 – 62333951, default 62333951): <enter>
+   //Created a new partition 1 of ‘Linux’ and size of 29.7 GiB.
+   //For writing the changes to SDCARD type w
+   Command (m for help): w <enter>
+
+
+|image1|
+
+Figure 1: Create a new FAT partition
 
 3. Create FAT filesystem on this new partition
 
-+-----------------------------------------------------------------------+
-| sudo mkfs.vfat /dev/sda1                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image3|\ |image4|
+      sudo mkfs.vfat /dev/sda1  
 
-Figure 6: Create FAT filesystem
+
+|image2|
+
+Figure 2: Create FAT filesystem
 
 4. Copy the pre-built MMC u-boot image given in the T31ZX SDK to SDCARD
 
-SDK u-boot path:
-*T31ZX_files/T31ZX-Battery-Camera/NDA/SDK/firmware/sdcard_uboot*
+SDK u-boot path: *T31ZX_files/T31ZX-Battery-Camera/NDA/SDK/firmware/sdcard_uboot*
 
-+-----------------------------------------------------------------------+
-| sudo dd if=t31z_sdcard_uboot_uart1_v1.bin of=/dev/sda1 bs=1024        |
-| seek=17                                                               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image5|\ |image6|\ |image7|\ |image8|\ |image9|\ |image10|\ |image11|\ |image12|\ |A
-picture containing text, screenshot, font Description automatically
-generated|
+      sudo dd if=t31z_sdcard_uboot_uart1_v1.bin of=/dev/sda1 bs=1024 seek=17
 
-Figure 7: Pre-build MMC u-boot image
+|image3|
+
+Figure 3: Pre-build MMC u-boot image
 
 5. Insert the SD card into the SD card slot of INP3201. Power ON the
    INP3201 by pressing the boot-select button to boot the uboot
@@ -79,34 +66,8 @@ Figure 7: Pre-build MMC u-boot image
 .. |image1| image:: media/image1.png
    :width: 1.01875in
    :height: 0.14375in
-.. |image2| image:: media/image1.png
+.. |image2| image:: media/image2.png
    :width: 1.01875in
    :height: 0.14375in
-.. |A screenshot of a computer program Description automatically generated with medium confidence| image:: media/image2.png
-   :width: 6.96736in
-   :height: 3.55069in
-.. |image3| image:: media/image1.png
+.. |image3| image:: media/image3.png
    :width: 1.01875in
-.. |image4| image:: media/image3.png
-   :width: 6.96875in
-   :height: 0.24028in
-.. |image5| image:: media/image1.png
-   :width: 1.01875in
-   :height: 0.16042in
-.. |image6| image:: media/image1.png
-   :width: 1.01875in
-.. |image7| image:: media/image1.png
-   :width: 1.01875in
-.. |image8| image:: media/image4.png
-   :width: 0.42639in
-.. |image9| image:: media/image4.png
-   :width: 0.42639in
-.. |image10| image:: media/image4.png
-   :width: 0.42639in
-.. |image11| image:: media/image4.png
-   :width: 0.42639in
-.. |image12| image:: media/image4.png
-   :width: 0.42639in
-.. |A picture containing text, screenshot, font Description automatically generated| image:: media/image5.png
-   :width: 6.96875in
-   :height: 1.10833in

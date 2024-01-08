@@ -1,3 +1,6 @@
+.. _3201 custom echo:
+
+
 Custom Echo Application
 -----------------------
 
@@ -23,20 +26,20 @@ to send the text to Talaria TWO and get a response for it.
 Send <text_to_send> to Talaria TWO. Talaria TWO responds with the same
 data.
 
-+-----------------------------------------------------------------------+
-| $ ./custom_echo <text_to_send>                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      $ ./custom_echo <text_to_send>  
+
 
 Send <text_to_send> to Talaria TWO. Talaria TWO responds with data in
 inverted case.
 
 [1=invert case \| 0=don’t invert case]
 
-+-----------------------------------------------------------------------+
-| $ ./custom_echo <text_to_send>                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      $ ./custom_echo <text_to_send>     
+
 
 Expected Output
 ~~~~~~~~~~~~~~~
@@ -44,36 +47,27 @@ Expected Output
 Host Console Logs
 ^^^^^^^^^^^^^^^^^
 
-|A screenshot of a computer program Description automatically generated|
+|image1|
 
 Figure 1: custom_echo – host serial log
 
 Host console log – text output:
 
-+-----------------------------------------------------------------------+
-| # ./custom_echo innophase 0                                           |
-|                                                                       |
-| Resp status: 0                                                        |
-|                                                                       |
-| Resp len: 9                                                           |
-|                                                                       |
-| Resp data: innophase                                                  |
-|                                                                       |
-| Status : Success                                                      |
-|                                                                       |
-| # ./custom_echo innophase 1                                           |
-|                                                                       |
-| Resp status: 0                                                        |
-|                                                                       |
-| Resp len: 9                                                           |
-|                                                                       |
-| Resp data: INNOPHASE                                                  |
-|                                                                       |
-| Status : Success                                                      |
-|                                                                       |
-| #                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      # ./custom_echo innophase 0
+      Resp status: 0
+      Resp len: 9
+      Resp data: innophase
+      Status : Success
+      # ./custom_echo innophase 1
+      Resp status: 0
+      Resp len: 9
+      Resp data: INNOPHASE
+      
+      Status : Success
+      #
+
 
 List of Message IDs Used
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -92,6 +86,6 @@ This message is sent to Talaria TWO when application is invoked with
 invert as 1. Talaria TWO receives this message and replies with
 CUSTOM_ECHO_ECHO_INVERTED_RSP, with inverted case data.
 
-.. |A screenshot of a computer program Description automatically generated| image:: media/image1.png
+.. |image1| image:: media/image1.png
    :width: 3.93681in
    :height: 3.29306in

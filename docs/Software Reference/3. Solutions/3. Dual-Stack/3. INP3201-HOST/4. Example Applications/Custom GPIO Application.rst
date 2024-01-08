@@ -1,3 +1,6 @@
+.. _3201 custom gpio:
+
+
 Custom GPIO Application
 -----------------------
 
@@ -24,25 +27,25 @@ to set/clear/monitor GPIO pins in Talaria TWO.
 
 For this application, the allowed GPIOs are GPIO17, GPIO18 and GPIO19.
 
-+-----------------------------------------------------------------------+
-| # ./custom_gpio set <GPIO num>                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      # ./custom_gpio set <GPIO num>  
+
 
 To clear the GPIO state, Talaria TWO will clear the GPIO output.
 
-+-----------------------------------------------------------------------+
-| # ./custom_gpio clear <GPIO num>                                      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      # ./custom_gpio clear <GPIO num>  
+
 
 To monitor GPIO state changes, Talaria TWO will send GPIO state change
 indications to the Host.
 
-+-----------------------------------------------------------------------+
-| # ./custom_gpio monitor <GPIO num>                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      # ./custom_gpio monitor <GPIO num>     
+
 
 Procedure
 ~~~~~~~~~
@@ -65,45 +68,32 @@ Expected Output
 Host Console Logs
 ^^^^^^^^^^^^^^^^^
 
-|image1|\ |image2|\ |image3|\ |image4|\ |A computer screen with white
-text Description automatically generated|
+|image3|
 
-Figure 2: custom_gpio – host serial log
+Figure 1: custom_gpio – host serial log
 
 Host console log – text output:
 
-+-----------------------------------------------------------------------+
-| innophase@inn                                                         |
-| ophase-ThinkPad-E15-Gen-2:~/Documents/xxxxxxxxx/hapi/dual_stack/bins$ |
-| ./custom_gpio monitor 18& [3] 17202                                   |
-|                                                                       |
-| innophase@inn                                                         |
-| ophase-ThinkPad-E15-Gen-2:~/Documents/xxxxxxxxx/hapi/dual_stack/bins$ |
-| ./custom_gpio set 19                                                  |
-|                                                                       |
-| GPIO State changed..                                                  |
-|                                                                       |
-| Group_id :0x41,msg_id ::0xc3,                                         |
-|                                                                       |
-| GPIO state=0                                                          |
-|                                                                       |
-| GPIO State changed..                                                  |
-|                                                                       |
-| Group_id :0x41,msg_id ::0xc3,                                         |
-|                                                                       |
-| GPIO state=1                                                          |
-|                                                                       |
-| innophase@inn                                                         |
-| ophase-ThinkPad-E15-Gen-2:~/Documents/xxxxxxxxx/hapi/dual_stack/bins$ |
-| ./custom_gpio clear 19                                                |
-|                                                                       |
-| GPIO State changed..                                                  |
-|                                                                       |
-| Group_id :0x41,msg_id ::0xc3,                                         |
-|                                                                       |
-| GPIO state=0                                                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      innophase@innophase-ThinkPad-E15-Gen-2:~/Documents/xxxxxxxxx/hapi/dual_stack/bins$ ./custom_gpio monitor 18& [3] 17202
+      innophase@innophase-ThinkPad-E15-Gen-2:~/Documents/xxxxxxxxx/hapi/dual_stack/bins$ ./custom_gpio set 19
+      
+      GPIO State changed..
+      Group_id :0x41,msg_id ::0xc3,
+      GPIO state=0
+      
+      GPIO State changed..
+      Group_id :0x41,msg_id ::0xc3,
+      GPIO state=1
+      
+      innophase@innophase-ThinkPad-E15-Gen-2:~/Documents/xxxxxxxxx/hapi/dual_stack/bins$ ./custom_gpio clear 19
+      
+      GPIO State changed..
+      Group_id :0x41,msg_id ::0xc3,
+      GPIO state=0
+
+
 
 List of Message IDs Used
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -138,18 +128,6 @@ When GPIO monitor is issued, Talaria TWO starts monitoring the GPIO
 state changes. Whenever the state changes, it sends a state change
 indication message to Host.
 
-.. |image1| image:: media/image1.png
-   :width: 0.81736in
-   :height: 0.18403in
-.. |image2| image:: media/image1.png
-   :width: 0.81736in
-   :height: 0.18403in
-.. |image3| image:: media/image1.png
-   :width: 0.81736in
-   :height: 0.18403in
-.. |image4| image:: media/image1.png
-   :width: 0.81736in
-   :height: 0.18403in
-.. |A computer screen with white text Description automatically generated| image:: media/image2.png
+.. |image3| image:: media/image3.png
    :width: 7.48056in
    :height: 3.30694in

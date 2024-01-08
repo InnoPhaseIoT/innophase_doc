@@ -1,3 +1,6 @@
+.. _3201 testing basic ops:
+
+
 Testing for Basic Operations 
 -----------------------------
 
@@ -14,9 +17,6 @@ There are three application init scripts in /system/init folder:
 When T31zx booting is completed, the init script loads the sdio-wlan.ko
 driver module and runs the tunadapter application as an initial step to
 use the Talaria TWO Dual-Stack commands.
-
-For more details on the tunadapter, refer: UG_Dual_Stack.pdf
-(*talaria_two_dual_stack_vx.y\\host\\INP3201\\doc*).
 
 
 .. toctree::

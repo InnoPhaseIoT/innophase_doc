@@ -1,8 +1,8 @@
+.. _3201 aws vs prep sd card:
+
 
 Preparing the SD Card and Booting INP3201 Board
 ----------------------------------------------------------------
 
 For information on preparing the SD card and booting the INP3201 board,
-refer section: *Preparing the SD Card and Booting INP3201 Board* in the
-document: QSG_Talaria_TWO_Dual-Stack_INP3201.pdf
-(*\\talaria_two_dual_stack\\talaria_two_dual_stack_vx.y*).
+refer section: *Preparing the SD Card and Booting INP3201 Board*.

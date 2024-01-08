@@ -1,3 +1,5 @@
+.._3201 mcu fw flashing:
+
 The INP3201 Low Power Video Camera Reference Kit empowers embedded
 designers with IoT enabled Wi-Fi camera design for multiple video
 applications like video doorbell, IP camera, security camera, drones

@@ -1,3 +1,6 @@
+.. _3201 prog host:
+
+
 Programming T31ZX Host
 ----------------------
 
@@ -18,33 +21,24 @@ Execute the following steps to program T31ZX Host with T31ZX_INP3021.bin
 
 5. Reboot the board to start booting Linux kernel from SPI flash.
 
-+-----------------------------------------------------------------------+
-| //Filling the 16MB RAM with 0xff                                      |
-|                                                                       |
-| mw.b 0x80600000 0xff 0x1000000                                        |
-|                                                                       |
-| //Loading the image from SDCRAD to RAM                                |
-|                                                                       |
-| fatload mmc 0 0x80600000 T31ZX_INP3201.bin                            |
-|                                                                       |
-| //initialize the SPI flash                                            |
-|                                                                       |
-| sf probe                                                              |
-|                                                                       |
-| //Erase the 16MB flash                                                |
-|                                                                       |
-| sf erase 0x0 0x1000000                                                |
-|                                                                       |
-| //Write the image from RAM to SPI flash                               |
-|                                                                       |
-| sf write 0x80600000 0x0 0x1000000                                     |
-|                                                                       |
-| //remove the SDCARD and Reboot the board                              |
-|                                                                       |
-| reset                                                                 |
-|                                                                       |
-| Now the INP3201 board will boot the Linux kernel.                     |
-|                                                                       |
-| Zeratul login: root                                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      //Filling the 16MB RAM with 0xff
+      mw.b 0x80600000 0xff 0x1000000
+
+      //Loading the image from SDCRAD to RAM
+      fatload mmc 0 0x80600000 T31ZX_INP3201.bin 
+
+      //initialize the SPI flash
+      sf probe
+
+      //Erase the 16MB flash
+      sf erase 0x0 0x1000000
+
+      //Write the image from RAM to SPI flash
+      sf write 0x80600000 0x0 0x1000000
+      //remove the SDCARD and Reboot the board
+      reset
+      Now the INP3201 board will boot the Linux kernel.
+      Zeratul login: root
+

@@ -1,3 +1,6 @@
+.. _3201 current measurement:
+
+
 Current Measurement
 ------------------------
 
@@ -9,11 +12,11 @@ current anytime during the INP3201 testing. A series of ammeters can be
 connected between the J7 jumper for accurate current measurement at all
 modes including the powersave mode of Talaria TWO.
 
-Figure 12 depicts the current measurement setup for Talaria TWO.
+Figure 1 depicts the current measurement setup for Talaria TWO.
 
-|A close up of a circuit board Description automatically generated|
+|image1|
 
-Figure 12: Talaria TWO current measurement on INP3201
+Figure 1: Talaria TWO current measurement on INP3201
 
 T31
 ~~~~
@@ -23,14 +26,13 @@ current during INP3201 testing. A series of ammeters can be connected
 between the J13 PIN 1 and 2 for current measurement in powersave mode
 and J13 PIN 2 and 3 when powersave is disabled.
 
-|A close-up of a circuit board Description automatically generated with
-medium confidence|
+|image2|
 
-Figure 13: T31 current measurement - powersave enabled
+Figure 2: T31 current measurement - powersave enabled
 
-|image1|
+|image3|
 
-Figure 14: T31 current measurement - powersave disabled
+Figure 3: T31 current measurement - powersave disabled
 
 INP3201 Board
 ~~~~~~~~~~~~~~~
@@ -39,19 +41,19 @@ Jumper J11 as indicated in Table 2 can be used to measure the complete
 board current during INP3201 testing. A series of ammeters can be
 connected between the J11 as indicated in Figure 15.
 
-|A close-up of a circuit board Description automatically generated|
+|image4|
 
-Figure 15: Complete INP3201 board current measurement
+Figure 4: Complete INP3201 board current measurement
 
-.. |A close up of a circuit board Description automatically generated| image:: media/image1.png
+.. |image1| image:: media/image1.png
    :width: 6.88976in
    :height: 4.47146in
-.. |A close-up of a circuit board Description automatically generated with medium confidence| image:: media/image2.jpeg
+.. |image2| image:: media/image2.jpeg
    :width: 7.08661in
    :height: 3.54331in
-.. |image1| image:: media/image3.jpeg
+.. |image3| image:: media/image3.jpeg
    :width: 7.08661in
    :height: 3.54331in
-.. |A close-up of a circuit board Description automatically generated| image:: media/image4.jpeg
+.. |image4| image:: media/image4.jpeg
    :width: 7.48031in
    :height: 3.38495in

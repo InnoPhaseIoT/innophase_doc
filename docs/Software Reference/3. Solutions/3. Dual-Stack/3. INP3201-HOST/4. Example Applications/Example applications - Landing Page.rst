@@ -1,3 +1,6 @@
+.. _3201 ex apps:
+
+
 Dual-Stack solution is a hosted solution with Talaria TWO Wi-Fi module
 which replaces normal Wi-Fi driver concept of Linux stack. This solution
 is suitable for power consuming high performance host processor with
@@ -65,14 +68,11 @@ For example:
 
 3. Build the application using make command.
 
-+-----------------------------------------------------------------------+
-| $ cd <PACKAGE>/host/<platform>/dual-stack/                            |
-|                                                                       |
-| $ make clean                                                          |
-|                                                                       |
-| $ make platform=<host>_SDIO                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      $ cd <PACKAGE>/host/<platform>/dual-stack/    
+      $ make clean
+      $ make platform=<host>_SDIO
 
 Copy the compiled binaries to host using TFTP/SD card depending on
 availability of the ethernet interface or SD card slot on host platform.

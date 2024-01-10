@@ -1,3 +1,5 @@
+.. _ex i2c:
+
 I2C
 -------------
 
@@ -41,16 +43,15 @@ prototyping/testing:
 
 3. Light (TI OPT3002)
 
-|A picture containing text, electronics, circuit Description
-automatically generated|
+|image21|
 
-Figure : On-board I2C sensors
+Figure 1: On-board I2C sensors
 
 **Note :** To use the sensors on I2C bus the jumpers J7, J8 and pins 1 &
 2 of J1 should be connected as shown in the picture below. This enables
 the I2C clock, I2C data and power connection to the sensors on board.
 
-|image1|
+|image22|
 
 Figure 2: I2C sensor jumper connection
 
@@ -63,6 +64,8 @@ Source Code Walkthrough
 
 Directory Structure
 ~~~~~~~~~~~~~~~~~~~~~~
+
+|image23|
 
 Figure 3: File directory tree
 
@@ -205,39 +208,25 @@ values over I2C. The sensor_app_init() creates a thread called
 sensor_app_main that initializes the I2C bus. Sensors fetch the sensor
 IDs, reads and prints the sensor data.
 
-+-----------------------------------------------------------------------+
-| /\* Create a thread to handle the i2c sensor \*/                      |
-|                                                                       |
-| xTaskCreate(sensor_app_main, /\* The function that implements the     |
-| task. \*/                                                             |
-|                                                                       |
-| "sens_thread", /\* The text name assigned to the task - for debug     |
-| only as                                                               |
-|                                                                       |
-| \* it is not used by the kernel. \*/                                  |
-|                                                                       |
-| APP_THREAD_STACK_SIZE                                                 |
-|                                                                       |
-| / 4, /\* The size of the stack to allocate to the task. \*/           |
-|                                                                       |
-| NULL, /\* The parameter passed to the task - not used in this case.   |
-| \*/                                                                   |
-|                                                                       |
-| (APP_THREAD_PRIO), /\* The priority assigned to the task. \*/         |
-|                                                                       |
-| &app_thread);                                                         |
-|                                                                       |
-| if (app_thread == NULL) {                                             |
-|                                                                       |
-| os_printf(" thread creation failed\\n");                              |
-|                                                                       |
-| return;                                                               |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| vTaskSuspend(NULL);                                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      /* Create a thread to handle the i2c sensor */
+          xTaskCreate(sensor_app_main, /* The function that implements the task. */
+              "sens_thread", /* The text name assigned to the task - for debug only as
+                              * it is not used by the kernel. */
+              APP_THREAD_STACK_SIZE
+                  / 4, /* The size of the stack to allocate to the task. */
+              NULL, /* The parameter passed to the task - not used in this case. */
+              (APP_THREAD_PRIO), /* The priority assigned to the task. */
+              &app_thread);
+      
+          if (app_thread == NULL) {
+              os_printf(" thread creation failed\n");
+              return;
+          }
+      
+          vTaskSuspend(NULL);
+
 
 xTaskCreate routine initializes the given thread pointed to the argument
 and puts the thread on an active queue. This app thread allows the user
@@ -251,56 +240,41 @@ init_i2c will initialize the bus driver after enabling the internal
 pull-ups on SCL and SDA pins of Talaria TWO module. It routes the SCL
 and SDA pins to the corresponding GPIOs.
 
-+-----------------------------------------------------------------------+
-| os_gpio_set_pull(GPIO_PIN(SCL_PIN) \| GPIO_PIN(SDA_PIN));             |
-|                                                                       |
-| os_gpio_mux_sel(GPIO_MUX_SEL_SCL, SCL_PIN);                           |
-|                                                                       |
-| os_gpio_mux_sel(GPIO_MUX_SEL_SDA, SDA_PIN);                           |
-|                                                                       |
-| return i2c_bus_init(0);                                               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      os_gpio_set_pull(GPIO_PIN(SCL_PIN) | GPIO_PIN(SDA_PIN));
+      os_gpio_mux_sel(GPIO_MUX_SEL_SCL, SCL_PIN);
+      os_gpio_mux_sel(GPIO_MUX_SEL_SDA, SDA_PIN);
+      return i2c_bus_init(0);
+
 
 It then begins to initialize the I2C bus with corresponding GPIO pins
 after which it initiates the sensors by init_sensors().
 
-+-----------------------------------------------------------------------+
-| int rc;                                                               |
-|                                                                       |
-| struct i2c_bus \*bus = NULL;                                          |
-|                                                                       |
-| sensor_id_t ids = {};                                                 |
-|                                                                       |
-| bus = init_i2c();                                                     |
-|                                                                       |
-| init_sensors(bus);                                                    |
-|                                                                       |
-| get_sensor_ids(&ids);                                                 |
-|                                                                       |
-| print_sensor_ids(&ids);                                               |
-|                                                                       |
-| os_printf("\\n");                                                     |
-|                                                                       |
-| sensor_reading_t \*readings = NULL;                                   |
-|                                                                       |
-| readings = osal_zalloc(sizeof(\*readings));                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      int rc;
+      struct i2c_bus *bus = NULL;
+      sensor_id_t ids = {};
+      bus = init_i2c();
+      init_sensors(bus);
+      get_sensor_ids(&ids);
+      print_sensor_ids(&ids);
+      os_printf("\n");
+      sensor_reading_t *readings = NULL;
+      readings = osal_zalloc(sizeof(*readings));
+
 
 Sensor readings are read using the poll_sensors() function and is
 printed on the console for every 2 seconds.
 
-+-----------------------------------------------------------------------+
-| poll_sensors(readings);                                               |
-|                                                                       |
-| print_sensor_readings(readings, 1);                                   |
-|                                                                       |
-| poll_sensors(readings);                                               |
-|                                                                       |
-| vTaskDelay (2000);                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      poll_sensors(readings);
+      print_sensor_readings(readings, 1);
+      poll_sensors(readings);
+      vTaskDelay (2000);
+
 
 sensor.c 
 ~~~~~~~~~
@@ -310,39 +284,32 @@ sensors are initiated from here by the following functions:
 
 BMP388 (Pressure sensor) - bmp388_init() initiates the pressure sensor.
 
-+-----------------------------------------------------------------------+
-| bmp388_init(&pres_sen,&dev,bus,0x76);                                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bmp388_init(&pres_sen,&dev,bus,0x76);  
+
 
 Opt3002 (Light sensor) - opt3002_init() initiates the light sensor.
 
-+-----------------------------------------------------------------------+
-| opt3002_init(&opt_sen, bus, 0x44);                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      opt3002_init(&opt_sen, bus, 0x44);    
+
 
 shtc3 (Temperature/Humidity sensor) - sensirion_i2c_init() initializes
 the temp/hum sensor.
 
-+-----------------------------------------------------------------------+
-| sensirion_i2c_init(bus);                                              |
-|                                                                       |
-| shtc1_probe();                                                        |
-|                                                                       |
-| shtc1_enable_low_power_mode(1);                                       |
-|                                                                       |
-| #else                                                                 |
-|                                                                       |
-| sensirion_i2c_init(bus);                                              |
-|                                                                       |
-| shtc1_probe();                                                        |
-|                                                                       |
-| sensirion_i2c_release();                                              |
-|                                                                       |
-| #endif                                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+          sensirion_i2c_init(bus);
+          shtc1_probe();
+          shtc1_enable_low_power_mode(1);
+      #else
+          sensirion_i2c_init(bus);
+          shtc1_probe();
+          sensirion_i2c_release();
+      #endif
+
 
 In the humidity sensor also there is a need to implement the mode of
 operation. shtc1_probe() enables or disables sleep in the driver based
@@ -354,30 +321,28 @@ sensor.
 BMP388 (Pressure sensor) - bmp3_get_device_ID () API reads the device ID
 of bmp388 pressure sensor. The mode is set using set_normal_mode().
 
-+-----------------------------------------------------------------------+
-| ids->bmp388_id = bmp3_get_device_ID(&dev);                            |
-|                                                                       |
-| set_normal_mode(&dev);                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      ids->bmp388_id = bmp3_get_device_ID(&dev);
+set_normal_mode(&dev);
+
 
 opt3002 (Light sensor) - opt3002_readManufacturerID() reads the
 manufacturing ID of light sensor.
 
-+-----------------------------------------------------------------------+
-| ids->opt3002_id = opt3002_readManufacturerID(&opt_sen);               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      ids->opt3002_id = opt3002_readManufacturerID(&opt_sen);     
+
 
 shtc3 (Temperature/Humidity sensor) - shtc1_read_serial() API reads the
 sensor ID of shtc3 sensor.
 
-+-----------------------------------------------------------------------+
-| ids->shtc3_serial = 0;                                                |
-|                                                                       |
-| shtc1_read_serial(&ids->shtc3_serial);                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      ids->shtc3_serial = 0;
+      shtc1_read_serial(&ids->shtc3_serial);
+
 
 Poll_sensor() function reads the sensor readings of all three sensors.
 
@@ -385,59 +350,39 @@ The get_sensor_data()reads the sensor data. The temperature and pressure
 value of sensors are assigned to temp_bmp and pressure variables of this
 structure sensor_reading_t readings.
 
-+-----------------------------------------------------------------------+
-| reading->pressure = 0;                                                |
-|                                                                       |
-| reading->temp_bmp = 0;                                                |
-|                                                                       |
-| /\* Read pressure and temperature recorded by bmp388 \*/              |
-|                                                                       |
-| float \*sensor_data;                                                  |
-|                                                                       |
-| sensor_data = get_sensor_data(&dev);                                  |
-|                                                                       |
-| reading->temp_bmp = (sensor_data[0]/100);                             |
-|                                                                       |
-| reading->pressure = (sensor_data[1]/100);                             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+          reading->pressure = 0;
+          reading->temp_bmp = 0;
+        /* Read pressure and temperature recorded by bmp388 */
+        	float *sensor_data;
+      	sensor_data = get_sensor_data(&dev);
+      	reading->temp_bmp = (sensor_data[0]/100);
+      	reading->pressure = (sensor_data[1]/100);
+
 
 opt_config_trigger assigns the sensor mode, conversion time and latch
 operation. The opt3002_config_t opt_config_read() function reads the raw
 data. The Memset() function stores the light sensor data in a memory.
 
-+-----------------------------------------------------------------------+
-| opt3002_config_t opt_config_trigger = {                               |
-|                                                                       |
-| .RangeNumber = 0xC, // Automatic full-scale mode                      |
-|                                                                       |
-| .ConversionTime = 0, // 100 ms conversion time                        |
-|                                                                       |
-| .ModeOfConversionOperation = 0x1, // Single-shot mode                 |
-|                                                                       |
-| .Latch = 0x1 // Latched operation                                     |
-|                                                                       |
-| };                                                                    |
-|                                                                       |
-| opt3002_config_t opt_config_read = {.rawData = 0};                    |
-|                                                                       |
-| memset(&reading->light, 0, sizeof(reading->light));                   |
-|                                                                       |
-| opt3002_writeConfig(&opt_sen, opt_config_trigger);                    |
-|                                                                       |
-| sensor_delay(100);                                                    |
-|                                                                       |
-| do                                                                    |
-|                                                                       |
-| { opt_config_read = opt3002_readConfig(&opt_sen);                     |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| while(!opt_config_read.ConversionReady);                              |
-|                                                                       |
-| reading->light = opt3002_readResult(&opt_sen);                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+          opt3002_config_t opt_config_trigger = {
+                  .RangeNumber = 0xC,                 // Automatic full-scale mode
+                  .ConversionTime = 0,                // 100 ms conversion time
+                  .ModeOfConversionOperation = 0x1,   // Single-shot mode
+                  .Latch = 0x1                        // Latched operation
+          };
+          opt3002_config_t opt_config_read = {.rawData = 0};
+          memset(&reading->light, 0, sizeof(reading->light));
+          opt3002_writeConfig(&opt_sen, opt_config_trigger);
+          sensor_delay(100);
+         do
+          {        opt_config_read = opt3002_readConfig(&opt_sen);
+          } 
+      while(!opt_config_read.ConversionReady);
+             reading->light = opt3002_readResult(&opt_sen);
+
 
 opt3002_write_config() triggers the reading of sensor data. The sensor
 reading is assigned to the light member.
@@ -447,16 +392,13 @@ shtc1_measure_blocking_read reads the sensor temperature and humidity
 readings. The sensor readings are assigned to the humidity and temp_shtc
 members.
 
-+-----------------------------------------------------------------------+
-| int32_t humidity_x1000 = 0, temp_shtc_x1000 = 0;                      |
-|                                                                       |
-| shtc1_measure_blocking_read(&temp_shtc_x1000, &humidity_x1000);       |
-|                                                                       |
-| reading->humidity = humidity_x1000 / 1000.0;                          |
-|                                                                       |
-| reading->temp_shtc = temp_shtc_x1000 / 1000.0;                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      int32_t humidity_x1000 = 0, temp_shtc_x1000 = 0;
+      shtc1_measure_blocking_read(&temp_shtc_x1000, &humidity_x1000);
+      reading->humidity = humidity_x1000 / 1000.0;
+      reading->temp_shtc = temp_shtc_x1000 / 1000.0;
+
 
 Also, the printing functions are here to print the readings of the
 sensors to the console.
@@ -479,40 +421,36 @@ for pressure and temperature are selected using the following function:
 **Note**: Here, BMP3_NO_OVERSAMPLING is selected, and the mode of
 operation is chosen to be normal.
 
-+-----------------------------------------------------------------------+
-| int8_t set_normal_mode(struct bmp3_dev \*dev)                         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      int8_t set_normal_mode(struct bmp3_dev \*dev)   
+
 
 Enable the pressure and temperature sensor:
 
-+-----------------------------------------------------------------------+
-| dev->settings.press_en = BMP3_ENABLE;                                 |
-|                                                                       |
-| dev->settings.temp_en = BMP3_ENABLE;                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      dev->settings.press_en = BMP3_ENABLE;
+      dev->settings.temp_en = BMP3_ENABLE;
+
 
 Select the output data rate and oversampling settings for pressure and
 temperature:
 
-+-----------------------------------------------------------------------+
-| dev->settings.odr_filter.press_os = BMP3_NO_OVERSAMPLING;             |
-|                                                                       |
-| dev->settings.odr_filter.temp_os = BMP3_NO_OVERSAMPLING;              |
-|                                                                       |
-| dev->settings.odr_filter.odr = BMP3_ODR_200_HZ;                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      dev->settings.odr_filter.press_os = BMP3_NO_OVERSAMPLING;
+      dev->settings.odr_filter.temp_os = BMP3_NO_OVERSAMPLING;
+      dev->settings.odr_filter.odr = BMP3_ODR_200_HZ;
+
 
 Set the power mode to normal:
 
-+-----------------------------------------------------------------------+
-| ev->settings.op_mode = BMP3_NORMAL_MODE;                              |
-|                                                                       |
-| rslt = bmp3_set_op_mode(dev);                                         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      ev->settings.op_mode = BMP3_NORMAL_MODE;
+      rslt = bmp3_set_op_mode(dev);
+
 
 **Initialize the sensor**
 
@@ -520,22 +458,17 @@ To initiate the sensor, select the digital interface as I2C and instance
 is created of the structure bpm388 by bmp388_init(). Read and write
 instances are also created inside this function.
 
-+-----------------------------------------------------------------------+
-| bmp388->dev = i2c_create_device(bus, address, I2C_CLK_400K);          |
-|                                                                       |
-| dev->dev_id = bmp388->dev;                                            |
-|                                                                       |
-| dev->intf = BMP3_I2C_INTF;                                            |
-|                                                                       |
-| dev->read = bmp3_read_data;                                           |
-|                                                                       |
-| dev->write = bmp3_write_data;                                         |
-|                                                                       |
-| dev->delay_ms = sensor_delay;                                         |
-|                                                                       |
-| bmp3_init(dev);                                                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+
+.. code:: shell
+
+      bmp388->dev = i2c_create_device(bus, address, I2C_CLK_400K);
+      dev->dev_id = bmp388->dev;
+      dev->intf = BMP3_I2C_INTF;
+      dev->read = bmp3_read_data;
+      dev->write = bmp3_write_data;
+      dev->delay_ms = sensor_delay;
+      bmp3_init(dev);
+
 
 **Reading sensor data**
 
@@ -543,32 +476,21 @@ To read the sensor data, create a readData()function. This defines the
 length, flag, and data fields of the sensor. This function read sensor
 data and store it in a buffer.
 
-+-----------------------------------------------------------------------+
-| uint8_t buf[1];                                                       |
-|                                                                       |
-| int ret = 0;                                                          |
-|                                                                       |
-| uint16_t length = 0;                                                  |
-|                                                                       |
-| while(length < len){                                                  |
-|                                                                       |
-| if((ret = read_reg(dev_id, buf, 1))){                                 |
-|                                                                       |
-| os_printf("I2C read error");                                          |
-|                                                                       |
-| return ret;                                                           |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| data[length] = \*buf;                                                 |
-|                                                                       |
-| length++;                                                             |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| return ret;                                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+         uint8_t buf[1];
+          int ret = 0;
+          uint16_t length = 0;
+          while(length < len){
+      	if((ret = read_reg(dev_id, buf, 1))){
+      	    os_printf("I2C read error");
+                  return ret;
+      	}
+      	data[length] = *buf;
+      	length++;
+          }
+            return ret;
+
 
 This executes read transaction on the I2C. The function reads I2C data
 and stores it in buffer. It reads a given number of bytes. If the device
@@ -577,35 +499,22 @@ read I2C data, initialize read_reg()function. This permits reading of
 the I2C data and storing it in msg. This function will be reading the
 I2C data.
 
-+-----------------------------------------------------------------------+
-| struct i2c_msg msg;                                                   |
-|                                                                       |
-| int i2c_result = 0;                                                   |
-|                                                                       |
-| if( !dev_id){                                                         |
-|                                                                       |
-| os_printf("no device\\n");                                            |
-|                                                                       |
-| return -ENODEV;                                                       |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| msg.im_len = count;                                                   |
-|                                                                       |
-| msg.im_flags = I2C_M_RD \| I2C_M_STOP;                                |
-|                                                                       |
-| msg.im_buf = data;                                                    |
-|                                                                       |
-| if ((i2c_result = i2c_transfer(dev_id, &msg, 1))){                    |
-|                                                                       |
-| os_printf("bmp388 i2c read error %d: %s\\n", i2c_result,              |
-| strerror(-i2c_result));                                               |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| return i2c_result;                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+          struct i2c_msg msg;
+          int i2c_result = 0;
+           if( !dev_id){
+      	os_printf("no device\n");
+              return -ENODEV;
+      }
+          msg.im_len = count;
+          msg.im_flags = I2C_M_RD | I2C_M_STOP;
+          msg.im_buf = data;
+            if ((i2c_result = i2c_transfer(dev_id, &msg, 1))){
+      	os_printf("bmp388 i2c read error %d: %s\n", i2c_result, strerror(-i2c_result));
+      	}
+           return i2c_result;
+
 
 **Writing sensor data**
 
@@ -613,14 +522,12 @@ To write the sensor data, create writeData()instance. This defines the
 length, flag, and data fields of the sensor. This function writes the
 command data on a register.
 
-+-----------------------------------------------------------------------+
-| uint8_t command_byte = command;                                       |
-|                                                                       |
-| write_reg( dev_id,&command_byte, 1);                                  |
-|                                                                       |
-| return 0;                                                             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+          uint8_t command_byte = command;
+          write_reg( dev_id,&command_byte, 1);
+          return 0;
+
 
 This permits writing of I2C data in msg buffer. The write_reg()function
 reads the I2C data and stores it in msg buffer. This executes write
@@ -629,35 +536,22 @@ bytes in the supplied buffer must be sent to the given address. If the
 slave device does not acknowledge any of the bytes, an error will be
 returned.
 
-+-----------------------------------------------------------------------+
-| struct i2c_msg msg;                                                   |
-|                                                                       |
-| int i2c_result = 0;                                                   |
-|                                                                       |
-| if( !dev_id){                                                         |
-|                                                                       |
-| os_printf("no device\\n");                                            |
-|                                                                       |
-| return -ENODEV;                                                       |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| msg.im_len = count;                                                   |
-|                                                                       |
-| msg.im_flags = I2C_M_STOP;                                            |
-|                                                                       |
-| msg.im_buf = data;                                                    |
-|                                                                       |
-| if ((i2c_result = i2c_transfer(dev_id, &msg, 1))){                    |
-|                                                                       |
-| os_printf("bmp388 i2c write error in write reg %d: %s\\n",            |
-| i2c_result, strerror(-i2c_result));                                   |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| return i2c_result;                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+          struct i2c_msg msg;
+          int i2c_result = 0;
+           if( !dev_id){
+      	os_printf("no device\n");
+              return -ENODEV;
+      	}
+          msg.im_len = count;
+          msg.im_flags = I2C_M_STOP;
+          msg.im_buf = data;
+          if ((i2c_result = i2c_transfer(dev_id, &msg, 1))){
+          os_printf("bmp388 i2c write error in write reg %d: %s\n", i2c_result, strerror(-i2c_result));
+      	}  
+          return i2c_result;
+
 
  Opt3002.c (Optical sensor)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -670,54 +564,44 @@ an instance of structure:
 opt3002_init() function enables the I2C device, clock signals with
 frequency of 400khz.
 
-+-----------------------------------------------------------------------+
-| opt3002->dev = i2c_create_device(bus, address, I2C_CLK_400K).         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      opt3002->dev = i2c_create_device(bus, address, I2C_CLK_400K)
+
 
 The function readManufacturerID()reads the manufacturing ID of the
 device. This reads the manufacturing ID. If sensor is detected, the
 opt3002_write data exports the manufacturing ID.
 
-+-----------------------------------------------------------------------+
-| uint16_t result = 0;                                                  |
-|                                                                       |
-| int error = opt3002_writeData(opt3002, MANUFACTURER_ID);              |
-|                                                                       |
-| if (!error)                                                           |
-|                                                                       |
-| error = opt3002_readData(opt3002, &result);                           |
-|                                                                       |
-| return result;                                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      uint16_t result = 0;
+      int error = opt3002_writeData(opt3002, MANUFACTURER_ID);
+      if (!error)
+      	error = opt3002_readData(opt3002, &result);
+      return result;
+
 
 This enables the configuration of the read and write functions of
 optical sensor opt3002. The function pt3002_readConfig()defines the
 configuration of reading.
 
-+-----------------------------------------------------------------------+
-| opt3002_config_t config = {.rawData = 0};                             |
-|                                                                       |
-| int error = opt3002_writeData(opt3002, CONFIG);                       |
-|                                                                       |
-| if (!error)                                                           |
-|                                                                       |
-| error = opt3002_readData(opt3002, &config.rawData);                   |
-|                                                                       |
-| return config;                                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      opt3002_config_t config = {.rawData = 0};
+      int error = opt3002_writeData(opt3002, CONFIG);
+      if (!error)
+      	error = opt3002_readData(opt3002, &config.rawData);
+      return config;
+
 
 The opt3001_i2c_write writes the configuration of opt3002 sensor.
 
-+-----------------------------------------------------------------------+
-| uint8_t buf[3] = {CONFIG, config.rawData >> 8, config.rawData &       |
-| 0x00FF};                                                              |
-|                                                                       |
-| return opt3002_i2c_write(opt3002, buf, ARRAY_SIZE(buf));              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      uint8_t buf[3] = {CONFIG, config.rawData >> 8, config.rawData & 0x00FF};
+      return opt3002_i2c_write(opt3002, buf, ARRAY_SIZE(buf));
+
 
 Post initiating, read and write instances are created to read sensor
 data stored in buffer and sent to the I2C bus. The following function
@@ -725,57 +609,38 @@ reads data from opt3002 to the I2C bus. The function opt3002_light_t
 opt3002_readRegister()reads data from sensor in a raw format and makes
 the required calculations by using formula:
 
-+-----------------------------------------------------------------------+
-| (lux = (1.2)*(powr(2, er.Exponent)*er.Result))                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      (lux = (1.2)*(powr(2, er.Exponent)*er.Result))      
+
 
 The calculated data value will be stored lux variable.
 
-+-----------------------------------------------------------------------+
-| int error = opt3002_writeData(opt3002, command);                      |
-|                                                                       |
-| if (!error) {                                                         |
-|                                                                       |
-| opt3002_light_t result;                                               |
-|                                                                       |
-| result.lux = 0;                                                       |
-|                                                                       |
-| result.raw.rawData = 0;                                               |
-|                                                                       |
-| result.error = 0;                                                     |
-|                                                                       |
-| opt3002_ER_t er;                                                      |
-|                                                                       |
-| error = opt3002_readData(opt3002, &er.rawData);                       |
-|                                                                       |
-| if (!error) {                                                         |
-|                                                                       |
-| result.raw = er;                                                      |
-|                                                                       |
-| if(!raw){                                                             |
-|                                                                       |
-| result.lux = (1.2)*(powr(2, er.Exponent)*er.Result);                  |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| else {                                                                |
-|                                                                       |
-| result.error = error;                                                 |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| return result;                                                        |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| else {                                                                |
-|                                                                       |
-| return opt3002_returnError(error);}                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      int error = opt3002_writeData(opt3002, command);
+      if (!error) {
+      		opt3002_light_t result;
+      		result.lux = 0;
+      		result.raw.rawData = 0;
+      		result.error = 0;
+      		opt3002_ER_t er;
+      		error = opt3002_readData(opt3002, &er.rawData);
+      		if (!error) {
+      			result.raw = er;
+      			if(!raw){
+      			    result.lux = (1.2)*(powr(2, er.Exponent)*er.Result);
+      			}
+      		}
+      		else {
+      			result.error = error;
+      		}
+      		return result;
+      	}
+      	else {
+      		return opt3002_returnError(error);}
+
+
 
 **Reading sensor data**
 
@@ -784,85 +649,61 @@ I2C bus, reads data from the sensor through I2C and stores it in buffer.
 If the device does not acknowledge the read command, an error will be
 returned.
 
-+-----------------------------------------------------------------------+
-| struct i2c_msg msg;                                                   |
-|                                                                       |
-| int i2c_result = 0;                                                   |
-|                                                                       |
-| if(!opt3002 \|\| !opt3002->dev)                                       |
-|                                                                       |
-| return -ENODEV;                                                       |
-|                                                                       |
-| msg.im_len = count;                                                   |
-|                                                                       |
-| msg.im_flags = I2C_M_RD \| I2C_M_STOP;                                |
-|                                                                       |
-| msg.im_buf = data;                                                    |
-|                                                                       |
-| if((i2c_result = i2c_transfer(opt3002->dev, &msg, 1)))                |
-|                                                                       |
-| os_printf("opt3002 i2c read error %d: %s\\n", i2c_result,             |
-| strerror(-i2c_result));                                               |
-|                                                                       |
-| return i2c_result;                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+          struct i2c_msg msg;
+          int i2c_result = 0;
+          if(!opt3002 || !opt3002->dev)
+              return -ENODEV;
+          msg.im_len = count;
+          msg.im_flags = I2C_M_RD | I2C_M_STOP;
+          msg.im_buf = data;
+          if((i2c_result = i2c_transfer(opt3002->dev, &msg, 1)))
+              os_printf("opt3002 i2c read error %d: %s\n", i2c_result, strerror(-i2c_result));
+          return i2c_result;
+
+
 
 The opt3002_readData() reads the sensor data and OPT3002 transmits data
 in Big-Endian format.
 
-+-----------------------------------------------------------------------+
-| uint8_t buf[2];                                                       |
-|                                                                       |
-| int ret = 0;                                                          |
-|                                                                       |
-| if((ret = opt3002_i2c_read(opt3002, buf, 2)))                         |
-|                                                                       |
-| return ret;                                                           |
-|                                                                       |
-| \*data = (buf[0] << 8) \| buf[1];                                     |
-|                                                                       |
-| return ret;                                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      uint8_t buf[2];
+          int ret = 0;
+          if((ret = opt3002_i2c_read(opt3002, buf, 2)))
+              return ret;
+          *data = (buf[0] << 8) | buf[1];
+          return ret;
+
 
 **Writing sensor data**
 
 The opt3002_writeData() writes the command data to the I2C.
 
-+-----------------------------------------------------------------------+
-| return opt3002_i2c_write(opt3002, &command_byte, 1);                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      return opt3002_i2c_write(opt3002, &command_byte, 1);   
+
 
 The int opt3002_i2c_write() executes write transaction on the I2C bus
 and sends a given number of bytes. The bytes in the supplied buffer must
 be sent to the given address. If the slave device does not acknowledge
 any of the bytes, an error will be returned.
 
-+-----------------------------------------------------------------------+
-| struct i2c_msg msg;                                                   |
-|                                                                       |
-| int i2c_result = 0;                                                   |
-|                                                                       |
-| if(!opt3002 \|\| !opt3002->dev)                                       |
-|                                                                       |
-| return -ENODEV;                                                       |
-|                                                                       |
-| msg.im_len = count;                                                   |
-|                                                                       |
-| msg.im_flags = I2C_M_STOP;                                            |
-|                                                                       |
-| msg.im_buf = data;                                                    |
-|                                                                       |
-| if((i2c_result = i2c_transfer(opt3002->dev, &msg, 1)))                |
-|                                                                       |
-| os_printf("opt3002 i2c write error %d: %s\\n", i2c_result,            |
-| strerror(-i2c_result));                                               |
-|                                                                       |
-| return i2c_result;                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+          struct i2c_msg msg;
+          int i2c_result = 0;
+          if(!opt3002 || !opt3002->dev)
+              return -ENODEV;
+          msg.im_len = count;
+          msg.im_flags = I2C_M_STOP;
+          msg.im_buf = data;
+            if((i2c_result = i2c_transfer(opt3002->dev, &msg, 1)))
+              os_printf("opt3002 i2c write error %d: %s\n", i2c_result, strerror(-i2c_result));
+          return i2c_result;
+
 
 sensirion_hw_i2c_implementation.c (Temperature/Humidity)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -875,72 +716,50 @@ The i2c_create_device() function creates the I2C device with the clock
 frequency of 400KHz. The sensirion_i2c_init()initializes all hardware
 and software components of the Sensirion for I2C.
 
-+-----------------------------------------------------------------------+
-| dev = i2c_create_device(bus, SHTC1_ADDRESS, I2C_CLK_400K);            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      dev = i2c_create_device(bus, SHTC1_ADDRESS, I2C_CLK_400K);     
+
 
 It executes one read transaction on the I2C bus through the function
 sensirion_i2c_read(), which reads a given number of bytes. If the device
 does not acknowledge the read command, an error will be returned.
 
-+-----------------------------------------------------------------------+
-| struct i2c_msg msg;                                                   |
-|                                                                       |
-| int i2c_result = 0;                                                   |
-|                                                                       |
-| if(!dev)                                                              |
-|                                                                       |
-| return -ENODEV;                                                       |
-|                                                                       |
-| msg.im_len = count;                                                   |
-|                                                                       |
-| msg.im_flags = I2C_M_RD \| I2C_M_STOP;                                |
-|                                                                       |
-| msg.im_buf = data;                                                    |
-|                                                                       |
-| i2c_set_address(dev, address);                                        |
-|                                                                       |
-| if((i2c_result = i2c_transfer(dev, &msg, 1)))                         |
-|                                                                       |
-| os_printf("shtc3 i2c read error %d: %s\\n", i2c_result,               |
-| strerror(-i2c_result));                                               |
-|                                                                       |
-| return i2c_result;                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      struct i2c_msg msg;
+          int i2c_result = 0;
+          if(!dev)
+              return -ENODEV;
+          msg.im_len = count;
+          msg.im_flags = I2C_M_RD | I2C_M_STOP;
+          msg.im_buf = data;
+          i2c_set_address(dev, address);
+          if((i2c_result = i2c_transfer(dev, &msg, 1)))
+              os_printf("shtc3 i2c read error %d: %s\n", i2c_result, strerror(-i2c_result));
+          return i2c_result;
+
 
 The sensirion_i2c_write()executes one write transaction on the I2C bus
 which sends a given number of bytes. The bytes in the supplied buffer
 must be sent to the given address. If the slave device does not
 acknowledge any of the bytes, an error will be returned.
 
-+-----------------------------------------------------------------------+
-| struct i2c_msg msg;                                                   |
-|                                                                       |
-| int i2c_result = 0;                                                   |
-|                                                                       |
-| if(!dev)                                                              |
-|                                                                       |
-| return -ENODEV;                                                       |
-|                                                                       |
-| msg.im_len = count;                                                   |
-|                                                                       |
-| msg.im_flags = I2C_M_STOP;                                            |
-|                                                                       |
-| msg.im_buf = (uint8_t\*)data; /\* Data pointed to won't be modified   |
-| \*/                                                                   |
-|                                                                       |
-| i2c_set_address(dev, address);                                        |
-|                                                                       |
-| if((i2c_result = i2c_transfer(dev, &msg, 1)))                         |
-|                                                                       |
-| os_printf("shtc3 i2c write error %d: %s\\n", i2c_result,              |
-| strerror(-i2c_result));                                               |
-|                                                                       |
-| return i2c_result;                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      struct i2c_msg msg;
+          int i2c_result = 0;
+          if(!dev)
+              return -ENODEV;
+          msg.im_len = count;
+          msg.im_flags = I2C_M_STOP;
+          msg.im_buf = (uint8_t*)data;    /* Data pointed to won't be modified */
+          i2c_set_address(dev, address);
+          if((i2c_result = i2c_transfer(dev, &msg, 1)))
+              os_printf("shtc3 i2c write error %d: %s\n", i2c_result, strerror(-i2c_result));
+          return i2c_result;
+
+
 
 shtc1.c (Temperature/Humidity)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -961,10 +780,10 @@ Low power mode is being implemented here.
 
 To initiate the measurement, the following function is created:
 
-+-----------------------------------------------------------------------+
-| shtc1_measure(void)                                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      shtc1_measure(void)    
+
 
 This is meant to awaken the sensor from sleep mode, begin measuring the
 sensor data and write the data through I2C.
@@ -974,79 +793,53 @@ Use shtc1_read() to read out the values once the measurement is done.
 The duration of the measurement depends on the sensor in use. Refer
 datasheet for more details.
 
-+-----------------------------------------------------------------------+
-| int16_t ret;                                                          |
-|                                                                       |
-| return PM_WAKE(ret,sensirion_i2c_write_cmd(SHTC1_ADDRESS,             |
-| shtc1_cmd_measure));                                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      int16_t ret;
+      return PM_WAKE(ret,sensirion_i2c_write_cmd(SHTC1_ADDRESS, shtc1_cmd_measure));
+
 
 Function shtc1_probe()detects if a sensor is connected by reading out
 the ID register. If the sensor does not answer or if the answer is not
 the expected value, the function returns error. If the sensor is
 detected, 0 is returned.
 
-+-----------------------------------------------------------------------+
-| uint16_t id;                                                          |
-|                                                                       |
-| int16_t ret;                                                          |
-|                                                                       |
-| supports_sleep = 1;                                                   |
-|                                                                       |
-| sleep_enabled = 1;                                                    |
-|                                                                       |
-| (void)shtc1_wakeup();                                                 |
-|                                                                       |
-| ret= sensirion_i2c_delayed_read_cmd(SHTC1_ADDRESS,                    |
-| SHTC1_CMD_READ_ID_REG,                                                |
-|                                                                       |
-| SHTC1_CMD_DURATION_USEC, &id, 1);                                     |
-|                                                                       |
-| if (ret)                                                              |
-|                                                                       |
-| return ret;                                                           |
-|                                                                       |
-| if ((id & SHTC3_PRODUCT_CODE_MASK) == SHTC3_PRODUCT_CODE)             |
-|                                                                       |
-| return shtc1_sleep();                                                 |
-|                                                                       |
-| if ((id & SHTC1_PRODUCT_CODE_MASK) == SHTC1_PRODUCT_CODE) {           |
-|                                                                       |
-| supports_sleep = 0;                                                   |
-|                                                                       |
-| return STATUS_OK;                                                     |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| return STATUS_UNKNOWN_DEVICE;                                         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+          uint16_t id;
+          int16_t ret;
+          supports_sleep = 1;
+          sleep_enabled = 1;
+          (void)shtc1_wakeup(); 
+          ret= sensirion_i2c_delayed_read_cmd(SHTC1_ADDRESS, SHTC1_CMD_READ_ID_REG,
+                                               SHTC1_CMD_DURATION_USEC, &id, 1);
+          if (ret)
+             return ret;
+          if ((id & SHTC3_PRODUCT_CODE_MASK) == SHTC3_PRODUCT_CODE)
+              return shtc1_sleep();
+          if ((id & SHTC1_PRODUCT_CODE_MASK) == SHTC1_PRODUCT_CODE) {
+              supports_sleep = 0;
+              return STATUS_OK;
+          }
+          return STATUS_UNKNOWN_DEVICE;
+
 
 Function shtc1_measure_blocking_read() starts reading the sensor data.
 This function blocks while the measurement is in progress. Temperature
 is returned in [°C], multiplied by 1000 and relative humidity in
 [percent relative humidity], multiplied by 1000.
 
-+-----------------------------------------------------------------------+
-| int16_t ret;                                                          |
-|                                                                       |
-| PM_WAKE(ret, shtc1_measure());                                        |
-|                                                                       |
-| #if !defined(USE_SENSIRION_CLOCK_STRETCHING) \|\|                     |
-| !USE_SENSIRION_CLOCK_STRETCHING                                       |
-|                                                                       |
-| sensirion_sleep_usec(SHTC1_MEASUREMENT_DURATION_USEC);                |
-|                                                                       |
-| #endif                                                                |
-|                                                                       |
-| /\* USE_SENSIRION_CLOCK_STRETCHING \*/                                |
-|                                                                       |
-| ret = shtc1_read(temperature, humidity);                              |
-|                                                                       |
-| return PM_SLEEP(ret);                                                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+          int16_t ret;
+          PM_WAKE(ret, shtc1_measure());
+          #if !defined(USE_SENSIRION_CLOCK_STRETCHING) || !USE_SENSIRION_CLOCK_STRETCHING
+          sensirion_sleep_usec(SHTC1_MEASUREMENT_DURATION_USEC);
+           #endif 
+          /* USE_SENSIRION_CLOCK_STRETCHING */
+          ret = shtc1_read(temperature, humidity);
+          return PM_SLEEP(ret);
+
 
 **Reading the sensor data**
 
@@ -1059,67 +852,56 @@ this function returns an error. Temperature is returned in [°C],
 multiplied by 1000, and relative humidity [in percent relative
 humidity], multiplied by 1000.
 
-+-----------------------------------------------------------------------+
-| uint16_t words[2];                                                    |
-|                                                                       |
-| int16_t ret = sensirion_i2c_read_words(SHTC1_ADDRESS, words,          |
-|                                                                       |
-| SENSIRION_NUM_WORDS(words));                                          |
-|                                                                       |
-| \*temperature = ((21875 \* (int32_t)words[0]) >> 13) - 45000;         |
-|                                                                       |
-| \*humidity = ((12500 \* (int32_t)words[1]) >> 13);                    |
-|                                                                       |
-| return PM_SLEEP(ret);                                                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+          uint16_t words[2];
+          int16_t ret = sensirion_i2c_read_words(SHTC1_ADDRESS, words,
+                                                 SENSIRION_NUM_WORDS(words));
+          *temperature = ((21875 * (int32_t)words[0]) >> 13) - 45000;
+          *humidity = ((12500 * (int32_t)words[1]) >> 13);
+          return PM_SLEEP(ret);
+
+
 
 The function shtc1_disable_sleep()enables or disables the SHT's sleep
 mode between measurements, if supported. Sleep mode is enabled by
 default if supported.
 
-+-----------------------------------------------------------------------+
-| if (!supports_sleep)                                                  |
-|                                                                       |
-| return STATUS_FAIL;                                                   |
-|                                                                       |
-| sleep_enabled = !disable_sleep;                                       |
-|                                                                       |
-| if (disable_sleep)                                                    |
-|                                                                       |
-| return shtc1_wakeup();                                                |
-|                                                                       |
-| return shtc1_sleep();                                                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      if (!supports_sleep)
+              return STATUS_FAIL;
+         sleep_enabled = !disable_sleep;
+         if (disable_sleep)
+              return shtc1_wakeup();
+         return shtc1_sleep();
+
 
 Enable or disable the SHT's low power mode.
 
-+-----------------------------------------------------------------------+
-| shtc1_cmd_measure =enable_low_power_mode ? SHTC1_CMD_MEASURE_LPM :    |
-| SHTC1_CMD_MEASURE_HPM;                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      shtc1_cmd_measure =enable_low_power_mode ? SHTC1_CMD_MEASURE_LPM : SHTC1_CMD_MEASURE_HPM;
+
 
 The function shtc1_read_serial() is implemented to read out the serial
 number.
 
-+-----------------------------------------------------------------------+
-| int16_t shtc1_read_serial(uint32_t \*serial)                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      int16_t shtc1_read_serial(uint32_t \*serial)     
+
 
 Building 
 ~~~~~~~~~~~~~~~~~~~~~~
 
 To build the sample application, execute the following commands:
 
-+-----------------------------------------------------------------------+
-| cd examples/i2c                                                       |
-|                                                                       |
-| make                                                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      cd examples/i2c
+make
+
 
 The make command generates the i2c_sensor.elf in the out directory.
 
@@ -1145,58 +927,41 @@ the Download tool:
 Expected Output
 ~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------------------------------------------------------------------+
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PWWWAE                                                          |
-|                                                                       |
-| Build $Id: git-b3777d5 $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-0039-002c-ffffffffffff   |
-|                                                                       |
-| Initializing bmp388...                                                |
-|                                                                       |
-| Initializing opt3002...                                               |
-|                                                                       |
-| Initializing shtc3...                                                 |
-|                                                                       |
-| bmp388 ID: 0x50                                                       |
-|                                                                       |
-| opt3002 ID: 0x5449                                                    |
-|                                                                       |
-| shtc3 ID: 0x2B5A0069                                                  |
-|                                                                       |
-| -----Timestamp: 30130 uS-----                                         |
-|                                                                       |
-| Pressure: 91235.0 Pa                                                  |
-|                                                                       |
-| Temperature (bmp): 27.9200 C                                          |
-|                                                                       |
-| Optical power: 28416.0 nW/cm2                                         |
-|                                                                       |
-| Humidity: 71.7419 %                                                   |
-|                                                                       |
-| Temperature (shtc): 28.6650 C                                         |
-|                                                                       |
-| -----Timestamp: 2286954 uS-----                                       |
-|                                                                       |
-| Pressure: 91228.0625 Pa                                               |
-|                                                                       |
-| Temperature (bmp): 28.0599 C                                          |
-|                                                                       |
-| Optical power: 30528.0 nW/cm2                                         |
-|                                                                       |
-| Humidity: 71.4260 %                                                   |
-|                                                                       |
-| Temperature (shtc): 28.6650 C                                         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-.. |A picture containing text, electronics, circuit Description automatically generated| image:: media/image1.jpeg
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PWWWAE
+      Build $Id: git-b3777d5 $
+      Flash detected. flash.hw.uuid: 39483937-3207-0039-002c-ffffffffffff
+      Initializing bmp388...
+      Initializing opt3002...
+      Initializing shtc3...
+      bmp388 ID: 0x50
+      opt3002 ID: 0x5449
+      shtc3 ID: 0x2B5A0069
+      
+      -----Timestamp: 30130 uS-----
+      Pressure: 91235.0 Pa
+      Temperature (bmp): 27.9200 C
+      Optical power: 28416.0 nW/cm2
+      Humidity: 71.7419 %
+      Temperature (shtc): 28.6650 C
+      -----Timestamp: 2286954 uS-----
+      Pressure: 91228.0625 Pa
+      Temperature (bmp): 28.0599 C
+      Optical power: 30528.0 nW/cm2
+      Humidity: 71.4260 %
+      Temperature (shtc): 28.6650 C
+
+
+
+.. |image21| image:: media/image21.png
    :width: 5.90551in
    :height: 4.24709in
-.. |image1| image:: media/image2.jpeg
+.. |image22| image:: media/image22.png
+   :width: 3.93661in
+   :height: 5.46339in
+.. |image23| image:: media/image23.png
    :width: 3.93661in
    :height: 5.46339in

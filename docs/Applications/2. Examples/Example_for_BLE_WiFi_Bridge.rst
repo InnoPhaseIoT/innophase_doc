@@ -993,7 +993,7 @@ Installing and Running the Mosquitto MQTT Tool
 
 Figure 1 shows the command prompt window:
 
-|image1|
+|image7|
 
 Figure 1: Command prompt window
 
@@ -1088,13 +1088,13 @@ Publishing a Topic and Sending Data from BLE to Wi-Fi
    window.
 
 
-|image2|
+|image8|
 
 Figure 2: Publishing a topic - Connecting to inno_mqtt
 
 3. Click on GENRIC ACCESS->WRITE as shown in Figure 3.
 
-|image3|
+|image9|
 
 Figure 3: Publishing a topic - Generic Access - W
 
@@ -1102,18 +1102,18 @@ Figure 3: Publishing a topic - Generic Access - W
    from the drop-down, write a message and click SEND.
 
 
-   |image4|
+   |image10|
 
 Figure 4: Selecting message type
 
-   |image5|
+   |image11|
 
 Figure 5: Sending a message
 
 5. If message size is more than 30bytes, it is required to change the
       MTU size in nRF Connect Mobile application.
 
-   |image6|
+   |image12|
 
 Figure 6: Changing MTU size
 
@@ -1122,7 +1122,7 @@ Figure 6: Changing MTU size
       message was successfully published.
 
 
-   |image7|
+   |image13|
 
 Figure 7: Publishing a topic - Output
 
@@ -1130,7 +1130,7 @@ Figure 7: Publishing a topic - Output
       command prompt window opened during step 2 of section 8.1.
 
 
-|image8|
+|image14|
 
 Figure 8: Publishing a topic - Command prompt output
 
@@ -1150,14 +1150,14 @@ Subscribing to a Topic and Sending Data from Wi-Fi to BLE
    window.
 
 
-|image9|
+|image15|
 
 Figure 9: Subscribing to a topic - Connecting to inno_mqtt
 
 3. Click on Unknown Service (Download symbol) as shown in Figure 10.
 
 
-|image10|
+|image16|
 
 Figure 10: Subscribing to a topic - Generic Access - I
 
@@ -1171,7 +1171,7 @@ Figure 10: Subscribing to a topic - Generic Access - I
    topic based on the unique MQTT client id generated for the Talaria
    TWO device.
 
-|image11|
+|image17|
 
 Figure 11: Publishing a message from MQTT client
 
@@ -1184,7 +1184,7 @@ Figure 11: Publishing a message from MQTT client
    Talaria TWO’s console:
 
 
-|image12|
+|image18|
 
 Figure 12: Subscribing to a topic - output
 
@@ -1192,47 +1192,47 @@ Figure 12: Subscribing to a topic - output
    This message will be displayed on the nRF connect app.
 
 
-|image13|
+|image19|
 
 Figure 13: Message sent to BLE Client over BLE
 
 
-.. |image1| image:: media/image1.png
+.. |image7| image:: media/image7.png
    :width: 6.51736in
    :height: 0.24236in
-.. |image2| image:: media/image2.png
+.. |image8| image:: media/image8.png
    :width: 3.14931in
    :height: 5.42014in
-.. |image3| image:: media/image3.png
+.. |image9| image:: media/image9.png
    :width: 3.14931in
    :height: 5.6in
-.. |image4| image:: media/image4.png
+.. |image10| image:: media/image10.png
    :width: 1.57431in
    :height: 2.72431in
-.. |image5| image:: media/image5.png
+.. |image11| image:: media/image11.png
    :width: 1.575in
    :height: 2.72431in
-.. |image6| image:: media/image6.png
+.. |image12| image:: media/image12.png
    :width: 2.75556in
    :height: 4.23542in
-.. |image7| image:: media/image7.png
+.. |image13| image:: media/image13.png
    :width: 2.75591in
    :height: 2.78108in
-.. |image8| image:: media/image8.png
+.. |image14| image:: media/image14.png
    :width: 2.75591in
    :height: 2.74355in
-.. |image9| image:: media/image9.png
+.. |image15| image:: media/image15.png
    :width: 6.29921in
    :height: 0.67756in
-.. |image10| image:: media/image10.png
+.. |image16| image:: media/image16.png
    :width: 6.29921in
    :height: 7.24723in
-.. |image11| image:: media/image11.png
+.. |image17| image:: media/image17.png
    :width: 3.14931in
    :height: 5.42431in
-.. |image12| image:: media/image12.png
+.. |image18| image:: media/image18.png
    :width: 3.14931in
    :height: 2.89792in
-.. |image13| image:: media/image13.png
+.. |image19| image:: media/image19.png
    :width: 6.29921in
    :height: 7.48836in

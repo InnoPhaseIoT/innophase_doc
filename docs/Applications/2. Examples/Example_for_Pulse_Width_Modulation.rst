@@ -1,3 +1,5 @@
+.. _ex pwm:
+
 Pulse Width Modulation
 ----------------------------
 
@@ -34,7 +36,7 @@ The following table contains the PWM specification of Talaria TWO.
 Block Diagram
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-|image1|
+|image64|
 
 Figure 1: PWM - Block Diagram
 
@@ -43,14 +45,11 @@ Building
 
 To build the sample application, execute the following commands:
 
-.. table:: Table 2: Boot arguments
+.. code:: shell
 
-   +-----------------------------------------------------------------------+
-   | cd examples/pwm                                                       |
-   |                                                                       |
-   | make                                                                  |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+      cd examples/pwm
+      make
+
 
 The make command should generate the pwm.elf and pwm_fade.elf in the out
 directory.
@@ -94,16 +93,13 @@ the four channels. In this application, the duty cycle is constant.
 To enable PWM output on a specific GPIO, configure the pin mux using
 os_gpio_mux_sel().
 
-+-----------------------------------------------------------------------+
-| os_gpio_mux_sel(GPIO_MUX_SEL_PWM_0P, pwm_port0);                      |
-|                                                                       |
-| os_gpio_mux_sel(GPIO_MUX_SEL_PWM_0N, pwm_port2);                      |
-|                                                                       |
-| os_gpio_mux_sel(GPIO_MUX_SEL_PWM_1P, pwm_port1);                      |
-|                                                                       |
-| os_gpio_mux_sel(GPIO_MUX_SEL_PWM_1N, pwm_port3);                      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      os_gpio_mux_sel(GPIO_MUX_SEL_PWM_0P, pwm_port0);  
+      os_gpio_mux_sel(GPIO_MUX_SEL_PWM_0N, pwm_port2);  
+      os_gpio_mux_sel(GPIO_MUX_SEL_PWM_1P, pwm_port1);  
+      os_gpio_mux_sel(GPIO_MUX_SEL_PWM_1N, pwm_port3);  
+
 
 os_gpio_mux_sel() function sets the PWM functionality to the GPIO
 specified in the argument.
@@ -112,35 +108,31 @@ Next, create a pwm_device using pwm_enable().The struct can be used to
 configure the PWM output ports to operate with a certain duty cycle
 defined in percentage.
 
-+-----------------------------------------------------------------------+
-| struct pwm_output_cfg cfg[4] = {                                      |
-|                                                                       |
-| { .port = 0, .duty_cycle = duty_port_0}, // Ch0 +                     |
-|                                                                       |
-| { .port = 2, .duty_cycle = duty_port_2}, // Ch0 -                     |
-|                                                                       |
-| { .port = 1, .duty_cycle = duty_port_1}, // Ch1 +                     |
-|                                                                       |
-| { .port = 3, .duty_cycle = duty_port_3}, // Ch1 -                     |
-|                                                                       |
-| };                                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+
+          struct pwm_output_cfg cfg[4] = {
+              { .port = 0, .duty_cycle = duty_port_0}, // Ch0 +
+              { .port = 2, .duty_cycle = duty_port_2}, // Ch0 -
+              { .port = 1, .duty_cycle = duty_port_1}, // Ch1 +
+              { .port = 3, .duty_cycle = duty_port_3}, // Ch1 -
+          };
+
 
 pwm_enable() generates PWM output on a given channel with a given period
 and width of the pulse.
 
-+-----------------------------------------------------------------------+
-| pwm_enable(period)                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      pwm_enable(period)  
+
 
 To set the PWM duty cycle and port, configure pwm_output_cfg structure.
 
-+-----------------------------------------------------------------------+
-| struct pwm_output_cfg                                                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      struct pwm_output_cfg   
+
 
 PWM fade Application
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -165,44 +157,35 @@ period of 1000ns and duty cycle of 50% on channel 0, port 0, configure
 the PWM via pwm_enable(), pwm_channel_cfg_set(), and
 pwm_output_cfg_set().
 
-+-----------------------------------------------------------------------+
-| #define PWM_PIN 14                                                    |
-|                                                                       |
-| #define PWM_PERIOD 1000                                               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      #define PWM_PIN 14
+      #define PWM_PERIOD 1000
+
 
 The PWM pin needs to be requested by os_gpio_request().
 os_gpio_set_mode() sets the operational mode of the pins to the
 GPIO_FUNCTION_MODE as PWM will operate the selected GPIO.
 
-+-----------------------------------------------------------------------+
-| struct pwm_output_cfg cfg ={ .port = 0, .duty_cycle = 50 };           |
-|                                                                       |
-| os_printf("PWM demo\\n");                                             |
-|                                                                       |
-| os_gpio_request(PWM_PIN);                                             |
-|                                                                       |
-| os_gpio_set_mode(PWM_PIN, GPIO_FUNCTION_MODE);                        |
-|                                                                       |
-| os_gpio_mux_sel(GPIO_MUX_SEL_PWM_0, PWM_PIN);                         |
-|                                                                       |
-| pwm_enable(PWM_PERIOD);                                               |
-|                                                                       |
-| if (pwm_channel_cfg_set(0, PWM_CTRL_ENABLE)) {                        |
-|                                                                       |
-| pr_err("Failed to enable channel 0!\\n");                             |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      struct pwm_output_cfg cfg ={ .port = 0, .duty_cycle = 50 };
+          os_printf("PWM demo\n");
+          os_gpio_request(PWM_PIN);	
+          os_gpio_set_mode(PWM_PIN, GPIO_FUNCTION_MODE);    
+          os_gpio_mux_sel(GPIO_MUX_SEL_PWM_0, PWM_PIN); 
+          pwm_enable(PWM_PERIOD);
+              if (pwm_channel_cfg_set(0, PWM_CTRL_ENABLE)) {
+              pr_err("Failed to enable channel 0!\n");
+          }
+
 
 To change PWM width, configure the pwm_output_cfg_set parameter.
 
-+-----------------------------------------------------------------------+
-| struct pwm_output_cfg cfg = { .port = 0, .duty_cycle = 50 };          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      struct pwm_output_cfg cfg = { .port = 0, .duty_cycle = 50 };    
+
 
 Running the Application 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -264,32 +247,23 @@ Expected output
 
 Expected output is displayed on the console:
 
-+-----------------------------------------------------------------------+
-| UART:SNWWWWAE                                                         |
-|                                                                       |
-| 4 DWT comparators, range 0x8000                                       |
-|                                                                       |
-| Build $Id: git-8bc43d639 $                                            |
-|                                                                       |
-| hio.baudrate=921600                                                   |
-|                                                                       |
-| flash: Gordon ready!                                                  |
-|                                                                       |
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PNWWWWAE                                                        |
-|                                                                       |
-| Build $Id: git-adea113 $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-0083-00a1-ffffffffffff   |
-|                                                                       |
-| Bootargs: hio.transport=0 hio.maxsize=4096 ds.pf_method=2             |
-|                                                                       |
-| PWM demo                                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      UART:SNWWWWAE
+      4 DWT comparators, range 0x8000
+      Build $Id: git-8bc43d639 $
+      hio.baudrate=921600
+      flash: Gordon ready!
+      
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PNWWWWAE
+      Build $Id: git-adea113 $
+      Flash detected. flash.hw.uuid: 39483937-3207-0083-00a1-ffffffffffff
+      Bootargs: hio.transport=0 hio.maxsize=4096 ds.pf_method=2
+      PWM demo
+
+
 
 Programming Talaria TWO using Download tool (pwm_fade.elf)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -314,32 +288,23 @@ Expected output
 
 Expected output is displayed on the console:
 
-+-----------------------------------------------------------------------+
-| UART:SNWWWWAE                                                         |
-|                                                                       |
-| 4 DWT comparators, range 0x8000                                       |
-|                                                                       |
-| Build $Id: git-8bc43d639 $                                            |
-|                                                                       |
-| hio.baudrate=921600                                                   |
-|                                                                       |
-| flash: Gordon ready!                                                  |
-|                                                                       |
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PNWWWWAE                                                        |
-|                                                                       |
-| Build $Id: git-adea113 $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-0083-00a1-ffffffffffff   |
-|                                                                       |
-| Bootargs: hio.transport=0 hio.maxsize=4096 ds.pf_method=2             |
-|                                                                       |
-| PWM FADE demo                                                         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      UART:SNWWWWAE
+      4 DWT comparators, range 0x8000
+      Build $Id: git-8bc43d639 $
+      hio.baudrate=921600
+      flash: Gordon ready!
+      
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PNWWWWAE
+      Build $Id: git-adea113 $
+      Flash detected. flash.hw.uuid: 39483937-3207-0083-00a1-ffffffffffff
+      Bootargs: hio.transport=0 hio.maxsize=4096 ds.pf_method=2
+      PWM FADE demo
+
+
 
 PWM Test Setup
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -350,73 +315,73 @@ using the Download Tool. The GPIO which is configured to work as PWM is
 connected to the Oscilloscope along with ground. Once the module is
 released from Reset, the waveforms can be observed on the oscilloscope.
 
-|image2|
+|image65|
 
 Figure 2: PWM Test Setup
 
 Waveforms captured for 1MHz frequency with less than 5% duty cycle is as
 shown in Figure 3.
 
-|image3|
+|image66|
 
 Figure 3: Waveforms for 1MHz frequency with less than 5% duty cycle
 
 Waveforms captured for 1MHz frequency with 50% duty cycle is as shown in
 Figure 4.
 
-|image4|
+|image67|
 
 Figure 4: Waveforms for 1MHz frequency with 50% duty cycle
 
 Waveforms captured for 2MHz frequency with 50% duty cycle is as shown in
 Figure 5.
 
-|image5|
+|image68|
 
 Figure 5: Waveforms for 2MHz frequency with 50% duty cycle
 
 Waveforms captured for 4MHz frequency with 50% duty cycle is as shown in
 Figure 6.
 
-|image6|
+|image69|
 
 Figure 6: Waveforms for 4MHz frequency with 50% duty cycle
 
 Waveforms captured for 10MHz frequency with 50% duty cycle is as shown
 in Figure 7.
 
-|image7|
+|image70|
 
 Figure 7: Waveforms for 10MHz frequency with 50% duty cycle
 
 Waveforms captured for 25KHz frequency with more than 50% duty cycle is
 as shown in Figure 8.
 
-|image8|
+|image71|
 
 Figure 8: Waveforms for 25KHz frequency with more than 50% duty cycle
 
-.. |image1| image:: media/image1.jpg
+.. |image64| image:: media/image64.png
    :width: 6.69291in
    :height: 3.92505in
-.. |image2| image:: media/image2.png
+.. |image65| image:: media/image65.png
    :width: 4.72441in
    :height: 5.98346in
-.. |image3| image:: media/image3.png
+.. |image66| image:: media/image66.png
    :width: 5.90551in
    :height: 3.51684in
-.. |image4| image:: media/image4.png
+.. |image67| image:: media/image67.png
    :width: 5.90551in
    :height: 3.51243in
-.. |image5| image:: media/image5.png
+.. |image68| image:: media/image68.png
    :width: 5.90551in
    :height: 3.53338in
-.. |image6| image:: media/image6.png
+.. |image69| image:: media/image69.png
    :width: 5.90551in
    :height: 3.52566in
-.. |image7| image:: media/image7.png
+.. |image70| image:: media/image70.png
    :width: 5.90551in
    :height: 3.53669in
-.. |image8| image:: media/image8.png
+.. |image71| image:: media/image71.png
    :width: 5.90551in
    :height: 3.53228in

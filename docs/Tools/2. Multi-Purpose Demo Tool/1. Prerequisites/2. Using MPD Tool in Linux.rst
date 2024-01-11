@@ -1,3 +1,5 @@
+.. _mpd in linux:
+
 Using MPD Tool in Linux
 -----------------------
 
@@ -6,16 +8,12 @@ There are two ways in which the INP_T2_Demo_Linux can be used in Linux:
 1. Run the INP_T2_Demo_Linux tool from terminal with sudo command. For
    example:
 
-.. table:: Table 1: Usage of ports in the evaluation board
+.. code:: shell
 
-   +-----------------------------------------------------------------------+
-   | sudo /home/freertos_sdk_x.y/pc_tools/MPD/bin/INP_T2_Demo_Linux        |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+      sudo /home/freertos_sdk_x.y/pc_tools/MPD/bin/INP_T2_Demo_Linux  
+
 
 2. Double click on INP_T2_Demo_Linux.
-
-..
 
    Add udev rules and folder access permission to enable double click
    feature. Execute the following steps:
@@ -26,13 +24,9 @@ There are two ways in which the INP_T2_Demo_Linux can be used in Linux:
 
    **Libusb_T2.rules:**
 
-+-----------------------------------------------------------------------+
-| SUBSYSTEMS==”usb”, ATTRS{idVendor}==”0403”, ATTRS{idProduct}==”6011”, |
-| GROUP=”users”, MODE=”0666”                                            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-..
+      SUBSYSTEMS==”usb”, ATTRS{idVendor}==”0403”, ATTRS{idProduct}==”6011”, GROUP=”users”, MODE=”0666”
 
    In case of Permission Denied error, execute the following step (Step
    3) to extend folder access permission.
@@ -40,18 +34,18 @@ There are two ways in which the INP_T2_Demo_Linux can be used in Linux:
    Step 3: Run the following command in the terminal to extend
    permissions to the selected folder and its files.
 
-+-----------------------------------------------------------------------+
-| sudo chmod -R a+rwx /Path/to/sdk folder                               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      sudo chmod -R a+rwx /Path/to/sdk folder
+
 
 The Demo tool verifies the signature of the ELFs prior to downloading it
 onto the evaluation board. In case the ELFs are tampered with, an error
-message as shown in Figure 2 is printed on the console.
+message as shown in Figure 1 is printed on the console.
 
-|A computer screen shot of a red x Description automatically generated|
+|image2|
 
-Figure 2: Signature failed window
+Figure 1: Signature failed window
 
 The Talaria TWO evaluation board uses FT4323h, which is a 4-port USB to
 UART converter with MPSEE support. By default, these ports enumerate as
@@ -84,21 +78,21 @@ Talaria TWO Demo Tool comes with an option of One-Click Installation of
 libusbk driver. In case the driver is not installed, the tool will ask
 for user confirmation to install this driver. If the user selects yes,
 various User Account Control authentication screens will appear to
-complete the driver installation (as shown in Figure 5).
+complete the driver installation (as shown in Figure 4).
 
 **Note**:
 
 1. In case of any other unwanted libusbk drivers that are already
    installed, the tool will automatically uninstall the unwanted
    drivers. This action needs User Account Control authentication
-   screens shown in Figure 6, in addition to Figure 5. Each unwanted
+   screens shown in Figure 5, in addition to Figure 4. Each unwanted
    drives will require a separate User Account Control authentication
    for uninstallation.
 
 2. Talaria TWO Evaluation Board may get detected under any already
    installed device driver (using libusbk driver). In this case, the
    tool will follow the procedure of One-Click Installation of libusbk
-   driver (as shown in Figure 5), and might get completed a with pop-up
+   driver (as shown in Figure 4), and might get completed a with pop-up
    message “Driver Installation Failed”. This will result in any one of
    the following two conditions:
 
@@ -108,28 +102,24 @@ complete the driver installation (as shown in Figure 5).
       using the tool. To avoid this from happening repeatedly, update
       the driver for Talaria TWO Evaluation Board to “InnoPhase T2
       Evaluation Board” driver, from device manager (as shown in Figure
-      3). Then, ensure the Talaria TWO Evaluation Board is detected
+      2). Then, ensure the Talaria TWO Evaluation Board is detected
       under “libusbK USB Devices” in device manager (as shown in Figure
-      4).
+      3).
 
-..
 
-   |image1|\ |A screenshot of a computer Description automatically
-   generated|
+   |image3|
 
-Figure 3: Update device driver for Talaria TWO Evaluation Board
+Figure 2: Update device driver for Talaria TWO Evaluation Board
 
 b. No device found: Manually install the driver using instructions from
    section: `Installation Instructions for libusbK
    Driver <#_Installation_Instructions_for>`__ and ensure that the
    Talaria TWO Evaluation Board is detected under libusbK USB Devices
-   driver (as shown in Figure 4).
+   driver (as shown in Figure 3).
 
-..
+ |image4|
 
-   |image2|
-
-Figure 4: Talaria TWO Evaluation board under "libusbk USB Devices”
+Figure 3: Talaria TWO Evaluation board under "libusbk USB Devices”
 driver
 
 3. Even after successful installation of the driver, there might be
@@ -138,12 +128,12 @@ driver
    same through a pop-up message: No Device Connected. Please close and
    reopen the Tool.
 
-|image3|
+|image5|
 
-Figure 5: User Account Control authentication to complete driver
+Figure 4: User Account Control authentication to complete driver
 installation
 
-From Figure 5:
+From Figure 4:
 
 Image 1: Pop-up message for user confirmation, where the user chooses
 Yes.
@@ -160,13 +150,12 @@ Image 5: Pop-up message indicating successful driver installation.
 
 Image 6: Pop-up message, in case of user chooses No.
 
-|Graphical user interface, application Description automatically
-generated|
+|image6|
 
-Figure 6: User Account Control authentication to delete unwanted libusbk
+Figure 5: User Account Control authentication to delete unwanted libusbk
 drivers
 
-From Figure 6:
+From Figure 5:
 
 Image 1: Pop-up message for user confirmation, where the user chooses
 Yes.
@@ -185,21 +174,18 @@ Driver <#_Installation_Instructions_for>`__. Instructions to change
 driver is available in section: `Update Driver from libusK Driver to COM
 Port <#_Update_Driver_from>`__.
 
-.. |A computer screen shot of a red x Description automatically generated| image:: media/image1.png
+.. |image2| image:: media/image2.png
    :width: 1.9685in
    :height: 1.50692in
-.. |image1| image:: media/image2.png
+.. |image3| image:: media/image3.png
    :width: 2.13333in
    :height: 0.21505in
-.. |A screenshot of a computer Description automatically generated| image:: media/image3.png
+.. |image4| image:: media/image4.png
    :width: 4.72441in
    :height: 2.50085in
-.. |image2| image:: media/image4.png
+.. |image5| image:: media/image5.png
    :width: 4.72441in
    :height: 0.55425in
-.. |image3| image:: media/image5.png
+.. |image6| image:: media/image6.png
    :width: 6.29921in
    :height: 5.77694in
-.. |Graphical user interface, application Description automatically generated| image:: media/image6.png
-   :width: 6.29921in
-   :height: 4.2016in

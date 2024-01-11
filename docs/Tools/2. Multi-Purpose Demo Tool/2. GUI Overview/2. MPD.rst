@@ -1,3 +1,5 @@
+.. _mpd gui mpd:
+
 MPD 
 ----
 
@@ -11,12 +13,12 @@ MPD
    application. This time is the time window in milliseconds during
    which Talaria TWO will wait in receive mode before going to sleep.
 
-|A screenshot of a computer Description automatically generated|
+|image6|
 
-Figure 16: MPD tab
+Figure 6: MPD tab
 
 **Note**: Check the Show checkbox to see the passphrase value.
 
-.. |A screenshot of a computer Description automatically generated| image:: media/image1.png
+.. |image6| image:: media/image6.png
    :width: 7.48031in
    :height: 2.03661in

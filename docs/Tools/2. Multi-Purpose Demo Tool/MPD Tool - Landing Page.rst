@@ -1,3 +1,5 @@
+.. _tools mpd:
+
 MPD Tool – Introduction
 =======================
 

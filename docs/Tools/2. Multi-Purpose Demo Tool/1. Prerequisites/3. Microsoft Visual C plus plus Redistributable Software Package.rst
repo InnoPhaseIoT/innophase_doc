@@ -1,3 +1,5 @@
+.. _mpd visual c:
+
 Microsoft Visual C++ Redistributable Software Package
 -----------------------------------------------------
 
@@ -5,18 +7,18 @@ Microsoft Visual C++ Redistributable software package is a prerequisite
 for Windows platform to run the application INP_T2_Demo_Windows.exe
 successfully. Incase this software package is not installed on the
 Windows platform, application will not launch, leading to a fatal error
-message as shown in Figure 7.
+message as shown in Figure 1.
 
 In such a scenario, install the Microsoft Visual C++ Redistributable
 software package using the link
 https://www.microsoft.com/en-in/download/details.aspx?id=48145 and
 relaunch the application.
 
-|A screenshot of a computer error Description automatically generated|
+|image7|
 
-Figure 7: Error message for missing Microsoft Visual C++ Redistributable
+Figure 1: Error message for missing Microsoft Visual C++ Redistributable
 Software Package
 
-.. |A screenshot of a computer error Description automatically generated| image:: media/image1.png
+.. |image7| image:: media/image7.png
    :width: 4.72441in
    :height: 1.80695in

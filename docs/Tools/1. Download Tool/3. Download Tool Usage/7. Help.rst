@@ -1,34 +1,35 @@
+.. _dl help:
+
 Help
 ----
 
 Help provides information about the default jumper/switch setting.
 Clicking on Default Jumper Setting as shown in Figure 31 will pop-up a
 new window with default jumper/switch setting information as shown in
-Figure 32.
+Figure 2.
 
-|A screenshot of a computer Description automatically generated|
+|image13|
 
-Figure 31: Help Frame
+Figure 1: Help Frame
 
-|A picture containing graphical user interface Description automatically
-generated|
+|image14|
 
-Figure 32: Default Jumper/Switch setting Window
+Figure 2: Default Jumper/Switch setting Window
 
-**Note**: As shown in Figure 33, default Jumper/Switch setting window
+**Note**: As shown in Figure 3, default Jumper/Switch setting window
 will appear every time the tool is launched. To turn this feature OFF
 permanently, check the Do not show again box and close the window.
 
-|Graphical user interface Description automatically generated|
+|image15|
 
-Figure 33: Default Jumper/Switch setting Window during Tool Launch
+Figure 3: Default Jumper/Switch setting Window during Tool Launch
 
-.. |A screenshot of a computer Description automatically generated| image:: media/image1.png
+.. |image13| image:: media/image13.png
    :width: 7.48031in
    :height: 2.13227in
-.. |A picture containing graphical user interface Description automatically generated| image:: media/image2.png
+.. |image14| image:: media/image14.png
    :width: 5.11811in
    :height: 7.87571in
-.. |Graphical user interface Description automatically generated| image:: media/image3.png
+.. |image15| image:: media/image15.png
    :width: 5.11811in
    :height: 7.97395in

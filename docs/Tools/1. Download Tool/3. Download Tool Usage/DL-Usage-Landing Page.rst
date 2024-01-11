@@ -1,3 +1,6 @@
+.. _dl tool usage:
+
+
 DL Tool Usage
 --------------
 
@@ -9,5 +12,6 @@ DL Tool Usage
     3. File System.rst
     4. AP Options.rst
     5. Boot Arguments.rst
+    6. Program and Reset Device
     7. Help.rst
 

@@ -1,6 +1,10 @@
+.. _fl design:
+
+Factory Loader Design
+======================
+
 The factory loader application is designed to be used with a companion
-script that implements the factory loader HIO commands over UART. Figure
-1 shows a block diagram of this process.
+script that implements the factory loader HIO commands over UART. 
 
 Command Reference
 -----------------

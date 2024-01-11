@@ -1,3 +1,9 @@
+.. _dl prerequisites:
+
+
+Prequisites
+***********
+
 EVB-A
 -----
 
@@ -27,9 +33,6 @@ Linux:
 Replace x and y with the appropriate SDK release version.
 
 2. Double click on T2DownloadTool_Linux.
-
-..
-
    Add udev rules and folder access permission to enable double click
    feature. Execute the following steps:
 
@@ -108,9 +111,8 @@ driver installation (as shown in Figure 4).
       under “libusbK USB Devices” in device manager (as shown in Figure
       3).
 
-..
 
-   |image3|
+|image2|
 
 Figure 2: Update device driver for Talaria TWO Evaluation Board
 
@@ -120,9 +122,7 @@ b. No device found: Manually install the driver using instructions from
    that Talaria TWO Evaluation Board is detected under libusbK USB
    Devices driver (as shown in Figure 3).
 
-..
-
-   |image4|
+|image3|
 
 Figure 3: Talaria TWO Evaluation board under "libusbk USB Devices”
 driver
@@ -133,13 +133,12 @@ driver
    same through a pop-up message: “No Device Connected. Please close and
    reopen the Tool.”.
 
-|image5|
+|image4|
 
 Figure 4: User Account Control authentication to complete driver
 installation
 
-|Graphical user interface, application Description automatically
-generated|
+|image5|
 
 Figure 5: User Account Control authentication to delete the unwanted
 Libusbk drivers
@@ -168,6 +167,3 @@ COM Port <#_Uninstall_Instructions_for>`__.
 .. |image5| image:: media/image5.png
    :width: 4.85458in
    :height: 3.70417in
-.. |Graphical user interface, application Description automatically generated| image:: media/image6.png
-   :width: 4.84369in
-   :height: 2.69583in

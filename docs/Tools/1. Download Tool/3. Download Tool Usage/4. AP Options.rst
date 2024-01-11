@@ -1,3 +1,5 @@
+.. _dl ap options:
+
 AP Options
 ----------
 
@@ -9,10 +11,10 @@ parameters are used while loading the ELF using PROG Ram/ PROG Flash.
 file, stores it in the Talaria TWO file system and passes this JSON file
 path as a boot argument, while loading the application.
 
-|A screenshot of a computer Description automatically generated|
+|image11|
 
-Figure 23: AP Options
+Figure 1: AP Options
 
-.. |A screenshot of a computer Description automatically generated| image:: media/image1.png
-   :width: 7.48031in
-   :height: 2.29184in
+.. |image11| image:: media/image11.png
+   :width: 6.48031in
+   :height: 7.29184in

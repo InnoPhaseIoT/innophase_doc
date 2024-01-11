@@ -1,3 +1,5 @@
+.. _fl sample scenarios:
+
 Available Applications
 ----------------------
 
@@ -24,78 +26,54 @@ Normal Boot + Single application without backup (demo mode)
 
 |image1|
 
-Figure 12: SSBL + User Application
+Figure 1: SSBL + User Application
 
-Figure 12 shows the flash layout when using SSBL with a simple
+Figure 1 shows the flash layout when using SSBL with a simple
 application. In this scenario, the SSBL boot image is flashed at 0x1000
 and the stripped application ELF image is flashed at 0x20000. A
 filesystem used by SSBL is also flashed at 0x180000.
 
 Following is the sample json config file for this scenario:
 
-+-----------------------------------------------------------------------+
-| {                                                                     |
-|                                                                       |
-| "BOOT_TYPE": {                                                        |
-|                                                                       |
-| "SECUREBOOT": false                                                   |
-|                                                                       |
-| },                                                                    |
-|                                                                       |
-| "BOOT_IMAGE": {                                                       |
-|                                                                       |
-| "IMG_FILE": "./images/fast_ssbl.img"                                  |
-|                                                                       |
-| },                                                                    |
-|                                                                       |
-| "VERIFY": false,                                                      |
-|                                                                       |
-| "IMAGES": {                                                           |
-|                                                                       |
-| "APP_IMAGES":[                                                        |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "ELF_FILE": "./ELFS/helloworld.elf.strip",                            |
-|                                                                       |
-| "ADDR": "0x20000"                                                     |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| ]                                                                     |
-|                                                                       |
-| },                                                                    |
-|                                                                       |
-| "PARTITION": {                                                        |
-|                                                                       |
-| "PART_FILE": "ssbl_part_table.json"                                   |
-|                                                                       |
-| },                                                                    |
-|                                                                       |
-| "USER_FS": {                                                          |
-|                                                                       |
-| "MOUNT_ADDR": "0x180000",                                             |
-|                                                                       |
-| "FS_TYPE": "littlefs",                                                |
-|                                                                       |
-| "FS_SIZE": "0x70000",                                                 |
-|                                                                       |
-| "UFS_DIR": "./root_helloworld"                                        |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      {
+     "BOOT_TYPE": {
+       "SECUREBOOT": false
+     },
+     "BOOT_IMAGE": {
+       "IMG_FILE": "./images/fast_ssbl.img"
+     },
+     "VERIFY": false,
+     "IMAGES": {
+       "APP_IMAGES":[
+         {
+           "ELF_FILE": "./ELFS/helloworld.elf.strip",
+           "ADDR": "0x20000"
+         }
+        ]
+     },
+     "PARTITION": {
+       "PART_FILE": "ssbl_part_table.json"
+     },
+     "USER_FS": {
+       "MOUNT_ADDR": "0x180000",
+       "FS_TYPE": "littlefs",
+       "FS_SIZE": "0x70000",
+       "UFS_DIR": "./root_helloworld"
+     }
+   }
+
+
 
 Normal Boot + FOTA Application + Application + Backup Application
 -----------------------------------------------------------------
 
 |image2|
 
-Figure 13: Normal Boot + FOTA + User Application
+Figure 2: Normal Boot + FOTA + User Application
 
-Figure 13 shows the flash layout when using SSBL with FOTA and a
+Figure 2 shows the flash layout when using SSBL with FOTA and a
 customer application. In this scenario, the SSBL boot image is flashed
 at 0x1000, the FOTA application is stored at 0x20000, and the customer
 application is stored at the next available sector (0x8f000). A
@@ -103,66 +81,39 @@ filesystem used by SSBL and FOTA is flashed at 0x180000.
 
 Following is the sample json config file for this scenario:
 
-+-----------------------------------------------------------------------+
-| {                                                                     |
-|                                                                       |
-| "BOOT_TYPE": {                                                        |
-|                                                                       |
-| "SECUREBOOT": false                                                   |
-|                                                                       |
-| },                                                                    |
-|                                                                       |
-| "BOOT_IMAGE": {                                                       |
-|                                                                       |
-| "IMG_FILE": "./images/fast_ssbl_legacy.img"                           |
-|                                                                       |
-| },                                                                    |
-|                                                                       |
-| "VERIFY": false,                                                      |
-|                                                                       |
-| "IMAGES": {                                                           |
-|                                                                       |
-| "APP_IMAGES":[                                                        |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "ELF_FILE": "./ELFS/fota_standalone.elf.strip",                       |
-|                                                                       |
-| "ADDR": "0x20000"                                                     |
-|                                                                       |
-| },                                                                    |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "ELF_FILE": "./ELFS/fota_test.elf.strip",                             |
-|                                                                       |
-| "ADDR": "0x8f000"                                                     |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| ]                                                                     |
-|                                                                       |
-| },                                                                    |
-|                                                                       |
-| "PARTITION": {                                                        |
-|                                                                       |
-| "PART_FILE": "ssbl_part_table.json"                                   |
-|                                                                       |
-| },                                                                    |
-|                                                                       |
-| "USER_FS": {                                                          |
-|                                                                       |
-| "MOUNT_ADDR": "0x180000",                                             |
-|                                                                       |
-| "FS_TYPE": "littlefs",                                                |
-|                                                                       |
-| "UFS_DIR": "./UFS_FOTA"                                               |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      {
+        "BOOT_TYPE": {
+          "SECUREBOOT": false
+        },
+        "BOOT_IMAGE": {
+          "IMG_FILE": "./images/fast_ssbl_legacy.img"
+        },
+        "VERIFY": false,
+        "IMAGES": {
+          "APP_IMAGES":[
+            {
+              "ELF_FILE": "./ELFS/fota_standalone.elf.strip",
+              "ADDR": "0x20000"
+            },
+            {
+              "ELF_FILE": "./ELFS/fota_test.elf.strip",
+              "ADDR": "0x8f000"
+            }
+           ]
+        },
+        "PARTITION": {
+          "PART_FILE": "ssbl_part_table.json"
+        },
+        "USER_FS": {
+          "MOUNT_ADDR": "0x180000",
+          "FS_TYPE": "littlefs",
+          "UFS_DIR": "./UFS_FOTA"
+        }
+      }
+
+
 
 .. |image1| image:: media/image1.png
    :width: 7.87402in

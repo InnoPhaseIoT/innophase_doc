@@ -1,5 +1,8 @@
-scan Modes
-======
+.. _mpd scan:
+
+
+Scan Modes
+==========
 
 Select the Scan tab on the Demo tool GUI to actively scan for nearby
 Access Points. The user can choose between the following scan types:
@@ -46,102 +49,52 @@ Case 1: Standard Wi-Fi Scan
 
 Console output for Standard Scan Scheme:
 
-+-----------------------------------------------------------------------+
-| UART:SNWWWWWAEBuild $Id: git-ba65998b7 $                              |
-|                                                                       |
-| mpd.proto=scan wifi.scan_num_probes=2 wifi.scan_idleslots=3           |
-| wifi.scan_min_listen_time=8 wifi.scan_max_listen_time=40              |
-| wifi.scan_wait_time=0 wifi.nap_scan=0 mpd.scan.dt_iterations=10       |
-| wifi.probe_rate=0x00 wifi.scan_channel_mask=0x7ff mpd.regdomain=FCC   |
-| mpd.suspend=1                                                         |
-|                                                                       |
-| $App:git-73e7f910                                                     |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| T2 Multipurpose Demp App Version 0.12                                 |
-|                                                                       |
-| Suspend Enabled.                                                      |
-|                                                                       |
-| Regdomain=FCC                                                         |
-|                                                                       |
-| addr e0:69:3a:00:13:90                                                |
-|                                                                       |
-| Applying reg domain: 1-11@20                                          |
-|                                                                       |
-| MPD scan mode.                                                        |
-|                                                                       |
-| Channels to be scanned=1,2,3,4,5,6,7,8,9,10,11                        |
-|                                                                       |
-| Enabling suspend.                                                     |
-|                                                                       |
-| period=10                                                             |
-|                                                                       |
-| Round:1 Found 9 nets:                                                 |
-|                                                                       |
-| 00:5f:67:cd:c5:a6 on channel 11 @ -60 'InnoPhase' 'WPA2-PSK'          |
-|                                                                       |
-| b0:a7:b9:73:8e:51 on channel 4 @ -73 'Lakshmi pg 2nd floor 2g'        |
-| 'WPA2-PSK'                                                            |
-|                                                                       |
-| ba:6b:ad:62:6d:8b on channel 11 @ -79 'DESKTOP-9B1DNVC 1786'          |
-| 'WPA2-PSK'                                                            |
-|                                                                       |
-| e4:a7:c5:d4:ea:86 on channel 6 @ -82 'Airtel-E5573-EA86' 'WPA2-PSK'   |
-|                                                                       |
-| d8:47:32:2e:e1:e0 on channel 11 @ -83 'GPMH' 'WPA2-PSK'               |
-|                                                                       |
-| 3c:1e:04:2d:c1:01 on channel 11 @ -85 'Lakshmi pg 1st floor'          |
-| 'WPA-PSK/WPA2-PSK Mixed Mode'                                         |
-|                                                                       |
-| 34:e8:94:be:16:9b on channel 1 @ -88 'InfecteD v2.4' 'WPA2-PSK'       |
-|                                                                       |
-| dc:71:37:56:91:b0 on channel 8 @ -90 'Hathway_Raghuram'               |
-| 'WPA-PSK/WPA2-PSK Mixed Mode'                                         |
-|                                                                       |
-| 50:2b:73:98:0f:51 on channel 9 @ -92 'SharmaShesCheatingonYou'        |
-| 'WPA-PSK/WPA2-PSK Mixed Mode'                                         |
-|                                                                       |
-| -------------------------                                             |
-|                                                                       |
-| Round:2 Found 7 nets:                                                 |
-|                                                                       |
-| 00:5f:67:cd:c5:a6 on channel 11 @ -52 'InnoPhase' 'WPA2-PSK'          |
-|                                                                       |
-| 34:0a:33:70:f3:a2 on channel 1 @ -78 'Siddusm' 'WPA2-PSK'             |
-|                                                                       |
-| 90:8d:78:fa:54:60 on channel 10 @ -79 'LAKSHMI PG 4TH FLOOR'          |
-| 'WPA2-PSK'                                                            |
-|                                                                       |
-| e4:a7:c5:d4:ea:86 on channel 6 @ -82 'Airtel-E5573-EA86' 'WPA2-PSK'   |
-|                                                                       |
-| 70:4f:57:77:7e:d4 on channel 2 @ -84 'Rahul' 'WPA2-PSK'               |
-|                                                                       |
-| dc:71:37:56:91:b0 on channel 8 @ -84 'Hathway_Raghuram'               |
-| 'WPA-PSK/WPA2-PSK Mixed Mode'                                         |
-|                                                                       |
-| aa:74:84:e0:c9:a0 on channel 4 @ -94 'SUMAIYA' 'WPA-PSK/WPA2-PSK      |
-| Mixed Mode'                                                           |
-|                                                                       |
-| -------------------------                                             |
-|                                                                       |
-| Round:3 Found 2 nets:                                                 |
-|                                                                       |
-| 00:5f:67:cd:c5:a6 on channel 11 @ -60 'InnoPhase' 'WPA2-PSK'          |
-|                                                                       |
-| e4:a7:c5:d4:ea:86 on channel 6 @ -79 'Airtel-E5573-EA86' 'WPA2-PSK'   |
-|                                                                       |
-| -------------------------                                             |
-|                                                                       |
-| Round:4 Found 3 nets:                                                 |
-|                                                                       |
-| 34:0a:33:70:f3:a2 on channel 1 @ -80 'Siddusm' 'WPA2-PSK'             |
-|                                                                       |
-| e4:a7:c5:d4:ea:86 on channel 6 @ -80 'Airtel-E5573-EA86' 'WPA2-PSK'   |
-|                                                                       |
-| 34:e8:94:be:16:9b on channel 1 @ -90 'InfecteD v2.4' 'WPA2-PSK'       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      UART:SNWWWWWAEBuild $Id: git-ba65998b7 $
+      mpd.proto=scan wifi.scan_num_probes=2 wifi.scan_idleslots=3 wifi.scan_min_listen_time=8 wifi.scan_max_listen_time=40 
+      wifi.scan_wait_time=0 wifi.nap_scan=0 mpd.scan.dt_iterations=10 wifi.probe_rate=0x00 wifi.scan_channel_mask=0x7ff mpd.regdomain=FCC mpd.suspend=1
+      $App:git-73e7f910
+      SDK Ver: FREERTOS_SDK_1.0
+      T2 Multipurpose Demp App Version 0.12
+      Suspend Enabled.
+      Regdomain=FCC
+      addr e0:69:3a:00:13:90
+      Applying reg domain: 1-11@20
+      MPD scan mode.
+      Channels to be scanned=1,2,3,4,5,6,7,8,9,10,11
+      Enabling suspend.
+      period=10
+      Round:1 Found 9 nets:
+      00:5f:67:cd:c5:a6 on channel 11 @ -60 'InnoPhase' 'WPA2-PSK'
+      b0:a7:b9:73:8e:51 on channel  4 @ -73 'Lakshmi pg 2nd floor 2g' 'WPA2-PSK'
+      ba:6b:ad:62:6d:8b on channel 11 @ -79 'DESKTOP-9B1DNVC 1786' 'WPA2-PSK'
+      e4:a7:c5:d4:ea:86 on channel  6 @ -82 'Airtel-E5573-EA86' 'WPA2-PSK'
+      d8:47:32:2e:e1:e0 on channel 11 @ -83 'GPMH' 'WPA2-PSK'
+      3c:1e:04:2d:c1:01 on channel 11 @ -85 'Lakshmi pg 1st floor' 'WPA-PSK/WPA2-PSK Mixed Mode'
+      34:e8:94:be:16:9b on channel  1 @ -88 'InfecteD v2.4' 'WPA2-PSK'
+      dc:71:37:56:91:b0 on channel  8 @ -90 'Hathway_Raghuram' 'WPA-PSK/WPA2-PSK Mixed Mode'
+      50:2b:73:98:0f:51 on channel  9 @ -92 'SharmaShesCheatingonYou' 'WPA-PSK/WPA2-PSK Mixed Mode'
+      -------------------------
+      Round:2 Found 7 nets:
+      00:5f:67:cd:c5:a6 on channel 11 @ -52 'InnoPhase' 'WPA2-PSK'
+      34:0a:33:70:f3:a2 on channel  1 @ -78 'Siddusm' 'WPA2-PSK'
+      90:8d:78:fa:54:60 on channel 10 @ -79 'LAKSHMI PG 4TH FLOOR' 'WPA2-PSK'
+      e4:a7:c5:d4:ea:86 on channel  6 @ -82 'Airtel-E5573-EA86' 'WPA2-PSK'
+      70:4f:57:77:7e:d4 on channel  2 @ -84 'Rahul' 'WPA2-PSK'
+      dc:71:37:56:91:b0 on channel  8 @ -84 'Hathway_Raghuram' 'WPA-PSK/WPA2-PSK Mixed Mode'
+      aa:74:84:e0:c9:a0 on channel  4 @ -94 'SUMAIYA' 'WPA-PSK/WPA2-PSK Mixed Mode'
+      -------------------------
+      Round:3 Found 2 nets:
+      00:5f:67:cd:c5:a6 on channel 11 @ -60 'InnoPhase' 'WPA2-PSK'
+      e4:a7:c5:d4:ea:86 on channel  6 @ -79 'Airtel-E5573-EA86' 'WPA2-PSK'
+      -------------------------
+      Round:4 Found 3 nets:
+      34:0a:33:70:f3:a2 on channel  1 @ -80 'Siddusm' 'WPA2-PSK'
+      e4:a7:c5:d4:ea:86 on channel  6 @ -80 'Airtel-E5573-EA86' 'WPA2-PSK'
+      34:e8:94:be:16:9b on channel  1 @ -90 'InfecteD v2.4' 'WPA2-PSK'
+
+
 
 **Expected Result**: Depending on the scan specifications, available
 networks are identified and displayed.
@@ -182,92 +135,46 @@ methods:
 
 Console output for Low Power scan scheme:
 
-+-----------------------------------------------------------------------+
-| UART:SNWWWWWAEBuild $Id: git-ba65998b7 $                              |
-|                                                                       |
-| mpd.proto=lpscan wifi.scan_num_probes=1 wifi.scan_idleslots=3         |
-| wifi.scan_min_listen_time=8 wifi.scan_max_listen_time=24              |
-| wifi.nap_scan=1 mpd.lpscan.ap_logging=1 mpd.lpscan.dt_iterations=10   |
-| mpd.lpscan.rate=0x100 wifi.scan_channel_mask=0x7ff mpd.regdomain=FCC  |
-| mpd.suspend=1                                                         |
-|                                                                       |
-| $App:git-73e7f910                                                     |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| T2 Multipurpose Demp App Version 0.12                                 |
-|                                                                       |
-| Suspend Enabled.                                                      |
-|                                                                       |
-| Multicast reception Disabled.                                         |
-|                                                                       |
-| Regdomain=FCC                                                         |
-|                                                                       |
-| addr e0:69:3a:00:13:90                                                |
-|                                                                       |
-| Applying reg domain: 1-11@20                                          |
-|                                                                       |
-| MPD lpscan mode.                                                      |
-|                                                                       |
-| Enabling suspend.                                                     |
-|                                                                       |
-| [1.718,157] Round:1 Found 3 nets:                                     |
-|                                                                       |
-| -------------------------                                             |
-|                                                                       |
-| [1.718,817] 00:5f:67:cd:c5:a6 on channel 11 @ -45 'InnoPhase'         |
-| 'WPA2-PSK'                                                            |
-|                                                                       |
-| [1.718,929] b0:a7:b9:73:8e:51 on channel 4 @ -70 'Lakshmi pg 2nd      |
-| floor 2g' 'WPA2-PSK'                                                  |
-|                                                                       |
-| [1.719,042] 34:0a:33:70:f3:a2 on channel 1 @ -77 'Siddusm' 'WPA2-PSK' |
-|                                                                       |
-| [11.698,197] Round:2 Found 3 nets:                                    |
-|                                                                       |
-| -------------------------                                             |
-|                                                                       |
-| [11.698,286] ba:6b:ad:62:6d:8b on channel 11 @ -67 'DESKTOP-9B1DNVC   |
-| 1786' 'WPA2-PSK'                                                      |
-|                                                                       |
-| [11.698,401] b0:a7:b9:73:8e:51 on channel 4 @ -71 'Lakshmi pg 2nd     |
-| floor 2g' 'WPA2-PSK'                                                  |
-|                                                                       |
-| [11.698,517] d8:47:32:2e:e1:e0 on channel 11 @ -79 'GPMH' 'WPA2-PSK'  |
-|                                                                       |
-| [21.693,819] Round:3 Found 2 nets:                                    |
-|                                                                       |
-| -------------------------                                             |
-|                                                                       |
-| [21.693,903] 34:0a:33:70:f3:a2 on channel 1 @ -78 'Siddusm'           |
-| 'WPA2-PSK'                                                            |
-|                                                                       |
-| [21.694,019] 30:b6:2d:94:37:a0 on channel 1 @ -86 'JioPrivateNet'     |
-| 'WPA2/WPA3-Enterprise'                                                |
-|                                                                       |
-| [31.684,572] Round:4 Found 2 nets:                                    |
-|                                                                       |
-| -------------------------                                             |
-|                                                                       |
-| [31.684,656] 00:5f:67:cd:c5:a6 on channel 11 @ -47 'InnoPhase'        |
-| 'WPA2-PSK'                                                            |
-|                                                                       |
-| [31.684,769] f8:c4:f3:18:2e:08 on channel 2 @ -91 'Shiva_Airtel'      |
-| 'WPA2-PSK'                                                            |
-|                                                                       |
-| [41.702,628] Round:5 Found 3 nets:                                    |
-|                                                                       |
-| -------------------------                                             |
-|                                                                       |
-| [41.702,713] 00:5f:67:cd:c5:a6 on channel 11 @ -57 'InnoPhase'        |
-| 'WPA2-PSK'                                                            |
-|                                                                       |
-| [41.702,828] ba:6b:ad:62:6d:8b on channel 11 @ -66 'DESKTOP-9B1DNVC   |
-| 1786' 'WPA2-PSK'                                                      |
-|                                                                       |
-| [41.702,943] 70:4f:57:77:7e:d4 on channel 2 @ -85 'Rahul' 'WPA2-PSK'  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      UART:SNWWWWWAEBuild $Id: git-ba65998b7 $
+      mpd.proto=lpscan wifi.scan_num_probes=1 wifi.scan_idleslots=3 wifi.scan_min_listen_time=8 wifi.scan_max_listen_time=24 
+      wifi.nap_scan=1 mpd.lpscan.ap_logging=1 mpd.lpscan.dt_iterations=10 mpd.lpscan.rate=0x100 wifi.scan_channel_mask=0x7ff mpd.regdomain=FCC mpd.suspend=1
+      $App:git-73e7f910
+      SDK Ver: FREERTOS_SDK_1.0
+      T2 Multipurpose Demp App Version 0.12
+      Suspend Enabled.
+      Multicast reception Disabled.
+      Regdomain=FCC
+      addr e0:69:3a:00:13:90
+      Applying reg domain: 1-11@20
+      MPD lpscan mode.
+      Enabling suspend.
+      [1.718,157] Round:1 Found 3 nets:
+      -------------------------
+      [1.718,817] 00:5f:67:cd:c5:a6 on channel 11 @ -45 'InnoPhase' 'WPA2-PSK'
+      [1.718,929] b0:a7:b9:73:8e:51 on channel  4 @ -70 'Lakshmi pg 2nd floor 2g' 'WPA2-PSK'
+      [1.719,042] 34:0a:33:70:f3:a2 on channel  1 @ -77 'Siddusm' 'WPA2-PSK'
+      [11.698,197] Round:2 Found 3 nets:
+      -------------------------
+      [11.698,286] ba:6b:ad:62:6d:8b on channel 11 @ -67 'DESKTOP-9B1DNVC 1786' 'WPA2-PSK'
+      [11.698,401] b0:a7:b9:73:8e:51 on channel  4 @ -71 'Lakshmi pg 2nd floor 2g' 'WPA2-PSK'
+      [11.698,517] d8:47:32:2e:e1:e0 on channel 11 @ -79 'GPMH' 'WPA2-PSK'
+      [21.693,819] Round:3 Found 2 nets:
+      -------------------------
+      [21.693,903] 34:0a:33:70:f3:a2 on channel  1 @ -78 'Siddusm' 'WPA2-PSK'
+      [21.694,019] 30:b6:2d:94:37:a0 on channel  1 @ -86 'JioPrivateNet' 'WPA2/WPA3-Enterprise'
+      [31.684,572] Round:4 Found 2 nets:
+      -------------------------
+      [31.684,656] 00:5f:67:cd:c5:a6 on channel 11 @ -47 'InnoPhase' 'WPA2-PSK'
+      [31.684,769] f8:c4:f3:18:2e:08 on channel  2 @ -91 'Shiva_Airtel' 'WPA2-PSK'
+      [41.702,628] Round:5 Found 3 nets:
+      -------------------------
+      [41.702,713] 00:5f:67:cd:c5:a6 on channel 11 @ -57 'InnoPhase' 'WPA2-PSK'
+      [41.702,828] ba:6b:ad:62:6d:8b on channel 11 @ -66 'DESKTOP-9B1DNVC 1786' 'WPA2-PSK'
+      [41.702,943] 70:4f:57:77:7e:d4 on channel  2 @ -85 'Rahul' 'WPA2-PSK'
+
+
 
 **Otii log**: Shows an average current consumption of 32.8mA for
 96.032ms scan duration for low power Wi-Fi smart scan, here FCC

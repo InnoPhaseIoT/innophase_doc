@@ -1,3 +1,5 @@
+.. _dl reset evb:
+
 Resetting the EVB-A in BL Mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -6,10 +8,10 @@ To reset the EVB-A in Boot Loader mode, click on Reset in BL Mode.
 When the EVB-A is reset in the Boot Loader mode, though no changes are
 observed in the console for this command, the board is reset.
 
-|A screenshot of a computer Description automatically generated|
+|image1|
 
-Figure 25: Reset in BL mode
+Figure 1: Reset in BL mode
 
-.. |A screenshot of a computer Description automatically generated| image:: media/image1.png
-   :width: 7.48031in
-   :height: 2.12135in
+.. |image1| image:: media/image1.png
+   :width: 6.48031in
+   :height: 7.12135in

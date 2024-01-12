@@ -2,10 +2,12 @@ const searchElement = document.getElementsByClassName("icon icon-home")[0];
 
 const VersionsList = {
     "FreeRTOS-3.0": "https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/freertos-3.0",
+    "Versions": "#"
 };
 
 const ModulesList = {
     "Talaria-TWO": "https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/freertos-3.0",
+    "Modules": "#"
 };
 
 var selectList = document.createElement("select");
@@ -92,3 +94,7 @@ var divToRemove = document.querySelector('.rst-versions');
 parentElement.removeChild(divToRemove);
 
 
+// versions, modules dropdown
+// prerequisites landing page
+// prerequisites Software-page heading on left
+// url link wiht be docs.innophaseiot.readthedoc.com

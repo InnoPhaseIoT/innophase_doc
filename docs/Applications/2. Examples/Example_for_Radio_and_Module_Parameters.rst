@@ -1,3 +1,5 @@
+.. _ex radio module params:
+
 Radio and Module Parameters
 ---------------------------------
 
@@ -29,12 +31,10 @@ domain:
 
 **Boot Argument:**
 
-.. table:: Table : Antenna gain look-up table
+.. code:: shell
 
-   +-----------------------------------------------------------------------+
-   | reg_domain=< reg domain needs to be changed>                          |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+      reg_domain=< reg domain needs to be changed>        
+
 
 The following are the Regulatory domains supported in Talaria TWO with
 this application:
@@ -59,10 +59,10 @@ The following boot argument allows the user to set antenna gain in dBi:
 
 **Boot Argument:**
 
-+-----------------------------------------------------------------------+
-| rf.antenna_gain                                                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      rf.antenna_gain
+
 
 The antenna gain value is used in calculation of output power to comply
 with regulatory domain settings.
@@ -72,6 +72,8 @@ INP1015 modules.
 
 The following antenna gain look-up table provides reference gain
 information for the E.I.R.P. power measurements.
+
+.. table:: Table 1: Antenna gain look-up table
 
 +---------------------------------+------------------------------------+
 | **Module Type**                 | **Antenna Gain (dBi)**             |
@@ -102,10 +104,10 @@ dBm:
 
 **Boot Argument:**
 
-+-----------------------------------------------------------------------+
-| tx_power=<MAX TX power in dBm>                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      tx_power=<MAX TX power in dBm> 
+
 
 Device Information
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -156,65 +158,52 @@ Source Code Walkthrough
 create_wcm_hndl() function creates the WCM handle and applies the
 provided domain.
 
-+-----------------------------------------------------------------------+
-| hndl = wcm_create(NULL);                                              |
-|                                                                       |
-| if(hndl == NULL) {                                                    |
-|                                                                       |
-| os_printf(“wcm create failed.\\n”);                                   |
-|                                                                       |
-| return NULL;                                                          |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| if(domain != 0) {                                                     |
-|                                                                       |
-| /\* reg domain info given \*/                                         |
-|                                                                       |
-| os_printf(“Applying reg domain: %s\\n”, domain);                      |
-|                                                                       |
-| if(wcm_set_channel_spec(hndl, domain) != 0) {                         |
-|                                                                       |
-| os_printf(“Applying reg domain failed.!\\n”);                         |
-|                                                                       |
-| return NULL;                                                          |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      hndl = wcm_create(NULL);
+      
+        if(hndl == NULL) {
+             os_printf(“wcm create failed.\n”);
+             return NULL;
+          }
+      
+         if(domain != 0) {
+              /* reg domain info given */
+              os_printf(“Applying reg domain: %s\n”, domain);
+      
+              if(wcm_set_channel_spec(hndl, domain) != 0) {
+                  os_printf(“Applying reg domain failed.!\n”);
+                  return NULL;
+              }
+          }
+
 
 get_devicemodule_type() function reads the device information from the
 boot sector of the Talaria TWO module.
 
-+-----------------------------------------------------------------------+
-| os_printf(“\\r \\n Reading module type\\n”);                          |
-|                                                                       |
-| os_devinfo_module_type(&type);                                        |
-|                                                                       |
-| os_printf(“\\r \\n Module type = INP%u \\n”, type);                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      os_printf(“\r \n Reading module type\n”);
+      os_devinfo_module_type(&type);	
+      os_printf(“\r \n Module type = INP%u \n”, type);
+
 
 wcmif_txpowerset() API sets the maximum Tx power for the Wi-Fi
 interface.
 
-+-----------------------------------------------------------------------+
-| wcmif_txpowerset(txpower);                                            |
-|                                                                       |
-| os_printf(“txpower=%s\\n”, txpower);                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      wcmif_txpowerset(txpower);
+os_printf(“txpower=%s\n”, txpower);
+
 
 wcm_get_txpower() API gets the maximum Tx power for the Wi-Fi interface.
 
-+-----------------------------------------------------------------------+
-| tx_pow = wcm_get_txpower(hndl);                                       |
-|                                                                       |
-| os_printf(“\\r\\n Tx power in dBm = %d\\n”, (int)tx_pow);             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      tx_pow = wcm_get_txpower(hndl);
+      os_printf(“\r\n Tx power in dBm = %d\n”, (int)tx_pow);
+
 
 ..
 
@@ -225,29 +214,20 @@ wcm_get_txpower() API gets the maximum Tx power for the Wi-Fi interface.
    state. Returns 0 on success or a negative error code in case of an
    error.
 
-+-----------------------------------------------------------------------+
-| rval = wifi_connect_to_network(&hndl, WCM_CONN_WAIT_INFINITE,         |
-| &wcm_connected);                                                      |
-|                                                                       |
-| if(rval < 0) {                                                        |
-|                                                                       |
-| os_printf("\\r\\nError: Unable to connect to network\\n");            |
-|                                                                       |
-| return 0;                                                             |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| if(wcm_connected != true) {                                           |
-|                                                                       |
-| os_printf("\\r\\nCouldn't Connect to network");                       |
-|                                                                       |
-| wcm_disconnect(hndl);                                                 |
-|                                                                       |
-| return -1;                                                            |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      rval = wifi_connect_to_network(&hndl, WCM_CONN_WAIT_INFINITE, &wcm_connected);
+      if(rval < 0) {
+           os_printf("\r\nError: Unable to connect to network\n");
+           return 0;
+      }
+      
+      if(wcm_connected != true) {
+          os_printf("\r\nCouldn't Connect to network");
+          wcm_disconnect(hndl);
+          return -1;
+      }
+
 
 Building the Application
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -255,12 +235,11 @@ Building the Application
 To build the sample application, execute the following commands from the
 FreeRTOS SDK directory:
 
-+-----------------------------------------------------------------------+
-| cd examples/                                                          |
-|                                                                       |
-| make clean \| make                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      cd examples/
+      make clean | make
+
 
 The make command should generate rf_param.elf in the out directory.
 
@@ -286,10 +265,10 @@ Download tool:
    c. Boot Arguments: Pass the following boot arguments to set the REG
       domain and TX power.
 
-+-----------------------------------------------------------------------+
-| reg_domain=<Reg domain>,tx_power=<MAX TX power in dBm>                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      reg_domain=<Reg domain>,tx_power=<MAX TX power in dBm>   
+
 
 d. Programming: Click on PROG Flash.
 
@@ -299,75 +278,55 @@ Expected Output
 On flashing the application using the Download Tool, the console output
 is as follows:
 
-+-----------------------------------------------------------------------+
-| UART:SRWWWWAE4 DWT comparators, range 0x8000                          |
-|                                                                       |
-| Build $Id: git-ef87896f9 $                                            |
-|                                                                       |
-| flash: Gordon ready!                                                  |
-|                                                                       |
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PWWWWWWAE                                                       |
-|                                                                       |
-| Build $Id: git-bbd63ca $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-0063-009c-ffffffffffff   |
-|                                                                       |
-| Bootargs: reg_domain=SRRC tx_power=11 ssid=test passphrase=12345678   |
-|                                                                       |
-| $App:git-c132c26                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Radio and Module Parameters Demo App                                  |
-|                                                                       |
-| reg_domain = SRRC                                                     |
-|                                                                       |
-| addr e0:69:3a:00:16:1a                                                |
-|                                                                       |
-| Applying reg domain                                                   |
-|                                                                       |
-| Reg Domain Applied                                                    |
-|                                                                       |
-| Maximum TX power set = 11                                             |
-|                                                                       |
-| Maximum TX power get = 11                                             |
-|                                                                       |
-| network profile created for ssid: test                                |
-|                                                                       |
-| Connecting to added network : test                                    |
-|                                                                       |
-| [0.882,007] CONNECT:9a:96:21:2e:dc:32 Channel:11 rssi:-40 dBm         |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP                   |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS                   |
-|                                                                       |
-| [0.973,939] MYIP 192.168.70.179                                       |
-|                                                                       |
-| [0.974,104] IPv6 [fe80::e269:3aff:fe00:161a]-link                     |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED                 |
-|                                                                       |
-| Connected to added network : test                                     |
-|                                                                       |
-| Reading module type                                                   |
-|                                                                       |
-| Module type = INP1010                                                 |
-|                                                                       |
-| Connected to < test > network                                         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      UART:SRWWWWAE4 DWT comparators, range 0x8000
+      Build $Id: git-ef87896f9 $
+      flash: Gordon ready!
+      
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PWWWWWWAE
+      Build $Id: git-bbd63ca $
+      Flash detected. flash.hw.uuid: 39483937-3207-0063-009c-ffffffffffff
+      Bootargs: reg_domain=SRRC tx_power=11 ssid=test passphrase=12345678
+      $App:git-c132c26
+      SDK Ver: FREERTOS_SDK_1.0
+      Radio and Module Parameters Demo App
+      
+      reg_domain = SRRC
+      addr e0:69:3a:00:16:1a
+      Applying reg domain 
+      Reg Domain Applied
+      
+      Maximum TX power set = 11
+      
+      Maximum TX power get = 11
+      
+      network profile created for ssid: test
+      Connecting to added network : test
+      [0.882,007] CONNECT:9a:96:21:2e:dc:32 Channel:11 rssi:-40 dBm
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+      [0.973,939] MYIP 192.168.70.179
+      [0.974,104] IPv6 [fe80::e269:3aff:fe00:161a]-link
+      
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
+      Connected to added network : test
+      
+      Reading module type
+      
+      Module type = INP1010 
+      
+      Connected to < test > network  
+
 
 **Console output**:
 
-|image1|
+|image72|
 
-Figure : Console output
+Figure 1: Console output
 
-.. |image1| image:: media/image1.png
+.. |image72| image:: media/image72.png
    :width: 7.48031in
    :height: 5.48906in

@@ -83,3 +83,7 @@ h1 {
 [role="contentinfo"] p {
     font-size: 12px !important;
 }
+
+.rst-content table.docutils caption {
+    text-align: left;
+}

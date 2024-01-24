@@ -1,3 +1,6 @@
+.. _ex wifi power management:
+
+
 WiFi Power Management
 -----------------------
 
@@ -92,28 +95,23 @@ Sample Code Walkthrough
    Connection Manager is used. Initially, the Wi-Fi network interface is
    created using wcm_create().
 
-+-----------------------------------------------------------------------+
-| h = wcm_create(NULL);                                                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      h = wcm_create(NULL);   
 
 ..
 
    wifi_connect_to_network()API, from components library, connects to
    the Wi-Fi network using the AP credentials provided.
 
-+-----------------------------------------------------------------------+
-| rval = wifi_connect_to_network(&h, WCM_CONN_WAIT_INFINITE,            |
-|                                                                       |
-| &wcm_connected);                                                      |
-|                                                                       |
-| if(rval < 0) {                                                        |
-|                                                                       |
-| os_printf("\\nError: Unable to connect to network\\n");               |
-|                                                                       |
-| return 0; }                                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      rval = wifi_connect_to_network(&h, WCM_CONN_WAIT_INFINITE,  
+                      &wcm_connected);
+      if(rval < 0) {
+          os_printf("\nError: Unable to connect to network\n");
+          return 0; }
+
 
 2. Print Power Management Configuration
 
@@ -125,57 +123,30 @@ Sample Code Walkthrough
 
 wcm_pm_get_sleep_period()gets the current_sleep_period value.
 
-+-----------------------------------------------------------------------+
-| uint32_t current_listen_interval;                                     |
-|                                                                       |
-| uint32_t current_traffic_tmo;                                         |
-|                                                                       |
-| uint32_t current_pm_flags;                                            |
-|                                                                       |
-| int current_sleep_period;                                             |
-|                                                                       |
-| wcm_pm_config_get(h, &current_listen_interval, &current_traffic_tmo,  |
-|                                                                       |
-| current_pm_flags);                                                    |
-|                                                                       |
-| wcm_pm_get_sleep_period(h, &current_sleep_period);                    |
-|                                                                       |
-| os_printf("\\n******\\n");                                            |
-|                                                                       |
-| os_printf("listen_interval: %d\\n", current_listen_interval);         |
-|                                                                       |
-| os_printf("traffic_tmo: %d\\n", current_traffic_tmo);                 |
-|                                                                       |
-| os_printf("pm_flags: 0x%x\\n", current_pm_flags);                     |
-|                                                                       |
-| os_printf("sleep_period: %d ms\\n", current_sleep_period/1000);       |
-|                                                                       |
-| os_printf("\******\\n");                                              |
-|                                                                       |
-| os_printf((current_pm_flags & WIFI_PM_DTIM_ONLY) ==0 ? "dtim_only     |
-| disabled\\n" : "dtim_only enabled\\n");                               |
-|                                                                       |
-| os_printf((current_pm_flags & WIFI_PM_TX_PS) ==0 ? "tx_ps             |
-| disabled\\n" : "tx_ps enabled\\n");                                   |
-|                                                                       |
-| os_printf((current_pm_flags & WIFI_PM_MCAST_DONT_CARE)==0 ?           |
-| "mcast_don't_care disabled \\n" : "mcast_don't_care enabled\\n");     |
-|                                                                       |
-| os_printf((current_pm_flags & WIFI_PM_STA_RX_NAP)==0 ? "rx_nap        |
-| disabled\\n" : "rx_nap enabled\\n");                                  |
-|                                                                       |
-| os_printf((current_pm_flags & WIFI_PM_STA_ONLY_BROADCAST)==0 ?        |
-| "only_broadcast disabled\\n" : "only_broadcast enabled\\n");          |
-|                                                                       |
-| os_printf((current_pm_flags & WIFI_PM_PS_POLL)==0 ? "ps_poll          |
-| disabled\\n" : "ps_poll enabled\\n");                                 |
-|                                                                       |
-| os_printf((current_pm_flags & WIFI_PM_DYN_LISTEN_INT)==0 ? "dli       |
-| disabled\\n" : "dli enabled\\n");                                     |
-|                                                                       |
-| os_printf("\******\\n");                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      uint32_t current_listen_interval;
+      uint32_t current_traffic_tmo;
+      uint32_t current_pm_flags;
+      int current_sleep_period;
+      wcm_pm_config_get(h, &current_listen_interval, &current_traffic_tmo, 
+                        current_pm_flags);
+      wcm_pm_get_sleep_period(h, &current_sleep_period);
+          os_printf("\n******\n");
+          os_printf("listen_interval: %d\n", current_listen_interval);
+          os_printf("traffic_tmo: %d\n", current_traffic_tmo);
+          os_printf("pm_flags: 0x%x\n", current_pm_flags);
+          os_printf("sleep_period: %d ms\n", current_sleep_period/1000);
+          os_printf("******\n");
+          os_printf((current_pm_flags & WIFI_PM_DTIM_ONLY) ==0 ? "dtim_only disabled\n" : "dtim_only enabled\n");  
+      os_printf((current_pm_flags & WIFI_PM_TX_PS) ==0 ? "tx_ps disabled\n" : "tx_ps enabled\n"); 
+      os_printf((current_pm_flags & WIFI_PM_MCAST_DONT_CARE)==0 ? "mcast_don't_care disabled \n" : "mcast_don't_care enabled\n"); 
+      os_printf((current_pm_flags & WIFI_PM_STA_RX_NAP)==0 ? "rx_nap disabled\n" : "rx_nap enabled\n"); 
+      os_printf((current_pm_flags & WIFI_PM_STA_ONLY_BROADCAST)==0 ? "only_broadcast disabled\n" : "only_broadcast enabled\n"); 
+      os_printf((current_pm_flags & WIFI_PM_PS_POLL)==0 ? "ps_poll disabled\n" : "ps_poll enabled\n"); 
+      os_printf((current_pm_flags & WIFI_PM_DYN_LISTEN_INT)==0 ? "dli disabled\n" : "dli enabled\n"); 
+      os_printf("******\n");
+
 
 3. Set Power Management Configurations
 
@@ -192,34 +163,31 @@ wcm_pm_get_sleep_period()gets the current_sleep_period value.
 
    Listen Interval 3
 
-+-----------------------------------------------------------------------+
-| wcm_pm_config(h, LISTEN_INTERVAL_3, TRAFFIC_TMO, pm_mask);            |
-|                                                                       |
-| vTaskDelay(20000);                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      wcm_pm_config(h, LISTEN_INTERVAL_3, TRAFFIC_TMO, pm_mask);
+      vTaskDelay(20000);
+
 
 ..
 
    Listen Interval 10
 
-+-----------------------------------------------------------------------+
-| wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO, pm_mask);           |
-|                                                                       |
-| vTaskDelay(20000);                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO, pm_mask);
+vTaskDelay(20000);
+
 
 ..
 
    Listen Interval 20
 
-+-----------------------------------------------------------------------+
-| wcm_pm_config(h, LISTEN_INTERVAL_20, TRAFFIC_TMO, pm_mask);           |
-|                                                                       |
-| vTaskDelay(20000);                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      wcm_pm_config(h, LISTEN_INTERVAL_20, TRAFFIC_TMO, pm_mask);
+      vTaskDelay(20000);
+
 
 Running the Application 
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -243,10 +211,10 @@ Program wcm_pm.elf using the Download tool
 
    d. Boot Arguments: Pass the following boot arguments:
 
-+-----------------------------------------------------------------------+
-| wifi.max_idle_period=600,suspend=1,wifi.arp_grat_period=0             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      wifi.max_idle_period=600,suspend=1,wifi.arp_grat_period=0
+
 
 i. suspend
 
@@ -280,137 +248,80 @@ e. Programming: Prog RAM or Prog Flash as per requirement.
 
 Console output:
 
-+-----------------------------------------------------------------------+
-| UART:SNWWWWAE                                                         |
-|                                                                       |
-| 4 DWT comparators, range 0x8000                                       |
-|                                                                       |
-| Build $Id: git-ef87896f9 $                                            |
-|                                                                       |
-| hio.baudrate=921600                                                   |
-|                                                                       |
-| flash: Gordon ready!                                                  |
-|                                                                       |
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PNWWWWWWAE                                                      |
-|                                                                       |
-| Build $Id: git-df9b9ef $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff   |
-|                                                                       |
-| Bootargs: wifi.max_idle_period=600 suspend=1 wifi.arp_grat_period=0   |
-| np_conf_path=/data/nprofile.json ssid=Lucy passphrase=Password@321    |
-|                                                                       |
-| $App:git-6600fea                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Wifi PM Demo App                                                      |
-|                                                                       |
-| addr e0:69:3a:00:16:d4                                                |
-|                                                                       |
-| Connecting to added network : Lucy                                    |
-|                                                                       |
-| [0.616,682] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-61 dBm          |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP                   |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS                   |
-|                                                                       |
-| [0.721,841] MYIP 192.168.1.105                                        |
-|                                                                       |
-| [0.722,122] IPv6 [fe80::e269:3aff:fe00:16d4]-link                     |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED                 |
-|                                                                       |
-| Connected to added network : Lucy                                     |
-|                                                                       |
-| Suspend enabled!                                                      |
-|                                                                       |
-| setting to listen interval equivalent 3                               |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| listen_interval: 3                                                    |
-|                                                                       |
-| traffic_tmo: 12                                                       |
-|                                                                       |
-| sleep_period: 102 ms                                                  |
-|                                                                       |
-| dtim_only enabled                                                     |
-|                                                                       |
-| tx_ps enabled                                                         |
-|                                                                       |
-| mcast_don't_care enabled                                              |
-|                                                                       |
-| rx_nap enabled                                                        |
-|                                                                       |
-| only_broadcast enabled                                                |
-|                                                                       |
-| ps_poll disabled                                                      |
-|                                                                       |
-| dli disabled                                                          |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| setting to listen interval equivalent 10                              |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| listen_interval: 10                                                   |
-|                                                                       |
-| traffic_tmo: 12                                                       |
-|                                                                       |
-| sleep_period: 307 ms                                                  |
-|                                                                       |
-| dtim_only enabled                                                     |
-|                                                                       |
-| tx_ps enabled                                                         |
-|                                                                       |
-| mcast_don't_care enabled                                              |
-|                                                                       |
-| rx_nap enabled                                                        |
-|                                                                       |
-| only_broadcast enabled                                                |
-|                                                                       |
-| ps_poll disabled                                                      |
-|                                                                       |
-| dli disabled                                                          |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| setting to listen interval equivalent 20                              |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| listen_interval: 20                                                   |
-|                                                                       |
-| traffic_tmo: 12                                                       |
-|                                                                       |
-| sleep_period: 1024 ms                                                 |
-|                                                                       |
-| dtim_only enabled                                                     |
-|                                                                       |
-| tx_ps enabled                                                         |
-|                                                                       |
-| mcast_don't_care enabled                                              |
-|                                                                       |
-| rx_nap enabled                                                        |
-|                                                                       |
-| only_broadcast enabled                                                |
-|                                                                       |
-| ps_poll disabled                                                      |
-|                                                                       |
-| dli disabled                                                          |
-|                                                                       |
-| \*****\*                                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image1|
+      UART:SNWWWWAE
+      4 DWT comparators, range 0x8000
+      Build $Id: git-ef87896f9 $
+      hio.baudrate=921600
+      flash: Gordon ready!
+      
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PNWWWWWWAE
+      Build $Id: git-df9b9ef $
+      Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff
+      Bootargs: wifi.max_idle_period=600 suspend=1 wifi.arp_grat_period=0 np_conf_path=/data/nprofile.json ssid=Lucy passphrase=Password@321
+      $App:git-6600fea
+      SDK Ver: FREERTOS_SDK_1.0
+      Wifi PM Demo App
+      addr e0:69:3a:00:16:d4
+      
+      Connecting to added network : Lucy
+      [0.616,682] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-61 dBm
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+      [0.721,841] MYIP 192.168.1.105
+      [0.722,122] IPv6 [fe80::e269:3aff:fe00:16d4]-link
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
+      
+      Connected to added network : Lucy
+      Suspend enabled!
+      
+      setting to listen interval equivalent 3
+      ******
+      listen_interval: 3
+      traffic_tmo: 12
+      sleep_period: 102 ms
+      dtim_only enabled
+      tx_ps enabled
+      mcast_don't_care enabled
+      rx_nap enabled
+      only_broadcast enabled
+      ps_poll disabled
+      dli disabled
+      ******
+      
+      setting to listen interval equivalent 10
+      ******
+      listen_interval: 10
+      traffic_tmo: 12
+      sleep_period: 307 ms
+      dtim_only enabled
+      tx_ps enabled
+      mcast_don't_care enabled
+      rx_nap enabled
+      only_broadcast enabled
+      ps_poll disabled
+      dli disabled
+      ******
+      
+      setting to listen interval equivalent 20
+      ******
+      listen_interval: 20
+      traffic_tmo: 12
+      sleep_period: 1024 ms
+      dtim_only enabled
+      tx_ps enabled
+      mcast_don't_care enabled
+      rx_nap enabled
+      only_broadcast enabled
+      ps_poll disabled
+      dli disabled
+      ******
+
+
+|image77|
 
 Figure 1: Otti capture
 
@@ -438,20 +349,18 @@ Wi-Fi Power Management Configuration
    pm_flags represent the power management flags, described in section
    4.
 
-+-----------------------------------------------------------------------+
-| void wcm_pm_config(struct wcm_handle \*h, uint32_t listen_interval,   |
-| uint32_t traffic_tmo, uint32_t pm_flags)                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      void wcm_pm_config(struct wcm_handle *h, uint32_t listen_interval, uint32_t traffic_tmo, uint32_t pm_flags)
+
 
 ..
 
    For example:
 
-+-----------------------------------------------------------------------+
-| wcm_pm_config(h, 3, 12, 0);                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      wcm_pm_config(h, 3, 12, 0);       
 
 ..
 
@@ -464,27 +373,23 @@ Wi-Fi Power Management Configuration
 
    Example 1:
 
-+-----------------------------------------------------------------------+
-| Configured LI: 10                                                     |
-|                                                                       |
-| DTIM set on AP: 3                                                     |
-|                                                                       |
-| Effective LI: 12                                                      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      Configured LI: 10
+      DTIM set on AP: 3
+      Effective LI: 12
+
 
 ..
 
    Example 2:
 
-+-----------------------------------------------------------------------+
-| Configured LI: 2                                                      |
-|                                                                       |
-| DTIM set on AP: 3                                                     |
-|                                                                       |
-| Effective LI: 6                                                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      Configured LI: 2
+      DTIM set on AP: 3
+      Effective LI: 6
+
 
 Rx Nap in Station Mode (WIFI_PM_STA_RX_NAP)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -520,36 +425,31 @@ The following code uses wcm_pm_config() API to enable the station Rx NAP
 flag WIFI_PM_STA_RX_NAP. Suspend mode is enabled using the API
 os_suspend_enable().
 
-+-----------------------------------------------------------------------+
-| os_printf("Suspend enabled!\\n");                                     |
-|                                                                       |
-| os_suspend_enable();                                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      os_printf("Suspend enabled!\n");
+      os_suspend_enable();
+
 
 Sets the listen interval to 10, traffic timeout to 12ms and enables Rx
 nap. Enables sleep mode for 20 seconds before disabling the Rx nap flag.
 
-+-----------------------------------------------------------------------+
-| print_wifi_config()                                                   |
-|                                                                       |
-| os_printf("Sleep mode for next 20 sec\\n");                           |
-|                                                                       |
-| vTaskDelay(20000);                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      print_wifi_config()
+      os_printf("Sleep mode for next 20 sec\n");
+      vTaskDelay(20000);
+
 
 Sets the listen interval to 10, traffic timeout to 12ms and disables Rx
 nap.
 
-+-----------------------------------------------------------------------+
-| wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO, PM_FLAGS);          |
-|                                                                       |
-| print_wifi_config();                                                  |
-|                                                                       |
-| vTaskDelay(20000);                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO, PM_FLAGS);
+      print_wifi_config();
+      vTaskDelay(20000);
+
 
 .. _running-the-application-1:
 
@@ -561,107 +461,63 @@ Program wcm_pm_rxnap.elf using the Download Tool. Refer steps in section
 
 Console output:
 
-+-----------------------------------------------------------------------+
-| UART:SNWWWWAE                                                         |
-|                                                                       |
-| 4 DWT comparators, range 0x8000                                       |
-|                                                                       |
-| Build $Id: git-ef87896f9 $                                            |
-|                                                                       |
-| hio.baudrate=921600                                                   |
-|                                                                       |
-| flash: Gordon ready!                                                  |
-|                                                                       |
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PNWWWWWWAE                                                      |
-|                                                                       |
-| Build $Id: git-df9b9ef $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff   |
-|                                                                       |
-| Bootargs: np_conf_path=/data/nprofile.json ssid=Lucy                  |
-| passphrase=Password@321                                               |
-|                                                                       |
-| $App:git-6600fea                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Wifi PM Demo Rx nap in associated Mode                                |
-|                                                                       |
-| addr e0:69:3a:00:16:d4                                                |
-|                                                                       |
-| Connecting to added network : Lucy                                    |
-|                                                                       |
-| [0.593,596] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-62 dBm          |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP                   |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS                   |
-|                                                                       |
-| [0.707,791] MYIP 192.168.1.105                                        |
-|                                                                       |
-| [0.707,960] IPv6 [fe80::e269:3aff:fe00:16d4]-link                     |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED                 |
-|                                                                       |
-| Connected to added network : Lucy                                     |
-|                                                                       |
-| Suspend enabled!                                                      |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| listen_interval: 10                                                   |
-|                                                                       |
-| traffic_tmo: 12                                                       |
-|                                                                       |
-| sleep_period: 102 ms                                                  |
-|                                                                       |
-| dtim_only disabled                                                    |
-|                                                                       |
-| tx_ps disabled                                                        |
-|                                                                       |
-| mcast_don't_care disabled                                             |
-|                                                                       |
-| rx_nap enabled                                                        |
-|                                                                       |
-| only_broadcast disabled                                               |
-|                                                                       |
-| ps_poll disabled                                                      |
-|                                                                       |
-| dli disabled                                                          |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| Sleep mode for next 20 sec                                            |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| listen_interval: 10                                                   |
-|                                                                       |
-| traffic_tmo: 12                                                       |
-|                                                                       |
-| sleep_period: 1024 ms                                                 |
-|                                                                       |
-| dtim_only disabled                                                    |
-|                                                                       |
-| tx_ps disabled                                                        |
-|                                                                       |
-| mcast_don't_care disabled                                             |
-|                                                                       |
-| rx_nap disabled                                                       |
-|                                                                       |
-| only_broadcast disabled                                               |
-|                                                                       |
-| ps_poll disabled                                                      |
-|                                                                       |
-| dli disabled                                                          |
-|                                                                       |
-| \*****\*                                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      UART:SNWWWWAE
+      4 DWT comparators, range 0x8000
+      Build $Id: git-ef87896f9 $
+      hio.baudrate=921600
+      flash: Gordon ready!
+      
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PNWWWWWWAE
+      Build $Id: git-df9b9ef $
+      Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff
+      Bootargs: np_conf_path=/data/nprofile.json ssid=Lucy passphrase=Password@321
+      $App:git-6600fea
+      SDK Ver: FREERTOS_SDK_1.0
+      Wifi PM Demo Rx nap in associated Mode
+      addr e0:69:3a:00:16:d4
+      
+      Connecting to added network : Lucy
+      [0.593,596] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-62 dBm
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+      [0.707,791] MYIP 192.168.1.105
+      [0.707,960] IPv6 [fe80::e269:3aff:fe00:16d4]-link
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
+      
+      Connected to added network : Lucy
+      Suspend enabled!
+      
+      ******
+      listen_interval: 10
+      traffic_tmo: 12
+      sleep_period: 102 ms
+      dtim_only disabled
+      tx_ps disabled
+      mcast_don't_care disabled 
+      rx_nap enabled
+      only_broadcast disabled
+      ps_poll disabled
+      dli disabled
+      ******
+      Sleep mode for next 20 sec
+      
+      ******
+      listen_interval: 10
+      traffic_tmo: 12
+      sleep_period: 1024 ms
+      dtim_only disabled
+      tx_ps disabled
+      mcast_don't_care disabled 
+      rx_nap disabled
+      only_broadcast disabled
+      ps_poll disabled
+      dli disabled
+      ******
+
 
 1. Rx nap enabled
 
@@ -671,9 +527,9 @@ Console output:
    Talaria TWO turns the receiver OFF (*takes a nap*) in Rx nap enabled
    case, the current consumption dips to 8mA as shown in Figure 2.
 
-   |image2|
+   |image78|
 
-Figure : Power Analyzer- Rx Nap enabled mode
+Figure 2: Power Analyzer- Rx Nap enabled mode
 
 2. Rx nap disabled
 
@@ -682,9 +538,9 @@ Figure : Power Analyzer- Rx Nap enabled mode
    When Rx nap gets disabled, Talaria TWO does not take naps for any
    uninteresting frames.
 
-   |image3|
+   |image79|
 
-Figure : Power Analyzer- RX Nap disabled mode
+Figure 3: Power Analyzer- RX Nap disabled mode
 
 Only Broadcast (WIFI_PM_STA_ONLY_BROADCAST)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -717,40 +573,32 @@ The following code uses wcm_pm_config() API to enable the only broadcast
 flag WIFI_PM_STA_ONLY_BROADCAST and WIFI_PM_STA_RX_NAP. Here the Rx_nap
 is a pre-requisite for using WIFI_PM_STA_ONLY_BROADCAST flag
 
-+-----------------------------------------------------------------------+
-| pm_mask \|= WIFI_PM_STA_RX_NAP \| WIFI_PM_STA_ONLY_BROADCAST;         |
-|                                                                       |
-| /\* Enable Only broadcast flag with listen interval set to 1 \*/      |
-|                                                                       |
-| wcm_pm_config(h, LISTEN_INTERVAL_1, TRAFFIC_TMO, pm_mask);            |
-|                                                                       |
-| print_wifi_config();                                                  |
-|                                                                       |
-| vTaskDelay(20000);                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      pm_mask |= WIFI_PM_STA_RX_NAP | WIFI_PM_STA_ONLY_BROADCAST;
+      /* Enable Only broadcast flag with listen interval set to 1 */
+      wcm_pm_config(h, LISTEN_INTERVAL_1, TRAFFIC_TMO, pm_mask);
+      print_wifi_config();
+      vTaskDelay(20000);
+
 
 Sleep mode is enabled for 20 seconds before disabling this flag again.
 
-+-----------------------------------------------------------------------+
-| os_printf("Sleep mode for next 20 sec\\n");                           |
-|                                                                       |
-| vTaskDelay(20000);                                                    |
-|                                                                       |
-| os_printf("\\n******\\n");                                            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      os_printf("Sleep mode for next 20 sec\n");
+      vTaskDelay(20000);
+      os_printf("\n******\n");
+
 
 Next, the only broadcast is disabled by setting the flag to 0.
 
-+-----------------------------------------------------------------------+
-| wcm_pm_config(h, LISTEN_INTERVAL_1, TRAFFIC_TMO, PM_FLAGS);           |
-|                                                                       |
-| print_wifi_config();                                                  |
-|                                                                       |
-| vTaskDelay(60000);                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      wcm_pm_config(h, LISTEN_INTERVAL_1, TRAFFIC_TMO, PM_FLAGS);
+      print_wifi_config();
+      vTaskDelay(60000);
+
 
 .. _running-the-application-2:
 
@@ -774,107 +622,63 @@ Program wcm_pm_bc.elf using the Download tool:
 
 Console output:
 
-+-----------------------------------------------------------------------+
-| UART:SNWWWWAE                                                         |
-|                                                                       |
-| 4 DWT comparators, range 0x8000                                       |
-|                                                                       |
-| Build $Id: git-ef87896f9 $                                            |
-|                                                                       |
-| hio.baudrate=921600                                                   |
-|                                                                       |
-| flash: Gordon ready!                                                  |
-|                                                                       |
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PNWWWWWWAE                                                      |
-|                                                                       |
-| Build $Id: git-df9b9ef $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff   |
-|                                                                       |
-| Bootargs: np_conf_path=/data/nprofile.json ssid=Lucy                  |
-| passphrase=Password@321                                               |
-|                                                                       |
-| $App:git-6600fea                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Wifi PM Only Broadcast                                                |
-|                                                                       |
-| addr e0:69:3a:00:16:d4                                                |
-|                                                                       |
-| Connecting to added network : Lucy                                    |
-|                                                                       |
-| [0.599,991] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-64 dBm          |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP                   |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS                   |
-|                                                                       |
-| [0.757,544] MYIP 192.168.1.105                                        |
-|                                                                       |
-| [0.757,709] IPv6 [fe80::e269:3aff:fe00:16d4]-link                     |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED                 |
-|                                                                       |
-| Connected to added network : Lucy                                     |
-|                                                                       |
-| Suspend enabled!                                                      |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| listen_interval: 1                                                    |
-|                                                                       |
-| traffic_tmo: 12                                                       |
-|                                                                       |
-| sleep_period: 102 ms                                                  |
-|                                                                       |
-| dtim_only disabled                                                    |
-|                                                                       |
-| tx_ps disabled                                                        |
-|                                                                       |
-| mcast_don't_care disabled                                             |
-|                                                                       |
-| rx_nap enabled                                                        |
-|                                                                       |
-| only_broadcast enabled                                                |
-|                                                                       |
-| ps_poll disabled                                                      |
-|                                                                       |
-| dli disabled                                                          |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| Sleep mode for next 20 sec                                            |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| listen_interval: 1                                                    |
-|                                                                       |
-| traffic_tmo: 12                                                       |
-|                                                                       |
-| sleep_period: 102 ms                                                  |
-|                                                                       |
-| dtim_only disabled                                                    |
-|                                                                       |
-| tx_ps disabled                                                        |
-|                                                                       |
-| mcast_don't_care disabled                                             |
-|                                                                       |
-| rx_nap disabled                                                       |
-|                                                                       |
-| only_broadcast disabled                                               |
-|                                                                       |
-| ps_poll disabled                                                      |
-|                                                                       |
-| dli disabled                                                          |
-|                                                                       |
-| \*****\*                                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      UART:SNWWWWAE
+      4 DWT comparators, range 0x8000
+      Build $Id: git-ef87896f9 $
+      hio.baudrate=921600
+      flash: Gordon ready!
+      
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PNWWWWWWAE
+      Build $Id: git-df9b9ef $
+      Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff
+      Bootargs: np_conf_path=/data/nprofile.json ssid=Lucy passphrase=Password@321
+      $App:git-6600fea
+      SDK Ver: FREERTOS_SDK_1.0
+      Wifi PM Only Broadcast
+      addr e0:69:3a:00:16:d4
+      
+      Connecting to added network : Lucy
+      [0.599,991] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-64 dBm
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+      [0.757,544] MYIP 192.168.1.105
+      [0.757,709] IPv6 [fe80::e269:3aff:fe00:16d4]-link
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
+      
+      Connected to added network : Lucy
+      Suspend enabled!
+      
+      ******
+      listen_interval: 1
+      traffic_tmo: 12
+      sleep_period: 102 ms
+      dtim_only disabled
+      tx_ps disabled
+      mcast_don't_care disabled 
+      rx_nap enabled
+      only_broadcast enabled
+      ps_poll disabled
+      dli disabled
+      ******
+      Sleep mode for next 20 sec
+      
+      ******
+      listen_interval: 1
+      traffic_tmo: 12
+      sleep_period: 102 ms
+      dtim_only disabled
+      tx_ps disabled
+      mcast_don't_care disabled 
+      rx_nap disabled
+      only_broadcast disabled
+      ps_poll disabled
+      dli disabled
+      ******
+
 
 1. only_broadcast mode is enabled.
 
@@ -887,24 +691,22 @@ Console output:
    **Note**: To add multicast routing to a specific network interface,
    use the following command:
 
-+-----------------------------------------------------------------------+
-| route add -net 224.0.0.0/8 dev <interface-name>                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      route add -net 224.0.0.0/8 dev <interface-name>
 
 ..
 
-   |A screenshot of a computer Description automatically generated with
-   medium confidence|
+   |image80|
 
-Figure : Multicast ping output – only broadcast enabled
+Figure 4: Multicast ping output – only broadcast enabled
 
    Wireshark capture for the multicast ping: Here, the ping request is
    sent, but the response is not received as shown in Figure 5.
 
-   |image4|
+   |image81|
 
-Figure : Wireshark output - only_broadcast enabled
+Figure 5: Wireshark output - only_broadcast enabled
 
 2. only_broadcast mode is disabled.
 
@@ -914,16 +716,16 @@ Figure : Wireshark output - only_broadcast enabled
    address from a Host (laptop/PC) is sent. Multicast ping goes through
    successfully as shown in Figure 6.
 
-   |image5|
+   |image82|
 
-Figure : Multicast ping output – only broadcast disabled
+Figure 6: Multicast ping output – only broadcast disabled
 
    Wireshark captures for the multicast ping: Here, the ping request is
    sent and a response is received as shown in Figure 7.
 
-   |image6|
+   |image83|
 
-Figure : Wireshark output - only_broadcast disabled
+Figure 7: Wireshark output - only_broadcast disabled
 
 Dynamic listen Interval (WIFI_PM_DYN_LISTEN_INT)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -950,37 +752,30 @@ Sample Code Walkthrough
 The following code uses wcm_pm_config() API to enable the dynamic listen
 interval flag WIFI_PM_DYN_LISTEN_INT.
 
-+-----------------------------------------------------------------------+
-| /\* Enable the Dynamic Listen Interval flag \*/                       |
-|                                                                       |
-| wcm_pm_config(h,LISTEN_INTERVAL_10,TRAFFIC_TMO,                       |
-| WIFI_PM_DYN_LISTEN_INT);                                              |
-|                                                                       |
-| print_wifi_config();                                                  |
-|                                                                       |
-| vTaskDelay(60000);                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      /* Enable the Dynamic Listen Interval flag */    
+      wcm_pm_config(h,LISTEN_INTERVAL_10,TRAFFIC_TMO, WIFI_PM_DYN_LISTEN_INT);
+      print_wifi_config();
+      vTaskDelay(60000);         
+
 
 Sleep mode is enabled for 20 seconds before disabling this flag again.
 
-+-----------------------------------------------------------------------+
-| os_printf(“Sleep mode for next 20 sec\\n”);                           |
-|                                                                       |
-| os_sleep_us(20000000, OS_TIMEOUT_NO_WAKEUP);                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      os_printf(“Sleep mode for next 20 sec\n”);
+      os_sleep_us(20000000, OS_TIMEOUT_NO_WAKEUP); 
+
 
 Next, the flag is disabled by setting the flag to 0.
 
-+-----------------------------------------------------------------------+
-| wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO, PM_FLAGS);          |
-|                                                                       |
-| print_wifi_config();                                                  |
-|                                                                       |
-| vTaskDelay(60000);                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO, PM_FLAGS);
+      print_wifi_config();
+      vTaskDelay(60000);
+
 
 .. _running-the-application-3:
 
@@ -992,107 +787,60 @@ Program wcm_pm_dli.elf using the Download tool. Refer steps in section
 
 Console output:
 
-+-----------------------------------------------------------------------+
-| UART:SNWWWWAE                                                         |
-|                                                                       |
-| 4 DWT comparators, range 0x8000                                       |
-|                                                                       |
-| Build $Id: git-ef87896f9 $                                            |
-|                                                                       |
-| hio.baudrate=921600                                                   |
-|                                                                       |
-| flash: Gordon ready!                                                  |
-|                                                                       |
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PNWWWWWWAE                                                      |
-|                                                                       |
-| Build $Id: git-df9b9ef $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff   |
-|                                                                       |
-| Bootargs: np_conf_path=/data/nprofile.json ssid=Lucy                  |
-| passphrase=Password@321                                               |
-|                                                                       |
-| $App:git-6600fea                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Wifi PM Dynamic listen Interval                                       |
-|                                                                       |
-| addr e0:69:3a:00:16:d4                                                |
-|                                                                       |
-| Connecting to added network : Lucy                                    |
-|                                                                       |
-| [0.594,981] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-61 dBm          |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP                   |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS                   |
-|                                                                       |
-| [0.712,988] MYIP 192.168.1.105                                        |
-|                                                                       |
-| [0.713,157] IPv6 [fe80::e269:3aff:fe00:16d4]-link                     |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED                 |
-|                                                                       |
-| Connected to added network : Lucy                                     |
-|                                                                       |
-| Suspend enabled!                                                      |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| listen_interval: 10                                                   |
-|                                                                       |
-| traffic_tmo: 12                                                       |
-|                                                                       |
-| sleep_period: 1024 ms                                                 |
-|                                                                       |
-| dtim_only disabled                                                    |
-|                                                                       |
-| tx_ps disabled                                                        |
-|                                                                       |
-| mcast_don't_care disabled                                             |
-|                                                                       |
-| rx_nap disabled                                                       |
-|                                                                       |
-| only_broadcast disabled                                               |
-|                                                                       |
-| ps_poll disabled                                                      |
-|                                                                       |
-| dli enabled                                                           |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| Sleep mode for next 10 sec                                            |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| listen_interval: 10                                                   |
-|                                                                       |
-| traffic_tmo: 12                                                       |
-|                                                                       |
-| sleep_period: 1024 ms                                                 |
-|                                                                       |
-| dtim_only disabled                                                    |
-|                                                                       |
-| tx_ps disabled                                                        |
-|                                                                       |
-| mcast_don't_care disabled                                             |
-|                                                                       |
-| rx_nap disabled                                                       |
-|                                                                       |
-| only_broadcast disabled                                               |
-|                                                                       |
-| ps_poll disabled                                                      |
-|                                                                       |
-| dli disabled                                                          |
-|                                                                       |
-| \*****\*                                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      UART:SNWWWWAE
+      4 DWT comparators, range 0x8000
+      Build $Id: git-ef87896f9 $
+      hio.baudrate=921600
+      flash: Gordon ready!
+      
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PNWWWWWWAE
+      Build $Id: git-df9b9ef $
+      Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff
+      Bootargs: np_conf_path=/data/nprofile.json ssid=Lucy passphrase=Password@321
+      $App:git-6600fea
+      SDK Ver: FREERTOS_SDK_1.0
+      Wifi PM Dynamic listen Interval
+      addr e0:69:3a:00:16:d4
+      
+      Connecting to added network : Lucy
+      [0.594,981] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-61 dBm
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+      [0.712,988] MYIP 192.168.1.105
+      [0.713,157] IPv6 [fe80::e269:3aff:fe00:16d4]-link
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
+      Connected to added network : Lucy
+      Suspend enabled!
+      ******
+      listen_interval: 10
+      traffic_tmo: 12
+      sleep_period: 1024 ms
+      dtim_only disabled
+      tx_ps disabled
+      mcast_don't_care disabled 
+      rx_nap disabled
+      only_broadcast disabled
+      ps_poll disabled
+      dli enabled
+      ******
+      Sleep mode for next 10 sec
+      ******
+      listen_interval: 10
+      traffic_tmo: 12
+      sleep_period: 1024 ms
+      dtim_only disabled
+      tx_ps disabled
+      mcast_don't_care disabled 
+      rx_nap disabled
+      only_broadcast disabled
+      ps_poll disabled
+      dli disabled
+      ******
+
 
 1. Dynamic listen interval enabled
 
@@ -1107,15 +855,15 @@ Console output:
    application is enabled for dynamic listen interval and observe the
    output as shown in Figure 8.
 
-   |image7|
+   |image84|
 
-Figure : Ping output-CMD
+Figure 8: Ping output-CMD
 
    Following is the OTTI capture of one ping traffic:
 
-   |image8|
+   |image85|
 
-Figure : OTII capture-Dynamic listen Interval enabled
+Figure 9: OTII capture-Dynamic listen Interval enabled
 
 2. Dynamic Listen Interval disabled
 
@@ -1125,16 +873,16 @@ Figure : OTII capture-Dynamic listen Interval enabled
    application is disabled for dynamic listen interval and observe the
    output as shown in Figure 10.
 
-   |image9|
+   |image86|
 
-Figure : Ping output - CMD
+Figure 10: Ping output - CMD
 
    Since dynamic listen interval is disabled, the modules listen for
    every 1s irrespective of any extra traffic as shown in Figure 11.
 
-   |image10|
+   |image87|
 
-Figure : OTII capture-Dynamic listen Interval disabled
+Figure 11: OTII capture-Dynamic listen Interval disabled
 
 Multicast Don’t Care (WIFI_PM_MCAST_DONT_CARE)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1160,37 +908,30 @@ Sample Code Walkthrough
 The following code uses wcm_pm_config() API to enable the multicast
 don’t care flag WIFI_PM_MCAST_DONT_CARE.
 
-+-----------------------------------------------------------------------+
-| wcm_pm_config(h, LISTEN_INTERVAL_1, TRAFFIC_TMO,                      |
-| WIFI_PM_MCAST_DONT_CARE);                                             |
-|                                                                       |
-| print_wifi_config();                                                  |
-|                                                                       |
-| vTaskDelay(60000);                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      wcm_pm_config(h, LISTEN_INTERVAL_1, TRAFFIC_TMO, WIFI_PM_MCAST_DONT_CARE);
+      print_wifi_config();
+      vTaskDelay(60000);  
+
 
 Sleep mode is enabled for 20s before disabling this flag again.
 
-+-----------------------------------------------------------------------+
-| os_printf("Sleep mode for next 20 sec\\n");                           |
-|                                                                       |
-| vTaskDelay(60000);                                                    |
-|                                                                       |
-| os_printf("\\n******\\n");                                            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      os_printf("Sleep mode for next 20 sec\n");
+      vTaskDelay(60000);
+      os_printf("\n******\n");
+
 
 Next, the flag is disabled by setting the flag to 0.
 
-+-----------------------------------------------------------------------+
-| wcm_pm_config(h, LISTEN_INTERVAL_1, TRAFFIC_TMO, PM_FLAGS);           |
-|                                                                       |
-| print_wifi_config();                                                  |
-|                                                                       |
-| vTaskDelay(60000);                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      wcm_pm_config(h, LISTEN_INTERVAL_1, TRAFFIC_TMO, PM_FLAGS);
+      print_wifi_config();
+      vTaskDelay(60000);
+
 
 .. _running-the-application-4:
 
@@ -1202,107 +943,63 @@ Program wcm_pm_mcast.elf using the Download tool. Refer steps in section
 
 Console output:
 
-+-----------------------------------------------------------------------+
-| UART:SNWWWWAE                                                         |
-|                                                                       |
-| 4 DWT comparators, range 0x8000                                       |
-|                                                                       |
-| Build $Id: git-ef87896f9 $                                            |
-|                                                                       |
-| hio.baudrate=921600                                                   |
-|                                                                       |
-| flash: Gordon ready!                                                  |
-|                                                                       |
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PNWWWWWWAE                                                      |
-|                                                                       |
-| Build $Id: git-df9b9ef $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff   |
-|                                                                       |
-| Bootargs: np_conf_path=/data/nprofile.json ssid=Lucy                  |
-| passphrase=Password@321                                               |
-|                                                                       |
-| $App:git-6600fea                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Wifi PM Multicast Don't care                                          |
-|                                                                       |
-| addr e0:69:3a:00:16:d4                                                |
-|                                                                       |
-| Connecting to added network : Lucy                                    |
-|                                                                       |
-| [0.599,223] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-63 dBm          |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP                   |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS                   |
-|                                                                       |
-| [0.680,815] MYIP 192.168.1.105                                        |
-|                                                                       |
-| [0.680,979] IPv6 [fe80::e269:3aff:fe00:16d4]-link                     |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED                 |
-|                                                                       |
-| Connected to added network : Lucy                                     |
-|                                                                       |
-| Suspend enabled!                                                      |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| listen_interval: 1                                                    |
-|                                                                       |
-| traffic_tmo: 12                                                       |
-|                                                                       |
-| sleep_period: 102 ms                                                  |
-|                                                                       |
-| dtim_only disabled                                                    |
-|                                                                       |
-| tx_ps disabled                                                        |
-|                                                                       |
-| mcast_don't_care enabled                                              |
-|                                                                       |
-| rx_nap disabled                                                       |
-|                                                                       |
-| only_broadcast disabled                                               |
-|                                                                       |
-| ps_poll disabled                                                      |
-|                                                                       |
-| dli disabled                                                          |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| Sleep mode for next 10 sec                                            |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| listen_interval: 1                                                    |
-|                                                                       |
-| traffic_tmo: 12                                                       |
-|                                                                       |
-| sleep_period: 102 ms                                                  |
-|                                                                       |
-| dtim_only disabled                                                    |
-|                                                                       |
-| tx_ps disabled                                                        |
-|                                                                       |
-| mcast_don't_care disabled                                             |
-|                                                                       |
-| rx_nap disabled                                                       |
-|                                                                       |
-| only_broadcast disabled                                               |
-|                                                                       |
-| ps_poll disabled                                                      |
-|                                                                       |
-| dli disabled                                                          |
-|                                                                       |
-| \*****\*                                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      UART:SNWWWWAE
+      4 DWT comparators, range 0x8000
+      Build $Id: git-ef87896f9 $
+      hio.baudrate=921600
+      flash: Gordon ready!
+      
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PNWWWWWWAE
+      Build $Id: git-df9b9ef $
+      Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff
+      Bootargs: np_conf_path=/data/nprofile.json ssid=Lucy passphrase=Password@321
+      $App:git-6600fea
+      SDK Ver: FREERTOS_SDK_1.0
+      Wifi PM Multicast Don't care
+      addr e0:69:3a:00:16:d4
+      
+      Connecting to added network : Lucy
+      [0.599,223] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-63 dBm
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+      [0.680,815] MYIP 192.168.1.105
+      [0.680,979] IPv6 [fe80::e269:3aff:fe00:16d4]-link
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
+      
+      Connected to added network : Lucy
+      Suspend enabled!
+      
+      ******
+      listen_interval: 1
+      traffic_tmo: 12
+      sleep_period: 102 ms
+      dtim_only disabled
+      tx_ps disabled
+      mcast_don't_care enabled
+      rx_nap disabled
+      only_broadcast disabled
+      ps_poll disabled
+      dli disabled
+      ******
+      Sleep mode for next 10 sec
+      
+      ******
+      listen_interval: 1
+      traffic_tmo: 12
+      sleep_period: 102 ms
+      dtim_only disabled
+      tx_ps disabled
+      mcast_don't_care disabled 
+      rx_nap disabled
+      only_broadcast disabled
+      ps_poll disabled
+      dli disabled
+      ******
+
 
 1. Multicast don’t care enabled
 
@@ -1313,24 +1010,24 @@ Console output:
    OTII logs. To send UPD traffic, use the following link to download
    the app: https://www.cistechsolutions.com/netspanner.
 
-   |image11|
+   |image88|
 
-Figure : UDP multicast traffic
+Figure 12: UDP multicast traffic
 
    The following Wireshark logs show the UDP data sent in multicast
    mode. However, Talaria TWO ignores this traffic because the multicast
    don’t care is enabled.
 
-   |image12|
+   |image89|
 
-Figure : Wireshark capture-Multicast don't care enabled
+Figure 13: Wireshark capture-Multicast don't care enabled
 
    Since the Multicast don't care is enabled, the Rx current duration is
    approximately 2ms as shown in the OTTI logs in Figure 14.
 
-   |image13|
+   |image90|
 
-Figure : Multicast don't care enabled-OTII log
+Figure 14: Multicast don't care enabled-OTII log
 
 2. Multicast don’t care disabled
 
@@ -1340,24 +1037,24 @@ Figure : Multicast don't care enabled-OTII log
    disabled. Observe increase in the Rx current duration from the OTII
    logs shown in Figure 15.
 
-   |image14|
+   |image91|
 
-Figure : UDP musticast traffic
+Figure 15: UDP musticast traffic
 
    The following Wireshark logs show the UDP data sent in multicast
    mode. Talaria TWO receives this traffic because the multicast don’t
    care is disabled.
 
-   |image15|
+   |image92|
 
-Figure : Wireshark capture-Multicast don't care disabled
+Figure 16: Wireshark capture-Multicast don't care disabled
 
    Since the Multicast don't care is disabled, Rx current duration is
    approximately 9.213ms.
 
-   |image16|
+   |image93|
 
-Figure : Multicast don't care disabled-OTII log
+Figure 17: Multicast don't care disabled-OTII log
 
 *
 *
@@ -1390,25 +1087,21 @@ Sample Code Walkthrough
 The following code uses wcm_pm_config() API to enable the power save
 poll flag WIFI_PM_PS_POLL.
 
-+-----------------------------------------------------------------------+
-| wcm_pm_config(h, LISTEN_INTERVAL_1, TRAFFIC_TMO, WIFI_PM_PS_POLL);    |
-|                                                                       |
-| print_wifi_config();                                                  |
-|                                                                       |
-| vTaskDelay(60000);                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      wcm_pm_config(h, LISTEN_INTERVAL_1, TRAFFIC_TMO, WIFI_PM_PS_POLL);
+      print_wifi_config();
+      vTaskDelay(60000);     
+
 
 Next, the flag is disabled by setting the flag to 0.
 
-+-----------------------------------------------------------------------+
-| wcm_pm_config(h, LISTEN_INTERVAL_1, TRAFFIC_TMO, PM_FLAGS);           |
-|                                                                       |
-| print_wifi_config();                                                  |
-|                                                                       |
-| vTaskDelay(60000);                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      wcm_pm_config(h, LISTEN_INTERVAL_1, TRAFFIC_TMO, PM_FLAGS);
+      print_wifi_config();
+      vTaskDelay(60000);
+
 
 .. _running-the-application-5:
 
@@ -1421,132 +1114,79 @@ Program wcm_pm_ps.elf using the Download tool. Refer steps in section
 In the GUI window, Boot Arguments section, pass the following boot
 arguments:
 
-+-----------------------------------------------------------------------+
-| wifi.log_beacon=1                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-+-----------------------------------------------------------------------+
-| UART:SNWWWWAE                                                         |
-|                                                                       |
-| 4 DWT comparators, range 0x8000                                       |
-|                                                                       |
-| Build $Id: git-ef87896f9 $                                            |
-|                                                                       |
-| hio.baudrate=921600                                                   |
-|                                                                       |
-| flash: Gordon ready!                                                  |
-|                                                                       |
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PNWWWWWWAE                                                      |
-|                                                                       |
-| Build $Id: git-df9b9ef $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff   |
-|                                                                       |
-| Bootargs: wifi.log_beacon=1 np_conf_path=/data/nprofile.json          |
-| ssid=Lucy passphrase=Password@321                                     |
-|                                                                       |
-| $App:git-6600fea                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Wifi PM Power save                                                    |
-|                                                                       |
-| addr e0:69:3a:00:16:d4                                                |
-|                                                                       |
-| Connecting to added network : Lucy                                    |
-|                                                                       |
-| [0.597,198] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-63 dBm          |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP                   |
-|                                                                       |
-| [0.787,895] MYIP 192.168.1.105                                        |
-|                                                                       |
-| [0.788,059] IPv6 [fe80::e269:3aff:fe00:16d4]-link                     |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED                 |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS                   |
-|                                                                       |
-| Connected to added network : Lucy                                     |
-|                                                                       |
-| Suspend enabled!                                                      |
-|                                                                       |
-| [1.429,558] Beacon misses: 1                                          |
-|                                                                       |
-| [1.525,336] Beacon received again.                                    |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| listen_interval: 1                                                    |
-|                                                                       |
-| traffic_tmo: 12                                                       |
-|                                                                       |
-| sleep_period: 102 ms                                                  |
-|                                                                       |
-| dtim_only disabled                                                    |
-|                                                                       |
-| tx_ps disabled                                                        |
-|                                                                       |
-| mcast_don't_care disabled                                             |
-|                                                                       |
-| rx_nap disabled                                                       |
-|                                                                       |
-| only_broadcast disabled                                               |
-|                                                                       |
-| ps_poll enabled                                                       |
-|                                                                       |
-| dli disabled                                                          |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| [31.535,821] Beacon misses: 1                                         |
-|                                                                       |
-| [31.535,882] Sending pspoll (ntries 1)                                |
-|                                                                       |
-| [31.630,972] Beacon received again.                                   |
-|                                                                       |
-| [48.227,069] Beacon misses: 1                                         |
-|                                                                       |
-| [48.227,128] Sending pspoll (ntries 1)                                |
-|                                                                       |
-| [48.322,285] Beacon received again.                                   |
-|                                                                       |
-| [72.291,142] Beacon misses: 1                                         |
-|                                                                       |
-| [72.291,201] Sending pspoll (ntries 1)                                |
-|                                                                       |
-| [72.386,332] Beacon received again.                                   |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| listen_interval: 1                                                    |
-|                                                                       |
-| traffic_tmo: 12                                                       |
-|                                                                       |
-| sleep_period: 102 ms                                                  |
-|                                                                       |
-| dtim_only disabled                                                    |
-|                                                                       |
-| tx_ps disabled                                                        |
-|                                                                       |
-| mcast_don't_care disabled                                             |
-|                                                                       |
-| rx_nap disabled                                                       |
-|                                                                       |
-| only_broadcast disabled                                               |
-|                                                                       |
-| ps_poll disabled                                                      |
-|                                                                       |
-| dli disabled                                                          |
-|                                                                       |
-| \*****\*                                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+      wifi.log_beacon=1  
+
+Expected output:
+
+.. code:: shell
+
+      UART:SNWWWWAE
+      4 DWT comparators, range 0x8000
+      Build $Id: git-ef87896f9 $
+      hio.baudrate=921600
+      flash: Gordon ready!
+      
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PNWWWWWWAE
+      Build $Id: git-df9b9ef $
+      Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff
+      Bootargs: wifi.log_beacon=1 np_conf_path=/data/nprofile.json ssid=Lucy passphrase=Password@321
+      $App:git-6600fea
+      SDK Ver: FREERTOS_SDK_1.0
+      Wifi PM Power save
+      addr e0:69:3a:00:16:d4
+      
+      Connecting to added network : Lucy
+      [0.597,198] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-63 dBm
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+      [0.787,895] MYIP 192.168.1.105
+      [0.788,059] IPv6 [fe80::e269:3aff:fe00:16d4]-link
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+      
+      Connected to added network : Lucy
+      Suspend enabled!
+      [1.429,558] Beacon misses: 1
+      [1.525,336] Beacon received again.
+      
+      ******
+      listen_interval: 1
+      traffic_tmo: 12
+      sleep_period: 102 ms
+      dtim_only disabled
+      tx_ps disabled
+      mcast_don't_care disabled 
+      rx_nap disabled
+      only_broadcast disabled
+      ps_poll enabled
+      dli disabled
+      ******
+      [31.535,821] Beacon misses: 1
+      [31.535,882] Sending pspoll (ntries 1)
+      [31.630,972] Beacon received again.
+      [48.227,069] Beacon misses: 1
+      [48.227,128] Sending pspoll (ntries 1)
+      [48.322,285] Beacon received again.
+      [72.291,142] Beacon misses: 1
+      [72.291,201] Sending pspoll (ntries 1)
+      [72.386,332] Beacon received again.
+      
+      ******
+      listen_interval: 1
+      traffic_tmo: 12
+      sleep_period: 102 ms
+      dtim_only disabled
+      tx_ps disabled
+      mcast_don't_care disabled 
+      rx_nap disabled
+      only_broadcast disabled
+      ps_poll disabled
+      dli disabled
+      ******
+
 
 1. Power save mode enabled
 
@@ -1554,16 +1194,16 @@ arguments:
 
    ps_poll is sent when a beacon is missed as shown in Figure 18.
 
-   |image17|
+   |image94|
 
-Figure : Wireshark capture-ps_poll enabled
+Figure 18: Wireshark capture-ps_poll enabled
 
    ps_poll spike is observed. Here, the transmitting current window size
    is 7.605ms as shown in Figure 19.
 
-   |image18|
+   |image95|
 
-Figure : OTII logs- Power save poll enabled
+Figure 19: OTII logs- Power save poll enabled
 
 2. Power-save mode disabled
 
@@ -1572,16 +1212,16 @@ Figure : OTII logs- Power save poll enabled
    There are no ps-polls in the Wireshark capture in Figure 20 in case
    of beacon miss since the ps-poll is disabled.
 
-   |image19|
+   |image96|
 
-Figure : Wireshark capture-ps_poll disabled
+Figure 20: Wireshark capture-ps_poll disabled
 
    No ps_poll is sent. Hence, Tx current spike is not observed as shown
    in Figure 21.
 
-   |image20|
+   |image97|
 
-Figure : OTII logs- Power save poll disabled
+Figure 21: OTII logs- Power save poll disabled
 
 Transmit Power Save (WIFI_PM_TX_PS)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1612,40 +1252,33 @@ save flag WIFI_PM_TX_PS.
 
 Gratuitous APR is enabled using the API wcm_arp_grat_enable().
 
-+-----------------------------------------------------------------------+
-| os_printf("Gratuitous ARP enabled!\\n");                              |
-|                                                                       |
-| wcm_arp_grat_enable(h,20);                                            |
-|                                                                       |
-| wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO, WIFI_PM_TX_PS);     |
-|                                                                       |
-| print_wifi_config();                                                  |
-|                                                                       |
-| vTaskDelay(60000);                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      os_printf("Gratuitous ARP enabled!\n"); 
+      wcm_arp_grat_enable(h,20);
+      wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO, WIFI_PM_TX_PS);
+      print_wifi_config();
+      vTaskDelay(60000);     
+
+
 
 Sleep mode is enabled for 20s before disabling this flag again.
 
-+-----------------------------------------------------------------------+
-| os_printf("Sleep mode for next 20 sec\\n");                           |
-|                                                                       |
-| vTaskDelay(60000);                                                    |
-|                                                                       |
-| os_printf("\\n******\\n");                                            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      os_printf("Sleep mode for next 20 sec\n");
+      vTaskDelay(60000);
+      os_printf("\n******\n");
+
 
 Next, the flag is disabled by setting the flag to 0.
 
-+-----------------------------------------------------------------------+
-| wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO, PM_FLAGS);          |
-|                                                                       |
-| print_wifi_config();                                                  |
-|                                                                       |
-| vTaskDelay(60000);                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO, PM_FLAGS);
+      print_wifi_config();
+      vTaskDelay(60000);
+
 
 .. _running-the-application-6:
 
@@ -1657,105 +1290,62 @@ Program wcm_pm_tx_ps.elf using the Download tool. Refer steps in section
 
 Console output:
 
-+-----------------------------------------------------------------------+
-| UART:SNWWWWAE                                                         |
-|                                                                       |
-| 4 DWT comparators, range 0x8000                                       |
-|                                                                       |
-| Build $Id: git-ef87896f9 $                                            |
-|                                                                       |
-| hio.baudrate=921600                                                   |
-|                                                                       |
-| flash: Gordon ready!                                                  |
-|                                                                       |
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PNWWWWWWAE                                                      |
-|                                                                       |
-| Build $Id: git-df9b9ef $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff   |
-|                                                                       |
-| Bootargs: np_conf_path=/data/nprofile.json ssid=Lucy                  |
-| passphrase=Password@321                                               |
-|                                                                       |
-| $App:git-6600fea                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Wifi PM Power save                                                    |
-|                                                                       |
-| addr e0:69:3a:00:16:d4                                                |
-|                                                                       |
-| Connecting to added network : Lucy                                    |
-|                                                                       |
-| [0.595,057] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-60 dBm          |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP                   |
-|                                                                       |
-| [0.679,532] MYIP 192.168.1.105                                        |
-|                                                                       |
-| [0.679,697] IPv6 [fe80::e269:3aff:fe00:16d4]-link                     |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED                 |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS                   |
-|                                                                       |
-| Connected to added network : Lucy                                     |
-|                                                                       |
-| Suspend enabled!                                                      |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| listen_interval: 1                                                    |
-|                                                                       |
-| traffic_tmo: 12                                                       |
-|                                                                       |
-| sleep_period: 102 ms                                                  |
-|                                                                       |
-| dtim_only disabled                                                    |
-|                                                                       |
-| tx_ps disabled                                                        |
-|                                                                       |
-| mcast_don't_care disabled                                             |
-|                                                                       |
-| rx_nap disabled                                                       |
-|                                                                       |
-| only_broadcast disabled                                               |
-|                                                                       |
-| ps_poll enabled                                                       |
-|                                                                       |
-| dli disabled                                                          |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| listen_interval: 1                                                    |
-|                                                                       |
-| traffic_tmo: 12                                                       |
-|                                                                       |
-| sleep_period: 102 ms                                                  |
-|                                                                       |
-| dtim_only disabled                                                    |
-|                                                                       |
-| tx_ps disabled                                                        |
-|                                                                       |
-| mcast_don't_care disabled                                             |
-|                                                                       |
-| rx_nap disabled                                                       |
-|                                                                       |
-| only_broadcast disabled                                               |
-|                                                                       |
-| ps_poll disabled                                                      |
-|                                                                       |
-| dli disabled                                                          |
-|                                                                       |
-| \*****\*                                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      UART:SNWWWWAE
+      4 DWT comparators, range 0x8000
+      Build $Id: git-ef87896f9 $
+      hio.baudrate=921600
+      flash: Gordon ready!
+      
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PNWWWWWWAE
+      Build $Id: git-df9b9ef $
+      Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff
+      Bootargs: np_conf_path=/data/nprofile.json ssid=Lucy passphrase=Password@321
+      $App:git-6600fea
+      SDK Ver: FREERTOS_SDK_1.0
+      Wifi PM Power save
+      addr e0:69:3a:00:16:d4
+      
+      Connecting to added network : Lucy
+      [0.595,057] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-60 dBm
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+      [0.679,532] MYIP 192.168.1.105
+      [0.679,697] IPv6 [fe80::e269:3aff:fe00:16d4]-link
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+      
+      Connected to added network : Lucy
+      Suspend enabled!
+      
+      ******
+      listen_interval: 1
+      traffic_tmo: 12
+      sleep_period: 102 ms
+      dtim_only disabled
+      tx_ps disabled
+      mcast_don't_care disabled 
+      rx_nap disabled
+      only_broadcast disabled
+      ps_poll enabled
+      dli disabled
+      ******
+      
+      ******
+      listen_interval: 1
+      traffic_tmo: 12
+      sleep_period: 102 ms
+      dtim_only disabled
+      tx_ps disabled
+      mcast_don't_care disabled 
+      rx_nap disabled
+      only_broadcast disabled
+      ps_poll disabled
+      dli disabled
+      ******
+
 
 1. Transmit power save enabled
 
@@ -1764,9 +1354,9 @@ Console output:
    There is no null frame before and after the Gratuitous ARP, since the
    transmit power save is enabled.
 
-   |image21|
+   |image98|
 
-Figure : Wireshark capture- Transmit power save
+Figure 22: Wireshark capture- Transmit power save
 
 2. Transmit power save disabled
 
@@ -1774,7 +1364,7 @@ Figure : Wireshark capture- Transmit power save
 
    There is a null frame before and after the ARP the Gratuitous ARP.
 
-   |image22|
+   |image99|
 
 Figure : Wireshark capture- Transmit power save disabled
 
@@ -1806,36 +1396,31 @@ Sample Code Walkthrough
 The following code uses wcm_pm_config() API to enable the traffic_tmo
 parameter. Suspend mode is enabled using the API os_suspend_enable().
 
-+-----------------------------------------------------------------------+
-| os_printf("Suspend enabled!\\n");                                     |
-|                                                                       |
-| os_suspend_enable();                                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      os_printf("Suspend enabled!\n");
+      os_suspend_enable();
+
 
 Sets the traffic timeout to 0 and listen interval to 10. Sleep mode is
 enabled for 10s before changing this parameter value.
 
-+-----------------------------------------------------------------------+
-| wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO_0, PM_FLAGS);        |
-|                                                                       |
-| print_wifi_config();                                                  |
-|                                                                       |
-| vTaskDelay(60000);                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO_0, PM_FLAGS);
+      print_wifi_config();
+      vTaskDelay(60000);
+
 
 Next, sets the traffic timeout to 12ms and enables sleep mode to 20
 seconds.
 
-+-----------------------------------------------------------------------+
-| wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO_12, PM_FLAGS);       |
-|                                                                       |
-| print_wifi_config();                                                  |
-|                                                                       |
-| vTaskDelay(60000);                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO_12, PM_FLAGS);
+      print_wifi_config();
+      vTaskDelay(60000);
+
 
 .. _running-the-application-7:
 
@@ -1847,107 +1432,63 @@ Program wcm_pm_tmo.elf using the Download tool. Refer steps in section
 
 Console output:
 
-+-----------------------------------------------------------------------+
-| UART:SNWWWWAE                                                         |
-|                                                                       |
-| 4 DWT comparators, range 0x8000                                       |
-|                                                                       |
-| Build $Id: git-ef87896f9 $                                            |
-|                                                                       |
-| hio.baudrate=921600                                                   |
-|                                                                       |
-| flash: Gordon ready!                                                  |
-|                                                                       |
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PNWWWWWWAE                                                      |
-|                                                                       |
-| Build $Id: git-df9b9ef $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff   |
-|                                                                       |
-| Bootargs: np_conf_path=/data/nprofile.json ssid=Lucy                  |
-| passphrase=Password@321                                               |
-|                                                                       |
-| $App:git-6600fea                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Wifi PM Traffic Timeout Demo App                                      |
-|                                                                       |
-| addr e0:69:3a:00:16:d4                                                |
-|                                                                       |
-| Connecting to added network : Lucy                                    |
-|                                                                       |
-| [0.609,600] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-61 dBm          |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP                   |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS                   |
-|                                                                       |
-| [0.699,769] MYIP 192.168.1.105                                        |
-|                                                                       |
-| [0.699,934] IPv6 [fe80::e269:3aff:fe00:16d4]-link                     |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED                 |
-|                                                                       |
-| Connected to added network : Lucy                                     |
-|                                                                       |
-| Suspend enabled!                                                      |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| listen_interval: 10                                                   |
-|                                                                       |
-| traffic_tmo: 0                                                        |
-|                                                                       |
-| sleep_period: 102 ms                                                  |
-|                                                                       |
-| dtim_only disabled                                                    |
-|                                                                       |
-| tx_ps disabled                                                        |
-|                                                                       |
-| mcast_don't_care disabled                                             |
-|                                                                       |
-| rx_nap disabled                                                       |
-|                                                                       |
-| only_broadcast disabled                                               |
-|                                                                       |
-| ps_poll disabled                                                      |
-|                                                                       |
-| dli disabled                                                          |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| Sleep mode for next 20 sec                                            |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| listen_interval: 10                                                   |
-|                                                                       |
-| traffic_tmo: 12                                                       |
-|                                                                       |
-| sleep_period: 1024 ms                                                 |
-|                                                                       |
-| dtim_only disabled                                                    |
-|                                                                       |
-| tx_ps disabled                                                        |
-|                                                                       |
-| mcast_don't_care disabled                                             |
-|                                                                       |
-| rx_nap disabled                                                       |
-|                                                                       |
-| only_broadcast disabled                                               |
-|                                                                       |
-| ps_poll disabled                                                      |
-|                                                                       |
-| dli disabled                                                          |
-|                                                                       |
-| \*****\*                                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      UART:SNWWWWAE
+      4 DWT comparators, range 0x8000
+      Build $Id: git-ef87896f9 $
+      hio.baudrate=921600
+      flash: Gordon ready!
+      
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PNWWWWWWAE
+      Build $Id: git-df9b9ef $
+      Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff
+      Bootargs: np_conf_path=/data/nprofile.json ssid=Lucy passphrase=Password@321
+      $App:git-6600fea
+      SDK Ver: FREERTOS_SDK_1.0
+      Wifi PM Traffic Timeout Demo App
+      addr e0:69:3a:00:16:d4
+      
+      Connecting to added network : Lucy
+      [0.609,600] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-61 dBm
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+      [0.699,769] MYIP 192.168.1.105
+      [0.699,934] IPv6 [fe80::e269:3aff:fe00:16d4]-link
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
+      
+      Connected to added network : Lucy
+      Suspend enabled!
+      
+      ******
+      listen_interval: 10
+      traffic_tmo: 0
+      sleep_period: 102 ms
+      dtim_only disabled
+      tx_ps disabled
+      mcast_don't_care disabled 
+      rx_nap disabled
+      only_broadcast disabled
+      ps_poll disabled
+      dli disabled
+      ******
+      Sleep mode for next 20 sec
+      
+      ******
+      listen_interval: 10
+      traffic_tmo: 12
+      sleep_period: 1024 ms
+      dtim_only disabled
+      tx_ps disabled
+      mcast_don't_care disabled 
+      rx_nap disabled
+      only_broadcast disabled
+      ps_poll disabled
+      dli disabled
+      ******
+
 
 1. Traffic timeout set to 0 and 12ms
 
@@ -1957,16 +1498,16 @@ Console output:
    and enters suspend state when suspend mode gets enabled with listen
    interval configured to 10 and traffic timeout to 12ms.
 
-   |image23|
+   |image100|
 
-Figure : Power Analyzer- Traffic timeout switched from 0 to 12ms
+Figure 24: Power Analyzer- Traffic timeout switched from 0 to 12ms
 
    To test this, ping from host machine to Talaria TWO to observe device
    staying in awake state for 12ms after incoming and outgoing traffic.
 
-   |image24|
+   |image101|
 
-Figure : Power Analyzer- Talaria TWO stays awake for 12ms after traffic
+Figure 25: Power Analyzer- Talaria TWO stays awake for 12ms after traffic
 
 DTIM Only (WIFI_PM_DTIM_ONLY)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1992,40 +1533,32 @@ The following code uses wcm_pm_config() API to enable the
 WIFI_PM_DTIM_ONLY flag . Suspend mode is enabled using the API
 os_suspend_enable().
 
-+-----------------------------------------------------------------------+
-| wifi_main();                                                          |
-|                                                                       |
-| os_printf("Suspend enabled!\\n");                                     |
-|                                                                       |
-| os_suspend_enable();                                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      wifi_main();
+      os_printf("Suspend enabled!\n");
+      os_suspend_enable();
+
 
 Sets the DTIM ONLY flag, prints the power management configurations and
 enables sleep mode for 20 seconds.
 
-+-----------------------------------------------------------------------+
-| /\* Enable DTIM switching by disabling the DTIM_ONLY power save flag  |
-| \*/                                                                   |
-|                                                                       |
-| wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO, PM_FLAGS);          |
-|                                                                       |
-| print_wifi_config();                                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      /* Enable DTIM switching by disabling the DTIM_ONLY power save flag */
+      wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO, PM_FLAGS);
+      print_wifi_config();
+
 
 Disables the DTIM ONLY flag and prints the power management
 configurations.
 
-+-----------------------------------------------------------------------+
-| /\* Disable DTIM switching by enabling the DTIM_ONLY power save flag  |
-| \*/                                                                   |
-|                                                                       |
-| wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO, WIFI_PM_DTIM_ONLY); |
-|                                                                       |
-| print_wifi_config();                                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      /* Disable DTIM switching by enabling the DTIM_ONLY power save flag */
+      wcm_pm_config(h, LISTEN_INTERVAL_10, TRAFFIC_TMO, WIFI_PM_DTIM_ONLY);
+      print_wifi_config();
+
 
 .. _running-the-application-8:
 
@@ -2037,107 +1570,60 @@ section 5.3.3 to program the ELF onto Talaria TWO.
 
 Console output:
 
-+-----------------------------------------------------------------------+
-| UART:SNWWWWAE                                                         |
-|                                                                       |
-| 4 DWT comparators, range 0x8000                                       |
-|                                                                       |
-| Build $Id: git-ef87896f9 $                                            |
-|                                                                       |
-| hio.baudrate=921600                                                   |
-|                                                                       |
-| flash: Gordon ready!                                                  |
-|                                                                       |
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PNWWWWWWAE                                                      |
-|                                                                       |
-| Build $Id: git-df9b9ef $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff   |
-|                                                                       |
-| Bootargs: np_conf_path=/data/nprofile.json ssid=Lucy                  |
-| passphrase=Password@321                                               |
-|                                                                       |
-| $App:git-6600fea                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Wifi PM Demo DTIM_Only                                                |
-|                                                                       |
-| addr e0:69:3a:00:16:d4                                                |
-|                                                                       |
-| Connecting to added network : Lucy                                    |
-|                                                                       |
-| [0.595,761] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-64 dBm          |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP                   |
-|                                                                       |
-| [0.688,120] MYIP 192.168.1.105                                        |
-|                                                                       |
-| [0.688,284] IPv6 [fe80::e269:3aff:fe00:16d4]-link                     |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED                 |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS                   |
-|                                                                       |
-| Connected to added network : Lucy                                     |
-|                                                                       |
-| Suspend enabled!                                                      |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| listen_interval: 10                                                   |
-|                                                                       |
-| traffic_tmo: 12                                                       |
-|                                                                       |
-| sleep_period: 102 ms                                                  |
-|                                                                       |
-| dtim_only disabled                                                    |
-|                                                                       |
-| tx_ps disabled                                                        |
-|                                                                       |
-| mcast_don't_care disabled                                             |
-|                                                                       |
-| rx_nap disabled                                                       |
-|                                                                       |
-| only_broadcast disabled                                               |
-|                                                                       |
-| ps_poll disabled                                                      |
-|                                                                       |
-| dli disabled                                                          |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| Sleep mode for next 20 sec                                            |
-|                                                                       |
-| \*****\*                                                              |
-|                                                                       |
-| listen_interval: 10                                                   |
-|                                                                       |
-| traffic_tmo: 12                                                       |
-|                                                                       |
-| sleep_period: 1024 ms                                                 |
-|                                                                       |
-| dtim_only enabled                                                     |
-|                                                                       |
-| tx_ps disabled                                                        |
-|                                                                       |
-| mcast_don't_care disabled                                             |
-|                                                                       |
-| rx_nap disabled                                                       |
-|                                                                       |
-| only_broadcast disabled                                               |
-|                                                                       |
-| ps_poll disabled                                                      |
-|                                                                       |
-| dli disabled                                                          |
-|                                                                       |
-| \*****\*                                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      UART:SNWWWWAE
+      4 DWT comparators, range 0x8000
+      Build $Id: git-ef87896f9 $
+      hio.baudrate=921600
+      flash: Gordon ready!
+      
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PNWWWWWWAE
+      Build $Id: git-df9b9ef $
+      Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff
+      Bootargs: np_conf_path=/data/nprofile.json ssid=Lucy passphrase=Password@321
+      $App:git-6600fea
+      SDK Ver: FREERTOS_SDK_1.0
+      Wifi PM Demo DTIM_Only
+      addr e0:69:3a:00:16:d4
+      
+      Connecting to added network : Lucy
+      [0.595,761] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-64 dBm
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+      [0.688,120] MYIP 192.168.1.105
+      [0.688,284] IPv6 [fe80::e269:3aff:fe00:16d4]-link
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+      Connected to added network : Lucy
+      Suspend enabled!
+      ******
+      listen_interval: 10
+      traffic_tmo: 12
+      sleep_period: 102 ms
+      dtim_only disabled
+      tx_ps disabled
+      mcast_don't_care disabled 
+      rx_nap disabled
+      only_broadcast disabled
+      ps_poll disabled
+      dli disabled
+      ******
+      Sleep mode for next 20 sec
+      ******
+      listen_interval: 10
+      traffic_tmo: 12
+      sleep_period: 1024 ms
+      dtim_only enabled
+      tx_ps disabled
+      mcast_don't_care disabled 
+      rx_nap disabled
+      only_broadcast disabled
+      ps_poll disabled
+      dli disabled
+      ******
+
 
 1. DTIM ONLY mode disabled.
 
@@ -2147,9 +1633,9 @@ Console output:
    interval is set to 10 and DTIM on AP=1. When there is a beacon miss,
    device switches to DTIM=1.
 
-   |image25|
+   |image102|
 
-Figure : DTIM ONLY mode disabled
+Figure 26: DTIM ONLY mode disabled
 
 2. DTIM ONLY mode enabled.
 
@@ -2159,9 +1645,9 @@ Figure : DTIM ONLY mode disabled
    to 10 and DTIM on AP=1. No DTIM switching occurs in case of beacon
    miss.
 
-   |image26|
+   |image103|
 
-Figure : DTIM ONLY mode enabled
+Figure 27: DTIM ONLY mode enabled
 
 Power Management Boot Arguments
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2195,10 +1681,10 @@ Boot Arguments
 
 To enable the cloud power mode, use the following boot argument:
 
-+-----------------------------------------------------------------------+
-| wifi.cloud_pm=1                                                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      wifi.cloud_pm=1 
+
 
 ARP Cache Update on Access Point
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2217,13 +1703,13 @@ ARP Cache Update on Access Point
 
 ..
 
-   |image27|
+   |image104|
 
-Figure : Wireshark sniffer- ICMP packet exchange
+Figure 28: Wireshark sniffer- ICMP packet exchange
 
-   |image28|
+   |image105|
 
-Figure : OTII logs- cloud power mode enabled
+Figure 29: OTII logs- cloud power mode enabled
 
 Wake Time After Keepalive 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2253,10 +1739,10 @@ Boot Arguments
 
 The default value is set to 8ms.
 
-+-----------------------------------------------------------------------+
-| wifi.keep_alive_wake_time=<int>                                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      wifi.keep_alive_wake_time=<int>   
+
 
 .. _running-the-application-9:
 
@@ -2270,147 +1756,128 @@ onto Talaria TWO.
 In the GUI window, Boot Arguments section, pass the following boot
 arguments:
 
-+-----------------------------------------------------------------------+
-| suspend=1,wifi.max_idle_period=5                                      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      suspend=1,wifi.max_idle_period=5   
+
 
 Console output:
 
-+-----------------------------------------------------------------------+
-| UART:SNWWWWAE                                                         |
-|                                                                       |
-| 4 DWT comparators, range 0x8000                                       |
-|                                                                       |
-| Build $Id: git-ef87896f9 $                                            |
-|                                                                       |
-| hio.baudrate=921600                                                   |
-|                                                                       |
-| flash: Gordon ready!                                                  |
-|                                                                       |
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PNWWWWWWAE                                                      |
-|                                                                       |
-| Build $Id: git-df9b9ef $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff   |
-|                                                                       |
-| Bootargs: wifi.keep_alive_wake_time=10 suspend=1                      |
-| wifi.max_idle_period=5 np_conf_path=/data/nprofile.json ssid=Lucy     |
-| passphrase=Password@321                                               |
-|                                                                       |
-| $App:git-6600fea                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Wifi connect Demo App                                                 |
-|                                                                       |
-| addr e0:69:3a:00:16:d4                                                |
-|                                                                       |
-| [0.600,393] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-63 dBm          |
-|                                                                       |
-| [0.687,846] MYIP 192.168.1.105                                        |
-|                                                                       |
-| [0.688,128] IPv6 [fe80::e269:3aff:fe00:16d4]-link                     |
-|                                                                       |
-| ------------- Connected to Network--------                            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image29|
+      UART:SNWWWWAE
+      4 DWT comparators, range 0x8000
+      Build $Id: git-ef87896f9 $
+      hio.baudrate=921600
+      flash: Gordon ready!
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PNWWWWWWAE
+      Build $Id: git-df9b9ef $
+      Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff
+      Bootargs: wifi.keep_alive_wake_time=10 suspend=1 wifi.max_idle_period=5 np_conf_path=/data/nprofile.json ssid=Lucy passphrase=Password@321
+      $App:git-6600fea
+      SDK Ver: FREERTOS_SDK_1.0
+      Wifi connect Demo App
+      addr e0:69:3a:00:16:d4
+      [0.600,393] CONNECT:c8:e7:d8:8c:ba:3c Channel:6 rssi:-63 dBm
+      [0.687,846] MYIP 192.168.1.105
+      [0.688,128] IPv6 [fe80::e269:3aff:fe00:16d4]-link
+      ------------- Connected to Network--------
 
-Figure : Power analyzer- wake time after keepalive
 
-.. |image1| image:: media/image1.png
+
+|image106|
+
+Figure 30: Power analyzer- wake time after keepalive
+
+.. |image77| image:: media/image77.png
    :width: 6.10236in
    :height: 2.62612in
-.. |image2| image:: media/image2.png
+.. |image78| image:: media/image78.png
    :width: 5.11811in
    :height: 2.87254in
-.. |image3| image:: media/image3.png
+.. |image79| image:: media/image79.png
    :width: 5.11811in
    :height: 3.28494in
-.. |A screenshot of a computer Description automatically generated with medium confidence| image:: media/image4.png
+.. |image80| image:: media/image80.png
    :width: 5.90551in
    :height: 0.75746in
-.. |image4| image:: media/image5.png
+.. |image81| image:: media/image81.png
    :width: 5.90551in
    :height: 2.15059in
-.. |image5| image:: media/image6.png
+.. |image82| image:: media/image82.png
    :width: 5.90551in
    :height: 1.34983in
-.. |image6| image:: media/image7.png
+.. |image83| image:: media/image83.png
    :width: 5.90551in
    :height: 1.08053in
-.. |image7| image:: media/image8.png
+.. |image84| image:: media/image84.png
    :width: 5.90551in
    :height: 2.16156in
-.. |image8| image:: media/image9.png
+.. |image85| image:: media/image85.png
    :width: 5.90551in
    :height: 2.72044in
-.. |image9| image:: media/image10.png
+.. |image86| image:: media/image86.png
    :width: 5.90551in
    :height: 2.13875in
-.. |image10| image:: media/image11.png
+.. |image87| image:: media/image87.png
    :width: 5.90551in
    :height: 2.87485in
-.. |image11| image:: media/image12.png
+.. |image88| image:: media/image88.png
    :width: 5.90551in
    :height: 3.10324in
-.. |image12| image:: media/image13.png
+.. |image89| image:: media/image89.png
    :width: 5.90551in
    :height: 3.08492in
-.. |image13| image:: media/image14.png
+.. |image90| image:: media/image90.png
    :width: 5.90551in
    :height: 3.09735in
-.. |image14| image:: media/image15.png
+.. |image91| image:: media/image91.png
    :width: 5.90551in
    :height: 3.27204in
-.. |image15| image:: media/image16.png
+.. |image92| image:: media/image92.png
    :width: 5.90551in
    :height: 2.98351in
-.. |image16| image:: media/image17.png
+.. |image93| image:: media/image93.png
    :width: 5.90551in
    :height: 3.10053in
-.. |image17| image:: media/image18.png
+.. |image94| image:: media/image94.png
    :width: 5.90551in
    :height: 3.31409in
-.. |image18| image:: media/image19.png
+.. |image95| image:: media/image95.png
    :width: 5.90551in
    :height: 3.08344in
-.. |image19| image:: media/image20.png
+.. |image96| image:: media/image96.png
    :width: 5.90486in
    :height: 3.62426in
-.. |image20| image:: media/image21.png
+.. |image97| image:: media/image97.png
    :width: 5.90551in
    :height: 3.04994in
-.. |image21| image:: media/image22.png
+.. |image98| image:: media/image98.png
    :width: 5.90551in
    :height: 1.32777in
-.. |image22| image:: media/image23.png
+.. |image99| image:: media/image99.png
    :width: 5.90551in
    :height: 2.47882in
-.. |image23| image:: media/image24.png
+.. |image100| image:: media/image100.png
    :width: 5.90551in
    :height: 2.95496in
-.. |image24| image:: media/image25.png
+.. |image101| image:: media/image101.png
    :width: 5.90551in
    :height: 2.95937in
-.. |image25| image:: media/image26.png
+.. |image102| image:: media/image102.png
    :width: 5.90551in
    :height: 2.49892in
-.. |image26| image:: media/image27.png
+.. |image103| image:: media/image103.png
    :width: 5.90551in
    :height: 3.42502in
-.. |image27| image:: media/image28.png
+.. |image104| image:: media/image104.png
    :width: 5.90551in
    :height: 0.87287in
-.. |image28| image:: media/image29.png
+.. |image105| image:: media/image105.png
    :width: 5.90551in
    :height: 3.63358in
-.. |image29| image:: media/image30.png
+.. |image106| image:: media/image106.png
    :width: 5.90551in
-   :height: 3.85926in
+   :height: 3.63358in

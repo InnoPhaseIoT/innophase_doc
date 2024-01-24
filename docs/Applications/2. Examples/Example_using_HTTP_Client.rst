@@ -1,3 +1,5 @@
+.. _ex http client:
+
 HTTP Client
 --------------
 
@@ -40,36 +42,27 @@ HTTP/S Open
 
 This is performed using the following API:
 
-+-----------------------------------------------------------------------+
-| http_client_handle_t                                                  |
-|                                                                       |
-| http_client_open(http_client_config_t \*cfg)                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      http_client_handle_t
+      http_client_open(http_client_config_t *cfg)
+
 
 This API connects to the remote HTTP server. The configuration needed
 for the connection is passed using the following data structure:
 
-+-----------------------------------------------------------------------+
-| typedef struct {                                                      |
-|                                                                       |
-| char \*hostname;/\**<Host name or the IP address of the server*/      |
-|                                                                       |
-| int port;/\**<Server port*/                                           |
-|                                                                       |
-| int secured; /\*\* 0 – HTTP (non secure),                             |
-|                                                                       |
-| 1 - HTTPS without server verification                                 |
-|                                                                       |
-| 2 – HTTPS with server certificate validation*/                        |
-|                                                                       |
-| ssl_wrap_cfg_t ssl_cfg;/\**<SSL configuration*/                       |
-|                                                                       |
-| int time_out;/\**<Connect timeout in seconds*/                        |
-|                                                                       |
-| } http_client_config_t;                                               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      typedef struct {
+          char *hostname;/**<Host name or the IP address of the server*/
+          int port;/**<Server port*/
+          int secured; /** 0 – HTTP (non secure), 
+                           1 - HTTPS without server verification
+                           2 – HTTPS with server certificate validation*/
+          ssl_wrap_cfg_t ssl_cfg;/**<SSL configuration*/
+          int time_out;/**<Connect timeout in seconds*/
+      } http_client_config_t;
+
 
 HTTP/S Get
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -77,49 +70,34 @@ HTTP/S Get
 Once the connection is established using http_client_open(), GET is
 performed using the following API:
 
-+-----------------------------------------------------------------------+
-| int                                                                   |
-|                                                                       |
-| http_client_get(http_client_handle_t handle, char \*uri,              |
-|                                                                       |
-| http_client_resp_cb cb, void \*cb_ctx,                                |
-|                                                                       |
-| int time_out)                                                         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      int
+      http_client_get(http_client_handle_t handle, char *uri,
+                      http_client_resp_cb cb, void *cb_ctx,
+                      int time_out)
+
 
 The HTTP response is provided through the call back. The call back is
 called multiple times until the response. Following is the call back
 definition and the data structure passed to call back:
 
-+-----------------------------------------------------------------------+
-| typedef struct {                                                      |
-|                                                                       |
-| int status_code;/\**< HTTP response status code*/                     |
-|                                                                       |
-| char \**resp_hdrs;/\*< Response headers. Array of strings*/           |
-|                                                                       |
-| char \*resp_body; /\**< Response body len*/                           |
-|                                                                       |
-| int resp_len; /\**< Resp len, currently availabe in the resp_body*/   |
-|                                                                       |
-| unsigned int resp_total_len;/\**< Total length of the response body.  |
-| If 0,                                                                 |
-|                                                                       |
-| No total length available before hand as the body                     |
-|                                                                       |
-| may be sent using chunked or multipart encoding*/                     |
-|                                                                       |
-| int more_data;                                                        |
-|                                                                       |
-| } http_client_resp_info_t;                                            |
-|                                                                       |
-| /\*This is the call back called when the response is received*/       |
-|                                                                       |
-| typedef void http_client_resp_cb(void \*ctx, http_client_resp_info_t  |
-| \*resp);                                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      typedef struct {
+          int status_code;/**< HTTP response status code*/
+          char **resp_hdrs;/*< Response headers. Array of strings*/
+          char *resp_body; /**< Response body len*/
+          int resp_len; /**< Resp len, currently availabe in the resp_body*/
+          unsigned int resp_total_len;/**< Total length of the response body. If 0,
+                                  No total length available before hand as the body
+                                  may be sent using chunked or multipart encoding*/
+          int more_data;
+      } http_client_resp_info_t;
+      
+      /*This is the call back called when the response is received*/
+      typedef void http_client_resp_cb(void *ctx, http_client_resp_info_t *resp);
+
 
 HTTP/S Post
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -127,18 +105,14 @@ HTTP/S Post
 Once the connection is performed using http_client_open(), data can be
 posted to HTTP server using the following API:
 
-+-----------------------------------------------------------------------+
-| int                                                                   |
-|                                                                       |
-| http_client_post(http_client_handle_t handle, char \*uri,             |
-|                                                                       |
-| char \*buff, int buff_len,                                            |
-|                                                                       |
-| http_client_resp_cb cb, void \*cb_ctx,                                |
-|                                                                       |
-| int time_out);                                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      int
+      http_client_post(http_client_handle_t handle, char *uri,
+                       char *buff, int buff_len,
+                       http_client_resp_cb cb, void *cb_ctx,
+                       int time_out);
+
 
 The response is provided using the call back. Setting content length
 header is a must before using this API.
@@ -148,26 +122,22 @@ Setting the header
 
 User application can set the header using the following API:
 
-+-----------------------------------------------------------------------+
-| int                                                                   |
-|                                                                       |
-| http_client_set_req_hdr(http_client_handle_t handle,                  |
-|                                                                       |
-| const char \*hdrname, const char \*hdrval);                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      int
+      http_client_set_req_hdr(http_client_handle_t handle, const char *hdrname, const char *hdrval);
+
 
 Closing the connection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The connection can be closed using the following API:
 
-+-----------------------------------------------------------------------+
-| int                                                                   |
-|                                                                       |
-| http_client_close(http_client_handle_t handle);                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      int
+      http_client_close(http_client_handle_t handle);
+
 
 Running the Application 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -230,11 +200,10 @@ using the Download tool:
 
    d. Boot arguments: Pass the following boot arguments:
 
-+-----------------------------------------------------------------------+
-| h                                                                     |
-| ost=httpbin.org,path=/json,port=80,secured=0,method=get,post_len=3000 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      host=httpbin.org,path=/json,port=80,secured=0,method=get,post_len=3000
+
 
 e. Programming: Prog RAM or Prog Flash as per requirement.
 
@@ -278,604 +247,354 @@ The list of boot arguments are as follows:
 Example boot args for HTTP Get (non-secure)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------------------------------------------------------------------+
-| ssid=<ssid>,passphrase=                                               |
-| <passphrase>,host=httpbin.org,path=/json,port=80,secured=0,method=get |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      ssid=<ssid>,passphrase=<passphrase>,host=httpbin.org,path=/json,port=80,secured=0,method=get
+
 
 Console output:
 
-+-----------------------------------------------------------------------+
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PWWWWWWAE                                                       |
-|                                                                       |
-| Build $Id: git-e52d93e $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-0080-0055-ffffffffffff   |
-|                                                                       |
-| Bootargs: ssid=innotest_AP passphrase=inno@1234 host=httpbin.org      |
-| path=/json port=80 secured=0 method=get                               |
-|                                                                       |
-| $App:git-8b301e9                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Http Client Demo App                                                  |
-|                                                                       |
-| Application Information:                                              |
-|                                                                       |
-| ------------------------                                              |
-|                                                                       |
-| Name : HTTP application                                               |
-|                                                                       |
-| Version : 2.0                                                         |
-|                                                                       |
-| Build Date : Aug 24 2023                                              |
-|                                                                       |
-| Build Time : 15:26:32                                                 |
-|                                                                       |
-| Heap Available: 309 KB (316664 Bytes)                                 |
-|                                                                       |
-| [APP]Bootparams :                                                     |
-|                                                                       |
-| --------------------                                                  |
-|                                                                       |
-| url=<null>                                                            |
-|                                                                       |
-| host= httpbin.org                                                     |
-|                                                                       |
-| port=80                                                               |
-|                                                                       |
-| path= /json                                                           |
-|                                                                       |
-| secured= 0                                                            |
-|                                                                       |
-| method= get                                                           |
-|                                                                       |
-| ca_cert=<null>                                                        |
-|                                                                       |
-| post_len=<null>                                                       |
-|                                                                       |
-| test_iterations = <null>                                              |
-|                                                                       |
-| use_ca_bundle = <null>                                                |
-|                                                                       |
-| hdr1_name= <null> hdr1_val= <null>                                    |
-|                                                                       |
-| hdr2_name= <null> hdr2_val= <null>                                    |
-|                                                                       |
-| hdr3_name= <null> hdr3_val= <null>                                    |
-|                                                                       |
-| post_data= <null>                                                     |
-|                                                                       |
-| post_data_file= <null>                                                |
-|                                                                       |
-| [APP]Bootparams end here....                                          |
-|                                                                       |
-| [APP]Bootparams check done....ret = 0                                 |
-|                                                                       |
-| addr e0:69:3a:00:08:38                                                |
-|                                                                       |
-| network profile created for ssid: innotest_AP                         |
-|                                                                       |
-| Connecting to added network : innotest_AP                             |
-|                                                                       |
-| [0.743,823] CONNECT:0e:70:6c:d6:3a:62 Channel:6 rssi:-30 dBm          |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP                   |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS                   |
-|                                                                       |
-| [0.801,323] MYIP 192.168.99.195                                       |
-|                                                                       |
-| [0.801,488] IPv6 [fe80::e269:3aff:fe00:838]-link                      |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED                 |
-|                                                                       |
-| Connected to added network : innotest_AP                              |
-|                                                                       |
-| \*\* Test Iterations = 1 \*\*                                         |
-|                                                                       |
-| [APP]Calling http_client_open(). heap size = 241760                   |
-|                                                                       |
-| [APP]Succes: HTTP connection done                                     |
-|                                                                       |
-| [APP]HTTP Get                                                         |
-|                                                                       |
-| [APP]Response:                                                        |
-|                                                                       |
-| 429 ----------------------                                            |
-|                                                                       |
-| 200                                                                   |
-|                                                                       |
-| Date: Thu, 24 Aug 2023 13:08:05 GMT                                   |
-|                                                                       |
-| Content-Type: application/json                                        |
-|                                                                       |
-| Content-Length: 429                                                   |
-|                                                                       |
-| Connection: keep-alive                                                |
-|                                                                       |
-| Server: gunicorn/19.9.0                                               |
-|                                                                       |
-| Access-Control-Allow-Origin: \*                                       |
-|                                                                       |
-| Access-Control-Allow-Credentials: true                                |
-|                                                                       |
-| [APP]Body:                                                            |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "slideshow": {                                                        |
-|                                                                       |
-| "author": "Yours Truly",                                              |
-|                                                                       |
-| "date": "date of publication",                                        |
-|                                                                       |
-| "slides": [                                                           |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "title": "Wake up to WonderWidgets!",                                 |
-|                                                                       |
-| "type": "all"                                                         |
-|                                                                       |
-| },                                                                    |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "items": [                                                            |
-|                                                                       |
-| "Why <em>WonderWidgets</em> are great",                               |
-|                                                                       |
-| "Who <em>buys</em> WonderWidgets"                                     |
-|                                                                       |
-| ],                                                                    |
-|                                                                       |
-| "title": "Overview",                                                  |
-|                                                                       |
-| "type": "all"                                                         |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| ],                                                                    |
-|                                                                       |
-| "title": "Sample Slide Show"                                          |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| [APP]Success: http_client_get(), rval = 0                             |
-|                                                                       |
-| [APP]------ Program Exit-------------                                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PWWWWWWAE
+      Build $Id: git-e52d93e $
+      Flash detected. flash.hw.uuid: 39483937-3207-0080-0055-ffffffffffff
+      Bootargs: ssid=innotest_AP passphrase=inno@1234 host=httpbin.org path=/json port=80 secured=0 method=get
+      $App:git-8b301e9
+      SDK Ver: FREERTOS_SDK_1.0
+      Http Client Demo App
+      
+      
+      Application Information:
+      ------------------------
+      Name       : HTTP  application
+      Version    : 2.0
+      Build Date : Aug 24 2023
+      Build Time : 15:26:32
+      Heap Available: 309 KB (316664 Bytes)
+      
+      [APP]Bootparams :
+      --------------------
+      url=<null>
+      host= httpbin.org
+      port=80
+      path= /json
+      secured= 0
+      method= get
+      ca_cert=<null>
+      post_len=<null>
+      test_iterations = <null>
+      use_ca_bundle = <null>
+      hdr1_name= <null>	hdr1_val= <null>
+      hdr2_name= <null>	hdr2_val= <null>
+      hdr3_name= <null>	hdr3_val= <null>
+      
+      post_data= <null>
+      post_data_file= <null>
+      [APP]Bootparams end here....
+      
+      [APP]Bootparams check done....ret = 0
+      addr e0:69:3a:00:08:38
+      network profile created for ssid: innotest_AP
+      Connecting to added network : innotest_AP
+      [0.743,823] CONNECT:0e:70:6c:d6:3a:62 Channel:6 rssi:-30 dBm
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+      [0.801,323] MYIP 192.168.99.195
+      [0.801,488] IPv6 [fe80::e269:3aff:fe00:838]-link
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
+      Connected to added network : innotest_AP
+      ** Test Iterations = 1 **
+      [APP]Calling http_client_open(). heap size = 241760
+      [APP]Succes: HTTP connection done
+      [APP]HTTP Get
+      [APP]Response:
+      429 ----------------------
+      200
+      Date: Thu, 24 Aug 2023 13:08:05 GMT
+      Content-Type: application/json
+      Content-Length: 429
+      Connection: keep-alive
+      Server: gunicorn/19.9.0
+      Access-Control-Allow-Origin: *
+      Access-Control-Allow-Credentials: true
+      [APP]Body:
+      {
+        "slideshow": {
+          "author": "Yours Truly", 
+          "date": "date of publication", 
+          "slides": [
+            {
+              "title": "Wake up to WonderWidgets!", 
+              "type": "all"
+            }, 
+            {
+              "items": [
+                "Why <em>WonderWidgets</em> are great", 
+                "Who <em>buys</em> WonderWidgets"
+              ], 
+              "title": "Overview", 
+              "type": "all"
+            }
+          ], 
+          "title": "Sample Slide Show"
+        }
+      }
+      
+      [APP]Success: http_client_get(), rval = 0
+      
+      [APP]------ Program Exit------------- 
+
+
 
 Example boot args for HTTPS Get (without server verification)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------------------------------------------------------------------+
-| ssid=<ssid>,passphrase=<passphrase>,host=httpbin.org,                 |
-| path=/json,port=443,secured=1,method=get,ca_cert=/data/httpbin_ca.pem |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      ssid=<ssid>,passphrase=<passphrase>,host=httpbin.org,path=/json,port=443,secured=1,method=get,ca_cert=/data/httpbin_ca.pem 
+
 
 Console output:
 
-+-----------------------------------------------------------------------+
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PWWWWWWAE                                                       |
-|                                                                       |
-| Build $Id: git-e52d93e $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-0080-0055-ffffffffffff   |
-|                                                                       |
-| Bootargs: ssid=innotest_AP passphrase=inno@1234 host=httpbin.org      |
-| path=/json port=443 secured=1 method=get ca_cert=/data/httpbin_ca.pem |
-|                                                                       |
-| $App:git-8b301e9                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Http Client Demo App                                                  |
-|                                                                       |
-| Application Information:                                              |
-|                                                                       |
-| ------------------------                                              |
-|                                                                       |
-| Name : HTTP application                                               |
-|                                                                       |
-| Version : 2.0                                                         |
-|                                                                       |
-| Build Date : Aug 24 2023                                              |
-|                                                                       |
-| Build Time : 15:26:32                                                 |
-|                                                                       |
-| Heap Available: 309 KB (316664 Bytes)                                 |
-|                                                                       |
-| [APP]Bootparams :                                                     |
-|                                                                       |
-| --------------------                                                  |
-|                                                                       |
-| url=<null>                                                            |
-|                                                                       |
-| host= httpbin.org                                                     |
-|                                                                       |
-| port=443                                                              |
-|                                                                       |
-| path= /json                                                           |
-|                                                                       |
-| secured= 1                                                            |
-|                                                                       |
-| method= get                                                           |
-|                                                                       |
-| ca_cert=/data/httpbin_ca.pem                                          |
-|                                                                       |
-| post_len=<null>                                                       |
-|                                                                       |
-| test_iterations = <null>                                              |
-|                                                                       |
-| use_ca_bundle = <null>                                                |
-|                                                                       |
-| hdr1_name= <null> hdr1_val= <null>                                    |
-|                                                                       |
-| hdr2_name= <null> hdr2_val= <null>                                    |
-|                                                                       |
-| hdr3_name= <null> hdr3_val= <null>                                    |
-|                                                                       |
-| post_data= <null>                                                     |
-|                                                                       |
-| post_data_file= <null>                                                |
-|                                                                       |
-| [APP]Bootparams end here....                                          |
-|                                                                       |
-| [APP]Bootparams check done....ret = 0                                 |
-|                                                                       |
-| addr e0:69:3a:00:08:38                                                |
-|                                                                       |
-| network profile created for ssid: innotest_AP                         |
-|                                                                       |
-| Connecting to added network : innotest_AP                             |
-|                                                                       |
-| [0.735,885] DEAUTHENTICATED: reason 1                                 |
-|                                                                       |
-| [0.846,413] CONNECT:0e:70:6c:d6:3a:62 Channel:6 rssi:-23 dBm          |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP                   |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS                   |
-|                                                                       |
-| [0.923,206] MYIP 192.168.99.195                                       |
-|                                                                       |
-| [0.923,369] IPv6 [fe80::e269:3aff:fe00:838]-link                      |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED                 |
-|                                                                       |
-| Connected to added network : innotest_AP                              |
-|                                                                       |
-| \*\* Test Iterations = 1 \*\*                                         |
-|                                                                       |
-| [APP]Calling http_client_open(). heap size = 241768                   |
-|                                                                       |
-| . [SSL_WRAP]Checking input configurations...                          |
-|                                                                       |
-| . [SSL_WRAP]Seeding the random number generator...                    |
-|                                                                       |
-| . [SSL_WRAP]Connecting to tcp httpbin.org:443...                      |
-|                                                                       |
-| . [SSL_WRAP]Setting up the SSL/TLS structure...                       |
-|                                                                       |
-| . [SSL_WRAP]setting configurations..                                  |
-|                                                                       |
-| >auth mode = 0 (0- skip, 1- optional, 2- required                     |
-|                                                                       |
-| >max fragment len = 0                                                 |
-|                                                                       |
-| >Handshake timeout = 30 Sec                                           |
-|                                                                       |
-| . [SSL_WRAP]Performing the SSL/TLS handshake...                       |
-|                                                                       |
-| . [SSL_WRAP] Handshake done. ok                                       |
-|                                                                       |
-| . [SSL_WRAP]Verifying peer X.509 certificate.                         |
-|                                                                       |
-| [APP]Succes: HTTP connection done                                     |
-|                                                                       |
-| [APP]HTTP Get                                                         |
-|                                                                       |
-| [APP]Response:                                                        |
-|                                                                       |
-| 0 ----------------------                                              |
-|                                                                       |
-| 200                                                                   |
-|                                                                       |
-| Date: Thu, 24 Aug 2023 15:18:35 GMT                                   |
-|                                                                       |
-| Content-Type: application/json                                        |
-|                                                                       |
-| Content-Length: 429                                                   |
-|                                                                       |
-| Connection: keep-alive                                                |
-|                                                                       |
-| Server: gunicorn/19.9.0                                               |
-|                                                                       |
-| Access-Control-Allow-Origin: \*                                       |
-|                                                                       |
-| Access-Control-Allow-Credentials: true                                |
-|                                                                       |
-| [APP]Body:                                                            |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "slideshow": {                                                        |
-|                                                                       |
-| "author": "Yours Truly",                                              |
-|                                                                       |
-| "date": "date of publication",                                        |
-|                                                                       |
-| "slides": [                                                           |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "title": "Wake up to WonderWidgets!",                                 |
-|                                                                       |
-| "type": "all"                                                         |
-|                                                                       |
-| },                                                                    |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "items": [                                                            |
-|                                                                       |
-| "Why <em>WonderWidgets</em> are great",                               |
-|                                                                       |
-| "Who <em>buys</em> WonderWidgets"                                     |
-|                                                                       |
-| ],                                                                    |
-|                                                                       |
-| "title": "Overview",                                                  |
-|                                                                       |
-| "type": "all"                                                         |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| ],                                                                    |
-|                                                                       |
-| "title": "Sample Slide Show"                                          |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| [APP]Success: http_client_get(), rval = 0                             |
-|                                                                       |
-| [APP]------ Program Exit-------------                                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PWWWWWWAE
+      Build $Id: git-e52d93e $
+      Flash detected. flash.hw.uuid: 39483937-3207-0080-0055-ffffffffffff
+      Bootargs: ssid=innotest_AP passphrase=inno@1234 host=httpbin.org path=/json port=443 secured=1 method=get ca_cert=/data/httpbin_ca.pem
+      $App:git-8b301e9
+      SDK Ver: FREERTOS_SDK_1.0
+      Http Client Demo App
+      
+      Application Information:
+      ------------------------
+      Name       : HTTP  application
+      Version    : 2.0
+      Build Date : Aug 24 2023
+      Build Time : 15:26:32
+      Heap Available: 309 KB (316664 Bytes)
+      
+      [APP]Bootparams :
+      --------------------
+      url=<null>
+      host= httpbin.org
+      port=443
+      path= /json
+      secured= 1
+      method= get
+      ca_cert=/data/httpbin_ca.pem
+      post_len=<null>
+      test_iterations = <null>
+      use_ca_bundle = <null>
+      hdr1_name= <null>	hdr1_val= <null>
+      hdr2_name= <null>	hdr2_val= <null>
+      hdr3_name= <null>	hdr3_val= <null>
+      
+      post_data= <null>
+      post_data_file= <null>
+      [APP]Bootparams end here....
+      
+      [APP]Bootparams check done....ret = 0
+      addr e0:69:3a:00:08:38
+      network profile created for ssid: innotest_AP
+      
+      Connecting to added network : innotest_AP
+      [0.735,885] DEAUTHENTICATED: reason 1
+      [0.846,413] CONNECT:0e:70:6c:d6:3a:62 Channel:6 rssi:-23 dBm
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+      [0.923,206] MYIP 192.168.99.195
+      [0.923,369] IPv6 [fe80::e269:3aff:fe00:838]-link
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
+      
+      Connected to added network : innotest_AP
+      
+      ** Test Iterations = 1 **
+      
+      [APP]Calling http_client_open(). heap size = 241768
+        . [SSL_WRAP]Checking input configurations...
+        . [SSL_WRAP]Seeding the random number generator...
+        . [SSL_WRAP]Connecting to tcp httpbin.org:443...
+        . [SSL_WRAP]Setting up the SSL/TLS structure...
+        . [SSL_WRAP]setting configurations..
+              >auth mode = 0 (0- skip, 1- optional, 2- required
+              >max fragment len = 0
+              >Handshake timeout = 30 Sec
+        . [SSL_WRAP]Performing the SSL/TLS handshake...
+        . [SSL_WRAP] Handshake done. ok
+        . [SSL_WRAP]Verifying peer X.509 certificate.
+      [APP]Succes: HTTP connection done
+      [APP]HTTP Get
+      [APP]Response:
+      0 ----------------------
+      200
+      Date: Thu, 24 Aug 2023 15:18:35 GMT
+      Content-Type: application/json
+      Content-Length: 429
+      Connection: keep-alive
+      Server: gunicorn/19.9.0
+      Access-Control-Allow-Origin: *
+      Access-Control-Allow-Credentials: true
+      [APP]Body:
+      {
+        "slideshow": {
+          "author": "Yours Truly", 
+          "date": "date of publication", 
+          "slides": [
+            {
+              "title": "Wake up to WonderWidgets!", 
+              "type": "all"
+            }, 
+            {
+              "items": [
+                "Why <em>WonderWidgets</em> are great", 
+                "Who <em>buys</em> WonderWidgets"
+              ], 
+              "title": "Overview", 
+              "type": "all"
+            }
+          ], 
+          "title": "Sample Slide Show"
+        }
+      }
+      
+      [APP]Success: http_client_get(), rval = 0
+      
+      [APP]------ Program Exit-------------
+
+
 
 Example boot args for HTTPS Get (with server certificate validation)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------------------------------------------------------------------+
-| ssid=<ssid>,passphrase=<passphrase>,                                  |
-| host=httpbin.org,path=/json,port=443,secured=2,method=get,ca_cert=    |
-| /data/certs/https_client/app/httpbin_ca.pem, post_len=3000            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      ssid=<ssid>,passphrase=<passphrase>, host=httpbin.org,path=/json,port=443,secured=2,method=get,ca_cert= /data/certs/https_client/app/httpbin_ca.pem, post_len=3000
+
 
 Console output:
 
-+-----------------------------------------------------------------------+
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PWWWWWWAE                                                       |
-|                                                                       |
-| Build $Id: git-e52d93e $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-0080-0055-ffffffffffff   |
-|                                                                       |
-| Bootargs: ssid=innotest_AP passphrase=inno@1234 host=httpbin.org      |
-| path=/json port=443 secured=2 method=get ca_cert=/data/httpbin_ca.pem |
-|                                                                       |
-| $App:git-8b301e9                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Http Client Demo App                                                  |
-|                                                                       |
-| Application Information:                                              |
-|                                                                       |
-| ------------------------                                              |
-|                                                                       |
-| Name : HTTP application                                               |
-|                                                                       |
-| Version : 2.0                                                         |
-|                                                                       |
-| Build Date : Aug 24 2023                                              |
-|                                                                       |
-| Build Time : 15:26:32                                                 |
-|                                                                       |
-| Heap Available: 309 KB (316664 Bytes)                                 |
-|                                                                       |
-| [APP]Bootparams :                                                     |
-|                                                                       |
-| --------------------                                                  |
-|                                                                       |
-| url=<null>                                                            |
-|                                                                       |
-| host= httpbin.org                                                     |
-|                                                                       |
-| port=443                                                              |
-|                                                                       |
-| path= /json                                                           |
-|                                                                       |
-| secured= 2                                                            |
-|                                                                       |
-| method= get                                                           |
-|                                                                       |
-| ca_cert=/data/httpbin_ca.pem                                          |
-|                                                                       |
-| post_len=<null>                                                       |
-|                                                                       |
-| test_iterations = <null>                                              |
-|                                                                       |
-| use_ca_bundle = <null>                                                |
-|                                                                       |
-| hdr1_name= <null> hdr1_val= <null>                                    |
-|                                                                       |
-| hdr2_name= <null> hdr2_val= <null>                                    |
-|                                                                       |
-| hdr3_name= <null> hdr3_val= <null>                                    |
-|                                                                       |
-| post_data= <null>                                                     |
-|                                                                       |
-| post_data_file= <null>                                                |
-|                                                                       |
-| [APP]Bootparams end here....                                          |
-|                                                                       |
-| [APP]Bootparams check done....ret = 0                                 |
-|                                                                       |
-| addr e0:69:3a:00:08:38                                                |
-|                                                                       |
-| network profile created for ssid: innotest_AP                         |
-|                                                                       |
-| Connecting to added network : innotest_AP                             |
-|                                                                       |
-| [0.746,258] CONNECT:0e:70:6c:d6:3a:62 Channel:6 rssi:-23 dBm          |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP                   |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS                   |
-|                                                                       |
-| [0.811,476] MYIP 192.168.99.195                                       |
-|                                                                       |
-| [0.811,644] IPv6 [fe80::e269:3aff:fe00:838]-link                      |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED                 |
-|                                                                       |
-| Connected to added network : innotest_AP                              |
-|                                                                       |
-| \*\* Test Iterations = 1 \*\*                                         |
-|                                                                       |
-| [APP]Calling http_client_open(). heap size = 236616                   |
-|                                                                       |
-| . [SSL_WRAP]Checking input configurations...                          |
-|                                                                       |
-| . [SSL_WRAP]Seeding the random number generator...                    |
-|                                                                       |
-| . [SSL_WRAP]Loading the CA root certificate ...Cert Len = 4755        |
-|                                                                       |
-| . [SSL_WRAP]Connecting to tcp httpbin.org:443...                      |
-|                                                                       |
-| . [SSL_WRAP]Setting up the SSL/TLS structure...                       |
-|                                                                       |
-| . [SSL_WRAP]setting configurations..                                  |
-|                                                                       |
-| >auth mode = 2 (0- skip, 1- optional, 2- required                     |
-|                                                                       |
-| >max fragment len = 0                                                 |
-|                                                                       |
-| >Handshake timeout = 30 Sec                                           |
-|                                                                       |
-| . [SSL_WRAP]Performing the SSL/TLS handshake...                       |
-|                                                                       |
-| . [SSL_WRAP] Handshake done. ok                                       |
-|                                                                       |
-| . [SSL_WRAP]Verifying peer X.509 certificate.                         |
-|                                                                       |
-| [APP]Succes: HTTP connection done                                     |
-|                                                                       |
-| [APP]HTTP Get                                                         |
-|                                                                       |
-| [APP]Response:                                                        |
-|                                                                       |
-| 0 ----------------------                                              |
-|                                                                       |
-| 200                                                                   |
-|                                                                       |
-| Date: Thu, 24 Aug 2023 15:19:53 GMT                                   |
-|                                                                       |
-| Content-Type: application/json                                        |
-|                                                                       |
-| Content-Length: 429                                                   |
-|                                                                       |
-| Connection: keep-alive                                                |
-|                                                                       |
-| Server: gunicorn/19.9.0                                               |
-|                                                                       |
-| Access-Control-Allow-Origin: \*                                       |
-|                                                                       |
-| Access-Control-Allow-Credentials: true                                |
-|                                                                       |
-| [APP]Body:                                                            |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "slideshow": {                                                        |
-|                                                                       |
-| "author": "Yours Truly",                                              |
-|                                                                       |
-| "date": "date of publication",                                        |
-|                                                                       |
-| "slides": [                                                           |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "title": "Wake up to WonderWidgets!",                                 |
-|                                                                       |
-| "type": "all"                                                         |
-|                                                                       |
-| },                                                                    |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "items": [                                                            |
-|                                                                       |
-| "Why <em>WonderWidgets</em> are great",                               |
-|                                                                       |
-| "Who <em>buys</em> WonderWidgets"                                     |
-|                                                                       |
-| ],                                                                    |
-|                                                                       |
-| "title": "Overview",                                                  |
-|                                                                       |
-| "type": "all"                                                         |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| ],                                                                    |
-|                                                                       |
-| "title": "Sample Slide Show"                                          |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| [APP]Success: http_client_get(), rval = 0                             |
-|                                                                       |
-| [APP]------ Program Exit-------------                                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PWWWWWWAE
+      Build $Id: git-e52d93e $
+      Flash detected. flash.hw.uuid: 39483937-3207-0080-0055-ffffffffffff
+      Bootargs: ssid=innotest_AP passphrase=inno@1234 host=httpbin.org path=/json port=443 secured=2 method=get ca_cert=/data/httpbin_ca.pem
+      $App:git-8b301e9
+      SDK Ver: FREERTOS_SDK_1.0
+      Http Client Demo App
+      
+      Application Information:
+      ------------------------
+      Name       : HTTP  application
+      Version    : 2.0
+      Build Date : Aug 24 2023
+      Build Time : 15:26:32
+      Heap Available: 309 KB (316664 Bytes)
+      
+      [APP]Bootparams :
+      --------------------
+      url=<null>
+      host= httpbin.org
+      port=443
+      path= /json
+      secured= 2
+      method= get
+      ca_cert=/data/httpbin_ca.pem
+      post_len=<null>
+      test_iterations = <null>
+      use_ca_bundle = <null>
+      hdr1_name= <null>	hdr1_val= <null>
+      hdr2_name= <null>	hdr2_val= <null>
+      hdr3_name= <null>	hdr3_val= <null>
+      
+      post_data= <null>
+      post_data_file= <null>
+      [APP]Bootparams end here....
+      
+      [APP]Bootparams check done....ret = 0
+      addr e0:69:3a:00:08:38
+      network profile created for ssid: innotest_AP
+      
+      Connecting to added network : innotest_AP
+      [0.746,258] CONNECT:0e:70:6c:d6:3a:62 Channel:6 rssi:-23 dBm
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+      [0.811,476] MYIP 192.168.99.195
+      [0.811,644] IPv6 [fe80::e269:3aff:fe00:838]-link
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
+      Connected to added network : innotest_AP
+      ** Test Iterations = 1 **
+      [APP]Calling http_client_open(). heap size = 236616
+        . [SSL_WRAP]Checking input configurations...
+        . [SSL_WRAP]Seeding the random number generator...
+        . [SSL_WRAP]Loading the CA root certificate ...Cert Len = 4755
+        . [SSL_WRAP]Connecting to tcp httpbin.org:443...
+        . [SSL_WRAP]Setting up the SSL/TLS structure...
+        . [SSL_WRAP]setting configurations..
+              >auth mode = 2 (0- skip, 1- optional, 2- required
+              >max fragment len = 0
+              >Handshake timeout = 30 Sec
+        . [SSL_WRAP]Performing the SSL/TLS handshake...
+        . [SSL_WRAP] Handshake done. ok
+        . [SSL_WRAP]Verifying peer X.509 certificate.
+      
+      [APP]Succes: HTTP connection done
+      [APP]HTTP Get
+      [APP]Response:
+      0 ----------------------
+      
+      200
+      Date: Thu, 24 Aug 2023 15:19:53 GMT
+      Content-Type: application/json
+      Content-Length: 429
+      Connection: keep-alive
+      Server: gunicorn/19.9.0
+      Access-Control-Allow-Origin: *
+      Access-Control-Allow-Credentials: true
+      [APP]Body:
+      {
+        "slideshow": {
+          "author": "Yours Truly", 
+          "date": "date of publication", 
+          "slides": [
+            {
+              "title": "Wake up to WonderWidgets!", 
+              "type": "all"
+            }, 
+            {
+              "items": [
+                "Why <em>WonderWidgets</em> are great", 
+                "Who <em>buys</em> WonderWidgets"
+              ], 
+              "title": "Overview", 
+              "type": "all"
+            }
+          ], 
+          "title": "Sample Slide Show"
+        }
+      }
+      
+      [APP]Success: http_client_get(), rval = 0
+      
+      [APP]------ Program Exit-------------
+
+
 
 Example boot args for HTTP Post (non-secure)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------------------------------------------------------------------+
-| ssid=<ssid>,passphrase=<passp                                         |
-| hrase>,host=httpbin.org,path=/anything,port=80,secured=0,method=post, |
-| post_len=100                                                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      ssid=<ssid>,passphrase=<passphrase>,host=httpbin.org,path=/anything,port=80,secured=0,method=post, post_len=100
+
 
 **Note**:
 
@@ -891,525 +610,298 @@ Example boot args for HTTP Post (non-secure)
 
 Console output:
 
-+-----------------------------------------------------------------------+
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PWWWWWWAE                                                       |
-|                                                                       |
-| Build $Id: git-e52d93e $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-0080-0055-ffffffffffff   |
-|                                                                       |
-| Bootargs: ssid=innotest_AP passphrase=inno@1234 host=httpbin.org      |
-| path=/anything port=80 secured=0 method=post post_len=128             |
-|                                                                       |
-| $App:git-8b301e9                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Http Client Demo App                                                  |
-|                                                                       |
-| Application Information:                                              |
-|                                                                       |
-| ------------------------                                              |
-|                                                                       |
-| Name : HTTP application                                               |
-|                                                                       |
-| Version : 2.0                                                         |
-|                                                                       |
-| Build Date : Aug 24 2023                                              |
-|                                                                       |
-| Build Time : 15:26:32                                                 |
-|                                                                       |
-| Heap Available: 309 KB (316664 Bytes)                                 |
-|                                                                       |
-| [APP]Bootparams :                                                     |
-|                                                                       |
-| --------------------                                                  |
-|                                                                       |
-| url=<null>                                                            |
-|                                                                       |
-| host= httpbin.org                                                     |
-|                                                                       |
-| port=80                                                               |
-|                                                                       |
-| path= /anything                                                       |
-|                                                                       |
-| secured= 0                                                            |
-|                                                                       |
-| method= post                                                          |
-|                                                                       |
-| ca_cert=<null>                                                        |
-|                                                                       |
-| post_len=128                                                          |
-|                                                                       |
-| test_iterations = <null>                                              |
-|                                                                       |
-| use_ca_bundle = <null>                                                |
-|                                                                       |
-| hdr1_name= <null> hdr1_val= <null>                                    |
-|                                                                       |
-| hdr2_name= <null> hdr2_val= <null>                                    |
-|                                                                       |
-| hdr3_name= <null> hdr3_val= <null>                                    |
-|                                                                       |
-| post_data= <null>                                                     |
-|                                                                       |
-| post_data_file= <null>                                                |
-|                                                                       |
-| [APP]Bootparams end here....                                          |
-|                                                                       |
-| [APP]Bootparams check done....ret = 0                                 |
-|                                                                       |
-| addr e0:69:3a:00:08:38                                                |
-|                                                                       |
-| network profile created for ssid: innotest_AP                         |
-|                                                                       |
-| Connecting to added network : innotest_AP                             |
-|                                                                       |
-| [0.736,982] DEAUTHENTICATED: reason 1                                 |
-|                                                                       |
-| [0.845,208] CONNECT:0e:70:6c:d6:3a:62 Channel:6 rssi:-41 dBm          |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP                   |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS                   |
-|                                                                       |
-| [0.902,951] MYIP 192.168.99.195                                       |
-|                                                                       |
-| [0.903,115] IPv6 [fe80::e269:3aff:fe00:838]-link                      |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED                 |
-|                                                                       |
-| Connected to added network : innotest_AP                              |
-|                                                                       |
-| \*\* Test Iterations = 1 \*\*                                         |
-|                                                                       |
-| [APP]Calling http_client_open(). heap size = 241768                   |
-|                                                                       |
-| [APP]Succes: HTTP connection done                                     |
-|                                                                       |
-| [APP]HTTP Post                                                        |
-|                                                                       |
-| [APP]Response:                                                        |
-|                                                                       |
-| 446 ----------------------                                            |
-|                                                                       |
-| 200                                                                   |
-|                                                                       |
-| Date: Thu, 24 Aug 2023 15:23:59 GMT                                   |
-|                                                                       |
-| Content-Type: application/json                                        |
-|                                                                       |
-| Content-Length: 446                                                   |
-|                                                                       |
-| Connection: keep-alive                                                |
-|                                                                       |
-| Server: gunicorn/19.9.0                                               |
-|                                                                       |
-| Access-Control-Allow-Origin: \*                                       |
-|                                                                       |
-| Access-Control-Allow-Credentials: true                                |
-|                                                                       |
-| [APP]Body:                                                            |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "args": {},                                                           |
-|                                                                       |
-| "data":                                                               |
-| "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa        |
-| aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", |
-|                                                                       |
-| "files": {},                                                          |
-|                                                                       |
-| "form": {},                                                           |
-|                                                                       |
-| "headers": {                                                          |
-|                                                                       |
-| "Content-Length": "128",                                              |
-|                                                                       |
-| "Host": "httpbin.org",                                                |
-|                                                                       |
-| "X-Amzn-Trace-Id": "Root=1-64e775f1-309cfc7a175a59de33be917a"         |
-|                                                                       |
-| },                                                                    |
-|                                                                       |
-| "json": null,                                                         |
-|                                                                       |
-| "method": "POST",                                                     |
-|                                                                       |
-| "origin": "223.186.99.101",                                           |
-|                                                                       |
-| "url": "http://httpbin.org/anything"                                  |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| [APP]Success: http_client_post(), rval = 0                            |
-|                                                                       |
-| [APP]------ Program Exit-------------                                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PWWWWWWAE
+      Build $Id: git-e52d93e $
+      Flash detected. flash.hw.uuid: 39483937-3207-0080-0055-ffffffffffff
+      Bootargs: ssid=innotest_AP passphrase=inno@1234 host=httpbin.org path=/anything port=80 secured=0 method=post post_len=128
+      $App:git-8b301e9
+      SDK Ver: FREERTOS_SDK_1.0
+      Http Client Demo App
+      
+      Application Information:
+      ------------------------
+      Name       : HTTP  application
+      Version    : 2.0
+      Build Date : Aug 24 2023
+      Build Time : 15:26:32
+      Heap Available: 309 KB (316664 Bytes)
+      
+      [APP]Bootparams :
+      --------------------
+      url=<null>
+      host= httpbin.org
+      port=80
+      path= /anything
+      secured= 0
+      method= post
+      ca_cert=<null>
+      post_len=128
+      test_iterations = <null>
+      use_ca_bundle = <null>
+      hdr1_name= <null>	hdr1_val= <null>
+      hdr2_name= <null>	hdr2_val= <null>
+      hdr3_name= <null>	hdr3_val= <null>
+      
+      post_data= <null>
+      post_data_file= <null>
+      [APP]Bootparams end here....
+      
+      [APP]Bootparams check done....ret = 0
+      addr e0:69:3a:00:08:38
+      network profile created for ssid: innotest_AP
+      
+      Connecting to added network : innotest_AP
+      [0.736,982] DEAUTHENTICATED: reason 1
+      [0.845,208] CONNECT:0e:70:6c:d6:3a:62 Channel:6 rssi:-41 dBm
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+      [0.902,951] MYIP 192.168.99.195
+      [0.903,115] IPv6 [fe80::e269:3aff:fe00:838]-link
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
+      Connected to added network : innotest_AP
+      ** Test Iterations = 1 **
+      [APP]Calling http_client_open(). heap size = 241768
+      [APP]Succes: HTTP connection done
+      [APP]HTTP Post
+      [APP]Response:
+      446 ----------------------
+      200
+      Date: Thu, 24 Aug 2023 15:23:59 GMT
+      Content-Type: application/json
+      Content-Length: 446
+      Connection: keep-alive
+      Server: gunicorn/19.9.0
+      Access-Control-Allow-Origin: *
+      Access-Control-Allow-Credentials: true
+      [APP]Body:
+      {
+        "args": {}, 
+        "data": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", 
+        "files": {}, 
+        "form": {}, 
+        "headers": {
+          "Content-Length": "128", 
+          "Host": "httpbin.org", 
+          "X-Amzn-Trace-Id": "Root=1-64e775f1-309cfc7a175a59de33be917a"
+        }, 
+        "json": null, 
+        "method": "POST", 
+        "origin": "223.186.99.101", 
+        "url": "http://httpbin.org/anything"
+      }
+      
+      [APP]Success: http_client_post(), rval = 0
+      
+      [APP]------ Program Exit-------------
+
+
 
 Example boot args for HTTPS Post (without server verification)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------------------------------------------------------------------+
-| ssid=<ssid>,p                                                         |
-| assphrase=<passphrase>,host=httpbin.org,path=/anything,port=443,secur |
-| ed=1,method=post,ca_cert=/data/certs/https_client/app/httpbin_ca.pem, |
-| post_len=100                                                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      ssid=<ssid>,passphrase=<passphrase>,host=httpbin.org,path=/anything,port=443,secured=1,method=post,ca_cert=/data/certs/https_client/app/httpbin_ca.pem, post_len=100
+
 
 Console output:
 
-+-----------------------------------------------------------------------+
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PWWWWWWAE                                                       |
-|                                                                       |
-| Build $Id: git-e52d93e $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-0080-0055-ffffffffffff   |
-|                                                                       |
-| Bootargs: ssid=innotest_AP passphrase=inno@1234 host=httpbin.org      |
-| path=/anything port=80 secured=0 method=post post_len=128             |
-|                                                                       |
-| $App:git-8b301e9                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Http Client Demo App                                                  |
-|                                                                       |
-| Application Information:                                              |
-|                                                                       |
-| ------------------------                                              |
-|                                                                       |
-| Name : HTTP application                                               |
-|                                                                       |
-| Version : 2.0                                                         |
-|                                                                       |
-| Build Date : Aug 24 2023                                              |
-|                                                                       |
-| Build Time : 15:26:32                                                 |
-|                                                                       |
-| Heap Available: 309 KB (316664 Bytes)                                 |
-|                                                                       |
-| [APP]Bootparams :                                                     |
-|                                                                       |
-| --------------------                                                  |
-|                                                                       |
-| url=<null>                                                            |
-|                                                                       |
-| host= httpbin.org                                                     |
-|                                                                       |
-| port=80                                                               |
-|                                                                       |
-| path= /anything                                                       |
-|                                                                       |
-| secured= 0                                                            |
-|                                                                       |
-| method= post                                                          |
-|                                                                       |
-| ca_cert=<null>                                                        |
-|                                                                       |
-| post_len=128                                                          |
-|                                                                       |
-| test_iterations = <null>                                              |
-|                                                                       |
-| use_ca_bundle = <null>                                                |
-|                                                                       |
-| hdr1_name= <null> hdr1_val= <null>                                    |
-|                                                                       |
-| hdr2_name= <null> hdr2_val= <null>                                    |
-|                                                                       |
-| hdr3_name= <null> hdr3_val= <null>                                    |
-|                                                                       |
-| post_data= <null>                                                     |
-|                                                                       |
-| post_data_file= <null>                                                |
-|                                                                       |
-| [APP]Bootparams end here....                                          |
-|                                                                       |
-| [APP]Bootparams check done....ret = 0                                 |
-|                                                                       |
-| addr e0:69:3a:00:08:38                                                |
-|                                                                       |
-| network profile created for ssid: innotest_AP                         |
-|                                                                       |
-| Connecting to added network : innotest_AP                             |
-|                                                                       |
-| [0.736,982] DEAUTHENTICATED: reason 1                                 |
-|                                                                       |
-| [0.845,208] CONNECT:0e:70:6c:d6:3a:62 Channel:6 rssi:-41 dBm          |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP                   |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS                   |
-|                                                                       |
-| [0.902,951] MYIP 192.168.99.195                                       |
-|                                                                       |
-| [0.903,115] IPv6 [fe80::e269:3aff:fe00:838]-link                      |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED                 |
-|                                                                       |
-| Connected to added network : innotest_AP                              |
-|                                                                       |
-| \*\* Test Iterations = 1 \*\*                                         |
-|                                                                       |
-| [APP]Calling http_client_open(). heap size = 241768                   |
-|                                                                       |
-| [APP]Succes: HTTP connection done                                     |
-|                                                                       |
-| [APP]HTTP Post                                                        |
-|                                                                       |
-| [APP]Response:                                                        |
-|                                                                       |
-| 446 ----------------------                                            |
-|                                                                       |
-| 200                                                                   |
-|                                                                       |
-| Date: Thu, 24 Aug 2023 15:23:59 GMT                                   |
-|                                                                       |
-| Content-Type: application/json                                        |
-|                                                                       |
-| Content-Length: 446                                                   |
-|                                                                       |
-| Connection: keep-alive                                                |
-|                                                                       |
-| Server: gunicorn/19.9.0                                               |
-|                                                                       |
-| Access-Control-Allow-Origin: \*                                       |
-|                                                                       |
-| Access-Control-Allow-Credentials: true                                |
-|                                                                       |
-| [APP]Body:                                                            |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "args": {},                                                           |
-|                                                                       |
-| "data":                                                               |
-| "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa        |
-| aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", |
-|                                                                       |
-| "files": {},                                                          |
-|                                                                       |
-| "form": {},                                                           |
-|                                                                       |
-| "headers": {                                                          |
-|                                                                       |
-| "Content-Length": "128",                                              |
-|                                                                       |
-| "Host": "httpbin.org",                                                |
-|                                                                       |
-| "X-Amzn-Trace-Id": "Root=1-64e775f1-309cfc7a175a59de33be917a"         |
-|                                                                       |
-| },                                                                    |
-|                                                                       |
-| "json": null,                                                         |
-|                                                                       |
-| "method": "POST",                                                     |
-|                                                                       |
-| "origin": "223.186.99.101",                                           |
-|                                                                       |
-| "url": "http://httpbin.org/anything"                                  |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| [APP]Success: http_client_post(), rval = 0                            |
-|                                                                       |
-| [APP]------ Program Exit-------------                                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PWWWWWWAE
+      Build $Id: git-e52d93e $
+      Flash detected. flash.hw.uuid: 39483937-3207-0080-0055-ffffffffffff
+      Bootargs: ssid=innotest_AP passphrase=inno@1234 host=httpbin.org path=/anything port=80 secured=0 method=post post_len=128
+      $App:git-8b301e9
+      SDK Ver: FREERTOS_SDK_1.0
+      Http Client Demo App
+      
+      Application Information:
+      ------------------------
+      Name       : HTTP  application
+      Version    : 2.0
+      Build Date : Aug 24 2023
+      Build Time : 15:26:32
+      Heap Available: 309 KB (316664 Bytes)
+      
+      [APP]Bootparams :
+      --------------------
+      url=<null>
+      host= httpbin.org
+      port=80
+      path= /anything
+      secured= 0
+      method= post
+      ca_cert=<null>
+      post_len=128
+      test_iterations = <null>
+      use_ca_bundle = <null>
+      hdr1_name= <null>	hdr1_val= <null>
+      hdr2_name= <null>	hdr2_val= <null>
+      hdr3_name= <null>	hdr3_val= <null>
+      
+      post_data= <null>
+      post_data_file= <null>
+      [APP]Bootparams end here....
+      
+      [APP]Bootparams check done....ret = 0
+      addr e0:69:3a:00:08:38
+      network profile created for ssid: innotest_AP
+      
+      Connecting to added network : innotest_AP
+      [0.736,982] DEAUTHENTICATED: reason 1
+      [0.845,208] CONNECT:0e:70:6c:d6:3a:62 Channel:6 rssi:-41 dBm
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+      [0.902,951] MYIP 192.168.99.195
+      [0.903,115] IPv6 [fe80::e269:3aff:fe00:838]-link
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
+      Connected to added network : innotest_AP
+      ** Test Iterations = 1 **
+      [APP]Calling http_client_open(). heap size = 241768
+      [APP]Succes: HTTP connection done
+      [APP]HTTP Post
+      [APP]Response:
+      446 ----------------------
+      200
+      Date: Thu, 24 Aug 2023 15:23:59 GMT
+      Content-Type: application/json
+      Content-Length: 446
+      Connection: keep-alive
+      Server: gunicorn/19.9.0
+      Access-Control-Allow-Origin: *
+      Access-Control-Allow-Credentials: true
+      [APP]Body:
+      {
+        "args": {}, 
+        "data": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", 
+        "files": {}, 
+        "form": {}, 
+        "headers": {
+          "Content-Length": "128", 
+          "Host": "httpbin.org", 
+          "X-Amzn-Trace-Id": "Root=1-64e775f1-309cfc7a175a59de33be917a"
+        }, 
+        "json": null, 
+        "method": "POST", 
+        "origin": "223.186.99.101", 
+        "url": "http://httpbin.org/anything"
+      }
+      
+      [APP]Success: http_client_post(), rval = 0
+      
+      [APP]------ Program Exit-------------
+
 
 Example boot args for HTTPS Post (with server certificate validation)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------------------------------------------------------------------+
-| ssid=<ssid>,p                                                         |
-| assphrase=<passphrase>,host=httpbin.org,path=/anything,port=443,secur |
-| ed=2,method=post,ca_cert=/data/certs/https_client/app/httpbin_ca.pem, |
-| post_len=100                                                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      ssid=<ssid>,passphrase=<passphrase>,host=httpbin.org,path=/anything,port=443,secured=2,method=post,ca_cert=/data/certs/https_client/app/httpbin_ca.pem, post_len=100
+
 
 Console output:
 
-+-----------------------------------------------------------------------+
-| $App:git-8b301e9                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Http Client Demo App                                                  |
-|                                                                       |
-| Application Information:                                              |
-|                                                                       |
-| ------------------------                                              |
-|                                                                       |
-| Name : HTTP application                                               |
-|                                                                       |
-| Version : 2.0                                                         |
-|                                                                       |
-| Build Date : Aug 24 2023                                              |
-|                                                                       |
-| Build Time : 15:26:32                                                 |
-|                                                                       |
-| Heap Available: 309 KB (316664 Bytes)                                 |
-|                                                                       |
-| [APP]Bootparams :                                                     |
-|                                                                       |
-| --------------------                                                  |
-|                                                                       |
-| url=<null>                                                            |
-|                                                                       |
-| host= httpbin.org                                                     |
-|                                                                       |
-| port=443                                                              |
-|                                                                       |
-| path= /anything                                                       |
-|                                                                       |
-| secured= 2                                                            |
-|                                                                       |
-| method= post                                                          |
-|                                                                       |
-| ca_cert=/data/httpbin_ca.pem                                          |
-|                                                                       |
-| post_len=128                                                          |
-|                                                                       |
-| test_iterations = <null>                                              |
-|                                                                       |
-| use_ca_bundle = <null>                                                |
-|                                                                       |
-| hdr1_name= <null> hdr1_val= <null>                                    |
-|                                                                       |
-| hdr2_name= <null> hdr2_val= <null>                                    |
-|                                                                       |
-| hdr3_name= <null> hdr3_val= <null>                                    |
-|                                                                       |
-| post_data= <null>                                                     |
-|                                                                       |
-| post_data_file= <null>                                                |
-|                                                                       |
-| [APP]Bootparams end here....                                          |
-|                                                                       |
-| [APP]Bootparams check done....ret = 0                                 |
-|                                                                       |
-| addr e0:69:3a:00:08:38                                                |
-|                                                                       |
-| network profile created for ssid: innotest_AP                         |
-|                                                                       |
-| Connecting to added network : innotest_AP                             |
-|                                                                       |
-| [0.738,653] DEAUTHENTICATED: reason 1                                 |
-|                                                                       |
-| [0.846,537] CONNECT:0e:70:6c:d6:3a:62 Channel:6 rssi:-30 dBm          |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP                   |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS                   |
-|                                                                       |
-| [0.898,345] MYIP 192.168.99.195                                       |
-|                                                                       |
-| [0.898,510] IPv6 [fe80::e269:3aff:fe00:838]-link                      |
-|                                                                       |
-| wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED                 |
-|                                                                       |
-| Connected to added network : innotest_AP                              |
-|                                                                       |
-| \*\* Test Iterations = 1 \*\*                                         |
-|                                                                       |
-| [APP]Calling http_client_open(). heap size = 236656                   |
-|                                                                       |
-| . [SSL_WRAP]Checking input configurations...                          |
-|                                                                       |
-| . [SSL_WRAP]Seeding the random number generator...                    |
-|                                                                       |
-| . [SSL_WRAP]Loading the CA root certificate ...Cert Len = 4755        |
-|                                                                       |
-| . [SSL_WRAP]Connecting to tcp httpbin.org:443...                      |
-|                                                                       |
-| . [SSL_WRAP]Setting up the SSL/TLS structure...                       |
-|                                                                       |
-| . [SSL_WRAP]setting configurations..                                  |
-|                                                                       |
-| >auth mode = 2 (0- skip, 1- optional, 2- required                     |
-|                                                                       |
-| >max fragment len = 0                                                 |
-|                                                                       |
-| >Handshake timeout = 30 Sec                                           |
-|                                                                       |
-| . [SSL_WRAP]Performing the SSL/TLS handshake...                       |
-|                                                                       |
-| . [SSL_WRAP] Handshake done. ok                                       |
-|                                                                       |
-| . [SSL_WRAP]Verifying peer X.509 certificate.                         |
-|                                                                       |
-| [APP]Succes: HTTP connection done                                     |
-|                                                                       |
-| [APP]HTTP Post                                                        |
-|                                                                       |
-| [APP]Response:                                                        |
-|                                                                       |
-| 0 ----------------------                                              |
-|                                                                       |
-| 200                                                                   |
-|                                                                       |
-| Date: Thu, 24 Aug 2023 15:30:08 GMT                                   |
-|                                                                       |
-| Content-Type: application/json                                        |
-|                                                                       |
-| Content-Length: 447                                                   |
-|                                                                       |
-| Connection: keep-alive                                                |
-|                                                                       |
-| Server: gunicorn/19.9.0                                               |
-|                                                                       |
-| Access-Control-Allow-Origin: \*                                       |
-|                                                                       |
-| Access-Control-Allow-Credentials: true                                |
-|                                                                       |
-| [APP]Body:                                                            |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| "args": {},                                                           |
-|                                                                       |
-| "data":                                                               |
-| "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa        |
-| aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", |
-|                                                                       |
-| "files": {},                                                          |
-|                                                                       |
-| "form": {},                                                           |
-|                                                                       |
-| "headers": {                                                          |
-|                                                                       |
-| "Content-Length": "128",                                              |
-|                                                                       |
-| "Host": "httpbin.org",                                                |
-|                                                                       |
-| "X-Amzn-Trace-Id": "Root=1-64e7777f-08d8f53955c752f716a6427c"         |
-|                                                                       |
-| },                                                                    |
-|                                                                       |
-| "json": null,                                                         |
-|                                                                       |
-| "method": "POST",                                                     |
-|                                                                       |
-| "origin": "223.186.99.101",                                           |
-|                                                                       |
-| "url": "https://httpbin.org/anything"                                 |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| [APP]Success: http_client_post(), rval = 0                            |
-|                                                                       |
-| [APP]------ Program Exit-------------                                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      $App:git-8b301e9
+      SDK Ver: FREERTOS_SDK_1.0
+      Http Client Demo App
+      
+      Application Information:
+      ------------------------
+      Name       : HTTP  application
+      Version    : 2.0
+      Build Date : Aug 24 2023
+      Build Time : 15:26:32
+      Heap Available: 309 KB (316664 Bytes)
+      
+      [APP]Bootparams :
+      --------------------
+      url=<null>
+      host= httpbin.org
+      port=443
+      path= /anything
+      secured= 2
+      method= post
+      ca_cert=/data/httpbin_ca.pem
+      post_len=128
+      test_iterations = <null>
+      use_ca_bundle = <null>
+      hdr1_name= <null>	hdr1_val= <null>
+      hdr2_name= <null>	hdr2_val= <null>
+      hdr3_name= <null>	hdr3_val= <null>
+      
+      post_data= <null>
+      post_data_file= <null>
+      [APP]Bootparams end here....
+      
+      [APP]Bootparams check done....ret = 0
+      addr e0:69:3a:00:08:38
+      network profile created for ssid: innotest_AP
+      
+      Connecting to added network : innotest_AP
+      [0.738,653] DEAUTHENTICATED: reason 1
+      [0.846,537] CONNECT:0e:70:6c:d6:3a:62 Channel:6 rssi:-30 dBm
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+      [0.898,345] MYIP 192.168.99.195
+      [0.898,510] IPv6 [fe80::e269:3aff:fe00:838]-link
+      wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
+      
+      Connected to added network : innotest_AP
+      ** Test Iterations = 1 **
+      [APP]Calling http_client_open(). heap size = 236656
+        . [SSL_WRAP]Checking input configurations...
+        . [SSL_WRAP]Seeding the random number generator...
+        . [SSL_WRAP]Loading the CA root certificate ...Cert Len = 4755
+        . [SSL_WRAP]Connecting to tcp httpbin.org:443...
+        . [SSL_WRAP]Setting up the SSL/TLS structure...
+        . [SSL_WRAP]setting configurations..
+              >auth mode = 2 (0- skip, 1- optional, 2- required
+              >max fragment len = 0
+              >Handshake timeout = 30 Sec
+        . [SSL_WRAP]Performing the SSL/TLS handshake...
+        . [SSL_WRAP] Handshake done. ok
+        . [SSL_WRAP]Verifying peer X.509 certificate.
+      
+      [APP]Succes: HTTP connection done
+      [APP]HTTP Post
+      
+      [APP]Response:
+      0 ----------------------
+      200
+      Date: Thu, 24 Aug 2023 15:30:08 GMT
+      Content-Type: application/json
+      Content-Length: 447
+      Connection: keep-alive
+      Server: gunicorn/19.9.0
+      Access-Control-Allow-Origin: *
+      Access-Control-Allow-Credentials: true
+      [APP]Body:
+      {
+        "args": {}, 
+        "data": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", 
+        "files": {}, 
+        "form": {}, 
+        "headers": {
+          "Content-Length": "128", 
+          "Host": "httpbin.org", 
+          "X-Amzn-Trace-Id": "Root=1-64e7777f-08d8f53955c752f716a6427c"
+        }, 
+        "json": null, 
+        "method": "POST", 
+        "origin": "223.186.99.101", 
+        "url": "https://httpbin.org/anything"
+      }
+      
+      [APP]Success: http_client_post(), rval = 0
+      
+      [APP]------ Program Exit-------------

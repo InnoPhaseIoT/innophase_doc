@@ -34,8 +34,6 @@ Building Components
 
 1. Build secureboot SSBL for emulation usecase (both.img).
 
-..
-
    (refer section: 6.2.2 in Application for_using_SSBL.pdf\ *)*
 
 2. Build the secure_files example:

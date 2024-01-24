@@ -147,3 +147,53 @@ firmware. Following examples are available:
 | websocket      | Demonstrates using the WebSocket client APIs        |
 |                | provided by the WebSocket module                    |
 +----------------+-----------------------------------------------------+
+
+Apps
+----
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   1. Apps/1. Alexa_Ready_Application_with_AWS_IoT_Embedded_C_Device_SDK
+   1. Apps/2. Alarm.rst
+   1. Apps/3. IoT_AWS.rst
+   1. Apps/4. SSBL.rst
+   1. Apps/5. Firmware_Over-The-Air-Upgrade.rst
+
+
+Examples
+--------
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   2. Examples/Example_for_Analog_to_Digital_Converter
+   2. Examples/Example_for_Audio_over_I2S.rst
+   2. Examples/Example_for_BLE_WiFi_Bridge.rst
+   2. Examples/Example_for_Crash_handling.rst
+   2. Examples/Example_for_I2C.rst
+   2. Examples/Example_for_LPScan.rst
+   2. Examples/Example_for_MQTT.rst
+   2. Examples/Example_for_Pulse_Width_Modulation.rst
+   2. Examples/Example_for_Radio_and_Module_Parameters.rst
+   2. Examples/Example_for_Secure_Files.rst
+   2. Examples/Example_for_Socket_Wakeup.rst
+   2. Examples/Example_for_Software_SPI_Master.rst
+   2. Examples/Example_for_using_Chip_Monitor.rst
+   2. Examples/Example_for_using_Filesystem.rst
+   2. Examples/Example_for_using_GPIO.rst
+   2. Examples/Example_for_using_SNTP.rst
+   2. Examples/Example_for_using_WiFi.rst
+   2. Examples/Example_for_WiFi_Power_Management.rst
+   2. Examples/Example_using_BLE_5_0.rst
+   2. Examples/Example_using_BLE_Beacons.rst
+   2. Examples/Example_using_Custom_ATCMDLIB.rst
+   2. Examples/Example_using_HTTP_Client.rst
+   2. Examples/Example_using_IFTTT.rst
+   2. Examples/Example_using_Low_Power_UART.rst
+   2. Examples/Example_using_mDNS.rst
+   2. Examples/Example_using_Provisioning.rst
+   2. Examples/Example_using_Unassociated_Mode.rst
+   2. Examples/Example_using_Watchdog_Timer.rst
+   2. Examples/Example_using_WCM_Multi_AP.rst
+   2. Examples/Example_using_Websock_Client.rst

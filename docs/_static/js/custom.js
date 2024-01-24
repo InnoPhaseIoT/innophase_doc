@@ -34,6 +34,9 @@ var usingJtagAndSwdInterfacesSection = document.getElementById('using-jtag-and-s
 var designSection = document.getElementById('design');
 var sampleScenariosSection = document.getElementById('sample-scenarios');
 var helpSection = document.getElementById('help');
+var appsSection = document.getElementById('apps');
+var examplesSection = document.getElementById('examples');
+
 
 if (prerequisitesSection) {
     prerequisitesSection.style.display = 'none';
@@ -103,6 +106,12 @@ if (sampleScenariosSection){
 }
 if (helpSection){
     helpSection.style.display = 'none'
+}
+if (appsSection) {
+    appsSection.style.display = 'none';
+}
+if (examplesSection) {
+    examplesSection.style.display = 'none';
 }
 // ---------------------------------------------------------------------------------------------------------------------
 var selectList = document.createElement("select");

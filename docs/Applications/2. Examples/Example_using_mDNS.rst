@@ -477,6 +477,3 @@ Console output:
 .. |image166| image:: media/image166.png
    :width: 5.90551in
    :height: 1.65893in
-.. |image167| image:: media/image167.png
-   :width: 5.90551in
-   :height: 1.65893in

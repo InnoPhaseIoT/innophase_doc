@@ -1,5 +1,6 @@
 .. _tools mpd:
 
+
 MPD Tool – Introduction
 =======================
 
@@ -27,34 +28,42 @@ evaluations.
    :height: 2.47731in
 
 
+**MPD Tool – Prerequisites**
+
+Each release of the Demo Tool is equipped with binaries for Windows and
+Linux operating systems, and signed firmware images (ELFs) for MPD and
+iPerf3 applications. Though this document specifically describes the use
+of the GUI on a Windows platform, the procedure is similar for Linux OS
+as well. The content of the release is shown in Figure 1
+
+Application INP_T2_Demo_Windows.exe is for Windows platform while
+INP_T2_Demo_Linux is for the Linux OS.
+
+|image1|
+
+Figure 1: Folder Contents
+
+.. |image1| image:: media/image1.png
+   :width: 7.48031in
+   :height: 2.05864in
+
+
+Using MDP Tool
+-------------
+
 .. toctree::
-   :maxdepth: 1
+   :hidden:
+   :maxdepth: 2
 
-   1. Prerequisites/1. Prerequisites - Landing Page.rst
+   1. Prerequisites/2. Using MPD Tool in Linux.rst
 
+
+Microsoft Visual C++ Redistributable
+------------------------------------
 
 .. toctree::
-   :maxdepth: 1
+   :hidden:
+   :maxdepth: 2
 
-   2. GUI Overview/1. GUI Overview - Landing Page.rst
+   1. Prerequisites/3. Microsoft Visual C plus plus Redistributable Software Package.rst
 
-MPD
-----
-.. toctree::
-   :maxdepth: 1
-
-   3. MPD/MPD Modes.rst
-
-Iperf3
-------
-.. toctree::
-   :maxdepth: 1
-
-   4. iPerf3/iPerf3 Modes.rst
-
-Scan
-------
-.. toctree::
-   :maxdepth: 1
-
-   5. Scan/Scan Modes.rst

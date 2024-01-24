@@ -10,16 +10,10 @@ available for both Windows and Linux platforms.
 The evaluation binaries and the associated programming tools for the
 INP301x EVB-A boards enable quick evaluation of the INP101x modules.
 
-Download Tool
-~~~~~~~~~~~~~~
-
-The download tool is provided as a binary (for both Windows & Linux
-platforms) in the InnoPhase IoT EVK and SDK packages. This tool is
-primarily used for programming the Talaria TWO module with applications.
-
 
 .. toctree::
-   :maxdepth: 2
+   :hidden:
+   :maxdepth: 3
 
    1. Download Tool/DL Tool Landing Page.rst
 
@@ -46,14 +40,28 @@ evaluation boards to enable easy programming and accelerated
 evaluations.
 
 .. toctree::
-   :maxdepth: 1
+   :hidden:
+   :maxdepth: 3
 
    2. Multi-Purpose Demo Tool/MPD Tool - Landing Page.rst
+   2. Multi-Purpose Demo Tool/2. GUI Overview/1. GUI Overview - Landing Page.rst
+   2. Multi-Purpose Demo Tool/3. MPD/MPD Modes.rst
+   2. Multi-Purpose Demo Tool/4. iPerf3/iPerf3 Modes.rst
+   2. Multi-Purpose Demo Tool/5. Scan/Scan Modes.rst
 
 Factory Loader
 ~~~~~~~~~~~~~~~
 
+Talaria TWO modules are shipped with a default Factory Loader (FL)
+program that assists in programming customer applications at a
+production facility using:
+
+    - UART/SPI only or
+    - Serial Wire Debug (SWD) or
+    - A combination of UART/SPI/SWD and Wi-Fi
+
 .. toctree::
-   :maxdepth: 1
+   :hidden:
+   :maxdepth: 3
 
    3. Factory Loader/Factory_Loader_Landing_Page.rst

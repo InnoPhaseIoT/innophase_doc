@@ -1,5 +1,8 @@
 .. _dl reset evb:
 
+Program and Reset
+-----------------
+
 Resetting the EVB-A in BL Mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -13,5 +16,5 @@ observed in the console for this command, the board is reset.
 Figure 1: Reset in BL mode
 
 .. |image1| image:: media/image1.png
-   :width: 6.48031in
-   :height: 7.12135in
+   :width: 7.48031in
+   :height: 2.12135in

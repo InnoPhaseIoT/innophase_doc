@@ -1,7 +1,7 @@
 .. Sphinx documentation website example documentation master file, created by
-   sphinx-quickstart on Fri Sep 19 12:07:00 2023.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+sphinx-quickstart on Fri Sep 19 12:07:00 2023.
+You can adapt this file completely to your liking, but it should at least
+contain the root `toctree` directive.
 
 InnoPhase IoT Programming Guide
 ================================
@@ -71,7 +71,7 @@ Linux CPU-based (Hosted CPU):
    :hidden:
    :maxdepth: 2
 
-   Software Reference/Software_Reference_Landing_Page
+   Software Reference/1. Libraries/alarm_apiref.rst
 
 .. toctree::
    :hidden:

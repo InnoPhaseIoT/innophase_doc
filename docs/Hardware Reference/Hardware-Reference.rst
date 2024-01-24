@@ -45,16 +45,43 @@ Talaria TWO modules. It can be used with scripts provides in the Talaria
 TWO SDK package.
 
 
+**Design Guidelines**
+
+Design guidelines can be broadly categorized into the following sections:
+
+    - Power supply
+    - Reset
+    - Peripheral interfacing
+    - Production programming
+    - RF/Antenna section
+
+Power supply, Reset & Peripheral interfacing remain same for all variations of the Talaria TWO module family.
+
+    - Production Programming
+    - Module Placement Guidelines
+    - Power supply to the model
+    - Reset
+    - Module Peripherals
+    - Hibernate Mode
+    - Thermal Ground Pad
+
 Design Guidelines
 ------------------
 .. toctree::
    :hidden:
    :maxdepth: 1
 
-   1. Design Guidelines/1. Design Guidelines - Landing page
+   1. Design Guidelines/5. Production Programming/1. Production Programming-Landing
+   1. Design Guidelines/7. Module Placement Guidelines/1. Module Placement Guidelines - INP1010_INP1013_INP1014
+   1. Design Guidelines/2. Power Supply to the Module
+   1. Design Guidelines/3. Reset
+   1. Design Guidelines/4. Module Peripherals
+   1. Design Guidelines/6. Hibernate Mode
+   1. Design Guidelines/8. Thermal Ground Pad.rst
+
 
 INP 301x
--------------
+--------
 .. toctree::
    :hidden:
    :maxdepth: 1
@@ -63,12 +90,31 @@ INP 301x
 
 
 INP 3000
--------------
+--------
+
+INP 3000 Programmer Boards
+==========================
+
 .. toctree::
    :hidden:
    :maxdepth: 1
 
-   3. INP3000/INP3000 Programmer Board - Landing.rst
+   3. INP3000/1. INP3000 Programmer Boards/3. INP3000 Programmer Board_2.1
+   3. INP3000/1. INP3000 Programmer Boards/2. INP3000 Programmer Board_3.0
+   3. INP3000/1. INP3000 Programmer Boards/1. INP3000 Programmer Board_4.0
 
 
+Programming Using INP 3000
+==========================
 
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+
+   3. INP3000/2. Programming using INP3000/Prerequisites3000.rst
+   3. INP3000/2. Programming using INP3000/2. Generating the Application Image
+   3. INP3000/2. Programming using INP3000/3. Generating the Data FS Image.rst
+   3. INP3000/2. Programming using INP3000/4. Installing Dependencies for JTAG_SWD Programming.rst
+   3. INP3000/2. Programming using INP3000/5. Programming Talaria TWO over UART.rst
+   3. INP3000/2. Programming using INP3000/6. Programming Talaria TWO over SWD.rst

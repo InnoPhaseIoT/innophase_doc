@@ -1,7 +1,9 @@
 .. _module placement - 1010:
 
-Module Placement Guidelines – INP1010/INP1013/INP1014 
-#####################################################
+Module Placement Guidelines
+--------------
+
+**Module Placement Guidelines - INP1010/INP1013/INP1014**
 
 Talaria TWO family of modules should be placed at the edge of the
 application PCB for better RF performance as indicated in Figure 1.

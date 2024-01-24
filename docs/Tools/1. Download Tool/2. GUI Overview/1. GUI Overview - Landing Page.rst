@@ -1,7 +1,7 @@
 .. dl gui overview:
 
-Download Tool GUI Overview
-==========================
+GUI Overview
+============
 
 Download Tool supports two types of programming:
     - Standard

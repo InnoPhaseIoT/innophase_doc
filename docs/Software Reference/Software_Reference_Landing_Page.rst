@@ -7,9 +7,10 @@ Talaria TWO Software
 Libraries
 ------------------
 .. toctree::
+   :hidden:
    :maxdepth: 1
 
-   1. Libraries/1. Libraries-Landing.rst
+   1. Libraries/alarm_apiref
 
 
 Solutions

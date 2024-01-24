@@ -1,7 +1,16 @@
 .. _alarm apiref:
 
-Alarm API Reference
-###################
+
+Talaria TWO Software
+===================
+
+Libraries
+------------------
+
+1. ALARM
+```````
+
+**Alarm API Reference**
 
 Alarm provides the mechanism to schedule activities for the future which
 are either repeating or are executed in one shot. This section provides
@@ -346,3 +355,76 @@ Example Application
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For the example codes, refer: apps\\alarm\\alarm_test.c application.
+
+2. FOTO
+```````
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   fota_apiref.rst
+
+3. HTTP
+```````
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   httpclient_apiref.rst
+
+4. MDNS
+```````
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   mdns_apiref.rst
+
+5. MQTT
+```````
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   mqtt_apiref.rst
+
+6. PROV
+```````
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   prov_apiref.rst
+
+7. SNTP
+```````
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   sntp_apiref.rst
+
+
+8. SSL-WRAP
+```````
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   sslwrap_apiref.rst
+
+9. UTILS
+```````
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   utils_apiref.rst
+
+10. WebSocket
+```````
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   websock_apiref.rst

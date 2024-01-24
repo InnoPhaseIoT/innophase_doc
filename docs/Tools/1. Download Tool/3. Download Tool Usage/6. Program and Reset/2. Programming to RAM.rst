@@ -26,8 +26,8 @@ Figure 3: PROG RAM alert message
    :width: 7.48031in
    :height: 2.1078in
 .. |image3| image:: media/image3.png
-   :width: 0.72506in
-   :height: 0.18335in
+   :width: 7.72506in
+   :height: 7.18335in
 .. |image4| image:: media/image4.png
    :width: 7.48031in
-   :height: 7.63025in
+   :height: 1.63025in

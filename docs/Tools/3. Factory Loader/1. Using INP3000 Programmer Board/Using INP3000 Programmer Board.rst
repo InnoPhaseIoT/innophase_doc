@@ -73,5 +73,5 @@ application as before.
    :width: 3.93701in
    :height: 2.45085in
 .. |image4| image:: media/image4.png
-   :width: 5.11811in
-   :height: 1.42648in
+   :width: 7.11811in
+   :height: 2.42648in

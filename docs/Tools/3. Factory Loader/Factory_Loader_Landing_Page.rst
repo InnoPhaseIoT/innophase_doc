@@ -1,16 +1,4 @@
 
-Factory Loader
-``````````````
-
-Talaria TWO modules are shipped with a default Factory Loader (FL)
-program that assists in programming customer applications at a
-production facility using:
-
-    - UART/SPI only or
-    - Serial Wire Debug (SWD) or
-
-3. A combination of UART/SPI/SWD and Wi-Fi
-
 The FL application along with companion scripts are available in
 InnoPhase customer portal (https://innophaseiot.com/portal/portal-hub/).
 The FL content is described in Table 1:
@@ -115,6 +103,7 @@ Using INP3000 Programmer Board
 +++++++++++
 
 .. toctree::
+   :hidden:
    :maxdepth: 1
 
    1. Using INP3000 Programmer Board/Using INP3000 Programmer Board.rst
@@ -123,6 +112,7 @@ Using UART Interfaces
 +++++++++++
 
 .. toctree::
+   :hidden:
    :maxdepth: 1
 
    2. Using UART Interfaces/Factory loader using other UART interfaces.rst
@@ -132,6 +122,7 @@ Using SPI Interfaces
 +++++++++++
 
 .. toctree::
+   :hidden:
    :maxdepth: 1
 
    3. Using SPI Interfaces/Factory loader using other SPI interfaces.rst
@@ -140,6 +131,7 @@ Using JTAG and SWD Interfaces
 +++++++++++
 
 .. toctree::
+   :hidden:
    :maxdepth: 1
 
    4. Using JTAG and SWD Interfaces/Factory Loader using JTAG and SWD.rst
@@ -149,6 +141,7 @@ Design
 +++++++++++
 
 .. toctree::
+   :hidden:
    :maxdepth: 1
 
    3. Factory Loader/5. Design
@@ -158,6 +151,7 @@ Sample Scenarios
 +++++++++++
 
 .. toctree::
+   :hidden:
    :maxdepth: 1
 
    6. Sample Scenarios/Sample Scenarios.rst
@@ -166,6 +160,7 @@ Help
 +++++++++++
 
 .. toctree::
+   :hidden:
    :maxdepth: 1
 
    7. Help/Factory Loader Help.rst

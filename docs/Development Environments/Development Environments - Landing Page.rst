@@ -15,7 +15,7 @@ Procedure to set-up the development environment for Talaria TWO SDK on
 an Ubuntu VirtualBox with a Windows 10 host.
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     1. Linux/1. Environment Set-up/1. Software Installation.rst
     1. Linux/1. Environment Set-up/2. Standalone Ubuntu 20.rst
@@ -26,7 +26,7 @@ Procedure to build and debug an application on Eclipse IDE in Linux
 using Talaria TWO SDK.
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     1. Linux/2. Eclipse Set-up/1. Prerequisites.rst
     1. Linux/2. Eclipse Set-up/2. Linux - Eclipse IDE installer.rst
@@ -46,9 +46,10 @@ Procedure for developing an application using Windows Subsystem for
 Linux and Talaria TWO SDK.
 
 .. toctree::
-    :maxdepth: 2
-    
-    1. Linux/3. Windows Subsystem/1. Prerequisites.rst
+   :hidden:
+   :maxdepth: 2
+
+   1. Linux/3. Windows Subsystem/1.PrerequisitesWindowSystem.rst
 
 Windows
 -------
@@ -60,7 +61,7 @@ Procedure to build and debug an application on Eclipse IDE in Windows
 using Talaria TWO SDK.
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     2. Windows/1. Eclipse Set-up/1. Prerequisites .rst
     2. Windows/1. Eclipse Set-up/2. Add Paths to the Environment Variable.rst

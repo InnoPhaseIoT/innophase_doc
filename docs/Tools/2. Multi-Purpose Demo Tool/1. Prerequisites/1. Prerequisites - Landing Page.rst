@@ -1,7 +1,7 @@
 .. _mpd prerequisites:
 
-Prerequisites 
-==============
+MDM - Prerequisites
+==================
 
 Each release of the Demo Tool is equipped with binaries for Windows and
 Linux operating systems, and signed firmware images (ELFs) for MPD and

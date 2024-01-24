@@ -29,28 +29,22 @@ Figure 1: Demo Tool GUI
 
 .. code:: shell
 
-      <year_stamp>-<integer>  
+    <year_stamp>-<integer>
+    where,
+    - <year_stamp>: Current year. For example: 2023
+    - <integer>: Formed from the sum of last 3 octets (in decimal) of the MAC address found in the device.
 
+|image2|
 
+Figure 2: Boot target – Serial number update
 
-   where,
+Since a new serial number is generated from the MAC address of the
+device, devices with the same MAC address will get updated with the
+same serial number. This is an expected behavior.
 
-   - <year_stamp>: Current year. For example: 2023
-
-   - <integer>: Formed from the sum of last 3 octets (in decimal) of the
-   MAC address found in the device.
-
-   |image2|
-
-   Figure 2: Boot target – Serial number update
-
-   Since a new serial number is generated from the MAC address of the
-   device, devices with the same MAC address will get updated with the
-   same serial number. This is an expected behavior.
-
-   User can manually update the new serial number to the device
-   following the instructions mentioned in section: `New Serial Number
-   to Device – Manual Method <#_References>`.
+User can manually update the new serial number to the device
+following the instructions mentioned in section: `New Serial Number
+to Device – Manual Method <#_References>`.
 
 2. **AP Options**: The SSID and Passphrase entered in the respective
    fields will connect the EVK board to the Access Point. Once
@@ -153,13 +147,13 @@ Workaround for this is as follows:
 Figure 5: Error communicating with FTDI device
 
 .. |image1| image:: media/image1.png
-   :width: 0.64643in
+   :width: 7.64643in
 .. |image2| image:: media/image2.png
    :width: 7.48031in
-   :height: 4.17899in
+   :height: 1.17899in
 .. |image3| image:: media/image3.png
-   :width: 6.69291in
-   :height: 1.12372in
+   :width: 7.69291in
+   :height: 2.12372in
 .. |image4| image:: media/image4.png
    :width: 7.48031in
    :height: 2.54634in
@@ -169,6 +163,7 @@ Figure 5: Error communicating with FTDI device
 
 
 .. toctree::
+   :hidden:
    :maxdepth: 2
 
    2. MPD.rst

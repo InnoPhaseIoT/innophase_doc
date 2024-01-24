@@ -9,7 +9,102 @@ const ModulesList = {
     "Talaria-TWO": "https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/freertos-3.0",
     "Modules": "#"
 };
+// ---------------------------------------------------------------------------------------------------------------------
+// hide Prerequisites/evaluation-and-development/power-measurement section:
+var prerequisitesSection = document.getElementById('prerequisites');
+var evalDevSection = document.getElementById('evaluation-and-development');
+var powerMeasureSection = document.getElementById('power-measurement');
+var designGuidelinesSection = document.getElementById('design-guidelines');
+var inp301xSection = document.getElementById('inp-301x');
+var inp3000Section = document.getElementById('inp-3000');
+var fotoSection = document.getElementById('foto');
+var httpSection = document.getElementById('http');
+var mdnsSection = document.getElementById('mdns');
+var mqttSection = document.getElementById('mqtt');
+var provSection = document.getElementById('prov');
+var sntpSection = document.getElementById('sntp');
+var sslWrapSection = document.getElementById('ssl-wrap');
+var utilsSection = document.getElementById('utils');
+var websocketSection = document.getElementById('websocket');
+var downloadToolUsageSection = document.getElementById('download-tool-usage');
+var usingInp3000ProgrammerBoardSection = document.getElementById('using-inp3000-programmer-board');
+var usingUartInterfacesSection = document.getElementById('using-uart-interfaces');
+var usingSpiInterfacesSection = document.getElementById('using-spi-interfaces');
+var usingJtagAndSwdInterfacesSection = document.getElementById('using-jtag-and-swd-interfaces');
+var designSection = document.getElementById('design');
+var sampleScenariosSection = document.getElementById('sample-scenarios');
+var helpSection = document.getElementById('help');
 
+if (prerequisitesSection) {
+    prerequisitesSection.style.display = 'none';
+}
+if (evalDevSection) {
+    evalDevSection.style.display = 'none';
+}
+if (powerMeasureSection) {
+    powerMeasureSection.style.display = 'none';
+}
+if (designGuidelinesSection) {
+    designGuidelinesSection.style.display = 'none';
+}
+if (inp301xSection) {
+    inp301xSection.style.display = 'none';
+}
+if (inp3000Section) {
+    inp3000Section.style.display = 'none';
+}
+if (fotoSection) {
+    fotoSection.style.display = 'none';
+}
+if (httpSection) {
+    httpSection.style.display = 'none';
+}
+if (mdnsSection) {
+    mdnsSection.style.display = 'none';
+}
+if (mqttSection) {
+    mqttSection.style.display = 'none';
+}
+if (provSection) {
+    provSection.style.display = 'none';
+}
+if (sntpSection) {
+    sntpSection.style.display = 'none';
+}
+if (sslWrapSection) {
+    sslWrapSection.style.display = 'none';
+}
+if (utilsSection) {
+    utilsSection.style.display = 'none';
+}
+if (websocketSection) {
+    websocketSection.style.display = 'none';
+}
+if (downloadToolUsageSection) {
+    downloadToolUsageSection.style.display = 'none';
+}
+if (usingInp3000ProgrammerBoardSection){
+    usingInp3000ProgrammerBoardSection.style.display = 'none'
+}
+if (usingUartInterfacesSection){
+    usingUartInterfacesSection.style.display = 'none'
+}
+if (usingSpiInterfacesSection){
+    usingSpiInterfacesSection.style.display = 'none'
+}
+if (usingJtagAndSwdInterfacesSection){
+    usingJtagAndSwdInterfacesSection.style.display = 'none'
+}
+if (designSection){
+    designSection.style.display = 'none'
+}
+if (sampleScenariosSection){
+    sampleScenariosSection.style.display = 'none'
+}
+if (helpSection){
+    helpSection.style.display = 'none'
+}
+// ---------------------------------------------------------------------------------------------------------------------
 var selectList = document.createElement("select");
 selectList.id = "version-selector";
 searchElement.after(selectList);
@@ -97,4 +192,4 @@ parentElement.removeChild(divToRemove);
 // versions, modules dropdown
 // prerequisites landing page
 // prerequisites Software-page heading on left
-// url link wiht be docs.innophaseiot.readthedoc.com
+// url link wiht be docs-innophaseiot.readthedoc.com

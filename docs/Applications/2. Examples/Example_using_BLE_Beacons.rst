@@ -1,3 +1,5 @@
+.. _ex ble beacons:
+
 BLE Beacon
 ----------------
 
@@ -62,12 +64,10 @@ which the frequency of advertisement transmission in fast and slow mode
 can be adjusted. It also configures the Tx power for advertisement and
 the channel map used.
 
-+-----------------------------------------------------------------------+
-| bt_gap_error_t bt_gap_cfg_adv(const uint16_t adv_fast_period, const   |
-| uint16_t adv_slow_period, const uint16_t adv_fast_int, const uint16_t |
-| adv_slow_int, const int8_t adv_tx_power , const uint8_t adv_ch_map)   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bt_gap_error_t bt_gap_cfg_adv(const uint16_t adv_fast_period, const uint16_t adv_slow_period, const uint16_t adv_fast_int, const uint16_t adv_slow_int,             const int8_t adv_tx_power , const uint8_t adv_ch_map)
+
 
 It takes the following parameters as input:
 
@@ -116,69 +116,52 @@ bt_gap_addr_set()
 
 Sets the address of the GAP interface with the desired address type.
 
-+-----------------------------------------------------------------------+
-| bt_gap_error_t bt_gap_addr_set(const bt_hci_addr_type_t type, const   |
-| bt_address_t addr)                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bt_gap_error_t bt_gap_addr_set(const bt_hci_addr_type_t type, const bt_address_t addr)
+
 
 The address type can be one of them from the following list:
 
-+-----------------------------------------------------------------------+
-| typedef enum {                                                        |
-|                                                                       |
-| /\* Used for Own and Peer \*/                                         |
-|                                                                       |
-| bt_hci_addr_type_public = 0x0,                                        |
-|                                                                       |
-| bt_hci_addr_type_random = 0x1,                                        |
-|                                                                       |
-| bt_hci_addr_type_resolvable_public = 0x2,                             |
-|                                                                       |
-| bt_hci_addr_type_resolvable_random = 0x3                              |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| bt_hci_addr_type_t;                                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      typedef enum {
+          /* Used for Own and Peer */
+          bt_hci_addr_type_public            = 0x0,
+          bt_hci_addr_type_random            = 0x1,
+          bt_hci_addr_type_resolvable_public = 0x2,
+          bt_hci_addr_type_resolvable_random = 0x3
+      } 
+      bt_hci_addr_type_t;
+
+
+
 
 bt_gap_connectable_mode()
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Sets the device in desired connectable mode.
 
-+-----------------------------------------------------------------------+
-| bt_gap_error_t bt_gap_connectable_mode(const gap_connectable_mode_t   |
-| mode, const bt_hci_addr_type_t own_type, const bt_hci_addr_type_t     |
-| peer_type, const bt_address_t peer_address, const gap_ops_t \*ops)    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bt_gap_error_t bt_gap_connectable_mode(const gap_connectable_mode_t mode, const bt_hci_addr_type_t own_type, const bt_hci_addr_type_t peer_type, const bt_address_t peer_address, const gap_ops_t *ops)
+
 
 Connection mode can be one of them from the following list:
 
-+-----------------------------------------------------------------------+
-| typedef enum {                                                        |
-|                                                                       |
-| /\*\* Disable connectable mode \*/                                    |
-|                                                                       |
-| GAP_CONNECTABLE_MODE_DISABLE = 0,                                     |
-|                                                                       |
-| /\*\* Do not allow a connection to be established \*/                 |
-|                                                                       |
-| GAP_CONNECTABLE_MODE_NON = 1,                                         |
-|                                                                       |
-| /\*\* Accept a connection request from a known peer device \*/        |
-|                                                                       |
-| GAP_CONNECTABLE_MODE_DIRECT = 2,                                      |
-|                                                                       |
-| /\*\* Accept a connection request from a any device \*/               |
-|                                                                       |
-| GAP_CONNECTABLE_MODE_UNDIRECT = 3,                                    |
-|                                                                       |
-| } gap_connectable_mode_t;                                             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      typedef enum {
+          /** Disable connectable mode */
+          GAP_CONNECTABLE_MODE_DISABLE  = 0,
+          /** Do not allow a connection to be established */
+          GAP_CONNECTABLE_MODE_NON      = 1,
+          /** Accept a connection request from a known peer device */
+          GAP_CONNECTABLE_MODE_DIRECT   = 2,
+          /** Accept a connection request from a any device */
+          GAP_CONNECTABLE_MODE_UNDIRECT = 3,
+      } gap_connectable_mode_t;
+
 
 Other input parameters to this API are:
 
@@ -198,11 +181,10 @@ bt_gap_set_adv_data()
 
 Sets advertising data for legacy advertising.
 
-+-----------------------------------------------------------------------+
-| bt_gap_error_t bt_gap_set_adv_data(const uint8_t length, const        |
-| uint8_t data[                                                         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bt_gap_error_t bt_gap_set_adv_data(const uint8_t length, const uint8_t data[
+
 
 Error code from bt_gap_error_t.
 
@@ -211,10 +193,10 @@ bt_gap_destroy()
 
 Shuts down and cleans up the Bluetooth GAP service.
 
-+-----------------------------------------------------------------------+
-| int bt_gap_destroy(void)                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      int bt_gap_destroy(void)   
+
 
 Shuts down and frees up all resources previously claimed by the
 bt_gap_init() call. Returns zero on success, non-zero otherwise.
@@ -247,56 +229,34 @@ Sample Code Walkthrough
 
 Declare the advertising packet in Eddystone URI format:
 
-+-----------------------------------------------------------------------+
-| const uint8_t eddystone_url_data[] = {                                |
-|                                                                       |
-| 0x03, // Length of Service List                                       |
-|                                                                       |
-| 0x03, // Param: Service List                                          |
-|                                                                       |
-| 0xAA, 0xFE, // Eddystone ID                                           |
-|                                                                       |
-| 0x13, // Length of Service Data                                       |
-|                                                                       |
-| 0x16, // Service Data                                                 |
-|                                                                       |
-| 0xAA, 0xFE, // Eddystone ID                                           |
-|                                                                       |
-| 0x10, // Frame type: URL                                              |
-|                                                                       |
-| 0xF8, // Power                                                        |
-|                                                                       |
-| 0x03, // https://                                                     |
-|                                                                       |
-| 'i',                                                                  |
-|                                                                       |
-| 'n',                                                                  |
-|                                                                       |
-| 'n',                                                                  |
-|                                                                       |
-| 'o',                                                                  |
-|                                                                       |
-| 'p',                                                                  |
-|                                                                       |
-| 'h',                                                                  |
-|                                                                       |
-| 'a',                                                                  |
-|                                                                       |
-| 's',                                                                  |
-|                                                                       |
-| 'e',                                                                  |
-|                                                                       |
-| 'i',                                                                  |
-|                                                                       |
-| 'n',                                                                  |
-|                                                                       |
-| 'c',                                                                  |
-|                                                                       |
-| 0x00, // .com/                                                        |
-|                                                                       |
-| };                                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      const uint8_t eddystone_url_data[] = {
+      	0x03,  // Length of Service List
+      	0x03,  // Param: Service List
+      	0xAA, 0xFE,  // Eddystone ID
+      	0x13,  // Length of Service Data
+      	0x16,  // Service Data
+      	0xAA, 0xFE, // Eddystone ID
+      	0x10,  // Frame type: URL
+      	0xF8, // Power
+      	0x03, // https://
+      	'i',
+      	'n',
+      	'n',
+      	'o',
+      	'p',
+      	'h',
+      	'a',
+      	's',
+      	'e',
+      	'i',
+      	'n',
+      	'c',
+      	0x00, // .com/
+      	};
+
+
 
 Declare the advertisement data by following the steps described in the
 following site:
@@ -311,10 +271,10 @@ Initialize the GAP
 To send the Eddystone URI packet as advertising data, GAP must be
 initialized first.
 
-+-----------------------------------------------------------------------+
-| bt_gap_init();                                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bt_gap_init();    
+
 
 The GAP API must be initialized before other functions in the GAP
 interface are called.
@@ -333,22 +293,17 @@ with advertising frequency.
 
 Here, bt_gap_cfg_adv() sets these parameters for advertisement.
 
-+-----------------------------------------------------------------------+
-| bt_adv_handle.fast_period = 10240;                                    |
-|                                                                       |
-| bt_adv_handle.slow_period = 0;                                        |
-|                                                                       |
-| bt_adv_handle.fast_interval = 160;                                    |
-|                                                                       |
-| bt_adv_handle.slow_interval = 1600;                                   |
-|                                                                       |
-| bt_adv_handle.tx_power = 0;                                           |
-|                                                                       |
-| bt_adv_handle.channel_map = 0;                                        |
-|                                                                       |
-| bt_gap_cfg_adv_set(&bt_adv_handle);                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bt_adv_handle.fast_period = 10240;
+      bt_adv_handle.slow_period = 0;
+      bt_adv_handle.fast_interval = 160;
+      bt_adv_handle.slow_interval = 1600;
+      bt_adv_handle.tx_power = 0;
+      bt_adv_handle.channel_map = 0;
+      bt_gap_cfg_adv_set(&bt_adv_handle);
+
+
 
 Parameters passed for configuring the advertisement are:
 
@@ -381,16 +336,13 @@ Setting the BLE Address
 bt_gap_addr_set() sets our BLE address and address type. The sample code
 uses a random address that does not change.
 
-+-----------------------------------------------------------------------+
-| static const bt_address_t SERVER_ADDR = {0x01, 0x02, 0x03, 0x04,      |
-| 0x05, 0x06};                                                          |
-|                                                                       |
-| /\* Sets the address of the GAP interface with the desired address    |
-| type. \*/                                                             |
-|                                                                       |
-| bt_gap_addr_set(bt_hci_addr_type_random, SERVER_ADDR);                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      static const bt_address_t SERVER_ADDR = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06};
+      /* Sets the address of the GAP interface with the desired address type. */
+      bt_gap_addr_set(bt_hci_addr_type_random, SERVER_ADDR);
+
+
 
 Set Eddystone URI Data as Advertisement Data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -398,21 +350,19 @@ Set Eddystone URI Data as Advertisement Data
 bt_gap_set_adv_data() is used to set advertising data for legacy
 advertising.
 
-+-----------------------------------------------------------------------+
-| /\* Sets advertising data for legacy advertising. \*/                 |
-|                                                                       |
-| bt_gap_set_adv_data(length, eddystone_url_data);                      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      /* Sets advertising data for legacy advertising. */
+      bt_gap_set_adv_data(length, eddystone_url_data);
+
 
 Set the device in non-connectable mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------------------------------------------------------------------+
-| return bt_gap_connectable_mode(GAP_CONNECTABLE_MODE_NON,              |
-| bt_hci_addr_type_random, addr_type_zero, address_zero, NULL);         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      return bt_gap_connectable_mode(GAP_CONNECTABLE_MODE_NON, bt_hci_addr_type_random, addr_type_zero, address_zero, NULL);
+
 
 Running the Application 
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -437,20 +387,16 @@ ble_eddystone_uri.elf is created while compiling the code mentioned in
 section 6.1.2 and gives the following console output when programmed to
 Talaria TWO.
 
-+-----------------------------------------------------------------------+
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PNWWWWAE                                                        |
-|                                                                       |
-| Build $Id: git-df9b9ef $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff   |
-|                                                                       |
-| Eddystone Uri Demo App                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PNWWWWAE
+      Build $Id: git-df9b9ef $
+      Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff
+      Eddystone Uri Demo App
+
+
 
 BLE scanner mobile application by Bluepixel Technologies is used for
 testing this example.
@@ -466,9 +412,9 @@ testing this example.
 4. Observer that this will redirect you to the InnoPhase website
    https://innophaseiot.com.
 
-|image1|
+|image134|
 
-Figure : Eddystone URI beacon as seen in BLE Scanner Application
+Figure 1: Eddystone URI beacon as seen in BLE Scanner Application
 
 Sample Application 2 – Eddystone UID Application
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -492,66 +438,37 @@ Sample Code Walkthrough
 
 Declare the advertising packet in the format of Eddystone UID:
 
-+-----------------------------------------------------------------------+
-| const uint8_t eddystone_uid_data[] = {                                |
-|                                                                       |
-| 0x03, /\* Length of Service List \*/                                  |
-|                                                                       |
-| 0x03, /\* Param: Service List \*/                                     |
-|                                                                       |
-| 0xAA, 0xFE, /\* Eddystone ID \*/                                      |
-|                                                                       |
-| 0x17, /\* Length of Servic e Data \*/                                 |
-|                                                                       |
-| 0x16, /\* Service Data \*/                                            |
-|                                                                       |
-| 0xAA, 0xFE, /\* Eddystone ID \*/                                      |
-|                                                                       |
-| 0x00, /\* Frame type: UID \*/                                         |
-|                                                                       |
-| 0xF8, /\* Power \*/                                                   |
-|                                                                       |
-| 0x00, /\* namespaceID[0] = 0x00 -- 10 Bytes namespace id starts from  |
-| here 0x00 to 0x09 \*/                                                 |
-|                                                                       |
-| 0x01, /\* namespaceID[1] = 0x01 \*/                                   |
-|                                                                       |
-| 0x02, /\* namespaceID[2] = 0x02 \*/                                   |
-|                                                                       |
-| 0x03, /\* namespaceID[3] = 0x03 \*/                                   |
-|                                                                       |
-| 0x04, /\* namespaceID[4] = 0x04 \*/                                   |
-|                                                                       |
-| 0x05, /\* namespaceID[5] = 0x05 \*/                                   |
-|                                                                       |
-| 0x06, /\* namespaceID[6] = 0x06 \*/                                   |
-|                                                                       |
-| 0x07, /\* namespaceID[7] = 0x07 \*/                                   |
-|                                                                       |
-| 0x08, /\* namespaceID[8] = 0x08 \*/                                   |
-|                                                                       |
-| 0x09, /\* namespaceID[9] = 0x09 \*/                                   |
-|                                                                       |
-| 0x40, /\* instanceID[0] = 0x00 -- 6 Bytes instance id starts from     |
-| here 0x00 to 0x09 \*/                                                 |
-|                                                                       |
-| 0x41, /\* instanceID[1] = 0x01 \*/                                    |
-|                                                                       |
-| 0x42, /\* instanceID[2] = 0x02 \*/                                    |
-|                                                                       |
-| 0x43, /\* instanceID[3] = 0x03 \*/                                    |
-|                                                                       |
-| 0x44, /\* instanceID[4] = 0x04 \*/                                    |
-|                                                                       |
-| 0x45, /\* instanceID[5] = 0x05 \*/                                    |
-|                                                                       |
-| 0x00, /\* Reserved for future use, must be0x00 \*/                    |
-|                                                                       |
-| 0x00, /\* Reserved for future use, must be0x00                        |
-|                                                                       |
-| }; \*/                                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      const uint8_t eddystone_uid_data[] = {
+      	0x03,  /* Length of Service List */
+      	0x03,  /* Param: Service List */
+      	0xAA, 0xFE,  /* Eddystone ID */
+      	0x17,  /* Length of Servic e Data */
+      	0x16,  /* Service Data */
+      	0xAA, 0xFE, /* Eddystone ID */
+      	0x00,  /* Frame type: UID */
+      	0xF8, /* Power */
+      	0x00, /* namespaceID[0] = 0x00 --  10 Bytes namespace id starts from here 0x00 to 0x09 */
+      	0x01, /* namespaceID[1] = 0x01 */
+      	0x02, /* namespaceID[2] = 0x02 */
+      	0x03, /* namespaceID[3] = 0x03 */
+      	0x04, /* namespaceID[4] = 0x04 */
+      	0x05, /* namespaceID[5] = 0x05 */
+      	0x06, /* namespaceID[6] = 0x06 */
+      	0x07, /* namespaceID[7] = 0x07 */
+      	0x08, /* namespaceID[8] = 0x08 */
+      	0x09, /* namespaceID[9] = 0x09 */
+      	0x40, /* instanceID[0] = 0x00 --  6 Bytes instance id starts from here 0x00 to 0x09 */
+      	0x41, /* instanceID[1] = 0x01 */
+      	0x42, /* instanceID[2] = 0x02 */
+      	0x43, /* instanceID[3] = 0x03 */
+      	0x44, /* instanceID[4] = 0x04 */
+      	0x45, /* instanceID[5] = 0x05 */
+      	0x00, /* Reserved for future use, must be0x00 */
+      	0x00, /* Reserved for future use, must be0x00 
+      				}; */
+
 
 Declare the advertisement data by following the details provided in the
 following site:
@@ -566,10 +483,10 @@ Initialize the GAP
 To send the Eddystone UID packet as advertising data, GAP must be
 initialized first
 
-+-----------------------------------------------------------------------+
-| bt_gap_init();                                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bt_gap_init();    
+
 
 The GAP API must be initialized before other functions in the GAP
 interface are called.
@@ -585,24 +502,17 @@ with advertising frequency.
 
 Here, bt_gap_cfg_adv() sets these parameters for advertisement.
 
-+-----------------------------------------------------------------------+
-| /\* Configures the advertisement parameters \*/                       |
-|                                                                       |
-| bt_adv_handle.fast_period = 10240;                                    |
-|                                                                       |
-| bt_adv_handle.slow_period = 0;                                        |
-|                                                                       |
-| bt_adv_handle.fast_interval = 160;                                    |
-|                                                                       |
-| bt_adv_handle.slow_interval = 1600;                                   |
-|                                                                       |
-| bt_adv_handle.tx_power = 0;                                           |
-|                                                                       |
-| bt_adv_handle.channel_map = 0;                                        |
-|                                                                       |
-| bt_gap_cfg_adv_set(&bt_adv_handle);                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      /* Configures the advertisement parameters */
+          bt_adv_handle.fast_period = 10240;
+          bt_adv_handle.slow_period = 0;
+          bt_adv_handle.fast_interval = 160;
+          bt_adv_handle.slow_interval = 1600;
+          bt_adv_handle.tx_power = 0;
+          bt_adv_handle.channel_map = 0;
+          bt_gap_cfg_adv_set(&bt_adv_handle);
+
 
 The parameters passed for configuring the advertisement are:
 
@@ -633,20 +543,16 @@ Setting the BLE Address:
 bt_gap_addr_set() sets our BLE address and address type. The sample code
 uses a random address that does not change.
 
-+-----------------------------------------------------------------------+
-| static const bt_address_t SERVER_ADDR = {0x06, 0x07, 0x08, 0x09,      |
-| 0x0a, 0x0b};                                                          |
-|                                                                       |
-| . . .                                                                 |
-|                                                                       |
-| . . .                                                                 |
-|                                                                       |
-| /\* Sets the address of the GAP interface with the desired address    |
-| type. \*/                                                             |
-|                                                                       |
-| bt_gap_addr_set(bt_hci_addr_type_random, SERVER_ADDR);                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      static const bt_address_t SERVER_ADDR = {0x06, 0x07, 0x08, 0x09, 0x0a, 0x0b};
+      . . .
+      . . .
+      
+      /* Sets the address of the GAP interface with the desired address type. */
+          bt_gap_addr_set(bt_hci_addr_type_random, SERVER_ADDR);
+
+
 
 Set Eddystone UID Data as the Advertisement Data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -654,23 +560,21 @@ Set Eddystone UID Data as the Advertisement Data
 bt_gap_set_adv_data() is used to set advertising data for legacy
 advertising.
 
-+-----------------------------------------------------------------------+
-| /\* Sets advertising data for legacy advertising. \*/                 |
-|                                                                       |
-| bt_gap_set_adv_data(length, eddystone_uid_data);                      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      /* Sets advertising data for legacy advertising. */
+         bt_gap_set_adv_data(length, eddystone_uid_data);
+
 
 .. _set-the-device-in-non-connectable-mode-1:
 
 Set the device in non-connectable mode
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-+-----------------------------------------------------------------------+
-| return bt_gap_connectable_mode(GAP_CONNECTABLE_MODE_NON,              |
-| bt_hci_addr_type_random, addr_type_zero, address_zero, NULL);         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      return bt_gap_connectable_mode(GAP_CONNECTABLE_MODE_NON, bt_hci_addr_type_random, addr_type_zero, address_zero, NULL);
+
 
 .. _running-the-application-1:
 
@@ -699,24 +603,17 @@ ble_eddystone_uid.elf is created when compiling the code mentioned in
 section 6.2.2 and provides the following console output when programmed
 to Talaria TWO.
 
-+-----------------------------------------------------------------------+
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PNWWWWAE                                                        |
-|                                                                       |
-| Build $Id: git-df9b9ef $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff   |
-|                                                                       |
-| $App:git-6600fea                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Eddystone Uid Demo App                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PNWWWWAE
+      Build $Id: git-df9b9ef $
+      Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff
+      $App:git-6600fea
+      SDK Ver: FREERTOS_SDK_1.0
+      Eddystone Uid Demo App
+
 
 BLE scanner mobile application by Bluepixel Technologies is used for
 testing this example.
@@ -730,9 +627,9 @@ testing this example.
 3. Observe the Namespace ID and Instance ID programmed by the code as
    shown in Figure 2.
 
-|image2|
+|image135|
 
-   Figure : Eddystone UID beacon as seen in BLE Scanner Application
+Figure 2: Eddystone UID beacon as seen in BLE Scanner Application
 
 Sample Application 3 – Eddystone TLM Application
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -774,40 +671,25 @@ Sample Code Walkthrough
 
 Declare the advertising packet in the Eddystone TLM format:
 
-+-----------------------------------------------------------------------+
-| /\* TLM advertising data: \*/                                         |
-|                                                                       |
-| uint8_t advdata_tlm[] =                                               |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| 0x03, /\* Length \*/                                                  |
-|                                                                       |
-| 0x03, /\* Param: Service List \*/                                     |
-|                                                                       |
-| 0xAA, 0xFE, /\* Eddystone ID \*/                                      |
-|                                                                       |
-| 0x11, /\* Length \*/                                                  |
-|                                                                       |
-| 0x16, /\* Service Data \*/                                            |
-|                                                                       |
-| 0xAA, 0xFE, /\* Eddystone ID \*/                                      |
-|                                                                       |
-| 0x20, /\* TLM flag \*/                                                |
-|                                                                       |
-| 0x00, /\* TLM version \*/                                             |
-|                                                                       |
-| 0x06, 0x00, /\* Battery voltage \*/                                   |
-|                                                                       |
-| 0x80, 0x00, /\* Beacon temperature \*/                                |
-|                                                                       |
-| 0x00, 0x00, 0x00, 0x10, /\* Advertising PDU count \*/                 |
-|                                                                       |
-| 0x00, 0x00, 0x10, 0x00 /\* Time since reboot \*/                      |
-|                                                                       |
-| };                                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      /* TLM advertising data: */
+      uint8_t advdata_tlm[] =
+      {
+      	0x03,			/* Length */
+      	0x03,  			/* Param: Service List */
+      	0xAA, 0xFE,  		/* Eddystone ID */
+      	0x11,  			/* Length */
+      	0x16,  			/* Service Data */
+      	0xAA, 0xFE, 		/* Eddystone ID */
+      	0x20,  			/* TLM flag */
+      	0x00, 			/* TLM version */
+      	0x06, 0x00,  		/* Battery voltage */
+      	0x80, 0x00,  		/* Beacon temperature */
+      	0x00, 0x00, 0x00, 0x10,	/* Advertising PDU count */
+      	0x00, 0x00, 0x10, 0x00 	/* Time since reboot */
+      };
+
 
 Declare the advertisement data by following the steps provided in the
 following site:
@@ -822,10 +704,10 @@ Initialize the GAP
 To send the Eddystone TLM packet as advertising data, GAP must be
 initialized first.
 
-+-----------------------------------------------------------------------+
-| bt_gap_init();                                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bt_gap_init();
+
 
 The GAP API must be initialized before other functions in the GAP
 interface are called.
@@ -842,22 +724,16 @@ with advertising frequency.
 
 Here, bt_gap_cfg_adv() sets these parameters for advertisement.
 
-+-----------------------------------------------------------------------+
-| bt_adv_handle.fast_period = 0;                                        |
-|                                                                       |
-| bt_adv_handle.slow_period = 0;                                        |
-|                                                                       |
-| bt_adv_handle.fast_interval = 0x4000;                                 |
-|                                                                       |
-| bt_adv_handle.slow_interval = 0x4000;                                 |
-|                                                                       |
-| bt_adv_handle.tx_power = 0;                                           |
-|                                                                       |
-| bt_adv_handle.channel_map = BT_HCI_ADV_CHANNEL_ALL;                   |
-|                                                                       |
-| bt_gap_cfg_adv_set(&bt_adv_handle);                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bt_adv_handle.fast_period = 0;
+      bt_adv_handle.slow_period = 0;
+      bt_adv_handle.fast_interval = 0x4000;
+      bt_adv_handle.slow_interval = 0x4000;
+      bt_adv_handle.tx_power = 0;
+      bt_adv_handle.channel_map = BT_HCI_ADV_CHANNEL_ALL;
+      bt_gap_cfg_adv_set(&bt_adv_handle);
+
 
 Parameters passed for configuring the advertisement are:
 
@@ -891,16 +767,13 @@ Set the BLE Address
 bt_gap_addr_set() sets our BLE address and address type; the sample code
 uses a public address.
 
-+-----------------------------------------------------------------------+
-| bt_address_t addr = {0X7A,0X3C,0X4D,0X01,0X03,0X07};                  |
-|                                                                       |
-| . . .                                                                 |
-|                                                                       |
-| . . .                                                                 |
-|                                                                       |
-| bt_gap_addr_set(bt_hci_addr_type_public, addr);                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bt_address_t addr = {0X7A,0X3C,0X4D,0X01,0X03,0X07};
+      . . . 
+      . . .
+      bt_gap_addr_set(bt_hci_addr_type_public, addr);
+
 
 Set Eddystone TLM Data as the Advertisement Data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -908,113 +781,80 @@ Set Eddystone TLM Data as the Advertisement Data
 bt_gap_set_adv_data() is used to set advertising data for legacy
 advertising.
 
-+-----------------------------------------------------------------------+
-| bt_gap_set_adv_data(length_tlm, advdata_tlm);                         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bt_gap_set_adv_data(length_tlm, advdata_tlm);    
+
 
 .. _set-the-device-in-non-connectable-mode-2:
 
 Set the Device in Non-Connectable Mode
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-+-----------------------------------------------------------------------+
-| bt_gap_connectable_mode(GAP_CONNECTABLE_MODE_NON,                     |
-| bt_hci_addr_type_public,                                              |
-|                                                                       |
-| addr_type_zero, address_zero, NULL);                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bt_gap_connectable_mode(GAP_CONNECTABLE_MODE_NON, bt_hci_addr_type_public, 
+      addr_type_zero, address_zero, NULL);
+
 
 In this example, these fields are generated randomly by code emulating
 real sensors.
 
-+-----------------------------------------------------------------------+
-| void printRandoms(int lower, int upper, int count)                    |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| pdu_count++;                                                          |
-|                                                                       |
-| sensorValue = (rand() % (upper - lower + 1)) + lower;                 |
-|                                                                       |
-| os_printf("Sensor Value%d\\n", sensorValue);                          |
-|                                                                       |
-| acquire_tlm_data();                                                   |
-|                                                                       |
-| vTaskDelay(1000);                                                     |
-|                                                                       |
-| return;                                                               |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| void acquire_tlm_data(void)                                           |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| os_printf("pdu_count=%lu\\n", pdu_count);                             |
-|                                                                       |
-| temp = sensorValue*2.5;                                               |
-|                                                                       |
-| os_printf("Temp=%d\\n", temp);                                        |
-|                                                                       |
-| /\*battery voltage*/                                                  |
-|                                                                       |
-| batteryVoltage = sensorValue \* (3.6 / 1023.0);                       |
-|                                                                       |
-| os_printf("batteryVoltage=%d\\n", batteryVoltage);                    |
-|                                                                       |
-| /\*convert data to TLM frame format*/                                 |
-|                                                                       |
-| int2adv(advdata_tlm, 10, (int) (750 \* batteryVoltage));              |
-|                                                                       |
-| float2adv(advdata_tlm, 12, (int) (temp*1000));                        |
-|                                                                       |
-| ulong2adv(advdata_tlm, 14, pdu_count);                                |
-|                                                                       |
-| ulong2adv(advdata_tlm, 18, (sensorValue*1931190));                    |
-|                                                                       |
-| return;                                                               |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      void printRandoms(int lower, int upper, int count) 
+      { 
+      	pdu_count++;
+      	sensorValue = (rand() % (upper - lower + 1)) + lower; 
+      	os_printf("Sensor Value%d\n", sensorValue); 
+      	acquire_tlm_data();
+      	vTaskDelay(1000);
+      	return;	 
+      }
+      void acquire_tlm_data(void)
+      {
+      	os_printf("pdu_count=%lu\n", pdu_count);
+      	temp = sensorValue*2.5;
+      	os_printf("Temp=%d\n", temp); 
+      
+      	/*battery voltage*/
+      	batteryVoltage = sensorValue * (3.6 / 1023.0);
+      	os_printf("batteryVoltage=%d\n", batteryVoltage);
+      
+      	/*convert data to TLM frame format*/
+      	int2adv(advdata_tlm, 10, (int) (750 * batteryVoltage));
+      	float2adv(advdata_tlm, 12, (int) (temp*1000));
+      	ulong2adv(advdata_tlm, 14, pdu_count);
+      	ulong2adv(advdata_tlm, 18, (sensorValue*1931190));
+      
+      	return;	
+      }
+
+
+
 
 Every 6.4 seconds a new random sensor data is generated. GAP init, TLM
 data set, advertise and GAP destroy happens in a while loop.
 
-+-----------------------------------------------------------------------+
-| while(1)                                                              |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| bt_gap_init();                                                        |
-|                                                                       |
-| printRandoms(512,1024,1);                                             |
-|                                                                       |
-| bt_gap_set_adv_data(length_tlm, advdata_tlm);                         |
-|                                                                       |
-| os_gpio_set_value(0, TEST_LED); // LED ON                             |
-|                                                                       |
-| bt_gap_addr_set(bt_hci_addr_type_public, addr);                       |
-|                                                                       |
-| bt_gap_connectable_mode(GAP_CONNECTABLE_MODE_NON,                     |
-|                                                                       |
-| bt_hci_addr_type_public,                                              |
-|                                                                       |
-| addr_type_zero, address_zero, NULL);                                  |
-|                                                                       |
-| vTaskDelay 6400);                                                     |
-|                                                                       |
-| bt_gap_destroy();                                                     |
-|                                                                       |
-| os_gpio_set_value(TEST_LED, 0); // LED OFF                            |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| return 0;                                                             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      while(1)
+      	{
+      		bt_gap_init();
+      		printRandoms(512,1024,1);
+      		bt_gap_set_adv_data(length_tlm, advdata_tlm);
+      		os_gpio_set_value(0, TEST_LED); // LED ON
+      		bt_gap_addr_set(bt_hci_addr_type_public, addr);
+      		bt_gap_connectable_mode(GAP_CONNECTABLE_MODE_NON, 
+                        bt_hci_addr_type_public,
+                        addr_type_zero, address_zero, NULL);
+      		vTaskDelay 6400);
+      		bt_gap_destroy();
+      		os_gpio_set_value(TEST_LED, 0);	// LED OFF
+      	}
+      	return 0;
+
+
 
 In each execution of loop, only one advertisement frame per loop should
 go as advertisement interval is set to maximum - 10,240ms and the while
@@ -1047,127 +887,70 @@ ble_eddystone_tlm.elf is created when compiling the code mentioned in
 section 6.3.2 and provides the following console output when programed
 to Talaria TWO:
 
-+-----------------------------------------------------------------------+
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PNWWWWAE                                                        |
-|                                                                       |
-| Build $Id: git-df9b9ef $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff   |
-|                                                                       |
-| $App:git-6600fea                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Eddystone Uid Demo App                                                |
-|                                                                       |
-| ------------------- PROG Flash: Start Time 21 Aug 2023 08:14:34 AM    |
-| -------------------                                                   |
-|                                                                       |
-| UART:SNWWWWAE                                                         |
-|                                                                       |
-| 4 DWT comparators, range 0x8000                                       |
-|                                                                       |
-| Build $Id: git-ef87896f9 $                                            |
-|                                                                       |
-| hio.baudrate=921600                                                   |
-|                                                                       |
-| flash: Gordon ready!                                                  |
-|                                                                       |
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PNWWWWWAE                                                       |
-|                                                                       |
-| Build $Id: git-df9b9ef $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff   |
-|                                                                       |
-| $App:git-6600fea                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Eddystone Tlm Demo App                                                |
-|                                                                       |
-| pdu_count=1                                                           |
-|                                                                       |
-| Temp: 25 C                                                            |
-|                                                                       |
-| batteryVoltage: 3248 mV                                               |
-|                                                                       |
-| time since last boot: 11583 ms                                        |
-|                                                                       |
-| pdu_count=2                                                           |
-|                                                                       |
-| Temp: 25 C                                                            |
-|                                                                       |
-| batteryVoltage: 3248 mV                                               |
-|                                                                       |
-| time since last boot: 18139 ms                                        |
-|                                                                       |
-| pdu_count=3                                                           |
-|                                                                       |
-| Temp: 26 C                                                            |
-|                                                                       |
-| batteryVoltage: 3247 mV                                               |
-|                                                                       |
-| time since last boot: 24690 ms                                        |
-|                                                                       |
-| pdu_count=4                                                           |
-|                                                                       |
-| Temp: 25 C                                                            |
-|                                                                       |
-| batteryVoltage: 3247 mV                                               |
-|                                                                       |
-| time since last boot: 31241 ms                                        |
-|                                                                       |
-| pdu_count=5                                                           |
-|                                                                       |
-| Temp: 26 C                                                            |
-|                                                                       |
-| batteryVoltage: 3247 mV                                               |
-|                                                                       |
-| time since last boot: 37793 ms                                        |
-|                                                                       |
-| pdu_count=6                                                           |
-|                                                                       |
-| Temp: 25 C                                                            |
-|                                                                       |
-| batteryVoltage: 3249 mV                                               |
-|                                                                       |
-| time since last boot: 44344 ms                                        |
-|                                                                       |
-| pdu_count=7                                                           |
-|                                                                       |
-| Temp: 25 C                                                            |
-|                                                                       |
-| batteryVoltage: 3248 mV                                               |
-|                                                                       |
-| time since last boot: 50896 ms                                        |
-|                                                                       |
-| pdu_count=8                                                           |
-|                                                                       |
-| Temp: 25 C                                                            |
-|                                                                       |
-| batteryVoltage: 3248 mV                                               |
-|                                                                       |
-| time since last boot: 57447 ms                                        |
-|                                                                       |
-| pdu_count=9                                                           |
-|                                                                       |
-| Temp: 25 C                                                            |
-|                                                                       |
-| batteryVoltage: 3247 mV                                               |
-|                                                                       |
-| time since last boot: 63998 ms                                        |
-|                                                                       |
-| pdu_count=10                                                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PNWWWWAE
+      Build $Id: git-df9b9ef $
+      Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff
+      $App:git-6600fea
+      SDK Ver: FREERTOS_SDK_1.0
+      Eddystone Uid Demo App
+      ------------------- PROG Flash: Start Time 21 Aug 2023 08:14:34 AM -------------------
+      UART:SNWWWWAE
+      4 DWT comparators, range 0x8000
+      Build $Id: git-ef87896f9 $
+      hio.baudrate=921600
+      flash: Gordon ready!
+      
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PNWWWWWAE
+      Build $Id: git-df9b9ef $
+      Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff
+      $App:git-6600fea
+      SDK Ver: FREERTOS_SDK_1.0
+      Eddystone Tlm Demo App
+      pdu_count=1
+      Temp: 25 C
+      batteryVoltage: 3248 mV
+      time since last boot: 11583 ms
+      pdu_count=2
+      Temp: 25 C
+      batteryVoltage: 3248 mV
+      time since last boot: 18139 ms
+      pdu_count=3
+      Temp: 26 C
+      batteryVoltage: 3247 mV
+      time since last boot: 24690 ms
+      pdu_count=4
+      Temp: 25 C
+      batteryVoltage: 3247 mV
+      time since last boot: 31241 ms
+      pdu_count=5
+      Temp: 26 C
+      batteryVoltage: 3247 mV
+      time since last boot: 37793 ms
+      pdu_count=6
+      Temp: 25 C
+      batteryVoltage: 3249 mV
+      time since last boot: 44344 ms
+      pdu_count=7
+      Temp: 25 C
+      batteryVoltage: 3248 mV
+      time since last boot: 50896 ms
+      pdu_count=8
+      Temp: 25 C
+      batteryVoltage: 3248 mV
+      time since last boot: 57447 ms
+      pdu_count=9
+      Temp: 25 C
+      batteryVoltage: 3247 mV
+      time since last boot: 63998 ms
+      pdu_count=10
+
+
 
 BLE scanner mobile application by Bluepixel Technologies is used for
 testing this example:
@@ -1183,16 +966,16 @@ testing this example:
 
 ..
 
-   |image3|
+|image136|
 
-   Figure : Eddystone TLM beacon as seen in BLE Scanner Application
+Figure 3: Eddystone TLM beacon as seen in BLE Scanner Application
 
-.. |image1| image:: media/image1.png
+.. |image134| image:: media/image134.png
    :width: 3.14961in
    :height: 6.60739in
-.. |image2| image:: media/image2.png
+.. |image135| image:: media/image135.png
    :width: 3.14961in
    :height: 6.54638in
-.. |image3| image:: media/image3.png
+.. |image136| image:: media/image136.png
    :width: 3.14961in
    :height: 6.55424in

@@ -1,3 +1,5 @@
+.. _eclipse setup linux - eclipse ide installation:
+
 Linux – Eclipse IDE Installation
 ================================
 

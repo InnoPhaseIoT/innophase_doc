@@ -13,10 +13,10 @@ as depicted in Figure 2.
 Eclipse IDE Version: 2021-09 (4.25). However, Eclipse IDE Version of
 2023-06 (4.28) or lower can be installed.
 
-|A screenshot of a computer Description automatically generated|
+|image28|
 
-Figure 2: Download Eclipse Installer
+Figure 1: Download Eclipse Installer
 
-.. |A screenshot of a computer Description automatically generated| image:: media/image1.png
+.. |image28| image:: media/image28.png
    :width: 7.48031in
    :height: 4.67467in

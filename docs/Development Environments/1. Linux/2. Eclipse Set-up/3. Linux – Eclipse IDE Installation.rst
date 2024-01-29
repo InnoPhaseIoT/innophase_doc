@@ -7,43 +7,43 @@ by extracting the installation archive and executing the installer file.
 On executing the eclipse-inst application file, the following screen
 should appear.
 
-|A screenshot of a web page Description automatically generated|
+|image29|
 
-Figure 3: Selecting the Eclipse IDE for Embedded C/C++ developers
+Figure 1: Selecting the Eclipse IDE for Embedded C/C++ developers
 
 Click on the Eclipse IDE for Embedded C/C++ developers. This will
-redirect to the installation window shown in Figure 4. Java JDK path of
+redirect to the installation window shown in Figure 2. Java JDK path of
 the user’s machine is taken as default as Eclipse uses externally
 installed JDKs to run itself. Select the installation folder for Eclipse
 and click Install.
 
-|image1|
+|image30|
 
-Figure 4: Eclipse IDE for Embedded C/C++ developers’ installation window
+Figure 2: Eclipse IDE for Embedded C/C++ developers’ installation window
 
-Accept the Eclipse Foundation Software User Agreement shown in Figure 5.
+Accept the Eclipse Foundation Software User Agreement shown in Figure 3.
 
-|A screenshot of a computer Description automatically generated|
+|image31|
 
-Figure 5: Eclipse IDE for Embedded C/C++ developers’ Eclipse User
+Figure 3: Eclipse IDE for Embedded C/C++ developers’ Eclipse User
 Agreement
 
 After completing installation, Eclipse installer prompts for permission
 to launch. Click on LAUNCH.
 
-|image2|
+|image4|
 
-Figure 6: Eclipse IDE for Embedded C/C++ developers launch window
+Figure 32: Eclipse IDE for Embedded C/C++ developers launch window
 
-.. |A screenshot of a web page Description automatically generated| image:: media/image1.png
+.. |image29| image:: media/image29.png
    :width: 7.48031in
    :height: 5.70487in
-.. |image1| image:: media/image2.png
+.. |image30| image:: media/image30.png
    :width: 4.7239in
    :height: 2.52917in
-.. |A screenshot of a computer Description automatically generated| image:: media/image3.png
+.. |image31| image:: media/image31.png
    :width: 4.72441in
    :height: 4.79563in
-.. |image2| image:: media/image4.png
+.. |image32| image:: media/image32.png
    :width: 4.72441in
    :height: 3.63925in

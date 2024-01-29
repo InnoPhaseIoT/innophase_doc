@@ -1,3 +1,5 @@
+.. _ex watchdog timer:
+
 Watchlog Timer
 ------------------------
 
@@ -43,16 +45,13 @@ timeout in microseconds and the watchdog expire_cb is passed as NULL,
 resulting in a system reset at timer expiration. The watchdog_start()
 function starts the watchdog counter.
 
-+-----------------------------------------------------------------------+
-| callout_init(&wakeup, wakeup_callback);                               |
-|                                                                       |
-| wakeup_event = xSemaphoreCreateCounting(1, 0);                        |
-|                                                                       |
-| watchdog_init(WATCHDOG_TIMEOUT, NULL);                                |
-|                                                                       |
-| watchdog_start();                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      callout_init(&wakeup, wakeup_callback);
+      wakeup_event = xSemaphoreCreateCounting(1, 0);
+      watchdog_init(WATCHDOG_TIMEOUT, NULL);
+      watchdog_start();
+
 
 callout_init_soft()initializes callout object with a soft deadline.
 kicker callout is used to kick the watchdog to reload the counter to its
@@ -64,12 +63,12 @@ the specified number of microseconds. Application needs to kick the
 watchdog before it expires, hence the timeout is given as
 WATCHDOG_TIMEOUT \* 9 / 10.
 
-+-----------------------------------------------------------------------+
-| callout_init_soft(&kicker, kick_the_dog);                             |
-|                                                                       |
-| callout_schedule(&kicker, WATCHDOG_TIMEOUT \* 9 / 10);                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      callout_init_soft(&kicker, kick_the_dog);
+      callout_schedule(&kicker, WATCHDOG_TIMEOUT * 9 / 10);
+
+
 
 Talaria TWO is put to suspend mode to demonstrate that the watchdog
 works fine both in suspend mode and awake mode. After enabling the
@@ -77,28 +76,19 @@ suspend mode, wakeup callout is scheduled after two seconds. Then the
 thread suspends on a wakeup_event semaphore. Since there is no other
 activity scheduled at this point, the system enters suspend mode.
 
-+-----------------------------------------------------------------------+
-| os_suspend_enable();                                                  |
-|                                                                       |
-| callout_schedule(&wakeup, SYSTIME_SEC(2));                            |
-|                                                                       |
-| os_printf("Sleeping\\n");                                             |
-|                                                                       |
-| if (xSemaphoreTake(wakeup_event, portMAX_DELAY) == pdFAIL) {          |
-|                                                                       |
-| os_printf("Unable to wait on semaphore...!!\\n");                     |
-|                                                                       |
-| return -1;                                                            |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| os_printf("Awake\\n");                                                |
-|                                                                       |
-| os_suspend_disable();                                                 |
-|                                                                       |
-| vTaskDelay(4000);                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      os_suspend_enable();
+      callout_schedule(&wakeup, SYSTIME_SEC(2));
+      os_printf("Sleeping\n");
+      if (xSemaphoreTake(wakeup_event, portMAX_DELAY) == pdFAIL) {
+          os_printf("Unable to wait on semaphore...!!\n");
+          return -1;
+      }
+      os_printf("Awake\n");
+      os_suspend_disable();
+      vTaskDelay(4000);
+
 
 This callback function of wakeup callout wakes the system up from
 suspend state and posts the semaphore for which the main thread was
@@ -107,41 +97,29 @@ waiting before going to suspend mode.
 **Note**: wakeup_callback is executed from ISR context, hence the
 SemaphoreGiveFromISR() is used.
 
-+-----------------------------------------------------------------------+
-| static void                                                           |
-|                                                                       |
-| wakeup_callback(struct callout \*c)                                   |
-|                                                                       |
-| { xSemaphoreGiveFromISR(wakeup_event, NULL); }                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      static void
+      wakeup_callback(struct callout *c)
+      {     xSemaphoreGiveFromISR(wakeup_event, NULL); }
+
 
 This callback function of kicker callout kicks the watchdog.
 
-+-----------------------------------------------------------------------+
-| static void                                                           |
-|                                                                       |
-| kick_the_dog(struct callout \*c)                                      |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| static uint32_t num_kicks;                                            |
-|                                                                       |
-| os_printf("Kick\\n");                                                 |
-|                                                                       |
-| watchdog_kick();                                                      |
-|                                                                       |
-| if (++num_kicks < 30)                                                 |
-|                                                                       |
-| callout_schedule(c, WATCHDOG_TIMEOUT \* 9 / 10);                      |
-|                                                                       |
-| else                                                                  |
-|                                                                       |
-| os_printf("Last kick\\n");                                            |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      static void
+      kick_the_dog(struct callout *c)
+      {
+          static uint32_t num_kicks;
+          os_printf("Kick\n");
+          watchdog_kick();
+          if (++num_kicks < 30)
+              callout_schedule(c, WATCHDOG_TIMEOUT * 9 / 10);
+          else
+          os_printf("Last kick\n");
+      }
+
 
 Here, kick_the_dog()function calls watchdog_kick()before the watchdog
 timer expires.
@@ -154,10 +132,10 @@ resulting in system reset.
 System reset occurs because the watchdog_init() was called with
 expire_cb passed as NULL.
 
-+-----------------------------------------------------------------------+
-| watchdog_init(WATCHDOG_TIMEOUT, NULL);                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+       watchdog_init(WATCHDOG_TIMEOUT, NULL);   
+
 
 Running the Application 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -185,103 +163,54 @@ b. Prog Flash: After reset, wdreset.elf runs in a loop
 Expected Output
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------------------------------------------------------------------+
-| Build $Id: git-df9b9ef $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff   |
-|                                                                       |
-| $App:git-6818774                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Watchdog Reset Demo App                                               |
-|                                                                       |
-| Starting watchdog                                                     |
-|                                                                       |
-| Sleeping                                                              |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Awake                                                                 |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Sleeping                                                              |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Awake                                                                 |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Sleeping                                                              |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Awake                                                                 |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Sleeping                                                              |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Awake                                                                 |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Sleeping                                                              |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Awake                                                                 |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Sleeping                                                              |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Awake                                                                 |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Kick                                                                  |
-|                                                                       |
-| Last kick                                                             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      Build $Id: git-df9b9ef $
+      Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff
+      $App:git-6818774
+      SDK Ver: FREERTOS_SDK_1.0
+      Watchdog Reset Demo App
+      Starting watchdog
+      Sleeping
+      Kick
+      Kick
+      Awake
+      Kick
+      Kick
+      Kick
+      Kick
+      Sleeping
+      Kick
+      Awake
+      Kick
+      Kick
+      Kick
+      Kick
+      Sleeping
+      Kick
+      Awake
+      Kick
+      Kick
+      Kick
+      Kick
+      Sleeping
+      Kick
+      Awake
+      Kick
+      Kick
+      Kick
+      Kick
+      Sleeping
+      Kick
+      Awake
+      Kick
+      Kick
+      Kick
+      Kick
+      Sleeping
+      Kick
+      Awake
+      Kick
+      Kick
+      Kick
+      Last kick

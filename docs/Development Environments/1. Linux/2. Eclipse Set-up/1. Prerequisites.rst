@@ -24,7 +24,7 @@ Install the java jdk 11 by executing the following commands:
 After successfully installing the JDK, verify the java JDK version by
 executing the command java-version in command line as shown in Figure 1.
 
-|image1|
+|image27|
 
 Figure 1: Verifying the java version
 
@@ -136,6 +136,6 @@ In a terminal window, execute the following command to install OpenOCD:
 
     sudo apt install openocd -y
 
-.. |image1| image:: media/image1.png
+.. |image27| image:: media/image27.png
    :width: 7.48031in
    :height: 0.77681in

@@ -1,7 +1,7 @@
 .. _3201 aws vs app:
 
 
-AWS Streaming APP
+InnoPhase IoT Video Streamer
 ----------------
 
 1. Create the following credentials from the AWS account
@@ -16,7 +16,7 @@ AWS Streaming APP
 **Note**: Steps to create the AWS security credentials are explained in
 section: `Create AWS Security Credentials <#_Create_AWS_Security>`__.
 
-2. On opening the AWS_Streaming mobile app, click on the plus sign at
+2. On opening the AWS streaming mobile app- *InnoPhase IoT Video Streamer*, click on the plus sign at
    the bottom right corner.
 
 |image1|

@@ -2176,7 +2176,7 @@ AT+BTBONDDEL – Delete a BLE BOND Information
 +----------------+------------------------------------------------------+
 
 
-AT+PROVSTART – BLE PROVISIONING
+AT+PROVSTART – START BLE PROVISIONING
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +---------------+--------------------------------------------------------+
@@ -2185,18 +2185,15 @@ AT+PROVSTART – BLE PROVISIONING
 | **Response**  | Success: OK                                            |
 |               | Failure: ERROR                                         |
 +---------------+--------------------------------------------------------+
-| **Parameters**| 0: after provisioned, the provision info stores in     |
-|               | Talaria TWO flash, set the provisioned flag to 1 and   |
-|               | system restarts and connects to the provided SSID      |
-|               |                                                        |
-|               | 1: after provisioned, the provision info sends to Host |
+| **Parameters**| 0: Talaria TWO is not reset automatically after        |
+|               | provisioning is done. Host should reset Talaria TWO.   |
+|               | 1: Talaria TWO is reset automatically after            |
+|               | provisioning is done.                                  |
 +---------------+--------------------------------------------------------+
 | **Example**   | at+provstart=1                                         |
 +---------------+--------------------------------------------------------+
 
 
-**Note**: part.json file needs to be loaded from the prov example
-application.
 
 AT+PROVSTOP – STOP BLE PROVISIONING
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2212,6 +2209,20 @@ AT+PROVSTOP – STOP BLE PROVISIONING
 | **Example**   | at+provstop                                       |
 +---------------+---------------------------------------------------+
 
+
+AT+WCONPROVND – Connect to WLAN Network via Provisioning
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++---------------+---------------------------------------------------+
+| **Command**   | at+wconprovnd=<timeout>                           |
++---------------+---------------------------------------------------+
+| **Response**  | Success: OK                                       |
+|               | Failure: ERROR                                    |
++---------------+---------------------------------------------------+
+| **Parameters**| Timeout: Timeout for association in seconds       |
++---------------+---------------------------------------------------+
+| **Example**   | at+wconprovnd=2                                   |
++---------------+---------------------------------------------------+
 
 AT+BTTXPOWSET – Set BLE TX Power 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -5,12 +5,12 @@ Connect the EVB to the PC using the Micro USB cable provided.
 
 In case of a virtual machine, transfer port access rights to the Ubuntu
 virtual machine. From the virtual machine menu select Devices –> USB ->
-FTDI InnoPhase T2 Evaluation Board [0800] as shown in Figure 7.
+FTDI InnoPhase T2 Evaluation Board [0800] as shown in Figure 1.
 
-|A screenshot of a computer Description automatically generated|
+|image33|
 
-Figure 7: Transferring port access rights to Ubuntu virtual machine
+Figure 1: Transferring port access rights to Ubuntu virtual machine
 
-.. |A screenshot of a computer Description automatically generated| image:: media/image1.png
+.. |image33| image:: media/image33.png
    :width: 7.48031in
    :height: 6.77973in

@@ -32,7 +32,7 @@ Talaria TWO works by communicating with a host application through a series of m
 MCU-based (Hosted MCU):
 ~~~~~~~~~~
 •	Available as part of the ST and LPS release packages.
-        The release package for ST (MCU from STM) is available on the website. Contact InnoPhase for the LPS solution (Low Power Sensor – MCU from Nuvoton). These packages contain the required libraries and examples that run on the host MCU and communicate with Talaria TWO.
+        The release package for ST (MCU from STM) is available on the website. Contact InnoPhase IoT for the LPS solution (Low Power Sensor – MCU from Nuvoton). These packages contain the required libraries and examples that run on the host MCU and communicate with Talaria TWO.
 •	MCU serves as the master and sends commands to Talaria TWO to perform any of the following operations: Wi-Fi, BLE, Socket, FoTA, Provisioning and so on).
 •	Talaria TWO provides all Wi-Fi, BLE, Socket, MQTT/HTTP, TLS, FoTA, Provisioning.
 •	Supported interfaces:

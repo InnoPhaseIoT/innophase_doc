@@ -1,3 +1,5 @@
+.. _eclipse setup prerequisites:
+
 Prerequisites 
 ==============
 

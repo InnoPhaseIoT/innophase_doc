@@ -1,3 +1,5 @@
+.. _env setup for linux - software installation:
+
 Software Installation
 =====================
 
@@ -114,10 +116,10 @@ Figure 10: Virtual machine memory allocation
    VirtualBox VM folder that has been created. Open a Windows Explorer
    window, type the following into the address bar, and press Enter
 
-+-----------------------------------------------------------------------+
-| %HOMEPATH%\\VirtualBox VMs\\64bit\\Ubuntu 20.04 (64bit)               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      %HOMEPATH%\VirtualBox VMs\64bit\Ubuntu 20.04 (64bit)
+
 
 **Note:** %HOMEPATH% is the path of the newly created VDI path of D
 drive.
@@ -240,13 +242,11 @@ In any terminal window, execute the following commands, enter the
 password which was used for the creation in section: *Setting up the
 Virtual Machine*, point 12.
 
-+-----------------------------------------------------------------------+
-| sudo apt update                                                       |
-|                                                                       |
-| sudo apt install build-essential libc6-armel-cross                    |
-| libc6-dev-armel-cross binutils-arm-linux-gnueabi libncurses5-dev -y   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      sudo apt update
+      sudo apt install build-essential libc6-armel-cross libc6-dev-armel-cross binutils-arm-linux-gnueabi libncurses5-dev -y
+
 
 Downloading the ARM Toolchain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -254,28 +254,26 @@ Downloading the ARM Toolchain
 1. From within a directory of your choice, execute the following command
    in a terminal window to download the ARM toolchain archive
 
-+-----------------------------------------------------------------------+
-| wget                                                                  |
-| *https://developer.arm.com/-/media/Files/downloads/gnu                |
-| -rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2* |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2
+
 
 2. Execute the following command to extract the toolchain from the
    archive
 
-+-----------------------------------------------------------------------+
-| tar xvf *gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2*         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      tar xvf *gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2* 
+
 
 3. Execute the following command to move the toolchain to the common usr
    folder, enter the password as prompted
 
-+-----------------------------------------------------------------------+
-| sudo mv *gcc-arm-none-eabi-10.3-2021.10* /usr/                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      sudo mv *gcc-arm-none-eabi-10.3-2021.10* /usr/   
+
 
 **Note**: The following two steps (step 4and 5) and should be followed
 **only** while using a virtual machine and **must be skipped** while
@@ -283,13 +281,11 @@ using the standalone OS.
 
 4. Execute the following commands to set up the toolchain path
 
-+-----------------------------------------------------------------------+
-| echo >> ~/.profile                                                    |
-|                                                                       |
-| echo 'export PATH=/usr/ gcc-arm-none-eabi-10.3-2021.10/bin:$PATH' >>  |
-| ~/.profile                                                            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      echo >> ~/.profile
+      echo 'export PATH=/usr/ gcc-arm-none-eabi-10.3-2021.10/bin:$PATH' >> ~/.profile
+
 
 5. Reboot the virtual machine so that the changes to PATH are applied
 
@@ -300,14 +296,12 @@ In any terminal window, execute the following commands to install
 Python3 and other Python packages that will be needed. Enter the
 password as prompted
 
-+-----------------------------------------------------------------------+
-| sudo apt install python3 -y                                           |
-|                                                                       |
-| sudo apt install python3-pip -y                                       |
-|                                                                       |
-| pip3 install pyelftools pyserial pyusb pyftdi ecdsa pycryptodome      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      sudo apt install python3 -y
+      sudo apt install python3-pip -y
+      pip3 install pyelftools pyserial pyusb pyftdi ecdsa pycryptodome
+
 
 Installing OpenOCD
 ~~~~~~~~~~~~~~~~~~
@@ -315,10 +309,10 @@ Installing OpenOCD
 In any terminal window, execute the following command to install
 OpenOCD. Enter the password as prompted
 
-+-----------------------------------------------------------------------+
-| sudo apt install openocd -y                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      sudo apt install openocd -y
+
 
 Downloading and Compiling the InnoPhase SDK
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -330,14 +324,12 @@ Download the SDK zip file in the Ubuntu virtual machine. Open a terminal
 in the directory in which you downloaded the SDK and execute the
 following commands:
 
-+-----------------------------------------------------------------------+
-| unzip sdk<version>.zip (Example: unzip sdk_2.3.zip)                   |
-|                                                                       |
-| cd sdk/apps/                                                          |
-|                                                                       |
-| make                                                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      unzip sdk<version>.zip (Example: unzip sdk_2.3.zip)
+      cd sdk/apps/
+      make
+
 
 This will create an ELF file for each of the applications shared with
 the SDK.
@@ -349,12 +341,11 @@ This step ensures that the file permissions for the Python scripts in
 the SDK are set to allow for execution. To accomplish this, open a
 terminal in the SDK directory and execute the following command:
 
-+-----------------------------------------------------------------------+
-| cd ..                                                                 |
-|                                                                       |
-| chmod -R u+x ./script/\*.py                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      cd ..
+      chmod -R u+x ./script/*.py
+
 
 Connecting the EVK board
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -374,10 +365,10 @@ Connecting the EVK board
 2. In any terminal window, execute the following commands to ensure
    Ubuntu recognizes the EVK board
 
-+-----------------------------------------------------------------------+
-| lsusb                                                                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      lsusb  
+
 
 The following USB device should be listed in the output:
 
@@ -388,10 +379,10 @@ Figure 21: Verifying that Ubuntu recognizes the EVK board
 To ensure atleast four USB serial devices are listed, execute the
 following command:
 
-+-----------------------------------------------------------------------+
-| ls /dev/ttyUSB\*                                                      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      ls /dev/ttyUSB\*     
+
 
 At least four USB serial devices should be listed:
 
@@ -409,12 +400,12 @@ Opening the Console
 In any terminal window, execute the following command to open a CONSOLE
 to Talaria TWO
 
-+-----------------------------------------------------------------------+
-| sudo apt install python3-serial                                       |
-|                                                                       |
-| miniterm /dev/ttyUSB3 2457600                                         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      sudo apt install python3-serial
+      miniterm /dev/ttyUSB3 2457600
+
+
 
 The connection should be established without errors.
 
@@ -438,11 +429,11 @@ section: *Installing Guest Additions*.
 
 **Load the flash helper**:
 
-+-----------------------------------------------------------------------+
-| ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl               |
-| ./apps/gordon/bin/gordon.elf                                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl ./apps/gordon/bin/gordon.elf
+
+
 
 Expected output:
 
@@ -452,10 +443,10 @@ Figure 24: Load the flash helper
 
 **Invalidate the boot image**:
 
-+-----------------------------------------------------------------------+
-| dd if=/dev/zero of=./empty.img bs=1K count=1                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      dd if=/dev/zero of=./empty.img bs=1K count=1 
+
 
 Expected output:
 
@@ -465,10 +456,10 @@ Figure 25: Invalidate the boot image
 
 **Clear the flash**:
 
-+-----------------------------------------------------------------------+
-| ./script/flash.py --device /dev/ttyUSB2 write 0x1000 ./empty.img      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      ./script/flash.py --device /dev/ttyUSB2 write 0x1000 ./empty.img  
+
 
 Expected output:
 
@@ -478,11 +469,10 @@ Figure 26: Clear flash
 
 **Program the application**:
 
-+-----------------------------------------------------------------------+
-| ./script/boot.py --device /dev/ttyUSB2 --reset=evk42                  |
-| binaries/product/at/bin/t2_atcmds.elf hio.transport=0                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      ./script/boot.py --device /dev/ttyUSB2 --reset=evk42 binaries/product/at/bin/t2_atcmds.elf hio.transport=0
+
 
 Expected output:
 
@@ -520,10 +510,10 @@ Console output:
 2. From within your terminal window, start the host side script to
    interact with Talaria TWO by executing the following command:
 
-+-----------------------------------------------------------------------+
-| ./script/talaria_cli.py /dev/ttyUSB2                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      ./script/talaria_cli.py /dev/ttyUSB2 
+
 
 3. You will be presented with a list of commands and a dropped into a
    CLI prompt. Type create and press Enter.

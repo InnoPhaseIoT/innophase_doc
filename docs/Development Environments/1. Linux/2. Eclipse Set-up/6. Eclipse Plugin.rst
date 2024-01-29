@@ -1,3 +1,5 @@
+.. _eclipse setup eclipse plugin:
+
 Eclipse Plugin: InnoPhase IoT Software Development Tool for Application Development
 ===================================================================================
 

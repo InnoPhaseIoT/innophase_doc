@@ -1,3 +1,5 @@
+.. _eclipse setup windows - eclipse ide installation:
+
 Windows – Eclipse IDE Installation
 ==================================
 
@@ -7,19 +9,18 @@ Windows – Eclipse IDE Installation
 
 ..
 
-   |Graphical user interface, text, application Description
-   automatically generated|
+|image11|
 
-Figure 11: Selecting the Eclipse IDE for Embedded C/C++ developers
+Figure 1: Selecting the Eclipse IDE for Embedded C/C++ developers
 
 2. Clicking on Eclipse IDE for Embedded C/C++ developers redirects to
    the installation window.
 
 ..
 
-   |Eclipse Installer|
+|image12|
 
-Figure 12: Installation of Eclipse IDE for Embedded C/C++ developers
+Figure 2: Installation of Eclipse IDE for Embedded C/C++ developers
 
 3. The installer takes the default JDK path of the user’s machine as
    Eclipse uses externally installed JDKs to run itself. Select the
@@ -27,20 +28,19 @@ Figure 12: Installation of Eclipse IDE for Embedded C/C++ developers
 
 ..
 
-   |Graphical user interface, application, Teams Description
-   automatically generated|
+|image13|
 
-Figure 13: Eclipse IDE for Embedded C/C++ developers launch window
+Figure 3: Eclipse IDE for Embedded C/C++ developers launch window
 
 4. After completing the installation, the Eclipse installer prompts for
    permission to launch. Click on LAUNCH.
 
-.. |Graphical user interface, text, application Description automatically generated| image:: media/image1.png
+.. |image11| image:: media/image11.png
    :width: 3.93681in
    :height: 3.00486in
-.. |Eclipse Installer| image:: media/image2.png
+.. |image12| image:: media/image12.png
    :width: 3.93681in
    :height: 3.2125in
-.. |Graphical user interface, application, Teams Description automatically generated| image:: media/image3.png
+.. |imaeg13| image:: media/image13.png
    :width: 3.93681in
    :height: 3.03125in

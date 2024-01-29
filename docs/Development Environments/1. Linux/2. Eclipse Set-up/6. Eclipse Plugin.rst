@@ -11,13 +11,34 @@ Eclipse IDE.
 more than one device is connected, the plugin might not function as
 expected.
 
-2. Steps for manually developing the application are available in
-section: *Application Development - Manual Procedure*.
+2. The plugin validates the existing partition table in the device, for the following conditions: 
+
+.. list-table:: Partition table
+   :widths: 25 25 25
+   :header-rows: 1
+
+   * - Partition Name
+     - Sector Start
+     - Sector Count
+   * - Boot
+     - 1
+     - 63
+   * - VIRT
+     - 64
+     - >=65
+   * - SYSFS
+     - 496
+     - 16
+
+   In case of an issue with the partition table, the same is indicated by a pop-up error message. The user will have to manually correct the partition table accordingly. 
+
+3. Steps for manually developing the application are available in section: Application Development - Manual Procedure.
+
 
 InnoPhase IoT Software Development Tool Installation
 ----------------------------------------------------
 
-Install plugin InnoPhase IoT Software Development Tool onto Eclipse
+Install plugin *InnoPhase IoT Software Development Tool* onto Eclipse
 using following steps:
 
 1. Help -> Install New Software

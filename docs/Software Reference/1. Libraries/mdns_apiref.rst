@@ -1,7 +1,10 @@
 .. _mdns apiref:
 
-mDNS API Reference
-##################
+
+M-DNS
+#####
+
+**mDNS API Reference**
 
 mDNS is a protocol that provides DNS like facility to advertise and
 discover services in a local area network. The mDNS based service

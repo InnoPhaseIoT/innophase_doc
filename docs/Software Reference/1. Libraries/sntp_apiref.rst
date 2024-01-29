@@ -1,7 +1,10 @@
 .. _sntp apiref:
 
-SNTP API Reference
-##################
+SNTP APIRef
+====
+
+**SNTP API Reference**
+
 
 This section describes the minimal implementation of SNTPv4 as specified
 in RFC 4330. It is simple "SNTP" client for the lwIP raw API.
@@ -44,8 +47,8 @@ Header file/s
 Data Structure Definitions 
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-sntp_msg 
-~~~~~~~~~~~~~~~~~~~~~~~~~
+**sntp_msg**
+
 
 Defines SNTP, which is a protocol for synchronizing clocks across a WAN
 or LAN through a specific formatted message.
@@ -54,34 +57,34 @@ The SNTP data structure is as follows:
 
 .. table:: Table 1: sntp_msg - Data structure definitions
 
-   +-----------------------------------------------------------------------+
-   | struct sntp_msg {                                                     |
-   |                                                                       |
-   | PACK_STRUCT_FLD_8(u8_t li_vn_mode);                                   |
-   |                                                                       |
-   | PACK_STRUCT_FLD_8(u8_t stratum);                                      |
-   |                                                                       |
-   | PACK_STRUCT_FLD_8(u8_t poll);                                         |
-   |                                                                       |
-   | PACK_STRUCT_FLD_8(u8_t precision);                                    |
-   |                                                                       |
-   | PACK_STRUCT_FIELD(u32_t root_delay);                                  |
-   |                                                                       |
-   | PACK_STRUCT_FIELD(u32_t root_dispersion);                             |
-   |                                                                       |
-   | PACK_STRUCT_FIELD(u32_t reference_identifier);                        |
-   |                                                                       |
-   | PACK_STRUCT_FIELD(u32_t reference_timestamp[2]);                      |
-   |                                                                       |
-   | PACK_STRUCT_FIELD(u32_t originate_timestamp[2]);                      |
-   |                                                                       |
-   | PACK_STRUCT_FIELD(u32_t receive_timestamp[2]);                        |
-   |                                                                       |
-   | PACK_STRUCT_FIELD(u32_t transmit_timestamp[2]);                       |
-   |                                                                       |
-   | } PACK_STRUCT_STRUCT;                                                 |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+.. code-block:: shell
+
+
+    struct sntp_msg {
+
+    PACK_STRUCT_FLD_8(u8_t li_vn_mode);
+
+    PACK_STRUCT_FLD_8(u8_t stratum);
+
+    PACK_STRUCT_FLD_8(u8_t poll);
+
+    PACK_STRUCT_FLD_8(u8_t precision);
+
+    PACK_STRUCT_FIELD(u32_t root_delay);
+
+    PACK_STRUCT_FIELD(u32_t root_dispersion);
+
+    PACK_STRUCT_FIELD(u32_t reference_identifier);
+
+    PACK_STRUCT_FIELD(u32_t reference_timestamp[2]);
+
+    PACK_STRUCT_FIELD(u32_t originate_timestamp[2]);
+
+    PACK_STRUCT_FIELD(u32_t receive_timestamp[2]);
+
+    PACK_STRUCT_FIELD(u32_t transmit_timestamp[2]);
+
+    } PACK_STRUCT_STRUCT;
 
 where,
 
@@ -125,366 +128,335 @@ where,
    | smit_timestamp** |                                                   |
    +------------------+---------------------------------------------------+
 
-API Reference
-~~~~~~~~~~~~~~~~~~~~~~~~~
+**API Reference**
 
-sntp_init()
-~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Overview
-~~~~~~~~
+**sntp_init()**
+
+**Overview**
 
 This API initializes the SNTP of the Talaria TWO module. Sends out a
 request instantly or after sntp_startup_delay(func).
 
-Definition
-~~~~~~~~~~
+**Definition**
 
-.. table:: Table 3: sntp_servermode_dhcp - parameter description
 
-   +-----------------------------------------------------------------------+
-   | void sntp_init (void)                                                 |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+.. code-block:: shell
 
-Parameters
-~~~~~~~~~~
+    void sntp_init (void)
+
+**Parameters**
 
 None.
 
-Return
-~~~~~~
+**Return**
 
 None.
 
-sntp_stop()
-~~~~~~~~~~~~~~~~~~~~~~~~~
+**sntp_stop()**
 
 .. _overview-1:
 
-Overview 
-~~~~~~~~~
+**Overview**
 
 This function stops the Talaria TWO module.
 
 .. _definition-1:
 
-Definition
-~~~~~~~~~~
+**Definition**
 
-.. table:: Table 4: sntp_setserver - parameter description
+.. code-block:: shell
 
-   +-----------------------------------------------------------------------+
-   | void sntp_stop (void)                                                 |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+    void sntp_stop (void)
+
 
 .. _parameters-1:
 
-Parameters
-~~~~~~~~~~
+**Parameters**
 
 None.
 
 .. _return-1:
 
-Return 
-~~~~~~~
+**Return**
 
 None.
 
-sntp_setoperatingmode()
-~~~~~~~~~~~~~~~~~~~~~~~~~
+**sntp_setoperatingmode()**
+
 
 .. _overview-2:
 
-Overview 
-~~~~~~~~~
+**Overview**
+
 
 Sets the operating mode of the Talaria TWO module.
 
 .. _definition-2:
 
-Definition 
-~~~~~~~~~~~
+**Definition**
 
-.. table:: Table 5: sntp_getservername - parameter description
+.. code-block:: Shell
 
-   +-----------------------------------------------------------------------+
-   | void sntp_setoperatingmode ( u8_t operating_mode)                     |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+    void sntp_setoperatingmode ( u8_t operating_mode)
 
 .. _parameters-2:
 
-Parameters
-~~~~~~~~~~
+**Parameters**
 
 .. table:: Table 6: sntp_retry - parameter description
 
    +---------------------+------------------------------------------------+
    | **Parameter**       | **Description**                                |
    +=====================+================================================+
-   | *u8_t               | One of the available operating modes.          |
-   | operating_mode*     |                                                |
+   | *u8_toperating_mode*| One of the available operating modes.          |
    +---------------------+------------------------------------------------+
 
 .. _return-2:
 
-Return
-~~~~~~
+**Return**
 
 None.
 
-sntp_servermode_dhcp()
-~~~~~~~~~~~~~~~~~~~~~~~~~
+**sntp_servermode_dhcp()**
+
 
 .. _overview-3:
 
-Overview
-~~~~~~~~
+**Overview**
+
 
 This function configures the SNTP with IP address, name of Talaria TWO
 Module or DHCP.
 
 .. _definition-3:
 
-Definition 
-~~~~~~~~~~~
+**Definition**
 
-.. table:: Table 7: sntp_try_next_server - parameter description
 
-   +-----------------------------------------------------------------------+
-   | void sntp_servermode_dhcp(int set_servers_from_dhcp)                  |
-   +=======================================================================+
-   +-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    void sntp_servermode_dhcp(int set_servers_from_dhcp)
 
 .. _parameters-3:
 
-Parameters
-~~~~~~~~~~
+**Parameters**
+
 
 .. table:: Table 8: sntp_request - parameter description
 
-   +--------------------+-------------------------------------------------+
-   | **Parameters**     | **Description**                                 |
-   +====================+=================================================+
-   | *set_              | Enable or disable procuring server addresses    |
-   | servers_from_dhcp* | from DHCP.                                      |
-   +--------------------+-------------------------------------------------+
+   +-------------------------+-------------------------------------------------+
+   | **Parameters**          | **Description**                                 |
+   +=========================+=================================================+
+   | *set_servers_from_dhcp* | Enable or disable procuring server addresses    |
+   |                         | from DHCP.                                      |
+   +-------------------------+-------------------------------------------------+
 
 .. _return-3:
 
-Return
-~~~~~~
+**Return**
+
 
 None.
 
-sntp_setservername
-~~~~~~~~~~~~~~~~~~~~~~~~~
+**sntp_setservername**
+
 
 .. _overview-4:
 
-Overview
-~~~~~~~~
+**Overview**
+
 
 This function initializes one of the NTP servers via the IP address of
 the Talaria TWO module.
 
 .. _definition-4:
 
-Definition 
-~~~~~~~~~~~
+**Definition**
 
-+-----------------------------------------------------------------------+
-| void sntp_setservername(u8_t idx, char \*server)                      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    void sntp_setservername(u8_t idx, char \*server)
+
 
 .. _parameters-4:
 
-Parameters
-~~~~~~~~~~
+**Parameters**
 
-+-------------+--------------------------------------------------------+
-| **          | **Description**                                        |
-| Parameter** |                                                        |
-+=============+========================================================+
-| *idx*       | Index of the NTP server. Its value must be less than   |
-|             | SNTP_MAX_SERVERS.                                      |
-+-------------+--------------------------------------------------------+
-| *server*    | DNS name of the NTP server to set, to be resolved at   |
-|             | contact time                                           |
-+-------------+--------------------------------------------------------+
++---------------+--------------------------------------------------------+
+| **Parameter** | **Description**                                        |
++===============+========================================================+
+| *idx*         | Index of the NTP server. Its value must be less than   |
+|               | SNTP_MAX_SERVERS.                                      |
++---------------+--------------------------------------------------------+
+| *server*      | DNS name of the NTP server to set, to be resolved at   |
+|               | contact time                                           |
++---------------+--------------------------------------------------------+
 
 .. _return-4:
 
-Return
-~~~~~~
+**Return**
+
 
 None.
 
-sntp_getservername
-~~~~~~~~~~~~~~~~~~~~~~~~~
+**sntp_getservername**
+
 
 .. _overview-5:
 
-Overview
-~~~~~~~~
+**Overview**
+
 
 This function obtains one of the currently configured NTP servers by IP
 address.
 
 .. _definition-5:
 
-Definition 
-~~~~~~~~~~~
+**Definition**
 
-+-----------------------------------------------------------------------+
-| char \* sntp_getservername(u8_t idx)                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+
+..  code-block:: shell
+
+    char * sntp_getservername(u8_t idx)
+
 
 .. _parameters-5:
 
-Parameters
-~~~~~~~~~~
+**Parameters**
 
-+------------+---------------------------------------------------------+
-| **P        | **Description**                                         |
-| arameter** |                                                         |
-+============+=========================================================+
-| *idx*      | Index of the NTP server.                                |
-+------------+---------------------------------------------------------+
+
++---------------+---------------------------------------------------------+
+| **Parameter** | **Description**                                         |
++===============+=========================================================+
+| *idx*         | Index of the NTP server.                                |
++---------------+---------------------------------------------------------+
 
 .. _return-5:
 
-Return
-~~~~~~
+**Return**
+
 
 Success: IP address of the indexed NTP server.
 
 Error: NULL. NTP server has not been configured by name (or at all).
 
-sntp_retry
-~~~~~~~~~~~~~~~~~~~~~~~~~
+**sntp_retry**
+
 
 .. _overview-6:
 
-Overview
-~~~~~~~~
+**Overview**
+
 
 This function sends a new request with increased retry timeout.
 
 .. _definition-6:
 
-Definition 
-~~~~~~~~~~~
+**Definition**
 
-+-----------------------------------------------------------------------+
-| static void sntp_retry(void\* arg)                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+
+.. code-block:: shell
+
+    static void sntp_retry(void\* arg)
+
 
 .. _parameters-6:
 
-Parameters
-~~~~~~~~~~
+**Parameters**
 
-+-------------+--------------------------------------------------------+
-| **          | **Description**                                        |
-| Parameter** |                                                        |
-+=============+========================================================+
-| *arg*       | Unused (only necessary to conform to sys_timeout).     |
-+-------------+--------------------------------------------------------+
+
++---------------+--------------------------------------------------------+
+| **Parameter** | **Description**                                        |
++===============+========================================================+
+| *arg*         | Unused (only necessary to conform to sys_timeout).     |
++---------------+--------------------------------------------------------+
 
 .. _return-6:
 
-Return
-~~~~~~
+**Return**
+
 
 None.
 
-sntp_try_next_server
-~~~~~~~~~~~~~~~~~~~~~~~~~
+**sntp_try_next_server**
+
 
 .. _overview-7:
 
-Overview
-~~~~~~~~
+**Overview**
+
 
 This function tries the next server or retries the current server with
 increased retry timeout.
 
 .. _definition-7:
 
-Definition 
-~~~~~~~~~~~
+**Definition**
 
-+-----------------------------------------------------------------------+
-| static void sntp_try_next_server(void\* arg)                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+
+.. code-block:: shell
+
+    static void sntp_try_next_server(void\* arg)
+
 
 .. _parameters-7:
 
-Parameters
-~~~~~~~~~~
+**Parameters**
 
-+--------------+-------------------------------------------------------+
-| *            | **Description**                                       |
-| *Parameter** |                                                       |
-+==============+=======================================================+
-| *arg*        | Unused (only necessary to conform to sys_timeout).    |
-+--------------+-------------------------------------------------------+
+
++---------------+-------------------------------------------------------+
+| **Parameter** | **Description**                                       |
++===============+=======================================================+
+| *arg*         | Unused (only necessary to conform to sys_timeout).    |
++---------------+-------------------------------------------------------+
 
 .. _return-7:
 
-Return
-~~~~~~
+**Return**
+
 
 None.
 
-sntp_request
-~~~~~~~~~~~~~~~~~~~~~~~~~
+**sntp_request**
+
 
 .. _overview-8:
 
-Overview
-~~~~~~~~
+**Overview**
+
 
 This function sends out an SNTP request to the server.
 
 .. _definition-8:
 
-Definition 
-~~~~~~~~~~~
+**Definition**
 
-+-----------------------------------------------------------------------+
-| static void sntp_request(void \*arg)                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+
+.. code-block:: shell
+
+    static void sntp_request(void \*arg)
+
 
 .. _parameters-8:
 
-Parameters
-~~~~~~~~~~
+**Parameters**
 
-+--------------+-------------------------------------------------------+
-| *            | **Description**                                       |
-| *Parameter** |                                                       |
-+==============+=======================================================+
-| *arg*        | Unused (only necessary to conform to sys_timeout).    |
-+--------------+-------------------------------------------------------+
+
++---------------+-------------------------------------------------------+
+| **Parameter** | **Description**                                       |
++===============+=======================================================+
+| *arg*         | Unused (only necessary to conform to sys_timeout).    |
++---------------+-------------------------------------------------------+
 
 .. _return-8:
 
-Return
-~~~~~~
+**Return**
+
 
 None.
 
-Example Application
-~~~~~~~~~~~~~~~~~~~~~~~~~
+**Example Application**
+
 
 For the example codes, refer: *component\\sntp_src.c* application.

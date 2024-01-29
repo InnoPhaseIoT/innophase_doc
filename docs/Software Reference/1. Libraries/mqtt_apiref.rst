@@ -1,7 +1,9 @@
 .. _mqtt apiref:
 
-MQTT API Reference
-##################
+MQTT APIRef
+##########
+
+**MQTT API Reference**
 
 MQTT is a messaging protocol based on publish-subscribe pattern. It
 works on top of the TCP/IP protocol and is used in IoT.

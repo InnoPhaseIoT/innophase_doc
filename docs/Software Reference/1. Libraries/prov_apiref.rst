@@ -1,7 +1,10 @@
 .. _prov apiref:
 
-Provisionining API Reference
-############################
+Provisionining APIRef
+==============
+
+**Provisionining API Reference**
+
 
 Provisioning component provides APIs and definitions to facilitate the
 provisioning service. Provisioning is done over BLE, and the

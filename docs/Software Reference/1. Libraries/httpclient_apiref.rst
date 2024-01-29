@@ -1,7 +1,10 @@
 .. _httpclient apiref:
 
-HTTPClient API Reference
-########################
+Http Client
+#######
+
+**HTTPClient API Reference**
+
 
 HTTP is a stateless application-level protocol used for data transfer.
 This section provides information about the HTTP Client APIs and data

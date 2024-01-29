@@ -1,7 +1,9 @@
-.. utils apiref:
+.. _utils apiref:
 
-Utils API Reference
-###################
+Utils APIRef
+=====
+
+**Utils API Reference**
 
 Utils API provide a variety of frequently used general purpose
 functionalities for the Talaria TWO platform.

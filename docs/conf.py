@@ -33,7 +33,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'InnoPhase'
-copyright = '2023 InnoPhase IoT, Inc. | All Rights Reserved | Proprietary & Confidential'
+copyright = '2024 InnoPhase IoT, Inc. | All Rights Reserved | Confidential'
 author = 'InnoPhase'
 release = '1.0.0'
 

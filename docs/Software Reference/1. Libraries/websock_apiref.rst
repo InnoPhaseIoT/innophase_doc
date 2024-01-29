@@ -1,7 +1,9 @@
-.. websock apiref:
+.. _websock apiref:
 
-WebSocket API Reference
-#######################
+WebSocket APIRef
+=========
+
+**WebSocket API Reference**
 
 This module implements the WebSocket client functionality. WebSocket is
 a communication protocol providing full duplex, asynchronous
@@ -25,7 +27,7 @@ implementation:
 3. Supports secured connection using SSL/TLS
 
 Header file/s
-======~~~~~~~~~~~~~~~~~~~~~~~~~=======
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Components/websocket/inc/websock.h.
 

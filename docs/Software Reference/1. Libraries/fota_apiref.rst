@@ -1,7 +1,10 @@
 .. _fota apiref:
 
-Firmware Over The Air API Reference
-###################################
+Foto APIRef
+=====
+
+**Firmware Over The Air API Reference**
+
 
 Firmware-Over-the-Air (FOTA) allows for wireless delivery of firmware
 updates and/or configurations to embedded devices.
@@ -86,7 +89,7 @@ Success: Pointer to FOTA handle.
 Error: NULL.
 
 fota_perform
-------------
+~~~~~~~~
 
 .. _overview-1:
 

@@ -1,7 +1,9 @@
 .. _sslwrap apiref:
 
-SSL/TLS API Reference
-#####################
+SSL/TLS
+=======
+
+**SSL/TLS API Reference**
 
 Talaria TWO uses mbed TLS library for the implementation of SSL/TLS.
 This component provides wrapper functions for the commonly used

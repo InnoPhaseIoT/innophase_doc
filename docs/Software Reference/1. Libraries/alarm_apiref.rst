@@ -1,13 +1,6 @@
 .. _alarm apiref:
 
-
-Talaria TWO Software
-===================
-
-Libraries
-------------------
-
-1. ALARM
+Alarm
 ```````
 
 **Alarm API Reference**
@@ -21,15 +14,10 @@ Features and Limitations
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Following are the salient features of the alarm implementation:
-
 1. Supports weekly and daily alarms
-
 2. Supports periodic and one short alarms.
-
 3. Provides functions to set system time.
-
 4. Alarm can be deleted.
-
 5. Automatically synchronize the alarm after changing system time.
 
 Following are the limitations:
@@ -41,11 +29,11 @@ Header file/s
 
 *Components/alarm/inc/alarm.h*.
 
-Data Structure Definitions 
+Data Structure Definitions
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-alarm_tm 
-~~~~~~~~~~~~~~~~~~~~~~~~~
+alarm_tm
+~~~~~~~~~
 
 Store the alarm date and time from user API.
 
@@ -66,7 +54,7 @@ Store the alarm date and time from user API.
    +--------------------+----------------------------------------------------------+
 
 alarm_info
-~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~
 Store alarm information. .
 
 .. table:: Table 2: alarm_info - Data structure definitions
@@ -103,7 +91,7 @@ Definition
 
 .. code:: c
 
-    void (\* alarm_callback)(uint32_t, void \*)
+    void (* alarm_callback)(uint32_t, void *)
 
 Parameters
 ~~~~~~~~~~
@@ -122,7 +110,7 @@ alarm_set
 
 .. _overview-1:
 
-Overview 
+Overview
 ~~~~~~~~~
 
 This function is used to set the alarm with given configuration.
@@ -168,7 +156,7 @@ Parameters
 
 .. _return-1:
 
-Return 
+Return
 ~~~~~~~
 
 Success: 0
@@ -190,14 +178,14 @@ alarm_set_time
 
 .. _overview-2:
 
-Overview 
+Overview
 ~~~~~~~~~
 
 Set system time.
 
 .. _definition-2:
 
-Definition 
+Definition
 ~~~~~~~~~~~
 
 .. code:: c
@@ -211,11 +199,13 @@ Definition
 Parameters
 ~~~~~~~~~~
 
-+----------------+------------------------------------------------------------+
-| **Parameter**  | **Description**                                            |
-+================+============================================================+
-| *time_tosett*  | Time to be set in seconds.                                 |
-+----------------+------------------------------------------------------------+
+.. table:: Table 4: alarm_set time - parameter description
+
+    +----------------+------------------------------------------------------------+
+    | **Parameter**  | **Description**                                            |
+    +================+============================================================+
+    | *time_tosett*  | Time to be set in seconds.                                 |
+    +----------------+------------------------------------------------------------+
 
 .. _return-2:
 
@@ -236,7 +226,7 @@ Delete the alarm.
 
 .. _definition-3:
 
-Definition 
+Definition
 ~~~~~~~~~~~
 
 .. code:: c
@@ -249,12 +239,13 @@ Definition
 
 Parameters
 ~~~~~~~~~~
+.. table:: Table 5: alarm_delete - parameter description
 
-+----------------+-----------------------------------------------------+
-| **Parameters** | **Description**                                     |
-+================+=====================================================+
-| *alarm_id*     | Alarm ID. This is obtained after setting the alarm. |
-+----------------+-----------------------------------------------------+
+    +----------------+-----------------------------------------------------+
+    | **Parameters** | **Description**                                     |
+    +================+=====================================================+
+    | *alarm_id*     | Alarm ID. This is obtained after setting the alarm. |
+    +----------------+-----------------------------------------------------+
 
 .. _return-3:
 
@@ -278,7 +269,7 @@ alarm with the alarm information.
 
 .. _definition-4:
 
-Definition 
+Definition
 ~~~~~~~~~~~
 
 .. code:: c
@@ -290,20 +281,22 @@ Definition
 Parameters
 ~~~~~~~~~~
 
-+----------------+-------------------------------------------------------------------------+
-| **Parameter**  | **Description**                                                         |
-+================+=========================================================================+
-| *cb*           | Call back to trigger alarm display. The definition for this callback is |
-|                | as follows:                                                             |
-|                |                                                                         |
-|                | .. code:: c                                                             |
-|                |                                                                         |
-|                |     typedef void (\* alarm_dsiplay_callback)(structalarm_infio \*ainfo) |
-|                |                                                                         |
-|                | where,                                                                  |
-|                |     - ainfo – pointer to alarm to alarm_info structure, which           |
-|                |     - contains the information for the current alarm.                   |
-+----------------+-------------------------------------------------------------------------+
+.. table:: Table 3: alarm_display - parameter description
+
+    +----------------+-------------------------------------------------------------------------+
+    | **Parameter**  | **Description**                                                         |
+    +================+=========================================================================+
+    | *cb*           | Call back to trigger alarm display. The definition for this callback is |
+    |                | as follows:                                                             |
+    |                |                                                                         |
+    |                | .. code:: c                                                             |
+    |                |                                                                         |
+    |                |     typedef void (\* alarm_dsiplay_callback)(structalarm_infio \*ainfo) |
+    |                |                                                                         |
+    |                | where,                                                                  |
+    |                |     - ainfo – pointer to alarm to alarm_info structure, which           |
+    |                |     - contains the information for the current alarm.                   |
+    +----------------+-------------------------------------------------------------------------+
 
 .. _return-4:
 
@@ -324,12 +317,12 @@ Get information about a specific alarm.
 
 .. _definition-5:
 
-Definition 
+Definition
 ~~~~~~~~~~~
 
 .. code:: c
 
-    struct alarm_info \* alarm_info_get(uint32_t alarm_id)
+    struct alarm_info * alarm_info_get(uint32_t alarm_id)
 
 .. _parameters-5:
 
@@ -355,76 +348,3 @@ Example Application
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For the example codes, refer: apps\\alarm\\alarm_test.c application.
-
-2. FOTO
-```````
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-
-   fota_apiref.rst
-
-3. HTTP
-```````
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-
-   httpclient_apiref.rst
-
-4. MDNS
-```````
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-
-   mdns_apiref.rst
-
-5. MQTT
-```````
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-
-   mqtt_apiref.rst
-
-6. PROV
-```````
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-
-   prov_apiref.rst
-
-7. SNTP
-```````
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-
-   sntp_apiref.rst
-
-
-8. SSL-WRAP
-```````
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-
-   sslwrap_apiref.rst
-
-9. UTILS
-```````
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-
-   utils_apiref.rst
-
-10. WebSocket
-```````
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-
-   websock_apiref.rst

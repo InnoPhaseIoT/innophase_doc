@@ -1,3 +1,5 @@
+.. _eclipse setup windows - eclipse ide installer:
+
 Windows - Eclipse IDE Installer
 ===============================
 
@@ -11,10 +13,10 @@ https://www.eclipse.org/downloads/packages/installer.
 Eclipse IDE Version: 2021-12 (4.22). However, Eclipse IDE Version of
 2023-06 (4.28) or lower can be installed..
 
-|image1|
+|image10|
 
-Figure 10: Windows-Eclipse IDE installer
+Figure 1: Windows-Eclipse IDE installer
 
-.. |image1| image:: media/image1.png
+.. |image10| image:: media/image10.png
    :width: 7.48031in
    :height: 4.03991in

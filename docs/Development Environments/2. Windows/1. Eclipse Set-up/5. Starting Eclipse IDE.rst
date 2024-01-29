@@ -1,12 +1,14 @@
+.. _eclipse setup windows starting eclipse ide:
+
 Starting Eclipse IDE
 ====================
 
 On starting Eclipse for the first time, the following pop-up window will
 appear.
 
-|Eclipse IDE Launcher|
+|image14|
 
-Figure 14: Workspace directory
+Figure 1: Workspace directory
 
 Select a workspace directory and click on Launch.
 
@@ -15,6 +17,6 @@ exclusively for the projects related to the GCC toolchain. The workspace
 selected should not have a path name that is excessively long, and it is
 best to avoid spaces in the path name.
 
-.. |Eclipse IDE Launcher| image:: media/image1.png
+.. |image14| image:: media/image14.png
    :width: 7.48031in
    :height: 3.91235in

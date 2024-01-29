@@ -1,3 +1,5 @@
+.. _eclipse setup application dev - manual procedure:
+
 Application Development - Manual Procedure
 ==========================================
 
@@ -106,10 +108,9 @@ Figure 8: Debugger config window
    **Note:** For SWD debugging, use the following configuration in
    Config options:
 
-+-----------------------------------------------------------------------+
-| -s C:/<PATH TO SDK>/sdk_x.y/conf -f ftdi_swd.cfg -f t2_swd.cfg        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      -s C:/<PATH TO SDK>/sdk_x.y/conf -f ftdi_swd.cfg -f t2_swd.cfg
 
 ..
 
@@ -131,11 +132,10 @@ Figure 10: Selecting the variable
    Using project_path variable, locate the gdb-multiarch for the GDB
    client setup. For example:
 
-+-----------------------------------------------------------------------+
-| /usr/bin/${ project_path: <location of apps directory in              |
-| sdk>}gdb-multiarch                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      /usr/bin/${ project_path: <location of apps directory in sdk>}gdb-multiarch
+
 
 5. Click Apply.
 

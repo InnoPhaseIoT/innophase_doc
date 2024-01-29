@@ -486,183 +486,141 @@ Download tool.
 Running the Application using Android or iOS App
 ------------------------------------------------
 
-1. Download and install the Android or iOS mobile application from the
-   play/app store using the following links:
-
-   a. **Android**:https://play.google.com/store/apps/details?id=com.innophase.provisioning&hl=en&gl=US
-
-   b. **iOS**:
-      https://apps.apple.com/in/app/ble-provisioning/id1627682345
-
-..
-
-|image145|
-
-Figure 2: Android mobile app in play store
-
-|image146|
-
-Figure 3: iOS mobile app in app store
-
-2. BLE Provisioning can be enabled via non-secure and secure BLE
-   connections. Following are the three supported methods:
-
-   a. Non-secure provisioning
-
-   b. Secure Provisioning – Just Work Method
-
-   c. Secure Provisioning – Passkey Method
-
+1. Download and install the Android or iOS mobile application - InnoPhase IoT Wi-Fi Provisioner from the play/app store. 
+2. BLE Provisioning can be enabled via non-secure and secure BLE connections. Following are the three supported methods:
+      a.	Non-secure provisioning
+      b.	Secure Provisioning – Just Work Method
+      c.	Secure Provisioning – Passkey Method
 3. Non-secure Provisioning
+   On flashing prov_app.elf onto Talaria TWO using the Download Tool, the following console logs are observed.
+   Talaria TWO console output: 
 
-..
+   .. code:: shell
 
-   On flashing prov_app.elf onto Talaria TWO using the Download Tool,
-   the following console logs are observed.
+         UART:SNWWWWAE
+         Build $Id: git-ff6dc2868 $
+         hio.baudrate=921600
+         flash: Gordon ready!
+         UART:SNWWWWAE
+         Build $Id: git-ff6dc2868 $
+         hio.baudrate=921600
+         flash: Gordon ready!
+         
+         Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+         ROM yoda-h0-rom-16-0-gd5a8e586
+         FLASH:PNWWWWWAEBuild $Id: git-4fdf5ac4f $
+         
+         
+         Application Information:
+         ------------------------
+         Name : Prov App
+         Version : 1.0
+         Build Date : May 23 2023
+         Build Time : 20:57:37
+         Heap Available: 319 KB (327064 Bytes)
+         
+         [APP]Bootparams :
+         --------------------
+         ssid= <null>
+         passphrase= <null>
+         secured_prov =0
+         pass_key=0
+         
+         [APP]Bootparams end here....
+         main:178. Adding new boot param
+         
+         [PROV]prov_is_provisioned : val = 0
+         [PROV] bt_gap_init
+         [PROV] common_server_create: Inno_Provisioning InnophaseInc 0
+         
+         [PROV] bt_gatt_create_service_128 ret = 0x000b8dc8
+         [PROV] Adding Characteristics
+         [PROV] bt_gatt_add_service
+         [PROV] bt_gap_discoverable_mode, ret = 0
+         prov_event_thread_entry
 
-   Talaria TWO console output:
-
-.. code:: shell
-
-      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
-      ROM yoda-h0-rom-16-0-gd5a8e586
-      FLASH:PWWWWWWAE
-      Build $Id: git-2eebd42 $
-      Flash detected. flash.hw.uuid: 39483937-3207-0080-0055-ffffffffffff
-      Bootargs: prov_every_time=1
-      
-      
-      Application Information:
-      ------------------------
-      Name       : Prov App
-      Version    : 1.0
-      Build Date : Sep  8 2023
-      Build Time : 13:58:53
-      Heap Available: 297 KB (304152 Bytes)
-      
-      [APP]Bootparams :
-      --------------------
-      ssid= <null>
-      passphrase= <null>
-      dummy= <null>
-      secured_prov =0
-      pass_key=0
-      prov_every_time=1
-      [APP]Bootparams end here....
-      
-      [PROV]prov_is_provisioned : val = 1
-      	[PROV] bt_gap_init
-      	[PROV] common_server_create: Inno_Provisioning InnophaseInc 0
-      
-      	[PROV] bt_gatt_create_service_128 ret = 0x000bf278
-      	[PROV] Adding Characteristics 
-      	[PROV] bt_gatt_add_service
-      	[PROV] bt_gap_discoverable_mode, ret = 0
-
-
-4. Secure Provisioning
-
-..
-
-   In case of secure BLE provisioning, flash the prov_app.elf onto
-   Talaria TWO with the following boot arguments as applicable:
-
-a. Just Work Method: secured_prov=1,pass_key=0, or
-
-b. Passkey Method: secured_prov=1,pass_key=1
-
-..
-
+4.	Secure Provisioning
+   In case of secure BLE provisioning, flash the prov_app.elf onto Talaria TWO with the following boot arguments as applicable:
+      a.	Just Work Method: secured_prov=1,pass_key=0, or
+      b.	Passkey Method: secured_prov=1,pass_key=1
    Console output:
+   secured_prov=1, pass_key=0
 
-   **secured_prov=1, pass_key=0**
-
-.. code:: shell
+   .. code:: shell
 
       Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
       ROM yoda-h0-rom-16-0-gd5a8e586
-      FLASH:PWWWWWWAE
-      Build $Id: git-2eebd42 $
-      Flash detected. flash.hw.uuid: 39483937-3207-0080-0055-ffffffffffff
-      Bootargs: prov_every_time=1 secured_prov=1
+      FLASH:PNWWWWWWAEBuild $Id: git-a042e9a42 $
+      secured_prov=1 pass_key=0
       
       Application Information:
       ------------------------
       Name       : Prov App
       Version    : 1.0
-      Build Date : Sep  8 2023
-      Build Time : 13:58:53
-      Heap Available: 297 KB (304152 Bytes)
+      Build Date : Apr 24 2023
+      Build Time : 20:57:23
+      Heap Available: 323 KB (331672 Bytes)
       
       [APP]Bootparams :
       --------------------
       ssid= <null>
       passphrase= <null>
-      dummy= <null>
       secured_prov =1
       pass_key=0
-      prov_every_time=1
-      [APP]Bootparams end here....
       
-      [PROV]prov_is_provisioned : val = 1
+      [APP]Bootparams end here....
+      [PROV]prov_is_provisioned : val = 0
       	[PROV] bt_gap_init
       	[PROV] common_server_create: Inno_Provisioning InnophaseInc 1
       
-      	[PROV] bt_gatt_create_service_128 ret = 0x000bf278
+      	[PROV] bt_gatt_create_service_128 ret = 0x000b6568
       	[PROV] Adding Characteristics 
       	[PROV] bt_gatt_add_service
       	[PROV] bt_gap_discoverable_mode, ret = 0
 
+   secured_prov=1,pass_key=1
 
-..
-
-   **secured_prov=1,pass_key=1**
-
-.. code:: shell
+   .. code:: shell
 
       Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
       ROM yoda-h0-rom-16-0-gd5a8e586
-      FLASH:PWWWWWWAE
-      Build $Id: git-2eebd42 $
-      Flash detected. flash.hw.uuid: 39483937-3207-0080-0055-ffffffffffff
-      Bootargs: prov_every_time=1 secured_prov=1 pass_key=1
+      FLASH:PNWWWWWWAEBuild $Id: git-a042e9a42 $
+      secured_prov=1 pass_key=1
       
       Application Information:
       ------------------------
       Name       : Prov App
       Version    : 1.0
-      Build Date : Sep  8 2023
-      Build Time : 13:58:53
-      Heap Available: 297 KB (304152 Bytes)
+      Build Date : Apr 24 2023
+      Build Time : 20:57:23
+      Heap Available: 323 KB (331672 Bytes)
       
       [APP]Bootparams :
       --------------------
       ssid= <null>
       passphrase= <null>
-      dummy= <null>
       secured_prov =1
       pass_key=1
-      prov_every_time=1
-      [APP]Bootparams end here....
       
-      [PROV]prov_is_provisioned : val = 1
+      [APP]Bootparams end here....
+      [PROV]prov_is_provisioned : val = 0
       	[PROV] bt_gap_init
       	[PROV] common_server_create: Inno_Provisioning InnophaseInc 1
       
-      	[PROV] bt_gatt_create_service_128 ret = 0x000bf278
+      	[PROV] bt_gatt_create_service_128 ret = 0x000b6568
       	[PROV] Adding Characteristics 
       	[PROV] bt_gatt_add_service
       	[PROV] bt_gap_discoverable_mode, ret = 0
 
 
 5. Launch the downloaded BLE Provisioning mobile app. App icon and UI
-   are as shown in Figure 4.
+   are as shown in Figure 2.
 
 ..
 
 |image147|
 
-Figure 4: BLE Provisioning home screen
+Figure 2: BLE Provisioning home screen
 
 6. To check the version of the Talaria TWO Provisioning App and other
    related details, user can click and open the About Us option.
@@ -671,10 +629,10 @@ Figure 4: BLE Provisioning home screen
 
 |image148|
 
-Figure 5: About Us
+Figure 3: About Us
 
 Talaria TWO Provisioning Mobile App version is displayed as shown in
-Figure 6. Version varies for each release.
+Figure 4. Version varies for each release.
 
 User has the following two options via which they can contact the
 InnoPhase support team.
@@ -685,13 +643,13 @@ InnoPhase support team.
 
 |image149|
 
-Figure 6: About Us - App version and other related details
+Figure 4: About Us - App version and other related details
 
 7. Click on BLE Scan if there are no services listed.
 
 |image150|
 
-Figure 7: BLE Scan
+Figure 5: BLE Scan
 
 8. If the user needs to scan for unknown devices, then the highlighted
    toggle switch should be enabled.
@@ -700,13 +658,13 @@ Figure 7: BLE Scan
 
 |image151|
 
-Figure 8: Show/List ‘Unknown’ devices
+Figure 6: Show/List ‘Unknown’ devices
 
 9. Click on the Inno_Provisioning service.
 
 |image152|
 
-Figure 9: Starting Inno_Provisioning
+Figure 7: Starting Inno_Provisioning
 
 Console output: **non-secured**
 
@@ -833,7 +791,7 @@ a. secured_prov=1,pass_key=0
 
 |image153|
 
-Figure 10: Pairing - open networks
+Figure 8: Pairing - open networks
 
 b. secured_prov=1,pass_key=1
 
@@ -844,11 +802,11 @@ b. secured_prov=1,pass_key=1
 
   |image154|
 
-Figure 11: passkey (PIN) from the console log
+Figure 9: passkey (PIN) from the console log
 
 |image155|
 
-Figure 12: Pairing - with pass_key
+Figure 10: Pairing - with pass_key
 
    Once the pairing is complete, the screen with a list of available APs
    in the vicinity opens.
@@ -860,7 +818,7 @@ Figure 12: Pairing - with pass_key
 
 |image156|
 
-Figure 13: Selecting the appropriate AP from the list
+Figure 11: Selecting the appropriate AP from the list
 
 12. Provide the passphrase for the secured AP and click on Submit. User
     can use the hide or show option to check the passphrase entered.
@@ -872,7 +830,7 @@ Figure 13: Selecting the appropriate AP from the list
 
 |image157|
 
-Figure 14: Connecting to InnoPhase_AE network by providing passphrase
+Figure 12: Connecting to InnoPhase_AE network by providing passphrase
 
 13. On successfully connecting to the AP, the following output is
     observed:
@@ -881,7 +839,7 @@ Figure 14: Connecting to InnoPhase_AE network by providing passphrase
 
 |image158|
 
-Figure 15: Successfully connected to InnoPhase network
+Figure 13: Successfully connected to InnoPhase network
 
 Console output:
 
@@ -1502,13 +1460,13 @@ procedure described in section 7.1.
 
 ..
 
-   As shown in Figure 16, if the password length is less than 8
+   As shown in Figure 14, if the password length is less than 8
    characters, an error message pops-up with the following message:
    Passphrase should be >= 8 characters or EMPTY for open security.
 
 |image159|
 
-Figure 16: Incorrect or minimum length or open security password
+Figure 14: Incorrect or minimum length or open security password
 
 2. Wrong password:
 
@@ -1522,15 +1480,9 @@ Figure 16: Incorrect or minimum length or open security password
 
 |image160|
 
-Figure 17: Alert message in case of a wrong passphrase
+Figure 15: Alert message in case of a wrong passphrase
 
 .. |image144| image:: media/image144.png
-   :width: 2.75591in
-   :height: 5.94634in
-.. |image145| image:: media/image145.png
-   :width: 2.75591in
-   :height: 5.94634in
-.. |image146| image:: media/image146.png
    :width: 2.75591in
    :height: 5.94634in
 .. |image147| image:: media/image147.png

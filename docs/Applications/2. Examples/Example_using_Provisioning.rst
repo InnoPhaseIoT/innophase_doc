@@ -1525,35 +1525,35 @@ Figure 16: Incorrect or minimum length or open security password
 Figure 17: Alert message in case of a wrong passphrase
 
 .. |image144| image:: media/image144.png
-   :width: 3.14931in
-   :height: 6.32083in
+   :width: 2.75591in
+   :height: 5.94634in
 .. |image145| image:: media/image145.png
-   :width: 3.14926in
-   :height: 4.9875in
+   :width: 2.75591in
+   :height: 5.94634in
 .. |image146| image:: media/image146.png
    :width: 2.75591in
-   :height: 4.35509in
+   :height: 5.94634in
 .. |image147| image:: media/image147.png
-   :width: 2.06368in
-   :height: 4.34984in
+   :width: 2.75591in
+   :height: 5.94634in
 .. |image148| image:: media/image148.png
    :width: 2.75591in
-   :height: 5.93507in
+   :height: 5.94634in
 .. |image149| image:: media/image149.png
    :width: 2.75591in
-   :height: 5.66463in
+   :height: 5.94634in
 .. |image150| image:: media/image150.png
    :width: 2.75591in
-   :height: 5.80891in
+   :height: 5.94634in
 .. |image151| image:: media/image151.png
    :width: 2.75591in
-   :height: 5.93507in
+   :height: 5.94634in
 .. |image152| image:: media/image152.png
    :width: 2.75591in
-   :height: 5.78867in
+   :height: 5.94634in
 .. |image153| image:: media/image153.png
-   :width: 5.90551in
-   :height: 1.10119in
+   :width: 2.75591in
+   :height: 5.94634in
 .. |image154| image:: media/image154.png
    :width: 2.7294in
    :height: 5.16667in
@@ -1568,10 +1568,10 @@ Figure 17: Alert message in case of a wrong passphrase
    :height: 5.81964in
 .. |image158| image:: media/image158.png
    :width: 2.75591in
-   :height: 5.81119in
+   :height: 5.94634in
 .. |image159| image:: media/image159.png
    :width: 2.75591in
-   :height: 5.76333in
+   :height: 5.94634in
 .. |image160| image:: media/image160.png
    :width: 2.75591in
    :height: 5.94634in

@@ -1,3 +1,5 @@
+.. _eclipse setup starting eclipse ide:
+
 Starting Eclipse IDE
 ====================
 

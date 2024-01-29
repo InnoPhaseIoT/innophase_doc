@@ -486,11 +486,13 @@ Download tool.
 Running the Application using Android or iOS App
 ------------------------------------------------
 
-1. Download and install the Android or iOS mobile application - InnoPhase IoT Wi-Fi Provisioner from the play/app store. 
+1. Download and install the Android or iOS mobile application - *InnoPhase IoT Wi-Fi Provisioner* from the play/app store. 
+
 2. BLE Provisioning can be enabled via non-secure and secure BLE connections. Following are the three supported methods:
       a.	Non-secure provisioning
       b.	Secure Provisioning – Just Work Method
       c.	Secure Provisioning – Passkey Method
+
 3. Non-secure Provisioning
    On flashing prov_app.elf onto Talaria TWO using the Download Tool, the following console logs are observed.
    Talaria TWO console output: 
@@ -618,7 +620,7 @@ Running the Application using Android or iOS App
 
 ..
 
-|image147|
+|image145|
 
 Figure 2: BLE Provisioning home screen
 

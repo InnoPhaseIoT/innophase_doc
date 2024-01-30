@@ -50,7 +50,7 @@ Following are the key advantages of the Dual-Stack solution:
 Overview
 -----------
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    1. Overview/2. Dual-Stack Packages.rst
    1. Overview/3. Key Features.rst
@@ -60,7 +60,7 @@ Overview
 Interface Requirements
 ~~~~~~~~~~~~
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    1. Overview/1. Interface Requirements/1. Hardware Requirements.rst
    1. Overview/1. Interface Requirements/2. Software Requirements.rst
@@ -70,7 +70,7 @@ Connetion manager
 -----------------
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
 
    2. Connection Manager/1. Commands .rst
    2. Connection Manager/2. UseCases.rst
@@ -79,12 +79,12 @@ INP3201-HOST
 --------------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
 Getting Started
 ~~~~~~~~~~~~~~~~
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    3. INP3201-HOST/1. Getting Started/INP3201 Getting Started - Landing Page.rst
 
@@ -94,11 +94,31 @@ Evaluation Setup and Usage
    :maxdepth: 2
 
    3. INP3201-HOST/2. Evaluation Set-up & Usage/1. Evaluation Set-up & Usage - Landing Page.rst
+   3. INP3201-HOST/2. Evaluation Set-up & Usage/2. Preparing the SD Card and Booting INP3201 Board.rst
+   3. INP3201-HOST/2. Evaluation Set-up & Usage/3. Programming Talaria TWO.rst
+   3. INP3201-HOST/2. Evaluation Set-up & Usage/4. Programming T31ZX Host.rst
+
+MCU Firmware Flashing
+~~~~~~~~~~~~~~~~~~~~~~~~
+.. toctree::
+   :maxdepth: 2
+
+   3. INP3201-HOST/2. Evaluation Set-up & Usage/5. MCU Firmware Flashing/1. MCU Firmware Flashing - Landing Page.rst
+   3. INP3201-HOST/2. Evaluation Set-up & Usage/5. MCU Firmware Flashing/2. Flashing using STM32Cube Programmer.rst
+
+Testing for Basic Operations
+~~~~~~~~~~~~~~~~~~~~~~~~
+.. toctree::
+   :maxdepth: 2
+
+   3. INP3201-HOST/2. Evaluation Set-up & Usage/6. Testing for Basic Operations/1. Testing for Basic Operations - Landing Page.rst
+   3. INP3201-HOST/2. Evaluation Set-up & Usage/6. Testing for Basic Operations/2. Use Case 1.rst
+   3. INP3201-HOST/2. Evaluation Set-up & Usage/6. Testing for Basic Operations/3. Use Case 2.rst
 
 Current Measurement
 ~~~~~~~~~~~~~~~~~~~~~~~~
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    3. INP3201-HOST/3. Current Measurement/Current Measurement.rst
 
@@ -107,7 +127,14 @@ Example applications
 .. toctree::
    :maxdepth: 2
 
+   3. INP3201-HOST/4. Example Applications/Custom Echo Application.rst
+   3. INP3201-HOST/4. Example Applications/Custom FOS Application.rst
+   3. INP3201-HOST/4. Example Applications/Custom GPIO Application.rst
+   3. INP3201-HOST/4. Example Applications/Custom MQTT Application.rst
+   3. INP3201-HOST/4. Example Applications/Custom Network Test Application.rst
+   3. INP3201-HOST/4. Example Applications/Custom Network Test Application.rst
    3. INP3201-HOST/4. Example Applications/Example applications - Landing Page.rst
+   3. INP3201-HOST/4. Example Applications/Heartbeat Monitor Application.rst
 
 
 AWS Kinesis Video streaming
@@ -116,3 +143,15 @@ AWS Kinesis Video streaming
    :maxdepth: 2
 
    3. INP3201-HOST/5. AWS Kinesis Video Streaming/1. AWS Kinesis Video Streaming - Landing Page.rst
+   3. INP3201-HOST/5. AWS Kinesis Video Streaming/2. Preparing the SD Card and Booting INP3201 Board.rst
+   3. INP3201-HOST/5. AWS Kinesis Video Streaming/3. INP3201 Host - Talaria TWO AWS KINESIS Video Streaming Setup.rst
+   3. INP3201-HOST/5. AWS Kinesis Video Streaming/5. Multiple Streaming.rst
+
+
+Enable Video Streaming
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. toctree::
+   :maxdepth: 2
+
+   3. INP3201-HOST/5. AWS Kinesis Video Streaming/4. Enable Video Streaming/1. AWS Streaming APP.rst
+   3. INP3201-HOST/5. AWS Kinesis Video Streaming/4. Enable Video Streaming/2. Web Browser .rst

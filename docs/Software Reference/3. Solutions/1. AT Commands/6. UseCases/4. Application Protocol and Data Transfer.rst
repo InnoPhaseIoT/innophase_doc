@@ -3,30 +3,25 @@
 Application Protocol and Data Transfer
 ~~~~~~~~~~~~~~~~~~~~
 
-TCP Server
-~~~~~~~~~~~~~~~~~~~~
+**TCP Server**
 
 .. _description-2:
 
-Description
-~~~~~~~~~~~
+**Description**
 
 This use case is to demonstrate creating TCP server socket and TCP data
 communication over the created socket.
 
 .. _prerequisites-2:
 
-Prerequisites 
-~~~~~~~~~~~~~~
+**Prerequisites**
 
-1. Access Point configured with WPA/WPA2 personal security.
-
-2. Hercules tool to create TCP client in Windows laptop.
+    - 1. Access Point configured with WPA/WPA2 personal security.
+    - 2. Hercules tool to create TCP client in Windows laptop.
 
 .. _at-command-sequence-2:
 
-AT Command Sequence 
-~~~~~~~~~~~~~~~~~~~~
+**AT Command Sequence**
 
 .. table:: Table 1: UDP Server - AT Commands
 
@@ -52,18 +47,18 @@ AT Command Sequence
 
 .. _procedure-2:
 
-Procedure
-~~~~~~~~~
+**Procedure**
+
 
 **Step 1**: Execute the following commands on Talaria TWO:
 
 .. code:: shell
 
-      at
-at+wscan
-at+wcon=InnoPhase,Inno@9070
-at+wstatus=0
-at+socsrv=0,0,0,9000
+    at
+    at+wscan
+    at+wcon=InnoPhase,Inno@9070
+    at+wstatus=0
+    at+socsrv=0,0,0,9000
 
 
 |image46|
@@ -99,21 +94,20 @@ Tera Term
 Figure 5: Log for data communication between application endpoints -
 Hercules
 
-TCP Client 
-~~~~~~~~~~~~~~
+**TCP Client**
+
 
 .. _description-3:
 
-Description
-~~~~~~~~~~~
+**Description**
+
 
 This use case is to demonstrate creating TCP client socket and TCP data
 communication over the created socket.
 
 .. _prerequisites-3:
 
-Prerequisites
-~~~~~~~~~~~~~
+**Prerequisites**
 
 1. Access Point configured with WPA/WPA2 personal security.
 
@@ -122,8 +116,7 @@ Prerequisites
 
 .. _at-command-sequence-3:
 
-AT Command Sequence
-~~~~~~~~~~~~~~~~~~~
+**AT Command Sequence**
 
 .. table:: Table 2: HTTP Client (non-secured) - AT Commands
 
@@ -149,8 +142,7 @@ AT Command Sequence
 
 .. _procedure-3:
 
-Procedure
-~~~~~~~~~
+**Procedure**
 
 **Step 1**: Connect your laptop to the same access point “InnoPhase” to
 which the Talaria TWO is connected.
@@ -176,12 +168,12 @@ Figure 8: Getting the IP address
 
 .. code:: shell
 
-      at
-at+wscan
-at+wcon=InnoPhase,Inno@9070
-at+wstatus=0
-at+soccli=0,0,0,8000,192.168.1.5
-at+socsend=0,ASCII,12,Hello Server
+    at
+    at+wscan
+    at+wcon=InnoPhase,Inno@9070
+    at+wstatus=0
+    at+soccli=0,0,0,8000,192.168.1.5
+    at+socsend=0,ASCII,12,Hello Server
 
 
 **Step 5**: Data communication between the application endpoints.
@@ -194,21 +186,21 @@ Figure 9: Data communication – Tera Term
 
 Figure 10: Data communication - Hercules
 
-UDP Server
-~~~~~~~~~~~~~~
+**UDP Server**
+
 
 .. _description-4:
 
-Description 
-~~~~~~~~~~~~
+**Description**
+
 
 This use case is to demonstrate creating UDP server socket and UDP data
 communication over the created socket.
 
 .. _prerequisites-4:
 
-Prerequisites
-~~~~~~~~~~~~~
+**Prerequisites**
+
 
 1. Access Point configured with WPA/WPA2 personal security.
 
@@ -216,11 +208,10 @@ Prerequisites
 
 .. _at-command-sequence-4:
 
-AT Command Sequence 
-~~~~~~~~~~~~~~~~~~~~
+**AT Command Sequence**
 
-.. table:: Table 3: HTTP Client (secured with server certificate
-validation) – AT Commands
+
+.. table:: Table 3: HTTP Client (secured with server certificate validation) – AT Commands
 
    +-------------+--------------------------------------------------------+
    | **AT        | **Description**                                        |
@@ -245,8 +236,8 @@ validation) – AT Commands
 
 .. _procedure-4:
 
-Procedure
-~~~~~~~~~
+**Procedure**
+
 
 **Step 1**: Connect your laptop to the same access point InnoPhase to
 which the Talaria TWO is connected.
@@ -277,12 +268,12 @@ created if data needs to be sent.
 
 .. code:: shell
 
-      at 
-at+wscan
-at+wcon=InnoPhase,Inno@9070 at+wstatus=0 
-at+socsrv=0,1,1,9000
-at+soccli=0,1,1,9000,192.168.1.6
-at+socsend=1,ASCII,5,HELLO
+    at
+    at+wscan
+    at+wcon=InnoPhase,Inno@9070 at+wstatus=0
+    at+socsrv=0,1,1,9000
+    at+soccli=0,1,1,9000,192.168.1.6
+    at+socsend=1,ASCII,5,HELLO
 
 
 **Step 5**: Data communication between two application endpoints.
@@ -295,21 +286,19 @@ Figure 14: Data communication – Tera Term
 
 Figure 15: Data communication - Hercules
 
-UDP Client 
-~~~~~~~~~~~~~~
+**UDP Client**
 
 .. _description-5:
 
-Description
-~~~~~~~~~~~
+**Description**
+
 
 This use case is to demonstrate creating TCP client socket and TCP data
 communication over the created socket.
 
 .. _prerequisites-5:
 
-Prerequisites 
-~~~~~~~~~~~~~~
+**Prerequisites**
 
 1. Access Point configured with WPA/WPA2 personal security.
 
@@ -318,8 +307,7 @@ Prerequisites
 
 .. _at-command-sequence-5:
 
-AT Command Sequence 
-~~~~~~~~~~~~~~~~~~~~
+**AT Command Sequence**
 
 .. table:: Table 4: Secure MQTT - AT Commands
 
@@ -344,8 +332,8 @@ AT Command Sequence
 
 .. _procedure-5:
 
-Procedure 
-~~~~~~~~~~
+**Procedure**
+
 
 **Step 1**: Connect your laptop to the same access point “InnoPhase” to
 which the Talaria TWO is connected.
@@ -371,12 +359,12 @@ Figure 18: Getting the IP address
 
 .. code:: shell
 
-      at
-at+wscan
-at+wcon=InnoPhase,Inno@9070
-at+wstatus=0
-at+soccli=0,1,1,8000,192.168.1.6
-at+socsend=0,ASCII,12,Hi InnoPhase
+    at
+    at+wscan
+    at+wcon=InnoPhase,Inno@9070
+    at+wstatus=0
+    at+soccli=0,1,1,8000,192.168.1.6
+    at+socsend=0,ASCII,12,Hi InnoPhase
 
 
 **Step 5**: Data communication between the application endpoints.
@@ -389,24 +377,21 @@ Figure 19: Data communication – Tera Term
 
 Figure 20: Data communication – Hercules
 
-HTTP Client 
-~~~~~~~~~~~~~~
+**HTTP Client**
 
-Non-Secured HTTP Client
-~~~~~~~~~~~~~~~~~~~~~~~
+**Non-Secured HTTP Client**
 
 .. _description-6:
 
-Description
-^^^^^^^^^^^
+**Description**
+
 
 This use case is to demonstrate HTTP client and perform GET/POST
 operations.
 
 .. _prerequisites-6:
 
-Prerequisites
-^^^^^^^^^^^^^
+**Prerequisites**
 
 1. Access Point configured with WPA/WPA2 personal security.
 
@@ -414,8 +399,7 @@ Prerequisites
 
 .. _at-command-sequence-6:
 
-AT Command Sequence
-^^^^^^^^^^^^^^^^^^^
+**AT Command Sequence**
 
 .. table:: Table 5: Service Discovery using mDNS - AT Commands
 
@@ -442,8 +426,7 @@ AT Command Sequence
 
 .. _procedure-6:
 
-Procedure 
-^^^^^^^^^^
+**Procedure**
 
 **Step 1**: Connect your laptop to the same access point “InnoPhase” to
 which the Talaria TWO is connected.
@@ -463,39 +446,35 @@ Figure 22: Starting HFS server
 
 .. code:: shell
 
-      at
-at+wscan
-at+wcon=InnoPhase,Inno@9070
-at+wstatus=0
-at+hchdrset=13,192.168.1.5
-at+hcstart=192.168.1.5,80
-at+hcreqsnd=0,1,/data.txt
+    at
+    at+wscan
+    at+wcon=InnoPhase,Inno@9070
+    at+wstatus=0
+    at+hchdrset=13,192.168.1.5
+    at+hcstart=192.168.1.5,80
+    at+hcreqsnd=0,1,/data.txt
 
 
 .. _serial-log-2:
 
-Serial Log
-^^^^^^^^^^
+**Serial Log**
 
 |image68|
 
 Figure 23: HTTP Client (non-secured) - Serial Log
 
-Secured HTTP Client without Server Certificate Validation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Secured HTTP Client without Server Certificate Validation**
 
 .. _description-7:
 
-Description 
-^^^^^^^^^^^^
+**Description**
 
 This use case is to demonstrate secured HTTP client connection without
 server certificate validation (time validation).
 
 .. _prerequisites-7:
 
-Prerequisites 
-^^^^^^^^^^^^^^
+**Prerequisites**
 
 1. Access Point configured with WPA/WPA2 personal security.
 
@@ -503,33 +482,32 @@ Prerequisites
 
 .. _at-command-sequence-7:
 
-AT Command Sequence 
-^^^^^^^^^^^^^^^^^^^^
+**AT Command Sequence**
 
 .. table:: Table 6: Secured HTTP Client without Server Certificate Validation - AT Commands
-+--------------+-------------------------------------------------------+
-| **AT         | **Description**                                       |
-| Command**    |                                                       |
-+==============+=======================================================+
-| *at*         | Check communication state                             |
-+--------------+-------------------------------------------------------+
-| *at+wscan*   | Get list of available APs from the vicinity           |
-+--------------+-------------------------------------------------------+
-| *at+wcon*    | Connect to a desired AP from the received scan        |
-|              | results                                               |
-+--------------+-------------------------------------------------------+
-| *at+wstatus* | Get IP address of Talaria TWO to verify the           |
-|              | connection(L2+L3) is successful                       |
-+--------------+-------------------------------------------------------+
-| *at+hcstart* | Start HTTP Client                                     |
-+--------------+-------------------------------------------------------+
-| *at+hcclose* | Close HTTP connection                                 |
-+--------------+-------------------------------------------------------+
+
+    +--------------+-------------------------------------------------------+
+    | **AT         | **Description**                                       |
+    | Command**    |                                                       |
+    +==============+=======================================================+
+    | *at*         | Check communication state                             |
+    +--------------+-------------------------------------------------------+
+    | *at+wscan*   | Get list of available APs from the vicinity           |
+    +--------------+-------------------------------------------------------+
+    | *at+wcon*    | Connect to a desired AP from the received scan        |
+    |              | results                                               |
+    +--------------+-------------------------------------------------------+
+    | *at+wstatus* | Get IP address of Talaria TWO to verify the           |
+    |              | connection(L2+L3) is successful                       |
+    +--------------+-------------------------------------------------------+
+    | *at+hcstart* | Start HTTP Client                                     |
+    +--------------+-------------------------------------------------------+
+    | *at+hcclose* | Close HTTP connection                                 |
+    +--------------+-------------------------------------------------------+
 
 .. _procedure-7:
 
-Procedure 
-^^^^^^^^^^
+**Procedure**
 
 **Step 1:** Ensure that the server is running before triggering
 connection from Talaria TWO\ **.** In this example, httpbin.org server
@@ -539,38 +517,34 @@ is used for connecting to the secure port.
 
 .. code:: shell
 
-      at
-at+wscan
-at+wcon=InnoPhase,Inno@9070
-at+wstatus=0
-at+hcstart=httpbin.org,443,1
-at+hcclose=0
+    at
+    at+wscan
+    at+wcon=InnoPhase,Inno@9070
+    at+wstatus=0
+    at+hcstart=httpbin.org,443,1
+    at+hcclose=0
 
 .. _serial-log-3:
 
-Serial Log
-^^^^^^^^^^
+**Serial Log**
 
 |image69|
 
 Figure 24: HTTP Client (secured without server certificate validation) -
 Serial log
 
-Secured HTTP Client (with Server Certificate Validation)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Secured HTTP Client (with Server Certificate Validation)**
 
 .. _description-8:
 
-Description 
-^^^^^^^^^^^^
+**Description**
 
 This use case is to demonstrate secured HTTP client connection with
 server certificate validation (load CA certificate).
 
 .. _prerequisites-8:
 
-Prerequisites 
-^^^^^^^^^^^^^^
+**Prerequisites**
 
 1. Access Point configured with WPA/WPA2 personal security.
 
@@ -578,35 +552,34 @@ Prerequisites
 
 .. _at-command-sequence-8:
 
-AT Command Sequence 
-^^^^^^^^^^^^^^^^^^^^
+**AT Command Sequence**
 
 .. table:: Table 7: Secured HTTP Client (with Server Certificate Validation) - AT Commands
-+--------------+-------------------------------------------------------+
-| **AT         | **Description**                                       |
-| Command**    |                                                       |
-+==============+=======================================================+
-| *at*         | Check communication state                             |
-+--------------+-------------------------------------------------------+
-| *at+wscan*   | Get list of available APs from the vicinity           |
-+--------------+-------------------------------------------------------+
-| *at+wcon*    | Connect to a desired AP from the received scan        |
-|              | results                                               |
-+--------------+-------------------------------------------------------+
-| *at+wstatus* | Get IP address of Talaria TWO to verify the           |
-|              | connection(L2+L3) is successful                       |
-+--------------+-------------------------------------------------------+
-| *At+certadd* | To load certificate                                   |
-+--------------+-------------------------------------------------------+
-| *at+hcstart* | Start HTTP Client                                     |
-+--------------+-------------------------------------------------------+
-| *at+hcclose* | Close HTTP connection                                 |
-+--------------+-------------------------------------------------------+
+
+    +--------------+-------------------------------------------------------+
+    | **AT         | **Description**                                       |
+    | Command**    |                                                       |
+    +==============+=======================================================+
+    | *at*         | Check communication state                             |
+    +--------------+-------------------------------------------------------+
+    | *at+wscan*   | Get list of available APs from the vicinity           |
+    +--------------+-------------------------------------------------------+
+    | *at+wcon*    | Connect to a desired AP from the received scan        |
+    |              | results                                               |
+    +--------------+-------------------------------------------------------+
+    | *at+wstatus* | Get IP address of Talaria TWO to verify the           |
+    |              | connection(L2+L3) is successful                       |
+    +--------------+-------------------------------------------------------+
+    | *At+certadd* | To load certificate                                   |
+    +--------------+-------------------------------------------------------+
+    | *at+hcstart* | Start HTTP Client                                     |
+    +--------------+-------------------------------------------------------+
+    | *at+hcclose* | Close HTTP connection                                 |
+    +--------------+-------------------------------------------------------+
 
 .. _procedure-8:
 
-Procedure 
-^^^^^^^^^^
+**Procedure**
 
 **Step 1:** Ensure that the server is running and ready for any incoming
 connection, before triggering the HTTP client connection from Talaria
@@ -617,40 +590,36 @@ the secure port (443).
 
 .. code:: shell
 
-      at
-at+wscan
-at+wcon=InnoPhase,Inno@9070
-at+wstatus=0
-at+certadd=httpbin-org-chain,4754
-at+hcstart=httpbin.org,443,2,httpbin-org-chain
-at+hcclose=0
+    at
+    at+wscan
+    at+wcon=InnoPhase,Inno@9070
+    at+wstatus=0
+    at+certadd=httpbin-org-chain,4754
+    at+hcstart=httpbin.org,443,2,httpbin-org-chain
+    at+hcclose=0
 
 
 .. _serial-log-4:
 
-Serial Log
-^^^^^^^^^^
+**Serial Log**
 
 |image70|
 
 Figure 25: HTTP Client (secured with server certificate validation) -
 Serial log
 
-MQTT Client 
-~~~~~~~~~~~~~~
+**MQTT Client**
 
 .. _description-9:
 
-Description 
-~~~~~~~~~~~~
+**Description**
 
 This use case is to demonstrate MQTT client and data communication using
 Publish and Subscribe methods.
 
 .. _prerequisites-9:
 
-Prerequisites 
-~~~~~~~~~~~~~~
+**Prerequisites**
 
 1. Access Point configured with WPA/WPA2 personal security.
 
@@ -659,40 +628,39 @@ Prerequisites
 
 .. _at-command-sequence-9:
 
-AT Command Sequence
-~~~~~~~~~~~~~~~~~~~
+**AT Command Sequence**
 
 .. table:: Table 8: MQTT Client - AT Commands
-+---------------+------------------------------------------------------+
-| **AT          | **Description**                                      |
-| Command**     |                                                      |
-+===============+======================================================+
-| *at*          | Check communication state                            |
-+---------------+------------------------------------------------------+
-| *at+wscan*    | Get list of available APs from the vicinity          |
-+---------------+------------------------------------------------------+
-| *at+wcon*     | Connect to a desired AP from the received scan       |
-|               | results                                              |
-+---------------+------------------------------------------------------+
-| *at+wstatus*  | Get IP address of Talaria TWO to verify the          |
-|               | connection(L2+L3) is successful                      |
-+---------------+------------------------------------------------------+
-| *at+mqttconf* | Set MQTT configurations                              |
-+---------------+------------------------------------------------------+
-| *at+mqttconn* | Connect to MQTT Broker                               |
-+---------------+------------------------------------------------------+
-| *at+mqttpub*  | Publish the MQTT topic with Payload                  |
-+---------------+------------------------------------------------------+
-| *at+mqttsub*  | Subscribe to the MQTT topic                          |
-+---------------+------------------------------------------------------+
-| *at           | Disconnect MQTT client connection                    |
-| +mqttdisconn* |                                                      |
-+---------------+------------------------------------------------------+
+
+    +---------------+------------------------------------------------------+
+    | **AT          | **Description**                                      |
+    | Command**     |                                                      |
+    +===============+======================================================+
+    | *at*          | Check communication state                            |
+    +---------------+------------------------------------------------------+
+    | *at+wscan*    | Get list of available APs from the vicinity          |
+    +---------------+------------------------------------------------------+
+    | *at+wcon*     | Connect to a desired AP from the received scan       |
+    |               | results                                              |
+    +---------------+------------------------------------------------------+
+    | *at+wstatus*  | Get IP address of Talaria TWO to verify the          |
+    |               | connection(L2+L3) is successful                      |
+    +---------------+------------------------------------------------------+
+    | *at+mqttconf* | Set MQTT configurations                              |
+    +---------------+------------------------------------------------------+
+    | *at+mqttconn* | Connect to MQTT Broker                               |
+    +---------------+------------------------------------------------------+
+    | *at+mqttpub*  | Publish the MQTT topic with Payload                  |
+    +---------------+------------------------------------------------------+
+    | *at+mqttsub*  | Subscribe to the MQTT topic                          |
+    +---------------+------------------------------------------------------+
+    | *at           | Disconnect MQTT client connection                    |
+    | +mqttdisconn* |                                                      |
+    +---------------+------------------------------------------------------+
 
 .. _procedure-9:
 
-Procedure
-~~~~~~~~~
+**Procedure**
 
 **Step 1**: Connect your laptop to the same access point “InnoPhase” to
 which the Talaria TWO is connected.
@@ -733,17 +701,17 @@ Figure 29: MQTT.fx – Subscribe
 
 .. code:: shell
 
-      at
-at+wscan
-at+wcon=InnoPhase,Inno@9070
-at+wstatus=0 
-at+mqttconf=clientid,12345678 
-at+mqttconf=admin,admin 
-at+mqttconf=password,xyz
+    at
+    at+wscan
+    at+wcon=InnoPhase,Inno@9070
+    at+wstatus=0
+    at+mqttconf=clientid,12345678
+    at+mqttconf=admin,admin
+    at+mqttconf=password,xyz
 
-at+mqttconn=mqtt.eclipseprojects.io,1883
-at+mqttpub=0,PUBMSG,0,5,Hello
-at+mqttsub=0,SUBMSG,0
+    at+mqttconn=mqtt.eclipseprojects.io,1883
+    at+mqttpub=0,PUBMSG,0,5,Hello
+    at+mqttsub=0,SUBMSG,0
 
 
 |image75|
@@ -763,21 +731,18 @@ Figure 31: MQTT.fx – Publish
 
 Figure 32: Data communication
 
-Secure MQTT
-~~~~~~~~~~~~~~
+**Secure MQTT**
 
 .. _description-10:
 
-Description
-~~~~~~~~~~~
+**Description**
 
 This use case is to demonstrate MQTT client connection over secured
 layer(SSL/TLS).
 
 .. _prerequisites-10:
 
-Prerequisites 
-~~~~~~~~~~~~~~
+**Prerequisites**
 
 1. Secure MQTT broker with client certificates- Root CA, Client cert and
    client private key
@@ -786,8 +751,7 @@ Prerequisites
 
 .. _procedure-10:
 
-Procedure 
-~~~~~~~~~~
+**Procedure**
 
 Following are the two methods to load the certificate to the filesystem.
 Use any one of them to add the certificates:
@@ -842,53 +806,52 @@ Figure 36: AT Commands- To add the certificate
 
 .. code:: shell
 
-      at 
-at+certadd=mqtt_root_ca,1452
-at+certadd=mqtt_device_cert,1330
-at+certadd=client.key,1679
+    at
+    at+certadd=mqtt_root_ca,1452
+    at+certadd=mqtt_device_cert,1330
+    at+certadd=client.key,1679
 
 
 .. _at-command-sequence-10:
 
-AT Command Sequence 
-~~~~~~~~~~~~~~~~~~~~
+**AT Command Sequence**
 
 .. table:: Table 9: MQTT Client - AT Commands
-+-----------------------+----------------------------------------------+
-| **AT Command**        | **Description**                              |
-+=======================+==============================================+
-| *at*                  | To check the connection state                |
-+-----------------------+----------------------------------------------+
-| *at+certadd*          | To load the certificate                      |
-+-----------------------+----------------------------------------------+
-| *at+wcon*             | To connect to a secured access point         |
-+-----------------------+----------------------------------------------+
-| *at+mqttconf*         | Set MQTT configurations                      |
-+-----------------------+----------------------------------------------+
-| *at+mqttconn*         | Connect to MQTT broker                       |
-+-----------------------+----------------------------------------------+
-| *at+mqttsub*          | Subscribe to a MQTT topic                    |
-+-----------------------+----------------------------------------------+
-| *at+mqttpub*          | Publish the MQTT topic with Payload          |
-+-----------------------+----------------------------------------------+
+
+    +-----------------------+----------------------------------------------+
+    | **AT Command**        | **Description**                              |
+    +=======================+==============================================+
+    | *at*                  | To check the connection state                |
+    +-----------------------+----------------------------------------------+
+    | *at+certadd*          | To load the certificate                      |
+    +-----------------------+----------------------------------------------+
+    | *at+wcon*             | To connect to a secured access point         |
+    +-----------------------+----------------------------------------------+
+    | *at+mqttconf*         | Set MQTT configurations                      |
+    +-----------------------+----------------------------------------------+
+    | *at+mqttconn*         | Connect to MQTT broker                       |
+    +-----------------------+----------------------------------------------+
+    | *at+mqttsub*          | Subscribe to a MQTT topic                    |
+    +-----------------------+----------------------------------------------+
+    | *at+mqttpub*          | Publish the MQTT topic with Payload          |
+    +-----------------------+----------------------------------------------+
 
 .. _procedure-11:
 
-Procedure
-~~~~~~~~~
+**Procedure**
 
 **Step 1**: Execute the following commands on Talaria TWO:
 
 .. code:: shell
 
-      at+wcon=InnoPhase,43083191
-at+mqttconf=clientid,789012
-at+mqttconf=username,innophase
-at+mqttconf=password,123 
-at+mqttconf=kainterval,10
-at+mqttconn=test.mosquitto.org,8884,1,1,/data/mqtt_root_ca.crt,/,/data/mqtt_device_cert.crt,/data/client.key 
-at+mqttsub=0,inno/test,0
-at+mqttpub=0,inno/test,0,5,hello
+    at+wcon=InnoPhase,43083191
+    at+mqttconf=clientid,789012
+    at+mqttconf=username,innophase
+    at+mqttconf=password,123
+    at+mqttconf=kainterval,10
+    at+mqttconn=test.mosquitto.org,8884,1,1,/data/mqtt_root_ca.crt,/,/data/mqtt_device_cert.crt,/data/client.key
+    at+mqttsub=0,inno/test,0
+    at+mqttpub=0,inno/test,0,5,hello
 
 |image82|
 
@@ -950,79 +913,72 @@ b. Issue the following command to subscribe to inno/test topic on the
 
 Figure 41: To subscribe
 
-DNS Lookup – Get host IP by name
-~~~~~~~~~~~~~~~~~~~~~~~~~
+**DNS Lookup – Get host IP by name**
 
 .. _description-11:
 
-Description 
-~~~~~~~~~~~~
+**Description**
 
 This use case is to demonstrate getting IP address from the host name.
 
 .. _prerequisites-11:
 
-Prerequisites 
-~~~~~~~~~~~~~~
+**Prerequisites**
 
 Access Point configured with WPA/WPA2 personal security.
 
 .. _at-command-sequence-11:
 
-AT Command Sequence 
-~~~~~~~~~~~~~~~~~~~~
+**AT Command Sequence**
 
 .. table:: Table 10: MQTT Client - AT Commands
-+--------------+-------------------------------------------------------+
-| **AT         | **Description**                                       |
-| Command**    |                                                       |
-+==============+=======================================================+
-| *at*         | Check communication state                             |
-+--------------+-------------------------------------------------------+
-| *at+wscan*   | Get list of available APs from the vicinity           |
-+--------------+-------------------------------------------------------+
-| *at+wcon*    | Connect to a desired AP from the received scan        |
-|              | results                                               |
-+--------------+-------------------------------------------------------+
-| *at+wstatus* | Get IP address of Talaria TWO to verify the           |
-|              | connection(L2+L3) is successful                       |
-+--------------+-------------------------------------------------------+
-| *at          | Get host IP address by name                           |
-| +nhostipget* |                                                       |
-+--------------+-------------------------------------------------------+
+
+    +--------------+-------------------------------------------------------+
+    | **AT         | **Description**                                       |
+    | Command**    |                                                       |
+    +==============+=======================================================+
+    | *at*         | Check communication state                             |
+    +--------------+-------------------------------------------------------+
+    | *at+wscan*   | Get list of available APs from the vicinity           |
+    +--------------+-------------------------------------------------------+
+    | *at+wcon*    | Connect to a desired AP from the received scan        |
+    |              | results                                               |
+    +--------------+-------------------------------------------------------+
+    | *at+wstatus* | Get IP address of Talaria TWO to verify the           |
+    |              | connection(L2+L3) is successful                       |
+    +--------------+-------------------------------------------------------+
+    | *at          | Get host IP address by name                           |
+    | +nhostipget* |                                                       |
+    +--------------+-------------------------------------------------------+
 
 .. _procedure-12:
 
-Procedure 
-~~~~~~~~~~
+**Procedure**
 
 **Step 1**: Execute the following commands on Talaria TWO:
 
 .. code:: shell
 
-      at
-at+wscan
-at+wcon=InnoPhase,Inno@9070
-at+wstatus=0
-at+nhostipget
+    at
+    at+wscan
+    at+wcon=InnoPhase,Inno@9070
+    at+wstatus=0
+    at+nhostipget
 
 
 .. _serial-log-5:
 
-Serial Log
-~~~~~~~~~~
+**Serial Log**
 
 |image87|
 
 Figure 42: DNS Lookup – Get host IP by name - Serial log
 
-Service Discovery using mDNS
-~~~~~~~~~~~~~~
+**Service Discovery using mDNS**
 
 .. _description-12:
 
-Description
-~~~~~~~~~~~
+**Description**
 
 This module is used to start the mDNS procedure of the node with IPv4
 network.
@@ -1035,8 +991,7 @@ It supports following services:
 
 .. _prerequisites-12:
 
-Prerequisites 
-~~~~~~~~~~~~~~
+**Prerequisites**
 
 1. Access Point configured with any Wi-Fi security types (WPA/WPA2/WPA3
    Personal/Enterprise protocols).
@@ -1047,41 +1002,40 @@ Prerequisites
 
 .. _at-command-sequence-12:
 
-AT Command Sequence 
-~~~~~~~~~~~~~~~~~~~~
+**AT Command Sequence**
 
 .. table:: Table 11: MQTT Client - AT Commands
-+------------+---------------------------------------------------------+
-| *          | **Description**                                         |
-| *Command** |                                                         |
-+============+=========================================================+
-| *at*       | Check communication state                               |
-+------------+---------------------------------------------------------+
-| *at+wscan* | Get list of available APs from the vicinity             |
-+------------+---------------------------------------------------------+
-| *at+wcon*  | Connect to a desired AP from the received scan results  |
-+------------+---------------------------------------------------------+
-| *a         | Get IP address of Talaria TWO to verify the             |
-| t+wstatus* | connection(L2+L3) is successful                         |
-+------------+---------------------------------------------------------+
-| *at+       | Starts mDNS                                             |
-| mdnsstart* |                                                         |
-+------------+---------------------------------------------------------+
-| *a         | Register the mDNS service by passing the service        |
-| t+mdnsreg* | name,type,proto,port and the description                |
-+------------+---------------------------------------------------------+
-| *at        | De-Register mDNS Service by providing the service       |
-| +mdnsdreg* | Identifier that was captured when the registration was  |
-|            | done                                                    |
-+------------+---------------------------------------------------------+
-| *a         | Stops mDNS                                              |
-| t+mdnstop* |                                                         |
-+------------+---------------------------------------------------------+
+
+    +------------+---------------------------------------------------------+
+    | *          | **Description**                                         |
+    | *Command** |                                                         |
+    +============+=========================================================+
+    | *at*       | Check communication state                               |
+    +------------+---------------------------------------------------------+
+    | *at+wscan* | Get list of available APs from the vicinity             |
+    +------------+---------------------------------------------------------+
+    | *at+wcon*  | Connect to a desired AP from the received scan results  |
+    +------------+---------------------------------------------------------+
+    | *a         | Get IP address of Talaria TWO to verify the             |
+    | t+wstatus* | connection(L2+L3) is successful                         |
+    +------------+---------------------------------------------------------+
+    | *at+       | Starts mDNS                                             |
+    | mdnsstart* |                                                         |
+    +------------+---------------------------------------------------------+
+    | *a         | Register the mDNS service by passing the service        |
+    | t+mdnsreg* | name,type,proto,port and the description                |
+    +------------+---------------------------------------------------------+
+    | *at        | De-Register mDNS Service by providing the service       |
+    | +mdnsdreg* | Identifier that was captured when the registration was  |
+    |            | done                                                    |
+    +------------+---------------------------------------------------------+
+    | *a         | Stops mDNS                                              |
+    | t+mdnstop* |                                                         |
+    +------------+---------------------------------------------------------+
 
 .. _procedure-13:
 
-Procedure
-~~~~~~~~~
+**Procedure**
 
 **Step 1**: Connect your laptop to the same access point “InnoPhase” to
 which the Talaria TWO is connected.
@@ -1100,12 +1054,12 @@ on port number 80 and “Provisioning” as service description.
 
 .. code:: shell
 
-      at
-at+wscan
-at+wcon=InnoPhase,43083191
-at+wstatus=0
-at+mdnsstart
-at+mdnsreg=Inno_Provisioning,_http,1,80,Provisioning 
+    at
+    at+wscan
+    at+wcon=InnoPhase,43083191
+    at+wstatus=0
+    at+mdnsstart
+    at+mdnsreg=Inno_Provisioning,_http,1,80,Provisioning
 
 
 **Step 3**: Start Bonjour Browser and Scan for the services that are
@@ -1142,67 +1096,62 @@ at+mdnsstop
 
 Figure 47: De-registering from mDNS service
 
-Get Time from NTP Server
-~~~~~~~~~~~~~~
+**Get Time from NTP Server**
 
 .. _description-13:
 
-Description 
-~~~~~~~~~~~~
+**Description**
 
 This use case is to demonstrate getting time from the NTP server.
 
 .. _prerequisites-13:
 
-Prerequisites 
-~~~~~~~~~~~~~~
+**Prerequisites**
 
 Access Point configured with WPA/WPA2 personal security.
 
 .. _at-command-sequence-13:
 
-AT Command Sequence 
-~~~~~~~~~~~~~~~~~~~~
+**AT Command Sequence**
 
 .. table:: Table 12: MQTT Client - AT Commands
-+--------------+-------------------------------------------------------+
-| **AT         | **Description**                                       |
-| Command**    |                                                       |
-+==============+=======================================================+
-| *at*         | Check communication state                             |
-+--------------+-------------------------------------------------------+
-| *at+wscan*   | Get list of available APs from the vicinity           |
-+--------------+-------------------------------------------------------+
-| *at+wcon*    | Connect to a desired AP from the received scan        |
-|              | results                                               |
-+--------------+-------------------------------------------------------+
-| *at+wstatus* | Get IP address of Talaria TWO to verify the           |
-|              | connection(L2+L3) is successful                       |
-+--------------+-------------------------------------------------------+
-| *at          | Get time from NTP server                              |
-| +ntptimeget* |                                                       |
-+--------------+-------------------------------------------------------+
+
+    +--------------+-------------------------------------------------------+
+    | **AT         | **Description**                                       |
+    | Command**    |                                                       |
+    +==============+=======================================================+
+    | *at*         | Check communication state                             |
+    +--------------+-------------------------------------------------------+
+    | *at+wscan*   | Get list of available APs from the vicinity           |
+    +--------------+-------------------------------------------------------+
+    | *at+wcon*    | Connect to a desired AP from the received scan        |
+    |              | results                                               |
+    +--------------+-------------------------------------------------------+
+    | *at+wstatus* | Get IP address of Talaria TWO to verify the           |
+    |              | connection(L2+L3) is successful                       |
+    +--------------+-------------------------------------------------------+
+    | *at          | Get time from NTP server                              |
+    | +ntptimeget* |                                                       |
+    +--------------+-------------------------------------------------------+
 
 .. _procedure-14:
 
-Procedure 
-~~~~~~~~~~
+**Procedure**
 
 **Step 1**: Execute the following commands on Talaria TWO:
 
 .. code:: shell
 
-      at
-at+wscan
-at+wcon=InnoPhase,Inno@9070
-at+wstatus=0
-at+ntptimeget
+    at
+    at+wscan
+    at+wcon=InnoPhase,Inno@9070
+    at+wstatus=0
+    at+ntptimeget
 
 
 .. _serial-log-6:
 
-Serial Log
-~~~~~~~~~~
+**Serial Log**
 
 |image93|
 

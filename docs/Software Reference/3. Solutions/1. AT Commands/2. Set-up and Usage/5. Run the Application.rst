@@ -37,26 +37,11 @@ b. AT+WSTATUS=0 parameter is used to get the IP address
 
    b. No IP implies WLAN state = Disconnected
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 |image4|
-=======
-|image1|
->>>>>>> Stashed changes
-=======
-|image1|
->>>>>>> Stashed changes
 
 Figure 1: AT Commands - Tera Term output
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
 .. |image4| image:: media/image4.png
-=======
-.. |image1| image:: media/runapp.png
->>>>>>> Stashed changes
-=======
-.. |image1| image:: media/runapp.png
->>>>>>> Stashed changes
    :width: 7.48031in
    :height: 3.91168in

@@ -1,8 +1,5 @@
 .. _at cmds:
 
-AT Commands
-###########
-
 AT commands application provides the Wi-Fi capability to any device having a serial (SPI/UART) interface.
 
 Architecture
@@ -89,7 +86,8 @@ The subsequent sections describe the steps to setup the Evaluation Board (EVB) a
 
 
 Prerequisites
-------------------
+------------
+
 .. toctree::
    :maxdepth: 2
 

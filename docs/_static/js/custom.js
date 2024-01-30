@@ -9,6 +9,13 @@ const ModulesList = {
     "Talaria-TWO": "https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/freertos-3.0",
     "Modules": "#"
 };
+
+$(document).ready(function() {
+    $("p:contains('Figure ')").css({
+        "text-align": "center",
+        "font": "italic 85%/1 arial, sans-serif"
+    });
+});
 // ---------------------------------------------------------------------------------------------------------------------
 // hide Prerequisites/evaluation-and-development/power-measurement section:
 var prerequisitesSection = document.getElementById('prerequisites');

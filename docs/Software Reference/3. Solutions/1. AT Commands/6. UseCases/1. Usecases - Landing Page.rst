@@ -14,89 +14,48 @@ Necessary Packages* of the AT Commands Quick Start Guide:
 Set-up & Usage
 ==============
 
-Pre-set-up on Talaria TWO
--------------------------
+    - Pre-set-up on Talaria TWO
+    - Programming the Application
 
-Programming the Application
----------------------------
-
-UseCases
-========
+UseCases:
+-------
 
 Wireless Operations
--------------------
+````````````
 
-Station Mode
-~~~~~~~~~~~~
-
-Power Management
-~~~~~~~~~~~~~~~~
-
-BLE Peripheral
-~~~~~~~~~~~~~~
-
-BLE IO Capabilities
-~~~~~~~~~~~~~~~~~~~
+    - Station Mode
+    - Power Management
+    - BLE Peripheral
+    - BLE IO Capabilities
 
 Network Protocol
-----------------
+````````````
 
-Static IP Configuration
-~~~~~~~~~~~~~~~~~~~~~~~
-
-Ping & Reset Functionality
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+     - Static IP Configuration
+     - Ping & Reset Functionality
 
 Application Protocol and Data Transfer
---------------------------------------
+````````````
 
-TCP Server
-~~~~~~~~~~
-
-TCP Client
-~~~~~~~~~~
-
-UDP Server
-~~~~~~~~~~
-
-UDP Client
-~~~~~~~~~~
-
-HTTP Client
-~~~~~~~~~~~
-
-MQTT Client
-~~~~~~~~~~~
-
-Secure MQTT
-~~~~~~~~~~~
-
-DNS Lookup – Get Host IP by Name
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Service Discovery using mDNS
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Get Time from NTP Server
-~~~~~~~~~~~~~~~~~~~~~~~~
+    - TCP Server
+    - TCP Client
+    - UDP Server
+    - UDP Client
+    - HTTP Client
+    - MQTT Client
+    - DNS Lookup – Get Host IP by Name
+    - Service Discovery using mDNS
+    - Get Time from NTP Server
 
 Advances Services
------------------
+````````````
 
-BLE Provisioning
-~~~~~~~~~~~~~~~~
-
-Secure BLE Provisioning by Passkey Method
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Secure BLE Provisioning by Just Works Method
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-FOTA
-~~~~
+    - BLE Provisioning
+    - Secure BLE Provisioning by Passkey Method
+    - Secure BLE Provisioning by Just Works Method
+    - FOTA
 
 Miscellaneous
--------------
+````````````
 
-Echo Enable/Disable
-~~~~~~~~~~~~~~~~~~~
+    - Echo Enable/Disable

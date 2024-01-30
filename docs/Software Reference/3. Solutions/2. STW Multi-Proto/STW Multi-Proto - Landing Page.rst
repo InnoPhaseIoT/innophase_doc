@@ -1,3 +1,5 @@
+.. _stw multi_proto:
+
 This section describes the procedure to evaluate the STW Multi-Proto
 (SMP) application used in the hosted mode of operation. The following
 section describes Talaria TWO’s different modes of operation.
@@ -7,8 +9,7 @@ application in a specific packet format and performs the required task,
 which includes connecting to an AP over Wi-Fi and supporting MQTT, HTTP
 operations on Talaria TWO.
 
-SMP Application Flow
----------------------
+**SMP Application Flow**
 
 SMP application works by receiving a request from the host application,
 servicing it, and sending a response to the host. The SMP application

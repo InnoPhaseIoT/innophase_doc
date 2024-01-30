@@ -33,8 +33,18 @@ Talaria TWO Software is a comprehensive suite designed to empower developers, ar
 
 .. toctree::
    :hidden:
-   :maxdepth: 1
+   :maxdepth: 3
 
    3. Solutions/Solutions - Landing Page
 
+
+**STM:**
+    Discover pre-built solutions and templates designed to address common challenges across various industries.
+    From IoT solutions to data analytics pipelines, these ready-to-use components empower you to jumpstart your projects and deliver value faster.
+
+.. toctree::
+   :hidden:
+   :maxdepth: 3
+
+   STM/STM-Landing page
 

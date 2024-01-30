@@ -1,3 +1,5 @@
+.. _eclipse setup windows application dev - manual procedure:
+
 Application Development - Manual Procedure 
 ===========================================
 
@@ -17,10 +19,9 @@ Configuring the Eclipse Project
 
 ..
 
-   |Graphical user interface, application Description automatically
-   generated|
+|image43|
 
-Figure 42: Select Properties
+Figure 1: Select Properties
 
 2. Select Settings under C/C++ build and click on Toolchains. Add the
    tool chain path and build tools path through global, workspace and
@@ -28,9 +29,9 @@ Figure 42: Select Properties
 
 ..
 
-   |Properties for test|
+|image44|
 
-Figure 43: Settings Window
+Figure 2: Settings Window
 
 3. Click on ARM Toolchains Path option available under MCU.
 
@@ -42,9 +43,9 @@ Figure 43: Settings Window
 
 ..
 
-   |A screenshot of a computer Description automatically generated|
+|image45|
 
-Figure 44: Adding ARM Tool Chain Path
+Figure 3: Adding ARM Tool Chain Path
 
 7.  Click on Build Tools Path option available under MCU.
 
@@ -56,9 +57,9 @@ Figure 44: Adding ARM Tool Chain Path
 
 ..
 
-   |image1|
+|image46|
 
-Figure 45: Adding Buildtools Path
+Figure 4: Adding Buildtools Path
 
 11. Click on OpenOCD Path, provide the OpenOCD as the executable.
 
@@ -68,18 +69,17 @@ Figure 45: Adding Buildtools Path
 
 ..
 
-   |image2|
+|image47|
 
-Figure 46: Adding OpenOCD Path
+Figure 5: Adding OpenOCD Path
 
 14. Includes directory of the project is added.
 
 ..
 
-   |Graphical user interface, text, application Description
-   automatically generated|
+|image48|
 
-Figure 47: Includes directory of the project
+Figure 6: Includes directory of the project
 
 Building Application in Eclipse
 -------------------------------
@@ -88,18 +88,18 @@ Building Application in Eclipse
 
 ..
 
-   |image3|
+|image49|
 
-Figure 48: Building the Application
+Figure 7: Building the Application
 
 2. On successfully building the application, an out directory containing
    the .elf file is created inside the application.
 
 ..
 
-   |image4|
+|image50|
 
-Figure 49: Build console
+Figure 8: Build console
 
 Debug Configuration Set-up in Eclipse
 -------------------------------------
@@ -109,9 +109,9 @@ Debug Configuration Set-up in Eclipse
 
 ..
 
-   |image5|
+|image51|
 
-Figure 50: Debug configuration settings
+Figure 9: Debug configuration settings
 
 2. Double click on GDB OpenOCD Debugging and the debug configuration of
    the project is seen. Select the configuration and then point to the
@@ -119,70 +119,62 @@ Figure 50: Debug configuration settings
 
 ..
 
-   |Graphical user interface, text, application, email Description
-   automatically generated|
+|image52|
 
-Figure 51: GDB OpenOCD Debugging settings
+Figure 10: GDB OpenOCD Debugging settings
 
 3. Under Debugger Settings, select the executable path as an OpenOCD
    installed path by clicking on Browse.
 
 ..
 
-   |Debug Configurations|
+|image53|
 
-Figure 52: Debugger settings – OpenOCD installed path
+Figure 11: Debugger settings – OpenOCD installed path
 
    In Config options, enter the path of configuration files available in
    conf directory of the SDK. These two files contain the configuration
    settings of Talaria TWO EVB. Configuration path should be as follows:
 
-+-----------------------------------------------------------------------+
-| -s C:/<PATH TO SDK>/sdk_x.y/conf -f ftdi.cfg -f t2.cfg                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      -s C:/<PATH TO SDK>/sdk_x.y/conf -f ftdi.cfg -f t2.cfg   
+
 
 ..
 
    **Note:** For SWD debugging, use the following configuration in
    Config options:
 
-+-----------------------------------------------------------------------+
-| -s C:/<PATH TO SDK>/sdk_x.y/conf -f ftdi_swd.cfg -f t2_swd.cfg        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      -s C:/<PATH TO SDK>/sdk_x.y/conf -f ftdi_swd.cfg -f t2_swd.cfg      
+
 
 ..
 
-   |image6|
+|image54|
 
-Figure 53: Debugger config window for SWD Configuration
+Figure 12: Debugger config window for SWD Configuration
 
 4. In GDB client setup, Select the actual executable arm-none-eabi-gdb
-   as shown in Figure 54. Add the following commands in commands tab:
+   as shown in Figure 13. Add the following commands in commands tab:
 
-+-----------------------------------------------------------------------+
-| set mem inaccessible-by-default off                                   |
-|                                                                       |
-| set substitute-path /tmp/build-2_gctshx/ "C:/data/"                   |
-|                                                                       |
-| mem 0 0x40000 ro                                                      |
-|                                                                       |
-| mem 0x40000 0xc0000 rw                                                |
-|                                                                       |
-| mem 0x100000 0x200000 ro                                              |
-|                                                                       |
-| mem 0xfc0000 0x1000000 rw                                             |
-|                                                                       |
-| mem 0x2000000 0x2100000 rw                                            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      set mem inaccessible-by-default off
+      set substitute-path /tmp/build-2_gctshx/ "C:/data/"
+      mem 0 0x40000 ro
+      mem 0x40000 0xc0000 rw
+      mem 0x100000 0x200000 ro
+      mem 0xfc0000 0x1000000 rw
+      mem 0x2000000 0x2100000 rw
 
 ..
 
-   |image7|
+|image55|
 
-Figure 54: Debugger settings
+Figure 13: Debugger settings
 
 5. Click on Apply.
 
@@ -192,12 +184,12 @@ Programming Talaria TWO EVB
 Flash the ELF onto Talaria TWO using the Download tool. Point to the elf
 file and click on PROG Flash to flash the application.
 
-Ensure that the output is as shown in Figure 56. If not, Click on Clear
+Ensure that the output is as shown in Figure 14. If not, Click on Clear
 Flash on the Download Tool and program the elf onto Talaria TWO again.
 
-|image8|
+|image56|
 
-Figure 56: Download Tool Console
+Figure 14: Download Tool Console
 
 Debugging in Eclipse
 --------------------
@@ -220,42 +212,42 @@ through the code and examining the contents of variables.
 
 ..
 
-   |image9|
+|image57|
 
-Figure 57: Debug start-up settings
+Figure 15: Debug start-up settings
 
 2. On being prompted to switch to the Debug perspective, click Switch.
 
 ..
 
-   |image10|
+|image58|
 
-Figure 58: Confirm Perspective Switch
+Figure 16: Confirm Perspective Switch
 
 3. The Debug perspective appears with the application window open.
    Eclipse IDE re-positions into debug perspective.
 
 ..
 
-   |image11|
+|image59|
 
-Figure 59: Debug perspective
+Figure 17: Debug perspective
 
-4. |image12|\ |image13|\ Breakpoints can be set by double-clicking to
-   the left of the line number. The blue circle indicates ( ) that the
+4. Breakpoints can be set by double-clicking to
+   the left of the line number. The blue circle indicates that the
    breakpoint is set. Similarly, multiple breakpoints can be added. To
-   start debugging, click on ( ).
+   start debugging, click on the pause/play button.
 
 ..
 
-   |image14|
+|image60|
 
-Figure 60: Setting breakpoint
+Figure 18: Setting breakpoint
 
 5. The execution will stop at the first breakpoint added to the c file.
-   As shown in Figure 60, breakpoint is set at line 6.
+   As shown in Figure 18, breakpoint is set at line 6.
 
-6. |image15|\ To continue execution, click the Resume button ( ) on the
+6. To continue execution, click the Resume button on the
    toolbar of the Debug view. This will resume execution of the program
    and stop at the next breakpoint.
 
@@ -267,73 +259,64 @@ Figure 60: Setting breakpoint
 
 ..
 
-   |image16|
+|image61|
 
-Figure 61: Step run output in console
+Figure 19: Step run output in console
 
-.. |Graphical user interface, application Description automatically generated| image:: media/image1.png
+.. |image43| image:: media/image43.png
    :width: 6.49606in
    :height: 3.48102in
-.. |Properties for test| image:: media/image2.png
+.. |image44| image:: media/image44.png
    :width: 5.90556in
    :height: 3.77292in
-.. |A screenshot of a computer Description automatically generated| image:: media/image3.png
+.. |image45| image:: media/image45.png
    :width: 5.90551in
    :height: 2.53479in
-.. |image1| image:: media/image4.png
+.. |image46| image:: media/image46.png
    :width: 6.49606in
    :height: 2.78827in
-.. |image2| image:: media/image5.png
+.. |image47| image:: media/image47.png
    :width: 6.49606in
    :height: 2.78827in
-.. |Graphical user interface, text, application Description automatically generated| image:: media/image6.png
+.. |image48| image:: media/image48.png
    :width: 3.93681in
    :height: 2.92083in
-.. |image3| image:: media/image7.png
+.. |image49| image:: media/image49.png
    :width: 6.29921in
    :height: 3.07599in
-.. |image4| image:: media/image8.png
+.. |image50| image:: media/image50.png
    :width: 6.29921in
    :height: 3.37775in
-.. |image5| image:: media/image9.png
+.. |image51| image:: media/image51.png
    :width: 6.29921in
    :height: 3.39331in
-.. |Graphical user interface, text, application, email Description automatically generated| image:: media/image10.png
+.. |image52| image:: media/image52.png
    :width: 6.29921in
    :height: 3.5096in
-.. |Debug Configurations| image:: media/image11.png
+.. |image53| image:: media/image53.png
    :width: 6.69291in
    :height: 3.30845in
-.. |image6| image:: media/image12.png
+.. |image54| image:: media/image54.png
    :width: 6.69291in
    :height: 0.96168in
-.. |image7| image:: media/image13.png
+.. |image55| image:: media/image55.png
    :width: 6.69291in
    :height: 3.75807in
-.. |image8| image:: media/image14.png
+.. |image56| image:: media/image56.png
    :width: 7.47888in
    :height: 2.4875in
-.. |image9| image:: media/image15.png
+.. |image57| image:: media/image57.png
    :width: 6.29921in
    :height: 4.63552in
-.. |image10| image:: media/image16.png
+.. |image58| image:: media/image58.png
    :width: 4.72441in
    :height: 2.01427in
-.. |image11| image:: media/image17.png
+.. |image59| image:: media/image59.png
    :width: 6.29921in
    :height: 3.37775in
-.. |image12| image:: media/image18.png
+.. |image60| image:: media/image60.png
    :width: 0.14792in
    :height: 0.2in
-.. |image13| image:: media/image19.png
+.. |image61| image:: media/image61.png
    :width: 0.16667in
    :height: 0.12639in
-.. |image14| image:: media/image20.png
-   :width: 6.29921in
-   :height: 3.3896in
-.. |image15| image:: media/image19.png
-   :width: 0.16667in
-   :height: 0.12639in
-.. |image16| image:: media/image21.png
-   :width: 6.69291in
-   :height: 3.73249in

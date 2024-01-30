@@ -1,3 +1,5 @@
+.. _eclipse setup windows add paths to env var:
+
 Add Paths to the Environment Variable
 =====================================
 
@@ -6,10 +8,9 @@ following path : Control Panel -> System and Security -> System ->
 Advanced System Settings -> Environment Variables -> System Variable ->
 Path -> Edit -> New.
 
-|Graphical user interface, application Description automatically
-generated|
+|image9|
 
-Figure 9: Adding environment variables
+Figure 1: Adding environment variables
 
 Add the tool chain and build tools path to the environment variable
 under System Variables. xPacks installs tools under Appdata/Roming/
@@ -35,6 +36,6 @@ C:\\Users\\innop\\AppData\\Roaming\\xPacks\\@xpack-dev-tools\\arm-none-eabi-gcc\
 
 6. Click OK.
 
-.. |Graphical user interface, application Description automatically generated| image:: media/image1.png
+.. |image9| image:: media/image9.png
    :width: 7.48031in
    :height: 3.4072in

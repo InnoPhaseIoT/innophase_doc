@@ -1,3 +1,5 @@
+.. _eclipse setup linux - eclipse ide installer:
+
 Linux - Eclipse IDE installer
 =============================
 
@@ -7,7 +9,7 @@ environments.
 Download the Eclipse Linux installer from
 *https://www.eclipse.org/downloads/packages/installer*
 
-as depicted in Figure 2.
+as depicted in Figure 1.
 
 **Note:** This document currently includes information supporting
 Eclipse IDE Version: 2021-09 (4.25). However, Eclipse IDE Version of

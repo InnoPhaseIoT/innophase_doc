@@ -1,3 +1,5 @@
+.. _env setup for linux - standalone ubuntu:
+
 Standalone Ubuntu 20.04
 -----------------------
 

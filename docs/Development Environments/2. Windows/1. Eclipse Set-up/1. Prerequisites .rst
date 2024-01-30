@@ -1,3 +1,5 @@
+.. _eclipse setup windows prerequisites:
+
 Prerequisites 
 ==============
 
@@ -13,7 +15,7 @@ externally installed JDKs. Download and install the JDK 11 installer
 from the following link and install it administrative rights:
 https://www.oracle.com/in/java/technologies/javase/jdk11-archive-downloads.html.
 
-|A screenshot of a computer Description automatically generated|
+|image1|
 
 Figure 1: JDK installer for Windows
 
@@ -37,7 +39,7 @@ Node.js is an open source java script run-time environment.
 Download the Windows Installer (.msi) from the Node.js download page and
 install it with administrative rights: https://nodejs.org/en/.
 
-|Graphical user interface, website Description automatically generated|
+|image2|
 
 Figure 2: Node.js installation
 
@@ -54,19 +56,19 @@ steps:
 
 1. Launch the node command prompt.
 
-|Node.js command prompt|
+|image3|
 
 Figure 3: Node command prompt
 
 2. To install latest version of NPM through node.js command line,
    execute the following command:
 
-+-----------------------------------------------------------------------+
-| npm install --global npm@latest                                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|Text Description automatically generated|
+      npm install --global npm@latest   
+
+
+|image4|
 
 Figure 4: NPM latest version installation
 
@@ -80,12 +82,12 @@ associated with various build steps.
 To install the latest version of XPM through node.js command line,
 execute the following command:
 
-+-----------------------------------------------------------------------+
-| npm install --global xpm@latest                                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image1|
+      npm install --global xpm@latest 
+
+
+|image5|
 
 Figure 5: XPM installation
 
@@ -100,12 +102,12 @@ and hence needs to be installed separately.
 To install the windows-build-tools through node.js command line ,
 execute the following command:
 
-+-----------------------------------------------------------------------+
-| xpm install --global @xpack-dev-tools/windows-build-tools@4.3.0-1.1   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image2|
+      xpm install --global @xpack-dev-tools/windows-build-tools@4.3.0-1.1
+
+
+|image6|
 
 Figure 6: Windows-build-tools installation
 
@@ -120,12 +122,12 @@ required.
 To install latest version of the ARM tool chain, execute the following
 command:
 
-+-----------------------------------------------------------------------+
-| xpm install @xpack-dev-tools/arm-none-eabi-gcc@11.2.1-1.1.1           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image3|
+      xpm install @xpack-dev-tools/arm-none-eabi-gcc@11.2.1-1.1.1  
+
+
+|image7|
 
 Figure 7: ARM tool chain installation
 
@@ -135,12 +137,12 @@ OpenOCD Installation
 OpenOCD is used for on-chip debugging. . In a terminal window, execute
 the following command to install OpenOCD (For example: version 0.10.0):
 
-+-----------------------------------------------------------------------+
-| xpm install --global @xpack-dev-tools/openocd@0.10.0-13.1             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image4|
+      xpm install --global @xpack-dev-tools/openocd@0.10.0-13.1 
+
+
+|image8|
 
 Figure 8: OpenOCD installation
 
@@ -149,27 +151,27 @@ following location: C:\\Users\\<User name>\\AppData\\Roaming.
 
 Ensure to check the XPM output for the actual location.
 
-.. |A screenshot of a computer Description automatically generated| image:: media/image1.png
+.. |image1| image:: media/image1.png
    :width: 7.48031in
    :height: 4.02342in
-.. |Graphical user interface, website Description automatically generated| image:: media/image2.png
+.. |image2| image:: media/image2.png
    :width: 7.48031in
    :height: 3.98117in
-.. |Node.js command prompt| image:: media/image3.png
+.. |image3| image:: media/image3.png
    :width: 7.08661in
    :height: 0.92499in
-.. |Text Description automatically generated| image:: media/image4.png
+.. |image4| image:: media/image4.png
    :width: 7.08661in
-   :height: 0.90749in
-.. |image1| image:: media/image5.png
+   :height: 4.90749in
+.. |image5| image:: media/image5.png
    :width: 7.48031in
-   :height: 0.70106in
-.. |image2| image:: media/image6.png
+   :height: 1.70106in
+.. |image6| image:: media/image6.png
    :width: 7.48031in
    :height: 1.36545in
-.. |image3| image:: media/image7.png
+.. |image7| image:: media/image7.png
    :width: 7.48031in
    :height: 1.10424in
-.. |image4| image:: media/image8.png
+.. |image8| image:: media/image8.png
    :width: 7.48031in
    :height: 1.5886in

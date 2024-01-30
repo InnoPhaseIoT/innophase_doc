@@ -1,4 +1,4 @@
-.. _windowsystemPrerequisites:
+.. _wsl prerequisites:
 
 Prerequisites
 =============
@@ -68,8 +68,7 @@ Figure 5: Username and password
 
 ..
 
-   |Text Description automatically generated with low
-   confidence|\ |image6|
+|image6|
 
 Figure 6: Terminal window
 
@@ -79,25 +78,22 @@ Installing Necessary Packages
 In the terminal window, execute the following commands entering the
 password which was set in Figure 6 when prompted.
 
-+-----------------------------------------------------------------------+
-| sudo apt update                                                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-+-----------------------------------------------------------------------+
-| sudo apt upgrade                                                      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+      sudo apt update   
 
-+-----------------------------------------------------------------------+
-| sudo apt-get update                                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-+-----------------------------------------------------------------------+
-| lsb_release -a                                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+      sudo apt upgrade 
+
+.. code:: shell
+
+      sudo apt-get update   
+
+.. code:: shell
+
+      lsb_release -a
+
 
 Console output:
 
@@ -114,25 +110,24 @@ your regular Windows file system. You can integrate your WSL files into
 the Windows File Explorer by changing to a particular directory in the
 WSL terminal and using the command:
 
-+-----------------------------------------------------------------------+
-| explorer.exe                                                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      explorer.exe  
+
 
 Install arm-none-eabi Toolchain
 -------------------------------
 
 Install the GCC compiler packages.
 
-+-----------------------------------------------------------------------+
-| sudo apt install gcc-arm-none-eabi                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-+-----------------------------------------------------------------------+
-| arm-none-eabi-gcc --version                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+      sudo apt install gcc-arm-none-eabi    
+
+.. code:: shell
+
+      arm-none-eabi-gcc --version
+
 
 Console output:
 
@@ -147,20 +142,18 @@ In any terminal window, execute the following commands to install
 Python3 and other Python packages that will be needed. Enter the
 password as prompted which was set in Figure 6.
 
-+-----------------------------------------------------------------------+
-| sudo apt install python3 -y                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-+-----------------------------------------------------------------------+
-| sudo apt install python3-pip -y                                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+      sudo apt install python3 -y    
 
-+-----------------------------------------------------------------------+
-| python3 --version                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      sudo apt install python3-pip -y  
+
+.. code:: shell
+
+      python3 --version 
+
 
 Console output:
 
@@ -178,10 +171,10 @@ Compile the InnoPhase SDK
 2. Execute the make command. Use the ELFs generated in the application’s
    out folder.
 
-+-----------------------------------------------------------------------+
-| make                                                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      make
+
 
 **Note**: User can also compile the required application, for example:
 *sdk_x.y/apps/helloworld/*.
@@ -189,8 +182,6 @@ Compile the InnoPhase SDK
 3. By default, in the SDK package, the ELFs can be used from the
    application’s bin folder.
 
-**Note**: x and y refer to the SDK release version. For example:
-sdk_2.5/doc.
 
 |image10|
 
@@ -209,20 +200,16 @@ Talaria TWO using the Download Tool:
    a. Programming: Click on Clear Flash and ensure the output is as
       follows:
 
-+-----------------------------------------------------------------------+
-| UART:NWWWWWAEBuild $Id: git-b664be2af $                               |
-|                                                                       |
-| app=gordon                                                            |
-|                                                                       |
-| flash: Gordon ready!                                                  |
-|                                                                       |
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:P                                                               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      UART:NWWWWWAEBuild $Id: git-b664be2af $
+      app=gordon
+      flash: Gordon ready!
+      
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:P
+
 
 b. Boot Target: Select the appropriate EVK from the drop-down
 
@@ -232,22 +219,17 @@ d. Programming: Prog RAM or Prog Flash as per requirement.
 
 Console output:
 
-+-----------------------------------------------------------------------+
-| UART:NWWWWWAEBuild $Id: git-b664be2af $                               |
-|                                                                       |
-| app=gordon                                                            |
-|                                                                       |
-| flash: Gordon ready!                                                  |
-|                                                                       |
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PNWWWAEBuild $Id: git-b664be2af $                               |
-|                                                                       |
-| Hello World                                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      UART:NWWWWWAEBuild $Id: git-b664be2af $
+      app=gordon
+      flash: Gordon ready!
+      
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PNWWWAEBuild $Id: git-b664be2af $
+      Hello World
+
 
 .. |image1| image:: media/image1.png
    :width: 4.72441in
@@ -264,20 +246,18 @@ Console output:
 .. |image5| image:: media/image5.png
    :width: 5.90551in
    :height: 3.4203in
-.. |Text Description automatically generated with low confidence| image:: media/image6.png
-   :width: 1.00082in
-.. |image6| image:: media/image7.png
+.. |image6| image:: media/image6.png
    :width: 5.90551in
    :height: 4.19781in
-.. |image7| image:: media/image8.png
+.. |image7| image:: media/image7.png
    :width: 4.72441in
    :height: 1.32292in
-.. |image8| image:: media/image9.png
+.. |image8| image:: media/image8.png
    :width: 5.90551in
-   :height: 0.64947in
-.. |image9| image:: media/image10.png
+   :height: 2.64947in
+.. |image9| image:: media/image9.png
    :width: 4.72441in
-   :height: 0.37327in
-.. |image10| image:: media/image11.png
+   :height: 2.37327in
+.. |image10| image:: media/image10.png
    :width: 5.51181in
    :height: 2.89434in

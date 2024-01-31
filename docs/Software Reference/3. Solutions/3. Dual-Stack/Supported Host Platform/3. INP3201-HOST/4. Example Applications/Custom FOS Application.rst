@@ -47,7 +47,7 @@ Execute the following operations on Talaria TWO:
 
 .. code:: shell
 
-      #./custom_fos /root/t2_firmware.elf --no_hash 1  
+    #./custom_fos /root/t2_firmware.elf --no_hash 1
 
 
 Expected Output
@@ -64,19 +64,19 @@ Host serial log – text output:
 
 .. code:: shell
 
-      [root@:]# ./custom_fos dual_stack.elf.strip fa57d8378e1a88c92ad5d691eb1108a66f434c4171db0779bf671bdfc403e7cc 1
+    [root@:]# ./custom_fos dual_stack.elf.strip fa57d8378e1a88c92ad5d691eb1108a66f434c4171db0779bf671bdfc403e7cc 1
 
-      Args:
-      t2 elf path = dual_stack.elf.strip
-      hash = fa57d8378e1a88c92ad5d691eb1108a66f434c4171db0779bf671bdfc403e7cc
-      autoreset = 1
-      
-      file size = 650988
-      Fos Start: Resp status=0 : success
-      
-      file size = 650988
-      End of Reading t2 image file
-      FOS Success
+    Args:
+    t2 elf path = dual_stack.elf.strip
+    hash = fa57d8378e1a88c92ad5d691eb1108a66f434c4171db0779bf671bdfc403e7cc
+    autoreset = 1
+
+    file size = 650988
+    Fos Start: Resp status=0 : success
+
+    file size = 650988
+    End of Reading t2 image file
+    FOS Success
 
 
 List of Message IDs Used

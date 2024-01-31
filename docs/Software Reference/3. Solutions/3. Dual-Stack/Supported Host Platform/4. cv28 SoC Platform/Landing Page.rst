@@ -1,8 +1,8 @@
+
 InnoPhase IoT’s hosted solution on CV28 System-on-Chip Host platform
 includes the following features:
 
 1.  PMK Caching
-
 2.  Shadow Service:
 
     a. This feature enables the Dual-Stack solution to stay connected to
@@ -49,3 +49,33 @@ includes the following features:
 
 This section provides steps to setup and run the Talaria TWO Dual-Stack
 Solution with FreeRTOS support using AEK001 cv28 host.
+
+**Getting Started**
+-----------------
+
+.. toctree::
+    :maxdepth: 3
+
+    1. Getting Started/Prerequisites.rst
+
+**Evaluation Setup and Usage**
+-----------------
+.. toctree::
+    :maxdepth: 2
+
+    2. Evaluation Set-up and Usage/1. Landing Page.rst
+
+
+**Video Streaming AEK001 cv28 Host**
+-----------------
+.. toctree::
+    :maxdepth: 2
+
+    3. Video Streaming AEK001 cv28 Host/Video streaming AEK001 cv28 Host.rst
+
+**Testing for Basic Operations**
+-----------------
+.. toctree::
+    :maxdepth: 1
+
+    4. Testing for Basic Operations/Testing for Basic Operations

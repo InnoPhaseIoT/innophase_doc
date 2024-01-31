@@ -27,7 +27,7 @@ Connect to an Access Point with the specified SSID and passphrase.
 
 .. code:: shell
 
-    $ ./conmgr connect <SSID> <passphrase>   
+    $ ./conmgr connect <SSID> <passphrase>
 
 
 Connect to a remote Host over TCP from Talaria TWO.
@@ -101,4 +101,3 @@ receives this message and replies with CUSTOM_NW_CLIENT_RSP.
 This message is sent to Talaria TWO to close the client connection.
 Talaria TWO receives this message and replies with CUSTOM_NW_CLOSE_RSP.
 
- 

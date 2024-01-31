@@ -13,3 +13,12 @@ It provides the following:
 
 3. Dual-Stack host app binary and utilities
    (*talaria_two_dual_stack_vx.y\\host\\cv28\\dual-stack*)
+
+
+.. toctree::
+    :maxdepth: 2
+
+    2. AEK001 cv28 - Talaria TWO End-to-End Setup.rst
+    3. Programming Talaria TWO Application.rst
+    4. Programming AEK001 cv28 Host Board.rst
+    5. Host SPI Buffer Size Requirement.rst

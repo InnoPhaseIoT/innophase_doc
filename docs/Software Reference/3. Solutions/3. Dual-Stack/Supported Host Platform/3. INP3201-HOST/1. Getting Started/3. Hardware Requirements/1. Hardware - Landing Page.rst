@@ -35,13 +35,9 @@ The hardware design guidelines for the module can be can be broadly
 categorized into the following:
 
 1. Power supply
-
 2. Reset
-
 3. Peripheral interfacing
-
 4. Production programming
-
 5. RF/Antenna section
 
 Power supply, Reset & Peripheral interfacing remain same for all

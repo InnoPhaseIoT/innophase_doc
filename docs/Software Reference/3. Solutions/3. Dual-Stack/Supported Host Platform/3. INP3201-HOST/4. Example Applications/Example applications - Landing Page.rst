@@ -6,7 +6,7 @@ which replaces normal Wi-Fi driver concept of Linux stack. This solution
 is suitable for power consuming high performance host processor with
 Linux as the operating system.
 
-​This document includes custom application walkthroughs. Each application
+This document includes custom application walk throughs. Each application
 uses a unique group ID to communicate with Talaria TWO and each
 functionality within this group is identified by a unique message ID.
 
@@ -70,9 +70,9 @@ For example:
 
 .. code:: shell
 
-      $ cd <PACKAGE>/host/<platform>/dual-stack/    
-      $ make clean
-      $ make platform=<host>_SDIO
+    $ cd <PACKAGE>/host/<platform>/dual-stack/
+    $ make clean
+    $ make platform=<host>_SDIO
 
 Copy the compiled binaries to host using TFTP/SD card depending on
 availability of the ethernet interface or SD card slot on host platform.

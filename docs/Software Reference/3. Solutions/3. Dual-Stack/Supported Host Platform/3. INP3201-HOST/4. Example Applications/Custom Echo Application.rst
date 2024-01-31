@@ -28,7 +28,7 @@ data.
 
 .. code:: shell
 
-      $ ./custom_echo <text_to_send>  
+    $ ./custom_echo <text_to_send>
 
 
 Send <text_to_send> to Talaria TWO. Talaria TWO responds with data in
@@ -38,7 +38,7 @@ inverted case.
 
 .. code:: shell
 
-      $ ./custom_echo <text_to_send>     
+    $ ./custom_echo <text_to_send>
 
 
 Expected Output
@@ -55,18 +55,18 @@ Host console log – text output:
 
 .. code:: shell
 
-      # ./custom_echo innophase 0
-      Resp status: 0
-      Resp len: 9
-      Resp data: innophase
-      Status : Success
-      # ./custom_echo innophase 1
-      Resp status: 0
-      Resp len: 9
-      Resp data: INNOPHASE
+    # ./custom_echo innophase 0
+    Resp status: 0
+    Resp len: 9
+    Resp data: innophase
+    Status : Success
+    # ./custom_echo innophase 1
+    Resp status: 0
+    Resp len: 9
+    Resp data: INNOPHASE
       
-      Status : Success
-      #
+    Status : Success
+    #
 
 
 List of Message IDs Used

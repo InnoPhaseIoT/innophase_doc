@@ -41,7 +41,7 @@ Expected output:
 
 .. code:: shell
 
-    	Open On-Chip Debugger 0.10.0
+    Open On-Chip Debugger 0.10.0
 	Licensed under GNU GPL v2
 	For bug reports, read
 		http://openocd.org/doc/doxygen/bugs.html
@@ -60,8 +60,7 @@ Expected output:
 	Info : Talaria TWO rev. H0
 
 
-2. Start arden.py script from SDK root folder *(sdk_x.y\\)* on a new
-   terminal:
+2. Start arden.py script from SDK root folder *(sdk_x.y\\)* on a new terminal:
 
 Command:
 
@@ -74,7 +73,7 @@ Expected output:
 
 .. code:: shell
 
-    	[sudo] password for dell10: 
+    [sudo] password for dell10:
 	(re)connecting with openocd
 	openocd version: 'Open On-Chip Debugger 0.10.0'
 	boot rom version of connected device: "yoda-h0-rom-16-0-gd5a8e586"
@@ -149,8 +148,7 @@ Expected output:
 
 .. code:: shell
 
- 	write: [==================================================================>]
-	103972 bytes written to addr 4096
+    write: [==================================================================>] 103972 bytes written to addr 4096
 
 
 
@@ -167,11 +165,7 @@ Expected output:
 
     write: [==================================================================>]
 	482176 bytes written to addr 262144
-	
-	
-	
-	**
-	**
+
 
 After flashing the dual_stack_sdio.elf, update the root.img with AWS
 certificates on /data partition.

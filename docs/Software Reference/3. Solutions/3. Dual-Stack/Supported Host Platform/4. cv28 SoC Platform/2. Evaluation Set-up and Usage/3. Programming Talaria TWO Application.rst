@@ -37,9 +37,6 @@ UG_Download_Tool.pdf (path:
 **Note**: x and y refer to the SDK release version. For example:
 freertos_sdk_2.4/doc.
 
-**
-**
-
 Console output
 
 +-----------------------------------------------------------------------+

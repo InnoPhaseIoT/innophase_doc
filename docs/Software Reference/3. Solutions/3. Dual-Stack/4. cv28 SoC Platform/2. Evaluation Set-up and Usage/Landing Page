@@ -1,0 +1,15 @@
+Evaluation Set-up and Usage
+===========================
+
+This section describes the set-up and usage of Talaria TWO module with
+cv28 host for evaluation.
+
+It provides the following:
+
+1. Pre-built firmware binary for Talaria TWO
+   (*freertos_sdk_x.y\\solutions\\dual_stack\\bin*)
+
+2. Quick start guide *(freertos_sdk_x.y\\dual_stack\\docs*)
+
+3. Dual-Stack host app binary and utilities
+   (*talaria_two_dual_stack_vx.y\\host\\cv28\\dual-stack*)

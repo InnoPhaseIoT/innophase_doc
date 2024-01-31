@@ -1,0 +1,13 @@
+Programming AEK001 cv28 Host Board
+----------------------------------
+
+1. Load the kernel image on AEK001 cv28 host platform with image
+   provided by Ambarella (refer document: Update_Firmware.pdf).
+
+2. One time configuration on cv28 platform:
+
+   a. Open /etc/modprobe.d/spidev.conf file and update the file with
+      options spidev bufsiz=16384.
+
+   b. Open /etc/network/interfaces and update the line containing iface
+      eth0 inet static to iface eth0 inet dhcp.

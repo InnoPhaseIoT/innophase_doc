@@ -25,3 +25,10 @@ Talaria TWO Wi-Fi add-on boards.
     :maxdepth: 3
 
     Host API Reference Guide/Host API Reference Guide-Landing.rst
+
+.. toctree::
+    :hidden:
+    :maxdepth: 3
+
+    STM32L4/Getting Started with STM32L4/Getting Started - Landing Page.rst
+

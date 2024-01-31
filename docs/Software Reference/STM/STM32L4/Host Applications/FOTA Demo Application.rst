@@ -19,12 +19,9 @@ the major steps involved:
 
 4. Trigger FOTA
 
-Connection Set-up
-=================
+**Connection Set-up**
 
-Host processor communicates with Talaria TWO via a SPI or UART
-interface. The connection set-up used to test the application is as
-shown in Figure 1.
+Host processor communicates with Talaria TWO via a SPI or UART interface. The connection set-up used to test the application is as shown below.
 
 |image1|
 
@@ -88,8 +85,7 @@ QSG_T2_STM32CubeL4_L4A6ZG.pdf
 Hardware setup and connections for testing the application using UART
 interface.
 
-Set-up & Usage
-==============
+**Set-up & Usage**
 
 Pre-set-up on Talaria TWO
 -------------------------
@@ -107,8 +103,7 @@ QSG_T2_STM32CubeL4_L433RC-P.pdf
 *(Documentation\\STM32CubeL4_Getting_Started*) for details on the boot
 arguments to be passed for SPI and UART interface.
 
-Testing
-=======
+**Testing**
 
 Sample Application
 ------------------
@@ -144,8 +139,7 @@ refer to UM1722 - Developing Applications on STM32Cube with RTOS.
 
 .. _fota-demo-application-1:
 
-FOTA Demo Application
-=====================
+**FOTA Demo Application**
 
 This section describes the application details along with code snippets.
 The application uses HAPI APIs to achieve the functionality. HAPI APIs
@@ -155,55 +149,44 @@ completed by default.
 HAPI Interface Initialization
 -----------------------------
 
-+-----------------------------------------------------------------------+
-| struct hapi \*hapi;                                                   |
-|                                                                       |
-| #ifdef HAPI_INTERFACE_UART_ENABLED                                    |
-|                                                                       |
-| /\* Register the uart, and baud rate to hapi \*/                      |
-|                                                                       |
-| hapi = hapi_uart_init(hapi_uart, hapi_uart_tx, hapi_uart_rx);         |
-|                                                                       |
-| #endif                                                                |
-|                                                                       |
-| #ifdef HAPI_INTERFACE_SPI_ENABLED                                     |
-|                                                                       |
-| /\* Register the SPI \*/                                              |
-|                                                                       |
-| hapi = hapi_spi_init(hapi_spi, hapi_spi_cs_high, hapi_spi_cs_low,     |
-| hapi_spi_tx, hapi_spi_rx);                                            |
-|                                                                       |
-| #endif                                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    struct hapi *hapi;
+    #ifdef HAPI_INTERFACE_UART_ENABLED
+    /* Register the uart, and baud rate to hapi */
+    hapi = hapi_uart_init(hapi_uart, hapi_uart_tx, hapi_uart_rx);
+    #endif
+    #ifdef HAPI_INTERFACE_SPI_ENABLED
+    /* Register the SPI */
+    hapi = hapi_spi_init(hapi_spi, hapi_spi_cs_high, hapi_spi_cs_low, hapi_spi_tx, hapi_spi_rx);
+    #endif
+
 
 HAPI Interface Start and Disable Sleep Mode in Configuration
 ------------------------------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_start(hapi);                                                     |
-|                                                                       |
-| hapi_config(hapi, 0, 0, 0, 0, 0);                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    hapi_start(hapi);
+    hapi_config(hapi, 0, 0, 0, 0, 0);
+
 
 Check HAPI Communication with Talaria TWO EVB
 ---------------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_hio_query(hapi,&hio_query_rsp);                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    hapi_hio_query(hapi,&hio_query_rsp)
+
 
 Create a Wi-Fi Network Interface and Register Link Status Callback 
 -------------------------------------------------------------------
 
-+-----------------------------------------------------------------------+
-| struct hapi_wcm \* hapi_wcm = hapi_wcm_create(hapi);                  |
-|                                                                       |
-| hapi_wcm_set_link_cb(hapi_wcm, wcm_link_cb, NULL);                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    struct hapi_wcm \* hapi_wcm = hapi_wcm_create(hapi);
+    hapi_wcm_set_link_cb(hapi_wcm, wcm_link_cb, NULL);
+
 
 Connecting to a Wi-Fi network
 -----------------------------
@@ -220,49 +203,35 @@ Figure 2: Modifying parameters as per AP settings
 In app_config file, configure the SSID and passphrase for a Wi-Fi
 connection as mentioned below:
 
-+-----------------------------------------------------------------------+
-| #define WIFI_SSID "InnoAP"                                            |
-|                                                                       |
-| /comment this macro for open security/                                |
-|                                                                       |
-| #define WIFI_PASSPHRASE "inno123456"                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    #define WIFI_SSID "InnoAP"
+    /comment this macro for open security/
+    #define WIFI_PASSPHRASE "inno123456"
+
 
 Trigger FOTA
 ------------
 
 The application triggers FOTA using the following HAPI API:
 
-+-----------------------------------------------------------------------+
-| bool                                                                  |
-|                                                                       |
-| hapi_fota_start(struct hapi \*hapi_p,                                 |
-|                                                                       |
-| uint32_t check_for_update,                                            |
-|                                                                       |
-| uint32_t auto_reset);                                                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    bool hapi_fota_start(struct hapi \*hapi_p, uint32_t check_for_update, uint32_t auto_reset);
 
 Usage:
 
-+-----------------------------------------------------------------------+
-| status = hapi_fota_start(hapi, 1, 0);                                 |
-|                                                                       |
-| if(!status){                                                          |
-|                                                                       |
-| /\*Fota failed*/                                                      |
-|                                                                       |
-| console_print("\\nFOTA Failed");                                      |
-|                                                                       |
-| goto err_exit;                                                        |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| /\*FOTA is Success*/                                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shel
+
+    status = hapi_fota_start(hapi, 1, 0);
+    if(!status)
+    {
+        /\*Fota failed*/
+        console_print("\\nFOTA Failed");
+        goto err_exit;
+    }
+    /\*FOTA is Success*/
+
 
 The host application can set auto_reset as 1 or 0. If set to 1, Talaria
 TWO will be reset after successful completion of FOTA. If FOTA fails,
@@ -273,8 +242,7 @@ will return success/failure. The host needs to reset the system if the
 API return is a success. The new firmware will take effect in Talaria
 TWO only after reset.
 
-Expected Output
-===============
+**Expected Output**
 
 On successful FOTA download and commit, FOTA Success can be observed on
 the serial terminal.
@@ -283,56 +251,57 @@ the serial terminal.
 
 Figure 3: Expected output
 
-Application Files and Functions
-===============================
+**Application Files and Functions**
 
-+----------------------------------------------+-----------------------+
-|    File                                      |    Function           |
-+==============================================+=======================+
-|    InnoP                                     |    Main Program       |
-| hase_HAPI/InnoPhase_HAPI_wifidemo/Src/main.c |                       |
-+----------------------------------------------+-----------------------+
-|    InnoPhase_HAPI/InnoPhase_HA               |    HAL time-base file |
-| PI_wifidemo/Src/stm32l4xx_hal_timebase_tim.c |                       |
-+----------------------------------------------+-----------------------+
-|    InnoPhase_HAP                             |    Interrupt handlers |
-| I/InnoPhase_HAPI_wifidemo/Src/stm32l4xx_it.c |                       |
-+----------------------------------------------+-----------------------+
-|    InnoPhase_HAPI/In                         |    STM32L4xx system   |
-| noPhase_HAPI_wifidemo/Src/system_stm32l4xx.c |    clock              |
-|                                              |    configuration file |
-+----------------------------------------------+-----------------------+
-|    InnoPhase_                                |    Code for free RTOS |
-| HAPI/InnoPhase_HAPI_wifidemo/Src/freertose.c |    application        |
-+----------------------------------------------+-----------------------+
-|    InnoPhase_HAPI/Inn                        |    Code for MSP       |
-| oPhase_HAPI_wifidemo/Src/stm32l4xx_hal_msp.c |    initializa         |
-|                                              | tion/deinitialization |
-+----------------------------------------------+-----------------------+
-|    InnoPhase                                 |    System calls file  |
-| _HAPI/InnoPhase_HAPI_wifidemo/Src/syscalls.c |                       |
-+----------------------------------------------+-----------------------+
-|    InnoPha                                   |    System memory      |
-| se_HAPI/InnoPhase_HAPI_wifidemo/Src/sysmem.c |    calls file         |
-+----------------------------------------------+-----------------------+
-|    InnoPhase_HAPI/InnoPhas                   |    System startup     |
-| e_HAPI_wifidemo/Src/startup_stm32l433rctxp.s |    file               |
-+----------------------------------------------+-----------------------+
-|    InnoP                                     |    Main program       |
-| hase_HAPI/InnoPhase_HAPI_wifidemo/Inc/main.h |    header file        |
-+----------------------------------------------+-----------------------+
-|    InnoPhase_HAPI/Inno                       |    HAL Library        |
-| Phase_HAPI_wifidemo/Inc/stm32l4xx_hal_conf.h |    Configuration file |
-+----------------------------------------------+-----------------------+
-|    InnoPhase_HAP                             |    Interrupt          |
-| I/InnoPhase_HAPI_wifidemo/Inc/stm32l4xx_it.h |    handler’s header   |
-|                                              |    file               |
-+----------------------------------------------+-----------------------+
-|    InnoPhase_HAPI/                           |    FreeRTOS           |
-| InnoPhase_HAPI_wifidemo/Inc/FreeRTOSConfig.h |    Configuration file |
-+----------------------------------------------+-----------------------+
+.. table:: Table 1: Application files and functions
 
-Table 1: Application files and functions
+    +----------------------------------------------+-----------------------+
+    |    File                                      |    Function           |
+    +==============================================+=======================+
+    |    InnoP                                     |    Main Program       |
+    | hase_HAPI/InnoPhase_HAPI_wifidemo/Src/main.c |                       |
+    +----------------------------------------------+-----------------------+
+    |    InnoPhase_HAPI/InnoPhase_HA               |    HAL time-base file |
+    | PI_wifidemo/Src/stm32l4xx_hal_timebase_tim.c |                       |
+    +----------------------------------------------+-----------------------+
+    |    InnoPhase_HAP                             |    Interrupt handlers |
+    | I/InnoPhase_HAPI_wifidemo/Src/stm32l4xx_it.c |                       |
+    +----------------------------------------------+-----------------------+
+    |    InnoPhase_HAPI/In                         |    STM32L4xx system   |
+    | noPhase_HAPI_wifidemo/Src/system_stm32l4xx.c |    clock              |
+    |                                              |    configuration file |
+    +----------------------------------------------+-----------------------+
+    |    InnoPhase_                                |    Code for free RTOS |
+    | HAPI/InnoPhase_HAPI_wifidemo/Src/freertose.c |    application        |
+    +----------------------------------------------+-----------------------+
+    |    InnoPhase_HAPI/Inn                        |    Code for MSP       |
+    | oPhase_HAPI_wifidemo/Src/stm32l4xx_hal_msp.c |    initializa         |
+    |                                              | tion/deinitialization |
+    +----------------------------------------------+-----------------------+
+    |    InnoPhase                                 |    System calls file  |
+    | _HAPI/InnoPhase_HAPI_wifidemo/Src/syscalls.c |                       |
+    +----------------------------------------------+-----------------------+
+    |    InnoPha                                   |    System memory      |
+    | se_HAPI/InnoPhase_HAPI_wifidemo/Src/sysmem.c |    calls file         |
+    +----------------------------------------------+-----------------------+
+    |    InnoPhase_HAPI/InnoPhas                   |    System startup     |
+    | e_HAPI_wifidemo/Src/startup_stm32l433rctxp.s |    file               |
+    +----------------------------------------------+-----------------------+
+    |    InnoP                                     |    Main program       |
+    | hase_HAPI/InnoPhase_HAPI_wifidemo/Inc/main.h |    header file        |
+    +----------------------------------------------+-----------------------+
+    |    InnoPhase_HAPI/Inno                       |    HAL Library        |
+    | Phase_HAPI_wifidemo/Inc/stm32l4xx_hal_conf.h |    Configuration file |
+    +----------------------------------------------+-----------------------+
+    |    InnoPhase_HAP                             |    Interrupt          |
+    | I/InnoPhase_HAPI_wifidemo/Inc/stm32l4xx_it.h |    handler’s header   |
+    |                                              |    file               |
+    +----------------------------------------------+-----------------------+
+    |    InnoPhase_HAPI/                           |    FreeRTOS           |
+    | InnoPhase_HAPI_wifidemo/Inc/FreeRTOSConfig.h |    Configuration file |
+    +----------------------------------------------+-----------------------+
+
+
 
 .. |image1| image:: media/image1.png
 .. |A close-up of a computer code Description automatically generated| image:: media/image2.png

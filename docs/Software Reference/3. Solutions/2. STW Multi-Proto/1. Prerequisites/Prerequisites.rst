@@ -1,6 +1,6 @@
 .. _stw mp prerequisites:
 
-Prerequisites
+STW - Prerequisites
 --------------
 
 1. Talaria TWO SDK Package (The source code for the SMP application is

@@ -127,22 +127,22 @@ AT Command Sequence
    |                                        | connection is successful    |
    +----------------------------------------+-----------------------------+
 
-Procedure 
-~~~~~~~~~~
+**Procedure**
+
 
 **Step 1**: Execute the following commands on Talaria TWO:
 
-.. code:: shell
+.. code-block:: shell
 
-      at
-at+btinit
-at+blecfg=02:03:04:1f:cc:9e,0,InnoPhase_prov
-at+blesrvstart
-at+bleservcfg=11111111111111111111111111111111
-at+blechradd=11111111111111111111111111111111,2A29,a,3
-at+bleservadd=11111111111111111111111111111111
-at+bleadvcfg=100,0,1600,0
-at+bleadvstart 
+    at
+    at+btinit
+    at+blecfg=02:03:04:1f:cc:9e,0,InnoPhase_prov
+    at+blesrvstart
+    at+bleservcfg=11111111111111111111111111111111
+    at+blechradd=11111111111111111111111111111111,2A29,a,3
+    at+bleservadd=11111111111111111111111111111111
+    at+bleadvcfg=100,0,1600,0
+    at+bleadvstart
 
 
 |image94|
@@ -181,8 +181,8 @@ Passphrase=Inno@9070.
 
 .. code:: shell
 
-      at+wcon=IP,Inno@9070
-at+wstatus=0
+    at+wcon=IP,Inno@9070
+    at+wstatus=0
 
 
 |image98|
@@ -223,115 +223,116 @@ AT Command Sequence
 ~~~~~~~~~~~~~~~~~~~~
 
 .. table:: Table 2: BLE Provisioning - AT Commands
-+----------------------------------------+-----------------------------+
-| **AT Command**                         | **Description**             |
-+========================================+=============================+
-| *at*                                   | Checks the connection state |
-+----------------------------------------+-----------------------------+
-| *at+btinit*                            | Initializes the BLE stack   |
-+----------------------------------------+-----------------------------+
-| *at                                    | Configures BLE device with  |
-| +blecfg=01:01:06:06:01:01,0,innophase* | parameters,                 |
-|                                        |                             |
-|                                        | BLE mac address\ *:         |
-|                                        | 01:01:06:06:01:01*          |
-|                                        |                             |
-|                                        | BLE address type: *0* (BLE  |
-|                                        | public address)             |
-|                                        |                             |
-|                                        | BLE device name:            |
-|                                        | *innophase*                 |
-+----------------------------------------+-----------------------------+
-| *at+blesrvstart*                       | Starts BLE GATT Server      |
-+----------------------------------------+-----------------------------+
-| *at+bleser                             | Creates unique custom       |
-| vcfg=11111111111111111111111111111111* | service ID (32-bit long     |
-|                                        | value)                      |
-|                                        |                             |
-|                                        | UUID:                       |
-|                                        | *111111                     |
-|                                        | 11111111111111111111111111* |
-+----------------------------------------+-----------------------------+
-| *at+blech                              | Creates a unique custom     |
-| radd=11111111111111111111111111111111, | characteristic ID for the   |
-| 0x2a19,a,3*                            | above created custom        |
-|                                        | service ID with parameters, |
-|                                        |                             |
-|                                        | Services uuid:              |
-|                                        | *111111                     |
-|                                        | 11111111111111111111111111* |
-|                                        |                             |
-|                                        | Char uuid: *0x2a19*         |
-|                                        |                             |
-|                                        | Properties: *"a" sets read  |
-|                                        | and write property*         |
-|                                        |                             |
-|                                        | Permission: *3* sets read   |
-|                                        | and write permission        |
-+----------------------------------------+-----------------------------+
-| *at+bleser                             | This includes the           |
-| vadd=11111111111111111111111111111111* | customized service into     |
-|                                        | gatt server where,          |
-|                                        |                             |
-|                                        | Custom service UUID:        |
-|                                        | *111111                     |
-|                                        | 11111111111111111111111111* |
-+----------------------------------------+-----------------------------+
-| *at+bleadvcfg=32,0,160,480*            | This configures the         |
-|                                        | advertisement parameters    |
-|                                        | where,                      |
-|                                        |                             |
-|                                        | Fast adv interval: 32 which |
-|                                        | equals 20ms (32 \* 625 μs)  |
-|                                        |                             |
-|                                        | Fast adv duration: 0        |
-|                                        | (continues advertisement)   |
-|                                        |                             |
-|                                        | Slow adv interval: 160,     |
-|                                        | which equals 100ms (160 \*  |
-|                                        | 625 μs)                     |
-|                                        |                             |
-|                                        | Slow adv duration: 480      |
-|                                        | which equals 300ms (480 \*  |
-|                                        | 625 μs)                     |
-+----------------------------------------+-----------------------------+
-| *at+blesmpcfg=0,0,1,1,0,0,16,1*        | Configures the SMP          |
-|                                        | (security) with parameters, |
-|                                        |                             |
-|                                        | io cap: 0 (display_only)    |
-|                                        |                             |
-|                                        | oob : 0 (default)           |
-|                                        |                             |
-|                                        | bondable: 1                 |
-|                                        |                             |
-|                                        | mitm: 1                     |
-|                                        |                             |
-|                                        | sc: 0                       |
-|                                        |                             |
-|                                        | keypress: 0                 |
-|                                        |                             |
-|                                        | key size min: 16 bytes      |
-|                                        |                             |
-|                                        | encrypt: 1                  |
-+----------------------------------------+-----------------------------+
-| *at+bleadvstart*                       | Start BLE advertisement     |
-+----------------------------------------+-----------------------------+
-| *at+blecharwrdata=2a19,1F*             | Acknowledges BLE            |
-|                                        | Characteristic Write        |
-|                                        | Request with parameters,    |
-|                                        |                             |
-|                                        | characteristic UUID:        |
-|                                        | *2a19,*                     |
-|                                        |                             |
-|                                        | data len(in hex format):    |
-|                                        | *1F*                        |
-+----------------------------------------+-----------------------------+
-| *at+wcon= InnoPhase_AE,Inno@1234*      | Connect to WLAN Network as  |
-|                                        | a Station with SSID=        |
-|                                        | *InnoPhase_AE* and          |
-|                                        |                             |
-|                                        | Passphrase= *Inno@1234*     |
-+----------------------------------------+-----------------------------+
+
+    +----------------------------------------+-----------------------------+
+    | **AT Command**                         | **Description**             |
+    +========================================+=============================+
+    | *at*                                   | Checks the connection state |
+    +----------------------------------------+-----------------------------+
+    | *at+btinit*                            | Initializes the BLE stack   |
+    +----------------------------------------+-----------------------------+
+    | *at                                    | Configures BLE device with  |
+    | +blecfg=01:01:06:06:01:01,0,innophase* | parameters,                 |
+    |                                        |                             |
+    |                                        | BLE mac address\ *:         |
+    |                                        | 01:01:06:06:01:01*          |
+    |                                        |                             |
+    |                                        | BLE address type: *0* (BLE  |
+    |                                        | public address)             |
+    |                                        |                             |
+    |                                        | BLE device name:            |
+    |                                        | *innophase*                 |
+    +----------------------------------------+-----------------------------+
+    | *at+blesrvstart*                       | Starts BLE GATT Server      |
+    +----------------------------------------+-----------------------------+
+    | *at+bleser                             | Creates unique custom       |
+    | vcfg=11111111111111111111111111111111* | service ID (32-bit long     |
+    |                                        | value)                      |
+    |                                        |                             |
+    |                                        | UUID:                       |
+    |                                        | *111111                     |
+    |                                        | 11111111111111111111111111* |
+    +----------------------------------------+-----------------------------+
+    | *at+blech                              | Creates a unique custom     |
+    | radd=11111111111111111111111111111111, | characteristic ID for the   |
+    | 0x2a19,a,3*                            | above created custom        |
+    |                                        | service ID with parameters, |
+    |                                        |                             |
+    |                                        | Services uuid:              |
+    |                                        | *111111                     |
+    |                                        | 11111111111111111111111111* |
+    |                                        |                             |
+    |                                        | Char uuid: *0x2a19*         |
+    |                                        |                             |
+    |                                        | Properties: *"a" sets read  |
+    |                                        | and write property*         |
+    |                                        |                             |
+    |                                        | Permission: *3* sets read   |
+    |                                        | and write permission        |
+    +----------------------------------------+-----------------------------+
+    | *at+bleser                             | This includes the           |
+    | vadd=11111111111111111111111111111111* | customized service into     |
+    |                                        | gatt server where,          |
+    |                                        |                             |
+    |                                        | Custom service UUID:        |
+    |                                        | *111111                     |
+    |                                        | 11111111111111111111111111* |
+    +----------------------------------------+-----------------------------+
+    | *at+bleadvcfg=32,0,160,480*            | This configures the         |
+    |                                        | advertisement parameters    |
+    |                                        | where,                      |
+    |                                        |                             |
+    |                                        | Fast adv interval: 32 which |
+    |                                        | equals 20ms (32 \* 625 μs)  |
+    |                                        |                             |
+    |                                        | Fast adv duration: 0        |
+    |                                        | (continues advertisement)   |
+    |                                        |                             |
+    |                                        | Slow adv interval: 160,     |
+    |                                        | which equals 100ms (160 \*  |
+    |                                        | 625 μs)                     |
+    |                                        |                             |
+    |                                        | Slow adv duration: 480      |
+    |                                        | which equals 300ms (480 \*  |
+    |                                        | 625 μs)                     |
+    +----------------------------------------+-----------------------------+
+    | *at+blesmpcfg=0,0,1,1,0,0,16,1*        | Configures the SMP          |
+    |                                        | (security) with parameters, |
+    |                                        |                             |
+    |                                        | io cap: 0 (display_only)    |
+    |                                        |                             |
+    |                                        | oob : 0 (default)           |
+    |                                        |                             |
+    |                                        | bondable: 1                 |
+    |                                        |                             |
+    |                                        | mitm: 1                     |
+    |                                        |                             |
+    |                                        | sc: 0                       |
+    |                                        |                             |
+    |                                        | keypress: 0                 |
+    |                                        |                             |
+    |                                        | key size min: 16 bytes      |
+    |                                        |                             |
+    |                                        | encrypt: 1                  |
+    +----------------------------------------+-----------------------------+
+    | *at+bleadvstart*                       | Start BLE advertisement     |
+    +----------------------------------------+-----------------------------+
+    | *at+blecharwrdata=2a19,1F*             | Acknowledges BLE            |
+    |                                        | Characteristic Write        |
+    |                                        | Request with parameters,    |
+    |                                        |                             |
+    |                                        | characteristic UUID:        |
+    |                                        | *2a19,*                     |
+    |                                        |                             |
+    |                                        | data len(in hex format):    |
+    |                                        | *1F*                        |
+    +----------------------------------------+-----------------------------+
+    | *at+wcon= InnoPhase_AE,Inno@1234*      | Connect to WLAN Network as  |
+    |                                        | a Station with SSID=        |
+    |                                        | *InnoPhase_AE* and          |
+    |                                        |                             |
+    |                                        | Passphrase= *Inno@1234*     |
+    +----------------------------------------+-----------------------------+
 
 For more details on the AT command parameters, refer BT/BLE commands
 section of UG_AT_Commands.pdf
@@ -346,16 +347,16 @@ Procedure
 
 .. code:: shell
 
-      at
-at+btinit
-at+blecfg=01:01:06:06:01:01,0,innophase
-at+blesrvstart
-at+bleservcfg=11111111111111111111111111111111
-at+blechradd=11111111111111111111111111111111, 0x2a19,a,3
-at+bleservadd=11111111111111111111111111111111
-at+bleadvcfg=32,0,160,480
-at+blesmpcfg=0,0,1,1,0,0,16,1
-at+bleadvstart 
+    at
+    at+btinit
+    at+blecfg=01:01:06:06:01:01,0,innophase
+    at+blesrvstart
+    at+bleservcfg=11111111111111111111111111111111
+    at+blechradd=11111111111111111111111111111111, 0x2a19,a,3
+    at+bleservadd=11111111111111111111111111111111
+    at+bleadvcfg=32,0,160,480
+    at+blesmpcfg=0,0,1,1,0,0,16,1
+    at+bleadvstart
 
 
 |image99|
@@ -455,106 +456,107 @@ AT Command Sequence
 ~~~~~~~~~~~~~~~~~~~~
 
 .. table:: Table 3: Secure BLE Provisioning Just Works Method - AT Commands
-+-----------------------------------+----------------------------------+
-| **AT Command**                    | **Description**                  |
-+===================================+==================================+
-| *at*                              | Checks the connection state      |
-+-----------------------------------+----------------------------------+
-| *at+btinit*                       | Initializes the BLE stack        |
-+-----------------------------------+----------------------------------+
-| *at+blec                          | Configures BLE device with       |
-| fg=01:01:06:06:01:01,0,innophase* | parameters,                      |
-|                                   |                                  |
-|                                   | BLE mac address\ *:              |
-|                                   | 01:01:06:06:01:01*               |
-|                                   |                                  |
-|                                   | BLE address type: *0* (BLE       |
-|                                   | public address)                  |
-|                                   |                                  |
-|                                   | BLE device name: *innophase*     |
-+-----------------------------------+----------------------------------+
-| *at+blesrvstart*                  | Starts BLE GATT Server           |
-+-----------------------------------+----------------------------------+
-| *at+bleservcfg=                   | Creates unique custom service ID |
-| 11111111111111111111111111111111* | (32-bit long value)              |
-|                                   |                                  |
-|                                   | UUID:                            |
-|                                   | *1                               |
-|                                   | 1111111111111111111111111111111* |
-+-----------------------------------+----------------------------------+
-| *at+blechradd=                    | Creates a unique custom          |
-| 11111111111111111111111111111111, | characteristic ID for the above  |
-| 0x2a19,a,3*                       | created custom service ID with   |
-|                                   | parameters,                      |
-|                                   |                                  |
-|                                   | Services uuid:                   |
-|                                   | *1                               |
-|                                   | 1111111111111111111111111111111* |
-|                                   |                                  |
-|                                   | Char uuid: *0x2a19*              |
-|                                   |                                  |
-|                                   | Properties: *"a" sets read and   |
-|                                   | write property*                  |
-|                                   |                                  |
-|                                   | Permission: *3* sets read and    |
-|                                   | write permission                 |
-+-----------------------------------+----------------------------------+
-| *at+bleservadd=                   | This includes the customized     |
-| 11111111111111111111111111111111* | service into gatt server where,  |
-|                                   |                                  |
-|                                   | Custom service UUID:             |
-|                                   | *1                               |
-|                                   | 1111111111111111111111111111111* |
-+-----------------------------------+----------------------------------+
-| *at+bleadvcfg=32,0,160,480*       | This configures the              |
-|                                   | advertisement parameters where,  |
-|                                   |                                  |
-|                                   | Fast adv interval: 32 which      |
-|                                   | equals 20ms (32 \* 625 μs)       |
-|                                   |                                  |
-|                                   | Fast adv duration: 0 (continues  |
-|                                   | advertisement)                   |
-|                                   |                                  |
-|                                   | Slow adv interval: 160, which    |
-|                                   | equals 100ms (160 \* 625 μs)     |
-|                                   |                                  |
-|                                   | Slow adv duration: 480 which     |
-|                                   | equals 300ms (480 \* 625 μs)     |
-+-----------------------------------+----------------------------------+
-| *at+blesmpcfg=0,0,1,1,0,0,16,1*   | Configures the SMP (security)    |
-|                                   | with parameters,                 |
-|                                   |                                  |
-|                                   | io cap: 0 (display_only)         |
-|                                   |                                  |
-|                                   | oob : 0 (default)                |
-|                                   |                                  |
-|                                   | bondable: 1                      |
-|                                   |                                  |
-|                                   | mitm: 1                          |
-|                                   |                                  |
-|                                   | sc: 0                            |
-|                                   |                                  |
-|                                   | keypress: 0                      |
-|                                   |                                  |
-|                                   | key size min: 16 bytes           |
-|                                   |                                  |
-|                                   | encrypt: 1                       |
-+-----------------------------------+----------------------------------+
-| *at+bleadvstart*                  | Start BLE advertisement          |
-+-----------------------------------+----------------------------------+
-| *at+blecharwrdata=2a19,1F*        | Acknowledges BLE Characteristic  |
-|                                   | Write Request with parameters,   |
-|                                   |                                  |
-|                                   | characteristic UUID: *2a19,*     |
-|                                   |                                  |
-|                                   | data len(in hex format): *1F*    |
-+-----------------------------------+----------------------------------+
-| *at+wcon= InnoPhase_AE,Inno@1234* | Connect to WLAN Network as a     |
-|                                   | Station with SSID=               |
-|                                   | *InnoPhase_AE* and               |
-|                                   |                                  |
-|                                   | Passphrase= *Inno@1234*          |
-+-----------------------------------+----------------------------------+
+
+    +-----------------------------------+----------------------------------+
+    | **AT Command**                    | **Description**                  |
+    +===================================+==================================+
+    | *at*                              | Checks the connection state      |
+    +-----------------------------------+----------------------------------+
+    | *at+btinit*                       | Initializes the BLE stack        |
+    +-----------------------------------+----------------------------------+
+    | *at+blec                          | Configures BLE device with       |
+    | fg=01:01:06:06:01:01,0,innophase* | parameters,                      |
+    |                                   |                                  |
+    |                                   | BLE mac address\ *:              |
+    |                                   | 01:01:06:06:01:01*               |
+    |                                   |                                  |
+    |                                   | BLE address type: *0* (BLE       |
+    |                                   | public address)                  |
+    |                                   |                                  |
+    |                                   | BLE device name: *innophase*     |
+    +-----------------------------------+----------------------------------+
+    | *at+blesrvstart*                  | Starts BLE GATT Server           |
+    +-----------------------------------+----------------------------------+
+    | *at+bleservcfg=                   | Creates unique custom service ID |
+    | 11111111111111111111111111111111* | (32-bit long value)              |
+    |                                   |                                  |
+    |                                   | UUID:                            |
+    |                                   | *1                               |
+    |                                   | 1111111111111111111111111111111* |
+    +-----------------------------------+----------------------------------+
+    | *at+blechradd=                    | Creates a unique custom          |
+    | 11111111111111111111111111111111, | characteristic ID for the above  |
+    | 0x2a19,a,3*                       | created custom service ID with   |
+    |                                   | parameters,                      |
+    |                                   |                                  |
+    |                                   | Services uuid:                   |
+    |                                   | *1                               |
+    |                                   | 1111111111111111111111111111111* |
+    |                                   |                                  |
+    |                                   | Char uuid: *0x2a19*              |
+    |                                   |                                  |
+    |                                   | Properties: *"a" sets read and   |
+    |                                   | write property*                  |
+    |                                   |                                  |
+    |                                   | Permission: *3* sets read and    |
+    |                                   | write permission                 |
+    +-----------------------------------+----------------------------------+
+    | *at+bleservadd=                   | This includes the customized     |
+    | 11111111111111111111111111111111* | service into gatt server where,  |
+    |                                   |                                  |
+    |                                   | Custom service UUID:             |
+    |                                   | *1                               |
+    |                                   | 1111111111111111111111111111111* |
+    +-----------------------------------+----------------------------------+
+    | *at+bleadvcfg=32,0,160,480*       | This configures the              |
+    |                                   | advertisement parameters where,  |
+    |                                   |                                  |
+    |                                   | Fast adv interval: 32 which      |
+    |                                   | equals 20ms (32 \* 625 μs)       |
+    |                                   |                                  |
+    |                                   | Fast adv duration: 0 (continues  |
+    |                                   | advertisement)                   |
+    |                                   |                                  |
+    |                                   | Slow adv interval: 160, which    |
+    |                                   | equals 100ms (160 \* 625 μs)     |
+    |                                   |                                  |
+    |                                   | Slow adv duration: 480 which     |
+    |                                   | equals 300ms (480 \* 625 μs)     |
+    +-----------------------------------+----------------------------------+
+    | *at+blesmpcfg=0,0,1,1,0,0,16,1*   | Configures the SMP (security)    |
+    |                                   | with parameters,                 |
+    |                                   |                                  |
+    |                                   | io cap: 0 (display_only)         |
+    |                                   |                                  |
+    |                                   | oob : 0 (default)                |
+    |                                   |                                  |
+    |                                   | bondable: 1                      |
+    |                                   |                                  |
+    |                                   | mitm: 1                          |
+    |                                   |                                  |
+    |                                   | sc: 0                            |
+    |                                   |                                  |
+    |                                   | keypress: 0                      |
+    |                                   |                                  |
+    |                                   | key size min: 16 bytes           |
+    |                                   |                                  |
+    |                                   | encrypt: 1                       |
+    +-----------------------------------+----------------------------------+
+    | *at+bleadvstart*                  | Start BLE advertisement          |
+    +-----------------------------------+----------------------------------+
+    | *at+blecharwrdata=2a19,1F*        | Acknowledges BLE Characteristic  |
+    |                                   | Write Request with parameters,   |
+    |                                   |                                  |
+    |                                   | characteristic UUID: *2a19,*     |
+    |                                   |                                  |
+    |                                   | data len(in hex format): *1F*    |
+    +-----------------------------------+----------------------------------+
+    | *at+wcon= InnoPhase_AE,Inno@1234* | Connect to WLAN Network as a     |
+    |                                   | Station with SSID=               |
+    |                                   | *InnoPhase_AE* and               |
+    |                                   |                                  |
+    |                                   | Passphrase= *Inno@1234*          |
+    +-----------------------------------+----------------------------------+
 
 For more details on the AT command, refer BT/BLE commands section of
 UG_AT_Commands.pdf
@@ -569,16 +571,16 @@ following commands:
 
 .. code:: shell
 
-      at
-at+btinit
-at+blecfg=02:01:04:1f:cc:9e,0,innophase
-at+blesrvstart
-at+bleservcfg=11111111111111111111111111111111
-at+blechradd=11111111111111111111111111111111,0x2a19,a,3
-at+bleservadd=11111111111111111111111111111111
-at+bleadvcfg=32,0,160,480
-at+blesmpcfg=0,0,1,1,0,0,16,1
-at+bleadvstart
+    at
+    at+btinit
+    at+blecfg=02:01:04:1f:cc:9e,0,innophase
+    at+blesrvstart
+    at+bleservcfg=11111111111111111111111111111111
+    at+blechradd=11111111111111111111111111111111,0x2a19,a,3
+    at+bleservadd=11111111111111111111111111111111
+    at+bleadvcfg=32,0,160,480
+    at+blesmpcfg=0,0,1,1,0,0,16,1
+    at+bleadvstart
 
 
 |image107|
@@ -597,14 +599,14 @@ using at+blecharw command.
 
 .. code:: shell
 
-      at
-at+btinit
-at+blescancfg=5000,96,48,96,24,1
-at+blecfg=02:03:05:05:03:02,0,central
-at+blescan
-at+blecon=9e-cc-1f-04-01-02,0
-at+bleauth=0,0,1,0,1,0
-at+blecharwr=0,1,51,31,SSID=InnoPhase_AE:PWD=Inno@1234
+    at
+    at+btinit
+    at+blescancfg=5000,96,48,96,24,1
+    at+blecfg=02:03:05:05:03:02,0,central
+    at+blescan
+    at+blecon=9e-cc-1f-04-01-02,0
+    at+bleauth=0,0,1,0,1,0
+    at+blecharwr=0,1,51,31,SSID=InnoPhase_AE:PWD=Inno@1234
 
 
 |image108|
@@ -625,7 +627,7 @@ Figure 16: Acknowledgement of Write request
 **Step 4**: Issue at+wcon command to connect to an AP with SSID
 "InnoPhase_AE" and passphrase "Inno@1234" from the first EVB(T1)
 
-..code:: shell
+.. code:: shell
 
       at+wcon= InnoPhase_AE,Inno@1234
 
@@ -667,23 +669,24 @@ AT Command Sequence
 ~~~~~~~~~~~~~~~~~~~~
 
 .. table:: Table 3: FOTA - AT Commands
-+------------+---------------------------------------------------------+
-| **AT       | **Description**                                         |
-| Command**  |                                                         |
-+============+=========================================================+
-| *at*       | To check the connection state                           |
-+------------+---------------------------------------------------------+
-| *at+wcon*  | Connect to secured Access Point                         |
-+------------+---------------------------------------------------------+
-| *a         | Get IP address of Talaria TWO to verify if the          |
-| t+wstatus* | connection (L2+L3) is successful                        |
-+------------+---------------------------------------------------------+
-| *at+f      | This command is optional and is required to update the  |
-| otacfgadd* | configuration file present in the root filesystem of    |
-|            | Talaria TWO                                             |
-+------------+---------------------------------------------------------+
-| *at+fota*  | Start FOTA operation                                    |
-+------------+---------------------------------------------------------+
+
+    +------------+---------------------------------------------------------+
+    | **AT       | **Description**                                         |
+    | Command**  |                                                         |
+    +============+=========================================================+
+    | *at*       | To check the connection state                           |
+    +------------+---------------------------------------------------------+
+    | *at+wcon*  | Connect to secured Access Point                         |
+    +------------+---------------------------------------------------------+
+    | *a         | Get IP address of Talaria TWO to verify if the          |
+    | t+wstatus* | connection (L2+L3) is successful                        |
+    +------------+---------------------------------------------------------+
+    | *at+f      | This command is optional and is required to update the  |
+    | otacfgadd* | configuration file present in the root filesystem of    |
+    |            | Talaria TWO                                             |
+    +------------+---------------------------------------------------------+
+    | *at+fota*  | Start FOTA operation                                    |
+    +------------+---------------------------------------------------------+
 
 .. _procedure-3:
 
@@ -891,12 +894,12 @@ Figure 27: Talaria TWO reset – console
    following commands on the serial terminal to perform the FOTA
    operation.
 
-.. code :: shell
+.. code:: shell
 
-      at
-at+wcon=InnoPhase,Inno@1234
-at+wstatus=0
-at+fota=1
+    at
+    at+wcon=InnoPhase,Inno@1234
+    at+wstatus=0
+    at+fota=1
 
 
 **Note:** Updating the configuration file in Talaria TWO’s root
@@ -942,228 +945,228 @@ terminal:
 
 .. code:: shell
 
-      CMD:~ Hexdump of uartbuf before processing, len=10
-7E 04 00 00 00 10 0E 00  63 00                    |  ~.......c. 
- Zero arguments
-cmd:~ :2
- resp-len:28
-CMD:atHexdump of uartbuf before processing, len=3
-61 74 00                                          |  at. 
+    CMD:~ Hexdump of uartbuf before processing, len=10
+    7E 04 00 00 00 10 0E 00  63 00                    |  ~.......c.
+     Zero arguments
+    cmd:~ :2
+     resp-len:28
+    CMD:atHexdump of uartbuf before processing, len=3
+    61 74 00                                          |  at.
 
- Zero arguments
-cmd:at:2
-Ready
- resp-len:9
-CMD:at+wcon=InnoPhase,Inno@1234Hexdump of uartbuf before processing, len=28
-61 74 2B 77 63 6F 6E 3D  49 6E 6E 6F 50 68 61 73  |  at+wcon=InnoPhas 
-65 2C 49 6E 6E 6F 40 31  32 33 34 00              |  e,Inno@1234. 
+     Zero arguments
+    cmd:at:2
+    Ready
+     resp-len:9
+    CMD:at+wcon=InnoPhase,Inno@1234Hexdump of uartbuf before processing, len=28
+    61 74 2B 77 63 6F 6E 3D  49 6E 6E 6F 50 68 61 73  |  at+wcon=InnoPhas
+    65 2C 49 6E 6E 6F 40 31  32 33 34 00              |  e,Inno@1234.
 
-cmd:at+wcon=InnoPhase,Inno@1234:8
+    cmd:at+wcon=InnoPhase,Inno@1234:8
 
- arg:InnoPhase,Inno@1234
+     arg:InnoPhase,Inno@1234
 
- ssid:0x00059e2c
- passphrase:0x00059e36SSID:InnoPhase,timeo=0xaba9500
-add_network_profile:0
-[43.201,304] CONNECT:b0:95:75:5c:d2:8f Channel:11 rssi:-8 dBm
+     ssid:0x00059e2c
+     passphrase:0x00059e36SSID:InnoPhase,timeo=0xaba9500
+    add_network_profile:0
+    [43.201,304] CONNECT:b0:95:75:5c:d2:8f Channel:11 rssi:-8 dBm
 
-MSG:202
- notify
-MSG:200
+    MSG:202
+     notify
+    MSG:200
 
- notify[43.242,749] MYIP 192.168.0.146
-[43.242,913] IPv6 [fe80::e269:3aff:fe00:167e]-link
-MSG:204
+     notify[43.242,749] MYIP 192.168.0.146
+    [43.242,913] IPv6 [fe80::e269:3aff:fe00:167e]-link
+    MSG:204
 
- notify
- resp-len:9
-CMD:at+wstatus=0Hexdump of uartbuf before processing, len=13
-61 74 2B 77 73 74 61 74  75 73 3D 30 00           |  at+wstatus=0. 
+     notify
+     resp-len:9
+    CMD:at+wstatus=0Hexdump of uartbuf before processing, len=13
+    61 74 2B 77 73 74 61 74  75 73 3D 30 00           |  at+wstatus=0.
 
-cmd:at+wstatus=0:11
+    cmd:at+wstatus=0:11
 
- arg:0
- str:0:1
- string : 0 : endptr : :0
-IP:192.168.0.146:255.255.255.0:192.168.0.1
- resp-len:49
- resp-len:9
-CMD:at+fota=1Hexdump of uartbuf before processing, len=10
-61 74 2B 66 6F 74 61 3D  31 00                    |  at+fota=1. 
+     arg:0
+     str:0:1
+     string : 0 : endptr : :0
+    IP:192.168.0.146:255.255.255.0:192.168.0.1
+     resp-len:49
+     resp-len:9
+    CMD:at+fota=1Hexdump of uartbuf before processing, len=10
+    61 74 2B 66 6F 74 61 3D  31 00                    |  at+fota=1.
 
-cmd:at+fota=1:8
- arg:1
- option:1:
+    cmd:at+fota=1:8
+     arg:1
+     option:1:
 
- str:1:1
+     str:1:1
 
- string : 1 : endptr : :0
+     string : 1 : endptr : :0
 
-End of command line
+    End of command line
 
- option:<null>:
-fota_json_init: /root/fota_config.json  f = 0x000be1f8
-Parsing rootfs FOTA config file***
-package_version = 1.0
-Package version = 1.0
-type = configuration
-name = fota.config
-version, <null>
-protocol = http
-hostname = 192.168.0.177
-port = 80
-secured = 0
-uri = /FOTA/fota_config.json
-url, <null>
-hash, <null>
-configuration
-	fota.config
-	http
-	192.168.0.177
-	80
-	0
-	/FOTA/fota_config.json
-	<null>
-	<null>
-type = firmware
-name = atcmd
-version = 2.2
-protocol = http
-hostname = 192.168.0.177
-port = 80
-secured = 0
-uri = /FOTA/t2_atcmds.elf
-url, <null>
-hash = 34aadc96b19b4aff23b08400523d427435be8aa0ff82b6084820165ceadc9174
-firmware
-	atcmd
-	http
-	192.168.0.177
-	80
-	0
-	/FOTA/t2_atcmds.elf
-	<null>
-	2.2
-Fota Init Success: bc388
+     option:<null>:
+    fota_json_init: /root/fota_config.json  f = 0x000be1f8
+    Parsing rootfs FOTA config file***
+    package_version = 1.0
+    Package version = 1.0
+    type = configuration
+    name = fota.config
+    version, <null>
+    protocol = http
+    hostname = 192.168.0.177
+    port = 80
+    secured = 0
+    uri = /FOTA/fota_config.json
+    url, <null>
+    hash, <null>
+    configuration
+        fota.config
+        http
+        192.168.0.177
+        80
+        0
+        /FOTA/fota_config.json
+        <null>
+        <null>
+    type = firmware
+    name = atcmd
+    version = 2.2
+    protocol = http
+    hostname = 192.168.0.177
+    port = 80
+    secured = 0
+    uri = /FOTA/t2_atcmds.elf
+    url, <null>
+    hash = 34aadc96b19b4aff23b08400523d427435be8aa0ff82b6084820165ceadc9174
+    firmware
+        atcmd
+        http
+        192.168.0.177
+        80
+        0
+        /FOTA/t2_atcmds.elf
+        <null>
+        2.2
+    Fota Init Success: bc388
 
-Performing Fota..cc
+    Performing Fota..cc
 
-check_for_update = 1
-auto_reset=1
-fota_perform check_for_update = 1
-fota_config_file_download 1049
-fota_http_connect:host=192.168.0.177 port=80
-Calling http_client_open()
-fota_config_file_download 1062
-Parsing Remote FOTA config file***
-package_version = 2.0
-Package version = 2.0
-type = configuration
-name = fota.config
-version, <null>
-protocol = http
-hostname = 192.168.0.177
-port = 80
-secured = 0
-uri = /FOTA/fota_config.json
-url, <null>
-hash, <null>
-configuration
-	fota.config
-	http
-	192.168.0.177
-	80
-	0
-	/FOTA/fota_config.json
-	<null>
-	<null>
-type = firmware
-name = atcmd
-version = 2.1
-protocol = http
-hostname = 192.168.0.177
-port = 80
-secured = 0
-uri = /FOTA/t2_atcmds.elf
-url, <null>
-hash = 34aadc96b19b4aff23b08400523d427435be8aa0ff82b6084820165ceadc9174
-firmware
-	atcmd
-	http
-	192.168.0.177
-	80
-	0
-	/FOTA/t2_atcmds.elf
-	<null>
-	2.1
-utils_num_str_cmp
- 2
- 0
- 1
- 0
+    check_for_update = 1
+    auto_reset=1
+    fota_perform check_for_update = 1
+    fota_config_file_download 1049
+    fota_http_connect:host=192.168.0.177 port=80
+    Calling http_client_open()
+    fota_config_file_download 1062
+    Parsing Remote FOTA config file***
+    package_version = 2.0
+    Package version = 2.0
+    type = configuration
+    name = fota.config
+    version, <null>
+    protocol = http
+    hostname = 192.168.0.177
+    port = 80
+    secured = 0
+    uri = /FOTA/fota_config.json
+    url, <null>
+    hash, <null>
+    configuration
+        fota.config
+        http
+        192.168.0.177
+        80
+        0
+        /FOTA/fota_config.json
+        <null>
+        <null>
+    type = firmware
+    name = atcmd
+    version = 2.1
+    protocol = http
+    hostname = 192.168.0.177
+    port = 80
+    secured = 0
+    uri = /FOTA/t2_atcmds.elf
+    url, <null>
+    hash = 34aadc96b19b4aff23b08400523d427435be8aa0ff82b6084820165ceadc9174
+    firmware
+        atcmd
+        http
+        192.168.0.177
+        80
+        0
+        /FOTA/t2_atcmds.elf
+        <null>
+        2.1
+    utils_num_str_cmp
+     2
+     0
+     1
+     0
 
-deci1 = 2, fracn1 = 0, deci2 = 1, fracn2 = 0
+    deci1 = 2, fracn1 = 0, deci2 = 1, fracn2 = 0
 
-Using the Remote config (Newly fetched) file
- type = configuration
- type = firmware
-fota_json_init: /root/part.json  f = 0x000bd3c8
-Image array size = 2
-name = atcmd
-version = 1.0
-start_sector = 32
-1.0 :32
-name = atcmd
-version = 0.0
-start_sector = 232
-0.0 :232
-utils_num_str_cmp
- 1
- 0
- 0
- 0
-deci1 = 1, fracn1 = 0, deci2 = 0, fracn2 = 0
+    Using the Remote config (Newly fetched) file
+     type = configuration
+     type = firmware
+    fota_json_init: /root/part.json  f = 0x000bd3c8
+    Image array size = 2
+    name = atcmd
+    version = 1.0
+    start_sector = 32
+    1.0 :32
+    name = atcmd
+    version = 0.0
+    start_sector = 232
+    0.0 :232
+    utils_num_str_cmp
+     1
+     0
+     0
+     0
+    deci1 = 1, fracn1 = 0, deci2 = 0, fracn2 = 0
 
-Selected index = 1
-Download the new f/w @ sector = 232
+    Selected index = 1
+    Download the new f/w @ sector = 232
 
-fota_http_connect:host=192.168.0.177 port=80
-Calling http_client_open().
-	fota_http_cb: resp->resp_len = 1252, resp->resp_total_len = 614932 total_rcvd_len= 1252
-	fota_http_cb: resp->resp_len = 1460, resp->resp_total_len = 614932 total_rcvd_len= 541452
-	fota_http_cb: resp->resp_len = 1460, resp->resp_total_len = 614932 total_rcvd_len= 579412
-	fota_http_cb: resp->resp_len = 1460, resp->resp_total_len = 614932 total_rcvd_len= 614452
-.	fota_http_cb: resp->resp_len = 480, resp->resp_total_len = 614932 total_rcvd_len= 614932
+    fota_http_connect:host=192.168.0.177 port=80
+    Calling http_client_open().
+        fota_http_cb: resp->resp_len = 1252, resp->resp_total_len = 614932 total_rcvd_len= 1252
+        fota_http_cb: resp->resp_len = 1460, resp->resp_total_len = 614932 total_rcvd_len= 541452
+        fota_http_cb: resp->resp_len = 1460, resp->resp_total_len = 614932 total_rcvd_len= 579412
+        fota_http_cb: resp->resp_len = 1460, resp->resp_total_len = 614932 total_rcvd_len= 614452
+    .	fota_http_cb: resp->resp_len = 480, resp->resp_total_len = 614932 total_rcvd_len= 614932
 
-sector_cache_flush_all
-Fw download complete
- image size = 614932
-image hash:    34aadc96b19b4aff23b0840523d427435be8aa0ff82b684820165ceadc9174
-hash from cfg: 34aadc96b19b4aff23b0840523d427435be8aa0ff82b684820165ceadc9174
-Image integity verified. ok.
-next index = 1
-Performing Fota Commit.....
+    sector_cache_flush_all
+    Fw download complete
+     image size = 614932
+    image hash:    34aadc96b19b4aff23b0840523d427435be8aa0ff82b684820165ceadc9174
+    hash from cfg: 34aadc96b19b4aff23b0840523d427435be8aa0ff82b684820165ceadc9174
+    Image integity verified. ok.
+    next index = 1
+    Performing Fota Commit.....
 
-fota_commit
-utils_num_str_add
- 0
- 0
- 2
- 0
-deci1 = 0, fracn1 = 0, deci2 = 2, fracn2 = 0
+    fota_commit
+    utils_num_str_add
+     0
+     0
+     2
+     0
+    deci1 = 0, fracn1 = 0, deci2 = 2, fracn2 = 0
 
-utils_num_str_add : out_str = 2.0
-fota_update_part_file: !!!Updated new version = 2.0
-fota_json_init: /root/boot.json  f = 0x000b3718
-Setting next boot index = 1
+    utils_num_str_add : out_str = 2.0
+    fota_update_part_file: !!!Updated new version = 2.0
+    fota_json_init: /root/boot.json  f = 0x000b3718
+    Setting next boot index = 1
 
-Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
-ROM yoda-h0-rom-16-0-gd5a8e586
-FLASH:PWAE
-WWWWWAE[0.017,903] heapsize is less than requested 29952 < 30000
-Build $Id: git-4304eac2 $Build $Id: git-4304eac2 $
-Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff
-Bootargs: vm.flash_location=0x0003fc00 passphrase=123467890 ssid=innotest
+    Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+    ROM yoda-h0-rom-16-0-gd5a8e586
+    FLASH:PWAE
+    WWWWWAE[0.017,903] heapsize is less than requested 29952 < 30000
+    Build $Id: git-4304eac2 $Build $Id: git-4304eac2 $
+    Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff
+    Bootargs: vm.flash_location=0x0003fc00 passphrase=123467890 ssid=innotest
 
 
 Application Information:

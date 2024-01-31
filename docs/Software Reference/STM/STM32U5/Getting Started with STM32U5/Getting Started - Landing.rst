@@ -1,5 +1,10 @@
-STM32U575ZIQ Host Controller
-============================
+.. _stm32U5:
+
+STM32U5
+========
+
+
+**STM32U575ZIQ Host Controller**
 
 This section provides a detailed walkthrough of the steps to set-up
 Talaria TWO hosted solution demo using STM32 NUCLEO-U575ZI-Q.
@@ -9,8 +14,7 @@ it. HAPI is a portable library of “c” functions which wraps HIO data
 structs and resides on the Host processor. Using these HAPI APIs, users
 can write applications to perform multiple functions with Talaria TWO.
 
-Prerequisites 
-==============
+**Prerequisites**
 
 1. Talaria TWO Evaluation Board
 
@@ -74,6 +78,16 @@ Folder details are as follows:
 
 6. Utilities: This folder includes Download tool GUI and the firmware
    binary for Talaria TWO EVB (INP301x).
+
+.. toctree::
+    :hidden:
+    :maxdepth: 1
+
+    Hardware Setup and PIN Configuration.rst
+    Measuring Current Consumption .rst
+    Set-up & Usage.rst
+    Setting-up the Host Machine .rst
+    Testing Basic Operations on Set-up.rst
 
 .. |image1| image:: media/image1.png
    :width: 7.48031in

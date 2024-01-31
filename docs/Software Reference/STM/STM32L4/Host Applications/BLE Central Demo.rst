@@ -28,8 +28,7 @@ BLE central demo application to:
 8. In a loop to read and write characteristics supported on peripheral
    devices
 
-Connection Set-up
-=================
+**Connection Set-up**
 
 Host processor communicates with Talaria TWO via a SPI or UART
 interface. The connection set-up used to test the application is as
@@ -67,8 +66,8 @@ QSG_T2_STM32CubeL4_L433RC-P.pdf
 Hardware setup and connections for testing the application using UART
 interface.
 
-Set-up & Usage
-==============
+**Set-up & Usage**
+
 
 Pre-set-up on Talaria TWO
 -------------------------
@@ -86,8 +85,8 @@ QSG_T2_STM32CubeL4_L433RC-P.pdf
 *(Documentation\\STM32CubeL4_Getting_Started*) for details on the boot
 arguments to be passed for SPI and UART interface.
 
-Testing
-=======
+**Testing**
+
 
 Sample Application
 ------------------
@@ -130,160 +129,106 @@ margin and rounded to the upper Kbyte boundary.
 For more details on the FreeRTOS implementation on STM32Cube, please
 refer to UM1722 - Developing Applications on STM32Cube with RTOS.
 
-BLE Central Demo Application
-============================
+**BLE Central Demo Application**
 
 This section describes the application details along with code snippets.
 The application uses HAPI APIs to achieve the functionality. HAPI APIs
 presumes that the platform related initialization and clock settings are
 completed by default.
 
-1. 
-
-2. 
-
-3. 
-
-4. 
-
-5. 
-
-6. 
-
-7. 
-
 HAPI Interface Initialization
 -----------------------------
 
-+-----------------------------------------------------------------------+
-| struct hapi \*hapi;                                                   |
-|                                                                       |
-| #ifdef HAPI_INTERFACE_UART_ENABLED                                    |
-|                                                                       |
-| /\* Register the uart, and baud rate to hapi \*/                      |
-|                                                                       |
-| hapi = hapi_uart_init(hapi_uart, hapi_uart_tx, hapi_uart_rx);         |
-|                                                                       |
-| #endif                                                                |
-|                                                                       |
-| #ifdef HAPI_INTERFACE_SPI_ENABLED                                     |
-|                                                                       |
-| /\* Register the SPI \*/                                              |
-|                                                                       |
-| hapi = hapi_spi_init(hapi_spi, hapi_spi_cs_high, hapi_spi_cs_low,     |
-| hapi_spi_tx, hapi_spi_rx);                                            |
-|                                                                       |
-| #endif                                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    struct hapi \*hapi
+    #ifdef HAPI_INTERFACE_UART_ENABLED /\* Register the uart, and baud rate to hapi \*/
+    hapi = hapi_uart_init(hapi_uart, hapi_uart_tx, hapi_uart_rx);
+    #endif
+    #ifdef HAPI_INTERFACE_SPI_ENABLED
+    /\* Register the SPI \*/
+    hapi = hapi_spi_init(hapi_spi, hapi_spi_cs_high, hapi_spi_cs_low,hapi_spi_tx, hapi_spi_rx);
+    #endif
 
 HAPI Interface Start and Disable Sleep Mode in Configuration
 ------------------------------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_start(hapi);                                                     |
-|                                                                       |
-| hapi_config(hapi, 0, 0, 0, 0, 0);                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    hapi_start(hapi);
+    hapi_config(hapi, 0, 0, 0, 0, 0);
+
 
 Check HAPI Communication with Talaria TWO EVB
 ---------------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_hio_query(hapi,&hio_query_rsp);                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    hapi_hio_query(hapi,&hio_query_rsp);
 
 Create/Destroy the BLE Interface
 --------------------------------
 
-+-----------------------------------------------------------------------+
-| struct hapi_bt_host \*hapi_bt_host;                                   |
-|                                                                       |
-| hapi_bt_host = hapi_bt_host_create(hapi);                             |
-|                                                                       |
-| if(hapi_bt_host == NULL)                                              |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| console_print("alloc fail\\r\\n");                                    |
-|                                                                       |
-| goto end;                                                             |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    struct hapi_bt_host \*hapi_bt_host;
+    hapi_bt_host = hapi_bt_host_create(hapi);
+    if(hapi_bt_host == NULL)
+    {
+        console_print("alloc fail\\r\\n");
+        goto end;
+    }
+
 
 Add Indicator Handler for Connection Events
 -------------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_add_ind_handler(hapi, HIO_GROUP_BT_HOST, BT_HOST_GAP_EVENT_IND,  |
-|                                                                       |
-| api_bt_host_gapp_ind_handler, hapi_bt_host);                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    hapi_add_ind_handler(hapi, HIO_GROUP_BT_HOST, BT_HOST_GAP_EVENT_IND,api_bt_host_gapp_ind_handler, hapi_bt_host);
+
 
 Add Indicator Handler for Characteristic Access
 -----------------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_add_ind_handler(hapi,HIO_GROUP_BT_HOST,                          |
-|                                                                       |
-| HOST_GATT_READ_CHARACTERISTIC_VALUE_IND,                              |
-|                                                                       |
-| hapi_bt_rd_wr_chr_ind_handler, hapi_bt_host);                         |
-|                                                                       |
-| hapi_add_ind_handler(hapi, HIO_GROUP_BT_HOST,                         |
-|                                                                       |
-| BT_HOST_GATT_WRITE_CHARACTERISTIC_VALUE_RSP,                          |
-|                                                                       |
-| hapi_bt_rd_wr_chr_ind_handler, hapi_bt_host);                         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    hapi_add_ind_handler(hapi,HIO_GROUP_BT_HOST,HOST_GATT_READ_CHARACTERISTIC_VALUE_IND,hapi_bt_rd_wr_chr_ind_handler, hapi_bt_host);
+    hapi_add_ind_handler(hapi, HIO_GROUP_BT_HOST,BT_HOST_GATT_WRITE_CHARACTERISTIC_VALUE_RSP,hapi_bt_rd_wr_chr_ind_handler, hapi_bt_host);
+
 
 Set BLE Address
 ---------------
 
-+-----------------------------------------------------------------------+
-| uint8_t addr[] = {0xaa, 0x2, 0x3, 0x1, 0xbb, 0xcc};                   |
-|                                                                       |
-| hapi_bt_host_gap_addr_set(hapi_bt_host, 1, addr);                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    uint8_t addr[] = {0xaa, 0x2, 0x3, 0x1, 0xbb, 0xcc};
+    hapi_bt_host_gap_addr_set(hapi_bt_host, 1, addr);
 
 Start BLE Connection 
 ---------------------
 
-+-----------------------------------------------------------------------+
-| uint8_t peer_addr[] = {0x02, 0x03, 0x04, 0x05, 0x06, 0x07};           |
-|                                                                       |
-| hapi_bt_host_gap_connection(hapi_bt_host,                             |
-| GAP_CONNECTION_MODE_DIRECT,bt_hci_addr_type_random, 1, peer_addr);    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    uint8_t peer_addr[] = {0x02, 0x03, 0x04, 0x05, 0x06, 0x07}
+    hapi_bt_host_gap_connection(hapi_bt_host,GAP_CONNECTION_MODE_DIRECT,bt_hci_addr_type_random, 1, peer_addr);
+
 
 Read BLE Characteristics Value from Peripheral
 ----------------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_bt_host_gatt_read_characteristic_value(hapi_bt_host,             |
-| VALUE_HANDLE_READ);                                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    hapi_bt_host_gatt_read_characteristic_value(hapi_bt_host, VALUE_HANDLE_READ);
 
 Write BLE Characteristics Value to Peripheral
 ---------------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_bt_host_gatt_write_characteristic_value(hapi_bt_host,            |
-| VALUE_HANDLE_WRITE, (uint8_t\*)msg, strlen(msg));                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
 
-Expected Output
-===============
+    hapi_bt_host_gatt_write_characteristic_value(hapi_bt_host, VALUE_HANDLE_WRITE, (uint8_t\*)msg, strlen(msg));
+
+**Expected Output**
 
 BLE Central on DUT is created and will connect to Talaria TWO BLE
 peripheral. It reads the characteristics five times and prints the data.
@@ -297,61 +242,61 @@ and on the test peripheral.
 
 Figure 2: Expected output
 
-Application Files and Functions
-===============================
+**Application Files and Functions**
 
-+------------------------------------------+---------------------------+
-| **File**                                 | **Function**              |
-+==========================================+===========================+
-| /T2-HAN-009 /Src/main.c                  | Main Program              |
-+------------------------------------------+---------------------------+
-| /T2-HAN-009                              | HAL time-base file        |
-| /Src/stm32l4xx_hal_timebase_tim.c        |                           |
-+------------------------------------------+---------------------------+
-| /T2-HAN-009 /Src/stm32l4xx_it.c          | Interrupt handlers        |
-+------------------------------------------+---------------------------+
-| /T2-HAN-009 /Src/system_stm32l4xx.c      | STM32L4xx system clock    |
-|                                          | configuration file        |
-+------------------------------------------+---------------------------+
-| /T2-HAN-009 /Src/freertose.c             | Code for free RTOS        |
-|                                          | application               |
-+------------------------------------------+---------------------------+
-| /T2-HAN-009 /Src/stm32l4xx_hal_msp.c     | Code for MSP              |
-|                                          | initia                    |
-|                                          | lization/deinitialization |
-+------------------------------------------+---------------------------+
-| /T2-HAN-009 /Src/syscalls.c              | System calls file         |
-+------------------------------------------+---------------------------+
-| /T2-HAN-009 /Src/sysmem.c                | System Memory calls file  |
-+------------------------------------------+---------------------------+
-| /T2-HAN-009                              | System startup file       |
-| /Src/startup_stm32l433rctxp.s            |                           |
-+------------------------------------------+---------------------------+
-| /T2-HAN-009 /Inc/main.h                  | Main program header file  |
-+------------------------------------------+---------------------------+
-| /T2-HAN-009 /Inc/stm32l4xx_hal_conf.h    | HAL Library Configuration |
-|                                          | file                      |
-+------------------------------------------+---------------------------+
-| /T2-HAN-009 /Inc/stm32l4xx_it.h          | Interrupt handler’s       |
-|                                          | header file               |
-+------------------------------------------+---------------------------+
-| /T2-HAN-009 /Inc/FreeRTOSConfig.h        | FreeRTOS Configuration    |
-|                                          | file                      |
-+------------------------------------------+---------------------------+
-| /T2-HAN-009/Src/HAPI/app.c               | Application file          |
-+------------------------------------------+---------------------------+
-| /T2-HAN-009/Src/HAPI/bt_app.c            | BLE application file      |
-+------------------------------------------+---------------------------+
-| /T2-HAN-009/Src/HAPI/peripheral_bt_app.c | Peripheral BLE            |
-|                                          | application files         |
-+------------------------------------------+---------------------------+
-| /T2-HAN-009/Src/HAPI/bt_att.h,           | BLE application header    |
-| /T2-HAN-009/Src/HAPI/bt_gatt.h,          | files                     |
-| /T2-HAN-009/Src/HAPI/bt_hci.h,           |                           |
-| /T2-HAN-009/Src/HAPI/bt_uuid.h           |                           |
-+------------------------------------------+---------------------------+
+.. table:: Table 1: Application files and functions
 
-Table 1: Application files and functions
+    +------------------------------------------+---------------------------+
+    | **File**                                 | **Function**              |
+    +==========================================+===========================+
+    | /T2-HAN-009 /Src/main.c                  | Main Program              |
+    +------------------------------------------+---------------------------+
+    | /T2-HAN-009                              | HAL time-base file        |
+    | /Src/stm32l4xx_hal_timebase_tim.c        |                           |
+    +------------------------------------------+---------------------------+
+    | /T2-HAN-009 /Src/stm32l4xx_it.c          | Interrupt handlers        |
+    +------------------------------------------+---------------------------+
+    | /T2-HAN-009 /Src/system_stm32l4xx.c      | STM32L4xx system clock    |
+    |                                          | configuration file        |
+    +------------------------------------------+---------------------------+
+    | /T2-HAN-009 /Src/freertose.c             | Code for free RTOS        |
+    |                                          | application               |
+    +------------------------------------------+---------------------------+
+    | /T2-HAN-009 /Src/stm32l4xx_hal_msp.c     | Code for MSP              |
+    |                                          | initia                    |
+    |                                          | lization/deinitialization |
+    +------------------------------------------+---------------------------+
+    | /T2-HAN-009 /Src/syscalls.c              | System calls file         |
+    +------------------------------------------+---------------------------+
+    | /T2-HAN-009 /Src/sysmem.c                | System Memory calls file  |
+    +------------------------------------------+---------------------------+
+    | /T2-HAN-009                              | System startup file       |
+    | /Src/startup_stm32l433rctxp.s            |                           |
+    +------------------------------------------+---------------------------+
+    | /T2-HAN-009 /Inc/main.h                  | Main program header file  |
+    +------------------------------------------+---------------------------+
+    | /T2-HAN-009 /Inc/stm32l4xx_hal_conf.h    | HAL Library Configuration |
+    |                                          | file                      |
+    +------------------------------------------+---------------------------+
+    | /T2-HAN-009 /Inc/stm32l4xx_it.h          | Interrupt handler’s       |
+    |                                          | header file               |
+    +------------------------------------------+---------------------------+
+    | /T2-HAN-009 /Inc/FreeRTOSConfig.h        | FreeRTOS Configuration    |
+    |                                          | file                      |
+    +------------------------------------------+---------------------------+
+    | /T2-HAN-009/Src/HAPI/app.c               | Application file          |
+    +------------------------------------------+---------------------------+
+    | /T2-HAN-009/Src/HAPI/bt_app.c            | BLE application file      |
+    +------------------------------------------+---------------------------+
+    | /T2-HAN-009/Src/HAPI/peripheral_bt_app.c | Peripheral BLE            |
+    |                                          | application files         |
+    +------------------------------------------+---------------------------+
+    | /T2-HAN-009/Src/HAPI/bt_att.h,           | BLE application header    |
+    | /T2-HAN-009/Src/HAPI/bt_gatt.h,          | files                     |
+    | /T2-HAN-009/Src/HAPI/bt_hci.h,           |                           |
+    | /T2-HAN-009/Src/HAPI/bt_uuid.h           |                           |
+    +------------------------------------------+---------------------------+
+
 
 .. |A diagram of different types of communication Description automatically generated with medium confidence| image:: media/image1.png
    :width: 5.90551in

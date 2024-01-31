@@ -1,5 +1,8 @@
+
+
+
 Hardware Setup and PIN Configuration
-====================================
+````````````
 
 Topology
 --------

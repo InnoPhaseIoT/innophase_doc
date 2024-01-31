@@ -39,12 +39,8 @@ Talaria TWO Software is a comprehensive suite designed to empower developers, ar
 
 
 **STM:**
-    Discover pre-built solutions and templates designed to address common challenges across various industries.
-    From IoT solutions to data analytics pipelines, these ready-to-use components empower you to jumpstart your projects and deliver value faster.
+    The STM section caters to software professionals working in specialized fields such as science, technology, and medicine.
+    It provides access to resources, tools, and knowledge repositories specific to these domains, empowering developers
+    to create software tailored to the unique requirements of scientific and medical applications.
 
-.. toctree::
-   :hidden:
-   :maxdepth: 3
-
-   STM/STM-Landing page
 

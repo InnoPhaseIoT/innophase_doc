@@ -30,8 +30,7 @@ NTP demo application to:
 
 10. 
 
-Connection Set-up
-=================
+**Connection Set-up**
 
 Host processor communicates with Talaria TWO via a SPI or UART
 interface. The connection set-up used to test the application is as
@@ -68,8 +67,7 @@ QSG_T2_STM32CubeL4_L433RC-P.pdf
 Hardware setup and connections for testing the application using UART
 interface.
 
-Set-up & Usage
-==============
+**Set-up & Usage**
 
 Pre-set-up on Talaria TWO
 -------------------------
@@ -87,8 +85,7 @@ QSG_T2_STM32CubeL4_L433RC-P.pdf
 *(Documentation\\STM32CubeL4_Getting_Started*) for details on the boot
 arguments to be passed for SPI and UART interface.
 
-Testing
-=======
+**Testing**
 
 Sample Application
 ------------------
@@ -126,80 +123,52 @@ refer to UM1722 - Developing Applications on STM32Cube with RTOS.
 
 .. _ntp-demo-application-1:
 
-NTP Demo Application
-====================
+**NTP Demo Application**
 
 This section describes the application details along with code snippets.
 The application uses HAPI APIs to achieve the functionality. HAPI APIs
 presumes that the platform related initialization and clock settings are
 completed by default.
 
-1. 
-
-2. 
-
-3. 
-
-4. 
-
-5. 
-
-6. 
-
-7. 
 
 HAPI Interface Initialization
 -----------------------------
 
-+-----------------------------------------------------------------------+
-| struct hapi \*hapi;                                                   |
-|                                                                       |
-| #ifdef HAPI_INTERFACE_UART_ENABLED                                    |
-|                                                                       |
-| /\* Register the uart, and baud rate to hapi \*/                      |
-|                                                                       |
-| hapi = hapi_uart_init(hapi_uart, hapi_uart_tx, hapi_uart_rx);         |
-|                                                                       |
-| #endif                                                                |
-|                                                                       |
-| #ifdef HAPI_INTERFACE_SPI_ENABLED                                     |
-|                                                                       |
-| /\* Register the SPI \*/                                              |
-|                                                                       |
-| hapi = hapi_spi_init(hapi_spi, hapi_spi_cs_high, hapi_spi_cs_low,     |
-| hapi_spi_tx, hapi_spi_rx);                                            |
-|                                                                       |
-| #endif                                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    struct hapi *hapi;
+    #ifdef HAPI_INTERFACE_UART_ENABLED
+    /* Register the uart, and baud rate to hapi */
+    hapi = hapi_uart_init(hapi_uart, hapi_uart_tx, hapi_uart_rx);
+    #endif
+    #ifdef HAPI_INTERFACE_SPI_ENABLED
+    /* Register the SPI */
+    hapi = hapi_spi_init(hapi_spi, hapi_spi_cs_high, hapi_spi_cs_low, hapi_spi_tx, hapi_spi_rx);
+    #endif
+
 
 HAPI Interface Start and Disable Sleep Mode in Configuration
 ------------------------------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_start(hapi);                                                     |
-|                                                                       |
-| hapi_config(hapi, 0, 0, 0, 0, 0);                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    hapi_start(hapi);
+    hapi_config(hapi, 0, 0, 0, 0, 0);
 
 Check HAPI Communication with Talaria TWO EVB
 ---------------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_hio_query(hapi,&hio_query_rsp);                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    hapi_hio_query(hapi,&hio_query_rsp);
 
 Create a Wi-Fi Network Interface and Register Link Status Callback 
 -------------------------------------------------------------------
 
-+-----------------------------------------------------------------------+
-| struct hapi_wcm \* hapi_wcm = hapi_wcm_create(hapi);                  |
-|                                                                       |
-| hapi_wcm_set_link_cb(hapi_wcm, wcm_link_cb, NULL);                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    struct hapi_wcm \* hapi_wcm = hapi_wcm_create(hapi);
+    hapi_wcm_set_link_cb(hapi_wcm, wcm_link_cb, NULL);
 
 Connecting to a Wi-Fi network
 -----------------------------
@@ -207,32 +176,19 @@ Connecting to a Wi-Fi network
 The application uses the default SSID and passphrase. These can be
 modified as per user AP settings.
 
-+-----------------------------------------------------------------------+
-| /\* Connect wifi \*/                                                  |
-|                                                                       |
-| char\* ssid = "innotest";                                             |
-|                                                                       |
-| char\* passphrase = "innophase123";                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
 
-+-----------------------------------------------------------------------+
-| if(true == hapi_wcm_network_profile_add(hapi_wcm, ssid, NULL,         |
-| passphrase, NULL))                                                    |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| if(false == hapi_wcm_autoconnect(hapi_wcm, 1))                        |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| banner="hapi_wcm_autoconnect : failed..\\r\\n";                       |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+
+    /\* Connect wifi \*/
+    char\* ssid = "innotest";
+    char\* passphrase = "innophase123";
+    {
+        if(true == hapi_wcm_network_profile_add(hapi_wcm, ssid, NULL, passphrase, NULL))
+        {
+            if(false == hapi_wcm_autoconnect(hapi_wcm, 1))
+        {
+        banner="hapi_wcm_autoconnect : failed..\\r\\n";
+    }
 
 NTP Time Fetch
 --------------
@@ -240,70 +196,52 @@ NTP Time Fetch
 The application creates an NTP connection and fetch the current time
 from NTP server.
 
-+-----------------------------------------------------------------------+
-| int loop, timeOut = 3;                                                |
-|                                                                       |
-| /\* Provide suitable time zone to get local time offset               |
-|                                                                       |
-| \* Few local time zone examples are,                                  |
-|                                                                       |
-| \* for IST (Indian Standard Time) - UTC+05:30                         |
-|                                                                       |
-| \* for BST (British Summer Time) - UTC+01:00                          |
-|                                                                       |
-| \* for USA (Alaska) - UTC-09:00                                       |
-|                                                                       |
-| \*/                                                                   |
-|                                                                       |
-| offset = getTimeZoneoffset("UTC+05:30");                              |
-|                                                                       |
-| if (-1 == offset) {                                                   |
-|                                                                       |
-| return status;                                                        |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| for (loop = 0; loop < 100; loop++) {                                  |
-|                                                                       |
-| currentTime = 0;                                                      |
-|                                                                       |
-| status = hapi_nw_misc_app_time_get(hapi, timeOut, &currentTime);      |
-|                                                                       |
-| if (false == status) {                                                |
-|                                                                       |
-| sprintf(print_arr,"\\r\\n Failed to get time from ntp server, reading |
-| again                                                                 |
-|                                                                       |
-| after %d seconds \\r\\n",duration);                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+
+.. code-block:: c
+
+    int loop, timeOut = 3;
+
+    /* Provide suitable time zone to get local time offset
+    * Few local time zone examples are,
+    * for IST (Indian Standard Time) - UTC+05:30
+    * for BST (British Summer Time) - UTC+01:00
+    * for USA (Alaska) - UTC-09:00
+    */
+
+    offset = getTimeZoneoffset("UTC+05:30");
+    if (-1 == offset) {
+        return status;
+    }
+    for (loop = 0; loop < 100; loop++) {
+        currentTime = 0;
+        status = hapi_nw_misc_app_time_get(hapi, timeOut, &currentTime);
+        if (false == status) {
+            sprintf(print_arr,"\r\n Failed to get time from ntp server, reading again after %d seconds \r\n",duration);
+
+
 
 From the NTP code snippet:
 
-+-----------------------------------------------------------------------+
-| int loop, timeOut = 3;                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: c
+
+    int loop, timeOut = 3;
 
 By default, timeout in NTP Module is set at 3 seconds. If the NTP time
 is received within 3 seconds from the NTP server, then the time (based
 on UTC) is updated to the user. Else, the following error message is
 displayed:
 
-+-----------------------------------------------------------------------+
-| sprintf(print_arr,"\\r\\n Failed to get time from ntp server, reading |
-| again after %d seconds \\r\\n",duration);                             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: c
+
+    sprintf(print_arr,"\\r\\n Failed to get time from ntp server, reading again after %d seconds \\r\\n",duration);
 
 Again after 10 seconds, an attempt to get time is initiated. This
 iteration will continue for 100 times and then the NTP program
 terminates.
 
-+-----------------------------------------------------------------------+
-| offset = getTimeZoneoffset("UTC+05:30");                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: c
+
+    offset = getTimeZoneoffset("UTC+05:30");
 
 The local function getTimeZoneoffset will get the local time offset for
 the local time zone passed as parameter.
@@ -316,20 +254,18 @@ STM32 RTC registers.
 The list of local time zones currently handled in NTP Module are as
 follows:
 
-+-----------------------------------------------------------------------+
-| UTC−12:00, UTC−11:00, UTC−10:00, UTC−09:30, UTC−09:00 UTC−08:00,      |
-| UTC−07:00, UTC−06:00, UTC−05:00, UTC−04:00, UTC−03:30, UTC−03:00,     |
-| UTC−02:00, UTC−01:00, UTC±00:00,                                      |
-|                                                                       |
-| UTC+01:00, UTC+02:00, UTC+03:00, UTC+03:30, UTC+04:00, UTC+04:30,     |
-| UTC+05:00, UTC+05:30, UTC+05:45, UTC+06:00, UTC+06:30, UTC+07:00,     |
-| UTC+08:00, UTC+08:45, UTC+09:00, UTC+09:30, UTC+10:00, UTC+10:30,     |
-| UTC+11:00, UTC+12:00, UTC+12:45, UTC+13:00, UTC+14:00                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: c
 
-Expected Output
-===============
+    UTC−12:00, UTC−11:00, UTC−10:00, UTC−09:30, UTC−09:00, UTC−08:00,
+    UTC−07:00, UTC−06:00, UTC−05:00, UTC−04:00, UTC−03:30, UTC−03:00,
+    UTC−02:00, UTC−01:00, UTC±00:00,
+    UTC+01:00, UTC+02:00, UTC+03:00, UTC+03:30, UTC+04:00, UTC+04:30,
+    UTC+05:00, UTC+05:30, UTC+05:45, UTC+06:00, UTC+06:30, UTC+07:00,
+    UTC+08:00, UTC+08:45, UTC+09:00, UTC+09:30, UTC+10:00, UTC+10:30,
+    UTC+11:00, UTC+12:00, UTC+12:45, UTC+13:00, UTC+14:00
+
+
+**Expected Output**
 
 The MCU will connect to the AP specified by the SSID and passphrase. On
 successful connection, MCU will get the latest time from the NTP server
@@ -347,39 +283,39 @@ The serial prints on the MCU are as follows:
 
 Figure 2: Expected Output
 
-Application Files and Functions
-===============================
+**Application Files and Functions**
 
-+-----------------------------------------+----------------------------+
-| **File**                                | **Function**               |
-+=========================================+============================+
-| I                                       | Main Program               |
-| nnoPhase_HAPI/T2-HAN-012/Src/HAPI/app.c |                            |
-+-----------------------------------------+----------------------------+
-| InnoP                                   | Code for configuring the   |
-| hase_HAPI/T2-HAN-012/Src/HAPI/app_ntp.c | RTC Module and setting the |
-|                                         | NTP time (suitably         |
-|                                         | converted as required by   |
-|                                         | MCU) in RTC Module         |
-+-----------------------------------------+----------------------------+
-| Middlewares/Third_Part                  | HAPI module to get time    |
-| y/InnoPhase_HAPI/Src/hapi_nw_misc_app.c | from NTP server            |
-+-----------------------------------------+----------------------------+
-| InnoPhase                               | Get NTP time header file   |
-| _HAPI\\T2-HAN-012\\Src\\HAPI\\include\\ |                            |
-| hapi_nw_misc_app.h                      |                            |
-+-----------------------------------------+----------------------------+
-| InnoPhase                               | NTP support header file    |
-| _HAPI\\T2-HAN-012\\Src\\HAPI\\include\\ |                            |
-| api\\nw_misc_app.h                      |                            |
-+-----------------------------------------+----------------------------+
-| InnoPhase_HAPI                          | Header file to enable RTC  |
-| \\T2-HAN-012\\inc\\stm32l4xx_hal_conf.h | Module                     |
-+-----------------------------------------+----------------------------+
+.. table:: Table 1: Application files and functions
 
-Table 1: Application files and functions
+    +-----------------------------------------+----------------------------+
+    | **File**                                | **Function**               |
+    +=========================================+============================+
+    | I                                       | Main Program               |
+    | nnoPhase_HAPI/T2-HAN-012/Src/HAPI/app.c |                            |
+    +-----------------------------------------+----------------------------+
+    | InnoP                                   | Code for configuring the   |
+    | hase_HAPI/T2-HAN-012/Src/HAPI/app_ntp.c | RTC Module and setting the |
+    |                                         | NTP time (suitably         |
+    |                                         | converted as required by   |
+    |                                         | MCU) in RTC Module         |
+    +-----------------------------------------+----------------------------+
+    | Middlewares/Third_Part                  | HAPI module to get time    |
+    | y/InnoPhase_HAPI/Src/hapi_nw_misc_app.c | from NTP server            |
+    +-----------------------------------------+----------------------------+
+    | InnoPhase                               | Get NTP time header file   |
+    | _HAPI\\T2-HAN-012\\Src\\HAPI\\include\\ |                            |
+    | hapi_nw_misc_app.h                      |                            |
+    +-----------------------------------------+----------------------------+
+    | InnoPhase                               | NTP support header file    |
+    | _HAPI\\T2-HAN-012\\Src\\HAPI\\include\\ |                            |
+    | api\\nw_misc_app.h                      |                            |
+    +-----------------------------------------+----------------------------+
+    | InnoPhase_HAPI                          | Header file to enable RTC  |
+    | \\T2-HAN-012\\inc\\stm32l4xx_hal_conf.h | Module                     |
+    +-----------------------------------------+----------------------------+
+
 
 .. |image1| image:: media/image1.png
 .. |Text Description automatically generated| image:: media/image2.png
-   :width: 4.72441in
+   :width: 7.72441in
    :height: 6.03621in

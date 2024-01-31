@@ -28,8 +28,7 @@ MQTT demo application to:
 
 9. Subscribe for a topic to receive data from the broker
 
-Connection Set-up
-=================
+**Connection Set-up**
 
 Host processor communicates with Talaria TWO via a SPI or UART
 interface. The connection set-up used to test the application is as
@@ -66,8 +65,7 @@ QSG_T2_STM32CubeL4_L433RC-P.pdf
 Hardware setup and connections for testing the application using UART
 interface.
 
-Set-up & Usage
-==============
+**Set-up & Usage**
 
 Pre-set-up on Talaria TWO
 -------------------------
@@ -85,8 +83,7 @@ QSG_T2_STM32CubeL4_L433RC-P.pdf
 *(Documentation\\STM32CubeL4_Getting_Started*) for details on the boot
 arguments to be passed for SPI and UART interface.
 
-Testing
-=======
+**Testing**
 
 Sample Application
 ------------------
@@ -141,80 +138,52 @@ interface* of the document: QSG_T2_STM32CubeL4_L433RC-P.pdf
 
 .. _mqtt-demo-application-1:
 
-MQTT Demo Application
-=====================
+**MQTT Demo Application**
 
 This section describes the application details along with code snippets.
 The application uses HAPI APIs to achieve the functionality. HAPI APIs
 presumes that the platform related initialization and clock settings are
 completed by default.
 
-1. 
-
-2. 
-
-3. 
-
-4. 
-
-5. 
-
-6. 
-
-7. 
 
 HAPI Interface Initialization
 -----------------------------
 
-+-----------------------------------------------------------------------+
-| struct hapi \*hapi;                                                   |
-|                                                                       |
-| #ifdef HAPI_INTERFACE_UART_ENABLED                                    |
-|                                                                       |
-| /\* Register the uart, and baud rate to hapi \*/                      |
-|                                                                       |
-| hapi = hapi_uart_init(hapi_uart, hapi_uart_tx, hapi_uart_rx);         |
-|                                                                       |
-| #endif                                                                |
-|                                                                       |
-| #ifdef HAPI_INTERFACE_SPI_ENABLED                                     |
-|                                                                       |
-| /\* Register the SPI \*/                                              |
-|                                                                       |
-| hapi = hapi_spi_init(hapi_spi, hapi_spi_cs_high, hapi_spi_cs_low,     |
-| hapi_spi_tx, hapi_spi_rx);                                            |
-|                                                                       |
-| #endif                                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    struct hapi *hapi;
+    #ifdef HAPI_INTERFACE_UART_ENABLED
+    /* Register the uart, and baud rate to hapi */
+    hapi = hapi_uart_init(hapi_uart, hapi_uart_tx, hapi_uart_rx);
+    #endif
+    #ifdef HAPI_INTERFACE_SPI_ENABLED
+    /* Register the SPI */
+    hapi = hapi_spi_init(hapi_spi, hapi_spi_cs_high, hapi_spi_cs_low, hapi_spi_tx, hapi_spi_rx);
+    #endif
+
 
 HAPI Interface Start and Disable Sleep Mode in Configuration
 ------------------------------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_start(hapi);                                                     |
-|                                                                       |
-| hapi_config(hapi, 0, 0, 0, 0, 0);                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    hapi_start(hapi);
+    hapi_config(hapi, 0, 0, 0, 0, 0);
 
 Check HAPI Communication with Talaria TWO EVB
 ---------------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_hio_query(hapi,&hio_query_rsp);                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    hapi_hio_query(hapi,&hio_query_rsp);
 
 Create a Wi-Fi Network Interface and Register Link Status Callback 
 -------------------------------------------------------------------
 
-+-----------------------------------------------------------------------+
-| struct hapi_wcm \* hapi_wcm = hapi_wcm_create(hapi);                  |
-|                                                                       |
-| hapi_wcm_set_link_cb(hapi_wcm, wcm_link_cb, NULL);                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    struct hapi_wcm \* hapi_wcm = hapi_wcm_create(hapi);
+    hapi_wcm_set_link_cb(hapi_wcm, wcm_link_cb, NULL);
 
 Connecting to a Wi-Fi network
 -----------------------------
@@ -222,126 +191,97 @@ Connecting to a Wi-Fi network
 The application uses the default SSID and passphrase. These can be
 modified as per user AP settings.
 
-+-----------------------------------------------------------------------+
-| /\* Connect wifi \*/                                                  |
-|                                                                       |
-| char\* ssid = "innotest";                                             |
-|                                                                       |
-| char\* passphrase = "innophase123";                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
 
-+-----------------------------------------------------------------------+
-| if(true == hapi_wcm_network_profile_add(hapi_wcm, ssid, NULL,         |
-| passphrase, NULL))                                                    |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| if(false == hapi_wcm_autoconnect(hapi_wcm, 1))                        |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| banner="hapi_wcm_autoconnect : failed..\\r\\n";                       |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+    /\* Connect wifi \*/
+    char\* ssid = "innotest";
+    char\* passphrase = "innophase123";
+
+.. code-block:: shell
+
+    if(true == hapi_wcm_network_profile_add(hapi_wcm, ssid, NULL,
+                                           passphrase, NULL))
+    {
+        if(false == hapi_wcm_autoconnect(hapi_wcm, 1))
+        {
+            banner="hapi_wcm_autoconnect : failed..\r\n";
+        }
+    }
+
 
 Create a MQTT Network Interface
 -------------------------------
 
-+-----------------------------------------------------------------------+
-| struct hapi_mqtt\* hapi_mqtt;                                         |
-|                                                                       |
-| hapi_mqtt = hapi_mqtt_nw_init(hapi, &sockId, &stat);                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    struct hapi_mqtt\* hapi_mqtt;
+    hapi_mqtt = hapi_mqtt_nw_init(hapi, &sockId, &stat);
 
 MQTT Network Connect
 --------------------
 
-+-----------------------------------------------------------------------+
-| bool status = false;                                                  |
-|                                                                       |
-| status = hapi_mqtt_nw_connect(hapi, hapi_mqtt, MQTT_SERVER, 1883);    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    bool status = false;
+    status = hapi_mqtt_nw_connect(hapi, hapi_mqtt, MQTT_SERVER, 1883);
 
 MQTT Network Disconnect
 -----------------------
 
-+-----------------------------------------------------------------------+
-| bool status = false;                                                  |
-|                                                                       |
-| status = hapi_mqtt_nw_disconnect(hapi, hapi_mqtt);                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    bool status = false;
+    status = hapi_mqtt_nw_disconnect(hapi, hapi_mqtt);
 
 MQTT Client Initialization
 --------------------------
 
-+-----------------------------------------------------------------------+
-| bool status = false;                                                  |
-|                                                                       |
-| status = hapi_mqtt_client_init(hapi, hapi_mqtt, timeout_ms);          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    bool status = false;
+    status = hapi_mqtt_client_init(hapi, hapi_mqtt, timeout_ms);
 
 MQTT Protocol Connect
 ---------------------
 
-+-----------------------------------------------------------------------+
-| bool status = false;                                                  |
-|                                                                       |
-| status = hapi_mqtt_connect(hapi, hapi_mqtt, MQTT_VERSION,             |
-| MQTT_CLIENTID, MQTT_USERNAME, MQTT_PASSWORD);                         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    bool status = false;
+    status = hapi_mqtt_connect(hapi, hapi_mqtt, MQTT_VERSION, MQTT_CLIENTID, MQTT_USERNAME, MQTT_PASSWORD);
 
 MQTT Protocol Disconnect
 ------------------------
 
-+-----------------------------------------------------------------------+
-| bool status = false;                                                  |
-|                                                                       |
-| status = hapi_mqtt_disconnect(hapi, hapi_mqtt);                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    bool status = false;
+    status = hapi_mqtt_disconnect(hapi, hapi_mqtt);
 
 MQTT Publish
 ------------
 
-+-----------------------------------------------------------------------+
-| bool status = false;                                                  |
-|                                                                       |
-| status = hapi_mqtt_publish(hapi, hapi_mqtt, MQTT_TOPIC, TOPIC);       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    bool status = false;
+    status = hapi_mqtt_publish(hapi, hapi_mqtt, MQTT_TOPIC, TOPIC);
 
 MQTT Subscribe
 --------------
 
-+-----------------------------------------------------------------------+
-| bool status = false;                                                  |
-|                                                                       |
-| status = hapi_mqtt_subscribe(hapi, hapi_mqtt, MQTT_TOPIC1, QOS0);     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    bool status = false;
+    status = hapi_mqtt_subscribe(hapi, hapi_mqtt, MQTT_TOPIC1, QOS0);
 
 MQTT Un-Subscribe
 -----------------
 
-+-----------------------------------------------------------------------+
-| bool status = false;                                                  |
-|                                                                       |
-| status = hapi_mqtt_unsubscribe(hapi, hapi_mqtt, MQTT_TOPIC1);         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
 
-Expected Output
-===============
+    bool status = false;
+    status = hapi_mqtt_unsubscribe(hapi, hapi_mqtt, MQTT_TOPIC1);
+
+**Expected Output**
 
 The MCU will connect to the AP specified by the SSID and passphrase. On
 successful connection, it creates the MQTT connection to the broker with
@@ -357,10 +297,9 @@ need to be implemented:
 For example, to send 7KB of data, program Talaria TWO with the following
 boot arguments:
 
-+-----------------------------------------------------------------------+
-| hio.transport=1, hio.irq_min_gap=1000, **hio.maxsize=8000**           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    hio.transport=1, hio.irq_min_gap=1000, **hio.maxsize=8000**
 
 2. Change the value of RX_MAX_SIZE and TX_MAX_SIZE to the appropriate
    data length in the application configuration file (app_config.h) at:
@@ -380,54 +319,54 @@ For example, to send 7KB of data, change RX_MAX_SIZE and TX_MAX_SIZE to:
 
 Figure 2: Expected Output
 
-Application Files and Functions
-===============================
+**Application Files and Functions**
 
-+-------------------------------------------+--------------------------+
-| **File**                                  | **Function**             |
-+===========================================+==========================+
-| Free                                      | Main Program             |
-| RTOS/FreeRTOS_INP2045_wifidemo/Src/main.c |                          |
-+-------------------------------------------+--------------------------+
-| FreeRTOS/FreeRTOS_INP2045_                | HAL time-base file       |
-| wifidemo/Src/stm32l4xx_hal_timebase_tim.c |                          |
-+-------------------------------------------+--------------------------+
-| FreeRTOS/Fre                              | Interrupt handlers       |
-| eRTOS_INP2045_wifidemo/Src/stm32l4xx_it.c |                          |
-+-------------------------------------------+--------------------------+
-| FreeRTOS/FreeRTO                          | STM32L4xx system clock   |
-| S_INP2045_wifidemo/Src/system_stm32l4xx.c | configuration file       |
-+-------------------------------------------+--------------------------+
-| FreeRTOS/                                 | Code for free RTOS       |
-| FreeRTOS_INP2045_wifidemo/Src/freertose.c | application              |
-+-------------------------------------------+--------------------------+
-| FreeRTOS/FreeRTOS                         | Code for MSP             |
-| _INP2045_wifidemo/Src/stm32l4xx_hal_msp.c | initial                  |
-|                                           | ization/deinitialization |
-+-------------------------------------------+--------------------------+
-| FreeRTOS                                  | System calls file        |
-| /FreeRTOS_INP2045_wifidemo/Src/syscalls.c |                          |
-+-------------------------------------------+--------------------------+
-| FreeRT                                    | System Memory calls file |
-| OS/FreeRTOS_INP2045_wifidemo/Src/sysmem.c |                          |
-+-------------------------------------------+--------------------------+
-| FreeRTOS/FreeRTOS_INP2045_wifidemo/Src/   | System startup file      |
-| startup_stm32l433rctxp.s                  |                          |
-+-------------------------------------------+--------------------------+
-| Free                                      | Main program header file |
-| RTOS/FreeRTOS_INP2045_wifidemo/Inc/main.h |                          |
-+-------------------------------------------+--------------------------+
-| FreeRTOS/FreeRTOS_                        | HAL Library              |
-| INP2045_wifidemo/Inc/stm32l4xx_hal_conf.h | Configuration file       |
-+-------------------------------------------+--------------------------+
-| FreeRTOS/Fre                              | Interrupt handler’s      |
-| eRTOS_INP2045_wifidemo/Inc/stm32l4xx_it.h | header file              |
-+-------------------------------------------+--------------------------+
-| FreeRTOS/FreeR                            | FreeRTOS Configuration   |
-| TOS_INP2045_wifidemo/Inc/FreeRTOSConfig.h | file                     |
-+-------------------------------------------+--------------------------+
+.. table:: Table 1: Application files and functions
 
-Table 1: Application files and functions
+    +-------------------------------------------+--------------------------+
+    | **File**                                  | **Function**             |
+    +===========================================+==========================+
+    | Free                                      | Main Program             |
+    | RTOS/FreeRTOS_INP2045_wifidemo/Src/main.c |                          |
+    +-------------------------------------------+--------------------------+
+    | FreeRTOS/FreeRTOS_INP2045_                | HAL time-base file       |
+    | wifidemo/Src/stm32l4xx_hal_timebase_tim.c |                          |
+    +-------------------------------------------+--------------------------+
+    | FreeRTOS/Fre                              | Interrupt handlers       |
+    | eRTOS_INP2045_wifidemo/Src/stm32l4xx_it.c |                          |
+    +-------------------------------------------+--------------------------+
+    | FreeRTOS/FreeRTO                          | STM32L4xx system clock   |
+    | S_INP2045_wifidemo/Src/system_stm32l4xx.c | configuration file       |
+    +-------------------------------------------+--------------------------+
+    | FreeRTOS/                                 | Code for free RTOS       |
+    | FreeRTOS_INP2045_wifidemo/Src/freertose.c | application              |
+    +-------------------------------------------+--------------------------+
+    | FreeRTOS/FreeRTOS                         | Code for MSP             |
+    | _INP2045_wifidemo/Src/stm32l4xx_hal_msp.c | initial                  |
+    |                                           | ization/deinitialization |
+    +-------------------------------------------+--------------------------+
+    | FreeRTOS                                  | System calls file        |
+    | /FreeRTOS_INP2045_wifidemo/Src/syscalls.c |                          |
+    +-------------------------------------------+--------------------------+
+    | FreeRT                                    | System Memory calls file |
+    | OS/FreeRTOS_INP2045_wifidemo/Src/sysmem.c |                          |
+    +-------------------------------------------+--------------------------+
+    | FreeRTOS/FreeRTOS_INP2045_wifidemo/Src/   | System startup file      |
+    | startup_stm32l433rctxp.s                  |                          |
+    +-------------------------------------------+--------------------------+
+    | Free                                      | Main program header file |
+    | RTOS/FreeRTOS_INP2045_wifidemo/Inc/main.h |                          |
+    +-------------------------------------------+--------------------------+
+    | FreeRTOS/FreeRTOS_                        | HAL Library              |
+    | INP2045_wifidemo/Inc/stm32l4xx_hal_conf.h | Configuration file       |
+    +-------------------------------------------+--------------------------+
+    | FreeRTOS/Fre                              | Interrupt handler’s      |
+    | eRTOS_INP2045_wifidemo/Inc/stm32l4xx_it.h | header file              |
+    +-------------------------------------------+--------------------------+
+    | FreeRTOS/FreeR                            | FreeRTOS Configuration   |
+    | TOS_INP2045_wifidemo/Inc/FreeRTOSConfig.h | file                     |
+    +-------------------------------------------+--------------------------+
+
 
 .. |image1| image:: media/image1.png
 .. |A screenshot of a computer Description automatically generated| image:: media/image2.png

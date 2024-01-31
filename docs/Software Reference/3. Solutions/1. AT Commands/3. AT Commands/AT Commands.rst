@@ -138,22 +138,18 @@ AT+VER – Prints Software Version Number
 AT+RESET – Resets the Talaria TWO Module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+---------+------------------------------------------------------------+
-| **Co    | at+reset                                                   |
-| mmand** |                                                            |
-+=========+============================================================+
-| **Res   | Success: Upon successful reset, module responds with       |
-| ponse** | command prompt ‘>’, which implies Talaria TWO is ready to  |
-|         | accept commands.                                           |
-|         |                                                            |
-|         | Failure: Error                                             |
-+---------+------------------------------------------------------------+
-| **Param | NA                                                         |
-| eters** |                                                            |
-+---------+------------------------------------------------------------+
-| **Ex    | at+reset                                                   |
-| ample** |                                                            |
-+---------+------------------------------------------------------------+
++----------------+------------------------------------------------------------+
+| **Command**    | at+reset                                                   |
++================+============================================================+
+| **Response**   | Success: Upon successful reset, module responds with       |
+|                | command prompt ‘>’, which implies Talaria TWO is ready to  |
+|                | accept commands.                                           |
+|                | Failure: Error                                             |
++----------------+------------------------------------------------------------+
+| **Parameters** | NA                                                         |
++----------------+------------------------------------------------------------+
+| **Example**    | at+reset                                                   |
++----------------+------------------------------------------------------------+
 
 **Note**: This command forcefully resets the Talaria TWO module core and
 comes out with a fresh boot.
@@ -164,75 +160,50 @@ Wi-Fi AT Commands
 AT+WCON - Connect to WLAN Network as a Station
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+----------+-----------------------------------------------------------+
-| **C      | at+wcon=<SSID>,[Passphrase],[Timeo                        |
-| ommand** | ut],[Enterprise_security_type],[Identity],[ca_certificate |
-|          | path],[client_certificate path],[private_key              |
-|          | path],[                                                   |
-|          | private_key_password],[Identity2],[password],[phase2auth] |
-+==========+===========================================================+
-| **Re     | Success: OK                                               |
-| sponse** |                                                           |
-|          | Failure: Error                                            |
-+----------+-----------------------------------------------------------+
-| **Para   | SSID: Name of the Access Point                            |
-| meters** |                                                           |
-|          | Passphrase: Password (optional for open security)         |
-|          |                                                           |
-|          | Timeout: Timeout in seconds, default being 180 seconds    |
-|          |                                                           |
-|          | Enterprise_security_type:                                 |
-|          |                                                           |
-|          | 1 - EAP-PSK                                               |
-|          |                                                           |
-|          | 2 - EAP-TLS                                               |
-|          |                                                           |
-|          | 3 - EAP-PEAP                                              |
-|          |                                                           |
-|          | Identity: Identity for enterprise security                |
-|          |                                                           |
-|          | ca_certificate path: Path to CA certificate in Talaria    |
-|          | TWO filesystem                                            |
-|          |                                                           |
-|          | client_certificate path: Path to client certificate in    |
-|          | Talaria TWO filesystem                                    |
-|          |                                                           |
-|          | private_key path: Path to private key file in Talaria TWO |
-|          | filesystem                                                |
-|          |                                                           |
-|          | private_key_password: Password of private key             |
-|          |                                                           |
-|          | Identity2: Phase 2 identity                               |
-|          |                                                           |
-|          | password: Phase 2 password                                |
-|          |                                                           |
-|          | phase2auth: Phase 2 authentication                        |
-+----------+-----------------------------------------------------------+
-| **E      | **Open security**                                         |
-| xample** |                                                           |
-|          | at+wcon=rr,,30                                            |
-|          |                                                           |
-|          | **Personal security**                                     |
-|          |                                                           |
-|          | at+wcon=rr,abcd@123,30                                    |
-|          |                                                           |
-|          | **Enterprise security**                                   |
-|          |                                                           |
-|          | **TLS**:                                                  |
-|          |                                                           |
-|          | at+wcon=ssid,abc,30,2,eap-tls@innophaseinc                |
-|          | .com,/sys/ca.pem,/sys/client.pem,/sys/client.key,password |
-|          |                                                           |
-|          | **PSK**:                                                  |
-|          |                                                           |
-|          | at                                                        |
-|          | +wcon=ssid,0123456789abcdef0123456789abcdef,30,1,psk,,,,, |
-|          |                                                           |
-|          | **PEAP**:                                                 |
-|          |                                                           |
-|          |    at+wcon=ssid,abc                                       |
-|          | ,30,3,anonymous,/sys/ca.pem,,,,eap-peap,password,MSCHAPv2 |
-+----------+-----------------------------------------------------------+
++-------------------+-----------------------------------------------------------+
+| **Command**       | at+wcon=<SSID>,[Passphrase],[Timeo                        |
+|                   | ut],[Enterprise_security_type],[Identity],[ca_certificate |
+|                   | path],[client_certificate path],[private_key              |
+|                   | path],[                                                   |
+|                   | private_key_password],[Identity2],[password],[phase2auth] |
++===================+===========================================================+
+| **Response**      | Success: OK                                               |
+|                   | Failure: Error                                            |
++-------------------+-----------------------------------------------------------+
+| **Parameters**    | SSID: Name of the Access Point                            |
+|                   | Passphrase: Password (optional for open security)         |
+|                   | Timeout: Timeout in seconds, default being 180 seconds    |
+|                   | Enterprise_security_type:                                 |
+|                   | 1 - EAP-PSK                                               |
+|                   | 2 - EAP-TLS                                               |
+|                   | 3 - EAP-PEAP                                              |
+|                   | Identity: Identity for enterprise security                |
+|                   | ca_certificate path: Path to CA certificate in Talaria    |
+|                   | TWO filesystem                                            |
+|                   | client_certificate path: Path to client certificate in    |
+|                   | Talaria TWO filesystem                                    |
+|                   | private_key path: Path to private key file in Talaria TWO |
+|                   | filesystem                                                |
+|                   | private_key_password: Password of private key             |
+|                   | Identity2: Phase 2 identity                               |
+|                   | password: Phase 2 password                                |
+|                   | phase2auth: Phase 2 authentication                        |
++-------------------+-----------------------------------------------------------+
+| **Example**       | **Open security**                                         |
+|                   | at+wcon=rr,,30                                            |
+|                   | **Personal security**                                     |
+|                   | at+wcon=rr,abcd@123,30                                    |
+|                   | **Enterprise security**                                   |
+|                   | **TLS**:                                                  |
+|                   | at+wcon=ssid,abc,30,2,eap-tls@innophaseinc                |
+|                   | .com,/sys/ca.pem,/sys/client.pem,/sys/client.key,password |
+|                   | **PSK**:                                                  |
+|                   | at                                                        |
+|                   | +wcon=ssid,0123456789abcdef0123456789abcdef,30,1,psk,,,,, |
+|                   | **PEAP**:                                                 |
+|                   |    at+wcon=ssid,abc                                       |
+|                   | ,30,3,anonymous,/sys/ca.pem,,,,eap-peap,password,MSCHAPv2 |
++-------------------+-----------------------------------------------------------+
 
 AT+WDIS - Disconnect the Connection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -479,185 +450,102 @@ AT+WCFGGET- Get WLAN Configuration
 AT+WPMCFG – Set WLAN Power Management Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+----------+-----------------------------------------------------------+
-| **C      | at+wpmcfg=<listen interval>,<traffic timeout>, <pspoll>,  |
-| ommand** | <dyn_listen_int>[,<starx_nap>, <sta_only_bc>, <txps>,     |
-|          | <mcast_dont_care>,<dtim>]                                 |
-+==========+===========================================================+
-| **Re     | Success: OK                                               |
-| sponse** |                                                           |
-|          | Failure: Error                                            |
-+----------+-----------------------------------------------------------+
-| **Para   | +-                                                        |
-| meters** | ----------------+-----------------+-----------------+---+ |
-|          | |                                                         |
-|          | **Parameter**   | **Description** | **Min/Max       |   | |
-|          | |                                                         |
-|          |                 |                 | values**        |   | |
-|          | +=                                                        |
-|          | ================+=================+=================+===+ |
-|          | |                                                         |
-|          | listen interval | Beacon listen   | 0/integer range |   | |
-|          | |                                                         |
-|          |                 | interval        |                 |   | |
-|          | +-                                                        |
-|          | ----------------+-----------------+-----------------+---+ |
-|          | |                                                         |
-|          | traffic timeout | Traffic timeout | 0/integer range |   | |
-|          | |                                                         |
-|          |                 | in              |                 |   | |
-|          | |                                                         |
-|          |                 | milliseconds.   |                 |   | |
-|          | |                                                         |
-|          |                 | The traffic     |                 |   | |
-|          | |                                                         |
-|          |                 | timeout         |                 |   | |
-|          | |                                                         |
-|          |                 | parameter       |                 |   | |
-|          | |                                                         |
-|          |                 | specifies the   |                 |   | |
-|          | |                                                         |
-|          |                 | amount of time  |                 |   | |
-|          | |                                                         |
-|          |                 | (in             |                 |   | |
-|          | |                                                         |
-|          |                 | milliseconds)   |                 |   | |
-|          | |                                                         |
-|          |                 | that the device |                 |   | |
-|          | |                                                         |
-|          |                 | should stay     |                 |   | |
-|          | |                                                         |
-|          |                 | awake with the  |                 |   | |
-|          | |                                                         |
-|          |                 | radio           |                 |   | |
-|          | |                                                         |
-|          |                 | powered-up      |                 |   | |
-|          | |                                                         |
-|          |                 | after a         |                 |   | |
-|          | |                                                         |
-|          |                 | transmission    |                 |   | |
-|          | |                                                         |
-|          |                 | (to quickly     |                 |   | |
-|          | |                                                         |
-|          |                 | receive any     |                 |   | |
-|          | |                                                         |
-|          |                 | replies that    |                 |   | |
-|          | |                                                         |
-|          |                 | may be the      |                 |   | |
-|          | |                                                         |
-|          |                 | result of the   |                 |   | |
-|          | |                                                         |
-|          |                 | transmission)   |                 |   | |
-|          | +-                                                        |
-|          | ----------------+-----------------+-----------------+---+ |
-|          | |                                                         |
-|          | pspoll          | Use PS-poll     | 0/1             |   | |
-|          | |                                                         |
-|          |                 |                 | (True/False)    |   | |
-|          | +-                                                        |
-|          | ----------------+-----------------+-----------------+---+ |
-|          | |                                                         |
-|          | dyn_listen_int  | Dynamic listen  | 0/1             |   | |
-|          | |                                                         |
-|          |                 | interval        |                 |   | |
-|          | +-                                                        |
-|          | ----------------+-----------------+-----------------+---+ |
-|          | |                                                         |
-|          | starx_nap       | Turn off        | 0/1             |   | |
-|          | |                                                         |
-|          |                 | receiver for    |                 |   | |
-|          | |                                                         |
-|          |                 | inappropriate   |                 |   | |
-|          | |                                                         |
-|          |                 | frames for      |                 |   | |
-|          | |                                                         |
-|          |                 | station         |                 |   | |
-|          | +-                                                        |
-|          | ----------------+-----------------+-----------------+---+ |
-|          | |                                                         |
-|          | sta_only_bc     | Do not receive  | 0/1             |   | |
-|          | |                                                         |
-|          |                 | multicast       |                 |   | |
-|          | |                                                         |
-|          |                 | frames that are |                 |   | |
-|          | |                                                         |
-|          |                 | not applicable  |                 |   | |
-|          | +-                                                        |
-|          | ----------------+-----------------+-----------------+---+ |
-|          | |                                                         |
-|          | txps            | Send outgoing   | 0/1             |   | |
-|          | |                                                         |
-|          |                 | frames without  |                 |   | |
-|          | |                                                         |
-|          |                 | leaving Wi-Fi   |                 |   | |
-|          | |                                                         |
-|          |                 |                 |                 |   | |
-|          | |                                                         |
-|          |                 | on power save   |                 |   | |
-|          | +-                                                        |
-|          | ----------------+-----------------+-----------------+---+ |
-|          | |                                                         |
-|          | mcast_dont_care | Ignore the      | 0/1             |   | |
-|          | |                                                         |
-|          |                 | multicast flag  |                 |   | |
-|          | |                                                         |
-|          |                 | in beacons      |                 |   | |
-|          | +-                                                        |
-|          | ----------------+-----------------+-----------------+---+ |
-|          | |                                                         |
-|          | dtim            | Wakes up only   | 0/1             |   | |
-|          | |                                                         |
-|          |                 | at effective    |                 |   | |
-|          | |                                                         |
-|          |                 | listen interval |                 |   | |
-|          | |                                                         |
-|          |                 | and does not    |                 |   | |
-|          | |                                                         |
-|          |                 | switch to       |                 |   | |
-|          | |                                                         |
-|          |                 | listen every    |                 |   | |
-|          | |                                                         |
-|          |                 | beacon in case  |                 |   | |
-|          | |                                                         |
-|          |                 | of beacon miss  |                 |   | |
-|          | +-                                                        |
-|          | ----------------+-----------------+-----------------+---+ |
-+----------+-----------------------------------------------------------+
-| **E      | at+wpmcfg=3,100,1,1,0,0,0,0,1                             |
-| xample** |                                                           |
-+----------+-----------------------------------------------------------+
++-------------------+-----------------------------------------------------------+
+| **Command**       | at+wpmcfg=<listen interval>,<traffic timeout>, <pspoll>,  |
+|                   | <dyn_listen_int>[,<starx_nap>, <sta_only_bc>, <txps>,     |
+|                   | <mcast_dont_care>,<dtim>]                                 |
++===================+===========================================================+
+| **Response**      | Success: OK                                               |
+|                   | Failure: Error                                            |
++-------------------+-----------------------------------------------------------+
+| **Parameters**    | +-----------------+-----------------+--------------------+|
+|                   | | **Parameter**   | **Description** | **Min/Max values** ||
+|                   | +=================+=================+====================+|
+|                   | | listen interval | Beacon listen   | 0/integer range    ||
+|                   | |                 | interval        |                    ||
+|                   | +-----------------+-----------------+--------------------+|
+|                   | | traffic timeout | Traffic timeout | 0/integer range    ||
+|                   | |                 | in              |                    ||
+|                   | |                 | milliseconds.   |                    ||
+|                   | |                 | The traffic     |                    ||
+|                   | |                 | timeout         |                    ||
+|                   | |                 | parameter       |                    ||
+|                   | |                 | specifies the   |                    ||
+|                   | |                 | amount of time  |                    ||
+|                   | |                 | (in             |                    ||
+|                   | |                 | milliseconds)   |                    ||
+|                   | |                 | that the device |                    ||
+|                   | |                 | should stay     |                    ||
+|                   | |                 | awake with the  |                    ||
+|                   | |                 | radio           |                    ||
+|                   | |                 | powered-up      |                    ||
+|                   | |                 | after a         |                    ||
+|                   | |                 | transmission    |                    ||
+|                   | |                 | (to quickly     |                    ||
+|                   | |                 | receive any     |                    ||
+|                   | |                 | replies that    |                    ||
+|                   | |                 | may be the      |                    ||
+|                   | |                 | result of the   |                    ||
+|                   | |                 | transmission)   |                    ||
+|                   | +-----------------+-----------------+--------------------+|
+|                   | | pspoll          | Use PS-poll     | 0/1 (True/False)   ||
+|                   | +-----------------+-----------------+--------------------+|
+|                   | | dyn_listen_int  | Dynamic listen  | 0/1                ||
+|                   | |                 | interval        |                    ||
+|                   | +-----------------+-----------------+--------------------+|
+|                   | | starx_nap       | Turn off        | 0/1                ||
+|                   | |                 | receiver for    |                    ||
+|                   | |                 | inappropriate   |                    ||
+|                   | |                 | frames for      |                    ||
+|                   | |                 | station         |                    ||
+|                   | +-----------------+-----------------+--------------------+|
+|                   | | sta_only_bc     | Do not receive  | 0/1                ||
+|                   | |                 | multicast       |                    ||
+|                   | |                 | frames that are |                    ||
+|                   | |                 | not applicable  |                    ||
+|                   | +-----------------+-----------------+--------------------+|
+|                   | | txps            | Send outgoing   | 0/1                ||
+|                   | |                 | frames without  |                    ||
+|                   | |                 | leaving Wi-Fi   |                    ||
+|                   | |                 | on power save   |                    ||
+|                   | +-----------------+-----------------+--------------------+|
+|                   | | mcast_dont_care | Ignore the      | 0/1                ||
+|                   | |                 | multicast flag  |                    ||
+|                   | |                 | in beacons      |                    ||
+|                   | +-----------------+-----------------+--------------------+|
+|                   | | dtim            | Wakes up only   | 0/1                ||
+|                   | |                 | at effective    |                    ||
+|                   | |                 | listen interval |                    ||
+|                   | |                 | and does not    |                    ||
+|                   | |                 | switch to       |                    ||
+|                   | |                 | listen every    |                    ||
+|                   | |                 | beacon in case  |                    ||
+|                   | |                 | of beacon miss  |                    ||
+|                   | +-----------------+-----------------+--------------------+|
++-------------------+-----------------------------------------------------------+
+| **Example**       | at+wpmcfg=3,100,1,1,0,0,0,0,1                             |
++-------------------+-----------------------------------------------------------+
 
 AT+WREGDOMAIN – Set WLAN Regulatory Domain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+----------+-----------------------------------------------------------+
-| **C      | at+wregdomain=<regulatory domain>                         |
-| ommand** |                                                           |
-+==========+===========================================================+
-| **Re     | Success: OK                                               |
-| sponse** |                                                           |
-|          | Failure: Error                                            |
-+----------+-----------------------------------------------------------+
-| **Para   | regulatory domain: Regulatory domain configuration.       |
-| meters** |                                                           |
-|          | The valid values are:                                     |
-|          |                                                           |
-|          | -  0: FCC                                                 |
-|          |                                                           |
-|          | -  1: ETSI                                                |
-|          |                                                           |
-|          | -  2: TELEC                                               |
-|          |                                                           |
-|          | -  3: KCC                                                 |
-|          |                                                           |
-|          | -  4: SRCC                                                |
-|          |                                                           |
-|          | -  ?: Get regulatory domain                               |
-+----------+-----------------------------------------------------------+
-| **E      | at+wregdomain=0                                           |
-| xample** |                                                           |
-|          | at+wregdomain=?                                           |
-+----------+-----------------------------------------------------------+
++-------------------+-----------------------------------------------------------+
+| **Command**       | at+wregdomain=<regulatory domain>                         |
++===================+===========================================================+
+| **Response**      | Success: OK                                               |
+|                   | Failure: Error                                            |
++-------------------+-----------------------------------------------------------+
+| **Parameters**    | regulatory domain: Regulatory domain configuration.       |
+|                   | The valid values are:                                     |
+|                   | -  0: FCC                                                 |
+|                   | -  1: ETSI                                                |
+|                   | -  2: TELEC                                               |
+|                   | -  3: KCC                                                 |
+|                   | -  4: SRCC                                                |
+|                   | -  ?: Get regulatory domain                               |
++-------------------+-----------------------------------------------------------+
+| **Example**       | at+wregdomain=0 at+wregdomain=?                           |
++-------------------+-----------------------------------------------------------+
 
 AT+SOCSRV - Create Server Socket
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -966,243 +854,183 @@ AT+HCHDRSET – Set HTTP Client Header
 AT+HCHDRDEL – Delete HTTP Client Header
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------+----------------------------------------------------------+
-| **        | at+hchdrdel=<HC ID>                                      |
-| Command** |                                                          |
-+===========+==========================================================+
-| **R       | Success:  OK                                             |
-| esponse** |                                                          |
-|           | Failure: ERROR                                           |
-+-----------+----------------------------------------------------------+
-| **Par     | <if applicable>                                          |
-| ameters** |                                                          |
-+-----------+----------------------------------------------------------+
-| **        | at+hchdrdel=0                                            |
-| Example** |                                                          |
-+-----------+----------------------------------------------------------+
++----------------+----------------------------------------------------------+
+| **Command**    | at+hchdrdel=<HC ID>                                      |
++================+==========================================================+
+| **Response**   | Success:OK                                               |
+|                | Failure: ERROR                                           |
++----------------+----------------------------------------------------------+
+| **Parameters** | <if applicable>                                          |
++----------------+----------------------------------------------------------+
+| **Example**    | at+hchdrdel=0                                            |
++----------------+----------------------------------------------------------+
 
 AT+HCCLOSE – Close HTTP Connection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------+----------------------------------------------------------+
-| **        | at+hcclose=<HC ID>                                       |
-| Command** |                                                          |
-+===========+==========================================================+
-| **R       | Success:  OK                                             |
-| esponse** |                                                          |
-|           | Failure: ERROR                                           |
-+-----------+----------------------------------------------------------+
-| **Par     | HC ID: HTTP client identifier                            |
-| ameters** |                                                          |
-+-----------+----------------------------------------------------------+
-| **        | at+hcclose=0                                             |
-| Example** |                                                          |
-+-----------+----------------------------------------------------------+
++----------------+----------------------------------------------------------+
+| **Command**    | at+hcclose=<HC ID>                                       |
++================+==========================================================+
+| **Response**   | Success: OK                                              |
+|                | Failure: ERROR                                           |
++----------------+----------------------------------------------------------+
+| **Parameters** | HC ID: HTTP client identifier                            |
++----------------+----------------------------------------------------------+
+| **Example**    | at+hcclose=0                                             |
++----------------+----------------------------------------------------------+
 
 AT+MDNSREG – Register MDNS Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------+----------------------------------------------------------+
-| **        | at+mdnsreg=<Service Name>,<Service type>, <Service       |
-| Command** | Proto>,<Service Port>,<Service Description>              |
-+===========+==========================================================+
-| **R       | Success:“SER-ID:<Serviced ID>” message  followed OK      |
-| esponse** |                                                          |
-|           | Failure: ERROR                                           |
-+-----------+----------------------------------------------------------+
-| **Par     | Service Name: The service name                           |
-| ameters** |                                                          |
-|           | Service type: Type of service (HTTP)                     |
-|           |                                                          |
-|           | Service type: The service protocol                       |
-|           |                                                          |
-|           |    0: UDP                                                |
-|           |                                                          |
-|           |    1: TCP                                                |
-|           |                                                          |
-|           | Service Port: Port number used                           |
-|           |                                                          |
-|           | Service Description: Service description                 |
-+-----------+----------------------------------------------------------+
-| **        | at+mdnsreg=<servicename>,_HTTP,0,6553,<servicedesc>      |
-| Example** |                                                          |
-+-----------+----------------------------------------------------------+
++----------------+----------------------------------------------------------+
+| **Command**    | at+mdnsreg=<Service Name>,<Service type>, <Service       |
+|                | Proto>,<Service Port>,<Service Description>              |
++================+==========================================================+
+| **Response**   | Success:“SER-ID:<Serviced ID>” message followed OK       |
+|                | Failure: ERROR                                           |
++----------------+----------------------------------------------------------+
+| **Parameters** | Service Name: The service name                           |
+|                | Service type: Type of service (HTTP)                     |
+|                | Service type: The service protocol                       |
+|                |    0: UDP                                                |
+|                |    1: TCP                                                |
+|                | Service Port: Port number used                           |
+|                | Service Description: Service description                 |
++----------------+----------------------------------------------------------+
+| **Example**    | at+mdnsreg=<servicename>,_HTTP,0,6553,<servicedesc>      |
++----------------+----------------------------------------------------------+
 
 AT+MDNSDREG – De-Register MDNS Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------+----------------------------------------------------------+
-| **        | at+mdnsdreg=<Service ID>                                 |
-| Command** |                                                          |
-+===========+==========================================================+
-| **R       | Success: OK                                              |
-| esponse** |                                                          |
-|           | Failure: ERROR                                           |
-+-----------+----------------------------------------------------------+
-| **Par     | Service ID: The service identifier                       |
-| ameters** |                                                          |
-+-----------+----------------------------------------------------------+
-| **        | at+mdnsdreg=0                                            |
-| Example** |                                                          |
-+-----------+----------------------------------------------------------+
++----------------+----------------------------------------------------------+
+| **Command**    | at+mdnsdreg=<Service ID>                                 |
++================+==========================================================+
+| **Response**   | Success: OK                                              |
+|                | Failure: ERROR                                           |
++----------------+----------------------------------------------------------+
+| **Parameters** | Service ID: The service identifier                       |
++----------------+----------------------------------------------------------+
+| **Example**    | at+mdnsdreg=0                                            |
++----------------+----------------------------------------------------------+
 
 AT+MDNSSTART – Start MDNS
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------+----------------------------------------------------------+
-| **        | at+mdnsstart                                             |
-| Command** |                                                          |
-+===========+==========================================================+
-| **R       | Success: OK                                              |
-| esponse** |                                                          |
-|           | Failure: ERROR                                           |
-+-----------+----------------------------------------------------------+
-| **Par     | NA                                                       |
-| ameters** |                                                          |
-+-----------+----------------------------------------------------------+
-| **        | at+mdnsstart                                             |
-| Example** |                                                          |
-+-----------+----------------------------------------------------------+
++----------------+----------------------------------------------------------+
+| **Command**    | at+mdnsstart                                             |
++================+==========================================================+
+| **Response**   | Success: OK                                              |
+|                | Failure: ERROR                                           |
++----------------+----------------------------------------------------------+
+| **Parameters** | NA                                                       |
++----------------+----------------------------------------------------------+
+| **Example**    | at+mdnsstart                                             |
++----------------+----------------------------------------------------------+
 
 AT+MDNSSTOP – Stop MDNS
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------+----------------------------------------------------------+
-| **        | at+mdnsstop                                              |
-| Command** |                                                          |
-+===========+==========================================================+
-| **R       | Success: OK                                              |
-| esponse** |                                                          |
-|           | Failure: ERROR                                           |
-+-----------+----------------------------------------------------------+
-| **Par     | NA                                                       |
-| ameters** |                                                          |
-+-----------+----------------------------------------------------------+
-| **        | at+mdnsstop                                              |
-| Example** |                                                          |
-+-----------+----------------------------------------------------------+
++----------------+----------------------------------------------------------+
+| **Command**    | at+mdnsstop                                              |
++================+==========================================================+
+| **Response**   | Success: OK                                              |
+|                | Failure: ERROR                                           |
++----------------+----------------------------------------------------------+
+| **Parameters** | NA                                                       |
++----------------+----------------------------------------------------------+
+| **Example**    | at+mdnsstop                                              |
++----------------+----------------------------------------------------------+
 
 AT+NHOSTIPGET – Get Host IP by Name
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------+----------------------------------------------------------+
-| **        | at+nhostipget=<Host name>,[Family]                       |
-| Command** |                                                          |
-+===========+==========================================================+
-| **R       | Success: “IP<family>:<ip address>” message followed by   |
-| esponse** | OK                                                       |
-|           |                                                          |
-|           | Failure: ERROR                                           |
-|           |                                                          |
-|           | Refer section `Command Response                          |
-|           | Description <#_Command_Response_Description_1>`__ for    |
-|           | more details                                             |
-+-----------+----------------------------------------------------------+
-| **Par     | Host Name: The host name                                 |
-| ameters** |                                                          |
-|           | Family: protocol family                                  |
-|           |                                                          |
-|           |    0: IPv4                                               |
-|           |                                                          |
-|           |    1: IPv6                                               |
-|           |                                                          |
-|           | Default: It will be trying to resolve IPv4 first. If     |
-|           | that fails, then tries IPv6.                             |
-+-----------+----------------------------------------------------------+
-| **        | at+nhostipget=www.google.com,0                           |
-| Example** |                                                          |
-+-----------+----------------------------------------------------------+
++----------------+-----------------------------------------------------------------------------+
+| **Command**    | at+nhostipget=<Host name>,[Family]                                          |
++================+=============================================================================+
+| **Response**   | Success: “IP<family>:<ip address>” message followed by                      |
+|                | OK                                                                          |
+|                | Failure: ERROR                                                              |
+|                | Refer section :ref:`Command Response Description <at cmds response desc>`__ |
+|                | for more details                                                            |
++----------------+-----------------------------------------------------------------------------+
+| **Parameters** | Host Name: The host name                                                    |
+|                | Family: protocol family                                                     |
+|                |    0: IPv4                                                                  |
+|                |    1: IPv6                                                                  |
+|                | Default: It will be trying to resolve IPv4 first. If                        |
+|                | that fails, then tries IPv6.                                                |
++----------------+-----------------------------------------------------------------------------+
+| **Example**    | at+nhostipget=www.google.com,0                                              |
++----------------+-----------------------------------------------------------------------------+
 
 AT+NPING – Send Ping to Host
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------+----------------------------------------------------------+
-| **        | at+nping=<IP address>                                    |
-| Command** |                                                          |
-+===========+==========================================================+
-| **R       | Success: standard ping response followed by OK           |
-| esponse** |                                                          |
-|           | Failure: ERROR                                           |
-|           |                                                          |
-|           | Refer section `Command Response                          |
-|           | Description <#_Command_Response_Description_1>`__ for    |
-|           | more details                                             |
-+-----------+----------------------------------------------------------+
-| **Par     | IP address: IP address to ping.                          |
-| ameters** |                                                          |
-+-----------+----------------------------------------------------------+
-| **        | at+nping=192.168.2.184                                   |
-| Example** |                                                          |
-+-----------+----------------------------------------------------------+
++----------------+----------------------------------------------------------+
+| **Command**    | at+nping=<IP address>                                    |
++================+==========================================================+
+| **Response**   | Success: standard ping response followed by OK           |
+|                | Failure: ERROR                                           |
+|                | Refer section `Command Response                          |
+|                | Description <#_Command_Response_Description_1>`__ for    |
+|                | more details                                             |
++----------------+----------------------------------------------------------+
+| **Parameters** | IP address: IP address to ping.                          |
++----------------+----------------------------------------------------------+
+| **Example**    | at+nping=192.168.2.184                                   |
++----------------+----------------------------------------------------------+
 
 AT+CERTADD – Stores Certificate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------+----------------------------------------------------------+
-| **        | at+certadd=<Cert Name>,<Cert Len>                        |
-| Command** |                                                          |
-+===========+==========================================================+
-| **R       | Success: OK                                              |
-| esponse** |                                                          |
-|           | Failure: ERROR                                           |
-+-----------+----------------------------------------------------------+
-| **Par     | Cert Name: Name of certificate.                          |
-| ameters** |                                                          |
-|           | Cert Len: Certificate length in bytes                    |
-|           |                                                          |
-|           | Procedure to send certificate                            |
-|           |                                                          |
-|           | -  After command validation Talaria TWO will send “<” as |
-|           |    response to command.                                  |
-|           |                                                          |
-|           | -  Send certificate after receiving the command response |
-|           |                                                          |
-|           | -  OK/ERROR status message will send as response.        |
-|           |                                                          |
-|           | If certificate name already exists in T2, it will be     |
-|           | overwritten.                                             |
-|           |                                                          |
-|           | **Certificate will be stored in RAM.**                   |
-+-----------+----------------------------------------------------------+
-| **        | at+certadd=ssl.pem,2614                                  |
-| Example** |                                                          |
-+-----------+----------------------------------------------------------+
++-----------------+----------------------------------------------------------+
+| **Command**     | at+certadd=<Cert Name>,<Cert Len>                        |
++=================+==========================================================+
+| **Response**    | Success: OK                                              |
+|                 | Failure: ERROR                                           |
++-----------------+----------------------------------------------------------+
+| **Parameters**  | Cert Name: Name of certificate.                          |
+|                 | Cert Len: Certificate length in bytes                    |
+|                 | Procedure to send certificate                            |
+|                 | -  After command validation Talaria TWO will send “<” as |
+|                 |    response to command.                                  |
+|                 | -  Send certificate after receiving the command response |
+|                 | -  OK/ERROR status message will send as response.        |
+|                 | If certificate name already exists in T2, it will be     |
+|                 | overwritten.                                             |
+|                 | **Certificate will be stored in RAM.**                   |
++-----------------+----------------------------------------------------------+
+| **Example**     | at+certadd=ssl.pem,2614                                  |
++-----------------+----------------------------------------------------------+
 
 AT+CERTDEL – Deletes Certificate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------+----------------------------------------------------------+
-| **        | at+certdel=<Cert name>                                   |
-| Command** |                                                          |
-+===========+==========================================================+
-| **R       | Success: OK                                              |
-| esponse** |                                                          |
-|           | Failure: ERROR                                           |
-+-----------+----------------------------------------------------------+
-| **Par     | Cert Name: Name of certificate                           |
-| ameters** |                                                          |
-+-----------+----------------------------------------------------------+
-| **        | at+certdel=ssl.pem                                       |
-| Example** |                                                          |
-+-----------+----------------------------------------------------------+
++-----------------+-----------------------------------------------+
+| **Command**     | at+certdel=<Cert name>                        |
++=================+===============================================+
+| **Response**    | Success: OK                                   |
+|                 | Failure: ERROR                                |
++-----------------+-----------------------------------------------+
+| **Parameters**  | Cert Name: Name of certificate                |
++-----------------+-----------------------------------------------+
+| **Example**     | at+certdel=ssl.pem                            |
++-----------------+-----------------------------------------------+
 
 AT+HSSTART – Start HTTP Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------+----------------------------------------------------------+
-| **        | at+hsstart=<Port number>                                 |
-| Command** |                                                          |
-+===========+==========================================================+
-| **R       | Success: OK                                              |
-| esponse** |                                                          |
-|           | Failure: ERROR                                           |
-+-----------+----------------------------------------------------------+
-| **Par     | Port number: port number                                 |
-| ameters** |                                                          |
-+-----------+----------------------------------------------------------+
-| **        | at+hcstart=192.168.2.184,80                              |
-| Example** |                                                          |
-+-----------+----------------------------------------------------------+
++----------------+----------------------------------------------------------+
+| **Command**    | at+hsstart=<Port number>                                 |
++================+==========================================================+
+| **Response**   | Success: OK                                              |
+|                | Failure: ERROR                                           |
++----------------+----------------------------------------------------------+
+| **Parameters** | Port number: port number                                 |
++----------------+----------------------------------------------------------+
+| **Example**    | at+hcstart=192.168.2.184,80                              |
++----------------+----------------------------------------------------------+
 
 AT+MQTTCONF – Set MQTT configurations.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1211,142 +1039,109 @@ One or more MQTT configurations can be set using this command. <key> is
 the name of the configuration and <val> is the value for the <key> to be
 set.
 
-+------------+---------------------------------------------------------+
-| *          | at+mqttconf=<key>,<val>,<key>,<val>….                   |
-| *Command** |                                                         |
-+============+=========================================================+
-| **         | Success: OK                                             |
-| Response** |                                                         |
-|            | Failure: ERROR                                          |
-+------------+---------------------------------------------------------+
-| **Pa       | key: The name of the parameter to be set.               |
-| rameters** |                                                         |
-|            | The supported parameters are:                           |
-|            |                                                         |
-|            | -  clientid : MQTT client id (Connection will fail if   |
-|            |    this is not set)                                     |
-|            |                                                         |
-|            | -  username : MQTT username                             |
-|            |                                                         |
-|            | -  password : MQTT password                             |
-|            |                                                         |
-|            | -  cleansession : 0/1 (Default 1)                       |
-|            |                                                         |
-|            | -  kainterval : Keep alive interval (Default 60 Sec)    |
-+------------+---------------------------------------------------------+
-| *          | at+mqttconf=clientid,123456                             |
-| *Example** |                                                         |
-|            | at+mqttconf=username,admin                              |
-|            |                                                         |
-|            | at+mqttconf=password,xyz                                |
-|            |                                                         |
-|            | at+mqttconf=kainterval,10 /\*keepalive interval of 10   |
-|            | sec*/                                                   |
-+------------+---------------------------------------------------------+
++-----------------+---------------------------------------------------------+
+| **Command**     | at+mqttconf=<key>,<val>,<key>,<val>….                   |
++=================+=========================================================+
+| **Response**    | Success: OK                                             |
+|                 | Failure: ERROR                                          |
++-----------------+---------------------------------------------------------+
+| **Parameters**  | key: The name of the parameter to be set.               |
+|                 | The supported parameters are:                           |
+|                 | -  clientid : MQTT client id (Connection will fail if   |
+|                 |    this is not set)                                     |
+|                 | -  username : MQTT username                             |
+|                 | -  password : MQTT password                             |
+|                 | -  cleansession : 0/1 (Default 1)                       |
+|                 | -  kainterval : Keep alive interval (Default 60 Sec)    |
++-----------------+---------------------------------------------------------+
+| **Example**     | at+mqttconf=clientid,123456                             |
+|                 | at+mqttconf=username,admin                              |
+|                 | at+mqttconf=password,xyz                                |
+|                 | at+mqttconf=kainterval,10 /\*keepalive interval of 10   |
+|                 | sec*/                                                   |
++-----------------+---------------------------------------------------------+
 
 AT+MQTTCONN – Connect to MQTT Broker
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------+----------------------------------------------------------+
-| **        | at+mqttconn<host name/IP address>,<port                  |
-| Command** | number>,[<transport>],[cert verify],[<CA cert file       |
-|           | name>],[<ws url>],[<client cert file name>],[<client key |
-|           | file name>],[<connection timeout>]                       |
-+===========+==========================================================+
-| **R       | Connection ID followed by command response               |
-| esponse** |                                                          |
-|           | Success: OK                                              |
-|           |                                                          |
-|           | Failure: ERROR                                           |
-+-----------+----------------------------------------------------------+
-| **Par     | host name/IP address: It is either Fully Qualified       |
-| ameters** | Domain name (FQDN) of the server or the IP address of    |
-|           | the server to which the MQTT client opens the            |
-|           | connection.                                              |
-|           |                                                          |
-|           | For example: mqtt.eclipseprojects.io or 137.135.83.217   |
-|           |                                                          |
-|           | port number: This gives the port number of the server to |
-|           | which the MQTT client opens the connection to. The       |
-|           | client can specify the port when the server is running   |
-|           | on a non-standard port.                                  |
-|           |                                                          |
-|           | Default standard port: 1833: MQTT client, 8883: MQTT     |
-|           | over SSL.                                                |
-|           |                                                          |
-|           | transport:                                               |
-|           |                                                          |
-|           | 0: MQTT over TCP (Default)                               |
-|           |                                                          |
-|           | 1: MQTT over TLS (Secured MQTT)                          |
-|           |                                                          |
-|           | 2: WebSocket                                             |
-|           |                                                          |
-|           | 3: MQTT over secured WebSocket                           |
-|           |                                                          |
-|           | cert verify: Used to enable certificate verification in  |
-|           | case SSL is enabled.                                     |
-|           |                                                          |
-|           | CA cert file name: Name of the CA certificate to be used |
-|           | for server certificate authentication in case SSL is     |
-|           | enabled. The CA certificate must be provisioned before   |
-|           | authentication.                                          |
-|           |                                                          |
-|           | ws url: WebSocket URL (Default is “/”).                  |
-|           |                                                          |
-|           | client cert file name: Name of the client certificate to |
-|           | be used for client authentication. Client certificate    |
-|           | must be provisioned before authentication.               |
-|           |                                                          |
-|           | client key file name: Name of the client key file to be  |
-|           | used for client authentication. Client key must be       |
-|           | provisioned before authentication.                       |
-|           |                                                          |
-|           | connection timeout: Maximum time to wait for the         |
-|           | connection to go through. Maximum time being ~300s.      |
-+-----------+----------------------------------------------------------+
-| **        | at+mqttconn=test.mosquitto.org,8884,1,1,/data/m          |
-| Example** | osquitto.org.crt,/mqtt,/data/client.crt,/data/client.key |
-+-----------+----------------------------------------------------------+
++-------------------+----------------------------------------------------------+
+| **Command**       | at+mqttconn<host name/IP address>,<port                  |
+|                   | number>,[<transport>],[cert verify],[<CA cert file       |
+|                   | name>],[<ws url>],[<client cert file name>],[<client key |
+|                   | file name>],[<connection timeout>]                       |
++===================+==========================================================+
+| **Response**      | Connection ID followed by command response               |
+|                   | Success: OK                                              |
+|                   | Failure: ERROR                                           |
++-------------------+----------------------------------------------------------+
+| **Parameters**    | host name/IP address: It is either Fully Qualified       |
+|                   | Domain name (FQDN) of the server or the IP address of    |
+|                   | the server to which the MQTT client opens the            |
+|                   | connection.                                              |
+|                   | For example: mqtt.eclipseprojects.io or 137.135.83.217   |
+|                   | port number: This gives the port number of the server to |
+|                   | which the MQTT client opens the connection to. The       |
+|                   | client can specify the port when the server is running   |
+|                   | on a non-standard port.                                  |
+|                   |                                                          |
+|                   | Default standard port: 1833: MQTT client, 8883: MQTT     |
+|                   | over SSL.                                                |
+|                   |                                                          |
+|                   | transport:                                               |
+|                   | 0: MQTT over TCP (Default)                               |
+|                   | 1: MQTT over TLS (Secured MQTT)                          |
+|                   | 2: WebSocket                                             |
+|                   | 3: MQTT over secured WebSocket                           |
+|                   |                                                          |
+|                   | cert verify: Used to enable certificate verification in  |
+|                   | case SSL is enabled.                                     |
+|                   | CA cert file name: Name of the CA certificate to be used |
+|                   | for server certificate authentication in case SSL is     |
+|                   | enabled. The CA certificate must be provisioned before   |
+|                   | authentication.                                          |
+|                   | ws url: WebSocket URL (Default is “/”).                  |
+|                   | client cert file name: Name of the client certificate to |
+|                   | be used for client authentication. Client certificate    |
+|                   | must be provisioned before authentication.               |
+|                   | client key file name: Name of the client key file to be  |
+|                   | used for client authentication. Client key must be       |
+|                   | provisioned before authentication.                       |
+|                   | connection timeout: Maximum time to wait for the         |
+|                   | connection to go through. Maximum time being ~300s.      |
++-------------------+----------------------------------------------------------+
+| **Example**       | at+mqttconn=test.mosquitto.org,8884,1,1,/data/m          |
+|                   | osquitto.org.crt,/mqtt,/data/client.crt,/data/client.key |
++-------------------+----------------------------------------------------------+
 
 AT+MQTTDISCONN – Disconnect MQTT Client Connection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------+----------------------------------------------------------+
-| **        | at+mqttdisconn=<:mark:`nwid >`                           |
-| Command** |                                                          |
-+===========+==========================================================+
-| **R       | Success: OK                                              |
-| esponse** |                                                          |
-|           | Failure: ERROR                                           |
-+-----------+----------------------------------------------------------+
-| **Par     | nwid: Network ID                                         |
-| ameters** |                                                          |
-+-----------+----------------------------------------------------------+
-| **        | at+mqttdisconn=0                                         |
-| Example** |                                                          |
-+-----------+----------------------------------------------------------+
++-----------------+----------------------------------------------------------+
+| **Command**     | at+mqttdisconn=<:mark:`nwid>`                            |
++=================+==========================================================+
+| **Response**    | Success: OK                                              |
+|                 | Failure: ERROR                                           |
++-----------------+----------------------------------------------------------+
+| **Parameters**  | nwid: Network ID                                         |
++-----------------+----------------------------------------------------------+
+| **Example**     | at+mqttdisconn=0                                         |
++-----------------+----------------------------------------------------------+
 
 AT+MQTTSUB – Subscribe to the MQTT topic
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-----------+----------------------------------------------------------+
-| **        | at+mqttsub=<:mark:`nwid `>,<:mark:`topic>,<qos>`         |
-| Command** |                                                          |
-+===========+==========================================================+
-| **R       | Success: OK                                              |
-| esponse** |                                                          |
-|           | Failure: ERROR                                           |
-+-----------+----------------------------------------------------------+
-| **Par     | nwid: Network ID                                         |
-| ameters** |                                                          |
-|           | topic: Topic to subscribe                                |
-|           |                                                          |
-|           | qos: Qos of the topic                                    |
-+-----------+----------------------------------------------------------+
-| **        | at+mqttsub=0,inno/test,0                                 |
-| Example** |                                                          |
-+-----------+----------------------------------------------------------+
++-------------------+----------------------------------------------------------+
+| **Command**       | at+mqttsub=<:mark:`nwid`>,<:mark:`topic>,<qos>`          |
++===================+==========================================================+
+| **Response**      | Success: OK                                              |
+|                   | Failure: ERROR                                           |
++-------------------+----------------------------------------------------------+
+| **Parameters**    | nwid: Network ID                                         |
+|                   | topic: Topic to subscribe                                |
+|                   | qos: Qos of the topic                                    |
++-------------------+----------------------------------------------------------+
+| **Example**       | at+mqttsub=0,inno/test,0                                 |
++-------------------+----------------------------------------------------------+
 
 AT+MQTTUNSUB – Un-Subscribe to the MQTT Topic
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

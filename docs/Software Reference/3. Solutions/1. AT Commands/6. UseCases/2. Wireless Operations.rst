@@ -26,22 +26,20 @@ AT Command Sequence
 
 .. table:: Table 1: Station Mode - AT Commands
 
-   +-----------+----------------------------------------------------------+
-   | **        | **Description**                                          |
-   | Command** |                                                          |
-   +===========+==========================================================+
-   | *at*      | Check communication state                                |
-   +-----------+----------------------------------------------------------+
-   | *         | Get list of APs available from the vicinity              |
-   | at+wscan* |                                                          |
-   +-----------+----------------------------------------------------------+
-   | *at+wcon* | Connect to a desired AP from the received scan results   |
-   +-----------+----------------------------------------------------------+
-   | *at       | Get IP address of Talaria TWO to verify the connection   |
-   | +wstatus* | is successful                                            |
-   +-----------+----------------------------------------------------------+
-   | *at+wdis* | To disconnect from the connected network                 |
-   +-----------+----------------------------------------------------------+
+   +--------------+----------------------------------------------------------+
+   | **Command**  | **Description**                                          |
+   +==============+==========================================================+
+   | *at*         | Check communication state                                |
+   +--------------+----------------------------------------------------------+
+   | *at+wscan*   | Get list of APs available from the vicinity              |
+   +--------------+----------------------------------------------------------+
+   | *at+wcon*    | Connect to a desired AP from the received scan results   |
+   +--------------+----------------------------------------------------------+
+   | *at+wstatus* | Get IP address of Talaria TWO to verify the connection   |
+   |              | is successful                                            |
+   +--------------+----------------------------------------------------------+
+   | *at+wdis*    | To disconnect from the connected network                 |
+   +--------------+----------------------------------------------------------+
 
 **Note**: at+wdis responds with ERROR response only when network state
 is disconnected.
@@ -53,12 +51,12 @@ Execute the following commands on Talaria TWO:
 
 .. code:: shell
 
-      at
-at+wscan
-at+wcon=InnoPhase,Inno@9070
-at+wstatus=0
-at+wdis
-at+wstatus=0
+   at
+   at+wscan
+   at+wcon=InnoPhase,Inno@9070
+   at+wstatus=0
+   at+wdis
+   at+wstatus=0
 
 
 Serial Log
@@ -121,24 +119,21 @@ Personal/Enterprise protocols).
 
 .. table:: Table 2: Always Active Mode - AT Commands
 
-   +----------------------+-----------------------------------------------+
-   | **AT Command**       | **Description**                               |
-   +======================+===============================================+
-   | *at*                 | Check the communication state                 |
-   +----------------------+-----------------------------------------------+
-   | *at+wcon*            | Connect to a desired AP                       |
-   +----------------------+-----------------------------------------------+
-   | *at+wstatus*         | Get WLAN status                               |
-   +----------------------+-----------------------------------------------+
-   | *                    | Puts the module into suspend/deep sleep mode  |
-   | at+syssleep=<suspend | for the configured “suspend time” value.      |
-   | time>*               |                                               |
-   |                      | Unit is in milliseconds.                      |
-   |                      |                                               |
-   |                      | 0 - Indicates infinite sleep mode             |
-   |                      |                                               |
-   |                      | Range - [0- 32-bit value]                     |
-   +----------------------+-----------------------------------------------+
+   +------------------------------+-----------------------------------------------+
+   | **AT Command**               | **Description**                               |
+   +==============================+===============================================+
+   | *at*                         | Check the communication state                 |
+   +------------------------------+-----------------------------------------------+
+   | *at+wcon*                    | Connect to a desired AP                       |
+   +------------------------------+-----------------------------------------------+
+   | *at+wstatus*                 | Get WLAN status                               |
+   +------------------------------+-----------------------------------------------+
+   | *at+syssleep=<suspend time>* | Puts the module into suspend/deep sleep mode  |
+   |                              | for the configured “suspend time” value.      |
+   |                              | Unit is in milliseconds.                      |
+   |                              | 0 - Indicates infinite sleep mode             |
+   |                              | Range - [0- 32-bit value]                     |
+   +------------------------------+-----------------------------------------------+
 
 **Procedure**
 
@@ -150,10 +145,10 @@ at+wstatus command. Put the module into deep sleep mode for about 10 sec
 
 .. code:: shell
 
-      at 
-at+wcon=InnoPhase,Inno@1020
-at+wstatus=0
-at+syssleep=10000
+   at
+   at+wcon=InnoPhase,Inno@1020
+   at+wstatus=0
+   at+syssleep=10000
 
 **Serial Log**
 
@@ -206,16 +201,12 @@ Personal/Enterprise protocols).
    |                     |    transmission).                              |
    |                     |                                                |
    |                     | ..                                             |
-   |                     |                                                |
    |                     |    **Range**: 0/ integer range. When set to 0, |
    |                     |    device will stay awake forever.             |
-   |                     |                                                |
    |                     |    **Default value** is set to 12ms.           |
-   |                     |                                                |
    |                     | 3. pspoll: Send “ps poll”.                     |
    |                     |                                                |
    |                     | ..                                             |
-   |                     |                                                |
    |                     |    **Range**: 0-disable/1-enable. When set to  |
    |                     |    1, device will send “ps poll” if a beacon   |
    |                     |    is missed. This will increase power         |
@@ -245,12 +236,14 @@ active mode. Connect the Talaria TWO module to an AP of SSID "InnoPhase"
 and passphrase "Inno@1020". Check the WLAN status with at+wstatus
 command.
 
-.. code:: shell
+.. code-block:: c
 
-      at 
-at+wpmcfg=3,0,0,0
-at+wcon=InnoPhase,Inno@1020
-at+wstatus=0
+   at
+   at+wpmcfg=3,0,0,0
+   at+wcon=InnoPhase,Inno@1020
+   at+wstatus=0
+
+
 
 **Serial Log**
 
@@ -473,11 +466,11 @@ mode for about 60 sec (60000ms).
 
 .. code:: shell
 
-      at 
-at+wpmcfg=10,12,0,1
-at+wcon=InnoPhase,Inno@1020
-at+wstatus=0
-at+syssleep=60000
+   at
+   at+wpmcfg=10,12,0,1
+   at+wcon=InnoPhase,Inno@1020
+   at+wstatus=0
+   at+syssleep=60000
 
 
 **Serial Log**
@@ -615,10 +608,10 @@ module into deep sleep mode for about 60 sec (60000ms).
 
 .. code:: shell
 
-      at 
-at+wpmcfg=10,12,0,0,1,1,1,1,1
-at+wcon=InnoPhase,Inno@1020 at+wstatus=0 
-at+syssleep=60000
+   at
+   at+wpmcfg=10,12,0,0,1,1,1,1,1
+   at+wcon=InnoPhase,Inno@1020 at+wstatus=0
+   at+syssleep=60000
 
 **Serial Log**
 
@@ -654,21 +647,22 @@ Personal/Enterprise protocols).
 **AT Command Sequence**
 
 .. table:: Table 7: Suspend Mode Timeout - AT Commands
-+----------------+-----------------------------------------------------+
-| **AT Command** | **Description**                                     |
-+================+=====================================================+
-| *at*           | Check communication state                           |
-+----------------+-----------------------------------------------------+
-| *at+wscan*     | Get list of available APs from the vicinity         |
-+----------------+-----------------------------------------------------+
-| *at+wcon*      | Connect to an Access Point                          |
-+----------------+-----------------------------------------------------+
-| *at+wstatus=0* | Get IP address of Talaria TWO to verify if the      |
-|                | connection is successful                            |
-+----------------+-----------------------------------------------------+
-| *at+syssleep*  | Puts system into suspend mode for the configured    |
-|                | time (Time in milliseconds)                         |
-+----------------+-----------------------------------------------------+
+
+   +----------------+-----------------------------------------------------+
+   | **AT Command** | **Description**                                     |
+   +================+=====================================================+
+   | *at*           | Check communication state                           |
+   +----------------+-----------------------------------------------------+
+   | *at+wscan*     | Get list of available APs from the vicinity         |
+   +----------------+-----------------------------------------------------+
+   | *at+wcon*      | Connect to an Access Point                          |
+   +----------------+-----------------------------------------------------+
+   | *at+wstatus=0* | Get IP address of Talaria TWO to verify if the      |
+   |                | connection is successful                            |
+   +----------------+-----------------------------------------------------+
+   | *at+syssleep*  | Puts system into suspend mode for the configured    |
+   |                | time (Time in milliseconds)                         |
+   +----------------+-----------------------------------------------------+
 
 **Procedure**
 
@@ -678,11 +672,11 @@ example).
 
 .. code:: shell
 
-      at
-at+wscan
-at+wcon=InnoPhase,Inno@9070
-at+wstatus=0
-at+syssleep=30000
+   at
+   at+wscan
+   at+wcon=InnoPhase,Inno@9070
+   at+wstatus=0
+   at+syssleep=30000
 
 
 **Serial Log**
@@ -732,25 +726,26 @@ Personal/Enterprise protocols).
 **AT Command Sequence**
 
 .. table:: Table 8: GPIO Interrupt - AT Commands
-+--------------+-------------------------------------------------------+
-| **AT         | **Description**                                       |
-| Command**    |                                                       |
-+==============+=======================================================+
-| *at*         | Check communication state                             |
-+--------------+-------------------------------------------------------+
-| *at+wscan*   | Get list of available APs from the vicinity           |
-+--------------+-------------------------------------------------------+
-| *at+wcon*    | Connect to an Access Point                            |
-+--------------+-------------------------------------------------------+
-| *a           | Get IP address of Talaria TWO to verify if the        |
-| t+wstatus=0* | connection is successful                              |
-+--------------+-------------------------------------------------------+
-| *a           | Configure interrupt-based system wakeup               |
-| t+wakeupcfg* |                                                       |
-+--------------+-------------------------------------------------------+
-| *            | Puts system into suspend mode for the configured time |
-| at+syssleep* | (Time in milliseconds)                                |
-+--------------+-------------------------------------------------------+
+
+   +--------------+-------------------------------------------------------+
+   | **AT         | **Description**                                       |
+   | Command**    |                                                       |
+   +==============+=======================================================+
+   | *at*         | Check communication state                             |
+   +--------------+-------------------------------------------------------+
+   | *at+wscan*   | Get list of available APs from the vicinity           |
+   +--------------+-------------------------------------------------------+
+   | *at+wcon*    | Connect to an Access Point                            |
+   +--------------+-------------------------------------------------------+
+   | *a           | Get IP address of Talaria TWO to verify if the        |
+   | t+wstatus=0* | connection is successful                              |
+   +--------------+-------------------------------------------------------+
+   | *a           | Configure interrupt-based system wakeup               |
+   | t+wakeupcfg* |                                                       |
+   +--------------+-------------------------------------------------------+
+   | *            | Puts system into suspend mode for the configured time |
+   | at+syssleep* | (Time in milliseconds)                                |
+   +--------------+-------------------------------------------------------+
 
 **Procedure**
 
@@ -761,12 +756,12 @@ level).
 
 .. code:: shell
 
-      at
-at+wscan
-at+wcon=InnoPhase,Inno@9070
-at+wstatus=0
-at+wakeupcfg=14,0,0,0
-at+syssleep=0
+   at
+   at+wscan
+   at+wcon=InnoPhase,Inno@9070
+   at+wstatus=0
+   at+wakeupcfg=14,0,0,0
+   at+syssleep=0
 
 
 **Serial Log**
@@ -808,25 +803,26 @@ sleep till timeout.
 **AT Command Sequence**
 
 .. table:: Table 9: Network Data Reception - AT Commands
-+------------+---------------------------------------------------------+
-| **AT       | **Description**                                         |
-| Command**  |                                                         |
-+============+=========================================================+
-| *at*       | Check communication state                               |
-+------------+---------------------------------------------------------+
-| *at+wscan* | Get list of available APs from the vicinity             |
-+------------+---------------------------------------------------------+
-| *at+wcon*  | Connect to a desired AP from the received scan results  |
-+------------+---------------------------------------------------------+
-| *a         | Get IP address of Talaria TWO to verify the             |
-| t+wstatus* | connection(L2+L3) is successful                         |
-+------------+---------------------------------------------------------+
-| *          | Start TCP server                                        |
-| at+socsrv* |                                                         |
-+------------+---------------------------------------------------------+
-| *at        | Puts system into suspend mode for the configured time   |
-| +syssleep* | (Time in milliseconds)                                  |
-+------------+---------------------------------------------------------+
+
+   +------------+---------------------------------------------------------+
+   | **AT       | **Description**                                         |
+   | Command**  |                                                         |
+   +============+=========================================================+
+   | *at*       | Check communication state                               |
+   +------------+---------------------------------------------------------+
+   | *at+wscan* | Get list of available APs from the vicinity             |
+   +------------+---------------------------------------------------------+
+   | *at+wcon*  | Connect to a desired AP from the received scan results  |
+   +------------+---------------------------------------------------------+
+   | *a         | Get IP address of Talaria TWO to verify the             |
+   | t+wstatus* | connection(L2+L3) is successful                         |
+   +------------+---------------------------------------------------------+
+   | *          | Start TCP server                                        |
+   | at+socsrv* |                                                         |
+   +------------+---------------------------------------------------------+
+   | *at        | Puts system into suspend mode for the configured time   |
+   | +syssleep* | (Time in milliseconds)                                  |
+   +------------+---------------------------------------------------------+
 
 **Procedure**
 
@@ -834,12 +830,12 @@ sleep till timeout.
 
 .. code:: shell
 
-      at
-at+wscan
-at+wcon=InnoPhase,Inno@9070
-at+wstatus=0
-at+socsrv=0,0,0,9000
-at+syssleep=10000
+   at
+   at+wscan
+   at+wcon=InnoPhase,Inno@9070
+   at+wstatus=0
+   at+socsrv=0,0,0,9000
+   at+syssleep=10000
 
 **Step 2**: Connect your laptop to the same access point InnoPhase to
 which the Talaria TWO is connected.
@@ -894,102 +890,103 @@ AT Command Sequence
 ~~~~~~~~~~~~~~~~~~~
 
 .. table:: Table 10: BLE Peripheral - AT Commands
+
 +------------------------------------------+---------------------------+
 | **AT Command**                           | **Description**           |
 +==========================================+===========================+
 | *at*                                     | Checks the connection     |
 |                                          | state                     |
-+------------------------------------------+---------------------------+
-| *at+btinit*                              | Initializes the BLE stack |
-+------------------------------------------+---------------------------+
-| *at+blecfg=02:03:04:1f:cc:9e,0,          | Configures BLE device     |
-| InnoPhase*                               | with parameters,          |
-|                                          |                           |
-|                                          | BLE mac address:          |
-|                                          | 02:03:04:1f:cc:9e         |
-|                                          |                           |
-|                                          | BLE address type: 0 (BLE  |
-|                                          | public address)           |
-|                                          |                           |
-|                                          | BLE device name:          |
-|                                          | InnoPhase                 |
-+------------------------------------------+---------------------------+
-| *at+blesrvstart*                         | Start the BLE GATT server |
-+------------------------------------------+---------------------------+
-| *at+bles                                 | Creates unique custom     |
-| ervcfg=11111111111111111111111111111111* | service ID (32-bit long   |
-|                                          | value)                    |
-|                                          |                           |
-|                                          | UUID:                     |
-|                                          | *11111111                 |
-|                                          | 111111111111111111111111* |
-+------------------------------------------+---------------------------+
-| *at+blechradd=11                         | Creates a unique custom   |
-| 111111111111111111111111111111,2A29,a,3* | characteristic ID for the |
-|                                          | above created custom      |
-|                                          | service ID with           |
-|                                          | parameters,               |
-|                                          |                           |
-|                                          | Services uuid:            |
-|                                          | *11111111                 |
-|                                          | 111111111111111111111111* |
-|                                          |                           |
-|                                          | Char uuid: *2A29*         |
-|                                          |                           |
-|                                          | Properties: *"a" sets     |
-|                                          | read and write property*  |
-|                                          |                           |
-|                                          | Permission: 3 sets read   |
-|                                          | and write permission      |
-+------------------------------------------+---------------------------+
-| *at+bles                                 | This includes the         |
-| ervadd=11111111111111111111111111111111* | customized service into   |
-|                                          | GATT server where,        |
-|                                          |                           |
-|                                          | Custom service UUID:      |
-|                                          | *11111111                 |
-|                                          | 111111111111111111111111* |
-+------------------------------------------+---------------------------+
-| *at+bleadvcfg=100,0,1600,0*              |  This configures the      |
-|                                          | advertisement parameters  |
-|                                          | where,                    |
-|                                          |                           |
-|                                          | Fast adv interval: 100    |
-|                                          | which equals 62.5ms (100  |
-|                                          | \* 625 μs)                |
-|                                          |                           |
-|                                          | Fast adv duration: 0      |
-|                                          | (continues advertisement) |
-|                                          |                           |
-|                                          | Slow adv interval: 1600,  |
-|                                          | which equals 1000ms (1600 |
-|                                          | \* 625 μs)                |
-|                                          |                           |
-|                                          | Slow adv duration: 0      |
-+------------------------------------------+---------------------------+
-| *at+bleadvstart*                         |  Start the BLE            |
-|                                          | Advertisement             |
-+------------------------------------------+---------------------------+
-| *at+blecharwrdata=2a29,5*                | Acknowledges BLE          |
-|                                          | Characteristic Write      |
-|                                          | Request with parameters,  |
-|                                          |                           |
-|                                          | characteristic UUID:      |
-|                                          | *2a29,*                   |
-|                                          |                           |
-|                                          | data len (in hex format): |
-|                                          | 5                         |
-+------------------------------------------+---------------------------+
-| *at+blecharrddata=2a29,a,6162636465*     | Sends data for BLE        |
-|                                          | Characteristic Read       |
-|                                          | Request with parameters,  |
-|                                          |                           |
-|                                          | uuid: *2a29*              |
-|                                          |                           |
-|                                          | data len\ *: a*           |
-|                                          |                           |
-|                                          | data: *6162636465*        |
-+------------------------------------------+---------------------------+
+   +------------------------------------------+---------------------------+
+   | *at+btinit*                              | Initializes the BLE stack |
+   +------------------------------------------+---------------------------+
+   | *at+blecfg=02:03:04:1f:cc:9e,0,          | Configures BLE device     |
+   | InnoPhase*                               | with parameters,          |
+   |                                          |                           |
+   |                                          | BLE mac address:          |
+   |                                          | 02:03:04:1f:cc:9e         |
+   |                                          |                           |
+   |                                          | BLE address type: 0 (BLE  |
+   |                                          | public address)           |
+   |                                          |                           |
+   |                                          | BLE device name:          |
+   |                                          | InnoPhase                 |
+   +------------------------------------------+---------------------------+
+   | *at+blesrvstart*                         | Start the BLE GATT server |
+   +------------------------------------------+---------------------------+
+   | *at+bles                                 | Creates unique custom     |
+   | ervcfg=11111111111111111111111111111111* | service ID (32-bit long   |
+   |                                          | value)                    |
+   |                                          |                           |
+   |                                          | UUID:                     |
+   |                                          | *11111111                 |
+   |                                          | 111111111111111111111111* |
+   +------------------------------------------+---------------------------+
+   | *at+blechradd=11                         | Creates a unique custom   |
+   | 111111111111111111111111111111,2A29,a,3* | characteristic ID for the |
+   |                                          | above created custom      |
+   |                                          | service ID with           |
+   |                                          | parameters,               |
+   |                                          |                           |
+   |                                          | Services uuid:            |
+   |                                          | *11111111                 |
+   |                                          | 111111111111111111111111* |
+   |                                          |                           |
+   |                                          | Char uuid: *2A29*         |
+   |                                          |                           |
+   |                                          | Properties: *"a" sets     |
+   |                                          | read and write property*  |
+   |                                          |                           |
+   |                                          | Permission: 3 sets read   |
+   |                                          | and write permission      |
+   +------------------------------------------+---------------------------+
+   | *at+bles                                 | This includes the         |
+   | ervadd=11111111111111111111111111111111* | customized service into   |
+   |                                          | GATT server where,        |
+   |                                          |                           |
+   |                                          | Custom service UUID:      |
+   |                                          | *11111111                 |
+   |                                          | 111111111111111111111111* |
+   +------------------------------------------+---------------------------+
+   | *at+bleadvcfg=100,0,1600,0*              |  This configures the      |
+   |                                          | advertisement parameters  |
+   |                                          | where,                    |
+   |                                          |                           |
+   |                                          | Fast adv interval: 100    |
+   |                                          | which equals 62.5ms (100  |
+   |                                          | \* 625 μs)                |
+   |                                          |                           |
+   |                                          | Fast adv duration: 0      |
+   |                                          | (continues advertisement) |
+   |                                          |                           |
+   |                                          | Slow adv interval: 1600,  |
+   |                                          | which equals 1000ms (1600 |
+   |                                          | \* 625 μs)                |
+   |                                          |                           |
+   |                                          | Slow adv duration: 0      |
+   +------------------------------------------+---------------------------+
+   | *at+bleadvstart*                         |  Start the BLE            |
+   |                                          | Advertisement             |
+   +------------------------------------------+---------------------------+
+   | *at+blecharwrdata=2a29,5*                | Acknowledges BLE          |
+   |                                          | Characteristic Write      |
+   |                                          | Request with parameters,  |
+   |                                          |                           |
+   |                                          | characteristic UUID:      |
+   |                                          | *2a29,*                   |
+   |                                          |                           |
+   |                                          | data len (in hex format): |
+   |                                          | 5                         |
+   +------------------------------------------+---------------------------+
+   | *at+blecharrddata=2a29,a,6162636465*     | Sends data for BLE        |
+   |                                          | Characteristic Read       |
+   |                                          | Request with parameters,  |
+   |                                          |                           |
+   |                                          | uuid: *2a29*              |
+   |                                          |                           |
+   |                                          | data len\ *: a*           |
+   |                                          |                           |
+   |                                          | data: *6162636465*        |
+   +------------------------------------------+---------------------------+
 
 .. _procedure-1:
 
@@ -1000,15 +997,15 @@ Procedure
 
 .. code:: shell
 
-      at
-at+btinit
-at+blecfg=02:03:04:1f:cc:9e,0,InnoPhase
-at+blesrvstart
-at+bleservcfg=11111111111111111111111111111111
-at+blechradd=11111111111111111111111111111111,2A29,a,3
-at+bleservadd=11111111111111111111111111111111 
-at+bleadvcfg=100,0,1600,0
-at+bleadvstart
+   at
+   at+btinit
+   at+blecfg=02:03:04:1f:cc:9e,0,InnoPhase
+   at+blesrvstart
+   at+bleservcfg=11111111111111111111111111111111
+   at+blechradd=11111111111111111111111111111111,2A29,a,3
+   at+bleservadd=11111111111111111111111111111111
+   at+bleadvcfg=100,0,1600,0
+   at+bleadvstart
 
 
 |image22|
@@ -1097,117 +1094,118 @@ AT Command Sequence
 ~~~~~~~~~~~~~~~~~~~~
 
 .. table:: Table 11: BLE IO Capabilities - AT Commands
-+----------------------------------------+-----------------------------+
-| **AT Command**                         | **Description**             |
-+========================================+=============================+
-| *at*                                   | Checks the connection state |
-+----------------------------------------+-----------------------------+
-| *at+btinit*                            | Initializes the BLE stack   |
-+----------------------------------------+-----------------------------+
-| *at+blecfg                             | Configures BLE device with  |
-| =02:03:04:1f:cc:9e,0,InnoPhase_Secure* | parameters,                 |
-|                                        |                             |
-|                                        | BLE mac address:            |
-|                                        | 02:03:04:1f:cc:9e           |
-|                                        |                             |
-|                                        | BLE address type: 0 (BLE    |
-|                                        | public address)             |
-|                                        |                             |
-|                                        | BLE device name:            |
-|                                        | InnoPhase_Secure            |
-+----------------------------------------+-----------------------------+
-| *at+blesrvstart*                       | Start the BLE GATT server   |
-+----------------------------------------+-----------------------------+
-| *at+bleser                             | Creates unique custom       |
-| vcfg=11111111111111111111111111111111* | service ID (32-bit long     |
-|                                        | value)                      |
-|                                        |                             |
-|                                        | UUID:                       |
-|                                        | *111111                     |
-|                                        | 11111111111111111111111111* |
-+----------------------------------------+-----------------------------+
-| *at+blech                              | Creates a unique custom     |
-| radd=11111111111111111111111111111111, | characteristic ID for the   |
-| 2A29,a,3*                              | above created custom        |
-|                                        | service ID with parameters, |
-|                                        |                             |
-|                                        | Services uuid:              |
-|                                        | *111111                     |
-|                                        | 11111111111111111111111111* |
-|                                        |                             |
-|                                        | Char uuid: *2A29*           |
-|                                        |                             |
-|                                        | Properties: *"a" sets read  |
-|                                        | and write property*         |
-|                                        |                             |
-|                                        | Permission: *3* sets read   |
-|                                        | and write permission        |
-+----------------------------------------+-----------------------------+
-| *at+bleser                             | This includes the           |
-| vadd=11111111111111111111111111111111* | customized service into     |
-|                                        | gatt server where,          |
-|                                        |                             |
-|                                        | Custom service UUID:        |
-|                                        | *111111                     |
-|                                        | 11111111111111111111111111* |
-+----------------------------------------+-----------------------------+
-| *at+bleadvcfg=100,0,1600,0*            |  This configures the        |
-|                                        | advertisement parameters    |
-|                                        | where,                      |
-|                                        |                             |
-|                                        | Fast adv interval: 100      |
-|                                        | which equals 62.5ms (100 \* |
-|                                        | 625 μs)                     |
-|                                        |                             |
-|                                        | Fast adv duration: 0        |
-|                                        | (continues advertisement)   |
-|                                        |                             |
-|                                        | Slow adv interval: 1600,    |
-|                                        | which equals 1000ms (1600   |
-|                                        | \* 625 μs)                  |
-|                                        |                             |
-|                                        | Slow adv duration: 0        |
-+----------------------------------------+-----------------------------+
-| *at+blesmpcfg=0,0,1,0,0,0,16,1*        |  Configures the SMP         |
-|                                        | (security) with parameters, |
-|                                        |                             |
-|                                        | io cap: 0 (display_only)    |
-|                                        |                             |
-|                                        | oob : 0 (default)           |
-|                                        |                             |
-|                                        | bondable: 1                 |
-|                                        |                             |
-|                                        | mitm: 0                     |
-|                                        |                             |
-|                                        | sc: 0                       |
-|                                        |                             |
-|                                        | keypress: 0                 |
-|                                        |                             |
-|                                        | key size min: 16 bytes      |
-|                                        |                             |
-|                                        | encrypt: 1                  |
-+----------------------------------------+-----------------------------+
-| *at+bleadvstart*                       | Start the BLE Advertisement |
-+----------------------------------------+-----------------------------+
-| *at+blecharwrdata=2a29,5*              | Acknowledges BLE            |
-|                                        | Characteristic Write        |
-|                                        | Request with parameters,    |
-|                                        |                             |
-|                                        | characteristic UUID:        |
-|                                        | *2a29,*                     |
-|                                        |                             |
-|                                        | data len (in hex format): 5 |
-+----------------------------------------+-----------------------------+
-| *at+blecharrddata=2a29,a,6162636465*   | Sends data for BLE          |
-|                                        | Characteristic Read Request |
-|                                        | with parameters,            |
-|                                        |                             |
-|                                        | uuid: *2a29*                |
-|                                        |                             |
-|                                        | data len\ *: a*             |
-|                                        |                             |
-|                                        | data: *6162636465*          |
-+----------------------------------------+-----------------------------+
+
+   +----------------------------------------+-----------------------------+
+   | **AT Command**                         | **Description**             |
+   +========================================+=============================+
+   | *at*                                   | Checks the connection state |
+   +----------------------------------------+-----------------------------+
+   | *at+btinit*                            | Initializes the BLE stack   |
+   +----------------------------------------+-----------------------------+
+   | *at+blecfg                             | Configures BLE device with  |
+   | =02:03:04:1f:cc:9e,0,InnoPhase_Secure* | parameters,                 |
+   |                                        |                             |
+   |                                        | BLE mac address:            |
+   |                                        | 02:03:04:1f:cc:9e           |
+   |                                        |                             |
+   |                                        | BLE address type: 0 (BLE    |
+   |                                        | public address)             |
+   |                                        |                             |
+   |                                        | BLE device name:            |
+   |                                        | InnoPhase_Secure            |
+   +----------------------------------------+-----------------------------+
+   | *at+blesrvstart*                       | Start the BLE GATT server   |
+   +----------------------------------------+-----------------------------+
+   | *at+bleser                             | Creates unique custom       |
+   | vcfg=11111111111111111111111111111111* | service ID (32-bit long     |
+   |                                        | value)                      |
+   |                                        |                             |
+   |                                        | UUID:                       |
+   |                                        | *111111                     |
+   |                                        | 11111111111111111111111111* |
+   +----------------------------------------+-----------------------------+
+   | *at+blech                              | Creates a unique custom     |
+   | radd=11111111111111111111111111111111, | characteristic ID for the   |
+   | 2A29,a,3*                              | above created custom        |
+   |                                        | service ID with parameters, |
+   |                                        |                             |
+   |                                        | Services uuid:              |
+   |                                        | *111111                     |
+   |                                        | 11111111111111111111111111* |
+   |                                        |                             |
+   |                                        | Char uuid: *2A29*           |
+   |                                        |                             |
+   |                                        | Properties: *"a" sets read  |
+   |                                        | and write property*         |
+   |                                        |                             |
+   |                                        | Permission: *3* sets read   |
+   |                                        | and write permission        |
+   +----------------------------------------+-----------------------------+
+   | *at+bleser                             | This includes the           |
+   | vadd=11111111111111111111111111111111* | customized service into     |
+   |                                        | gatt server where,          |
+   |                                        |                             |
+   |                                        | Custom service UUID:        |
+   |                                        | *111111                     |
+   |                                        | 11111111111111111111111111* |
+   +----------------------------------------+-----------------------------+
+   | *at+bleadvcfg=100,0,1600,0*            |  This configures the        |
+   |                                        | advertisement parameters    |
+   |                                        | where,                      |
+   |                                        |                             |
+   |                                        | Fast adv interval: 100      |
+   |                                        | which equals 62.5ms (100 \* |
+   |                                        | 625 μs)                     |
+   |                                        |                             |
+   |                                        | Fast adv duration: 0        |
+   |                                        | (continues advertisement)   |
+   |                                        |                             |
+   |                                        | Slow adv interval: 1600,    |
+   |                                        | which equals 1000ms (1600   |
+   |                                        | \* 625 μs)                  |
+   |                                        |                             |
+   |                                        | Slow adv duration: 0        |
+   +----------------------------------------+-----------------------------+
+   | *at+blesmpcfg=0,0,1,0,0,0,16,1*        |  Configures the SMP         |
+   |                                        | (security) with parameters, |
+   |                                        |                             |
+   |                                        | io cap: 0 (display_only)    |
+   |                                        |                             |
+   |                                        | oob : 0 (default)           |
+   |                                        |                             |
+   |                                        | bondable: 1                 |
+   |                                        |                             |
+   |                                        | mitm: 0                     |
+   |                                        |                             |
+   |                                        | sc: 0                       |
+   |                                        |                             |
+   |                                        | keypress: 0                 |
+   |                                        |                             |
+   |                                        | key size min: 16 bytes      |
+   |                                        |                             |
+   |                                        | encrypt: 1                  |
+   +----------------------------------------+-----------------------------+
+   | *at+bleadvstart*                       | Start the BLE Advertisement |
+   +----------------------------------------+-----------------------------+
+   | *at+blecharwrdata=2a29,5*              | Acknowledges BLE            |
+   |                                        | Characteristic Write        |
+   |                                        | Request with parameters,    |
+   |                                        |                             |
+   |                                        | characteristic UUID:        |
+   |                                        | *2a29,*                     |
+   |                                        |                             |
+   |                                        | data len (in hex format): 5 |
+   +----------------------------------------+-----------------------------+
+   | *at+blecharrddata=2a29,a,6162636465*   | Sends data for BLE          |
+   |                                        | Characteristic Read Request |
+   |                                        | with parameters,            |
+   |                                        |                             |
+   |                                        | uuid: *2a29*                |
+   |                                        |                             |
+   |                                        | data len\ *: a*             |
+   |                                        |                             |
+   |                                        | data: *6162636465*          |
+   +----------------------------------------+-----------------------------+
 
 .. _procedure-2:
 
@@ -1218,15 +1216,15 @@ Procedure
 
 .. code:: shell
 
-      at
-at+btinit
-at+blecfg=02:03:04:1f:cc:9e,0,InnoPhase_Secure
-at+blesrvstart
-at+bleservcfg=11111111111111111111111111111111  
-at+blechradd=11111111111111111111111111111111,2A29,a,3
-at+bleservadd=11111111111111111111111111111111   
-at+bleadvcfg=100,0,1600,0
-at+blesmpcfg=0,0,1,0,0,0,16,1
+   at
+   at+btinit
+   at+blecfg=02:03:04:1f:cc:9e,0,InnoPhase_Secure
+   at+blesrvstart
+   at+bleservcfg=11111111111111111111111111111111
+   at+blechradd=11111111111111111111111111111111,2A29,a,3
+   at+bleservadd=11111111111111111111111111111111
+   at+bleadvcfg=100,0,1600,0
+   at+blesmpcfg=0,0,1,0,0,0,16,1
 
 
 |image30|
@@ -1374,41 +1372,41 @@ Figure 41: Read request acknowledgment on device
    :width: 0.64172in
    :height: 0.30836in
 .. |image20| image:: media/image20.png
-   :width: 2.75591in
-   :height: 4.61993in
+   :width: 7.75591in
+   :height: 5.61993in
 .. |image21| image:: media/image21.png
-   :width: 5.90551in
-   :height: 5.15162in
+   :width: 7.90551in
+   :height: 4.15162in
 .. |image22| image:: media/image22.png
    :width: 7.48031in
    :height: 3.90727in
 .. |image23| image:: media/image23.png
    :width: 7.48031in
-   :height: 4.93599in
+   :height: 9.93599in
 .. |image24| image:: media/image24.png
    :width: 3.14961in
    :height: 6.54325in
 .. |image25| image:: media/image25.png
-   :width: 3.14961in
-   :height: 6.32579in
+   :width: 7.14961in
+   :height: 3.32579in
 .. |image26| image:: media/image26.png
    :width: 7.48031in
-   :height: 3.56205in
+   :height: 9.56205in
 .. |image27| image:: media/image27.png
    :width: 3.14961in
    :height: 6.32579in
 .. |image28| image:: media/image28.png
-   :width: 3.14961in
-   :height: 6.32554in
+   :width: 7.14961in
+   :height: 3.32554in
 .. |image29| image:: media/image29.png
    :width: 7.48031in
-   :height: 3.83405in
+   :height: 9.83405in
 .. |image30| image:: media/image30.png
-   :width: 3.14961in
-   :height: 6.43829in
+   :width: 7.14961in
+   :height: 4.43829in
 .. |image31| image:: media/image31.png
    :width: 7.48031in
-   :height: 5.26928in
+   :height: 9.26928in
 .. |image32| image:: media/image32.png
    :width: 3.14961in
    :height: 6.10576in
@@ -1416,26 +1414,26 @@ Figure 41: Read request acknowledgment on device
    :width: 3.14961in
    :height: 6.36891in
 .. |image34| image:: media/image34.png
-   :width: 3.14961in
-   :height: 6.50534in
+   :width: 7.14961in
+   :height: 4.50534in
 .. |image35| image:: media/image35.png
    :width: 7.48031in
-   :height: 3.63958in
+   :height: 9.63958in
 .. |image36| image:: media/image36.png
    :width: 3.14961in
    :height: 6.53958in
 .. |image37| image:: media/image37.png
-   :width: 3.14961in
-   :height: 6.36466in
+   :width: 7.14961in
+   :height: 4.36466in
 .. |image38| image:: media/image38.png
    :width: 7.48031in
-   :height: 4.0887in
+   :height: 9.0887in
 .. |image39| image:: media/image39.png
    :width: 3.14961in
    :height: 6.38897in
 .. |image40| image:: media/image40.png
-   :width: 3.14961in
-   :height: 6.38957in
+   :width: 7.14961in
+   :height: 4.38957in
 .. |image41| image:: media/image41.png
    :width: 7.48031in
-   :height: 4.47003in
+   :height: 9.47003in

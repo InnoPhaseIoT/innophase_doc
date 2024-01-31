@@ -34,28 +34,25 @@ processor.
 
 The major components in Talaria TWO are shown in Figure 1.
 
-|A diagram of a network server Description automatically generated|
+|image1|
 
 Figure 1: Major components in Talaria TWO
 
-Wi-Fi Connection Manager
-``````````
+**Wi-Fi Connection Manager**
+
 
 This is the network connection manager which handles all the Wi-Fi connection/disconnection.
 
-Socket Manager
---------------
+**Socket Manager**
 
 HIO handles all socket operations. It supports TCP, UDP, and raw sockets.
 
-RTOS
-----
+**RTOS**
 
 Highly efficient, low footprint, real-time OS for low power
 applications.
 
-IPSTACK
--------
+**IPSTACK**
 
 1.  IPv4
 
@@ -77,8 +74,7 @@ IPSTACK
 
 10. IPv6
 
-Host Processor
-==============
+**Host Processor**
 
 Host processor consists of the Host Application Processor (HAPI)
 Interface Layer and Host Applications. Host Applications may vary and
@@ -86,12 +82,11 @@ will interact with Talaria TWO via APIs in the interface layer. HAPI
 provides APIs for Host Application to facilitate communication with the
 Talaria TWO.
 
-|A white paper with black text Description automatically generated|
+|image2|
 
 Figure 2: Communication between Host and Talaria TWO via UART/SPI
 
-Talaria TWO – Host Processor Interface
-======================================
+**Talaria TWO – Host Processor Interface**
 
 Host processor communicates with Talaria TWO via a SPI or UART and
 follows a protocol to exchange command and data. This protocol is
@@ -124,9 +119,36 @@ Host applications use HAPI WLAN and Socket APIs, which internally use
 interface port APIs to transfer data between the wireless network and
 host processor.
 
-.. |A diagram of a network server Description automatically generated| image:: media/image1.png
+APIs
+---
+
+.. toctree::
+    :maxdepth: 1
+
+    APIs/AWS APIs.rst
+    APIs/BLE APIs.rst
+    APIs/Chip Monitor APIs.rst
+    APIs/Common APIs.rst
+    APIs/Dual-Stack APIs.rst
+    APIs/FOS APIs.rst
+    APIs/FOTA APIs.rst
+    APIs/GPIO APIs.rst
+    APIs/HAPI Configuration APIs.rst
+    APIs/HTTP Client APIs.rst
+    APIs/MDNS APIs.rst
+    APIs/MQTT APIs.rst
+    APIs/Port APIs.rst
+    APIs/Power Save APIs.rst
+    APIs/Socket APIs.rst
+    APIs/SPI Interface APIs.rst
+    APIs/TLS APIs.rst
+    APIs/UART Interface APIs.rst
+    APIs/Unassoc APIs.rst
+    APIs/WLAN APIs.rst
+
+.. |image1| image:: media/image1.png
    :width: 6.53542in
    :height: 3.06389in
-.. |A white paper with black text Description automatically generated| image:: media/image2.png
+.. |image2| image:: media/image2.png
    :width: 6.53542in
    :height: 3.53958in

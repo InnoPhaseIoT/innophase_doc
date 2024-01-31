@@ -28,8 +28,7 @@ Azure IoT application to:
 
 9. Disconnect from Azure IoT cloud
 
-Connection Set-up
-=================
+**Connection Set-up**
 
 Host processor communicates with Talaria TWO via a SPI or UART
 interface. The connection set-up used to test the application is as
@@ -97,8 +96,7 @@ QSG_T2_STM32CubeL4_L4A6ZG.pdf
 Hardware setup and connections for testing the application using UART
 interface.
 
-Set-up & Usage
-==============
+**Set-up & Usage**
 
 Pre-set-up on Talaria TWO
 -------------------------
@@ -116,8 +114,7 @@ QSG_T2_STM32CubeL4_L433RC-P.pdf
 *(Documentation\\STM32CubeL4_Getting_Started*) for details on the boot
 arguments to be passed for SPI and UART interface.
 
-Testing
-=======
+**Testing**
 
 Sample Application
 ------------------
@@ -146,80 +143,56 @@ refer to UM1722 - Developing Applications on STM32Cube with RTOS.
 
 .. _azure-iot-application-1:
 
-Azure IoT Application
-=====================
+**Azure IoT Application**
 
 This section describes the application details along with code snippets.
 The application uses HAPI APIs to achieve the functionality. HAPI APIs
 presumes that the platform related initialization and clock settings are
 completed by default.
 
-1. 
-
-2. 
-
-3. 
-
-4. 
-
-5. 
-
-6. 
-
-7. 
-
 HAPI Interface Initialization
 -----------------------------
 
-+-----------------------------------------------------------------------+
-| struct hapi \*hapi;                                                   |
-|                                                                       |
-| #ifdef HAPI_INTERFACE_UART_ENABLED                                    |
-|                                                                       |
-| /\* Register the uart, and baud rate to hapi \*/                      |
-|                                                                       |
-| hapi = hapi_uart_init(hapi_uart, hapi_uart_tx, hapi_uart_rx);         |
-|                                                                       |
-| #endif                                                                |
-|                                                                       |
-| #ifdef HAPI_INTERFACE_SPI_ENABLED                                     |
-|                                                                       |
-| /\* Register the SPI \*/                                              |
-|                                                                       |
-| hapi = hapi_spi_init(hapi_spi, hapi_spi_cs_high, hapi_spi_cs_low,     |
-| hapi_spi_tx, hapi_spi_rx);                                            |
-|                                                                       |
-| #endif                                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: c
+
+    struct hapi \*hapi;
+    #ifdef HAPI_INTERFACE_UART_ENABLED
+    /\* Register the uart, and baud rate to hapi \*/
+    hapi = hapi_uart_init(hapi_uart, hapi_uart_tx, hapi_uart_rx);
+    #endif
+    #ifdef HAPI_INTERFACE_SPI_ENABLED
+    /\* Register the SPI \*/
+    hapi = hapi_spi_init(hapi_spi, hapi_spi_cs_high, hapi_spi_cs_low,
+    hapi_spi_tx, hapi_spi_rx);
+    #endif
+
 
 HAPI Interface Start and Disable Sleep Mode in Configuration
 ------------------------------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_start(hapi);                                                     |
-|                                                                       |
-| hapi_config(hapi, 0, 0, 0, 0, 0);                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: c
+
+    hapi_start(hapi);
+    hapi_config(hapi, 0, 0, 0, 0, 0);
+
 
 Check HAPI Communication with Talaria TWO EVB
 ---------------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_hio_query(hapi,&hio_query_rsp);                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: c
+
+    hapi_hio_query(hapi,&hio_query_rsp);
+
 
 Create a Wi-Fi Network Interface and Register Link Status Callback 
 -------------------------------------------------------------------
 
-+-----------------------------------------------------------------------+
-| struct hapi_wcm \* hapi_wcm = hapi_wcm_create(hapi);                  |
-|                                                                       |
-| hapi_wcm_set_link_cb(hapi_wcm, wcm_link_cb, NULL);                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: c
+
+    struct hapi_wcm \* hapi_wcm = hapi_wcm_create(hapi);
+    hapi_wcm_set_link_cb(hapi_wcm, wcm_link_cb, NULL);
+
+
 
 Connecting to a Wi-Fi network
 -----------------------------
@@ -227,76 +200,55 @@ Connecting to a Wi-Fi network
 The application uses the default SSID and passphrase. These can be
 modified as per user AP settings.
 
-+-----------------------------------------------------------------------+
-| /\* Connect wifi \*/                                                  |
-|                                                                       |
-| char\* ssid = "innotest";                                             |
-|                                                                       |
-| char\* passphrase = "innophase123";                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: c
 
-+-----------------------------------------------------------------------+
-| if(true == hapi_wcm_network_profile_add(hapi_wcm, ssid, NULL,         |
-| passphrase, NULL))                                                    |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| if(false == hapi_wcm_autoconnect(hapi_wcm, 1))                        |
-|                                                                       |
-| {                                                                     |
-|                                                                       |
-| banner="hapi_wcm_autoconnect : failed..\\r\\n";                       |
-|                                                                       |
-| }                                                                     |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+    /\* Connect wifi \*/
+    char\* ssid = "innotest";
+    char\* passphrase = "innophase123";
+
+    if(true == hapi_wcm_network_profile_add(hapi_wcm, ssid, NULL,passphrase, NULL))
+    {
+        if(false == hapi_wcm_autoconnect(hapi_wcm, 1))
+        {
+            banner="hapi_wcm_autoconnect : failed..\\r\\n";
+        }
+    }
+
 
 Create and Connect Azure IoT cloud
 ----------------------------------
 
-+-----------------------------------------------------------------------+
-| int rc;                                                               |
-|                                                                       |
-| rc = init_and_connect_ms_azure_iot(&mqtt_credentials);                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: c
+
+    int rc;
+    rc = init_and_connect_ms_azure_iot(&mqtt_credentials);
 
 Subscribe Azure IoT Cloud Messages
 ----------------------------------
 
-+-----------------------------------------------------------------------+
-| int rc;                                                               |
-|                                                                       |
-| rc =                                                                  |
-| ms_azure_iot_mqtt_subscribe_for_cloud_to_device_messages(gpclient,    |
-| mqtt_credentials.client_id,on_new_subscribe_message_from_ms_azure,    |
-| NULL);                                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: c
+
+    int rc;
+    rc = ms_azure_iot_mqtt_subscribe_for_cloud_to_device_messages(gpclient, mqtt_credentials.client_id,on_new_subscribe_message_from_ms_azure, NULL);
 
 Publish Messages to Azure IoT Cloud
 -----------------------------------
 
-+-----------------------------------------------------------------------+
-| char msg_payload[100];                                                |
-|                                                                       |
-| start_sending_messages_to_ms_azure(publish_topic, msg_payload, len);  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    char msg_payload[100];
+    start_sending_messages_to_ms_azure(publish_topic, msg_payload, len);
 
 Disconnect Azure IoT Cloud
 --------------------------
 
-+-----------------------------------------------------------------------+
-| ms_azure_iot_mqtt_disconnect(gpclient);                               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shelll
 
-Expected Output
-===============
+    ms_azure_iot_mqtt_disconnect(gpclient);
+
+
+**Expected Output**
+
 
 The MCU will connect to the AP specified by the SSID and passphrase.
 This demo project connects to Azure, executes a handshake, and runs the
@@ -310,57 +262,59 @@ and printed on the serial terminal.
 
 Figure 2: Expected Output
 
-Application Files and Functions
-===============================
+**Application Files and Functions**
 
-+---------------------------------------------+------------------------+
-| **File**                                    | **Function**           |
-+=============================================+========================+
-| InnoPha                                     | Main Program           |
-| se_HAPI/InnoPhase_HAPI_azuredemo/Src/main.c |                        |
-+---------------------------------------------+------------------------+
-| InnoPhase_HAPI/InnoPhase_HAPI               | HAL time-base file     |
-| _azuredemo/Src/stm32l4xx_hal_timebase_tim.c |                        |
-+---------------------------------------------+------------------------+
-| InnoPhase_HAPI/                             | Interrupt handlers     |
-| InnoPhase_HAPI_azuredemo/Src/stm32l4xx_it.c |                        |
-+---------------------------------------------+------------------------+
-| InnoPhase_HAPI/Inno                         | STM32L4xx system clock |
-| Phase_HAPI_azuredemo/Src/system_stm32l4xx.c | configuration file     |
-+---------------------------------------------+------------------------+
-| InnoPhase_HA                                | Code for free RTOS     |
-| PI/InnoPhase_HAPI_azuredemo/Src/freertose.c | application            |
-+---------------------------------------------+------------------------+
-| InnoPhase_HAPI/InnoP                        | Code for MSP           |
-| hase_HAPI_azuredemo/Src/stm32l4xx_hal_msp.c | initializ              |
-|                                             | ation/deinitialization |
-+---------------------------------------------+------------------------+
-| InnoPhase_H                                 | System calls file      |
-| API/InnoPhase_HAPI_azuredemo/Src/syscalls.c |                        |
-+---------------------------------------------+------------------------+
-| InnoPhase                                   | System Memory calls    |
-| _HAPI/InnoPhase_HAPI_azuredemo/Src/sysmem.c | file                   |
-+---------------------------------------------+------------------------+
-| I                                           | System startup file    |
-| nnoPhase_HAPI/InnoPhase_HAPI_azuredemo/Src/ |                        |
-| startup_stm32l433rctxp.s                    |                        |
-+---------------------------------------------+------------------------+
-| InnoPha                                     | Main program header    |
-| se_HAPI/InnoPhase_HAPI_azuredemo/Inc/main.h | file                   |
-+---------------------------------------------+------------------------+
-| InnoPhase_HAPI/InnoPh                       | HAL Library            |
-| ase_HAPI_azuredemo/Inc/stm32l4xx_hal_conf.h | Configuration file     |
-+---------------------------------------------+------------------------+
-| InnoPhase_HAPI/                             | Interrupt handler’s    |
-| InnoPhase_HAPI_azuredemo/Inc/stm32l4xx_it.h | header file            |
-+---------------------------------------------+------------------------+
-| InnoPhase_HAPI/In                           | FreeRTOS Configuration |
-| noPhase_HAPI_azuredemo/Inc/FreeRTOSConfig.h | file                   |
-+---------------------------------------------+------------------------+
+.. table:: Table 1: Application files and functions
 
-Table 1: Application files and functions
+    +---------------------------------------------+------------------------+
+    | **File**                                    | **Function**           |
+    +=============================================+========================+
+    | InnoPha                                     | Main Program           |
+    | se_HAPI/InnoPhase_HAPI_azuredemo/Src/main.c |                        |
+    +---------------------------------------------+------------------------+
+    | InnoPhase_HAPI/InnoPhase_HAPI               | HAL time-base file     |
+    | _azuredemo/Src/stm32l4xx_hal_timebase_tim.c |                        |
+    +---------------------------------------------+------------------------+
+    | InnoPhase_HAPI/                             | Interrupt handlers     |
+    | InnoPhase_HAPI_azuredemo/Src/stm32l4xx_it.c |                        |
+    +---------------------------------------------+------------------------+
+    | InnoPhase_HAPI/Inno                         | STM32L4xx system clock |
+    | Phase_HAPI_azuredemo/Src/system_stm32l4xx.c | configuration file     |
+    +---------------------------------------------+------------------------+
+    | InnoPhase_HA                                | Code for free RTOS     |
+    | PI/InnoPhase_HAPI_azuredemo/Src/freertose.c | application            |
+    +---------------------------------------------+------------------------+
+    | InnoPhase_HAPI/InnoP                        | Code for MSP           |
+    | hase_HAPI_azuredemo/Src/stm32l4xx_hal_msp.c | initializ              |
+    |                                             | ation/deinitialization |
+    +---------------------------------------------+------------------------+
+    | InnoPhase_H                                 | System calls file      |
+    | API/InnoPhase_HAPI_azuredemo/Src/syscalls.c |                        |
+    +---------------------------------------------+------------------------+
+    | InnoPhase                                   | System Memory calls    |
+    | _HAPI/InnoPhase_HAPI_azuredemo/Src/sysmem.c | file                   |
+    +---------------------------------------------+------------------------+
+    | I                                           | System startup file    |
+    | nnoPhase_HAPI/InnoPhase_HAPI_azuredemo/Src/ |                        |
+    | startup_stm32l433rctxp.s                    |                        |
+    +---------------------------------------------+------------------------+
+    | InnoPha                                     | Main program header    |
+    | se_HAPI/InnoPhase_HAPI_azuredemo/Inc/main.h | file                   |
+    +---------------------------------------------+------------------------+
+    | InnoPhase_HAPI/InnoPh                       | HAL Library            |
+    | ase_HAPI_azuredemo/Inc/stm32l4xx_hal_conf.h | Configuration file     |
+    +---------------------------------------------+------------------------+
+    | InnoPhase_HAPI/                             | Interrupt handler’s    |
+    | InnoPhase_HAPI_azuredemo/Inc/stm32l4xx_it.h | header file            |
+    +---------------------------------------------+------------------------+
+    | InnoPhase_HAPI/In                           | FreeRTOS Configuration |
+    | noPhase_HAPI_azuredemo/Inc/FreeRTOSConfig.h | file                   |
+    +---------------------------------------------+------------------------+
+
 
 .. |image1| image:: media/image1.png
 .. |Text Description automatically generated| image:: media/image2.png
    :width: 5.90556in
    :height: 5.22847in
+
+

@@ -11,34 +11,23 @@ This document provides details on how to use the HAPI APIs to create the
 BLE Provisioning demo application to:
 
 1.  Initialize the HAPI interface
-
 2.  Select the interface
-
 3.  Enable/disable the scramble on the interface
-
 4.  Create/destroy BLE interface
-
 5.  Create GATT server
-
 6.  Add services
-
 7.  Start the server for provisioning
-
 8.  Read the provisioning data
-
 9.  Scan for Wi-Fi networks
-
 10. Connect to a Wi-Fi network
 
-Connection Set-up
-=================
+**Connection Set-up**
 
 Host processor communicates with Talaria TWO via a SPI or UART
 interface. The connection set-up used to test the application is as
 shown in Figure 1.
 
-|A diagram of different types of communication Description automatically
-generated with medium confidence|
+|A diagram of different types of communication Description automatically generated with medium confidence|
 
 Figure 1: Connection set-up for application testing
 
@@ -69,8 +58,7 @@ QSG_T2_STM32CubeL4_L433RC-P.pdf
 Hardware setup and connections for testing the application using UART
 interface.
 
-Set-up & Usage
-==============
+**Set-up & Usage**
 
 Pre-set-up on Talaria TWO
 -------------------------
@@ -101,8 +89,7 @@ QSG_T2_STM32CubeL4_L433RC-P.pdf
 *(Documentation\\STM32CubeL4_Getting_Started*) for details on the boot
 arguments to be passed for SPI and UART interface.
 
-Testing
-=======
+**Testing**
 
 Sample Application
 ------------------
@@ -151,8 +138,7 @@ Figure 3: iOS mobile app in the app store
    once connected to the device, a window to enter the passphrase of the
    selected AP appears.
 
-|Graphical user interface, text, application Description automatically
-generated|
+|Graphical user interface, text, application Description automatically generated|
 
    Figure 5: Entering SSID and passphrase
 
@@ -177,218 +163,179 @@ margin and rounded to the upper Kbyte boundary.
 For more details on the FreeRTOS implementation on STM32Cube, please
 refer to UM1722 - Developing Applications on STM32Cube with RTOS.
 
-BLE Provisioning Application
-============================
+**BLE Provisioning Application**
 
 This section describes the application details along with code snippets.
 The application uses HAPI APIs to achieve the functionality. HAPI APIs
 presumes that the platform related initialization and clock settings are
 completed by default.
 
-1. 
-
-2. 
-
-3. 
-
-4. 
-
-5. 
-
-6. 
-
-7. 
-
 HAPI Interface Initialization
 -----------------------------
 
-+-----------------------------------------------------------------------+
-| struct hapi \*hapi;                                                   |
-|                                                                       |
-| #ifdef HAPI_INTERFACE_UART_ENABLED                                    |
-|                                                                       |
-| /\* Register the uart, and baud rate to hapi \*/                      |
-|                                                                       |
-| hapi = hapi_uart_init(hapi_uart, hapi_uart_tx, hapi_uart_rx);         |
-|                                                                       |
-| #endif                                                                |
-|                                                                       |
-| #ifdef HAPI_INTERFACE_SPI_ENABLED                                     |
-|                                                                       |
-| /\* Register the SPI \*/                                              |
-|                                                                       |
-| hapi = hapi_spi_init(hapi_spi, hapi_spi_cs_high, hapi_spi_cs_low,     |
-| hapi_spi_tx, hapi_spi_rx);                                            |
-|                                                                       |
-| #endif                                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    struct hapi \*hapi;
+    #ifdef HAPI_INTERFACE_UART_ENABLED
+    /\* Register the uart, and baud rate to hapi \*/
+    hapi = hapi_uart_init(hapi_uart, hapi_uart_tx, hapi_uart_rx);
+    #endif
+    #ifdef HAPI_INTERFACE_SPI_ENABLED
+    /\* Register the SPI \*/
+    hapi = hapi_spi_init(hapi_spi, hapi_spi_cs_high, hapi_spi_cs_low, hapi_spi_tx, hapi_spi_rx);
+    #endif
+
 
 HAPI Interface Start and Disable Sleep Mode in Configuration
 ------------------------------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_start(hapi);                                                     |
-|                                                                       |
-| hapi_config(hapi, 0, 0, 0, 0, 0);                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    hapi_start(hapi);
+    hapi_config(hapi, 0, 0, 0, 0, 0);
 
 Check HAPI Communication with Talaria TWO EVB
 ---------------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_hio_query(hapi,&hio_query_rsp);                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    hapi_hio_query(hapi,&hio_query_rsp);
+
 
 Create Common GATT Server
 -------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_bt_host_common_server_create(hapi_bt_host, "tname", 0,           |
-| "tmanuf");                                                            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    hapi_bt_host_common_server_create(hapi_bt_host, "tname", 0, "tmanuf");
+
 
 Create Custom BLE Service
 -------------------------
 
-+-----------------------------------------------------------------------+
-| void \*service;                                                       |
-|                                                                       |
-| service = hapi_bt_host_gatt_create_service_128(hapi_bt_host,          |
-| UUID_CUSTOM_SERVICE);                                                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    void \*service;
+    service = hapi_bt_host_gatt_create_service_128(hapi_bt_host, UUID_CUSTOM_SERVICE);
+
 
 Add BLE Services
 ----------------
 
-+-----------------------------------------------------------------------+
-| hapi_bt_host_gatt_add_service(hapi_bt_host, service);                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    hapi_bt_host_gatt_add_service(hapi_bt_host, service);
 
 Configure BLE Advertisements
 ----------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_bt_host_gap_cfg_adv(hapi_bt_host, 10240, 0, 160, 480, 0, 7);     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    hapi_bt_host_gap_cfg_adv(hapi_bt_host, 10240, 0, 160, 480, 0, 7);
+
 
 Add BLE Indication Handler for Read/Write Characteristics
 ---------------------------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_add_ind_handler(hapi, HIO_GROUP_BT_HOST,                         |
-| BT_HOST_GATT_CHAR_RD_IND, bt_data_rd_req, hapi_bt_host);              |
-|                                                                       |
-| hapi_add_ind_handler(hapi, HIO_GROUP_BT_HOST,                         |
-| BT_HOST_GATT_CHAR_WR_IND, bt_data_wr_req, hapi_bt_host);              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    hapi_add_ind_handler(hapi, HIO_GROUP_BT_HOST, BT_HOST_GATT_CHAR_RD_IND, bt_data_rd_req, hapi_bt_host);
+    hapi_add_ind_handler(hapi, HIO_GROUP_BT_HOST, BT_HOST_GATT_CHAR_WR_IND, bt_data_wr_req, hapi_bt_host);
+
 
 Start BLE Advertisement
 -----------------------
 
-+-----------------------------------------------------------------------+
-| hapi_bt_host_gap_connectable(hapi_bt_host,                            |
-| GAP_CONNECTABLE_MODE_UNDIRECT, bt_hci_addr_type_random,               |
-| addr_type_zero, address_zero);                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    hapi_bt_host_gap_connectable(hapi_bt_host, GAP_CONNECTABLE_MODE_UNDIRECT, bt_hci_addr_type_random, addr_type_zero, address_zero);
 
 Create WCM Interface
 --------------------
 
-+-----------------------------------------------------------------------+
-| hapi_wcm_create(hapi);                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    hapi_wcm_create(hapi);
+
 
 Connecting to a Wi-Fi Network 
 ------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_wcm_autoconnect(hapi_wcm, 1, ssid, pw);                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    hapi_wcm_autoconnect(hapi_wcm, 1, ssid, pw);
+
 
 Set WCM Indication Handler
 --------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_wcm_set_link_cb(hapi_wcm, wcm_link_cb, NULL);                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
 
-Expected Output
-===============
+    hapi_wcm_set_link_cb(hapi_wcm, wcm_link_cb, NULL);
+
+
+**Expected Output**
 
 The provided android application should be able to connect to the BLE
 device on Talaria TWO and configure the SSID and passphrase. On
 successful connection, the Talaria TWO board will associate to the AP as
 specified by the SSID and passphrase.
 
-| 
-| |A screenshot of a computer Description automatically generated|
+|A screenshot of a computer Description automatically generated|
 
 Figure 7: Expected output
 
-Application Files and Functions
-===============================
+**Application Files and Functions**
 
-+-------------------------------------+--------------------------------+
-| **File**                            | **Function**                   |
-+=====================================+================================+
-| /T2-HAN-010/Src/main.c              | Main Program                   |
-+-------------------------------------+--------------------------------+
-| /T2-HAN-0                           | HAL time-base file             |
-| 10/Src/stm32l4xx_hal_timebase_tim.c |                                |
-+-------------------------------------+--------------------------------+
-| /T2-HAN-010/Src/stm32l4xx_it.c      | Interrupt handlers             |
-+-------------------------------------+--------------------------------+
-| /T2-HAN-010/Src/system_stm32l4xx.c  | STM32L4xx system clock         |
-|                                     | configuration file             |
-+-------------------------------------+--------------------------------+
-| /T2-HAN-010/Src/freertose.c         | Code for free RTOS application |
-+-------------------------------------+--------------------------------+
-| /T2-HAN-010/Src/stm32l4xx_hal_msp.c | Code for MSP                   |
-|                                     | i                              |
-|                                     | nitialization/deinitialization |
-+-------------------------------------+--------------------------------+
-| /T2-HAN-010/Src/syscalls.c          | System calls file              |
-+-------------------------------------+--------------------------------+
-| /T2-HAN-010/Src/sysmem.c            | System Memory calls file       |
-+-------------------------------------+--------------------------------+
-| /T                                  | System startup file            |
-| 2-HAN-010/Src/startup_stm32l4a6xx.s |                                |
-+-------------------------------------+--------------------------------+
-| /T2-HAN-010/Inc/main.h              | Main program header file       |
-+-------------------------------------+--------------------------------+
-| /                                   | HAL Library Configuration file |
-| T2-HAN-010/Inc/stm32l4xx_hal_conf.h |                                |
-+-------------------------------------+--------------------------------+
-| /T2-HAN-010/Inc/stm32l4xx_it.h      | Interrupt handler’s header     |
-|                                     | file                           |
-+-------------------------------------+--------------------------------+
-| /T2-HAN-010/Inc/FreeRTOSConfig.h    | FreeRTOS Configuration file    |
-+-------------------------------------+--------------------------------+
-| /T2-HAN-010/Src/HAPI/app.c          | Application file               |
-+-------------------------------------+--------------------------------+
-| /T2-HAN-010/Src/HAPI/app_bt.c       | BLE application file           |
-+-------------------------------------+--------------------------------+
-| /T2-HA                              | BLE provisioning application   |
-| N-010/Src/HAPI/app_bt_provisioing.c | file                           |
-+-------------------------------------+--------------------------------+
-| /T2-HAN-010/Src/HAPI/bt_att.h,      | BLE application header files   |
-| /T2-HAN-010/Src/HAPI/bt_gatt.h,     |                                |
-| /T2-HAN-010/Src/HAPI/uuid.h         |                                |
-+-------------------------------------+--------------------------------+
+.. table:: Table 1: Application files and functions
 
-Table 1: Application files and functions
+    +-------------------------------------+--------------------------------+
+    | **File**                            | **Function**                   |
+    +=====================================+================================+
+    | /T2-HAN-010/Src/main.c              | Main Program                   |
+    +-------------------------------------+--------------------------------+
+    | /T2-HAN-0                           | HAL time-base file             |
+    | 10/Src/stm32l4xx_hal_timebase_tim.c |                                |
+    +-------------------------------------+--------------------------------+
+    | /T2-HAN-010/Src/stm32l4xx_it.c      | Interrupt handlers             |
+    +-------------------------------------+--------------------------------+
+    | /T2-HAN-010/Src/system_stm32l4xx.c  | STM32L4xx system clock         |
+    |                                     | configuration file             |
+    +-------------------------------------+--------------------------------+
+    | /T2-HAN-010/Src/freertose.c         | Code for free RTOS application |
+    +-------------------------------------+--------------------------------+
+    | /T2-HAN-010/Src/stm32l4xx_hal_msp.c | Code for MSP                   |
+    |                                     | i                              |
+    |                                     | nitialization/deinitialization |
+    +-------------------------------------+--------------------------------+
+    | /T2-HAN-010/Src/syscalls.c          | System calls file              |
+    +-------------------------------------+--------------------------------+
+    | /T2-HAN-010/Src/sysmem.c            | System Memory calls file       |
+    +-------------------------------------+--------------------------------+
+    | /T                                  | System startup file            |
+    | 2-HAN-010/Src/startup_stm32l4a6xx.s |                                |
+    +-------------------------------------+--------------------------------+
+    | /T2-HAN-010/Inc/main.h              | Main program header file       |
+    +-------------------------------------+--------------------------------+
+    | /                                   | HAL Library Configuration file |
+    | T2-HAN-010/Inc/stm32l4xx_hal_conf.h |                                |
+    +-------------------------------------+--------------------------------+
+    | /T2-HAN-010/Inc/stm32l4xx_it.h      | Interrupt handler’s header     |
+    |                                     | file                           |
+    +-------------------------------------+--------------------------------+
+    | /T2-HAN-010/Inc/FreeRTOSConfig.h    | FreeRTOS Configuration file    |
+    +-------------------------------------+--------------------------------+
+    | /T2-HAN-010/Src/HAPI/app.c          | Application file               |
+    +-------------------------------------+--------------------------------+
+    | /T2-HAN-010/Src/HAPI/app_bt.c       | BLE application file           |
+    +-------------------------------------+--------------------------------+
+    | /T2-HA                              | BLE provisioning application   |
+    | N-010/Src/HAPI/app_bt_provisioing.c | file                           |
+    +-------------------------------------+--------------------------------+
+    | /T2-HAN-010/Src/HAPI/bt_att.h,      | BLE application header files   |
+    | /T2-HAN-010/Src/HAPI/bt_gatt.h,     |                                |
+    | /T2-HAN-010/Src/HAPI/uuid.h         |                                |
+    +-------------------------------------+--------------------------------+
 
 .. |A diagram of different types of communication Description automatically generated with medium confidence| image:: media/image1.png
    :width: 6.29921in

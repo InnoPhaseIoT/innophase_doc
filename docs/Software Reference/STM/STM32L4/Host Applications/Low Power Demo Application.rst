@@ -22,8 +22,7 @@ low power application to:
 
 6. Trigger the above GPIO to wake Talaria TWO from sleep
 
-Connection Set-up
-=================
+**Connection Set-up**
 
 The connection set-up used to test the application is as shown in Figure
 1.
@@ -77,10 +76,10 @@ any other supported device and development board.
 
 For example, TCP client: netcat on PC.
 
-+-----------------------------------------------------------------------+
-| #nc <ip address of T2> 9000                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    #nc <ip address of T2> 9000
+
 
 2. Send any data from TCP client. The same data is received on the
    client from STM32-Talaria TWO device.
@@ -106,17 +105,19 @@ QSG_T2_STM32CubeL4_L433RC-P.pdf *(*\ path:
 2. For SPI interface, Talaria TWO should be programmed with the
    following boot arguments:
 
+.. code-block:: shell
+
 +-----------------------------------------------------------------------+
 | hio.transport=spi, krn.gpio=---p                                      |
-+=======================================================================+
 +-----------------------------------------------------------------------+
 
 3. For UART interface, Talaria TWO should be programmed with the
    following boot arguments:
 
+.. code-block:: shell
+
 +-----------------------------------------------------------------------+
 | hio.transport=uart, hio.baudrate=115200, krn.gpio=---p                |
-+=======================================================================+
 +-----------------------------------------------------------------------+
 
 To make certain appropriate HAL operation, the application must ensure
@@ -128,8 +129,7 @@ margin and rounded to the upper Kbyte boundary.
 For more details on the FreeRTOS implementation on STM32Cube, please
 refer to UM1722 - Developing Applications on STM32Cube with RTOS.
 
-Low Power Application
-=====================
+**Low Power Application**
 
 This section describes the application details along with code snippets.
 The application uses HAPI APIs to achieve the functionality. HAPI APIs
@@ -139,72 +139,58 @@ completed by default.
 HAPI interface initialization
 -----------------------------
 
-+-----------------------------------------------------------------------+
-| struct hapi \*hapi;                                                   |
-|                                                                       |
-| hapi = hapi_init(console_uart);                                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    struct hapi \*hapi;
+    hapi = hapi_init(console_uart);
+
 
 Interface selection
 -------------------
 
-+-----------------------------------------------------------------------+
-| hapi_uart_init(hapi, hapi_uart, T2_UART_BAUD);                        |
-|                                                                       |
-| hapi_spi_init(hapi, hapi_spi);                                        |
-|                                                                       |
-| hapi_set_default_interface(hapi,HAPI_INTERFACE_UART);                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    hapi_uart_init(hapi, hapi_uart, T2_UART_BAUD);
+    hapi_spi_init(hapi, hapi_spi);
+    hapi_set_default_interface(hapi,HAPI_INTERFACE_UART);
 
 Enable/Disable scramble on interface 
 -------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_set_hio_scrambling (hapi, enc_enabled, enc_ctx, key, NULL,       |
-| NULL);                                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    hapi_set_hio_scrambling (hapi, enc_enabled, enc_ctx, key, NULL, NULL);
 
 HAPI interface start
 --------------------
 
-+-----------------------------------------------------------------------+
-| struct hapi \*hapi;                                                   |
-|                                                                       |
-| hapi_start(hapi);                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    struct hapi \*hapi
+    hapi_start(hapi);
 
 Add Interrupt handler on Talaria TWO for a GPIO
 -----------------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_add_ind_handler(hapi, HIO_GROUP_HIO, HIO_WAKEUP_IND,             |
-| t2_woken_up_ind_handler, NULL);                                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    hapi_add_ind_handler(hapi, HIO_GROUP_HIO, HIO_WAKEUP_IND, t2_woken_up_ind_handler, NULL);
 
 Configure a GPIO for signaling on Talaria TWO
 ---------------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_config_rsp =                                                     |
-| hapi_config(hapi,wakeup_pin,wakeup_level,irq_pin,irq_mode);           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    hapi_config_rsp = hapi_config(hapi,wakeup_pin,wakeup_level,irq_pin,irq_mode);
 
 Enable Sleep on Talaria TWO
 ---------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_send_sleep(hapi);                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
 
-Expected Output
-===============
+    hapi_send_sleep(hapi);
+
+**Expected Output**
 
 The MCU will configure the sleep wakeup mechanism on Talaria TWO and
 does so using the sleep command and GPIO.
@@ -213,60 +199,60 @@ does so using the sleep command and GPIO.
 
 Figure 2: Expected Output
 
-Application Files and Functions
-===============================
+**Application Files and Functions**
 
-+--------------------------------------------------+-------------------+
-|    File                                          |    Function       |
-+==================================================+===================+
-|    InnoPh                                        |    Main Program   |
-| ase_HAPI/InnoPhase_HAPI_lowpower_demo/Src/main.c |                   |
-+--------------------------------------------------+-------------------+
-|    InnoPhase_HAPI/InnoPhase_HAP                  |    HAL time-base  |
-| I_lowpower_demo/Src/stm32l4xx_hal_timebase_tim.c |    file           |
-+--------------------------------------------------+-------------------+
-|    InnoPhase_HAPI                                |    Interrupt      |
-| /InnoPhase_HAPI_lowpower_demo/Src/stm32l4xx_it.c |    handlers       |
-+--------------------------------------------------+-------------------+
-|    InnoPhase_HAPI/Inn                            |    STM32L4xx      |
-| oPhase_HAPI_lowpower_demo/Src/system_stm32l4xx.c |    system clock   |
-|                                                  |    configuration  |
-|                                                  |    file           |
-+--------------------------------------------------+-------------------+
-|    InnoPhase_H                                   |    Code for free  |
-| API/InnoPhase_HAPI_lowpower_demo/Src/freertose.c |    RTOS           |
-|                                                  |    application    |
-+--------------------------------------------------+-------------------+
-|    InnoPhase_HAPI/Inno                           |    Code for MSP   |
-| Phase_HAPI_lowpower_demo/Src/stm32l4xx_hal_msp.c |    initialization |
-|                                                  | /deinitialization |
-+--------------------------------------------------+-------------------+
-|    InnoPhase_HAPI/InnoPhase_HAPI_lowpower_demo   |    System calls   |
-|    /Src/syscalls.c                               |    file           |
-+--------------------------------------------------+-------------------+
-|    InnoPhas                                      |    System Memory  |
-| e_HAPI/InnoPhase_HAPI_lowpower_demo/Src/sysmem.c |    calls file     |
-+--------------------------------------------------+-------------------+
-|    InnoPhase_HAPI/InnoPh                         |    System startup |
-| ase_HAPI_lowpower_demo/Src/startup_stm32l4a6xx.s |    file           |
-+--------------------------------------------------+-------------------+
-|    InnoPh                                        |    Main program   |
-| ase_HAPI/InnoPhase_HAPI_lowpower_demo/Inc/main.h |    header file    |
-+--------------------------------------------------+-------------------+
-|    InnoPhase_HAPI/InnoP                          |    HAL Library    |
-| hase_HAPI_lowpower_demo/Inc/stm32l4xx_hal_conf.h |    Configuration  |
-|                                                  |    file           |
-+--------------------------------------------------+-------------------+
-|    InnoPhase_HAPI                                |    Interrupt      |
-| /InnoPhase_HAPI_lowpower_demo/Inc/stm32l4xx_it.h |    handler’s      |
-|                                                  |    header file    |
-+--------------------------------------------------+-------------------+
-|    InnoPhase_HAPI/I                              |    FreeRTOS       |
-| nnoPhase_HAPI_lowpower_demo/Inc/FreeRTOSConfig.h |    Configuration  |
-|                                                  |    file           |
-+--------------------------------------------------+-------------------+
+.. table:: Table 1: Application files and functions
 
-Table 1: Application files and functions
+    +--------------------------------------------------+-------------------+
+    |    File                                          |    Function       |
+    +==================================================+===================+
+    |    InnoPh                                        |    Main Program   |
+    | ase_HAPI/InnoPhase_HAPI_lowpower_demo/Src/main.c |                   |
+    +--------------------------------------------------+-------------------+
+    |    InnoPhase_HAPI/InnoPhase_HAP                  |    HAL time-base  |
+    | I_lowpower_demo/Src/stm32l4xx_hal_timebase_tim.c |    file           |
+    +--------------------------------------------------+-------------------+
+    |    InnoPhase_HAPI                                |    Interrupt      |
+    | /InnoPhase_HAPI_lowpower_demo/Src/stm32l4xx_it.c |    handlers       |
+    +--------------------------------------------------+-------------------+
+    |    InnoPhase_HAPI/Inn                            |    STM32L4xx      |
+    | oPhase_HAPI_lowpower_demo/Src/system_stm32l4xx.c |    system clock   |
+    |                                                  |    configuration  |
+    |                                                  |    file           |
+    +--------------------------------------------------+-------------------+
+    |    InnoPhase_H                                   |    Code for free  |
+    | API/InnoPhase_HAPI_lowpower_demo/Src/freertose.c |    RTOS           |
+    |                                                  |    application    |
+    +--------------------------------------------------+-------------------+
+    |    InnoPhase_HAPI/Inno                           |    Code for MSP   |
+    | Phase_HAPI_lowpower_demo/Src/stm32l4xx_hal_msp.c |    initialization |
+    |                                                  | /deinitialization |
+    +--------------------------------------------------+-------------------+
+    |    InnoPhase_HAPI/InnoPhase_HAPI_lowpower_demo   |    System calls   |
+    |    /Src/syscalls.c                               |    file           |
+    +--------------------------------------------------+-------------------+
+    |    InnoPhas                                      |    System Memory  |
+    | e_HAPI/InnoPhase_HAPI_lowpower_demo/Src/sysmem.c |    calls file     |
+    +--------------------------------------------------+-------------------+
+    |    InnoPhase_HAPI/InnoPh                         |    System startup |
+    | ase_HAPI_lowpower_demo/Src/startup_stm32l4a6xx.s |    file           |
+    +--------------------------------------------------+-------------------+
+    |    InnoPh                                        |    Main program   |
+    | ase_HAPI/InnoPhase_HAPI_lowpower_demo/Inc/main.h |    header file    |
+    +--------------------------------------------------+-------------------+
+    |    InnoPhase_HAPI/InnoP                          |    HAL Library    |
+    | hase_HAPI_lowpower_demo/Inc/stm32l4xx_hal_conf.h |    Configuration  |
+    |                                                  |    file           |
+    +--------------------------------------------------+-------------------+
+    |    InnoPhase_HAPI                                |    Interrupt      |
+    | /InnoPhase_HAPI_lowpower_demo/Inc/stm32l4xx_it.h |    handler’s      |
+    |                                                  |    header file    |
+    +--------------------------------------------------+-------------------+
+    |    InnoPhase_HAPI/I                              |    FreeRTOS       |
+    | nnoPhase_HAPI_lowpower_demo/Inc/FreeRTOSConfig.h |    Configuration  |
+    |                                                  |    file           |
+    +--------------------------------------------------+-------------------+
+
 
 .. |Graphical user interface Description automatically generated with medium confidence| image:: media/image1.png
    :width: 4.80694in

@@ -1,0 +1,24 @@
+Prerequisites 
+==============
+
+**From InnoPhase IoT**:
+
+1. Talaria TWO EVB
+
+2. Talaria TWO SDK Package with FreeRTOS support
+
+**From Ambarella**:
+
+1. AEK001 cv28 host board
+
+2. USB Type-A to Micro-B Cable
+
+3. Host Package
+
+**Other Components**:
+
+1. Wi-Fi Access Point/Network
+
+2. Windows/Linux PC
+
+3. FT232 USB UART Board

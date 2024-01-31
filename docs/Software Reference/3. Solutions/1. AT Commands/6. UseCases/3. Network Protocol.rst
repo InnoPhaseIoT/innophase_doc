@@ -210,7 +210,7 @@ Procedure
 **Step 1**: Execute the following commands on Talaria TWO:
 
 
-.. code-block:: c
+.. code-block:: shell
 
     at
     at+wscan
@@ -328,7 +328,7 @@ Figure 53: Getting the IP address
 
 **Step 4**: Execute the following commands on Talaria TWO:
 
-.. code:: c
+.. code:: shell
 
     at
     at+wscan
@@ -429,7 +429,7 @@ Point. Start the UDP server. Start the UDP client.
 UDP server socket can only receive data, hence a client socket should be
 created if data needs to be sent.
 
-.. code-block:: c
+.. code-block:: shell
 
     at
     at+wscan
@@ -523,7 +523,7 @@ Figure 63: Getting the IP address
 
 **Step 4**: Execute the following commands on Talaria TWO:
 
-.. code-block:: c
+.. code-block:: shell
 
     at
     at+wscan
@@ -615,7 +615,7 @@ Figure 67: Starting HFS server
 
 **Step 3**: Execute the following commands on Talaria TWO:
 
-.. code-block:: c
+.. code-block:: shell
 
     at
     at+wscan
@@ -692,7 +692,7 @@ is used for connecting to the secure port.
 
 **Step 2:** Execute the following commands on Talaria TWO:
 
-.. code-block:: c
+.. code-block:: shell
 
     at
     at+wscan
@@ -773,7 +773,7 @@ the secure port (443).
 
 **Step 2:** Execute the following commands on Talaria TWO:
 
-.. code-block:: c
+.. code-block:: shell
 
     at
     at+wscan
@@ -891,7 +891,7 @@ Figure 74: MQTT.fx – Subscribe
 
 **Step 5**: Execute the following commands on Talaria TWO:
 
-.. code-block:: c
+.. code-block:: shell
 
     at
     at+wscan
@@ -966,7 +966,7 @@ System Contents -> Write Files* of the document: UG_Download_Tool.pdf
 
    a. Issue the below commands to load the certificates:
 
-.. code-block:: c
+.. code-block:: shell
 
     at+certadd=<cert name>,<cert length>
 
@@ -1003,7 +1003,7 @@ e. Execute this step to add all three certificates:
 
 Figure 81: AT Commands- To add the certificate
 
-.. code-block:: c
+.. code-block:: shell
 
     at
     at+certadd=mqtt_root_ca,1452
@@ -1042,7 +1042,7 @@ Procedure
 
 **Step 1**: Execute the following commands on Talaria TWO:
 
-.. code-block:: c
+.. code-block:: shell
 
     at+wcon=InnoPhase,43083191
     at+mqttconf=clientid,789012
@@ -1064,7 +1064,7 @@ execute the following commands on the command prompt:
 
    a. Start a mosquito server to subscribe to inno/test topic:
 
-.. code-block:: c
+.. code-block:: shell
 
     mosquitto_sub.exe -h test.mosquitto.org -P 8884 -u innophase -P 123 -t inno/test
 
@@ -1077,7 +1077,7 @@ Figure 83: Command Prompt Output (Publish message)
 b. Issue the following command to publish message to the subscribed
    topic from the serial terminal:
 
-.. code-block:: c
+.. code-block:: shell
 
     at+mqttpub=0,inno/test,0,5,hello
 
@@ -1092,7 +1092,7 @@ Figure 84: To publish
 
    a. Start a mosquito server to publish to inno/test topic:
 
-.. code-block:: c
+.. code-block:: shell
 
     mosquitto_pub.exe -h test.mosquitto.org -P 8884 -u innophase -P 123 -t inno/test -m "Hii Innophase"
 
@@ -1106,7 +1106,7 @@ Figure 85: Command Prompt Output (Subscribe message)
 b. Issue the following command to subscribe to inno/test topic on the
    serial terminal and get the published message:
 
-.. code-block:: c
+.. code-block:: shell
 
     at+mqttsub=0,inno/test,0
 
@@ -1301,7 +1301,7 @@ Figure 91: Service Discovery using mDNS - Serial log
 **Step 3**: De-register mDNS service, registered using command
 AT+MDNSREG and stop the mDNS service using the following commands:
 
-.. code-block:: c
+.. code-block:: shell
 
     at+mdnsdreg=0
     at+mdnsstop
@@ -1361,7 +1361,7 @@ Procedure
 
 **Step 1**: Execute the following commands on Talaria TWO:
 
-.. code-block:: c
+.. code-block:: shell
 
     at
     at+wscan

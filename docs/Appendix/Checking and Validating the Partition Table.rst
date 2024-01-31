@@ -1,8 +1,8 @@
 Checking and Validating the Partition Table
 -------------------------------------------
 
-Standard Programming
-~~~~~~~~~~~~~~~~~~~~
+Standard Programming - Appendix
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Download tool will validate the existing partition table in the EVB, for
 the following condition:
@@ -131,8 +131,8 @@ c. However, if the user does not choose to flash the default partition
 Figure 42: User does not choose to flash default partition – action
 terminated
 
-SSBL Programming
-~~~~~~~~~~~~~~~~
+SSBL Programming - Appendix
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Download tool will validate the existing partition table in the EVB, for
 the following condition:
@@ -172,67 +172,7 @@ correct the deviation to proceed further.
 
 Figure 44: SSBL programming - action terminated
 
-.. |image1| image:: media/image1.png
-   :width: 0.7874in
-.. |A screenshot of a computer Description automatically generated| image:: media/image2.png
-   :width: 7.48031in
-   :height: 3.70968in
-.. |image2| image:: media/image1.png
-   :width: 0.98425in
-.. |image3| image:: media/image3.png
-   :width: 7.48031in
-   :height: 3.69218in
-.. |A black rectangle with red border Description automatically generated| image:: media/image4.png
-   :width: 2.49375in
-   :height: 1.21319in
-.. |image4| image:: media/image1.png
-   :width: 0.98425in
-.. |image5| image:: media/image5.png
-   :width: 7.48031in
-   :height: 3.70068in
-.. |Graphical user interface, text, application Description automatically generated| image:: media/image6.png
-   :width: 4.33071in
-   :height: 1.63567in
-.. |image6| image:: media/image1.png
-   :width: 0.98425in
-.. |image7| image:: media/image7.png
-   :width: 6.69291in
-   :height: 3.34609in
-.. |image8| image:: media/image1.png
-   :width: 0.85897in
-.. |image9| image:: media/image8.png
-   :width: 5.90551in
-   :height: 2.93909in
-.. |image10| image:: media/image1.png
-   :width: 0.98425in
-.. |image11| image:: media/image9.png
-   :width: 5.90551in
-   :height: 2.93909in
-.. |image12| image:: media/image1.png
-   :width: 0.98425in
-.. |image13| image:: media/image10.png
-   :width: 6.29921in
-   :height: 3.13502in
-.. |image14| image:: media/image1.png
-   :width: 0.98425in
-.. |image15| image:: media/image11.png
-   :width: 6.29921in
-   :height: 2.83056in
-.. |image16| image:: media/image1.png
-   :width: 0.98403in
-.. |image17| image:: media/image1.png
-   :width: 1.05833in
-   :height: 0.11667in
-.. |image18| image:: media/image12.png
-   :width: 7.48031in
-   :height: 3.68752in
-.. |image19| image:: media/image1.png
-   :width: 0.98403in
-.. |image20| image:: media/image1.png
-   :width: 1.55128in
-.. |image21| image:: media/image13.png
-   :width: 7.48031in
-   :height: 3.69722in
+
 .. |image26| image:: media/images26.png
    :width: 7.48031in
    :height: 3.69722in

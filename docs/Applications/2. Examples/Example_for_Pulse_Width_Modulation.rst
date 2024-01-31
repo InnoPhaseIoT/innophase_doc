@@ -266,7 +266,7 @@ Expected output is displayed on the console:
 
 
 Programming Talaria TWO using Download tool (pwm_fade.elf)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Program pwm_fade.elf (*freertos_sdk_x.y\\examples\\pwm\\bin*) using the
 Download tool:

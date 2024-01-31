@@ -957,7 +957,7 @@ which does not require the generation of a random 6-digit passkey.
 
 
 Security Permissions for Attributes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When the Attributes are defined for GATT server, various security
 permissions can be set for those read and write operations. Those
@@ -1017,7 +1017,7 @@ connects.
 This internally triggers the pairing request from BLE server side.
 
 Running Talaria TWO BLE Secure Server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The ble_secure_server can be tested in two ways:
 

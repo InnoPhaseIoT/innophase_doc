@@ -236,7 +236,7 @@ active mode. Connect the Talaria TWO module to an AP of SSID "InnoPhase"
 and passphrase "Inno@1020". Check the WLAN status with at+wstatus
 command.
 
-.. code-block:: c
+.. code-block:: shell
 
    at
    at+wpmcfg=3,0,0,0

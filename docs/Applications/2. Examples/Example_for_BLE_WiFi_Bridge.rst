@@ -915,7 +915,7 @@ described in section 7.4, and the message written is published to broker
 under the topic innophase\_<T2 mac id>/publisher.
 
 Running the Application using Mosquitto Project’s Test Server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Eclipse Mosquitto is an open source (EPL/EDL licensed) message broker
 that implements the MQTT protocol versions 5.0, 3.1.1 and 3.1.
@@ -967,7 +967,7 @@ The following steps describes the procedure to test the ble_wifi_bridge
 application using Mosquitto project’s test server.
 
 Installing and Running the Mosquitto MQTT Tool
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Download
    `mosquitto-2.0.11-install-windows-x64.exe <file:///C:\C:\Users\91963\Downloads\mosquitto-2.0.11-install-windows-x64.exe>`__
@@ -998,7 +998,7 @@ Figure 1 shows the command prompt window:
 Figure 1: Command prompt window
 
 Programming the Talaria TWO Module
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Program
 wifi_ble_mqtt.elf\ *(freertos_sdk_x.y\\examples\\ble_wifi_bridge\\bin)*
@@ -1074,7 +1074,7 @@ Console output:
 
 
 Publishing a Topic and Sending Data from BLE to Wi-Fi
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Open the BLE application on the mobile phone and click on the Scan
    button at the top right corner. Look for the device inno_mqtt.
@@ -1135,7 +1135,7 @@ Figure 7: Publishing a topic - Output
 Figure 8: Publishing a topic - Command prompt output
 
 Subscribing to a Topic and Sending Data from Wi-Fi to BLE
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Open the BLE application on the mobile phone and click on the Scan
    button at the top right corner and look for the device inno_mqtt.

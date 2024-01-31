@@ -75,7 +75,7 @@ This API initializes the FOTA module.
 Definition 
 ~~~~~~~~~~~
 
-.. code:: c
+.. code:: shell
 
     fota_handle_t \*
     fota_init(void)
@@ -105,7 +105,7 @@ file.
 Definition
 ~~~~~~~~~~
 
-.. code:: c
+.. code:: shell
 
     int fota_perform(fota_handle_t \*f_handle, int check_for_update, int flags)
 
@@ -172,7 +172,7 @@ fota_perform() is a success.
 Definition
 ~~~~~~~~~~
 
-.. code:: c
+.. code:: shell
 
     int fota_commit(fota_handle_t \*f_handle, int do_reset)
 
@@ -214,7 +214,7 @@ other FOTA API calls.
 Definition
 ~~~~~~~~~~
 
-.. code:: c
+.. code:: shell
 
     void fota_deinit(fota_handle_t \* f_handle)
 

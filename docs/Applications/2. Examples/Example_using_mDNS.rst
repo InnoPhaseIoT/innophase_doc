@@ -234,7 +234,7 @@ Running the Application
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Programming Talaria TWO board with ELF
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Program mdns.elf *(freertos_sdk_x.y/examples/mdns/bin)* using the
 Download tool:

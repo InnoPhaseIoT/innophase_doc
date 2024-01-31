@@ -156,7 +156,7 @@ directory:
 The make command should generate the adc.elf in the out directory.
 
 Running the Application
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Programming Talaria TWO 
 ~~~~~~~~~~~~~~~~~~~

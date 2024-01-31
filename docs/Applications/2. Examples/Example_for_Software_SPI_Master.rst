@@ -13,7 +13,7 @@ provides flexibility for Talaria TWO to interface with peripherals in
 diverse applications.
 
 Supported Modes and Configuration Options
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This section describes the operating modes and options supported by SSM.
 These options are set in an instance of SPI options structure,
@@ -83,7 +83,7 @@ the transfer). Data is sampled on the clock edges between the dotted
 lines.
 
 IIS2DLPC 3-axis Accelerometer Sample
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Software SPI Master is accompanied by a code sample that communicates
 with an IIS2DLPC 3-axis accelerometer over SPI. This sample is provided
@@ -151,8 +151,6 @@ the Download tool (*freertos_sdk_x.y\\pc_tools\\Download_Tool\\bin)*:
 
 d. Programming: Prog RAM or Prog Flash as per requirement.
 
-**
-**
 
 Following is the sample output that is observed on the Download Tool
 console after flashing the spi_sensor.elf.
@@ -247,7 +245,7 @@ b. sw_spi.h
    functions that initiate, destroy and transfer.
 
 Using SSM
-~~~~~~~~~
+~~~~~~~~~~~
 
 To use the Software SPI Master, set-up an instance of a spiopts_t
 structure to specify SSM options as well as the GPIOs that the SSM will
@@ -483,14 +481,14 @@ communication through the SPI protocol with the slave:
 
 
 sw_spi.h
-~~~~~~~~
+~~~~~~~~~~
 
 The sw_spi.h file contains the software SPI master (SSM) definitions and
 function prototypes. It provides prototypes for the following functions
 that initiate, destroy and transfer.
 
 accel.c
-~~~~~~~
+~~~~~~~~~
 
 The accel.c file contains the routines to configure the IIS2DLPC and
 reads acceleration values from the device by reading and writing from/to

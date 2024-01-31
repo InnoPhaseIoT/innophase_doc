@@ -181,7 +181,7 @@ certificates intended for a browser. Use use_ca_bundle=1 if bundled
 certificates are used.
 
 Programming Talaria TWO board with ELF
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Program http_client.elf *(freertos_sdk_x.y\\examples\\http_client\\bin)*
 using the Download tool:
@@ -245,7 +245,7 @@ The list of boot arguments are as follows:
    data is internally generated
 
 Example boot args for HTTP Get (non-secure)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: shell
 
@@ -350,7 +350,7 @@ Console output:
 
 
 Example boot args for HTTPS Get (without server verification)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: shell
 
@@ -470,7 +470,7 @@ Console output:
 
 
 Example boot args for HTTPS Get (with server certificate validation)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: shell
 
@@ -589,7 +589,7 @@ Console output:
 
 
 Example boot args for HTTP Post (non-secure)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: shell
 
@@ -701,7 +701,7 @@ Console output:
 
 
 Example boot args for HTTPS Post (without server verification)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: shell
 
@@ -800,7 +800,7 @@ Console output:
 
 
 Example boot args for HTTPS Post (with server certificate validation)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: shell
 

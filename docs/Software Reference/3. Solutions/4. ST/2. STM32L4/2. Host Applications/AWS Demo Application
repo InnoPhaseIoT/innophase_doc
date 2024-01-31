@@ -154,7 +154,7 @@ completed by default.
 HAPI Interface Initialization
 -----------------------------
 
-.. code-block:: c
+.. code-block:: shell
 
     struct hapi *hapi;
     #ifdef HAPI_INTERFACE_UART_ENABLED
@@ -200,13 +200,13 @@ Connecting to a Wi-Fi network
 The application uses the default SSID and passphrase. These can be
 modified as per user AP settings.
 
-.. code-block:: c
+.. code-block:: shell
 
     /\* Connect wifi \*/
     char\* ssid = "innotest";
     char\* passphrase = "innophase123";
 
-.. code-block:: c
+.. code-block:: shell
 
     if(true == hapi_wcm_network_profile_add(hapi_wcm, ssid, NULL, passphrase, NULL))
     {
@@ -230,7 +230,7 @@ Create an AWS Connection
 Subscribe Data from AWS
 -----------------------
 
-.. code-block:: c
+.. code-block:: shell
 
     int retval;
     if(retval = start_receiving_message_from_aws())
@@ -244,7 +244,7 @@ Subscribe Data from AWS
 Publish Data to AWS
 -------------------
 
-.. code-block:: c
+.. code-block:: shell
 
     if(start_sending_messages_to_aws(pub_msg,strlen(pub_msg)))
     {

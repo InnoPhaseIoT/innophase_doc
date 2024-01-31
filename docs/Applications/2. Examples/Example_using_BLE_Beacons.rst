@@ -212,10 +212,10 @@ x and y in freertos_sdk_x.y refer to the SDK release version. For
 example: *freertos_sdk_2.4\\examples\\* *ble_beacons\\bin*.
 
 Sample Application 1 – Eddystone URI Application
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Overview
-~~~~~~~~
+~~~~~~~~~~
 
 The sample code in the path /examples/ble_beacons/eddystone_uri/main.c
 describes how the Eddystone URI Beacon packets can be formed and
@@ -225,7 +225,7 @@ In the first 10.2 seconds, advertising frequency is per 100ms after
 which it changes to once per second.
 
 Sample Code Walkthrough
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Declare the advertising packet in Eddystone URI format:
 
@@ -345,7 +345,7 @@ uses a random address that does not change.
 
 
 Set Eddystone URI Data as Advertisement Data
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 bt_gap_set_adv_data() is used to set advertising data for legacy
 advertising.
@@ -357,15 +357,15 @@ advertising.
 
 
 Set the device in non-connectable mode
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: shell
 
-      return bt_gap_connectable_mode(GAP_CONNECTABLE_MODE_NON, bt_hci_addr_type_random, addr_type_zero, address_zero, NULL);
+    return bt_gap_connectable_mode(GAP_CONNECTABLE_MODE_NON, bt_hci_addr_type_random, addr_type_zero, address_zero, NULL);
 
 
 Running the Application 
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Program ble_eddystone_uri.elf using the Download tool:
 
@@ -381,7 +381,7 @@ Program ble_eddystone_uri.elf using the Download tool:
    c. Programming: Prog RAM or Prog Flash as per requirement.
 
 Expected Output
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
 
 ble_eddystone_uri.elf is created while compiling the code mentioned in
 section 6.1.2 and gives the following console output when programmed to
@@ -389,12 +389,12 @@ Talaria TWO.
 
 .. code:: shell
 
-      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
-      ROM yoda-h0-rom-16-0-gd5a8e586
-      FLASH:PNWWWWAE
-      Build $Id: git-df9b9ef $
-      Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff
-      Eddystone Uri Demo App
+    Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+    ROM yoda-h0-rom-16-0-gd5a8e586
+    FLASH:PNWWWWAE
+    Build $Id: git-df9b9ef $
+    Flash detected. flash.hw.uuid: 39483937-3207-00b0-0064-ffffffffffff
+    Eddystone Uri Demo App
 
 
 
@@ -417,7 +417,7 @@ testing this example.
 Figure 1: Eddystone URI beacon as seen in BLE Scanner Application
 
 Sample Application 2 – Eddystone UID Application
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. _overview-1:
 
@@ -434,7 +434,7 @@ which it changes to once per second.
 .. _sample-code-walkthrough-1:
 
 Sample Code Walkthrough
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Declare the advertising packet in the format of Eddystone UID:
 
@@ -478,14 +478,14 @@ following site:
 .. _initialize-the-gap-1:
 
 Initialize the GAP
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 To send the Eddystone UID packet as advertising data, GAP must be
 initialized first
 
 .. code:: shell
 
-      bt_gap_init();    
+    bt_gap_init();
 
 
 The GAP API must be initialized before other functions in the GAP
@@ -504,14 +504,14 @@ Here, bt_gap_cfg_adv() sets these parameters for advertisement.
 
 .. code:: shell
 
-      /* Configures the advertisement parameters */
-          bt_adv_handle.fast_period = 10240;
-          bt_adv_handle.slow_period = 0;
-          bt_adv_handle.fast_interval = 160;
-          bt_adv_handle.slow_interval = 1600;
-          bt_adv_handle.tx_power = 0;
-          bt_adv_handle.channel_map = 0;
-          bt_gap_cfg_adv_set(&bt_adv_handle);
+    \* Configures the advertisement parameters */
+    bt_adv_handle.fast_period = 10240;
+    bt_adv_handle.slow_period = 0;
+    bt_adv_handle.fast_interval = 160;
+    bt_adv_handle.slow_interval = 1600;
+    bt_adv_handle.tx_power = 0;
+    bt_adv_handle.channel_map = 0;
+    bt_gap_cfg_adv_set(&bt_adv_handle);
 
 
 The parameters passed for configuring the advertisement are:
@@ -555,7 +555,7 @@ uses a random address that does not change.
 
 
 Set Eddystone UID Data as the Advertisement Data
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 bt_gap_set_adv_data() is used to set advertising data for legacy
 advertising.
@@ -569,7 +569,7 @@ advertising.
 .. _set-the-device-in-non-connectable-mode-1:
 
 Set the device in non-connectable mode
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: shell
 
@@ -597,7 +597,7 @@ Program ble_eddystone_uid.elf using the Download tool:
 .. _expected-output-1:
 
 Expected Output
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
 
 ble_eddystone_uid.elf is created when compiling the code mentioned in
 section 6.2.2 and provides the following console output when programmed
@@ -632,7 +632,7 @@ testing this example.
 Figure 2: Eddystone UID beacon as seen in BLE Scanner Application
 
 Sample Application 3 – Eddystone TLM Application
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. _overview-2:
 
@@ -667,7 +667,7 @@ seconds 1 TLM frame is sent.
 .. _sample-code-walkthrough-2:
 
 Sample Code Walkthrough
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Declare the advertising packet in the Eddystone TLM format:
 

@@ -51,7 +51,7 @@ Figure 33: Create build folder
 5. Check the cmake version installed. Run cmake to generate - makefile.
 
 
-.. code::
+.. code-block:: bash
 
     /home/xxxx/ingenic/tools/cmake-3.13.3/build/bin/cmake –version
     /home/xxxx/ingenic/tools/cmake-3.13.3/build/bin/cmake ..
@@ -85,9 +85,6 @@ Figure 35: Execute make
 .. |image2| image:: media/image1.jpg
    :width: 7.08681in
    :height: 3.63056in
-.. |A screenshot of a computer program Description automatically generated| image:: media/image2.png
-   :width: 6.88958in
-   :height: 2.57847in
 .. |image3| image:: media/image3.jpg
    :width: 7.08681in
    :height: 3.63056in
@@ -100,15 +97,9 @@ Figure 35: Execute make
 .. |image6| image:: media/image1.jpg
    :width: 1.39444in
    :height: 0.19653in
-.. |image7| image:: media/image4.jpg
-   :width: 6.88958in
-   :height: 4.11111in
 .. |image8| image:: media/image5.jpg
    :width: 2.01684in
    :height: 0.16668in
-.. |1| image:: media/image6.jpg
-   :width: 7.08661in
-   :height: 3.75067in
 .. |image9| image:: media/image1.jpg
    :width: 1.36875in
    :height: 0.16944in
@@ -124,42 +115,9 @@ Figure 35: Execute make
 .. |image13| image:: media/image1.jpg
    :width: 1.36944in
    :height: 0.85278in
-.. |image14| image:: media/image3.png
-   :width: 0.41944in
-   :height: 0.18611in
-.. |image15| image:: media/image7.png
-   :width: 6.88958in
-   :height: 5.58194in
-.. |image16| image:: media/image1.png
-   :width: 0.71111in
-.. |image17| image:: media/image1.png
-   :width: 0.71111in
 .. |image18| image:: media/image18.jpg
    :width: 7.08681in
    :height: 3.63056in
-.. |image19| image:: media/image1.png
-   :width: 0.79028in
-.. |image20| image:: media/image1.png
-   :width: 0.70139in
-   :height: 0.77778in
-.. |image21| image:: media/image8.png
-   :width: 6.88958in
-   :height: 5.94583in
-.. |image22| image:: media/image9.png
-   :width: 0.29444in
-   :height: 0.11111in
-.. |image23| image:: media/image9.png
-   :width: 0.29444in
-   :height: 0.11111in
 .. |image24| image:: media/image24.jpg
    :width: 7.08681in
    :height: 3.63056in
-.. |image25| image:: media/image9.png
-   :width: 0.29444in
-   :height: 0.11111in
-.. |image26| image:: media/image9.png
-   :width: 0.71875in
-   :height: 0.11597in
-.. |A screenshot of a computer Description automatically generated| image:: media/image11.png
-   :width: 7.08681in
-   :height: 6.63056in

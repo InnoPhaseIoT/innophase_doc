@@ -197,7 +197,7 @@ The application creates an NTP connection and fetch the current time
 from NTP server.
 
 
-.. code-block:: c
+.. code-block:: shell
 
     int loop, timeOut = 3;
 
@@ -222,7 +222,7 @@ from NTP server.
 
 From the NTP code snippet:
 
-.. code-block:: c
+.. code-block:: shell
 
     int loop, timeOut = 3;
 
@@ -231,7 +231,7 @@ is received within 3 seconds from the NTP server, then the time (based
 on UTC) is updated to the user. Else, the following error message is
 displayed:
 
-.. code-block:: c
+.. code-block:: shell
 
     sprintf(print_arr,"\\r\\n Failed to get time from ntp server, reading again after %d seconds \\r\\n",duration);
 
@@ -239,7 +239,7 @@ Again after 10 seconds, an attempt to get time is initiated. This
 iteration will continue for 100 times and then the NTP program
 terminates.
 
-.. code-block:: c
+.. code-block:: shell
 
     offset = getTimeZoneoffset("UTC+05:30");
 
@@ -254,7 +254,7 @@ STM32 RTC registers.
 The list of local time zones currently handled in NTP Module are as
 follows:
 
-.. code-block:: c
+.. code-block:: shell
 
     UTC−12:00, UTC−11:00, UTC−10:00, UTC−09:30, UTC−09:00, UTC−08:00,
     UTC−07:00, UTC−06:00, UTC−05:00, UTC−04:00, UTC−03:30, UTC−03:00,

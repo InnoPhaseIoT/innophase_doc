@@ -998,7 +998,7 @@ seconds. Hence, the server will wait for a period of 90 seconds to
 ensure the connection is lost.
 
 Running the Application using Mosquitto Project’s Test Server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Eclipse Mosquitto is an open source (EPL/EDL licensed) message broker
 that implements the MQTT protocol versions 5.0, 3.1.1 and 3.1.
@@ -1075,7 +1075,7 @@ used.
 Refer to section 0 to access the validity of the certificates.
 
 Installing and Running the Mosquitto MQTT Tool
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Download
    `mosquitto-2.0.11-install-windows-x64.exe <file:///C:\C:\C:\C:\Users\innop\mqtt\embedded_apps\C:\C:\Users\91963\Downloads\mosquitto-2.0.11-install-windows-x64.exe>`__
@@ -1740,10 +1740,10 @@ over Talaria TWO console.
 Figure 13: Published message over the Talaria TWO console
 
 Evaluating the Application using Mosquitto Local Server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Non-secured 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~
 
 The application can also be evaluated by setting up a local Mosquitto
 server/broker on the host PC. The following steps describe the procedure

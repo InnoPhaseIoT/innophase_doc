@@ -33,7 +33,7 @@ Figure 20: Enter user name
    Ensure to provide access to the video streaming resources in the
    policy. For example:
 
-.. code:: c
+.. code:: shell
 
     {
         "Version": "2012-10-17",

@@ -45,7 +45,7 @@ API Functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 wcm_create()
-~~~~~~~~~~~~
+~~~~~~~~~~~~~~
 
 Create a Wi-Fi network interface and return a struct wcm_handle pointer.
 
@@ -59,7 +59,7 @@ Create a Wi-Fi network interface and return a struct wcm_handle pointer.
 
 
 wifi_init_scan_default()
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Get the current Wi-Fi scan parameters.
 

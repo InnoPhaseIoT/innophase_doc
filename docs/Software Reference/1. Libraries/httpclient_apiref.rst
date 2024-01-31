@@ -107,7 +107,7 @@ for the connection is passed using http_client_config_t.
 Definition
 ~~~~~~~~~~
 
-.. code:: c
+.. code:: shell
 
     http_client_handle_t
     http_client_open(http_client_config_t \*cfg)
@@ -147,7 +147,7 @@ until the whole response is received.
 
 Definition
 ~~~~~~~~~~
-.. code:: c
+.. code:: shell
 
     int
     http_client_get(http_client_handle_t handle, char \*uri,
@@ -198,7 +198,7 @@ before calling this API.
 Definition 
 ~~~~~~~~~~~
 
-.. code:: c
+.. code:: shell
 
     int
     http_client_post(http_client_handle_t handle, char \*uri, char \*buff, int buff_len, http_client_resp_cb cb, void \*cb_ctx int time_out)
@@ -250,7 +250,7 @@ using this API.
 Definition 
 ~~~~~~~~~~~
 
-.. code:: c
+.. code:: shell
 
     int http_client_set_req_hdr(http_client_handle_t handle, const char \*hdrname, const char \*hdrval)
 
@@ -294,7 +294,7 @@ This API is used for closing the connection.
 Definition 
 ~~~~~~~~~~~
 
-.. code:: c
+.. code:: shell
 
     int http_client_close(http_client_handle_t handle)
 

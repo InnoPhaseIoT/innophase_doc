@@ -14,7 +14,7 @@ Prerequisites
    a. On windows, execute the following command to install OpenOCD (For
       example: version 0.10.0):
 
-.. code:: shelll
+.. code:: shell
 
       xpm install --global @xpack-dev-tools/openocd@0.10.0-13.1  
 
@@ -75,10 +75,10 @@ Figure 1: Programming multiple Talaria TWO modules using SWD
 
 .. code:: shell
 
-      .\script\factory_loader.py inp3000_swd_serial helloworld_config.json --adapter_serial=2224-11 --port=10010 --gdbport=3333 --ocdserverport=6666 --bulkerase
-      .\script\factory_loader.py inp3000_swd_serial helloworld_config.json --adapter_serial=2224-12 --port=10020 --gdbport=3334 --ocdserverport=6668 --bulkerase
-      .\script\factory_loader.py inp3000_swd_serial helloworld_config.json --adapter_serial=2224-16 --port=10030 --gdbport=3335 --ocdserverport=6670 --bulkerase
-      .\script\factory_loader.py inp3000_swd_serial helloworld_config.json --adapter_serial=30004025 --port=10040 --gdbport=3336 --ocdserverport=6672 --bulkerase
+    .\script\factory_loader.py inp3000_swd_serial helloworld_config.json --adapter_serial=2224-11 --port=10010 --gdbport=3333 --ocdserverport=6666 --bulkerase
+    .\script\factory_loader.py inp3000_swd_serial helloworld_config.json --adapter_serial=2224-12 --port=10020 --gdbport=3334 --ocdserverport=6668 --bulkerase
+    .\script\factory_loader.py inp3000_swd_serial helloworld_config.json --adapter_serial=2224-16 --port=10030 --gdbport=3335 --ocdserverport=6670 --bulkerase
+    .\script\factory_loader.py inp3000_swd_serial helloworld_config.json --adapter_serial=30004025 --port=10040 --gdbport=3336 --ocdserverport=6672 --bulkerase
 
 
 
@@ -106,10 +106,10 @@ In the above example,
 
 .. code:: shell
 
-      ./script/factory_loader.py inp3000_swd_serial helloworld_config.json --adapter_serial=2224-11 --autoport
-      ./script/factory_loader.py inp3000_swd_serial helloworld_config.json --adapter_serial=2224-16 --autoport
-      ./script/factory_loader.py inp3000_swd_serial helloworld_config.json --adapter_serial=2224-12 --autoport
-      ./script/factory_loader.py inp3000_swd_serial helloworld_config.json --adapter_serial=30004025 --autoport
+    ./script/factory_loader.py inp3000_swd_serial helloworld_config.json --adapter_serial=2224-11 --autoport
+    ./script/factory_loader.py inp3000_swd_serial helloworld_config.json --adapter_serial=2224-16 --autoport
+    ./script/factory_loader.py inp3000_swd_serial helloworld_config.json --adapter_serial=2224-12 --autoport
+    ./script/factory_loader.py inp3000_swd_serial helloworld_config.json --adapter_serial=30004025 --autoport
 
 
 
@@ -117,7 +117,7 @@ In the above example,
 
 .. code:: shell
 
-      .\script\factory_loader.py inp3000_swd_serial dual_stack.json --adapter_serial=2224-11 --port=10010 --bulkerase
+    .\script\factory_loader.py inp3000_swd_serial dual_stack.json --adapter_serial=2224-11 --port=10010 --bulkerase
 
 
 **Bulkerase using INP3000(SWD) on Linux**:

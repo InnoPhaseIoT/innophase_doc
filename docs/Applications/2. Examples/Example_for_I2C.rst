@@ -60,7 +60,7 @@ measures and displays the real-time values of pressure, temperature,
 humidity and light using the on-board sensors.
 
 Source Code Walkthrough
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Directory Structure
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -242,10 +242,10 @@ and SDA pins to the corresponding GPIOs.
 
 .. code:: shell
 
-      os_gpio_set_pull(GPIO_PIN(SCL_PIN) | GPIO_PIN(SDA_PIN));
-      os_gpio_mux_sel(GPIO_MUX_SEL_SCL, SCL_PIN);
-      os_gpio_mux_sel(GPIO_MUX_SEL_SDA, SDA_PIN);
-      return i2c_bus_init(0);
+    os_gpio_set_pull(GPIO_PIN(SCL_PIN) | GPIO_PIN(SDA_PIN));
+    os_gpio_mux_sel(GPIO_MUX_SEL_SCL, SCL_PIN);
+    os_gpio_mux_sel(GPIO_MUX_SEL_SDA, SDA_PIN);
+    return i2c_bus_init(0);
 
 
 It then begins to initialize the I2C bus with corresponding GPIO pins
@@ -301,14 +301,14 @@ the temp/hum sensor.
 
 .. code:: shell
 
-          sensirion_i2c_init(bus);
-          shtc1_probe();
-          shtc1_enable_low_power_mode(1);
-      #else
-          sensirion_i2c_init(bus);
-          shtc1_probe();
-          sensirion_i2c_release();
-      #endif
+    sensirion_i2c_init(bus);
+    shtc1_probe();
+    shtc1_enable_low_power_mode(1);
+    #else
+    sensirion_i2c_init(bus);
+    shtc1_probe();
+    sensirion_i2c_release();
+    #endif
 
 
 In the humidity sensor also there is a need to implement the mode of
@@ -323,8 +323,8 @@ of bmp388 pressure sensor. The mode is set using set_normal_mode().
 
 .. code:: shell
 
-      ids->bmp388_id = bmp3_get_device_ID(&dev);
-set_normal_mode(&dev);
+    ids->bmp388_id = bmp3_get_device_ID(&dev);
+    set_normal_mode(&dev);
 
 
 opt3002 (Light sensor) - opt3002_readManufacturerID() reads the
@@ -332,7 +332,7 @@ manufacturing ID of light sensor.
 
 .. code:: shell
 
-      ids->opt3002_id = opt3002_readManufacturerID(&opt_sen);     
+    ids->opt3002_id = opt3002_readManufacturerID(&opt_sen);
 
 
 shtc3 (Temperature/Humidity sensor) - shtc1_read_serial() API reads the
@@ -340,8 +340,8 @@ sensor ID of shtc3 sensor.
 
 .. code:: shell
 
-      ids->shtc3_serial = 0;
-      shtc1_read_serial(&ids->shtc3_serial);
+    ids->shtc3_serial = 0;
+    shtc1_read_serial(&ids->shtc3_serial);
 
 
 Poll_sensor() function reads the sensor readings of all three sensors.
@@ -352,13 +352,13 @@ structure sensor_reading_t readings.
 
 .. code:: shell
 
-          reading->pressure = 0;
-          reading->temp_bmp = 0;
-        /* Read pressure and temperature recorded by bmp388 */
-        	float *sensor_data;
-      	sensor_data = get_sensor_data(&dev);
-      	reading->temp_bmp = (sensor_data[0]/100);
-      	reading->pressure = (sensor_data[1]/100);
+    reading->pressure = 0;
+    reading->temp_bmp = 0;
+    /* Read pressure and temperature recorded by bmp388 */
+    float *sensor_data;
+    sensor_data = get_sensor_data(&dev);
+    reading->temp_bmp = (sensor_data[0]/100);
+    reading->pressure = (sensor_data[1]/100);
 
 
 opt_config_trigger assigns the sensor mode, conversion time and latch
@@ -524,9 +524,9 @@ command data on a register.
 
 .. code:: shell
 
-          uint8_t command_byte = command;
-          write_reg( dev_id,&command_byte, 1);
-          return 0;
+    uint8_t command_byte = command;
+    write_reg( dev_id,&command_byte, 1);
+    return 0;
 
 
 This permits writing of I2C data in msg buffer. The write_reg()function
@@ -538,19 +538,19 @@ returned.
 
 .. code:: shell
 
-          struct i2c_msg msg;
-          int i2c_result = 0;
-           if( !dev_id){
-      	os_printf("no device\n");
-              return -ENODEV;
-      	}
-          msg.im_len = count;
-          msg.im_flags = I2C_M_STOP;
-          msg.im_buf = data;
-          if ((i2c_result = i2c_transfer(dev_id, &msg, 1))){
-          os_printf("bmp388 i2c write error in write reg %d: %s\n", i2c_result, strerror(-i2c_result));
-      	}  
-          return i2c_result;
+    struct i2c_msg msg;
+    int i2c_result = 0;
+    if( !dev_id){
+        os_printf("no device\n");
+        return -ENODEV;
+    }
+    msg.im_len = count;
+    msg.im_flags = I2C_M_STOP;
+    msg.im_buf = data;
+    if ((i2c_result = i2c_transfer(dev_id, &msg, 1))){
+        os_printf("bmp388 i2c write error in write reg %d: %s\n", i2c_result, strerror(-i2c_result));
+    }
+    return i2c_result;
 
 
  Opt3002.c (Optical sensor)

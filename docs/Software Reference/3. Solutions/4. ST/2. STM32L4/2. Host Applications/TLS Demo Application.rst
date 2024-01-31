@@ -160,7 +160,7 @@ completed by default.
 HAPI Interface Initialization
 -----------------------------
 
-.. code-block:: c
+.. code-block:: shell
 
     struct hapi *hapi;
     #ifdef HAPI_INTERFACE_UART_ENABLED
@@ -176,7 +176,7 @@ HAPI Interface Initialization
 HAPI Interface Start and Disable Sleep Mode in Configuration
 ------------------------------------------------------------
 
-.. code-block:: c
+.. code-block:: shell
 
     hapi_start(hapi);
     hapi_config(hapi, 0, 0, 0, 0, 0);
@@ -184,14 +184,14 @@ HAPI Interface Start and Disable Sleep Mode in Configuration
 Check HAPI Communication with Talaria TWO EVB
 ---------------------------------------------
 
-.. code-block:: c
+.. code-block:: shell
 
     hapi_hio_query(hapi,&hio_query_rsp);
 
 Create a Wi-Fi Network Interface and Register the Link Status Callback 
 -----------------------------------------------------------------------
 
-.. code-block:: c
+.. code-block:: shell
 
     struct hapi_wcm \* hapi_wcm = hapi_wcm_create(hapi);
     hapi_wcm_set_link_cb(hapi_wcm, wcm_link_cb, NULL);
@@ -202,7 +202,7 @@ Connecting to a Wi-Fi network
 The application uses the default SSID and passphrase. These can be
 modified as per user AP settings.
 
-.. code-block:: c
+.. code-block:: shell
 
     /\* Connect wifi \*/
     char\* ssid = "innotest";
@@ -220,7 +220,7 @@ modified as per user AP settings.
 HAPI TLS Socket Create
 ----------------------
 
-.. code-block:: c
+.. code-block:: shell
 
     char* port = "443";
     char* server = "www.example.com";
@@ -230,21 +230,21 @@ HAPI TLS Socket Create
 HAPI TLS Data Ready Callback
 ----------------------------
 
-.. code-block:: c
+.. code-block:: shell
 
     hapi_tls_set_notification_cb(hapi_tls, dataready_cb, NULL);
 
 TLS Certificate Upload
 ----------------------
 
-.. code-block:: c
+.. code-block:: shell
 
     hapi_TLS_upload_cert(hapi_TLS, HAPI_TLS_ROOT_CERT, root_ca_pem, sizeof(root_ca_pem));
 
 TLS Handshake
 -------------
 
-.. code-block:: c
+.. code-block:: shell
 
     hapi_TLS_handshake(hapi_TLS, HAPI_TLS_AUTH_MODE_OPTIONAL));
 
@@ -252,7 +252,7 @@ TLS Handshake
 TLS Data Send
 -------------
 
-.. code-block:: c
+.. code-block:: shell
 
     static const char get_request[] = "GET / HTTP/1.0\\r\\n\\r\\n";
     hapi_TLS_write(hapi_TLS, get_request, sizeof(get_request));
@@ -261,7 +261,7 @@ TLS Data Send
 TLS Data Read
 -------------
 
-.. code-block:: c
+.. code-block:: shell
 
     char rx_data[1024];
     ssize_t size = hapi_TLS_read(hapi_TLS, rx_data, buf_size-1);
@@ -269,7 +269,7 @@ TLS Data Read
 TLS Socket Close
 ----------------
 
-.. code-block:: c
+.. code-block:: shell
 
     hapi_TLS_close(hapi_TLS));
 
@@ -286,6 +286,7 @@ Figure 2: Expected Output
 **Application Files and Functions**
 
 .. table:: Table 1: Application files and functions
+
     +-----------------------------------------------+----------------------+
     |    File                                       |    Function          |
     +===============================================+======================+

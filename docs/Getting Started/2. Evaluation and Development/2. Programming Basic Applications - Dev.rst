@@ -34,7 +34,7 @@ already.
 
 3. Copy/paste the following piece of code to my_app.c file.
 
-.. code:: C
+.. code:: shell
 
     #include <kernel/io.h>
     int main()
@@ -75,7 +75,7 @@ ${LIBGCC}.
 2. Create another Makefile which will help compile the application we
    just wrote.
 
-.. code:: C
+.. code:: shell
 
     #Makefile for compiling applications into Talaria (TM) TWO
     include ../../conf/sdk.mak

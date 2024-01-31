@@ -24,7 +24,7 @@ IFTTT web service can be access using the following link:
 https://ifttt.com/.
 
 Creating an Account in IFTTT
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Having an account in IFTTT web service is a prerequisite to exploring
 more and getting hands-on with the example application. This is free and
@@ -70,7 +70,7 @@ Applet on the IFTTT platform define the following:
 3. The service that is going to take action
 
 Creating an Applet for Talaria TWO
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This section discusses steps to create an applet for Talaria TWO to
 interact with IFTTT. For this, already available IFTTT services like
@@ -138,7 +138,7 @@ Following are the steps:
 5. HTTP post method.
 
 Sample Code Walkthrough
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A user-defined data struct is created to store the data of IFTTT:
 

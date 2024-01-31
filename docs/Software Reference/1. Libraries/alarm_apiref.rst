@@ -89,7 +89,7 @@ This API initializes the alarm.
 Definition
 ~~~~~~~~~~
 
-.. code:: c
+.. code:: shell
 
     void (* alarm_callback)(uint32_t, void *)
 
@@ -143,7 +143,7 @@ Parameters
    +----------------------+-----------------------------------------------------------------------+
    | *cb_func*            | Alarm callback function. The definition for this function is a follow |
    |                      |                                                                       |
-   |                      | .. code:: c                                                           |
+   |                      | .. code:: shell                                                          |
    |                      |                                                                       |
    |                      |     void (\* alarm_callback)(uint32_t alarm_id,uint8_t \*alarm_name)  |
    |                      |                                                                       |
@@ -188,7 +188,7 @@ Set system time.
 Definition
 ~~~~~~~~~~~
 
-.. code:: c
+.. code:: shell
 
     void
     alarm_set_time(uint64_t time_toset)
@@ -229,7 +229,7 @@ Delete the alarm.
 Definition
 ~~~~~~~~~~~
 
-.. code:: c
+.. code:: shell
 
     int8_t
     alarm_delete(uint32_t alarm_id)
@@ -272,7 +272,7 @@ alarm with the alarm information.
 Definition
 ~~~~~~~~~~~
 
-.. code:: c
+.. code:: shell
 
     void alarm_display(uint32_t cb)
 
@@ -289,7 +289,7 @@ Parameters
     | *cb*           | Call back to trigger alarm display. The definition for this callback is |
     |                | as follows:                                                             |
     |                |                                                                         |
-    |                | .. code:: c                                                             |
+    |                | .. code:: shell                                                             |
     |                |                                                                         |
     |                |     typedef void (\* alarm_dsiplay_callback)(structalarm_infio \*ainfo) |
     |                |                                                                         |
@@ -320,7 +320,7 @@ Get information about a specific alarm.
 Definition
 ~~~~~~~~~~~
 
-.. code:: c
+.. code:: shell
 
     struct alarm_info * alarm_info_get(uint32_t alarm_id)
 

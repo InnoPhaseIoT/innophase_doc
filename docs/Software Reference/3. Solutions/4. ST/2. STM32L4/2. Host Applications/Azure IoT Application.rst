@@ -153,7 +153,7 @@ completed by default.
 HAPI Interface Initialization
 -----------------------------
 
-.. code-block:: c
+.. code-block:: shell
 
     struct hapi \*hapi;
     #ifdef HAPI_INTERFACE_UART_ENABLED
@@ -170,7 +170,7 @@ HAPI Interface Initialization
 HAPI Interface Start and Disable Sleep Mode in Configuration
 ------------------------------------------------------------
 
-.. code-block:: c
+.. code-block:: shell
 
     hapi_start(hapi);
     hapi_config(hapi, 0, 0, 0, 0, 0);
@@ -179,7 +179,7 @@ HAPI Interface Start and Disable Sleep Mode in Configuration
 Check HAPI Communication with Talaria TWO EVB
 ---------------------------------------------
 
-.. code-block:: c
+.. code-block:: shell
 
     hapi_hio_query(hapi,&hio_query_rsp);
 
@@ -187,7 +187,7 @@ Check HAPI Communication with Talaria TWO EVB
 Create a Wi-Fi Network Interface and Register Link Status Callback 
 -------------------------------------------------------------------
 
-.. code-block:: c
+.. code-block:: shell
 
     struct hapi_wcm \* hapi_wcm = hapi_wcm_create(hapi);
     hapi_wcm_set_link_cb(hapi_wcm, wcm_link_cb, NULL);
@@ -200,7 +200,7 @@ Connecting to a Wi-Fi network
 The application uses the default SSID and passphrase. These can be
 modified as per user AP settings.
 
-.. code-block:: c
+.. code-block:: shell
 
     /\* Connect wifi \*/
     char\* ssid = "innotest";
@@ -218,7 +218,7 @@ modified as per user AP settings.
 Create and Connect Azure IoT cloud
 ----------------------------------
 
-.. code-block:: c
+.. code-block:: shell
 
     int rc;
     rc = init_and_connect_ms_azure_iot(&mqtt_credentials);
@@ -226,7 +226,7 @@ Create and Connect Azure IoT cloud
 Subscribe Azure IoT Cloud Messages
 ----------------------------------
 
-.. code-block:: c
+.. code-block:: shell
 
     int rc;
     rc = ms_azure_iot_mqtt_subscribe_for_cloud_to_device_messages(gpclient, mqtt_credentials.client_id,on_new_subscribe_message_from_ms_azure, NULL);

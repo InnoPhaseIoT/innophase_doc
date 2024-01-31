@@ -158,7 +158,7 @@ timeouts.
 Definition 
 ~~~~~~~~~~~
 
-.. code:: c
+.. code:: shell
 
     mdns_ctx_t \*
     mdns_init(mdns_init_params_t \*param)
@@ -196,7 +196,7 @@ interface(node).
 Definition 
 ~~~~~~~~~~~
 
-.. code:: c
+.. code:: shell
 
     int mdns_hostname_reg(mdns_ctx_t \*mc, mdns_hnreg_param_t \*param);
 
@@ -239,7 +239,7 @@ Definition
 ~~~~~~~~~~
 
 
-.. code:: c
+.. code:: shell
 
     int mdns_service_register(mdns_ctx_t \*mc, mdns_srvreg_param_t \*param)
 
@@ -286,7 +286,7 @@ many times as the total number of service detected.
 Definition
 ~~~~~~~~~~
 
-.. code:: c
+.. code:: shell
 
     int mdns_service_discover(mdns_ctx_t \*mc, mdns_srvcdisc_param_t \*param)
 

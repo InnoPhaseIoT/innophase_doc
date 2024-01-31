@@ -79,7 +79,7 @@ system:
 2. Programmatically
 
 Generate & Flash a Filesystem Manually for Factory Setup
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To create a file system manually and write the file image using the
 scripts available in SDK, execute the following steps:

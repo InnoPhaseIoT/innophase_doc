@@ -159,9 +159,9 @@ Type in the Ls command in Linux to list the USB ports:
 
     $ ls /dev/ttyUSB\*
 
-|Text Description automatically generated with medium confidence|
+|image2|
 
-                        Figure : USB ports
+                        Figure 1: USB ports
 
 From the ports listed, identify the following ports:
 
@@ -191,9 +191,9 @@ Launch miniterm, a small terminal application, to open the /dev/ttyUSB3 device p
 When an application runs on the device, it prints out debug messages
 through the console port.
 
-|Text Description automatically generated|
+|image3|
 
-Figure : Debug messages displayed through console port
+Figure 2: Debug messages displayed through console port
 
 If there are multiple Talaria TWO devices where each of them has their
 own console port connected to the host via the USB interface, it will be
@@ -201,21 +201,21 @@ sufficient to use the respective /dev/ttyUSBn with the command.
 
 For instance, two Talaria TWO devices with USB connected.
 
-|image1|
+|image4|
 
-Figure : 2 Talaria TWO devices with USB connected
+Figure 3: 2 Talaria TWO devices with USB connected
 
 Figure 4 and Figure 5 show that the miniterm app is run on two separate
 terminals using respective device ports to communicate with the
 respective device.
 
-|image2|
+|image5|
 
-Figure : /dev/ttyUSB3
+Figure 4: /dev/ttyUSB3
 
 |image6|
 
-Figure : /dev/ttyUSB7
+Figure 5: /dev/ttyUSB7
 
 Device Port Identification on Windows OS
 ^^^^^^^^^^^^^^^^^^^
@@ -249,16 +249,16 @@ the device using the libusbK driver.
 The libusbK’s installation and use by the host can be checked from the
 Windows Device Manager display.
 
-|Graphical user interface, text Description automatically generated|
+|image7|
 
-Figure : libusbK driver installation
+Figure 6: libusbK driver installation
 
 If there are multiple Talaria TWO devices connected, the Windows Device
 Manager appears:
 
-|Graphical user interface, text, application Description automatically generated|
+|image8|
 
-Figure : Multiple Talaria TWO devices connected
+Figure 7: Multiple Talaria TWO devices connected
 
 With this setup in place, all CLI commands should use the following
 argument for the input port to the device in command line:
@@ -282,9 +282,9 @@ line:
     python script\\boot.py --device ftdi://ftdi:4232/3 --reset=evk42_bl apps/hello_world/bin/hello_world.elf
 
 
-|image8|
+|image9|
 
-    Figure : Flashing to Talaria TWO
+    Figure 8: Flashing to Talaria TWO
 
 This command loads the helloworld app provided in SDK to Talaria TWO
 memory.
@@ -310,7 +310,7 @@ the following steps:
     apps/hello_world/bin/hello_world.elf
 
 
-|image8|
+|image10|
 
     Figure 9: Expanding the device specifier
 
@@ -327,7 +327,7 @@ Example of a device with serial ID 00166d4:
     python script\\boot.py --device ftdi://ftdi:4232:**0016d4**/3 --reset=evk42_bl --SN **0016d4** apps/hello_world/bin/hello_world.elf
 
 
-|image8|
+|image11|
 
 Figure 10: Device with serial ID 0016d4
 
@@ -336,7 +336,7 @@ Figure 10: Device with serial ID 0016d4
 On this serial communication environment, Windows host is communicating
 with the device using the standard (default) USB/Serial driver.
 
-|Graphical user interface, text, application, chat or text message Description automatically generated|
+|imaeg12|
 
 Figure 11: Standard (default) USB/serial driver
 
@@ -430,7 +430,7 @@ Examples:
     bins/iperf3.elf ssid=InnoPhase passphrase=Inno@9070
 
 
-|image11|
+|image13|
 
     Figure 12: Single Talaria TWO device with USB interface
 
@@ -443,7 +443,7 @@ Examples:
     bins/iperf3.elf ssid=Lucy passphrase=Password@321
 
 
-|image13|
+|image14|
 
     Figure 13: Multiple Talaria TWO devices connected
 
@@ -453,9 +453,7 @@ Type boot.py --help to bring up the manual of the boot.py command list:
 
 |image15|
 
-|image16|
-
-    Figure : boot.py - command list
+    Figure 14: boot.py - command list
 
 Using flash.py
 ^^^^^^^^^^^^^^^^^^^
@@ -496,8 +494,7 @@ Example:
 Type flash.py --help to bring up the manual of the flash.py command
 list:
 
-|image22|
-|image23|
+|image16|
 
 Figure 15: flash.py - command list
 
@@ -538,9 +535,9 @@ Connect to the Access Point configured in your nprofile.json as
 Type storage.py --help to bring up the manual of the storage.py command
 list:
 
-|image24|
+|image17|
 
-Figure : storage.py command script
+Figure 16: storage.py command script
 
 Use Cases 
 ==========
@@ -561,9 +558,9 @@ Reset the device.
 
     ./script/boot.py [device] **--reset=evk42_bl**
 
-|image27|
+|image18|
 
-Figure : Normal device reset - terminal output
+Figure 17: Normal device reset - terminal output
 
 1. **Device Reset with Inhibiting-flash-boot (Boot loader mode)**
 
@@ -583,22 +580,22 @@ Figure : Normal device reset - terminal output
 
 ..
 
-   |image28|
+   |image19|
 
-Figure : inhibiting-flash-boot - terminal output
+Figure 18: inhibiting-flash-boot - terminal output
 
    This reset will trigger Talaria TWO to abort from device port link
    (expected).
 
-   |image29|
+   |image20|
 
-Figure : Abort from device port link
+Figure 19: Abort from device port link
 
    Launch miniterm to resume the device port connection.
 
-   |image30|
+   |image21|
 
-Figure : Resume device port connection
+Figure 20: Resume device port connection
 
 2. **Reset with Inhibiting-flash-boot with booting Gordon**
 
@@ -617,9 +614,9 @@ Figure : Resume device port connection
 
 ..
 
-|image31|
+|image22|
 
-Figure : Inhibiting-flash-boot with booting Gordon - terminal output
+Figure 21: Inhibiting-flash-boot with booting Gordon - terminal output
 
 Program App in Memory
 ~~~~~~~~~~~~~~~~~~~~~
@@ -633,9 +630,9 @@ Program app in Talaria TWO memory.
     ./script/boot.py [device] **--reset=evk42** <path>/app.elf [boot_args list]
 
 
-|image32|
+|image23|
 
-Figure : Programming app in Talaria TWO memory - terminal output
+Figure 22: Programming app in Talaria TWO memory - terminal output
 
 Erase Image or Program New Image in Flash
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -656,15 +653,15 @@ b. Flash empty.img
     ./script/flash.py [device] **write 0x1000 <path>/empty.img**
 
 
-|image33|
+|image24|
 
 Figure 23: Flash empty.img
 
 Button reset to confirm the erase operation is a success.
 
-|image36|
+|image25|
 
-Figure : Erase operation success
+Figure 24: Erase operation success
 
 2. Program New Image in Flash
 
@@ -676,15 +673,15 @@ Figure : Erase operation success
     <path>/app.elf [boot_args_list]
 
 
-|image38|
+|image26|
 
-Figure : Program new image to flash
+Figure 25: Program new image to flash
 
 Button reset to confirm the flash operation a success.
 
-|image37|
+|image27|
 
-Figure : Flash operation success
+Figure 26: Flash operation success
 
 Storage Data & File: Read/Write
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -706,15 +703,15 @@ b. Run the flash.py with the command: to_json
     /script/flash.py [device] **to_json**
     <user_specify_path>/<user_spefcify_name>.json
 
-|image39|
+|image28|
 
-Figure : Inhibiting-flash-boot and load gordon.elf
+Figure 27: Inhibiting-flash-boot and load gordon.elf
 
 Display of the board_356.json file
 
-|Text, timeline Description automatically generated|
+|image29|
 
-Figure : Display of the board_356.json file
+Figure 28: Display of the board_356.json file
 
 2. **Write Partition Table in Device (from_json)**
 
@@ -751,9 +748,9 @@ b. Run the storage.py with the command: tree
     ./script/storage.py **tree**
 
 
-|image41|
+|image30|
 
-Figure : Show file system contents
+Figure 29: Show file system contents
 
 4. **Read File and Store to Location on Host**
 
@@ -773,9 +770,9 @@ b. Run the storage.py with the command: read
 
 The file is created:
 
-|Shape, rectangle Description automatically generated with medium confidence|
+|image31|
 
-Figure : File creation
+Figure 30: File creation
 
 5. **Write File to Device**
 
@@ -794,15 +791,15 @@ b. Run the storage.py with the command: write
     <path_write>/file_name_write>
 
 
-|image43|
+|image32|
 
-Figure : Running storage.py - write
+Figure 31: Running storage.py - write
 
 Use ./script/storage.py tree command to check the new file on Talaria TWO file system:
 
-|image44|
+|image33|
 
-Figure : Check new file on Talaria TWO file system
+Figure 32: Check new file on Talaria TWO file system
 
 Example: Load certificates
 
@@ -1083,9 +1080,9 @@ are connecting to a WPA2-PSK network):
 
     ./script/boot.py --reset=evk42_bl apps/gordon.elf
 
-|image45|
+|image34|
 
-Figure : Starting gordon.elf
+Figure 33: Starting gordon.elf
 
 3. Use **storage.py** to write the network config file
    (**nprofile.json**) into Talaria TWO file system in the partition
@@ -1098,9 +1095,9 @@ Figure : Starting gordon.elf
 
 Command Log:
 
-|image46|
+|image35|
 
-Figure : Writing network config file
+Figure 34: Writing network config file
 
 4. Program (RAM/FLASH) application to connect to the Access Point
    configured in **nprofile.json** as:
@@ -1117,9 +1114,9 @@ Figure : Writing network config file
 
    Command Log:
 
-   |image47|
+   |image36|
 
-Figure : Program RAM to connect to AP
+Figure 35: Program RAM to connect to AP
 
 b. Program FLASH:
 
@@ -1133,9 +1130,9 @@ b. Program FLASH:
 
    Command Log:
 
-   |image47|
+   |image37|
 
-Figure : Program Flash to connect to AP
+Figure 36: Program Flash to connect to AP
 
 Windows Platform – libusbK Installed
 ^^^^^^^^^^^^^^^^^^^
@@ -1156,9 +1153,9 @@ Reset the device.
     python script\\boot.py [device] **--reset=evk42**
 
 
-|image48|
+|image38|
 
-Figure : Device reset
+Figure 37: Device reset
 
 2. **Device Reset with Inhibiting-flash-boot**
 
@@ -1170,14 +1167,14 @@ new app code.
 
 **Command syntax**:
 
-+-----------------------------------------------------------------------+
-| python script\\boot.py [device] **--reset=evk42_bl**                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image49|
+      python script\\boot.py [device] **--reset=evk42_bl**  
 
-Figure : Device Reset with Inhibiting-flash-boot
+
+|image39|
+
+Figure 38: Device Reset with Inhibiting-flash-boot
 
 The device has been put into the programming mode
 (inhibiting-flash-boot).
@@ -1196,9 +1193,9 @@ storage on Talaria TWO and operate read/write data.
     python script\\boot.py [device] **--reset=evk42_bl** apps\\gordon.elf
 
 
-|image50|
+|image40|
 
-Figure : Reset with Inhibiting-flash-boot with booting Gordon
+Figure 39: Reset with Inhibiting-flash-boot with booting Gordon
 
 .. _program-app-in-memory-1:
 
@@ -1215,9 +1212,9 @@ stored in flash to boot from.
     python script\\boot.py [device] **--reset=evk42** <path>\\app.elf [boot_args_list]
 
 
-|image51|
+|image41|
 
-Figure : Program app in Talaria TWO memory
+Figure 40: Program app in Talaria TWO memory
 
 .. _erase-image-or-program-new-image-in-flash-1:
 
@@ -1239,9 +1236,9 @@ b. Flash empty.img
 
     python script\\flash.py [device] **write 0x1000 <path>\\empty.img**
 
-|image52|
+|image42|
 
-Figure : Erase image in flash
+Figure 41: Erase image in flash
 
 **Program New Image in Flash**
 
@@ -1253,9 +1250,9 @@ Figure : Erase image in flash
     <path>\\app.elf [boot_args_list]
 
 
-|image53|
+|image43|
 
-    Figure : Program new image in flash
+    Figure 42: Program new image in flash
 
 .. _storage-data-file-readwrite-1:
 
@@ -1279,15 +1276,15 @@ b. Run the flash.py with the command: to_json
     python script\\flash.py [device] **to_json**
     <user_specify_path>\\<user_spefcify_name>.json
 
-|image54|
+|image44|
 
-Figure : Read Partition Table from device
+Figure 43: Read Partition Table from device
 
 Display of the board_0183.json file
 
-|image55|
+|image45|
 
-Figure : Display of the board_0183.json file
+Figure 44: Display of the board_0183.json file
 
 2. **Write Partition Table in Device (from_json)**
 
@@ -1306,9 +1303,9 @@ b. Run the flash.py with the command: from_json
     python script\\flash.py [device] from_json <user_specify_path>/<user_spefcify_name>.json
 
 
-|image56|
+|image46|
 
-Figure : Write Partition Table in device
+Figure 45: Write Partition Table in device
 
 3. **Show File System Contents**
 
@@ -1326,9 +1323,9 @@ b. Run the storage.py with the command: tree
     python script\\storage.py [device] **tree**
 
 
-|image57|
+|image47|
 
-Figure : Show file system contents
+Figure 46: Show file system contents
 
 4. **Read File and Store to Location on Host**
 
@@ -1347,15 +1344,15 @@ b. Run the storage.py with the command: read
 
 **Note**: Single line command.
 
-|image58|
+|image48|
 
-Figure : Read file and store to location on host
+Figure 47: Read file and store to location on host
 
 The file is created as per user entry:
 
-|image59|
+|image49|
 
-Figure : File creation
+Figure 48: File creation
 
 5. **Write File to Device**
 
@@ -1375,16 +1372,16 @@ b. Run the storage.py with the command: write
 
 **Note**: A single line command.
 
-|image60|
+|image50|
 
-Figure : Write file to device
+Figure 49: Write file to device
 
 Use the ./script/storage.py tree command to check the new file on
 Talaria TWO file system:
 
-|image61|
+|image51|
 
-Figure : Check new file on Talaria TWO file system
+Figure 50: Check new file on Talaria TWO file system
 
 Windows Platform – With COM Port
 ^^^^^^^^^^^^^^^^^^^
@@ -1453,9 +1450,9 @@ The following command erases the app code in flash.
     python script\\flash.py [device] **write 0x1000 <path>\\empty.img**
 
 
-|image62|
+|image52|
 
-Figure : Erase image
+Figure 51: Erase image
 
 Button reset to confirm the erase operation is a success.
 
@@ -1484,9 +1481,9 @@ b. Run the flash.py with the command: to_json
 
 Display of the board_0407.json file
 
-|image63|
+|image53|
 
-Figure : Display of the board_0407.json file
+Figure 52: Display of the board_0407.json file
 
 2. **Write Partition Table in Device (from_json)**
 
@@ -1521,9 +1518,9 @@ b. Run the storage.py with the command: tree
     python script\\storage.py [device] **tree**
 
 
-|image64|
+|image54|
 
-Figure : Show file system contents
+Figure 53: Show file system contents
 
 4. **Read File and Store to Location on Host**
 
@@ -1545,15 +1542,15 @@ b. Run the storage.py with the command: read
 
 **Note**: A single line command.
 
-|image65|
+|image55|
 
-Figure : Read file and store to location on host
+Figure 54: Read file and store to location on host
 
 The file is created per user entry:
 
-|image66|
+|image56|
 
-Figure : File creation
+Figure 55: File creation
 
 3. **Write File to Device**
 
@@ -1574,16 +1571,16 @@ b. Run the storage.py with the command: write
 
 **Note**: A single line command.
 
-|image66|
+|image57|
 
-Figure : Write file to device
+Figure 56: Write file to device
 
 Use the ./script/storage.py tree command to check the new file on
 Talaria TWO file system:
 
-|image67|
+|image58|
 
-Figure : Check new file on Talaria TWO filesystem
+Figure 57: Check new file on Talaria TWO filesystem
 
 Sequence of CLI Commands
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1641,178 +1638,157 @@ Command Syntax:
 
 Re-launch the console terminal app and reset Talaria TWO device.
 
-.. |Text Description automatically generated with medium confidence| image:: media/image2.png
+.. |image2| image:: media/image2.png
    :width: 7.48031in
    :height: 0.93674in
-.. |Text Description automatically generated| image:: media/image3.png
+.. |image3| image:: media/image3.png
    :width: 7.48031in
    :height: 1.6598in
-.. |image1| image:: media/image6.png
+.. |image4| image:: media/image4.png
    :width: 7.26695in
    :height: 1.25836in
-.. |image2| image:: media/image3.png
+.. |image5| image:: media/image5.png
    :width: 7.48031in
    :height: 1.6598in
-.. |image3| image:: media/image4.png
-   :width: 7.48031in
-   :height: 1.0419in
-.. |image4| image:: media/image5.png
-   :width: 3in
-   :height: 0.18333in
-.. |image5| image:: media/image6.png
-   :width: 7.48031in
-   :height: 1.50444in
-.. |image6| image:: media/image10.png
+.. |image6| image:: media/image6.png
    :width: 7.48031in
    :height: 1.0419in
 .. |image7| image:: media/image7.png
+   :width: 3in
+   :height: 0.18333in
+.. |image8| image:: media/image8.png
+   :width: 7.48031in
+   :height: 1.50444in
+.. |image9| image:: media/image9.png
+   :width: 7.48031in
+   :height: 1.0419in
+.. |image10| image:: media/image10.png
    :width: 7.48031in
    :height: 1.35847in
-.. |Graphical user interface, text Description automatically generated| image:: media/image11.png
+.. |image11| image:: media/image11.png
    :width: 7.48031in
    :height: 1.41522in
-.. |Graphical user interface, text, application Description automatically generated| image:: media/image12.png
+.. |image12| image:: media/image12.png
    :width: 7.48031in
    :height: 1.62708in
-.. |image8| image:: media/image13.png
+.. |image13| image:: media/image13.png
    :width: 7.48031in
    :height: 1.21901in
-.. |image9| image:: media/image11.png
+.. |image14| image:: media/image14.png
    :width: 7.48031in
    :height: 1.15114in
-.. |image10| image:: media/image12.png
+.. |image15| image:: media/image15.png
    :width: 7.48031in
    :height: 1.21001in
-.. |Graphical user interface, text, application, chat or text message Description automatically generated| image:: media/image16.png
+.. |image16| image:: media/image16.png
    :width: 7.48031in
    :height: 1.21901in
-.. |image11| image:: media/image18.png
+.. |image17| image:: media/image17.png
    :width: 1.475in
    :height: 0.14167in
-.. |image12| image:: media/image15.png
+.. |image18| image:: media/image18.png
    :width: 6.69291in
    :height: 2.31306in
-.. |image13| image:: media/image20.png
+.. |image19| image:: media/image19.png
    :width: 1.475in
    :height: 0.14167in
-.. |image14| image:: media/image16.png
+.. |image20| image:: media/image20.png
    :width: 6.69291in
    :height: 2.46249in
-.. |image15| image:: media/image22.png
+.. |image21| image:: media/image21.png
    :width: 7.475in
    :height: 7.14167in
-.. |image16| image:: media/image23.png
+.. |image22| image:: media/image22.png
    :width: 7.48031in
    :height: 2.58782in
-.. |image17| image:: media/image18.png
+.. |image23| image:: media/image23.png
    :width: 7.48031in
    :height: 1.98832in
-.. |image18| image:: media/image14.png
+.. |image24| image:: media/image24.png
    :width: 0.7in
-.. |image19| image:: media/image19.png
+.. |image25| image:: media/image25.png
    :width: 7.08661in
    :height: 2.87927in
-.. |image20| image:: media/image20.png
+.. |image26| image:: media/image26.png
    :width: 7.08661in
    :height: 1.01438in
-.. |image21| image:: media/command22.jpg
+.. |image27| image:: media/image27.png
    :height: 1.01438in
    :width: 0.86765in
-.. |image22| image:: media/image24.jpg
+.. |image28| image:: media/image28.png
    :width: 7.475in
    :height: 3.49869in
-.. |image23| image:: media/image25.png
+.. |image29| image:: media/image29.png
    :width: 7.475in
    :height: 1.49869in
-.. |image24| image:: media/image26.png
+.. |image30| image:: media/image30.png
    :width: 7.475in
    :height: 2.49869in
-.. |image25| image:: media/image22.png
+.. |image31| image:: media/image31.png
    :width: 7.08661in
    :height: 0.83109in
-.. |image26| image:: media/image14.png
-   :width: 0.91667in
-.. |image27| image:: media/image27.png
-   :width: 7.90551in
-   :height: 0.50449in
-.. |image28| image:: media/image28.png
-   :width: 7.90551in
-   :height: 1.05263in
-.. |image29| image:: media/image29.png
-   :width: 7.90551in
-   :height: 0.59042in
-.. |image30| image:: media/image30.png
-   :width: 7.90551in
-   :height: 0.59042in
-.. |image31| image:: media/image31.png
-   :width: 7.90551in
-   :height: 1.59042in
 .. |image32| image:: media/image32.png
-   :width: 7.90551in
-   :height: 1.87719in
+   :width: 0.91667in
 .. |image33| image:: media/image33.png
    :width: 7.90551in
-   :height: 1.87719in
+   :height: 0.50449in
 .. |image34| image:: media/image34.png
    :width: 7.90551in
-   :height: 1.21486in
+   :height: 1.05263in
 .. |image35| image:: media/image35.png
    :width: 7.90551in
-   :height: 0.73377in
+   :height: 0.59042in
 .. |image36| image:: media/image36.png
    :width: 7.90551in
-   :height: 2.44596in
-.. |image37| image:: media/image36.png
+   :height: 0.59042in
+.. |image37| image:: media/image37.png
    :width: 7.90551in
-   :height: 1.73377in
+   :height: 1.59042in
 .. |image38| image:: media/image38.png
    :width: 7.90551in
-   :height: 2.73377in
+   :height: 1.87719in
 .. |image39| image:: media/image39.png
    :width: 7.90551in
-   :height: 1.21783in
+   :height: 1.87719in
 .. |image40| image:: media/image40.png
-   :width: 6.88976in
-   :height: 1.53348in
-.. |Text, timeline Description automatically generated| image:: media/image40.png
-   :width: 3.93701in
-   :height: 8.27202in
+   :width: 7.90551in
+   :height: 1.21486in
 .. |image41| image:: media/image41.png
-   :width: 7.93701in
-   :height: 2.27202in
-.. |Shape, rectangle Description automatically generated with medium confidence| image:: media/image42.png
-   :width: 4.72441in
-   :height: 0.99213in
+   :width: 7.90551in
+   :height: 0.73377in
+.. |image42| image:: media/image42.png
+   :width: 7.90551in
+   :height: 2.44596in
 .. |image43| image:: media/image43.png
-   :width: 7.93701in
-   :height: 0.53348in
+   :width: 7.90551in
+   :height: 1.73377in
 .. |image44| image:: media/image44.png
-   :width: 7.88976in
-   :height: 1.91034in
+   :width: 7.90551in
+   :height: 2.73377in
 .. |image45| image:: media/image45.png
-   :width: 6.88976in
-   :height: 3.34672in
+   :width: 7.90551in
+   :height: 1.21783in
 .. |image46| image:: media/image46.png
    :width: 6.88976in
-   :height: 1.34672in
+   :height: 1.53348in
 .. |image47| image:: media/image47.png
-   :width: 7.88976in
-   :height: 1.34672in
+   :width: 3.93701in
+   :height: 8.27202in
 .. |image48| image:: media/image48.png
-   :width: 7.88976in
-   :height: 1.34672in
+   :width: 7.93701in
+   :height: 2.27202in
 .. |image49| image:: media/image49.png
-   :width: 7.88976in
-   :height: 1.34672in
+   :width: 4.72441in
+   :height: 1.99213in
 .. |image50| image:: media/image50.png
-   :width: 7.88976in
-   :height: 1.34672in
+   :width: 7.93701in
+   :height: 1.53348in
 .. |image51| image:: media/image51.png
    :width: 7.88976in
-   :height: 1.34672in
+   :height: 1.91034in
 .. |image52| image:: media/image52.png
-   :width: 7.88976in
-   :height: 0.74672in
+   :width: 6.88976in
+   :height: 3.34672in
 .. |image53| image:: media/image53.png
    :width: 7.88976in
    :height: 1.34672in
@@ -1820,41 +1796,14 @@ Re-launch the console terminal app and reset Talaria TWO device.
    :width: 7.88976in
    :height: 1.34672in
 .. |image55| image:: media/image55.png
-   :width: 3.93701in
-   :height: 8.27202in
+   :width: 7.88976in
+   :height: 1.34672in
 .. |image56| image:: media/image56.png
-   :width: 7.90551in
-   :height: 2.73377in
+   :width: 7.88976in
+   :height: 1.34672in
 .. |image57| image:: media/image57.png
-   :width: 7.90551in
-   :height: 2.73377in
+   :width: 7.88976in
+   :height: 1.34672in
 .. |image58| image:: media/image58.png
-   :width: 7.90551in
-   :height: 0.73377in
-.. |image59| image:: media/image59.png
-   :width: 7.90551in
-   :height: 0.73377in
-.. |image60| image:: media/image60.png
-   :width: 7.90551in
-   :height: 0.73377in
-.. |image61| image:: media/image61.png
-   :width: 7.90551in
-   :height: 2.73377in
-.. |image62| image:: media/image62.png
-   :width: 7.90551in
-   :height: 0.73377in
-.. |image63| image:: media/image63.png
-   :width: 3.93701in
-   :height: 8.27202in
-.. |image64| image:: media/image64.png
-   :width: 7.90551in
-   :height: 2.73377in
-.. |image65| image:: media/image65.png
-   :width: 7.90551in
-   :height: 0.73377in
-.. |image66| image:: media/image66.png
-   :width: 7.90551in
-   :height: 0.73377in
-.. |image67| image:: media/image67.png
-   :width: 7.90551in
-   :height: 2.73377in
+   :width: 7.88976in
+   :height: 1.34672in

@@ -29,9 +29,9 @@ Generic Syntax for Passing Boot Arguments
 The bootargs, if applicable by an application, should be entered in the
 Boot Arguments field, in a comma-separated form, as shown in Figure 1.
 
-|Table Description automatically generated with medium confidence|
+|image59|
 
-Figure : Boot arguments for Download Tool
+Figure 1: Boot arguments for Download Tool
 
 2. Used in CLI/command line
 
@@ -356,9 +356,9 @@ Configuring host interface transport type as UART.
 
 **Note**: Single line command.
 
-|image2|
+|image60|
 
-Figure : Configuring host interface transport type as UART\ **
+Figure 2: Configuring host interface transport type as UART\ **
 **
 
 Host Interface Baudrate
@@ -396,7 +396,9 @@ Set the baudrate for the HIO interface at 921600.
 
 **Note**: Single line command.
 
-|image3| \ Figure : Setting host interface baudrate
+|image61| 
+
+Figure 3: Setting host interface baudrate
 
 Host Interface Max Message Size
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -431,7 +433,9 @@ Set the maximum size of a host message 1024 (bytes).
 
 **Note**: Single line command.
 
-|image4| \ Figure : Set maximum size of host message
+|image62| 
+
+Figure 4: Set maximum size of host message
 
 Default MAC Address for the Device
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -466,7 +470,9 @@ Set the default MAC address of the device as 01:02:03:04:05:06.
 
 **Note**: Single line command.
 
-|image5| \ Figure : Set default MAC address of the device
+|image63| 
+
+Figure 5: Set default MAC address of the device
 
 Console Baudrate
 ~~~~~~~~~~~~~~~~
@@ -502,7 +508,9 @@ Set the baudrate for device console output at 115200.
 
 **Note**: Single line command.
 
-|image6| \ Figure : Set baudrate for device console output
+|image64| 
+
+Figure 6: Set baudrate for device console output
 
 Coredump
 ~~~~~~~~
@@ -536,7 +544,9 @@ Enable the coredump via UART after a crash.
 
 **Note**: Single line command.
 
-|image7| \ Figure : Enable coredump via UART after crash
+|image65| 
+
+Figure 7: Enable coredump via UART after crash
 
 PIN Configuration
 ~~~~~~~~~~~~~~~~~
@@ -580,7 +590,9 @@ Set the GPIO 13 pin as input with pull up:
 
 **Note**: Single line command.
 
-|image8| \ Figure : Set the GPIO 13 pin as input with pull up
+|image66| 
+
+Figure 8: Set the GPIO 13 pin as input with pull up
 
 Gratuitous ARP Period
 ~~~~~~~~~~~~~~~~~~~~~
@@ -615,7 +627,9 @@ Set the ARP period to 90 (s).
 
 **Note**: Single line command.
 
-|image9| \ Figure : Set the ARP period to 90 (s)
+|image67| 
+
+Figure 9: Set the ARP period to 90 (s)
 
 Wi-Fi Channels
 ~~~~~~~~~~~~~~
@@ -650,7 +664,9 @@ Set the Wi-Fi to use channels 1 to 6 and 11.
 
 **Note**: Single line command.
 
-|image10| \ Figure : Set the Wi-Fi to use channels 1 to 6 and 11
+|image68| 
+
+Figure 10: Set the Wi-Fi to use channels 1 to 6 and 11
 
 Wi-Fi Dynamic Listen Interval
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -686,7 +702,9 @@ Turn dynamic listening ON.
 
 **Note**: Single line command.
 
-|image11| \ Figure : Turning dynamic listening ON
+|image69| 
+
+Figure 11: Turning dynamic listening ON
 
 Wi-Fi Beacon Listen Interval
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -721,7 +739,9 @@ Set the beacon listening interval to 10.
 
 **Note**: Single line command.
 
-|image12| \ Figure : Set the beacon listening interval to 10
+|image70| 
+
+Figure 12: Set the beacon listening interval to 10
 
 Wi-Fi Max Idle Period
 ~~~~~~~~~~~~~~~~~~~~~
@@ -757,7 +777,9 @@ Set the max idle time to 300 (s).
 
 **Note**: Single line command.
 
-|image13| \ Figure : Set the max idle time to 300 (s)
+|image71| 
+
+Figure 13: Set the max idle time to 300 (s)
 
 Wi-Fi Traffic Timeout
 ~~~~~~~~~~~~~~~~~~~~~
@@ -795,7 +817,9 @@ Set the traffic timeout value to 24 (ms).
 
 **Note**: Single line command.
 
-|image14| \ Figure : Set the traffic timeout value to 24 (ms)
+|image72| 
+
+Figure 14: Set the traffic timeout value to 24 (ms)
 
 Wi-Fi Tx Power Save
 ~~~~~~~~~~~~~~~~~~~
@@ -832,7 +856,9 @@ Turn ON the Wi-Fi Tx power save mode.
 
 **Note**: Single line command.
 
-|image15| \ Figure : Turn ON the Wi-Fi Tx power save mode
+|image73| 
+
+Figure 15: Turn ON the Wi-Fi Tx power save mode
 
 Wi-Fi DTIM Only Listening
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -870,59 +896,57 @@ Turn DTIM only ON.
 
 **Note**: Single line command.
 
-|image16| \ Figure 16: Turn ON the Wi-Fi DTIM only listening mode
+|image74| 
+
+Figure 16: Turn ON the Wi-Fi DTIM only listening mode
 
 
 
-.. |Table Description automatically generated with medium confidence| image:: media/image1.png
+.. |image59| image:: media/image59.png
    :width: 7.08661in
    :height: 1.49772in
-.. |image1| image:: media/boot2.png
+.. |image60| image:: media/image60.png
    :width: 1.59167in
    :height: 0.225in
-.. |image2| image:: media/boot3.png
+.. |image61| image:: media/image61.png
    :width: 7.48031in
    :height: 1.65708in
-.. |image3| image:: media/boot5.png
+.. |image62| image:: media/image62.png
    :width: 7.48031in
    :height: 1.65708in
-.. |image4| image:: media/boot7.png
+.. |image63| image:: media/image63.png
    :width: 7.48031in
    :height: 1.71595in
-.. |image5| image:: media/boot9.png
+.. |image64| image:: media/image64.png
    :width: 7.48031in
    :height: 1.71595in
-.. |image6| image:: media/boot11.png
+.. |image65| image:: media/image65.png
    :width: 7.48031in
    :height: 1.5167in
-.. |image7| image:: media/boot13.png
+.. |image66| image:: media/image66.png
    :width: 7.48031in
    :height: 1.71595in
-.. |image8| image:: media/boot15.png
+.. |image67| image:: media/image67.png
    :width: 7.48031in
    :height: 1.71595in
-.. |image9| image:: media/boot17.png
+.. |image68| image:: media/image68.png
    :width: 7.48031in
    :height: 1.91595in
-.. |image10| image:: media/boot19.png
+.. |image69| image:: media/image69.png
    :width: 7.48031in
    :height: 1.91595in
-.. |image11| image:: media/boot21.png
+.. |image70| image:: media/image70.png
    :width: 7.48031in
    :height: 1.91595in
-.. |image12| image:: media/boot23.png
+.. |image71| image:: media/image71.png
    :width: 7.48031in
    :height: 1.91595in
-.. |image13| image:: media/boot25.png
+.. |image72| image:: media/image72.png
    :width: 7.48031in
    :height: 1.91595in
-.. |image14| image:: media/boot27.png
+.. |image73| image:: media/image73.png
    :width: 7.48031in
    :height: 1.91595in
-.. |image15| image:: media/boot29.png
+.. |image74| image:: media/image74.png
    :width: 7.48031in
    :height: 1.91595in
-.. |image16| image:: media/boot31.png
-   :width: 7.48031in
-   :height: 2.31595in
-

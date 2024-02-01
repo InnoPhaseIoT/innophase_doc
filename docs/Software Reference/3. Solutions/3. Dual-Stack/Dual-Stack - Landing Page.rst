@@ -85,55 +85,55 @@ Getting Started
 .. toctree::
    :maxdepth: 3
 
-   Supported Host Platform/3. INP3201-HOST/1. Getting Started/INP3201 Getting Started - Landing Page.rst
+   Supported Host Platform/INP3201 Reference Kit/1. Getting Started/INP3201 Getting Started - Landing Page.rst
 
 Evaluation Setup and Usage
 ~~~~~~~~~~~~~~~~~~~~~~~~
 .. toctree::
    :maxdepth: 2
 
-   Supported Host Platform/3. INP3201-HOST/2. Evaluation Set-up & Usage/1. Evaluation Set-up & Usage - Landing Page.rst
-   Supported Host Platform/3. INP3201-HOST/2. Evaluation Set-up & Usage/2. Preparing the SD Card and Booting INP3201 Board.rst
-   Supported Host Platform/3. INP3201-HOST/2. Evaluation Set-up & Usage/3. Programming Talaria TWO.rst
-   Supported Host Platform/3. INP3201-HOST/2. Evaluation Set-up & Usage/4. Programming T31ZX Host.rst
+   Supported Host Platform/INP3201 Reference Kit/2. Evaluation Set-up & Usage/1. Evaluation Set-up & Usage - Landing Page.rst
+   Supported Host Platform/INP3201 Reference Kit/2. Evaluation Set-up & Usage/2. Preparing the SD Card and Booting INP3201 Board.rst
+   Supported Host Platform/INP3201 Reference Kit/2. Evaluation Set-up & Usage/3. Programming Talaria TWO.rst
+   Supported Host Platform/INP3201 Reference Kit/2. Evaluation Set-up & Usage/4. Programming T31ZX Host.rst
 
 MCU Firmware Flashing
 ~~~~~~~~~~~~~~~~~~~~~~~~
 .. toctree::
    :maxdepth: 2
 
-   Supported Host Platform/3. INP3201-HOST/2. Evaluation Set-up & Usage/5. MCU Firmware Flashing/1. MCU Firmware Flashing - Landing Page.rst
-   Supported Host Platform/3. INP3201-HOST/2. Evaluation Set-up & Usage/5. MCU Firmware Flashing/2. Flashing using STM32Cube Programmer.rst
+   Supported Host Platform/INP3201 Reference Kit/2. Evaluation Set-up & Usage/5. MCU Firmware Flashing/1. MCU Firmware Flashing - Landing Page.rst
+   Supported Host Platform/INP3201 Reference Kit/2. Evaluation Set-up & Usage/5. MCU Firmware Flashing/2. Flashing using STM32Cube Programmer.rst
 
 Testing for Basic Operations
 ~~~~~~~~~~~~~~~~~~~~~~~~
 .. toctree::
    :maxdepth: 2
 
-   Supported Host Platform/3. INP3201-HOST/2. Evaluation Set-up & Usage/6. Testing for Basic Operations/1. Testing for Basic Operations - Landing Page.rst
-   Supported Host Platform/3. INP3201-HOST/2. Evaluation Set-up & Usage/6. Testing for Basic Operations/2. Use Case 1.rst
-   Supported Host Platform/3. INP3201-HOST/2. Evaluation Set-up & Usage/6. Testing for Basic Operations/3. Use Case 2.rst
+   Supported Host Platform/INP3201 Reference Kit/2. Evaluation Set-up & Usage/6. Testing for Basic Operations/1. Testing for Basic Operations - Landing Page.rst
+   Supported Host Platform/INP3201 Reference Kit/2. Evaluation Set-up & Usage/6. Testing for Basic Operations/2. Use Case 1.rst
+   Supported Host Platform/INP3201 Reference Kit/2. Evaluation Set-up & Usage/6. Testing for Basic Operations/3. Use Case 2.rst
 
 Current Measurement
 ~~~~~~~~~~~~~~~~~~~~~~~~
 .. toctree::
    :maxdepth: 1
 
-   Supported Host Platform/3. INP3201-HOST/3. Current Measurement/Current Measurement.rst
+   Supported Host Platform/INP3201 Reference Kit/3. Current Measurement/Current Measurement.rst
 
 Example applications
 ~~~~~~~~~~~~~~~~~~~~~~~
 .. toctree::
    :maxdepth: 2
 
-   Supported Host Platform/3. INP3201-HOST/4. Example Applications/Custom Echo Application.rst
-   Supported Host Platform/3. INP3201-HOST/4. Example Applications/Custom FOS Application.rst
-   Supported Host Platform/3. INP3201-HOST/4. Example Applications/Custom GPIO Application.rst
-   Supported Host Platform/3. INP3201-HOST/4. Example Applications/Custom MQTT Application.rst
-   Supported Host Platform/3. INP3201-HOST/4. Example Applications/Custom Network Test Application.rst
-   Supported Host Platform/3. INP3201-HOST/4. Example Applications/Custom Network Test Application.rst
-   Supported Host Platform/3. INP3201-HOST/4. Example Applications/Example applications - Landing Page.rst
-   Supported Host Platform/3. INP3201-HOST/4. Example Applications/Heartbeat Monitor Application.rst
+   Supported Host Platform/INP3201 Reference Kit/4. Example Applications/Custom Echo Application.rst
+   Supported Host Platform/INP3201 Reference Kit/4. Example Applications/Custom FOS Application.rst
+   Supported Host Platform/INP3201 Reference Kit/4. Example Applications/Custom GPIO Application.rst
+   Supported Host Platform/INP3201 Reference Kit/4. Example Applications/Custom MQTT Application.rst
+   Supported Host Platform/INP3201 Reference Kit/4. Example Applications/Custom Network Test Application.rst
+   Supported Host Platform/INP3201 Reference Kit/4. Example Applications/Custom Network Test Application.rst
+   Supported Host Platform/INP3201 Reference Kit/4. Example Applications/Example applications - Landing Page.rst
+   Supported Host Platform/INP3201 Reference Kit/4. Example Applications/Heartbeat Monitor Application.rst
 
 
 AWS Kinesis Video streaming
@@ -141,10 +141,10 @@ AWS Kinesis Video streaming
 .. toctree::
    :maxdepth: 2
 
-   Supported Host Platform/3. INP3201-HOST/5. AWS Kinesis Video Streaming/1. AWS Kinesis Video Streaming - Landing Page.rst
-   Supported Host Platform/3. INP3201-HOST/5. AWS Kinesis Video Streaming/2. Preparing the SD Card and Booting INP3201 Board.rst
-   Supported Host Platform/3. INP3201-HOST/5. AWS Kinesis Video Streaming/3. INP3201 Host - Talaria TWO AWS KINESIS Video Streaming Setup.rst
-   Supported Host Platform/3. INP3201-HOST/5. AWS Kinesis Video Streaming/5. Multiple Streaming.rst
+   Supported Host Platform/INP3201 Reference Kit/5. AWS Kinesis Video Streaming/1. AWS Kinesis Video Streaming - Landing Page.rst
+   Supported Host Platform/INP3201 Reference Kit/5. AWS Kinesis Video Streaming/2. Preparing the SD Card and Booting INP3201 Board.rst
+   Supported Host Platform/INP3201 Reference Kit/5. AWS Kinesis Video Streaming/3. INP3201 Host - Talaria TWO AWS KINESIS Video Streaming Setup.rst
+   Supported Host Platform/INP3201 Reference Kit/5. AWS Kinesis Video Streaming/5. Multiple Streaming.rst
 
 
 Enable Video Streaming
@@ -152,8 +152,8 @@ Enable Video Streaming
 .. toctree::
    :maxdepth: 2
 
-   Supported Host Platform/3. INP3201-HOST/5. AWS Kinesis Video Streaming/4. Enable Video Streaming/1. AWS Streaming APP.rst
-   Supported Host Platform/3. INP3201-HOST/5. AWS Kinesis Video Streaming/4. Enable Video Streaming/2. Web Browser .rst
+   Supported Host Platform/INP3201 Reference Kit/5. AWS Kinesis Video Streaming/4. Enable Video Streaming/1. AWS Streaming APP.rst
+   Supported Host Platform/INP3201 Reference Kit/5. AWS Kinesis Video Streaming/4. Enable Video Streaming/2. Web Browser .rst
 
 
 Supported Host Platforms - cv23 Soc Platform

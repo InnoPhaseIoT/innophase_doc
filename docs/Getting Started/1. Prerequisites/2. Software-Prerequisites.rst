@@ -22,7 +22,7 @@ steps:
 1. Go to the InnoPhase website (https://innophaseiot.com/) and click on
    Register.
 
-|image3|
+|image1|
 
 2. Provide the appropriate details to register onto the InnoPhase
    Customer Portal.
@@ -34,12 +34,12 @@ Portal.
 3. On successfully registering to the Customer Portal, the following
    screen will appear:
 
-|image4|
+|image2|
 
 4. Navigate to the Software Tab and download the appropriate software
    package(s):
 
-|image5|
+|image3|
 
 SDK Package Contents Walkthrough
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -267,13 +267,13 @@ Folder details are as follows:
     - mklittlefs: tool used to create the file system image.
     - partition_files: flash partition files used with SSBL setup (ssbl_part_table.json) and without SSBL setup (standard_part_table.json).
 
+.. |image1| image:: media/image1.png
+   :width: 3.90551in
+   :height: 2.5654in
+.. |image2| image:: media/image2.png
+   :width: 5.90551in
+   :height: 2.5654in
 .. |image3| image:: media/image3.png
-   :width: 5.90551in
-   :height: 2.5654in
-.. |image4| image:: media/image4.png
-   :width: 5.90551in
-   :height: 2.5654in
-.. |image5| image:: media/image5.png
    :width: 5.90551in
    :height: 2.5654in
 

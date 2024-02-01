@@ -268,7 +268,7 @@ Folder details are as follows:
     - partition_files: flash partition files used with SSBL setup (ssbl_part_table.json) and without SSBL setup (standard_part_table.json).
 
 .. |image1| image:: media/image1.png
-   :width: 3.90551in
+   :width: 5.90551in
    :height: 2.5654in
 .. |image2| image:: media/image2.png
    :width: 5.90551in

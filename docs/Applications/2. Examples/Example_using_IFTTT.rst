@@ -1,7 +1,7 @@
 .. _ex ifttt:
 
-IFTTT
------------
+IFTTT - Overview
+----------------
 
 This document provides basic information about IFTTT. It discusses using
 Talaria TWO with IFTTT with the help of an example application. The
@@ -9,8 +9,8 @@ information includes setting up Talaria TWO to connect to IFTTT, a
 stepwise procedure to set up IFTTT account and the required
 infrastructure in IFTTT.
 
-IFTTT
-~~~~~~~~~~~~~~~~~~~~~~
+IFTTT Using IFTTT
+~~~~~~~~~~~~~~~~~
 
 IFTTT is a web service that provides easiest way to connect thousands of
 apps and devices, including Google Drive, Amazon Alexa, Fitbit, Twitter,
@@ -114,11 +114,11 @@ following steps to acquire the same:
 3. This gives the endpoint, like the following:
    https://maker.ifttt.com/trigger/trigger_from_t2/with/key/c9ebSVVNGeSB1yi6NrVeyl
 
-Code Walkthrough
-~~~~~~~~~~~~~~~~~~~~~~
+Code Walkthrough Using IFTTT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Application Flow
-~~~~~~~~~~~~~~~~~~~~~~
+Application Flow Using IFTTT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 IFTTT is a web service that provides an easy way to connect thousands of
 apps and devices, including Google Drive, Amazon Alexa, Fitbit, Twitter,
@@ -137,8 +137,8 @@ Following are the steps:
 
 5. HTTP post method.
 
-Sample Code Walkthrough
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Sample Code Walkthrough Using IFTTT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A user-defined data struct is created to store the data of IFTTT:
 
@@ -429,11 +429,11 @@ before calling this API.
 
 
 
-Running the Application 
-~~~~~~~~~~~~~~~~~~~~~~
+Running the Application Using IFTTT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Programming Talaria TWO board with ELF
-~~~~~~~~~~~~~~~~~~~~~~
+Programming Talaria TWO board with ELF Using IFTTT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Program ifttt.elf *(freertos_sdk_x.y\\examples\\ifttt\\bin)* using the
 Download tool:
@@ -467,14 +467,14 @@ iv.  method: GET
 
 d. Programming: Prog RAM or Prog Flash as per requirement.
 
-Expected Output
-~~~~~~~~~~~~~~~~~~~~~~
+Expected Output in IFTTT
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When the application is run with a proper endpoint URL, an email is
 received from IFTTT to the email address provided in the Email service
 at the time of creating the applet.
 
-.. code:: shell
+.. code-block:: console
 
       Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
       ROM yoda-h0-rom-16-0-gd5a8e586

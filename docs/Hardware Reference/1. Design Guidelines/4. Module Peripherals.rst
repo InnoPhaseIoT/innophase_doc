@@ -1,7 +1,7 @@
 .. _module peripherals:
 
-Module Peripherals
-##################
+Design Guidelines - Module Peripherals
+########################################
 
 Talaria TWO modules have a rich set of peripherals in a compact
 formfactor with UART, SPI, ADC, PWM I2C, I2S and multiple GPIOs. It is
@@ -9,8 +9,8 @@ also equipped with a JTAG interface which can be used for extensive
 debugging. Peripherals are multiplexed with GPIOs, which can be selected
 through software.
 
-UART Interface
---------------
+UART-Interface
+---------------
 
 There is only one UART interface available on Talaria TWO modules on the
 PINS **GPIO1 - TXD** and **GPIO2 - RXD** by default on power-up. The

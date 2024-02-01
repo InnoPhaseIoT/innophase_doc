@@ -36,7 +36,7 @@ Figure 1: Block Diagram
 
 
 Download Tool Usage
-==================
+=====================
 
 .. toctree::
    :hidden:

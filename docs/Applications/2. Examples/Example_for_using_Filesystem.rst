@@ -8,8 +8,8 @@ Talaria TWO EVK has a 2MB SPI flash for storing user data. This
 application note describes using the APIs to show case the filesystem
 read, write, and remove functionalities on the Talaria TWO EVK.
 
-Sample Code Walkthrough
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Sample Code Walkthrough using File Systems
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Using_filesystem
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -152,8 +152,8 @@ Figure 3: Fetching files from data partition
 Writing into the Filesystem Programmatically
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Running the Application 
-~~~~~~~~~~~~~~~~~~~~~~~~
+Running the Application using FileSystem
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Program using_fs.elf
 (*freertos_sdk_x.y\\examples\\using_filesystem\\bin*) using the Download

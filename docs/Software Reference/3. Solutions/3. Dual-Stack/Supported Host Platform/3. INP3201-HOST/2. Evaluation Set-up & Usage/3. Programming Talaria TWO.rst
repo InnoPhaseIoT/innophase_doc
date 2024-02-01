@@ -189,52 +189,50 @@ Command:
 
 Expected output:
 
-.. code:: shell
+.. code-block:: text
 
- 	/tmp/_MEItbY8QH/bin
-	Starting OpenOCD
-	/tmp/_MEItbY8QH/bin/openocd/linux64/openocd_linux64 -s /tmp/_MEItbY8QH/bin/sdk-files -f /tmp/_MEItbY8QH/bin/openocd/interface/cmsis-dap.cfg -f t2_swd.cfg
-	xPack OpenOCD, x86_64 Open On-Chip Debugger 0.10.0+dev (2020-10-13-17:27)
-	Licensed under GNU GPL v2
-	For bug reports, read
-		http://openocd.org/doc/doxygen/bugs.html
-	DEPRECATED! use 'adapter speed' not 'adapter_khz'
-	cortex_m reset_config sysresetreq
-	Error: couldn't bind tcl to socket on port 6666: Address already in use
-	(re)connecting with openocd
-	Info : accepting 'tcl' connection on tcp/6666
-	talaria_two
-	Open On-Chip Debugger 0.10.0
-	openocd version: 'Open On-Chip Debugger 0.10.0'
-	Connecting GDB
-	Info : accepting 'gdb' connection on tcp/3333
-	GDB: monitor reset halt
-	Info : Talaria TWO rev. H0
-	target halted due to debug-request, current mode: Thread 
-	xPSR: 0x01000000 pc: 0x00020f90 msp: 0x00041a78
-	GDB: gdb load /tmp/_MEItbY8QH/bin/tinyflasher.elf
-	GDB: write WAIT_OP at 0x7ffe8
-	Starting TinyFlasher
-	GDB: gdb continue
-	GDB: write READ_PTABLE_OP at 0x7ffe8
-	GDB: gdb continue
-	waiting...
-	operation complete
-	GDB: write WAIT_OP at 0x7ffe8
-	Read ptable contents from memory
-	Flashing ./root.img at 0x100000
-	GDB: write sector count at 0x7fff0
-	GDB: write target flash addr at 0x7fff4
-	GDB: write image binary to RAM staging location (0x80000)
-	GDB: write FLASH_OP at 0x7ffe8
-	GDB: gdb continue
-	waiting...
-	operation complete
-	GDB: write WAIT_OP at 0x7ffe8
-	Disconnecting OpenOCD
-	DONE
-	Info : dropped 'tcl' connection
-	Info : dropped 'gdb' connection
+    /tmp/_MEItbY8QH/bin Starting OpenOCD
+    /tmp/_MEItbY8QH/bin/openocd/linux64/openocd_linux64 -s /tmp/_MEItbY8QH/bin/sdk-files -f /tmp/_MEItbY8QH/bin/openocd/interface/cmsis-dap.cfg -f t2_swd.cfg
+    xPack OpenOCD, x86_64 Open On-Chip Debugger 0.10.0+dev (2020-10-13-17:27)
+    Licensed under GNU GPL v2
+    For bug reports, read http://openocd.org/doc/doxygen/bugs.html
+    DEPRECATED! use 'adapter speed' not 'adapter_khz'
+    cortex_m reset_config sysresetreq
+    Error: couldn't bind tcl to socket on port 6666: Address already in use
+    (re)connecting with openocd
+    Info : accepting 'tcl' connection on tcp/6666
+    talaria_two
+    Open On-Chip Debugger 0.10.0
+    openocd version: 'Open On-Chip Debugger 0.10.0'
+    Connecting GDB
+    Info : accepting 'gdb' connection on tcp/3333
+    GDB: monitor reset halt
+    Info : Talaria TWO rev. H0
+    target halted due to debug-request, current mode: Thread
+    xPSR: 0x01000000 pc: 0x00020f90 msp: 0x00041a78
+    GDB: gdb load /tmp/_MEItbY8QH/bin/tinyflasher.elf
+    GDB: write WAIT_OP at 0x7ffe8
+    Starting TinyFlasher
+    GDB: gdb continue
+    GDB: write READ_PTABLE_OP at 0x7ffe8
+    GDB: gdb continue
+    waiting...
+    operation complete
+    GDB: write WAIT_OP at 0x7ffe8
+    Read ptable contents from memory
+    Flashing ./root.img at 0x100000
+    GDB: write sector count at 0x7fff0
+    GDB: write target flash addr at 0x7fff4
+    GDB: write image binary to RAM staging location (0x80000)
+    GDB: write FLASH_OP at 0x7ffe8
+    GDB: gdb continue
+    waiting...
+    operation complete
+    GDB: write WAIT_OP at 0x7ffe8
+    Disconnecting OpenOCD
+    DONE
+    Info : dropped 'tcl' connection
+    Info : dropped 'gdb' connection
 
 
 Once flashing and root image update is complete, reset Talaria TWO and

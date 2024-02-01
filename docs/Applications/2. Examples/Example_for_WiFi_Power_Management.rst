@@ -248,7 +248,7 @@ e. Programming: Prog RAM or Prog Flash as per requirement.
 
 Console output:
 
-.. code:: shell
+.. code-block:: console
 
       UART:SNWWWWAE
       4 DWT comparators, range 0x8000
@@ -943,7 +943,7 @@ Program wcm_pm_mcast.elf using the Download tool. Refer steps in section
 
 Console output:
 
-.. code:: shell
+.. code-block:: console
 
       UART:SNWWWWAE
       4 DWT comparators, range 0x8000

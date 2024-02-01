@@ -133,10 +133,10 @@ tailored to any other supported device and development board.
 
 For example, TCP client: netcat on PC
 
-+-----------------------------------------------------------------------+
-| #nc <ip address of T2> 9000                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    #nc <ip address of T2> 9000
+
 
 2. Send any data from the TCP client. The same data is received on the
    client from ST32-Talaria TWO device.
@@ -171,27 +171,17 @@ completed by default.
 HAPI Interface Initialization
 -----------------------------
 
-+-----------------------------------------------------------------------+
-| struct hapi \*hapi;                                                   |
-|                                                                       |
-| #ifdef HAPI_INTERFACE_UART_ENABLED                                    |
-|                                                                       |
-| /\* Register the uart, and baud rate to hapi \*/                      |
-|                                                                       |
-| hapi = hapi_uart_init(hapi_uart, hapi_uart_tx, hapi_uart_rx);         |
-|                                                                       |
-| #endif                                                                |
-|                                                                       |
-| #ifdef HAPI_INTERFACE_SPI_ENABLED                                     |
-|                                                                       |
-| /\* Register the SPI \*/                                              |
-|                                                                       |
-| hapi = hapi_spi_init(hapi_spi, hapi_spi_cs_high, hapi_spi_cs_low,     |
-| hapi_spi_tx, hapi_spi_rx);                                            |
-|                                                                       |
-| #endif                                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code-block:: shell
+
+    struct hapi \*hapi;
+    #ifdef HAPI_INTERFACE_UART_ENABLED
+    /\* Register the uart, and baud rate to hapi \*/
+    hapi = hapi_uart_init(hapi_uart, hapi_uart_tx, hapi_uart_rx);
+    #endif
+    #ifdef HAPI_INTERFACE_SPI_ENABLED
+    /\* Register the SPI \*/
+    hapi = hapi_spi_init(hapi_spi, hapi_spi_cs_high, hapi_spi_cs_low, hapi_spi_tx, hapi_spi_rx);
+    #endif
 
 HAPI Interface Start and Disable Sleep Mode in Configuration
 ------------------------------------------------------------
@@ -355,46 +345,45 @@ Application Files and Functions
 ===============================
 
 +----------------------------------------+-----------------------------+
-|    File                                |    Function                 |
+| File                                   |    Function                 |
 +========================================+=============================+
-|    InnoPhase_H                         |    Main Program             |
+| InnoPhase_H                            |    Main Program             |
 | API/InnoPhase_HAPI_wifidemo/Src/main.c |                             |
 +----------------------------------------+-----------------------------+
-|    InnoPhase_HAPI/InnoPhase_HAPI_wif   |    HAL time-base file       |
+| InnoPhase_HAPI/InnoPhase_HAPI_wif      |    HAL time-base file       |
 | idemo/Src/stm32l4xx_hal_timebase_tim.c |                             |
 +----------------------------------------+-----------------------------+
-|    InnoPhase_HAPI/Inno                 |    Interrupt handlers       |
+| InnoPhase_HAPI/Inno                    |    Interrupt handlers       |
 | Phase_HAPI_wifidemo/Src/stm32l4xx_it.c |                             |
 +----------------------------------------+-----------------------------+
-|    InnoPhase_HAPI/InnoPhas             |    STM32L4xx system clock   |
+| InnoPhase_HAPI/InnoPhas                |    STM32L4xx system clock   |
 | e_HAPI_wifidemo/Src/system_stm32l4xx.c |    configuration file       |
 +----------------------------------------+-----------------------------+
-|    InnoPhase_HAPI/I                    |    Code for free RTOS       |
+| InnoPhase_HAPI/I                       |    Code for free RTOS       |
 | nnoPhase_HAPI_wifidemo/Src/freertose.c |    application              |
 +----------------------------------------+-----------------------------+
-|    InnoPhase_HAPI/InnoPhase            |    Code for MSP             |
-| _HAPI_wifidemo/Src/stm32l4xx_hal_msp.c |    init                     |
-|                                        | ialization/deinitialization |
+| InnoPhase_HAPI/InnoPhase               | Code for MSP init           |
+| _HAPI_wifidemo/Src/stm32l4xx_hal_msp.c | ialization/deinitialization |
 +----------------------------------------+-----------------------------+
-|    InnoPhase_HAPI/                     |    System calls file        |
+| InnoPhase_HAPI/                        |    System calls file        |
 | InnoPhase_HAPI_wifidemo/Src/syscalls.c |                             |
 +----------------------------------------+-----------------------------+
-|    InnoPhase_HAP                       |    System memory calls file |
+| InnoPhase_HAP                          |    System memory calls file |
 | I/InnoPhase_HAPI_wifidemo/Src/sysmem.c |                             |
 +----------------------------------------+-----------------------------+
-|    InnoPhase_HAPI/InnoPhase_HAPI       |    System startup file      |
+| InnoPhase_HAPI/InnoPhase_HAPI          |    System startup file      |
 | _wifidemo/Src/startup_stm32l433rctxp.s |                             |
 +----------------------------------------+-----------------------------+
-|    InnoPhase_H                         |    Main program header file |
+| InnoPhase_H                            |    Main program header file |
 | API/InnoPhase_HAPI_wifidemo/Inc/main.h |                             |
 +----------------------------------------+-----------------------------+
-|    InnoPhase_HAPI/InnoPhase_           |    HAL Library              |
+| InnoPhase_HAPI/InnoPhase_              |    HAL Library              |
 | HAPI_wifidemo/Inc/stm32l4xx_hal_conf.h |    Configuration file       |
 +----------------------------------------+-----------------------------+
-|    InnoPhase_HAPI/Inno                 |    Interrupt handler’s      |
+| InnoPhase_HAPI/Inno                    |    Interrupt handler’s      |
 | Phase_HAPI_wifidemo/Inc/stm32l4xx_it.h |    header file              |
 +----------------------------------------+-----------------------------+
-|    InnoPhase_HAPI/InnoPh               |    FreeRTOS Configuration   |
+| InnoPhase_HAPI/InnoPh                  |    FreeRTOS Configuration   |
 | ase_HAPI_wifidemo/Inc/FreeRTOSConfig.h |    file                     |
 +----------------------------------------+-----------------------------+
 

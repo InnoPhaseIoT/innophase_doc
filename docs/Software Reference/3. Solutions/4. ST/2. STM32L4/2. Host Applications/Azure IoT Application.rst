@@ -242,7 +242,7 @@ Publish Messages to Azure IoT Cloud
 Disconnect Azure IoT Cloud
 --------------------------
 
-.. code-block:: shelll
+.. code-block:: shell
 
     ms_azure_iot_mqtt_disconnect(gpclient);
 

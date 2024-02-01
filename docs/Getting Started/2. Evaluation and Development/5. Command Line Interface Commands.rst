@@ -73,7 +73,7 @@ command line to generate the .img file for flash download.
 details.
 
 flash.py
-^^^^^^^
+^^^^^^^^^
 
 Script to read and write to the flash, which requires gordon.elf
 application.
@@ -122,7 +122,7 @@ This script reads from/writes the partition table on the device (in the
 json file).
 
 storage.py
-^^^^^^^
+^^^^^^^^^^
 
 Storage file access utility. Following are the basic file system access
 functionalities of storage.py:
@@ -137,17 +137,17 @@ functionalities of storage.py:
    system to configure L2 parameters such as SSID, passphrase, BSSID,
    security type and certificates for EAP authentication
 
-Refer section  for the details. :ref:`Storage Data & File: Read/Write`
+Refer section  for the details. :ref:`E&D - Storage Data & File: Read/Write<storage-data-file-readwrite-2>`
 
 Device Interface on Host Machine
-^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 CLI commands are supported on both Linux and Windows OS. However, there
 are some limitations on the same functionality in the Windows
 environment, which are highlighted in the respective sections.
 
 Device Port Identification on Linux OS
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Generally, the host interface connected to the device takes the form of
 the device USB ports on Linux OS, /dev/ttyUSBn. Once connected to
@@ -218,7 +218,7 @@ Figure 4: /dev/ttyUSB3
 Figure 5: /dev/ttyUSB7
 
 Device Port Identification on Windows OS
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 On a Windows platform, some control functionalities associated with the
 CLI device-reset feature requires additional support provided by
@@ -393,20 +393,13 @@ Using boot.py
    b. [device]: Communication device ID with path.
       i.   If there is only one Talaria TWO device with USB interface connected:
       ii.  Examples: COMn(Windows), /dev/ttyUSBn(Linux), ftdi://ftdi:xxxxxx(Windows libusbK installed).
-      iii. If there are multiple Talaria TWO devices where each of them has their own peripheral port connected to the host via the
-           USB interface:
-
-      iv.  The device specifier must be expanded with the serial ID of
-           the device in the command line. This is accomplished with the
-           keyword --SN. Execute the following:
-
-      v.   Command for device ID to the device port as shown above with
-           the string is as follows:
+      iii. If there are multiple Talaria TWO devices where each of them has their own peripheral port connected to the host via the USB interface:
+      iv.  The device specifier must be expanded with the serial ID of the device in the command line. This is accomplished with the keyword --SN. Execute the following:
+      v.   Command for device ID to the device port as shown above with the string is as follows:
 
 .. code:: shell
 
-    ./script/boot.py --device /dev/ttyUSB2 --SN 15100010 --reset=evk42_bl
-    bins/iperf3.elf ssid=InnoPhase passphrase=Inno@9070
+    ./script/boot.py --device /dev/ttyUSB2 --SN 15100010 --reset=evk42_bl bins/iperf3.elf ssid=InnoPhase passphrase=Inno@9070
 
 ..
 
@@ -539,7 +532,7 @@ list:
 
 Figure 16: storage.py command script
 
-Use Cases 
+Use Cases
 ==========
 
 Linux Platform
@@ -683,8 +676,8 @@ Button reset to confirm the flash operation a success.
 
 Figure 26: Flash operation success
 
-Storage Data & File: Read/Write
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Storage Data and File: Read/Write
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. **Read Partition Table from Device (to_json)**
 
@@ -870,7 +863,7 @@ profiles:
 
 1. **Open security**:
 
-.. code:: python
+.. code-block:: console
 
     {
         “security_type”: “open”
@@ -887,7 +880,7 @@ b. Optional – bssid
 
 2. **WPA/WPA2-PSK**:
 
-.. code:: shell
+.. code-block:: console
 
     {
         "security_type": "wpa23_psk",
@@ -976,9 +969,6 @@ b. Optional : bssid
         Mandatory: security_type, auth_type, ssid, passphrase, identity
         Optional : bssid
     }
-
-**
-**
 
 7. **EAP-TLS** Enterprise security.
 
@@ -1256,7 +1246,7 @@ Figure 41: Erase image in flash
 
 .. _storage-data-file-readwrite-1:
 
-Storage Data & File: Read/Write
+Storage Data & File: R/W
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. **Read Partition Table from Device (to_json)**
@@ -1397,8 +1387,8 @@ UG_Download_Tool.pdf (*freertos_sdk_x.y\\pc_tools\\Download_Tool\\doc*).
 
 .. _reset-device-2:
 
-Reset Device
-~~~~~~~~~~~~
+E&D - Reset Device
+~~~~~~~~~~~~~~~~~~
 
 All command reset is not supported under this setup.
 
@@ -1458,8 +1448,8 @@ Button reset to confirm the erase operation is a success.
 
 .. _storage-data-file-readwrite-2:
 
-Storage Data & File: Read/Write
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+E&D - Storage Data & File: Read/Write
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. **Read Partition Table from Device (to_json)**
 
@@ -1475,8 +1465,7 @@ b. Run the flash.py with the command: to_json
 
 .. code:: shell
 
-    python script\\flash.py [device] **to_json**
-    <user_specify_path>\\<user_spefcify_name>.json
+    python script\\flash.py [device] **to_json** <user_specify_path>\\<user_spefcify_name>.json
 
 
 Display of the board_0407.json file
@@ -1497,7 +1486,7 @@ b. Run the flash.py with the command: from_json
 
 **Command syntax**:
 
-.. code:: shell
+.. code:: python
 
     python script\\flash.py [device] **from_json**
     <user_specify_path>/<user_spefcify_name>.json

@@ -100,7 +100,7 @@ Each application in the application sector is stored as shown in Figure
 present.
 
 Using INP3000 Programmer Board
-+++++++++++
++++++++++++++++++++++++++++++++++
 
 .. toctree::
    :hidden:
@@ -109,7 +109,7 @@ Using INP3000 Programmer Board
    1. Using INP3000 Programmer Board/Using INP3000 Programmer Board.rst
 
 Using UART Interfaces
-+++++++++++
+++++++++++++++++++++++
 
 .. toctree::
    :hidden:
@@ -119,7 +119,7 @@ Using UART Interfaces
 
 
 Using SPI Interfaces
-+++++++++++
+++++++++++++++++++++++
 
 .. toctree::
    :hidden:
@@ -128,7 +128,7 @@ Using SPI Interfaces
    3. Using SPI Interfaces/Factory loader using other SPI interfaces.rst
 
 Using JTAG and SWD Interfaces
-+++++++++++
++++++++++++++++++++++++++++++++++
 
 .. toctree::
    :hidden:
@@ -144,11 +144,11 @@ Design
    :hidden:
    :maxdepth: 1
 
-   3. Factory Loader/5. Design
+   5. Design/Design.rst
 
 
 Sample Scenarios
-+++++++++++
+++++++++++++++++++++++
 
 .. toctree::
    :hidden:

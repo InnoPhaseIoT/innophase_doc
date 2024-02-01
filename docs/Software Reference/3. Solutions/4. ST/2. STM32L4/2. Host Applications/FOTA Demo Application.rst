@@ -221,7 +221,7 @@ The application triggers FOTA using the following HAPI API:
 
 Usage:
 
-.. code-block:: shel
+.. code-block:: shell
 
     status = hapi_fota_start(hapi, 1, 0);
     if(!status)

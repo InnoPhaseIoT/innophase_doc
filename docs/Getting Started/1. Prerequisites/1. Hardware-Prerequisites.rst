@@ -16,7 +16,7 @@ The package contains:
     - 3. Antenna (INP3011 and INP3012 boards)
     - 4. Battery box
 
-|image1|
+|image4|
             Figure 1: INP301x EVB-A Board with INP101x module board installed
 
 Description of the Board
@@ -25,9 +25,10 @@ Description of the Board
 Block Diagram
 -------------
 
-|image2|
+|image5|
 
 Figure 2: Block diagram of INP301x Evaluation Board
+
 
 The block diagram of the INP301x Evaluation board is shown in Figure 2.
 The main component on the board is the INP101x module. Key features of
@@ -75,9 +76,9 @@ different applications:
 3. INP3000 Programmer Board VERSION 2.1
 
 
-.. |image1| image:: media/images1.jpeg
-   :width: 6.90551in
+.. |image4| image:: media/images4.png
+   :width: 4.90551in
    :height: 4.25375in
-.. |image2| image:: media/images2.png
+.. |image5| image:: media/images5.png
    :width: 4.92153in
    :height: 2.91528in

@@ -37,7 +37,7 @@ For Ubuntu version:
 
 Console output:
 
-|image1|
+|image12|
 
 Figure 1: Ubuntu version
 
@@ -58,7 +58,7 @@ For GNU GDB version:
 
 Console output:
 
-|image2|
+|image13|
 
 Figure 2 GNU GDB version
 
@@ -149,7 +149,7 @@ Following is the procedure to debug the VM-based applications using GDB:
 
    Console output:
 
-   |image3|
+   |image14|
 
 Figure 3: Starting openOCD
 
@@ -176,7 +176,7 @@ Figure 3: Starting openOCD
    (freertos_sdk_x.y/examples/using_wifi) to generate the ELFs under the out
    folder.
 
-   |image4|
+   |image15|
 
 Figure 4: make command output for using_wifi
 
@@ -184,7 +184,7 @@ Figure 4: make command output for using_wifi
    The total number of bytes displayed in Figure 5 will vary with the
    ELF of the application being flashed.
 
-   |image5|
+   |image16|
 
 Figure 5: Flashing the application from SDK directory
 
@@ -206,8 +206,12 @@ Figure 5: Flashing the application from SDK directory
 
    Manual method of configuring the gdbinit file:
 
-   If there are any warnings such as “auto-loading has been declined by your ‘auto-load safe-path’, the gdb-multiarch does not work 
+   If there are any warnings as shown in Figure 6, the gdb-multiarch does not work 
    for GDB commands. Hence, create a file named gdbinit in the home directory to allow auto-load.
+
+|image17|
+
+Figure 6: Warning for .gdbinit file
 
    In the created gdbinit file add the following path:
 
@@ -217,9 +221,9 @@ Figure 5: Flashing the application from SDK directory
 
 ..
 
-|image6|
+|image18|
 
-Figure 6: Configuring the gdbinit file
+Figure 7: Configuring the gdbinit file
 
 Start the GDB Session 
 ----------------------
@@ -236,9 +240,9 @@ the GDB. Here, the RAM portion of the ELF gets loaded.
 
 Console output:
 
-|image7|
+|image19|
 
-Figure 7: Running GDB
+Figure 8: Running GDB
 
 1. Connect to OpenOCD by running ocd in the GDB prompt.
 
@@ -417,20 +421,20 @@ between a debugger and Talaria TWO device.
 **Note**: The Talaria TWO EVB already has the required hardware support
 for JTAG.
 
-|image8|
+|image20|
 
-Figure 8: Hardware connections - JTAG
+Figure 9: Hardware connections - JTAG
 
 Pins 18,19,20 and 21 of Talaria TWO module are used for JTAG. However,
 these pins can also be used as GPIOs for the application by disabling
 the JTAG in the application.
 
 Similar to JTAG, SWD also allows programming and debugging on Talaria
-TWO but with a reduced hardware connection as shown in Figure 9.
+TWO but with a reduced hardware connection as shown in Figure 10.
 
-|image9|
+|image21|
 
-Figure 9: Hardware connections - SWD
+Figure 10: Hardware connections - SWD
 
 For more information on GDB commands, refer:
 https://sourceware.org/gdb/current/onlinedocs/gdb/.
@@ -440,7 +444,7 @@ Procedure to Debug using GDB through JTAG
 
 This section provides details regarding debugging the application
 through JTAG. Make the connection between the debugger and Talaria TWO
-device as shown in Figure 8.
+device as shown in Figure 11.
 
 1. Open the SDK folder in Ubuntu terminal and type the following command
    to start OpenOCD:
@@ -451,9 +455,9 @@ device as shown in Figure 8.
 
 Console output:
 
-|image10|
+|image22|
 
-Figure 10: Running OpenOCD for JTAG
+Figure 11: Running OpenOCD for JTAG
 
 2. In a separate terminal, run the following command from the apps
    directory. In this directory, there is a .gdbinit file that
@@ -465,9 +469,9 @@ Figure 10: Running OpenOCD for JTAG
 
 Console output:
 
-|image11|
+|image23|
 
-Figure 11: Running GDB for JTAG
+Figure 12: Running GDB for JTAG
 
 Follow the procedure mentioned in section: *Start the GDB Session* to
 execute the GDB command.
@@ -477,7 +481,7 @@ Procedure to Debug using GDB through SWD
 
 This section provides details regarding debugging the application
 through SWD. Make the connection between the debugger and Talaria TWO
-device as shown in Figure 9.
+device as shown in Figure 10.
 
 1. Open the SDK folder in Ubuntu terminal and type the following command
    to start OpenOCD:
@@ -489,9 +493,9 @@ device as shown in Figure 9.
 
 Console output:
 
-|image12|
+|image24|
 
-Figure 12: Running OpenOCD for SWD
+Figure 13: Running OpenOCD for SWD
 
 2. In a separate terminal, run the following command from the apps
    directory. In this directory, there is a .gdbinit file that
@@ -504,9 +508,9 @@ Figure 12: Running OpenOCD for SWD
 
 Console output:
 
-|image13|
+|image25|
 
-Figure 13: Running GDB for SWD
+Figure 14: Running GDB for SWD
 
 3. Follow the procedure mentioned in section: *Start the GDB Session* to
    run the GDB commands.
@@ -548,9 +552,9 @@ Follow the installation procedure available in the above link. After
 completing the installation, click on Finish, which will create a popup
 for MSYS2 CMD line interface.
 
-|image14|
+|image26|
 
-Figure 14: Running MSYS2
+Figure 15: Running MSYS2
 
 Run the following command in MSYS2 terminal and proceed with
 installation.
@@ -560,9 +564,9 @@ installation.
     pacman -Syu  
 
 
-|image15|
+|image27|
 
-Figure 15: Installing mingw setup
+Figure 16: Installing mingw setup
 
 Once the installation is complete, the window will be automatically
 closed. Run MSYS2 MSYS from the Start menu and run the following command
@@ -584,18 +588,18 @@ GDB-Multiarch:
 
 Enter a selection number, for GDB-Multiarch.
 
-|image16|
+|image28|
 
-Figure 16: Iinstalling gdb-multiarch
+Figure 17: Iinstalling gdb-multiarch
 
 Add MSYS2 path in environmental variable to access GDB-Multiarch in
 command line. To add path to environment variable, follow the steps
 mentioned in section: *Add Paths to the Environment Variable* of the
 document for MSYS2: UG_Eclipse_Setup_Windows.pdf.
 
-|image17|
+|image29|
 
-Figure 17: Adding environment variable
+Figure 18: Adding environment variable
 
 .. _procedure-to-debug-using-gdb-1:
 
@@ -614,9 +618,9 @@ Following is the procedure to debug the VM-based applications using GDB:
 
 Console output:
 
-|image18|
+|image30|
 
-Figure 18: Running Openocd in windows CMD
+Figure 19: Running Openocd in windows CMD
 
 2. Use the Download Tool to flash the virtual image from the SDK
    directory.
@@ -637,9 +641,9 @@ Execute the make for using_wifi example application
 (*freertos_sdk_x.y\\examples\\using_wifi*) to generate the ELFs under the out
 folder.
 
-|image19|
+|image31|
 
-Figure 19: Running make command in windows CMD
+Figure 20: Running make command in windows CMD
 
 .gdbinit initialization file contains the information on Talaria TWO’s
 memory and the required scripts of the GDB sources. gdbinit file is
@@ -648,14 +652,23 @@ gdb-multiarch should be started from this folder.
 
 Manual method of configuring the gdbinit file:
 
-If there are any warnings such as “auto-loading has been declined by your ‘auto-load safe-path’ , the gdb-multiarch will not work for GDB commands. 
+If there are any warnings such as shown in Figure 21, the gdb-multiarch will not work for GDB commands. 
 Hence, create a file named gdbinit in the home directory to allow auto-load.
+
+|image32|
+
+Figure 21: Warning for .gdbinit file
 
 In the created gdbinit file, add the following path:
 
 .. code:: shell
 
      add-auto-load-safe-path C:\Users\innop\Workspace/freertos/freertos_sdk/apps/.gdbinit 
+
+|image33|
+
+Figure 22: Configuring the gdbinit file
+
 
 Start a GDB session
 -------------------
@@ -664,9 +677,9 @@ In a separate terminal, run the following command from the
 *freertos_sdk_x.y\\apps* folder. In this directory, there is a .gdbinit file that
 configures the GDB. Here, the RAM portion of the ELF gets loaded.
 
-|image20|
+|image34|
 
-Figure 20: Running GDB
+Figure 23: Running GDB
 
 1. Connect to OpenOCD by running ocd in the GDB prompt.
 
@@ -794,63 +807,72 @@ using GDB:
      (gdb)
 
 
-.. |image1| image:: media/image1.png
+.. |image12| image:: media/image12.png
    :width: 5.51181in
    :height: 1.08302in
-.. |image2| image:: media/image2.png
+.. |image13| image:: media/image13.png
    :width: 6.53543in
    :height: 1.05812in
-.. |image3| image:: media/image3.png
+.. |image14| image:: media/image14.png
    :width: 6.69291in
    :height: 2.39282in
-.. |image4| image:: media/image4.png
+.. |image15| image:: media/image15.png
    :width: 6.69291in
    :height: 4.05887in
-.. |image5| image:: media/image5.png
+.. |image16| image:: media/image16.png
    :width: 6.69291in
    :height: 0.90489in
-.. |image6| image:: media/image6.png
+.. |image17| image:: media/image17.png
    :width: 6.69291in
    :height: 2.25822in
-.. |image7| image:: media/image7.png
+.. |image18| image:: media/image18.png
    :width: 5.90551in
    :height: 4.00814in
-.. |image8| image:: media/image8.png
+.. |image19| image:: media/image19.png
    :width: 6.69291in
    :height: 2.1699in
-.. |image9| image:: media/image9.png
+.. |image20| image:: media/image20.png
    :width: 3.93701in
    :height: 2.09164in
-.. |image10| image:: media/image10.png
+.. |image21| image:: media/image21.png
    :width: 3.8519in
    :height: 2.31114in
-.. |image11| image:: media/image11.png
+.. |image22| image:: media/image22.png
    :width: 6.29921in
    :height: 2.25143in
-.. |image12| image:: media/image12.png
+.. |image23| image:: media/image23.png
    :width: 6.29921in
    :height: 2.03899in
-.. |image13| image:: media/image13.png
+.. |image24| image:: media/image24.png
    :width: 6.29921in
    :height: 2.36147in
-.. |image14| image:: media/image14.png
+.. |image25| image:: media/image25.png
    :width: 6.29921in
    :height: 2.03899in
-.. |image15| image:: media/image15.png
+.. |image26| image:: media/image26.png
    :width: 3.93701in
    :height: 2.50722in
-.. |image16| image:: media/image16.png
+.. |image27| image:: media/image27.png
    :width: 5.90551in
    :height: 3.09436in
-.. |image17| image:: media/image17.png
+.. |image28| image:: media/image28.png
    :width: 5.90551in
    :height: 5.10216in
-.. |image18| image:: media/image18.png
+.. |image29| image:: media/image29.png
    :width: 3.93701in
    :height: 3.74277in
-.. |image19| image:: media/image19.png
+.. |image30| image:: media/image30.png
    :width: 5.90551in
    :height: 3.0884in
-.. |image20| image:: media/image20.png
+.. |image31| image:: media/image31.png
+   :width: 6.29921in
+   :height: 5.27757in
+.. |image32| image:: media/image32.png
+   :width: 3.93701in
+   :height: 3.74277in
+.. |image33| image:: media/image33.png
+   :width: 5.90551in
+   :height: 3.0884in
+.. |image34| image:: media/image34.png
    :width: 6.29921in
    :height: 5.27757in

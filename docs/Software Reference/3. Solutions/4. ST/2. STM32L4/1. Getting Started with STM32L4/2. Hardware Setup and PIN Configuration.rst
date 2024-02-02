@@ -1,5 +1,4 @@
-
-
+.. _st l4 hw setup:
 
 Hardware Setup and PIN Configuration
 ````````````
@@ -8,12 +7,11 @@ Topology
 --------
 
 The topology of the setup used to test the application is as shown in
-Figure 2.
+Figure 1.
 
-|A diagram of different types of signals Description automatically
-generated with medium confidence|
+|image2|
 
-Figure 2: Setup topology
+Figure 1: Setup topology
 
 Connection Setup for L433RC-P
 -----------------------------
@@ -24,7 +22,7 @@ interface.
 Arduino Compatible PIN Connections for SPI Interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Figure 3 shows the hardware setup for testing the application using SPI
+Figure 2 shows the hardware setup for testing the application using SPI
 interface. Mount Talaria TWO EVB on the STM32 board on Arduino
 connector. Connect GPIO4 of Talaria TWO (J1 Connector) to PIN2 of CN6
 connector.
@@ -32,13 +30,15 @@ connector.
 Talaria TWO uses GPIO4 to interrupt ST when Talaria TWO wants to send
 data/notification to ST.
 
-|A close-up of a circuit board Description automatically generated|
+|image3|
 
-Figure 3: Hardware setup for testing Talaria TWO with STM32L433RC-P
+Figure 2: Hardware setup for testing Talaria TWO with STM32L433RC-P
 using SPI
 
 Generic PIN Connections (Non-Arduino) for SPI Interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. table:: Table 1: SPI Interface – Generic PIN Connections
 
 +-------------------+-----------------+-------------------------------+
 | **PIN             |                 |                               |
@@ -78,7 +78,7 @@ Table 1: SPI Interface – Generic PIN Connections
 UART Interface
 ~~~~~~~~~~~~~~
 
-Figure 4 shows the hardware setup for UART and Table 2 provides the PIN
+Figure 3 shows the hardware setup for UART and Table 2 provides the PIN
 configuration for testing the application using UART interface.
 
 +-----------------+--------------+-------------------------------------+
@@ -112,10 +112,9 @@ configuration for testing the application using UART interface.
 
 Table 2: UART Interface - PIN Connections
 
-|A circuit board with wires connected to it Description automatically
-generated|
+|image4|
 
-Figure 4: Hardware setup for testing Talaria TWO with STM32L433RC-P
+Figure 3: Hardware setup for testing Talaria TWO with STM32L433RC-P
 using UART
 
 Connection Setup for L4A6ZG
@@ -127,7 +126,7 @@ interface.
 SPI Interface
 ~~~~~~~~~~~~~
 
-Figure 2 below shows the hardware setup for testing the application
+Figure 4 shows the hardware setup for testing the application
 using SPI interface.
 
 Mount the Talaria TWO EVB on the STM32 board on Arduino connector.
@@ -135,10 +134,9 @@ Connect GPIO4 of Talaria TWO (J1 Connector) to Pin4 of CN12 connector.
 Talaria TWO uses this GPIO4 pin to interrupt ST when Talaria TWO wants
 to send data/notification to ST.
 
-|Graphical user interface, application, PowerPoint Description
-automatically generated|
+|image5|
 
-Figure 2: Hardware setup for testing Talaria TWO with STM32L4A6ZG using
+Figure 4: Hardware setup for testing Talaria TWO with STM32L4A6ZG using
 SPI
 
 .. _uart-interface-1:
@@ -146,7 +144,7 @@ SPI
 UART Interface
 ~~~~~~~~~~~~~~
 
-Figure 3 shows the hardware setup for UART and Table 1 provides the PIN
+Figure 5 shows the hardware setup for UART and Table 3 provides the PIN
 configuration for testing the application using UART interface.
 
 +----------------------------------+-----------------------------------+
@@ -163,26 +161,25 @@ configuration for testing the application using UART interface.
 | EN_Chip                          | CN9 STM A1                        |
 +----------------------------------+-----------------------------------+
 
-Table 1: STM32L4A6ZG - PIN Configuration
+Table 3: STM32L4A6ZG - PIN Configuration
 
-|A picture containing text, electronics, circuit Description
-automatically generated|
+|image 6|
 
-Figure 3: Hardware setup for testing Talaria TWO with STM32L4A6ZG using
+Figure 5: Hardware setup for testing Talaria TWO with STM32L4A6ZG using
 UART
 
-.. |A diagram of different types of signals Description automatically generated with medium confidence| image:: media/image1.png
+.. |image2| image:: media/image2.png
    :width: 5.51181in
    :height: 3.23407in
-.. |A close-up of a circuit board Description automatically generated| image:: media/image2.png
+.. |image3| image:: media/image3.png
    :width: 7.48031in
    :height: 3.78082in
-.. |A circuit board with wires connected to it Description automatically generated| image:: media/image3.jpeg
+.. |image4| image:: media/image4.png
    :width: 7.48031in
    :height: 4.15182in
-.. |Graphical user interface, application, PowerPoint Description automatically generated| image:: media/image4.png
+.. |image5| image:: media/image5.png
    :width: 7.48031in
    :height: 2.83766in
-.. |A picture containing text, electronics, circuit Description automatically generated| image:: media/image5.jpeg
+.. |image6| image:: media/image6.png
    :width: 6.29921in
    :height: 6.07664in

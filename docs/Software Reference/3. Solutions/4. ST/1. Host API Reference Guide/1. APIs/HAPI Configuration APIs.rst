@@ -1,3 +1,5 @@
+.. _st api hapi configuration:
+
 HAPI Configuration APIs 
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -6,10 +8,10 @@ hapi_malloc
 
 Allocates memory on HAPI.
 
-+-----------------------------------------------------------------------+
-| static inline void \* hapi_malloc(size_t size)                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    static inline void *hapi_malloc(size_t size)  
+
 
 Arguments:
 
@@ -22,10 +24,10 @@ hapi_sem_init
 
 Initializes the mentioned semaphore.
 
-+-----------------------------------------------------------------------+
-| static inline void hapi_sem_init(hapi_sem_t \*sem, int value)         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    static inline void hapi_sem_init(hapi_sem_t *sem, int value)  
+
 
 Arguments:
 
@@ -41,10 +43,10 @@ hapi_sem_wait
 Holds the referenced semaphore by performing the semaphore lock
 operation.
 
-+-----------------------------------------------------------------------+
-| static inline void hapi_sem_wait(hapi_sem_t \*sem)                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    static inline void hapi_sem_wait(hapi_sem_t *sem)  
+
 
 Arguments:
 
@@ -58,11 +60,10 @@ hapi_sem_wait_timeout
 Holds the referenced semaphore by performing the semaphore lock
 operation. This wait is terminated when the specified timeout expires.
 
-+-----------------------------------------------------------------------+
-| static inline void hapi_sem_wait_timeout(hapi_sem_t \*sem,uint32_t    |
-| timeout_msec))                                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    static inline void hapi_sem_wait_timeout(hapi_sem_t *sem,uint32_t timeout_msec))
+
 
 Arguments:
 
@@ -77,10 +78,10 @@ hapi_sem_post
 
 Unlocks the specified semaphore.
 
-+-----------------------------------------------------------------------+
-| static inline void hapi_sem_post(hapi_sem_t \*sem)                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    static inline void hapi_sem_post(hapi_sem_t *sem)         
+
 
 Arguments:
 

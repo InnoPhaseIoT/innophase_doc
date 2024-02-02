@@ -1,3 +1,5 @@
+.. _st api ble:
+
 BLE APIs
 ~~~~~~~~
 

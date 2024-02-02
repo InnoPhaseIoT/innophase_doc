@@ -1,3 +1,5 @@
+.. _st api fos:
+
 FOS APIs 
 ~~~~~~~~~
 
@@ -6,12 +8,10 @@ hapi_fos_start
 
 Starts Firmware upgrade Over Serial.
 
-+-----------------------------------------------------------------------+
-| bool hapi_fos_start(struct hapi \*hapi_p,char \*fw_name, char         |
-|                                                                       |
-| \*fw_hash,uint32_t image_size,uint32_t auto_reset)                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_fos_start(struct hapi *hapi_p,char *fw_name, char *fw_hash,uint32_t  image_size,uint32_t auto_reset)
+
 
 Arguments:
 
@@ -32,11 +32,10 @@ hapi_fos_image_send
 
 Sends Firmware upgrade Over Serial configuration data.
 
-+-----------------------------------------------------------------------+
-| bool hapi_fos_image_send(struct hapi \*hapi_p,uint32_t data_len,      |
-| char\* data)                                                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_fos_image_send(struct hapi *hapi_p,uint32_t data_len, char* data)
+
 
 Arguments:
 
@@ -56,10 +55,10 @@ Executes Firmware upgrade Over Serial commit. This marks the end of
 image data and Talaria TWO will set the newly downloaded image as the
 boot image.
 
-+-----------------------------------------------------------------------+
-| bool hapi_fos_commit(struct hapi \*hapi_p)                            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_fos_commit(struct hapi *hapi_p) 
+
 
 Arguments:
 

@@ -1,3 +1,5 @@
+.. _st api power-save:
+
 Power Save APIs
 ~~~~~~~~~~~~~~~
 
@@ -6,10 +8,10 @@ hapi_send_sleep
 
 Requests to enable sleep in Talaria TWO.
 
-+-----------------------------------------------------------------------+
-| void hapi_send_sleep(struct hapi \*hapi)                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    void hapi_send_sleep(struct hapi *hapi)
+
 
 Arguments:
 
@@ -22,10 +24,10 @@ hapi_set_sleep_del
 
 Provides a delay after initiating sleep.
 
-+-----------------------------------------------------------------------+
-| void hapi_set_sleep_del(struct hapi \*hapi, int usecs)                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    void hapi_set_sleep_del(struct hapi *hapi, int usecs)   
+
 
 Arguments:
 
@@ -40,10 +42,10 @@ hapi_t2_wakeup_config
 
 Used for configuring the Talaria TWO pins.
 
-+-----------------------------------------------------------------------+
-| void hapi_t2_wakeup_config(void\* hapi, uint8_t type)                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    void hapi_t2_wakeup_config(void *hapi, uint8_t type)  
+
 
 Arguments:
 
@@ -58,10 +60,10 @@ hapi_spi_t2_wakeup_fn
 
 Used to wake-up the SPI function in Talaria TWO.
 
-+-----------------------------------------------------------------------+
-| void hapi_spi_t2_wakeup_fn(void\* hapi, void\* wakeup_t2);            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    void hapi_spi_t2_wakeup_fn(void *hapi, void *wakeup_t2);    
+
 
 Arguments:
 
@@ -76,10 +78,10 @@ hapi_uart_t2_wakeup_fn
 
 Used to wake-up the UART function in Talaria TWO.
 
-+-----------------------------------------------------------------------+
-| void hapi_uart_t2_wakeup_fn(void\* hapi, void\* wakeup_t2);           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    void hapi_uart_t2_wakeup_fn(void *hapi, void *wakeup_t2);   
+
 
 Arguments:
 

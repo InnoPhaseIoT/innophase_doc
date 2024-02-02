@@ -1,3 +1,5 @@
+.. _st api fota:
+
 FOTA APIs 
 ~~~~~~~~~~
 
@@ -6,11 +8,10 @@ hapi_fota_start
 
 Starts Firmware Over the Air Upgrade.
 
-+-----------------------------------------------------------------------+
-| bool hapi_fota_start(struct hapi \*hapi_p,uint32_t                    |
-| check_for_update,uint32_t auto_reset)                                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_fota_start(struct hapi *hapi_p,uint32_t check_for_update,uint32_t auto_reset)
+
 
 Arguments:
 
@@ -27,11 +28,10 @@ hapi_fota_cfgadd
 
 Sends Firmware Over-The-Air configuration data.
 
-+-----------------------------------------------------------------------+
-| bool hapi_fota_cfgadd(struct hapi \*hapi_p, uint32_t data_len, char\* |
-| data)                                                                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_fota_cfgadd(struct hapi *hapi_p, uint32_t data_len, char* data)
+
 
 Arguments:
 

@@ -1,3 +1,5 @@
+.. _st api unassoc:
+
 Unassoc APIs
 ------------
 
@@ -6,10 +8,10 @@ hapi_unassoc_create
 
 Creates the unassociation.
 
-+-----------------------------------------------------------------------+
-| bool hapi_unassoc_create(struct hapi \*hapi, uint8_t \*addr);         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_unassoc_create(struct hapi *hapi, uint8_t *addr); 
+
 
 Arguments:
 
@@ -24,16 +26,11 @@ hapi_unassoc_config
 
 For configuring the parameters of unassociation in HAPI.
 
-+-----------------------------------------------------------------------+
-| bool hapi_unassoc_config(struct hapi \*hapi,                          |
-|                                                                       |
-| uint32_t num_probes, uint32_t interval_ms, uint32_t verbose,          |
-|                                                                       |
-| char \*ssid, uint32_t rate, uint32_t suspend_en,                      |
-|                                                                       |
-| uint8_t ie_len, uint8_t \*ie);                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_unassoc_config(struct hapi *hapi, uint32_t num_probes, uint32_t interval_ms, uint32_t verbose, char *ssid, uint32_t rate, uint32_t suspend_en, uint8_t ie_len, uint8_t *ie);
+
+
 
 Arguments:
 
@@ -63,10 +60,10 @@ hapi_unassoc_start
 
 To start un-association in HAPI.
 
-+-----------------------------------------------------------------------+
-| bool hapi_unassoc_start(struct hapi \*hapi)                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_unassoc_start(struct hapi *hapi)  
+
 
 Arguments:
 
@@ -79,10 +76,10 @@ hapi_unassoc_stop
 
 To stop un-association in HAPI.
 
-+-----------------------------------------------------------------------+
-| bool hapi_unassoc_stop(struct hapi \*hapi)                            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_unassoc_stop(struct hapi *hapi)      
+
 
 Arguments:
 

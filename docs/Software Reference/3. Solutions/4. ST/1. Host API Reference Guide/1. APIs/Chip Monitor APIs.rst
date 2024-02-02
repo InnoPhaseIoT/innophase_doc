@@ -1,14 +1,14 @@
+.. _st api chip-monitor:
+
 Chip Monitor APIs
 ~~~~~~~~~~~~~~~~~
 
-hapi\_ chip_mon_power_init
+hapi_chip_mon_power_init
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-+-----------------------------------------------------------------------+
-| .. rubric:: bool hapi_chip_mon_power_init(struct hapi \*hapi)         |
-|    :name: bool-hapi_chip_mon_power_initstruct-hapi-hapi               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_chip_mon_power_init(struct hapi *hapi)
 
 Arguments:
 
@@ -19,14 +19,10 @@ Return: True=Success, False=Failure.
 hapi_chip_mon_start
 ^^^^^^^^^^^^^^^^^^^
 
-+-----------------------------------------------------------------------+
-| .. rubric:: bool hapi_chip_mon_start(struct hapi \*hapi ,uint32_t     |
-|    source ,uint32_t interval ,uint32_t last_sample ,uint32_t          |
-|    threshold)                                                         |
-|    :name: bool-hapi_chip_mon_startstruct-hapi-hapi-uint               |
-| 32_t-source-uint32_t-interval-uint32_t-last_sample-uint32_t-threshold |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_chip_mon_start(struct hapi *hapi ,uint32_t source ,uint32_t interval ,uint32_t last_sample ,uint32_t threshold)
+
 
 Arguments:
 
@@ -54,12 +50,10 @@ Return: True=Success, False=Failure.
 hapi_chip_mon_stop
 ^^^^^^^^^^^^^^^^^^
 
-+-----------------------------------------------------------------------+
-| .. rubric:: bool hapi_chip_mon_stop(struct hapi \*hapi ,uint32_t      |
-|    source)                                                            |
-|    :name: bool-hapi_chip_mon_stopstruct-hapi-hapi-uint32_t-source     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_chip_mon_stop(struct hapi *hapi ,uint32_t source)
+
 
 Arguments:
 
@@ -78,12 +72,10 @@ Return: True=Success, False=Failure.
 hapi_chip_mon_trig
 ^^^^^^^^^^^^^^^^^^
 
-+-----------------------------------------------------------------------+
-| .. rubric:: bool hapi_chip_mon_trig(struct hapi \*hapi ,uint32_t      |
-|    source)                                                            |
-|    :name: bool-hapi_chip_mon_trigstruct-hapi-hapi-uint32_t-source     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_chip_mon_trig(struct hapi *hapi ,uint32_t source)
+
 
 Arguments:
 

@@ -8,10 +8,10 @@ hapi_aws_connect
 
 Connects the AWS socket.
 
-+-----------------------------------------------------------------------+
-| bool hapi_aws_connect(struct hapi \*hapi)                             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_aws_connect(struct hapi \*hapi)        
+
 
 Arguments:
 
@@ -24,10 +24,10 @@ hapi_aws_disconnect
 
 Disconnects the AWS socket.
 
-+-----------------------------------------------------------------------+
-| bool hapi_aws_disconnect(struct hapi \*hapi)                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_aws_disconnect(struct hapi \*hapi)    
+
 
 Arguments:
 
@@ -40,11 +40,10 @@ hapi_aws_send_data
 
 Sends AWS data.
 
-+-----------------------------------------------------------------------+
-| bool hapi_aws_send_data(struct hapi \*hapi, char \*data, uint32_t     |
-| datalen, uint8_t always_connected, uint8_t aws_data_type)             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_aws_send_data(struct hapi *hapi, char *data, uint32_t datalen, uint8_t always_connected, uint8_t aws_data_type)
+
 
 Arguments:
 
@@ -66,15 +65,12 @@ hapi_aws_set_config
 
 Sets AWS configuration.
 
-+-----------------------------------------------------------------------+
-| bool hapi_aws_set_config(struct hapi \*hapi, const char               |
-| \*aws_host_url, const char \*aws_thing_name, const uint16_t aws_port, |
-| const uint32_t sleep_interval, const char \*root_ca_path, const char  |
-| \*device_cert_path, const char \*device_pkey_path, const char         |
-|                                                                       |
-| \*client_id)                                                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_aws_set_config(struct hapi *hapi, const char *aws_host_url, const char *aws_thing_name, const uint16_t aws_port, const uint32_t sleep_interval, const char *root_ca_path, const char *device_cert_path, const char *device_pkey_path, const char 
+*client_id)
+
+
 
 Arguments:
 
@@ -104,10 +100,10 @@ hapi_aws_set_ind_cb
 
 Sets AWS callback function.
 
-+-----------------------------------------------------------------------+
-| void hapi_aws_set_ind_cb(hapi_aws_ind_cb cb)                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      void hapi_aws_set_ind_cb(hapi_aws_ind_cb cb)      
+
 
 Arguments:
 
@@ -123,10 +119,10 @@ hapi\_ beat_send
 
 Sends heartbeat signal from host to Talaria TWO.
 
-+-----------------------------------------------------------------------+
-| bool heart_beat_send(struct hapi \*hapi)                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool heart_beat_send(struct hapi \*hapi)     
+
 
 Arguments:
 

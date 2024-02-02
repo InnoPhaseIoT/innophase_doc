@@ -1,3 +1,5 @@
+.. _st api mqtt:
+
 MQTT APIs
 ~~~~~~~~~
 
@@ -7,12 +9,10 @@ hapi_mqtt_nw_init
 Used to initialize the MQTT network. This is the first API to be called
 to use MQTT protocol.
 
-+-----------------------------------------------------------------------+
-| struct hapi_mqtt\* hapi_mqtt_nw_init(struct hapi \*hapi, char\*       |
-| serverName, uint16_t port, char\* certName, uint16_t \*sockId,        |
-| uint32_t \*status)                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    struct hapi_mqtt* hapi_mqtt_nw_init(struct hapi *hapi, char* serverName, uint16_t port, char* certName, uint16_t *sockId, uint32_t *status)
+
 
 Arguments:
 
@@ -31,12 +31,11 @@ hapi_mqtt_set_ind_cb
 
 Used to set the MQTT notification callback.
 
-+-----------------------------------------------------------------------+
-| void hapi_mqtt_set_ind_cb(struct hapi_mqtt \*hapi_mqtt,               |
-|                                                                       |
-| hapi_mqtt_ind_cb cb, void \*context)                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    void hapi_mqtt_set_ind_cb(struct hapi_mqtt *hapi_mqtt, hapi_mqtt_ind_cb cb, void *context)
+
+
 
 Arguments:
 
@@ -53,11 +52,10 @@ hapi_mqtt_nw_connect
 
 Used to connect to the MQTT network.
 
-+-----------------------------------------------------------------------+
-| bool hapi_mqtt_nw_connect(struct hapi \*hapi, struct hapi_mqtt        |
-| \*hapi_mqtt, char\* mqtt_server_name, uint16_t mqtt_port)             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_mqtt_nw_connect(struct hapi *hapi, struct hapi_mqtt *hapi_mqtt, char* mqtt_server_name, uint16_t mqtt_port)
+
 
 Arguments:
 
@@ -76,11 +74,10 @@ hapi_mqtt_client_init
 
 Used to initialize the MQTT client.
 
-+-----------------------------------------------------------------------+
-| bool hapi_mqtt_client_init(struct hapi \*hapi, struct hapi_mqtt       |
-| \*hapi_mqtt, uint16_t timeout_ms)                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_mqtt_client_init(struct hapi *hapi, struct hapi_mqtt *hapi_mqtt, uint16_t timeout_ms)
+
 
 Arguments:
 
@@ -97,14 +94,10 @@ hapi_mqtt_connect
 
 Used to connect the MQTT broker with the username and password provided.
 
-+-----------------------------------------------------------------------+
-| bool hapi_mqtt_connect(struct hapi \*hapi, struct hapi_mqtt           |
-|                                                                       |
-| \*hapi_mqtt, uint32_t mqtt_version,                                   |
-|                                                                       |
-| char\* clientId, char\* userName, char\* passWord)                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_mqtt_connect(struct hapi *hapi, struct hapi_mqtt *hapi_mqtt, uint32_t mqtt_version, char* clientId, char* userName, char* password)
+
 
 Arguments:
 
@@ -127,12 +120,10 @@ hapi_mqtt_publish
 
 Used to publish data to the broker in the existing MQTT connection.
 
-+-----------------------------------------------------------------------+
-| bool hapi_mqtt_publish(struct hapi \*hapi, struct hapi_mqtt           |
-|                                                                       |
-| \*hapi_mqtt, char\* topic_to_publish, char\* topic)                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_mqtt_publish(struct hapi *hapi, struct hapi_mqtt *hapi_mqtt, char* topic_to_publish, char* topic)
+
 
 Arguments:
 
@@ -151,13 +142,10 @@ hapi_mqtt_subscribe
 
 Used to subscribe to a particular topic.
 
-+-----------------------------------------------------------------------+
-| bool hapi_mqtt_subscribe(struct hapi \*hapi, struct hapi_mqtt         |
-| \*hapi_mqtt,                                                          |
-|                                                                       |
-| char\* topic_to_sub, uint16_t qos)                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_mqtt_subscribe(struct hapi *hapi, struct hapi_mqtt *hapi_mqtt, char* topic_to_sub, uint16_t qos)
+
 
 Arguments:
 
@@ -177,11 +165,10 @@ hapi_mqtt_unsubscribe
 Used to unsubscribe from a particular topic that has already been
 subscribed for.
 
-+-----------------------------------------------------------------------+
-| bool hapi_mqtt_unsubscribe(struct hapi \*hapi, struct hapi_mqtt       |
-| \*hapi_mqtt, char\* topic)                                            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_mqtt_unsubscribe(struct hapi *hapi, struct hapi_mqtt *hapi_mqtt, char* topic)
+
 
 Arguments:
 
@@ -198,11 +185,10 @@ hapi_mqtt_disconnect
 
 Used to disconnect the MQTT.
 
-+-----------------------------------------------------------------------+
-| bool hapi_mqtt_disconnect(struct hapi \*hapi, struct hapi_mqtt        |
-| \*hapi_mqtt)                                                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_mqtt_disconnect(struct hapi *hapi, struct hapi_mqtt *hapi_mqtt)
+
 
 Arguments:
 
@@ -217,12 +203,10 @@ hapi_mqtt_nw_disconnect
 
 Used to disconnect from the network.
 
-+-----------------------------------------------------------------------+
-| bool hapi_mqtt_nw_disconnect(struct hapi \*hapi,                      |
-|                                                                       |
-| struct hapi_mqtt \*hapi_mqtt)                                         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_mqtt_nw_disconnect(struct hapi *hapi, struct hapi_mqtt *hapi_mqtt)
+
 
 Arguments:
 
@@ -237,12 +221,10 @@ hapi_mqtt_cert_store
 
 Used to store the SSL/TLS certificate for MQTT.
 
-+-----------------------------------------------------------------------+
-| bool hapi_mqtt_cert_store (struct hapi \*hapi, char\* certName,       |
-|                                                                       |
-| uint32_t certLen, const unsigned char\* certData)                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_mqtt_cert_store (struct hapi *hapi, char* certName, uint32_t certLen, const unsigned char* certData)
+
 
 Arguments:
 
@@ -261,10 +243,10 @@ hapi_mqtt_cert_delete
 
 Used to delete the SSL/TLS certificate for MQTT.
 
-+-----------------------------------------------------------------------+
-| bool hapi_mqtt_cert_delete(struct hapi \*hapi, char\* certName)       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_mqtt_cert_delete(struct hapi *hapi, char* certName)
+
 
 Arguments:
 
@@ -279,13 +261,10 @@ hapi_mqtt_client_connect
 
 Used to connect to the MQTT client.
 
-+-----------------------------------------------------------------------+
-| struct hapi_mqtt \*                                                   |
-|                                                                       |
-| hapi_mqtt_client_connect(struct hapi \*hapi, struct                   |
-| mqtt_client_config \*config)                                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    struct hapi_mqtt *hapi_mqtt_client_connect(struct hapi *hapi, struct mqtt_client_config *config)
+
 
 Arguments:
 
@@ -302,11 +281,10 @@ hapi_mqtt_client_disconnect
 
 Used to disconnect the MQTT client.
 
-+-----------------------------------------------------------------------+
-| bool hapi_mqtt_client_disconnect(struct hapi \*hapi, struct hapi_mqtt |
-| \*hapi_mqtt)                                                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_mqtt_client_disconnect(struct hapi *hapi, struct hapi_mqtt *hapi_mqtt)
+
 
 Arguments:
 

@@ -1,3 +1,5 @@
+.. _st api dual-stack:
+
 Dual-Stack APIs 
 ----------------
 
@@ -6,15 +8,10 @@ hapi_packet_forward_config_set
 
 Adds new packet forward configuration rule.
 
-+-----------------------------------------------------------------------+
-| bool hapi_packet_forward_config_set(struct hapi \*hapi, uint32_t      |
-| ip_type, uint32_t \*remote_ip, uint16_t remote_port, uint16_t         |
-| remote_port_start, uint16_t remote_port_end, const uint16_t           |
-| local_port, uint16_t local_port_start, uint16_t local_port_end,       |
-| uint8_t proto, uint32_t direction, uint32_t rule_selection, uint32_t  |
-| \*rule_id);                                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+        bool hapi_packet_forward_config_set(struct hapi *hapi, uint32_t ip_type, uint32_t *remote_ip, uint16_t remote_port, uint16_t remote_port_start, uint16_t remote_port_end, const uint16_t local_port, uint16_t local_port_start, uint16_t local_port_end, uint8_t proto, uint32_t direction, uint32_t rule_selection, uint32_t *rule_id);
+
 
 Arguments:
 
@@ -57,14 +54,9 @@ hapi_packet_forward_config_del
 
 Deletes one packet forward configuration rule from the existing list.
 
-+-----------------------------------------------------------------------+
-| bool hapi_packet_forward_config_del(struct hapi \*hapi, uint32_t      |
-| ip_tye, uint32_t \*remote_ip, uint16_t remote_port, uint16_t          |
-| remote_port_start, uint16_t remote_port_end, const uint16_t           |
-| local_port, uint16_t local_port_start, uint16_t local_port_end,       |
-| uint8_t proto, uint32_t direction, uint32_t rule_selection);          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+        bool hapi_packet_forward_config_del(struct hapi *hapi, uint32_t ip_tye, uint32_t *remote_ip, uint16_t remote_port, uint16_t remote_port_start, uint16_t remote_port_end, const uint16_t local_port, uint16_t local_port_start, uint16_t local_port_end, uint8_t proto, uint32_t direction, uint32_t rule_selection);
 
 Arguments:
 
@@ -106,11 +98,10 @@ hapi_packet_forward_dir_set
 Changes the packet forward direction to Talaria TWO/HOST based on the
 input.
 
-+-----------------------------------------------------------------------+
-| bool hapi_packet_forward_dir_set(struct hapi \*hapi, uint32_t         |
-| direction);                                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+        bool hapi_packet_forward_dir_set(struct hapi *hapi, uint32_t direction);
+
 
 Arguments:
 
@@ -126,11 +117,10 @@ hapi_packet_forward_dir_get
 
 Gets the current packet forward direction- Talaria TWO/HOST.
 
-+-----------------------------------------------------------------------+
-| bool hapi_packet_forward_dir_get(struct hapi \*hapi, uint32_t         |
-| \*direction);                                                         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+        bool hapi_packet_forward_dir_get(struct hapi *hapi, uint32_t *direction);
+
 
 Arguments:
 
@@ -146,11 +136,10 @@ hapi_packet_forward_config_query
 
 Queries and reverts with the list of packet forward rules configured.
 
-+-----------------------------------------------------------------------+
-| bool hapi_packet_forward_config_query(struct hapi \*hapi, uint32_t    |
-| ip_type, uint32_t size);                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+        bool hapi_packet_forward_config_query(struct hapi *hapi, uint32_t ip_type, uint32_t size);
+
 
 Arguments:
 
@@ -168,11 +157,10 @@ hapi_packet_forward_config_del_byid
 Deletes one packet forward configuration rule from the existing list by
 taking rule_id as input.
 
-+-----------------------------------------------------------------------+
-| bool hapi_packet_forward_config_del_byid(struct hapi \*hapi, uint32_t |
-| ip_type, uint32_t rule_id);                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+        bool hapi_packet_forward_config_del_byid(struct hapi *hapi, uint32_t ip_type, uint32_t rule_id);
+
 
 Arguments:
 

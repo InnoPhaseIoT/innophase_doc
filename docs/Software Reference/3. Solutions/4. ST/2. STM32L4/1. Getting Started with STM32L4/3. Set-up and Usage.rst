@@ -1,3 +1,5 @@
+.. _st l4 setup and usage:
+
 Set-up & Usage
 ``````````````
 
@@ -35,19 +37,19 @@ For SPI interface, use the following boot arguments to program the image
 using Download Tool as described in section: *Programming Talaria TWO
 Application*:
 
-+-----------------------------------------------------------------------+
-| hio.transport=1, hio.irq_min_gap=1000                                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      hio.transport=1, hio.irq_min_gap=1000   
+
 
 For UART interface, use the following boot arguments to program the
 image using Download Tool as described in section: *Programming Talaria
 TWO Application*:
 
-+-----------------------------------------------------------------------+
-| hio.transport=0, hio.baudrate=<baud rate>                             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      hio.transport=0, hio.baudrate=<baud rate> 
+
 
 where,
 
@@ -99,7 +101,8 @@ NUCELO-L4A6ZG+T2:
 | 2457600                           | Not Supported                     |
 +-----------------------------------+-----------------------------------+
 
-Table 2: Supported baud rates for L4A6ZG
+Table 1: Supported baud rates for L4A6ZG
+
 
 The following table provides list of baud rates supported for STM
 NUCELO-L433RC-P+T2:
@@ -129,9 +132,9 @@ NUCELO-L433RC-P+T2:
 | 2457600                           | Not Supported                     |
 +-----------------------------------+-----------------------------------+
 
-Table 3: Supported baud rates for L433RC-P
+Table 2: Supported baud rates for L433RC-P
 
-1. 
+
 
 Programming Talaria TWO Application
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -163,51 +166,30 @@ User_Guide_for_Talaria_TWO_Download_Tool.pdf
 
 Console output:
 
-+-----------------------------------------------------------------------+
-| 4 DWT comparators, range 0x8000                                       |
-|                                                                       |
-| Build $Id: git-878d28d6f $                                            |
-|                                                                       |
-| hio.baudrate=921600                                                   |
-|                                                                       |
-| flash: Gordon ready!                                                  |
-|                                                                       |
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PNWWWWWWWAE                                                     |
-|                                                                       |
-| Build $Id: git-019c45c $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-0014-00ae-ffffffffffff   |
-|                                                                       |
-| Bootargs: hio.transport=0 hio.baudrate=115200                         |
-|                                                                       |
-| [APP]Data fs mounted, rval = 0                                        |
-|                                                                       |
-| APP ver 1.2                                                           |
-|                                                                       |
-| [0.026,557] mqtt_ping_interval=60                                     |
-|                                                                       |
-| Calibra                                                               |
-| ting......................................................[3.701,457] |
-| Calibration file "room" saved (T=25).                                 |
-|                                                                       |
-| Done                                                                  |
-|                                                                       |
-| Registering unassoc apis                                              |
-|                                                                       |
-| Registering custom_msg_exchange apis                                  |
-|                                                                       |
-| $App:git-c1f5ef0                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Stw With hio, wcm, sock, mdns, mqtt, tls, bt, http, demo,             |
-| nw_misc_apps, FOTA, FOS, UNASSOC, PROV, file                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      4 DWT comparators, range 0x8000
+      Build $Id: git-878d28d6f $
+      hio.baudrate=921600
+      flash: Gordon ready!
+      
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PNWWWWWWWAE
+      Build $Id: git-019c45c $
+      Flash detected. flash.hw.uuid: 39483937-3207-0014-00ae-ffffffffffff
+      Bootargs: hio.transport=0 hio.baudrate=115200
+      [APP]Data fs mounted, rval = 0
+      APP ver 1.2
+      [0.026,557] mqtt_ping_interval=60
+      Calibrating......................................................[3.701,457] Calibration file "room" saved (T=25).
+      Done
+      Registering unassoc apis
+      Registering custom_msg_exchange apis
+      $App:git-c1f5ef0
+      SDK Ver: FREERTOS_SDK_1.0
+      Stw With hio, wcm, sock, mdns, mqtt, tls, bt, http, demo, nw_misc_apps, FOTA, FOS, UNASSOC, PROV, file
+
 
 Programming Host board with SPI Interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -276,32 +258,30 @@ part.json are as follows:
 
 **boot.json**:
 
-+-----------------------------------------------------------------------+
-| {                                                                     |
-|                                                                       |
-| “image”:0                                                             |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      {
+      "image":0
+      }
+
 
 **fota.config.json**:
 
-|A screenshot of a computer Description automatically generated|
+|image7|
 
-Figure 5: Example for fota_config.json file
+Figure 1: Example for fota_config.json file
 
 **stwmultiproto.json**:
 
-|Timeline Description automatically generated|
+|image8|
 
-Figure 6: Example for stwmultiproto.json
+Figure 2: Example for stwmultiproto.json
 
 **part.json**:
 
-|image1|
+|image9|
 
-Figure 7: Example for part.json file
+Figure 3: Example for part.json file
 
 .. _boot-arguments-1:
 
@@ -322,26 +302,24 @@ directory on the terminal. Ensure Talaria TWO switch is on 3.3V:
 
 a. Windows:
 
-+-----------------------------------------------------------------------+
-| python .\\script\\factory_loader.py ftdi_serial stwmultiproto.json    |
-| --mode=qa                                                             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      python .\script\factory_loader.py ftdi_serial stwmultiproto.json --mode=qa
+
 
 b. Linux:
 
-+-----------------------------------------------------------------------+
-| python3 ./script/factory_loader.py ftdi_serial stwmultiproto.json     |
-| --mode=qa                                                             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-.. |A screenshot of a computer Description automatically generated| image:: media/image1.png
+      python3 ./script/factory_loader.py ftdi_serial stwmultiproto.json --mode=qa
+
+
+.. |image7| image:: media/image7.png
    :width: 5.90551in
    :height: 4.34631in
-.. |Timeline Description automatically generated| image:: media/image2.png
+.. |image8| image:: media/image8.png
    :width: 5.90551in
    :height: 5.71501in
-.. |image1| image:: media/image3.png
+.. |image9| image:: media/image9.png
    :width: 4.72441in
    :height: 6.20767in

@@ -1,17 +1,18 @@
+.. _cv28 hw setup:
+
 Hardware Set-up and PIN Configuration
 =====================================
 
 Topology
 --------
 
-|Diagram Description automatically generated|\ |A diagram of a computer
-Description automatically generated|
+|image4|
 
-Figure 4: Block diagram
+Figure 1: Block diagram
 
-|image1|
+|image5|
 
-Figure 5: Topology
+Figure 2: Topology
 
 PIN Configuration
 -----------------
@@ -39,12 +40,9 @@ Table 1: PIN Configuration
 UG_Programming_using_INP3000.pdf
 (*freertos_sdk_x.y\\doc\\user_guides\\ug_programming_using_INP3000*).
 
-.. |Diagram Description automatically generated| image:: media/image1.png
-   :width: 0.6in
-   :height: 0.27143in
-.. |A diagram of a computer Description automatically generated| image:: media/image2.png
+.. |image4| image:: media/image4.png
    :width: 7.48031in
    :height: 5.23078in
-.. |image1| image:: media/image3.png
+.. |image5| image:: media/image5.png
    :width: 7.48031in
    :height: 5.15401in

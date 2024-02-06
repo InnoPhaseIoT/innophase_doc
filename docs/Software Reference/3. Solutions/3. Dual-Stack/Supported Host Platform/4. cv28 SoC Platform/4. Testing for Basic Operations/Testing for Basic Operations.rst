@@ -1,3 +1,5 @@
+.. _cv28 testing basic ops:
+
 Testing for Basic Operations 
 -----------------------------
 
@@ -20,7 +22,7 @@ passphrase
 
 **Step 5**: Disconnect from the connected network
 
-.. table:: Table 2: Station Mode Wi-Fi Connection – Commands
+.. table:: Table 1: Station Mode Wi-Fi Connection – Commands
 
     +----------------------------------+-----------------------------------+
     | **Command**                      | **Description**                   |
@@ -41,33 +43,33 @@ Console outputs:
 
 1. ./conmgr scan
 
-|Text Description automatically generated|
+|image1|
 
-Figure 8: ./conmgr scan – output
+Figure 1: ./conmgr scan – output
 
 2. ./conmgr connect innotest 123456789
 
-|image1|\ |A computer screen with white text Description automatically generated|
+|image2|
 
-Figure 9: ./conmgr connect - output
+Figure 2: ./conmgr connect - output
 
 3. ./conmgr ip
 
-|A screenshot of a computer Description automatically generated with medium confidence|
+|image3|
 
-Figure 10: ./conmgr ip – output
+Figure 3: ./conmgr ip – output
 
 4. ./conmgr status
 
-|image2|
+|image4|
 
-Figure 11: ./conmgr status – output
+Figure 4: ./conmgr status – output
 
 5. ./conmgr disconnect
 
-|image3|\ |image4|
+|image5|
 
-Figure 12: ./conmgr disconnect – output
+Figure 5: ./conmgr disconnect – output
 
 Use Case 2: Performance Test using iPerf Application
 ..................
@@ -87,7 +89,7 @@ Execute the following steps:
 
 5. Start the UDP server and send data once the client connects
 
-.. table:: Table 3: Performance Test using iPerf Application – Commands
+.. table:: Table 2: Performance Test using iPerf Application – Commands
 
     +----------------------------------+-----------------------------------+
     | **Command**                      | **Description**                   |
@@ -109,15 +111,15 @@ Console outputs:
 
 1. ./conmgr connect innotest 123456789
 
-|image5|\ |A computer screen with white text Description automatically generated|
+|image6|
 
-Figure 13: ./conmgr connect - output
+Figure 6: ./conmgr connect - output
 
 2. ./conmgr status
 
-|image6|
+|image7|
 
-Figure 14: ./conmgr status – output
+Figure 7: ./conmgr status – output
 
 **Step 2**: From the Linux host machine, start the UDP client using the
 following command, connect to the Talaria TWO UDP server of IP address
@@ -130,37 +132,31 @@ start sending the data over UDP socket:
 
 Output:
 
-|A picture containing graphical user interface Description automatically generated|
+|image8|
 
-Figure 15: Starting UDP Client
+Figure 8: Starting UDP Client
 
-.. |Text Description automatically generated| image:: media/image1.png
+.. |image1| image:: media/image1.png
    :width: 7.08661in
    :height: 3.53569in
-.. |image1| image:: media/image2.png
-   :width: 1.14167in
-   :height: 0.14167in
-.. |A computer screen with white text Description automatically generated| image:: media/image3.png
+.. |image2| image:: media/image2.png
    :width: 7.08661in
-   :height: 0.89239in
-.. |A screenshot of a computer Description automatically generated with medium confidence| image:: media/image4.png
+   :height: 2.89239in
+.. |image3| image:: media/image3.png
    :width: 7.08661in
    :height: 2.39694in
-.. |image2| image:: media/image5.png
+.. |image4| image:: media/image4.png
    :width: 7.08661in
    :height: 5.30445in
-.. |image3| image:: media/image2.png
-   :width: 1.14167in
-   :height: 0.14167in
-.. |image4| image:: media/image6.png
+.. |image5| image:: media/image5.png
    :width: 7.08661in
-   :height: 0.87139in
-.. |image5| image:: media/image2.png
-   :width: 1.14167in
-   :height: 0.14167in
-.. |image6| image:: media/image5.png
-   :width: 7.08661in
-   :height: 5.33507in
-.. |A picture containing graphical user interface Description automatically generated| image:: media/image7.png
+   :height: 2.87139in
+.. |image6| image:: media/image6.png
+   :width: 7.48031in
+   :height: 2.63642in
+.. |image7| image:: media/image7.png
+   :width: 7.48031in
+   :height: 2.63642in
+.. |image8| image:: media/image8.png
    :width: 7.48031in
    :height: 2.63642in

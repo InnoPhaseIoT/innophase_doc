@@ -1,3 +1,4 @@
+.. _cv28 landing:
 
 InnoPhase IoT’s hosted solution on CV28 System-on-Chip Host platform
 includes the following features:

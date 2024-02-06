@@ -1,3 +1,5 @@
+.. _cv28 eval setup landing:
+
 Evaluation Set-up and Usage
 ===========================
 

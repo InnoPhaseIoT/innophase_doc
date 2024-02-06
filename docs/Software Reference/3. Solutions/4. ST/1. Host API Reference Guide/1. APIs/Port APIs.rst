@@ -1,3 +1,5 @@
+.. _st api port:
+
 Port APIs
 ~~~~~~~~~
 
@@ -13,10 +15,10 @@ device and creates the HAPI interface. This is specific to each
 platform. This function also registers the platform specific
 read/write/close APIs to the HAPI interface.
 
-+-----------------------------------------------------------------------+
-| struct hapi \* hapi_serial_open(const char \*devname,int baudrate)    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    struct hapi * hapi_serial_open(const char *devname,int baudrate)  
+
 
 Arguments:
 
@@ -31,11 +33,10 @@ hapi_serial_write
 
 Writes data to Talaria TWO over HAPI interface.
 
-+-----------------------------------------------------------------------+
-| ssize_t hapi_serial_write(void \*dev, const void \*data, size_t       |
-| length)                                                               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    ssize_t hapi_serial_write(void *dev, const void *data, size_t length)
+
 
 Arguments:
 
@@ -52,10 +53,9 @@ hapi_serial_read
 
 Reads data from Talaria TWO over HAPI interface.
 
-+-----------------------------------------------------------------------+
-| ssize_t hapi_serial_read(void \*dev, void \*data, size_t length)      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    ssize_t hapi_serial_read(void *dev, void *data, size_t length)   
 
 Arguments:
 
@@ -72,10 +72,10 @@ hapi_serial_close
 
 Closes HAPI interface.
 
-+-----------------------------------------------------------------------+
-| void hapi_serial_close(void\* dev)                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    void hapi_serial_close(void *dev)       
+
 
 Arguments:
 
@@ -88,10 +88,10 @@ hapi_serial_break
 
 Used to wakeup Talaria TWO. Sends break to Talaria TWO.
 
-+-----------------------------------------------------------------------+
-| void hapi_serial_break(void \*dev, bool on)                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    void hapi_serial_break(void *dev, bool on) 
+
 
 Arguments:
 

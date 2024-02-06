@@ -1,3 +1,5 @@
+.. _st api socket:
+
 Socket APIs
 ~~~~~~~~~~~
 
@@ -6,11 +8,10 @@ socket_create
 
 Creates a socket according to the parameter passed.
 
-+-----------------------------------------------------------------------+
-| int socket_create(struct hapi \*hapi, int proto, char \*server, char  |
-| \*port)                                                               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      int socket_create(struct hapi *hapi, int proto, char *server, char *port)
+
 
 Arguments:
 
@@ -34,13 +35,10 @@ hapi_socket_send_tcp
 
 Used to send data on a TCP socket.
 
-+-----------------------------------------------------------------------+
-| bool                                                                  |
-|                                                                       |
-| hapi_sock_send_tcp(struct hapi \*hapi, uint32_t socket, const void    |
-| \*data, size_t len)                                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_sock_send_tcp(struct hapi *hapi, uint32_t socket, const void *data, size_t len)
+
 
 Arguments:
 
@@ -59,16 +57,10 @@ hapi_sock_send_udp
 
 Used to send data on a UDP socket.
 
-+-----------------------------------------------------------------------+
-| bool                                                                  |
-|                                                                       |
-| hapi_sock_send_udp(struct hapi \*hapi, uint32_t socket,               |
-|                                                                       |
-| uint32_t \*addr, uint16_t port, uint16_t addrlen,                     |
-|                                                                       |
-| const void \*data, size_t len)                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_sock_send_udp(struct hapi *hapi, uint32_t socket, uint32_t *addr, uint16_t port, uint16_t addrlen, const void *data, size_t len)
+
 
 Arguments:
 
@@ -93,13 +85,10 @@ hapi_socket_receive
 
 Used to receive data from a socket.
 
-+-----------------------------------------------------------------------+
-| size_t                                                                |
-|                                                                       |
-| hapi_socket_receive(struct hapi \*hapi, uint32_t socket, void \*data, |
-| size_t len)                                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      size_t hapi_socket_receive(struct hapi *hapi, uint32_t socket, void *data, size_t len)
+
 
 Arguments:
 
@@ -119,12 +108,10 @@ hapi_socket_getavailable
 
 Used to check received data available on a socket.
 
-+-----------------------------------------------------------------------+
-| int                                                                   |
-|                                                                       |
-| hapi_socket_getavailable(struct hapi \*hapi, uint32_t socket)         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      int hapi_socket_getavailable(struct hapi \*hapi, uint32_t socket)     
+
 
 Arguments:
 
@@ -140,13 +127,10 @@ hapi_sock_notify
 
 Registers notification for socket creation.
 
-+-----------------------------------------------------------------------+
-| bool                                                                  |
-|                                                                       |
-| hapi_sock_notify(struct hapi \*hapi, uint32_t socket, uint32_t        |
-| threshold, uint32 flags)                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_sock_notify(struct hapi *hapi, uint32_t socket, uint32_t threshold, uint32 flags)
+
 
 Arguments:
 
@@ -180,12 +164,10 @@ hapi_socket_close
 
 Used to close a socket which has been opened.
 
-+-----------------------------------------------------------------------+
-| void                                                                  |
-|                                                                       |
-| hapi_socket_close(struct hapi \*hapi, uint32_t socket)                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      void hapi_socket_close(struct hapi *hapi, uint32_t socket)  
+
 
 Arguments:
 
@@ -200,12 +182,9 @@ hapi_sock_getavailable
 
 Gets the number of bytes available to read in a socket.
 
-+-----------------------------------------------------------------------+
-| int                                                                   |
-|                                                                       |
-| hapi_sock_getavailable(struct hapi \*hapi, uint32_t socket)           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      int hapi_sock_getavailable(struct hapi *hapi, uint32_t socket)    
 
 Arguments:
 
@@ -220,12 +199,10 @@ hapi_sock_burst_send
 
 Writes multiple packets of data bytes into the socket.
 
-+-----------------------------------------------------------------------+
-| bool hapi_sock_burst_send(struct hapi \*hapi, uint32_t socket,        |
-| uint32_t \*addr, uint16_t port, uint16_t addrlen, uint32_t num_pkt,   |
-| const void \*data, size_t len)                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_sock_burst_send(struct hapi *hapi, uint32_t socket, uint32_t *addr, uint16_t port, uint16_t addrlen, uint32_t num_pkt, const void *data, size_t len)
+
 
 Arguments:
 
@@ -252,11 +229,9 @@ hapi_sock_burst_receive
 
 Reads multiple packets up to the size of the data bytes from the socket.
 
-+-----------------------------------------------------------------------+
-| size_t hapi_sock_burst_receive(struct hapi \*hapi, uint32_t socket,   |
-| void \*data, size_t len, int \*status, int \*flags)                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      size_t hapi_sock_burst_receive(struct hapi *hapi, uint32_t socket, void *data, size_t len, int *status, int *flags)
 
 Arguments:
 
@@ -275,10 +250,10 @@ hapi_sock_close
 
 Closes the socket.
 
-+-----------------------------------------------------------------------+
-| bool hapi_sock_close(struct hapi \*hapi, uint32_t socket)             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_sock_close(struct hapi *hapi, uint32_t socket)  
+
 
 Arguments:
 
@@ -293,11 +268,10 @@ hapi_sock_receive
 
 Receives data on socket.
 
-+-----------------------------------------------------------------------+
-| size_t hapi_sock_receive(struct hapi \*hapi, uint32_t socket, void    |
-| \*data, size_t len)                                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      size_t hapi_sock_receive(struct hapi *hapi, uint32_t socket, void *data, size_t len)
+
 
 Arguments:
 

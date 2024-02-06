@@ -1,3 +1,5 @@
+.. _st u5 hw setup:
+
 Hardware Setup and PIN Configuration
 ====================================
 
@@ -7,8 +9,7 @@ Topology
 The topology of the setup used to test the application is as shown in
 Figure 1.
 
-|A diagram of a different way Description automatically generated with
-medium confidence|
+|image1|
 
 Figure 1: Setup topology
 
@@ -37,15 +38,14 @@ using SPI interface.
    NUCLEO-U575ZI-Q). The NUCLEO-U575ZI-Q Host MCU is configured to use
    this GPIO to wake-up Talaria TWO from suspend mode.
 
-|A circuit board with many small components Description automatically
-generated with medium confidence|
+|image2|
 
 Figure 2: Hardware setup for testing Talaria TWO with STMU575-ZI-Q using
 SPI
 
-.. |A diagram of a different way Description automatically generated with medium confidence| image:: media/image1.png
+.. |image1| image:: media/image1.png
    :width: 5.51181in
    :height: 3.25181in
-.. |A circuit board with many small components Description automatically generated with medium confidence| image:: media/image2.png
+.. |image2| image:: media/image2.png
    :width: 7.48031in
    :height: 4.08301in

@@ -1,3 +1,5 @@
+.. _st api gpio:
+
 GPIO APIs 
 ----------
 
@@ -6,10 +8,10 @@ GPIO APIs
 
 Sets the GPIO pin.
 
-+-----------------------------------------------------------------------+
-| bool hapi_gpio_ctrl_gpio_set(struct hapi \*hapi)                      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+  bool hapi_gpio_ctrl_gpio_set(struct hapi \*hapi) 
+
 
 Arguments:
 
@@ -22,10 +24,10 @@ Return: True(1)=Success, False(0)=Error.
 
 Resets the GPIO pin.
 
-+-----------------------------------------------------------------------+
-| bool hapi_gpio_ctrl_gpio_reset(struct hapi \*hapi)                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+  bool hapi_gpio_ctrl_gpio_reset(struct hapi *hapi)      
+
 
 Arguments:
 

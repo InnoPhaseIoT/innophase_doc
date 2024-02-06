@@ -1,4 +1,4 @@
-
+.. _st l4 setup host machine:
 
 Setting-up the Host Machine for the First Time
 ----------------------------------------------

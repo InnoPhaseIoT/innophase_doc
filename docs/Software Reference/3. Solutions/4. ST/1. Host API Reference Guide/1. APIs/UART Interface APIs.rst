@@ -1,3 +1,5 @@
+.. _st api uart interface:
+
 UART Interface APIs
 -------------------
 
@@ -6,11 +8,10 @@ hapi_uart_init
 
 Initializes the UART interface.
 
-+-----------------------------------------------------------------------+
-| struct hapi\* hapi_uart_init(void\* hapi_uart_ptr, IF_TX_FN tx_fn,    |
-| IF_RX_FN rx_fn, IF_ERR_FN err_fn, IF_UART_INIT uart_init)             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    struct hapi*  hapi_uart_init(void* hapi_uart_ptr, IF_TX_FN tx_fn, IF_RX_FN rx_fn, IF_ERR_FN err_fn, IF_UART_INIT uart_init)
+
 
 Arguments:
 
@@ -32,10 +33,10 @@ hapi_uart_tx
 Used for transmitting an amount of data in blocking mode in the UART
 interface.
 
-+-----------------------------------------------------------------------+
-| int hapi_uart_tx(void \*ptr, char \*buff, int len)                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    int hapi_uart_tx(void *ptr, char *buff, int len)   
+
 
 Arguments:
 
@@ -51,10 +52,10 @@ hapi_uart_rx
 
 Used for Receiving an amount of data in blocking mode.
 
-+-----------------------------------------------------------------------+
-| int hapi_uart_tx(void \*ptr, char \*buff, int len)                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    int hapi_uart_tx(void *ptr, char *buff, int len)  
+
 
 Arguments:
 
@@ -69,10 +70,10 @@ hapi_uart_read
 
 Used to read data from UART interface.
 
-+-----------------------------------------------------------------------+
-| ssize_t hapi_uart_read(void \*dev, void \*data, size_t length)        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    ssize_t hapi_uart_read(void *dev, void *data, size_t length)  
+
 
 Arguments:
 
@@ -91,10 +92,10 @@ hapi_uart_write
 
 Used to write data to UART interface.
 
-+-----------------------------------------------------------------------+
-| ssize_t hapi_uart_write(void \*dev, void \*data, size_t length)       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    ssize_t hapi_uart_write(void *dev, void *data, size_t length) 
+
 
 Arguments:
 

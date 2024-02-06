@@ -1,3 +1,5 @@
+.. _st u5 han wifi:
+
 Wi-Fi Demo Application
 ======================
 
@@ -28,17 +30,6 @@ low power Wi-Fi demo application to:
 
 9. Receive and send data on the socket
 
-Connection Set-up
-=================
-
-Host processor communicates with Talaria TWO via a SPI or UART
-interface. The connection set-up used to test the application is as
-shown in Figure 1.
-
-|A diagram of a cost and cost Description automatically generated with
-medium confidence|
-
-Figure 1: Connection set-up for application testing
 
 STM32U575ZI-Q as Host Controller
 --------------------------------
@@ -94,10 +85,10 @@ device and development board.
 
 For example, TCP client: netcat on PC
 
-+-----------------------------------------------------------------------+
-| #nc <ip address of T2> 9000                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      #nc <ip address of T2> 9000 
+
 
 2. Send any data from the TCP client. The same data is received on the
    client from ST32-Talaria TWO device.
@@ -132,48 +123,43 @@ completed by default.
 HAPI Interface Initialization
 -----------------------------
 
-+-----------------------------------------------------------------------+
-| struct hapi \*hapi;                                                   |
-|                                                                       |
-| #ifdef HAPI_INTERFACE_SPI_ENABLED                                     |
-|                                                                       |
-| /\* Register the SPI \*/                                              |
-|                                                                       |
-| hapi = hapi_spi_init(hapi_spi, hapi_spi_cs_high, hapi_spi_cs_low,     |
-| hapi_spi_tx, hapi_spi_rx);                                            |
-|                                                                       |
-| #endif                                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      struct hapi *hapi;
+      #ifdef HAPI_INTERFACE_SPI_ENABLED
+          /* Register the SPI */
+          hapi = hapi_spi_init(hapi_spi, hapi_spi_cs_high, hapi_spi_cs_low, hapi_spi_tx, hapi_spi_rx);
+      #endif
+
+
 
 Enable/Disable Sleep Mode in Configuration
 ------------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_start(hapi);                                                     |
-|                                                                       |
-| hapi_config(hapi,(bool)PS_ENABLED, wakeup_pin, wakeup_level, irq_pin, |
-| irq_mode);                                                            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      hapi_start(hapi);
+      hapi_config(hapi,(bool)PS_ENABLED, wakeup_pin, wakeup_level, irq_pin, irq_mode);
+
+
 
 Check HAPI Communication with Talaria TWO EVB
 ---------------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_hio_query(hapi,&hio_query_rsp);                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      hapi_hio_query(hapi,&hio_query_rsp); 
+
 
 Create a Wi-Fi Network Interface and Register Link Status Callback 
 -------------------------------------------------------------------
 
-+-----------------------------------------------------------------------+
-| struct hapi_wcm \* hapi_wcm = hapi_wcm_create(hapi);                  |
-|                                                                       |
-| hapi_wcm_set_link_cb(hapi_wcm, wcm_link_cb, NULL);                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      struct hapi_wcm * hapi_wcm = hapi_wcm_create(hapi);
+      hapi_wcm_set_link_cb(hapi_wcm, wcm_link_cb, NULL);
+
+
 
 Connect to a Wi-Fi Network
 --------------------------
@@ -183,29 +169,29 @@ user AP settings. The SECURITY_TYPE macro must be updated with the WPA
 security type, which can be chosen from one of following depending on
 the AP settings.
 
-|A close-up of a white background Description automatically generated|
+|image19|
 
-Figure 2: Security types
+Figure 1: Security types
 
 The SSID, passphrase and other parameters can be modified as per the
-security type selected as shown in Figure 3.
+security type selected as shown in Figure 2.
 
-|A screenshot of a computer code Description automatically generated|
+|image20|
 
-Figure 3: Modifying parameters as per AP settings
+Figure 2: Modifying parameters as per AP settings
 
 **Enterprise_PEAP**
 
 Write only the CA certificate on Talaria TWO data partition using the
 Download Tool and edit the app.c to include the following parameters:
 
-|A screenshot of a computer Description automatically generated|
+|image21|
 
-Figure 4: Modifying parameters for Enterprise PEAP
+Figure 3: Modifying parameters for Enterprise PEAP
 
-|Text Description automatically generated|
+|image22|
 
-Figure 5: Connecting Wi-Fi parameters - Enterprise PEAP
+Figure 4: Connecting Wi-Fi parameters - Enterprise PEAP
 
 **Enterprise_TLS**
 
@@ -213,25 +199,25 @@ Write the CA certificate, Client certificate & Client key on Talaria TWO
 data partition using the Download Tool and edit app.c to include the
 following parameters:
 
-|image1|
+|image23|
 
-Figure 6: Modifying parameters for Enterprise TLS
+Figure 5: Modifying parameters for Enterprise TLS
 
-|image2|
+|image24|
 
-Figure 7: Connecting Wi-Fi parameters - Enterprise TLS
+Figure 6: Connecting Wi-Fi parameters - Enterprise TLS
 
 **Enterprise_TLS**
 
 Edit the app.c to include the following parameters:
 
-|image3|
+|image25|
 
-Figure 8: Modifying parameters for Enterprise PSK
+Figure 7: Modifying parameters for Enterprise PSK
 
-|A screenshot of a computer screen Description automatically generated|
+|image26|
 
-Figure 9: Connecting Wi-Fi parameters - Enterprise PSK
+Figure 8: Connecting Wi-Fi parameters - Enterprise PSK
 
 Create a Server Socket
 ----------------------
@@ -239,13 +225,11 @@ Create a Server Socket
 The application creates a TCP server socket on port 9000 and waits for
 client connection.
 
-+-----------------------------------------------------------------------+
-| uint32_t listen_sock;                                                 |
-|                                                                       |
-| listen_sock = socket_create(hapi, HIO_SOCK_TCP_SERVER,                |
-| "255.255.255.255", "9000")                                            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      uint32_t listen_sock;
+      listen_sock = socket_create(hapi, HIO_SOCK_TCP_SERVER, "255.255.255.255", "9000")
+
 
 Incoming Socket Connection Registration
 ---------------------------------------
@@ -253,48 +237,42 @@ Incoming Socket Connection Registration
 The code registers a handler that gets called when the server receives a
 client connection .
 
-+-----------------------------------------------------------------------+
-| /\* Register indication handlers \*/                                  |
-|                                                                       |
-| hapi_add_ind_handler(hapi, HIO_GROUP_SOCK,                            |
-|                                                                       |
-| SOCK_CONNECTION_IND, client_connected_ind_handler, NULL);             |
-|                                                                       |
-| hapi_add_ind_handler(hapi, HIO_GROUP_SOCK,                            |
-|                                                                       |
-| SOCK_CLOSE_IND, socket_close_ind_handler, NULL);                      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      /* Register indication handlers */
+      hapi_add_ind_handler(hapi, HIO_GROUP_SOCK,
+              SOCK_CONNECTION_IND, client_connected_ind_handler, NULL);
+      hapi_add_ind_handler(hapi, HIO_GROUP_SOCK,
+              SOCK_CLOSE_IND, socket_close_ind_handler, NULL);
+
 
 Available Socket Data
 ---------------------
 
-+-----------------------------------------------------------------------+
-| int available;                                                        |
-|                                                                       |
-| available = hapi_sock_getavailable(hapi, socket);                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      int available;
+      available = hapi_sock_getavailable(hapi, socket);
+
 
 Receive Data on the Socket 
 ---------------------------
 
-+-----------------------------------------------------------------------+
-| char rx_data[50];                                                     |
-|                                                                       |
-| hapi_sock_receive(hapi, socket, rx_data, available);                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      char rx_data[50];
+      hapi_sock_receive(hapi, socket, rx_data, available);
+
 
 Send Data on the Socket
 -----------------------
 
-+-----------------------------------------------------------------------+
-| const char teststring[] = "Hello world!";                             |
-|                                                                       |
-| hapi_sock_send_tcp(hapi, socket, teststring, available);              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      const char teststring[] = "Hello world!";
+      hapi_sock_send_tcp(hapi, socket, teststring, available);
+
+
 
 Expected Output
 ===============
@@ -305,11 +283,11 @@ client connection. Once the client gets connected, it waits for data
 from the client and sends the received data after changing the case
 (upper to lower or lower to upper).
 
-The serial prints on the MCU are as shown in Figure 10:
+The serial prints on the MCU are as shown in Figure 9:
 
-|A computer screen with white text Description automatically generated|
+|image27|
 
-Figure 10: Expected output
+Figure 9: Expected output
 
 Application Files and Functions
 ===============================
@@ -360,33 +338,31 @@ Application Files and Functions
 
 Table 1: Application files and functions
 
-.. |A diagram of a cost and cost Description automatically generated with medium confidence| image:: media/image1.png
+.. |image19| image:: media/image19.png
    :width: 4.72441in
    :height: 2.65052in
-.. |A close-up of a white background Description automatically generated| image:: media/image2.png
+.. |image20| image:: media/image20.png
    :width: 4.72441in
    :height: 1.76007in
-.. |A screenshot of a computer code Description automatically generated| image:: media/image3.png
+.. |image21| image:: media/image21.png
    :width: 4.72441in
    :height: 1.79528in
-.. |A screenshot of a computer Description automatically generated| image:: media/image4.png
+.. |image22| image:: media/image22.png
    :width: 4.72441in
    :height: 1.98658in
-.. |Text Description automatically generated| image:: media/image5.png
+.. |image23| image:: media/image23.png
    :width: 4.72393in
    :height: 2.19167in
-.. |image1| image:: media/image6.png
+.. |image24| image:: media/image24.png
    :width: 4.72441in
    :height: 1.91978in
-.. |image2| image:: media/image7.png
+.. |image25| image:: media/image25.png
    :width: 4.72441in
    :height: 2.74734in
-.. |image3| image:: media/image8.png
+.. |image26| image:: media/image26.png
    :width: 4.72441in
    :height: 1.91145in
-.. |A screenshot of a computer screen Description automatically generated| image:: media/image9.png
+.. |image27| image:: media/image27.png
    :width: 4.72441in
    :height: 2.50628in
-.. |A computer screen with white text Description automatically generated| image:: media/image10.png
-   :width: 7.48031in
-   :height: 3.33774in
+

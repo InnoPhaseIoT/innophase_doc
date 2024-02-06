@@ -1,3 +1,5 @@
+.. _st u5 setup and usage:
+
 Set-up & Usage
 ==============
 
@@ -36,10 +38,10 @@ For SPI interface, use the following boot arguments to program the image
 using Download Tool as described in section: *Programming Talaria TWO
 Application*:
 
-+-----------------------------------------------------------------------+
-| hio.transport=spi, hio.irq_min_gap=1000, krn.gpio=---p                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    hio.transport=spi, hio.irq_min_gap=1000, krn.gpio=---p
+
 
 Programming Talaria TWO Application
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -69,49 +71,31 @@ Documentation\\Download_Tool_UG*.
 
 Console output:
 
-+-----------------------------------------------------------------------+
-| UART:SNWWWWAE                                                         |
-|                                                                       |
-| 4 DWT comparators, range 0x8000                                       |
-|                                                                       |
-| Build $Id: git-878d28d6f $                                            |
-|                                                                       |
-| hio.baudrate=921600                                                   |
-|                                                                       |
-| flash: Gordon ready!                                                  |
-|                                                                       |
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PNWWWWWWWAE                                                     |
-|                                                                       |
-| Build $Id: git-019c45c $                                              |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-0014-00ae-ffffffffffff   |
-|                                                                       |
-| Bootargs: hio.transport=spi hio.irq_min_gap=1000 krn.gpio=---p        |
-|                                                                       |
-| [APP]Data fs mounted, rval = 0                                        |
-|                                                                       |
-| APP ver 1.2                                                           |
-|                                                                       |
-| [0.026,871] mqtt_ping_interval=60                                     |
-|                                                                       |
-| [0.041,385] Calibration file "room" found and used (T=26).            |
-|                                                                       |
-| Registering unassoc apis                                              |
-|                                                                       |
-| Registering custom_msg_exchange apis                                  |
-|                                                                       |
-| $App:git-c1f5ef0                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_1.0                                             |
-|                                                                       |
-| Stw With hio, wcm, sock, mdns, mqtt, tls, bt, http, demo,             |
-| nw_misc_apps, FOTA, FOS, UNASSOC, PROV, file                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    UART:SNWWWWAE
+    4 DWT comparators, range 0x8000
+    Build $Id: git-878d28d6f $
+    hio.baudrate=921600
+    flash: Gordon ready!
+    
+    Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+    ROM yoda-h0-rom-16-0-gd5a8e586
+    FLASH:PNWWWWWWWAE
+    Build $Id: git-019c45c $
+    Flash detected. flash.hw.uuid: 39483937-3207-0014-00ae-ffffffffffff
+    Bootargs: hio.transport=spi hio.irq_min_gap=1000 krn.gpio=---p
+    [APP]Data fs mounted, rval = 0
+    APP ver 1.2
+    [0.026,871] mqtt_ping_interval=60
+    [0.041,385] Calibration file "room" found and used (T=26).
+    Registering unassoc apis
+    Registering custom_msg_exchange apis
+    $App:git-c1f5ef0
+    SDK Ver: FREERTOS_SDK_1.0
+    Stw With hio, wcm, sock, mdns, mqtt, tls, bt, http, demo, nw_misc_apps, FOTA, FOS, UNASSOC, PROV, file
+
+
 
 Pre-set-up with SSBL
 --------------------
@@ -135,32 +119,31 @@ part.json are as follows:
 
 **boot.json**:
 
-+-----------------------------------------------------------------------+
-| {                                                                     |
-|                                                                       |
-| “image”:0                                                             |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    {
+    "image":0
+    }
+
+
 
 **fota.config.json**:
 
-|A screenshot of a computer Description automatically generated|
+|image3|
 
-Figure 3: Example for fota_config.json file
+Figure 1: Example for fota_config.json file
 
 **stwmultiproto.json**:
 
-|Timeline Description automatically generated|
+|image4|
 
-Figure 4: Example for stwmultiproto.json
+Figure 2: Example for stwmultiproto.json
 
 **part.json**:
 
-|A screenshot of a computer code Description automatically generated|
+|image5|
 
-Figure 5: Example for part.json file
+Figure 3: Example for part.json file
 
 .. _boot-arguments-1:
 
@@ -183,19 +166,17 @@ directory on the terminal. Ensure Talaria TWO switch is on 3.3V:
 
 a. Windows:
 
-+-----------------------------------------------------------------------+
-| python .\\script\\factory_loader.py ftdi_serial stwmultiproto.json    |
-| --mode=qa                                                             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    python .\script\factory_loader.py ftdi_serial stwmultiproto.json --mode=qa
+
 
 b. Linux:
 
-+-----------------------------------------------------------------------+
-| python3 ./script/factory_loader.py ftdi_serial stwmultiproto.json     |
-| --mode=qa                                                             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    python3 ./script/factory_loader.py ftdi_serial stwmultiproto.json --mode=qa
+
 
 Programming NUCLEO-U575ZI-Q Host Board with SPI Interface
 ---------------------------------------------------------
@@ -206,12 +187,12 @@ the Talaria TWO EVB on the STM32 board on Arduino connector, and then
 change the power selection switch U3 (on Talaria TWO) to V33_ARD
 position.
 
-.. |A screenshot of a computer Description automatically generated| image:: media/image1.png
+.. |image3| image:: media/image3.png
    :width: 5.51181in
    :height: 4.05656in
-.. |Timeline Description automatically generated| image:: media/image2.png
+.. |image4| image:: media/image4.png
    :width: 5.51181in
    :height: 5.33401in
-.. |A screenshot of a computer code Description automatically generated| image:: media/image3.png
+.. |image5| image:: media/image5.png
    :width: 4.72441in
    :height: 6.20767in

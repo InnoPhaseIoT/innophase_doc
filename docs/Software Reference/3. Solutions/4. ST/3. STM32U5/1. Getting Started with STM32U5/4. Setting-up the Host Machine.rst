@@ -1,3 +1,5 @@
+.. _st u5 setup host machine:
+
 Setting-up the Host Machine for the First Time
 ----------------------------------------------
 

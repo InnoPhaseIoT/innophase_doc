@@ -1,4 +1,4 @@
-.. _stm32U5:
+.. _st u5 getting started:
 
 STM32U5
 ========
@@ -41,9 +41,6 @@ Download the Evaluation Software Package (EVK)
 Download the software package from the InnoPhase website:
 https://innophaseiot.com/talaria-two-modules/#product-availability.
 
-|image1|
-
-Figure 1: Download the Software Package
 
 Package Contents
 ================
@@ -89,6 +86,3 @@ Folder details are as follows:
     Setting-up the Host Machine .rst
     Testing Basic Operations on Set-up.rst
 
-.. |image1| image:: media/image1.png
-   :width: 7.48031in
-   :height: 4.49373in

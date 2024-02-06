@@ -1,3 +1,5 @@
+.. _st u5 han aws mqtt:
+
 AWS MQTT Demo Application
 =========================
 
@@ -24,16 +26,6 @@ AWS MQTT demo application to:
 
 7. Subscribe data from and publish data to AWS
 
-Connection Set-up
-=================
-
-Host processor communicates with Talaria TWO via a SPI interface. The
-connection set-up used to test the application is as shown in Figure 1.
-
-|A diagram of a cost and cost Description automatically generated with
-medium confidence|
-
-Figure 1: Connection set-up for application testing
 
 STM32U575ZI-Q as Host Controller
 --------------------------------
@@ -112,65 +104,46 @@ The application uses HAPI APIs to achieve the functionality. HAPI APIs
 presumes that the platform related initialization and clock settings are
 completed by default.
 
-1. 
-
-2. 
-
-3. 
-
-4. 
-
-5. 
-
-6. 
-
-7. 
 
 HAPI Interface Initialization
 -----------------------------
 
-+-----------------------------------------------------------------------+
-| struct hapi \*hapi;                                                   |
-|                                                                       |
-| #ifdef HAPI_INTERFACE_SPI_ENABLED                                     |
-|                                                                       |
-| /\* Register the SPI \*/                                              |
-|                                                                       |
-| hapi = hapi_spi_init(hapi_spi, hapi_spi_cs_high, hapi_spi_cs_low,     |
-| hapi_spi_tx, hapi_spi_rx);                                            |
-|                                                                       |
-| #endif                                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      struct hapi *hapi;
+      #ifdef HAPI_INTERFACE_SPI_ENABLED
+          /* Register the SPI */
+          hapi = hapi_spi_init(hapi_spi, hapi_spi_cs_high, hapi_spi_cs_low, hapi_spi_tx, hapi_spi_rx);
+      #endif
+
+
 
 Enable/Disable Sleep Mode in Configuration
 ------------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_start(hapi);                                                     |
-|                                                                       |
-| hapi_config(hapi, (bool)PS_ENABLED, wakeup_pin, wakeup_level,         |
-| irq_pin, irq_mode);                                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      hapi_start(hapi);
+      hapi_config(hapi, (bool)PS_ENABLED, wakeup_pin, wakeup_level, irq_pin, irq_mode);
+
 
 Check HAPI Communication with Talaria TWO EVB
 ---------------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_hio_query(hapi,&hio_query_rsp);                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      hapi_hio_query(hapi,&hio_query_rsp); 
+
 
 Create a Wi-Fi Network Interface and Register Link Status Callback 
 -------------------------------------------------------------------
 
-+-----------------------------------------------------------------------+
-| struct hapi_wcm \* hapi_wcm = hapi_wcm_create(hapi);                  |
-|                                                                       |
-| hapi_wcm_set_link_cb(hapi_wcm, wcm_link_cb, hapi_wcm);                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      struct hapi_wcm * hapi_wcm = hapi_wcm_create(hapi);
+      hapi_wcm_set_link_cb(hapi_wcm, wcm_link_cb, hapi_wcm);
+
+
 
 Connect to a Wi-Fi Network
 --------------------------
@@ -180,29 +153,29 @@ user AP settings. The SECURITY_TYPE macro must be updated with the WPA
 security type, which can be chosen from one of following depending on
 the AP settings.
 
-|A close-up of a white background Description automatically generated|
+|image1|
 
-Figure 2: Security types
+Figure 1: Security types
 
 The SSID, passphrase and other parameters can be modified as per the
-security type selected as shown in Figure 3.
+security type selected as shown in Figure 2.
 
-|A screenshot of a computer code Description automatically generated|
+|image2|
 
-Figure 3: Modifying parameters as per AP settings
+Figure 2: Modifying parameters as per AP settings
 
 **Enterprise_PEAP**
 
 Write only the CA certificate on Talaria TWO data partition using the
 Download Tool and edit the app.c to include the following parameters:
 
-|A screenshot of a computer Description automatically generated|
+|image3|
 
-Figure 4: Modifying parameters for Enterprise PEAP
+Figure 3: Modifying parameters for Enterprise PEAP
 
-|Text Description automatically generated|
+|image4|
 
-Figure 5: Connecting Wi-Fi parameters - Enterprise PEAP
+Figure 4: Connecting Wi-Fi parameters - Enterprise PEAP
 
 **Enterprise_TLS**
 
@@ -210,67 +183,60 @@ Write the CA certificate, Client certificate & Client key on Talaria TWO
 data partition using the Download Tool and edit app.c to include the
 following parameters:
 
-|image1|
+|image5|
 
-Figure 6: Modifying parameters for Enterprise TLS
+Figure 5: Modifying parameters for Enterprise TLS
 
-|image2|
+|image6|
 
-Figure 7: Connecting Wi-Fi parameters - Enterprise TLS
+Figure 6: Connecting Wi-Fi parameters - Enterprise TLS
 
 **Enterprise_PSK**
 
 Edit the app.c to include the following parameters:
 
-|image3|
+|image7|
 
-Figure 8: Modifying parameters for Enterprise PSK
+Figure 7: Modifying parameters for Enterprise PSK
 
-|A screenshot of a computer screen Description automatically generated|
+|image8|
 
-Figure 9: Connecting Wi-Fi parameters - Enterprise PSK
+Figure 8: Connecting Wi-Fi parameters - Enterprise PSK
 
 Create an AWS Connection
 ------------------------
 
-+-----------------------------------------------------------------------+
-| if(init_and_connect_aws_iot()) {                                      |
-|                                                                       |
-| banner="AWS connecting failed\\r\\n";                                 |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      if(init_and_connect_aws_iot()) {
+          	banner="AWS connecting failed\r\n";
+          }
+
 
 Subscribe Data from AWS
 -----------------------
 
-+-----------------------------------------------------------------------+
-| int retval;                                                           |
-|                                                                       |
-| if(retval = start_receiving_message_from_aws()) {                     |
-|                                                                       |
-| banner="\\r\\nfailed subscribing..\\r\\n";                            |
-|                                                                       |
-| } else { banner="\\r\\nsubscribing done..\\r\\n"; }                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      int retval;
+          if(retval = start_receiving_message_from_aws()) {
+              banner="\r\nfailed subscribing..\r\n";
+          } else { banner="\r\nsubscribing done..\r\n";    }
+
+
 
 Publish Data to AWS
 -------------------
 
-+-----------------------------------------------------------------------+
-| if(start_sending_messages_to_aws(pub_msg,strlen(pub_msg))){           |
-|                                                                       |
-| banner="failed publising\\r\\n";                                      |
-|                                                                       |
-| }else{                                                                |
-|                                                                       |
-| banner="publishing done\\r\\n";                                       |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      if(start_sending_messages_to_aws(pub_msg,strlen(pub_msg))){
+      	banner="failed publising\r\n";
+          }else{
+      	banner="publishing done\r\n";
+         }
+
+
 
 Expected Output
 ===============
@@ -279,11 +245,11 @@ The MCU will connect to the AP specified by the SSID and passphrase and
 creates the AWS IoT connection with the certificate and URL. The publish
 and subscribe on the topic occurs with MQTT protocol. The publishing is
 done every 3 seconds and the data received is printed. Same data can be
-observed on the AWS portal as well are as shown in Figure 10:
+observed on the AWS portal as well are as shown in Figure 9:
 
-|image4|
+|image9|
 
-Figure 10: Expected output
+Figure 9: Expected output
 
 Application Files and Functions
 ===============================
@@ -336,33 +302,32 @@ Application Files and Functions
 
 Table 1: Application files and functions
 
-.. |A diagram of a cost and cost Description automatically generated with medium confidence| image:: media/image1.png
+
+.. |image1| image:: media/image1.png
    :width: 4.72441in
    :height: 2.65052in
-.. |A close-up of a white background Description automatically generated| image:: media/image2.png
+.. |image2| image:: media/image2.png
    :width: 4.72441in
    :height: 1.76007in
-.. |A screenshot of a computer code Description automatically generated| image:: media/image3.png
+.. |image3| image:: media/image3.png
    :width: 4.72441in
    :height: 1.79528in
-.. |A screenshot of a computer Description automatically generated| image:: media/image4.png
+.. |image4| image:: media/image4.png
    :width: 4.72441in
    :height: 1.98658in
-.. |Text Description automatically generated| image:: media/image5.png
+.. |image5| image:: media/image5.png
    :width: 4.72393in
    :height: 2.19167in
-.. |image1| image:: media/image6.png
+.. |image6| image:: media/image6.png
    :width: 4.72441in
    :height: 1.91978in
-.. |image2| image:: media/image7.png
+.. |image7| image:: media/image7.png
    :width: 4.72441in
    :height: 2.74734in
-.. |image3| image:: media/image8.png
+.. |image8| image:: media/image8.png
    :width: 4.72441in
    :height: 1.91145in
-.. |A screenshot of a computer screen Description automatically generated| image:: media/image9.png
+.. |image9| image:: media/image9.png
    :width: 4.72441in
    :height: 2.50628in
-.. |image4| image:: media/image10.png
-   :width: 7.48031in
-   :height: 4.77558in
+

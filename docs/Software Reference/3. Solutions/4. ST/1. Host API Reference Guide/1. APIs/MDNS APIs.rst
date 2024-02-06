@@ -1,3 +1,5 @@
+.. _st api mdns:
+
 MDNS APIs
 ~~~~~~~~~
 
@@ -6,14 +8,10 @@ hapi_setup_mdns
 
 Used to setup the MDNS service.
 
-+-----------------------------------------------------------------------+
-| struct hapi_mdns\*                                                    |
-|                                                                       |
-| hapi_setup_mdns(struct hapi \*hapi, struct hapi_wcm \*hapi_wcm,       |
-|                                                                       |
-| const char \*host_name)                                               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      struct hapi_mdns* hapi_setup_mdns(struct hapi *hapi, struct hapi_wcm *hapi_wcm, const char *host_name)
+
 
 Arguments:
 
@@ -29,12 +27,10 @@ hapi_mdns_set_ind_cb
 Used to set MDNS notification callback function. This callback is
 getting called when there is a notification from MDNS service.
 
-+-----------------------------------------------------------------------+
-| void hapi_mdns_set_ind_cb(struct hapi_mdns \*hapi_mdns,               |
-|                                                                       |
-| hapi_mdns_ind_cb cb,void \*context)                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      void hapi_mdns_set_ind_cb(struct hapi_mdns *hapi_mdns, hapi_mdns_ind_cb cb,void *context)
+
 
 Arguments:
 
@@ -52,14 +48,10 @@ hapi_add_mdns_service
 
 Used to add a MDNS service so that the MDNS operation get started.
 
-+-----------------------------------------------------------------------+
-| bool hapi_add_mdns_service(struct hapi \*hapi, \*hapi_wcm,const char  |
-|                                                                       |
-| \*host_name, const char \*type,uint32_t proto,uint32_t                |
-|                                                                       |
-| port, char \*description, uint32_t \*serviceId)                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_add_mdns_service(struct hapi *hapi, *hapi_wcm,const char *host_name, const char *type,uint32_t proto,uint32_t port, char *description, uint32_t *serviceId)
+
 
 Arguments:
 
@@ -86,12 +78,10 @@ hapi_remove_mdns_service
 
 Used to remove a MDNS service being added.
 
-+-----------------------------------------------------------------------+
-| bool hapi_remove_mdns_service(struct hapi \*hapi, struct hapi_wcm     |
-|                                                                       |
-| \*hapi_wcm, uint32_t service_id)                                      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_remove_mdns_service(struct hapi *hapi, struct hapi_wcm *hapi_wcm, uint32_t service_id)
+
 
 Arguments:
 
@@ -109,10 +99,10 @@ hapi_stop_mdns
 
 Used to stop the MDNS service.
 
-+-----------------------------------------------------------------------+
-| bool hapi_stop_mdns(struct hapi \*hapi, struct hapi_wcm \*hapi_wcm)   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_stop_mdns(struct hapi *hapi, struct hapi_wcm *hapi_wcm)
+
 
 Arguments:
 
@@ -127,11 +117,10 @@ hapi_resolve_mdns
 
 Used to resolve the MDNS host name to get the IP address.
 
-+-----------------------------------------------------------------------+
-| bool hapi_resolve_mdns(struct hapi \*hapi, const char \*host_name,    |
-| uint8_t addrtype, uint8_t \*ipaddr, uint16_t\* addrlen)               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_resolve_mdns(struct hapi *hapi, const char *host_name, uint8_t addrtype, uint8_t *ipaddr, uint16_t* addrlen)
+
 
 Arguments:
 

@@ -1,3 +1,5 @@
+.. _st api http client:
+
 HTTP Client APIs
 ~~~~~~~~~~~~~~~~
 
@@ -6,12 +8,10 @@ hapi_http_client_setup
 
 Used to setup the HTTP client service.
 
-+-----------------------------------------------------------------------+
-| void hapi_http_client_setup(struct hapi \*hapi_p,                     |
-|                                                                       |
-| hapi_http_client_resp_cb cb, void \*cb_ctx)                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    void hapi_http_client_setup(struct hapi *hapi_p, hapi_http_client_resp_cb cb, void *cb_ctx)
+
 
 Arguments:
 
@@ -28,12 +28,10 @@ hapi_http_client_start
 
 Used to start the HTTP client connection.
 
-+-----------------------------------------------------------------------+
-| bool hapi_http_client_start(struct hapi \*hapi_p, char\* serverName,  |
-|                                                                       |
-| uint32_t port, char\* certName, uint32_t\* clientID)                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_http_client_start(struct hapi *hapi_p, char* serverName, uint32_t port, char* certName, uint32_t* clientID)
+
 
 Arguments:
 
@@ -55,12 +53,10 @@ hapi_http_client_send_req
 Used to send HTTP request to the server. The HTTP server connection
 should exist for this API to work.
 
-+-----------------------------------------------------------------------+
-| bool hapi_http_client_send_req(struct hapi \*hapi_p, uint32_t         |
-| clientID, uint32_t method, char\* req_uri, uint32_t dataLen, char\*   |
-| dataToSend)                                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_http_client_send_req(struct hapi *hapi_p, uint32_t clientID, uint32_t method, char* req_uri, uint32_t dataLen, char* dataToSend)
+
 
 Arguments:
 
@@ -83,11 +79,10 @@ hapi_http_client_hdr_set
 
 Used to set HTTP request header.
 
-+-----------------------------------------------------------------------+
-| bool hapi_http_client_hdr_set(struct hapi \*hapi_p, uint32_t          |
-| headerID, char\* headerVal)                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_http_client_hdr_set(struct hapi *hapi_p, uint32_t headerID, char* headerVal)
+
 
 Arguments:
 
@@ -97,67 +92,38 @@ Arguments:
 
 The httphdrtype is defined as:
 
-+-----------------------------------------------------------------------+
-| typedef enum {                                                        |
-|                                                                       |
-| STW_HTTP_HDR_INVAL, /\* special value for invalid header \*/          |
-|                                                                       |
-| STW_HTTP_HDR_ALLOW,                                                   |
-|                                                                       |
-| STW_HTTP_HDR_AUTHORIZATION,                                           |
-|                                                                       |
-| STW_HTTP_HDR_CONNECTION,                                              |
-|                                                                       |
-| STW_HTTP_HDR_CONTENT_ENCODING,                                        |
-|                                                                       |
-| STW_HTTP_HDR_CONTENT_LENGTH,                                          |
-|                                                                       |
-| STW_HTTP_HDR_CONTENT_RANGE,                                           |
-|                                                                       |
-| STW_HTTP_HDR_CONTENT_TYPE,                                            |
-|                                                                       |
-| STW_HTTP_HDR_COOKIE,                                                  |
-|                                                                       |
-| STW_HTTP_HDR_COOKIE2,                                                 |
-|                                                                       |
-| STW_HTTP_HDR_DATE,                                                    |
-|                                                                       |
-| STW_HTTP_HDR_EXPIRES,                                                 |
-|                                                                       |
-| STW_HTTP_HDR_FROM,                                                    |
-|                                                                       |
-| STW_HTTP_HDR_HOST,                                                    |
-|                                                                       |
-| STW_HTTP_HDR_IF_MODIFIED_SINCE,                                       |
-|                                                                       |
-| STW_HTTP_HDR_LAST_MODIFIED,                                           |
-|                                                                       |
-| STW_HTTP_HDR_LOCATION,                                                |
-|                                                                       |
-| STW_HTTP_HDR_PRAGMA,                                                  |
-|                                                                       |
-| STW_HTTP_HDR_RANGE,                                                   |
-|                                                                       |
-| STW_HTTP_HDR_REFERER,                                                 |
-|                                                                       |
-| STW_HTTP_HDR_SERVER,                                                  |
-|                                                                       |
-| STW_HTTP_HDR_SET_COOKIE,                                              |
-|                                                                       |
-| STW_HTTP_HDR_TRANSFER_ENCODING,                                       |
-|                                                                       |
-| STW_HTTP_HDR_USER_AGENT,                                              |
-|                                                                       |
-| STW_HTTP_HDR_WWW_AUTHENTICATE,                                        |
-|                                                                       |
-| STW_HTTP_HDR_COUNT,                                                   |
-|                                                                       |
-| STW_HTTP_HDR_CUSTOM /\* Value indicating the start of custom headers  |
-| \*/                                                                   |
-|                                                                       |
-| } httphdrtype;                                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    typedef enum {
+        STW_HTTP_HDR_INVAL,       /* special value for invalid header */
+        STW_HTTP_HDR_ALLOW,
+        STW_HTTP_HDR_AUTHORIZATION,
+        STW_HTTP_HDR_CONNECTION,
+        STW_HTTP_HDR_CONTENT_ENCODING,
+        STW_HTTP_HDR_CONTENT_LENGTH,
+        STW_HTTP_HDR_CONTENT_RANGE,
+        STW_HTTP_HDR_CONTENT_TYPE,
+        STW_HTTP_HDR_COOKIE,
+        STW_HTTP_HDR_COOKIE2,
+        STW_HTTP_HDR_DATE,
+        STW_HTTP_HDR_EXPIRES,
+        STW_HTTP_HDR_FROM,
+        STW_HTTP_HDR_HOST,
+        STW_HTTP_HDR_IF_MODIFIED_SINCE,
+        STW_HTTP_HDR_LAST_MODIFIED,
+        STW_HTTP_HDR_LOCATION,
+        STW_HTTP_HDR_PRAGMA,
+        STW_HTTP_HDR_RANGE,
+        STW_HTTP_HDR_REFERER,
+        STW_HTTP_HDR_SERVER,
+        STW_HTTP_HDR_SET_COOKIE,
+        STW_HTTP_HDR_TRANSFER_ENCODING,
+        STW_HTTP_HDR_USER_AGENT,
+        STW_HTTP_HDR_WWW_AUTHENTICATE,
+        STW_HTTP_HDR_COUNT,
+        STW_HTTP_HDR_CUSTOM       /* Value indicating the start of custom headers */
+    } httphdrtype;
+
 
 3. headerVal: The header value to set.
 
@@ -168,11 +134,9 @@ hapi_http_client_hdr_delete
 
 Used to delete HTTP request header.
 
-+-----------------------------------------------------------------------+
-| bool hapi_http_client_hdr_delete(struct hapi \*hapi_p, uint32_t       |
-| headerID)                                                             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_http_client_hdr_delete(struct hapi *hapi_p, uint32_t headerID)
 
 Arguments:
 
@@ -187,12 +151,10 @@ hapi_http_cert_store
 
 Used to store SSL/TLS certificate for HTTPS connection.
 
-+-----------------------------------------------------------------------+
-| bool hapi_http_cert_store(struct hapi \*hapi_p, char\* certName,      |
-|                                                                       |
-| uint32_t certLen, char\* certData)                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_http_cert_store(struct hapi *hapi_p, char* certName, uint32_t certLen, char* certData)
+
 
 Arguments:
 
@@ -209,10 +171,10 @@ hapi_http_cert_delete
 
 Used to delete SSL/TLS certificate for HTTPS.
 
-+-----------------------------------------------------------------------+
-| bool hapi_http_cert_delete(struct hapi \*hapi_p, char\* certName)     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_http_cert_delete(struct hapi *hapi_p, char *certName) 
+
 
 Arguments:
 
@@ -227,10 +189,10 @@ hapi_http_close
 
 Used to close the HTTP connection opened.
 
-+-----------------------------------------------------------------------+
-| bool hapi_http_close(struct hapi \*hapi_p, uint32_t clientId)         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_http_close(struct hapi *hapi_p, uint32_t clientId) 
+
 
 Arguments:
 

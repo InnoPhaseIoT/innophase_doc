@@ -1,3 +1,5 @@
+.. _st api tls:
+
 TLS APIs
 ~~~~~~~~
 
@@ -7,12 +9,10 @@ hapi_tls_create
 Creates the TLS socket and does the handshake to support the TLS
 functionality.
 
-+-----------------------------------------------------------------------+
-| struct hapi_tls \* hapi_tls_create(struct hapi \*hapi,const char      |
-| \*server, const char \*port, uint16_t maxfraglen, uint16_t cacertlen, |
-| uint16_t owncertlen, uint16_t pkeylen)                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    struct hapi_tls * hapi_tls_create(struct hapi *hapi,const char *server, const char *port, uint16_t maxfraglen, uint16_t cacertlen, uint16_t owncertlen, uint16_t pkeylen)
+
 
 Arguments:
 
@@ -37,11 +37,10 @@ hapi_tls_set_dataready_cb
 
 Registers the callback function when the TLS data is available.
 
-+-----------------------------------------------------------------------+
-| void hapi_tls_set_dataready_cb(struct hapi_tls \*hapi_tls,            |
-| hapi_tls_dataready_cb dataready_cb, void \*context)                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    void hapi_tls_set_dataready_cb(struct hapi_tls *hapi_tls, hapi_tls_dataready_cb dataready_cb, void *context)
+
 
 Arguments:
 
@@ -58,11 +57,10 @@ hapi_tls_upload_cert
 
 Stores the certificate passed.
 
-+-----------------------------------------------------------------------+
-| bool hapi_tls_upload_cert(struct hapi_tls \*hapi_tls, enum            |
-| hapi_tls_cert_type cert_type, const char \* cert, size_t cert_size)   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_tls_upload_cert(struct hapi_tls *hapi_tls, enum hapi_tls_cert_type cert_type, const char * cert, size_t cert_size)
+
 
 Arguments:
 
@@ -81,11 +79,10 @@ hapi_tls_handshake
 
 Triggers the TLS handshake operation.
 
-+-----------------------------------------------------------------------+
-| bool hapi_tls_handshake(struct hapi_tls \*hapi_tls, enum              |
-| hapi_tls_auth_mode auth_mode)                                         |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_tls_handshake(struct hapi_tls *hapi_tls, enum hapi_tls_auth_mode auth_mode)
+
 
 Arguments:
 
@@ -100,11 +97,10 @@ hapi_tls_write
 
 Sends data on the TLS connection.
 
-+-----------------------------------------------------------------------+
-| ssize_t hapi_tls_write(struct hapi_tls \*hapi_tls, const void \*      |
-| data, size_t size)                                                    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    ssize_t hapi_tls_write(struct hapi_tls *hapi_tls, const void * data, size_t size)
+
 
 Arguments:
 
@@ -121,11 +117,10 @@ hapi_tls_read
 
 Reads data from the TLS socket.
 
-+-----------------------------------------------------------------------+
-| ssize_t hapi_tls_read(struct hapi_tls \*hapi_tls, void \* buf, size_t |
-| size)                                                                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    ssize_t hapi_tls_read(struct hapi_tls *hapi_tls, void * buf, size_t size)
+
 
 Arguments:
 
@@ -142,10 +137,10 @@ hapi_tls_close
 
 Closes the TLS socket and releases all the resources allocated.
 
-+-----------------------------------------------------------------------+
-| bool hapi_tls_close(struct hapi_tls \*hapi_tls)                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    bool hapi_tls_close(struct hapi_tls *hapi_tls)
+
 
 Arguments:
 
@@ -158,13 +153,10 @@ hapi_tls_set_notification_cb
 
 Registers TLS set notification callback.
 
-+-----------------------------------------------------------------------+
-| void                                                                  |
-|                                                                       |
-| hapi_tls_set_notification_cb(struct hapi_tls \*hapi_tls,              |
-| hapi_tls_notification_cb notification_cb, void \*context)             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+    void hapi_tls_set_notification_cb(struct hapi_tls *hapi_tls, hapi_tls_notification_cb notification_cb, void *context)
+
 
 Arguments:
 

@@ -1,3 +1,5 @@
+.. _st api spi interface:
+
 SPI Interface APIs
 ------------------
 
@@ -6,11 +8,10 @@ hapi_spi_init
 
 Registers the SPI.
 
-+-----------------------------------------------------------------------+
-| struct hapi\* hapi_spi_init(void\* hapi_spi_ptr, CS_HIGH_FN cs_hi,    |
-| CS_LOW_FN cs_low, IF_TX_FN tx_fn, IF_RX_FN rx_fn)                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      struct hapi* hapi_spi_init(void* hapi_spi_ptr, CS_HIGH_FN cs_hi, CS_LOW_FN cs_low, IF_TX_FN tx_fn, IF_RX_FN rx_fn)
+
 
 Arguments:
 
@@ -31,10 +32,10 @@ hapi_spi_cs_high
 
 Sets the CS to high before calling hapi_spi_init().
 
-+-----------------------------------------------------------------------+
-| void hapi_spi_cs_high()                                               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      void hapi_spi_cs_high() 
+
 
 Arguments: None.
 
@@ -45,10 +46,10 @@ hapi_spi_cs_low
 
 Resets the CS to low before calling hapi_spi_init().
 
-+-----------------------------------------------------------------------+
-| void hapi_spi_cs_low()                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      void hapi_spi_cs_low()  
+
 
 Arguments: None.
 
@@ -59,10 +60,10 @@ hapi_spi_tx
 
 Used for transmitting an amount of data in blocking mode.
 
-+-----------------------------------------------------------------------+
-| int hapi_spi_tx(void \*ptr, char \*buff, int len)                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      int hapi_spi_tx(void *ptr, char *buff, int len)
+
 
 Arguments:
 
@@ -77,10 +78,10 @@ hapi_spi_rx
 
 Used for receiving an amount of data in blocking mode.
 
-+-----------------------------------------------------------------------+
-| int hapi_spi_rx(void \*ptr, char \*buff, int len)                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      int hapi_spi_rx(void *ptr, char *buff, int len) 
+
 
 Arguments:
 
@@ -97,10 +98,10 @@ This function is used to inform HAPI that Talaria TWO wants to send data
 to host. Talaria TWO will raise interrupt when data is to be sent to
 host, and from host IRQ handler this function needs to be called.
 
-+-----------------------------------------------------------------------+
-| void hapi_spi_data_waiting()                                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      void hapi_spi_data_waiting()
+
 
 Arguments: None.
 
@@ -111,10 +112,9 @@ hapi_spi_write
 
 Used to write data to SPI interface.
 
-+-----------------------------------------------------------------------+
-| ssize_t hapi_spi_write(void \*dev, const void \*data, size_t length)  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      ssize_t hapi_spi_write(void *dev, const void *data, size_t length)
 
 Arguments:
 
@@ -133,10 +133,10 @@ hapi_spi_read
 
 Used to read data from SPI interface.
 
-+-----------------------------------------------------------------------+
-| ssize_t hapi_spi_read(void \*dev, void \*data, size_t length          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      ssize_t hapi_spi_read(void *dev, void *data, size_t length)
+
 
 Arguments:
 
@@ -150,16 +150,15 @@ Return:
 
 1. length: Length of data read.
 
-hapi_spi\_ multiple_slave_support_enable
+hapi_spi_multiple_slave_support_enable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Used to enable SPI master to support multiple SPI slaves.
 
-+-----------------------------------------------------------------------+
-| void hapi_spi_multiple_slave_support_enable(int enable, SPI_CS_DELAY  |
-| cs_change_del_fn)                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      void hapi_spi_multiple_slave_support_enable(int enable, SPI_CS_DELAY cs_change_del_fn)
+
 
 Arguments:
 

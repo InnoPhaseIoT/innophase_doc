@@ -1,3 +1,5 @@
+.. _st api wlan:
+
 WLAN APIs
 ~~~~~~~~~
 
@@ -7,10 +9,10 @@ hapi_wcm_create
 Creates the HAPI WLAN manager interface and should be called before any
 WLAN APIs.
 
-+-----------------------------------------------------------------------+
-| struct hapi_wcm \* hapi_wcm_create(struct hapi \*hapi)                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      struct hapi_wcm *hapi_wcm_create(struct hapi *hapi)   
+
 
 Arguments:
 
@@ -25,16 +27,10 @@ hapi_wcm_network_profile_add
 Adds a network profile to connect. This API should be called before the
 HAPI autoconnect API that starts the WLAN connection.
 
-+-----------------------------------------------------------------------+
-| bool                                                                  |
-|                                                                       |
-| hapi_wcm_network_profile_add(struct hapi_wcm \*hapi_wcm,              |
-|                                                                       |
-| const char \*ssid, const char \*bssid,                                |
-|                                                                       |
-| const char \*passphrase, const char \*passphrase_id)                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_wcm_network_profile_add(struct hapi_wcm *hapi_wcm, const char *ssid, const char *bssid, const char *passphrase, const char *passphrase_id)
+
 
 Arguments:
 
@@ -58,13 +54,10 @@ hapi_wcm_network_profile_add_ext
 Adds a network profile to connect in enterprise mode. This API should be
 called before the HAPI autoconnect API which starts the WLAN connection.
 
-+-----------------------------------------------------------------------+
-| bool                                                                  |
-|                                                                       |
-| hapi_wcm_network_profile_add_ext(struct hapi_wcm \*hapi_wcm,struct    |
-| wcm_connect_param \*wcm_param)                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_wcm_network_profile_add_ext(struct hapi_wcm *hapi_wcm,struct wcm_connect_param *wcm_param)
+
 
 Arguments:
 
@@ -119,12 +112,10 @@ hapi_wcm_network_profile_remove
 
 Removes the network profile that was added.
 
-+-----------------------------------------------------------------------+
-| bool                                                                  |
-|                                                                       |
-| hapi_wcm_network_profile_remove(struct hapi_wcm \*hapi_wcm)           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_wcm_network_profile_remove(struct hapi_wcm *hapi_wcm)
+
 
 Arguments:
 
@@ -140,12 +131,10 @@ Triggers the scan and connects/disconnects to the AP specified by the
 SSID and uses the passphrase that gets configured using the
 hapi_wcm_network_profile_add API.
 
-+-----------------------------------------------------------------------+
-| bool                                                                  |
-|                                                                       |
-| hapi_wcm_autoconnect(struct hapi_wcm \*hapi_wcm, uint32_t enabled)    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_wcm_autoconnect(struct hapi_wcm *hapi_wcm, uint32_t enabled)
+
 
 Arguments:
 
@@ -161,11 +150,10 @@ hapi_wcm_set_link_cb
 Registers the callback function to the HAPI WLAN interface for the
 asynchronous WLAN link change notification.
 
-+-----------------------------------------------------------------------+
-| void hapi_wcm_set_link_cb(struct hapi_wcm \*hapi_wcm,                 |
-| hapi_wcm_link_cb cb, void \*context)                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      void hapi_wcm_set_link_cb(struct hapi_wcm *hapi_wcm, hapi_wcm_link_cb cb, void *context)
+
 
 Arguments:
 
@@ -184,10 +172,10 @@ hapi_wcm_destroy
 
 Removes the HAPI WLAN manager interface created.
 
-+-----------------------------------------------------------------------+
-| bool hapi_wcm_destroy(struct hapi_wcm \*hapi_wcm)                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_wcm_destroy(struct hapi_wcm *hapi_wcm) 
+
 
 Arguments:
 
@@ -200,12 +188,11 @@ hapi_wcm_get_handle
 
 Returns the WCM handle address from hapi_wcm.
 
-+-----------------------------------------------------------------------+
-| uint32_t                                                              |
-|                                                                       |
-| hapi_wcm_get_handle(struct hapi_wcm \*hapi_wcm);                      |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      uint32_t hapi_wcm_get_handle(struct hapi_wcm *hapi_wcm);
+
+
 
 Arguments:
 
@@ -220,11 +207,10 @@ hapi_wcm_scan
 Starts the Wi-Fi scan. The scan can be SSID based and/or channel based.
 Depends on the parameters provided.
 
-+-----------------------------------------------------------------------+
-| Int32_t hapi_wcm_scan(struct hapi_wcm \*hapi_wcm, const char \*ssid,  |
-| char channel, int \*num)                                              |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      int32_t hapi_wcm_scan(struct hapi_wcm *hapi_wcm, const char *ssid, char channel, int *num)
+
 
 Arguments:
 
@@ -246,11 +232,10 @@ Registers callback function for the scan operation. The callback
 function is called when the required number of entries are available
 once the scan starts.
 
-+-----------------------------------------------------------------------+
-| void hapi_wcm_set_scan_cb(struct hapi_wcm \*hapi_wcm,                 |
-| hapi_wcm_scan_cb cb, void \*context)                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      void hapi_wcm_set_scan_cb(struct hapi_wcm *hapi_wcm, hapi_wcm_scan_cb cb, void *context)
+
 
 Arguments:
 
@@ -259,29 +244,22 @@ Arguments:
 2. cb: The callback function to be registered. Callback function
    prototype:
 
-+-----------------------------------------------------------------------+
-| void cb(void \*context, struct wcm_scaninfo \*scaninfo)               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      void cb(void *context, struct wcm_scaninfo *scaninfo)
 
 where, struct wcm_scaninfo declaration is as follows:
 
-+-----------------------------------------------------------------------+
-| struct wcm_scaninfo {                                                 |
-|                                                                       |
-| uint32_t num; /\**Number of scan entries \***/                        |
-|                                                                       |
-| uint8_t ssid[33]; /\**SSID***/                                        |
-|                                                                       |
-| uint8_t bssid[6]; /\**< BSSID \*/                                     |
-|                                                                       |
-| uint8_t channel; /\**< channel \*/                                    |
-|                                                                       |
-| int16_t rssi; /\**< Estimated RSSI for the station \*/                |
-|                                                                       |
-| uint8_t authstr[32]; /\**< security string \*/ };                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      struct wcm_scaninfo {
+      uint32_t num;     /**Number of scan entries ***/
+      uint8_t ssid[33]; /**SSID***/
+      uint8_t bssid[6]; /**< BSSID */
+      uint8_t channel;  /**< channel */
+      int16_t rssi; /**< Estimated RSSI for the station */
+      uint8_t authstr[32]; /**< security string */            };
+
 
 3. context: The context to be passed along when the call back getting
    called.
@@ -293,13 +271,10 @@ hapi_wcm_setpmconfig
 
 Used to set the WLAN power save parameters.
 
-+-----------------------------------------------------------------------+
-| bool                                                                  |
-|                                                                       |
-| hapi_wcm_setpmconfig(struct hapi_wcm \*hapi_wcm, uint32_t             |
-| listen_interval, uint32_t traffic_tmo, uint32_t pm_flags)             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_wcm_setpmconfig(struct hapi_wcm *hapi_wcm, uint32_t listen_interval, uint32_t traffic_tmo, uint32_t pm_flags)
+
 
 Arguments:
 
@@ -332,12 +307,10 @@ hapi_wcm_regdomain_set
 
 Used to set the WLAN regulatory domain.
 
-+-----------------------------------------------------------------------+
-| bool                                                                  |
-|                                                                       |
-| hapi_wcm_regdomain_set(struct hapi_wcm \*hapi_wcm, char \*domain)     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_wcm_regdomain_set(struct hapi_wcm *hapi_wcm, char *domain)
+
 
 Arguments:
 
@@ -364,12 +337,9 @@ hapi_wcm_setaddr_4
 Sets the ipv4 address to Talaria TWO device. This APIs is normally
 called for setting the static IP.
 
-+-----------------------------------------------------------------------+
-| bool hapi_wcm_setaddr_4(struct hapi_wcm \*hapi_wcm, unsigned int      |
-| \*ipaddr, unsigned int \*netmask, unsigned int \*gw, unsigned int     |
-| \*dns)                                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_wcm_setaddr_4(struct hapi_wcm *hapi_wcm, unsigned int *ipaddr, unsigned int *netmask, unsigned int *gw, unsigned int *dns)
 
 Arguments:
 
@@ -390,13 +360,10 @@ hapi_wcm_getaddr_4
 
 Returns the ipv4 address from Talaria TWO device.
 
-+-----------------------------------------------------------------------+
-| bool hapi_wcm_getaddr_4(struct hapi_wcm \*hapi_wcm, unsigned int      |
-|                                                                       |
-| \*ipaddr, unsigned int \*netmask, unsigned int \*gw, unsigned int     |
-| \*dns)                                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_wcm_getaddr_4(struct hapi_wcm *hapi_wcm, unsigned int *ipaddr, unsigned int *netmask, unsigned int *gw, unsigned int *dns)
+
 
 Arguments:
 
@@ -418,11 +385,10 @@ hapi_wcm_network_profile_add_new
 Adds a network profile in personal or enterprise security mode to
 connect.
 
-+-----------------------------------------------------------------------+
-| bool hapi_wcm_network_profile_add_new(struct hapi_wcm \*hapi_wcm,     |
-| struct wcm_connect_param \*wcm_param)                                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_wcm_network_profile_add_new(struct hapi_wcm *hapi_wcm, struct wcm_connect_param *wcm_param)
+
 
 Arguments:
 
@@ -433,16 +399,14 @@ Arguments:
 Return: Status of add network profile operation. True=Success, False
 otherwise.
 
-hapi\_ wcm_scan_indhandler
+hapi_wcm_scan_indhandler
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Indication callback for scan response from Talaria TWO.
 
-+-----------------------------------------------------------------------+
-| void hapi_wcm_scan_indhandler(void \*context, struct hapi_packet      |
-| \*pkt)                                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      void hapi_wcm_scan_indhandler(void *context, struct hapi_packet *pkt)
 
 Arguments:
 
@@ -458,10 +422,9 @@ hapi_wcm_autoconnectcfg
 
 Enables/Disables async connect.
 
-+-----------------------------------------------------------------------+
-| bool hapi_wcm_autoconnectcfg(struct hapi_wcm \*hapi_wcm, int flag)    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_wcm_autoconnectcfg(struct hapi_wcm *hapi_wcm, int flag)
 
 Arguments:
 
@@ -476,10 +439,10 @@ hapi_wcm_lastind_get
 
 Returns last indication value.
 
-+-----------------------------------------------------------------------+
-| int hapi_wcm_lastind_get(struct hapi_wcm \*hapi_wcm)                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      int hapi_wcm_lastind_get(struct hapi_wcm *hapi_wcm)
+
 
 Arguments:
 
@@ -493,11 +456,10 @@ hapi_wcm_reinit
 Re-initializes WCM interface and returns its pointer. This will be used
 after host wakeup to initialize the WCM.
 
-+-----------------------------------------------------------------------+
-| struct hapi_wcm \* hapi_wcm_reinit(struct hapi \*hapi,uint32_t        |
-| wcm_handle)                                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      struct hapi_wcm * hapi_wcm_reinit(struct hapi *hapi,uint32_t wcm_handle)
+
 
 Arguments:
 
@@ -510,12 +472,10 @@ hapi_wcm_set_handle
 
 Sets WCM handle address after host wakeup.
 
-+-----------------------------------------------------------------------+
-| void                                                                  |
-|                                                                       |
-| hapi_wcm_set_handle(struct hapi_wcm \*hapi_wcm, uint32_t wcm_handle)  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      void hapi_wcm_set_handle(struct hapi_wcm *hapi_wcm, uint32_t wcm_handle)
+
 
 Arguments:
 
@@ -532,13 +492,10 @@ hapi_wcm_setpmconfig
 
 Sets WLAN power save parameters.
 
-+-----------------------------------------------------------------------+
-| bool                                                                  |
-|                                                                       |
-| hapi_wcm_setpmconfig(struct hapi_wcm \*hapi_wcm, uint32_t             |
-| listen_interval, uint32_t traffic_tmo, uint32_t pm_flags)             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_wcm_setpmconfig(struct hapi_wcm *hapi_wcm, uint32_t listen_interval, uint32_t traffic_tmo, uint32_t pm_flags)
+
 
 Arguments:
 
@@ -580,13 +537,10 @@ hapi_wcm_getpmconfig
 
 Gets WLAN power save parameters.
 
-+-----------------------------------------------------------------------+
-| bool                                                                  |
-|                                                                       |
-| hapi_wcm_getpmconfig(struct hapi_wcm \*hapi_wcm, uint32_t             |
-| listen_interval, uint32_t traffic_tmo, uint32_t pm_flags)             |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_wcm_getpmconfig(struct hapi_wcm *hapi_wcm, uint32_t listen_interval, uint32_t traffic_tmo, uint32_t pm_flags)
+
 
 Arguments:
 
@@ -619,10 +573,10 @@ hapi_wcm_tx_pow_set
 
 Sets Tx power.
 
-+-----------------------------------------------------------------------+
-| bool hapi_wcm_tx_pow_set(struct hapi_wcm \*hapi_wcm, int8_t tx_power  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_wcm_tx_pow_set(struct hapi_wcm *hapi_wcm, int8_t tx_power 
+
 
 Arguments:
 
@@ -637,10 +591,9 @@ hapi_wcm_tx_pow_get
 
 Gets Tx power.
 
-+-----------------------------------------------------------------------+
-| bool hapi_wcm_tx_pow_get(struct hapi_wcm \*hapi_wcm, int8_t \*tx_pow) |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_wcm_tx_pow_get(struct hapi_wcm *hapi_wcm, int8_t *tx_pow)
 
 Arguments:
 
@@ -655,10 +608,10 @@ hapi_wcm_rssi_get
 
 Gets the RSSI of WCM connection.
 
-+-----------------------------------------------------------------------+
-| bool hapi_wcm_rssi_get(struct hapi_wcm \*hapi_wcm, int32_t \*rssi)    |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      bool hapi_wcm_rssi_get(struct hapi_wcm *hapi_wcm, int32_t *rssi)
+
 
 Arguments:
 
@@ -674,11 +627,9 @@ hapi_wcm_scan_updatechannel
 
 Scans the updated channel.
 
-+-----------------------------------------------------------------------+
-| void hapi_wcm_scan_updatechannel(const unsigned char \*ie_pkt, int    |
-| ie_len,unsigned char \*channel)                                       |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      void hapi_wcm_scan_updatechannel(const unsigned char *ie_pkt, int ie_len,unsigned char *channel)
 
 Arguments:
 
@@ -695,11 +646,10 @@ hapi_wcm_scan_updateauth
 
 Scans the updated authentication mode.
 
-+-----------------------------------------------------------------------+
-| int hapi_wcm_scan_updateauth(unsigned char \*ie_list, int ie_len, int |
-| \*authmode)                                                           |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      int hapi_wcm_scan_updateauth(unsigned char *ie_list, int ie_len, int *authmode)
+
 
 Arguments:
 
@@ -716,11 +666,9 @@ hapi_wcm_scan_updatessid
 
 Scans the updated SSID.
 
-+-----------------------------------------------------------------------+
-| void hapi_wcm_scan_updatessid(const unsigned char \*ie_pkt, int       |
-| ie_len,unsigned char \*ssid)                                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      void hapi_wcm_scan_updatessid(const unsigned char *ie_pkt, int ie_len,unsigned char *ssid)
 
 Arguments:
 
@@ -737,11 +685,10 @@ hapi_wcm_authmode_tostr
 
 Returns the authentication mode name.
 
-+-----------------------------------------------------------------------+
-| size_t hapi_wcm_authmode_tostr(uint32_t authmask, char \*mode_name,   |
-| size_t size)                                                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      size_t hapi_wcm_authmode_tostr(uint32_t authmask, char *mode_name, size_t size)
+
 
 Arguments:
 

@@ -1,3 +1,5 @@
+.. _cv28 end to end setup:
+
 AEK001 cv28 - Talaria TWO End-to-End Setup
 ------------------------------------------
 
@@ -19,17 +21,17 @@ AEK001 cv28 - Talaria TWO End-to-End Setup
 
 4. Start the tunadapter in the background.
 
-+-----------------------------------------------------------------------+
-| ./tunadapter &                                                        |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|A screenshot of a computer program Description automatically generated|
+      ./tunadapter &
 
-Figure 6: tunadapter output
+
+|image1|
+
+Figure 1: tunadapter output
 
 5. For serial logging on AEK001 cv28, connect the GPIO from AEK001 cv28
-   to FT232 USB UART board as shown in Figure 5.
+   to FT232 USB UART board as shown in the topology.
 
 6. Install any serial application on the Host machine to access AEK001
    cv28’s serial console.
@@ -56,14 +58,11 @@ b. Open Putty Choose Connection - - - >Serial 11/23/2021 2/5 Serial line
       push it on to AEK001 cv28 using tftpd server using the following
       commands (Default IP of AEK001 cv28 is 10.0.0.2).
 
-+-----------------------------------------------------------------------+
-| tftp -g -r conmgr <tftp server ip>                                    |
-|                                                                       |
-| tftp -g -r tunadapter <tftp server ip>                                |
-|                                                                       |
-| -example tftp -g -r tunadapter 10.0.0.1                               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      tftp -g -r conmgr  <tftp server ip>
+      tftp -g -r tunadapter  <tftp server ip>
+      -example tftp -g -r tunadapter  10.0.0.1
 
 ..
 
@@ -78,20 +77,19 @@ iii. -r: Remote file
 8. Enter the username as root and click enter.
 
 9. Start the tunadapter on the AEK001 cv28 host using: ./tunadapter.
-   Ensure the tunadapter starts successfully as shown in Figure 7.
+   Ensure the tunadapter starts successfully as shown in Figure 2.
 
-|Graphical user interface Description automatically generated with
-medium confidence|
+|image2|
 
-Figure 7: Starting tunadapter
+Figure 2: Starting tunadapter
 
 10. Now use the conmgr command to scan, connect etc.
 
 For example: ./conmgr connect <AP SSID> <AP PWD>
 
-.. |A screenshot of a computer program Description automatically generated| image:: media/image1.png
+.. |image1| image:: media/image1.png
    :width: 6.9685in
    :height: 5.92514in
-.. |Graphical user interface Description automatically generated with medium confidence| image:: media/image2.png
+.. |image2| image:: media/image2.png
    :width: 7.48031in
    :height: 4.9683in

@@ -1,5 +1,6 @@
+.. _cv28 prerequisites:
 
-CV28 SoC - Prerequisites
+Prerequisites
 ==============
 
 **From InnoPhase IoT**:

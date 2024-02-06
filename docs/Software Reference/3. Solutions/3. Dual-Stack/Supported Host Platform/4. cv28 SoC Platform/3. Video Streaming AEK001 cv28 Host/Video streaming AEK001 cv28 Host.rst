@@ -1,3 +1,5 @@
+.. _cv28 vs:
+
 Video Streaming – AEK001 CV28 Host
 ==================================
 
@@ -32,75 +34,58 @@ CV28.
 
 1. Configure GPIO on the AEK001 CV28 host to wake up Talaria TWO.
 
-+-----------------------------------------------------------------------+
-| echo "26" > /sys/class/gpio/export                                    |
-|                                                                       |
-| echo "out" > /sys/class/gpio/gpio26/direction                         |
-|                                                                       |
-| echo "0" > /sys/class/gpio/gpio26/value                               |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      echo "26" > /sys/class/gpio/export
+      echo "out" > /sys/class/gpio/gpio26/direction
+      echo "0" > /sys/class/gpio/gpio26/value
+
 
 2. Start tunadapter in the background.
 
-+-----------------------------------------------------------------------+
-| ./tunadapter tos=160&                                                 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|A screen shot of a computer Description automatically generated|
+      ./tunadapter tos=160&  
+
+
+|image1|
 
 Figure 1: Start tunadapter
 
 3. Connect Talaria TWO to an Access Point.
 
-|image1|
+|image2|
 
 Figure 2: Connect to AP
 
 4. To following kernel modules need to be inserted for enabling video
    streaming:
 
-+-----------------------------------------------------------------------+
-| insmod /lib/modules/5.4.120/extra/hw_timer.ko                         |
-|                                                                       |
-| insmod /lib/modules/5.4.120/extra/ambnl.ko                            |
-|                                                                       |
-| insmod /lib/modules/5.4.120/extra/ambcma.ko                           |
-|                                                                       |
-| insmod /lib/modules/5.4.120/extra/dsp.ko                              |
-|                                                                       |
-| insmod /lib/modules/5.4.120/extra/imgproc.ko                          |
-|                                                                       |
-| insmod /lib/modules/5.4.120/extra/iav.ko                              |
-|                                                                       |
-| insmod /lib/modules/5.4.120/extra/jx_f32_mipi.ko                      |
-|                                                                       |
-| sleep 1                                                               |
-|                                                                       |
-| test_aaa_service -a &                                                 |
-|                                                                       |
-| test_encode –hdmi 1080p –resource-cfg /usr/local/bin/scripts/cv28     |
-| vin0 1080p linear.lua                                                 |
-|                                                                       |
-| rtsp_server &                                                         |
-|                                                                       |
-| test_encode -A -H 1080p -e                                            |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|A screenshot of a computer Description automatically generated|
+      insmod /lib/modules/5.4.120/extra/hw_timer.ko
+      insmod /lib/modules/5.4.120/extra/ambnl.ko
+      insmod /lib/modules/5.4.120/extra/ambcma.ko
+      insmod /lib/modules/5.4.120/extra/dsp.ko
+      insmod /lib/modules/5.4.120/extra/imgproc.ko
+      insmod /lib/modules/5.4.120/extra/iav.ko
+      insmod /lib/modules/5.4.120/extra/jx_f32_mipi.ko
+      
+      sleep 1
+      test_aaa_service -a &
+      test_encode –hdmi 1080p –resource-cfg /usr/local/bin/scripts/cv28 vin0 1080p linear.lua
+      rtsp_server &
+      test_encode -A -H 1080p -e
 
-|image2|
 
-|A computer screen shot of a program Description automatically
-generated|
+
+|image3|
 
 Figure 3: Insert ko modules and start RTSP server - console logs
 
 5. Get the IP address of tun interface using ifconfig command:
 
-|image3|
+|image4|
 
 Figure 4: ifconfig -output
 
@@ -108,33 +93,27 @@ Figure 4: ifconfig -output
    using the following command and click on Play. Video starts streaming
    after this.
 
-+-----------------------------------------------------------------------+
-| rtsp://<TUN IP ADDR>/stream”                                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
 
-|image4|
+      rtsp://<TUN IP ADDR>/stream” 
+
+
+|image5|
 
 Figure 5: VLC player
 
-.. |A screen shot of a computer Description automatically generated| image:: media/image1.png
+.. |image1| image:: media/image1.png
    :width: 6.88976in
    :height: 7.37142in
-.. |image1| image:: media/image2.png
+.. |image2| image:: media/image2.png
    :width: 6.88976in
    :height: 1.14659in
-.. |A screenshot of a computer Description automatically generated| image:: media/image3.png
+.. |image3| image:: media/image3.png
    :width: 6.69291in
    :height: 1.67979in
-.. |image2| image:: media/image4.png
+.. |image4| image:: media/image4.png
    :width: 6.69291in
    :height: 3.86004in
-.. |A computer screen shot of a program Description automatically generated| image:: media/image5.png
+.. |image5| image:: media/image5.png
    :width: 6.69291in
    :height: 2.38126in
-.. |image3| image:: media/image6.png
-   :width: 6.69291in
-   :height: 1.35631in
-.. |image4| image:: media/image7.png
-   :width: 6.69291in
-   :height: 4.1601in

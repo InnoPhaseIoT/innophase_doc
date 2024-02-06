@@ -1,3 +1,5 @@
+.. _st u5 han aws sensor2cloud:
+
 AWS Sensor2Cloud Demo Application
 =================================
 
@@ -24,16 +26,6 @@ AWS Sensor2Cloud demo application to:
 
 7. Create a shadow connection
 
-Connection Set-up
-=================
-
-Host processor communicates with Talaria TWO via a SPI interface. The
-connection set-up used to test the application is as shown in Figure 1.
-
-|A diagram of a cost and cost Description automatically generated with
-medium confidence|
-
-Figure 1: Connection set-up for application testing
 
 STM32U575ZI-Q as Host Controller
 --------------------------------
@@ -112,65 +104,46 @@ application uses HAPI APIs to achieve the functionality. HAPI APIs
 presumes that the platform related initialization and clock settings are
 completed by default.
 
-1. 
-
-2. 
-
-3. 
-
-4. 
-
-5. 
-
-6. 
-
-7. 
 
 HAPI Interface Initialization
 -----------------------------
 
-+-----------------------------------------------------------------------+
-| struct hapi \*hapi;                                                   |
-|                                                                       |
-| #ifdef HAPI_INTERFACE_SPI_ENABLED                                     |
-|                                                                       |
-| /\* Register the SPI \*/                                              |
-|                                                                       |
-| hapi = hapi_spi_init(hapi_spi, hapi_spi_cs_high, hapi_spi_cs_low,     |
-| hapi_spi_tx, hapi_spi_rx);                                            |
-|                                                                       |
-| #endif                                                                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      struct hapi *hapi;
+      #ifdef HAPI_INTERFACE_SPI_ENABLED
+          /* Register the SPI */
+          hapi = hapi_spi_init(hapi_spi, hapi_spi_cs_high, hapi_spi_cs_low, hapi_spi_tx, hapi_spi_rx);
+      #endif
+
+
 
 Enable/Disable Sleep Mode in Configuration
 ------------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_start(hapi);                                                     |
-|                                                                       |
-| hapi_config(hapi, (bool)PS_ENABLED, wakeup_pin, wakeup_level,         |
-| irq_pin, irq_mode);                                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      hapi_start(hapi);
+      hapi_config(hapi, (bool)PS_ENABLED, wakeup_pin, wakeup_level, irq_pin, irq_mode);
+
 
 Check HAPI Communication with Talaria TWO EVB
 ---------------------------------------------
 
-+-----------------------------------------------------------------------+
-| hapi_hio_query(hapi,&hio_query_rsp);                                  |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      hapi_hio_query(hapi,&hio_query_rsp); 
+
 
 Create a Wi-Fi Network Interface and Register Link Status Callback 
 -------------------------------------------------------------------
 
-+-----------------------------------------------------------------------+
-| struct hapi_wcm \* hapi_wcm = hapi_wcm_create(hapi);                  |
-|                                                                       |
-| hapi_wcm_set_link_cb(hapi_wcm, wcm_link_cb, hapi_wcm);                |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      struct hapi_wcm * hapi_wcm = hapi_wcm_create(hapi);
+      hapi_wcm_set_link_cb(hapi_wcm, wcm_link_cb, hapi_wcm);
+
+
 
 Connect to a Wi-Fi Network
 --------------------------
@@ -180,29 +153,29 @@ user AP settings. The SECURITY_TYPE macro must be updated with the WPA
 security type, which can be chosen from one of following depending on
 the AP settings.
 
-|A close-up of a white background Description automatically generated|
+|image10|
 
-Figure 2: Security types
+Figure 1: Security types
 
 The SSID, passphrase and other parameters can be modified as per the
-security type selected as shown in Figure 3.
+security type selected as shown in Figure 2.
 
-|A screenshot of a computer code Description automatically generated|
+|image11|
 
-Figure 3: Modifying parameters as per AP settings
+Figure 2: Modifying parameters as per AP settings
 
 **Enterprise_PEAP**
 
 Write only the CA certificate on Talaria TWO data partition using the
 Download Tool and edit the app.c to include the following parameters:
 
-|A screenshot of a computer Description automatically generated|
+|image12|
 
-Figure 4: Modifying parameters for Enterprise PEAP
+Figure 3: Modifying parameters for Enterprise PEAP
 
-|Text Description automatically generated|
+|image13|
 
-Figure 5: Connecting Wi-Fi parameters - Enterprise PEAP
+Figure 4: Connecting Wi-Fi parameters - Enterprise PEAP
 
 **Enterprise_TLS**
 
@@ -210,61 +183,52 @@ Write the CA certificate, Client certificate & Client key on Talaria TWO
 data partition using the Download Tool and edit app.c to include the
 following parameters:
 
-|image1|
+|image14|
 
-Figure 6: Modifying parameters for Enterprise TLS
+Figure 5: Modifying parameters for Enterprise TLS
 
-|image2|
+|image15|
 
-Figure 7: Connecting Wi-Fi parameters - Enterprise TLS
+Figure 6: Connecting Wi-Fi parameters - Enterprise TLS
 
 **Enterprise_PSK**
 
 Edit the app.c to include the following parameters:
 
-|image3|
+|image16|
 
-Figure 8: Modifying parameters for Enterprise PSK
+Figure 7: Modifying parameters for Enterprise PSK
 
-|A screenshot of a computer screen Description automatically generated|
+|image17|
 
-Figure 9: Connecting Wi-Fi parameters - Enterprise PSK
+Figure 8: Connecting Wi-Fi parameters - Enterprise PSK
 
 Create an AWS Connection
 ------------------------
 
-+-----------------------------------------------------------------------+
-| if(init_and_connect_aws_iot()) {                                      |
-|                                                                       |
-| printf("init_and_connect_aws_iot failed. *ret*:\\r\\n");              |
-|                                                                       |
-| printf("...will retry connecting again after some time..\\r\\n");     |
-|                                                                       |
-| vTaskDelay(60000);                                                    |
-|                                                                       |
-| continue;                                                             |
-|                                                                       |
-| }                                                                     |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      if(init_and_connect_aws_iot()) {
+       printf("init_and_connect_aws_iot failed. ret:\r\n");
+      	printf("...will retry connecting again after some time..\r\n");
+      	vTaskDelay(60000);
+      	continue;
+      }
+
+
 
 Create a Shadow Connection
 --------------------------
 
-+-----------------------------------------------------------------------+
-| rc = aws_iot_shadow_init(gpclient, sp);                               |
-|                                                                       |
-| if (SUCCESS != rc) {                                                  |
-|                                                                       |
-| hapi_free(sp);                                                        |
-|                                                                       |
-| hapi_free(gpclient);                                                  |
-|                                                                       |
-| printf("Shadow Connection Error *ret*:%d\\n", rc);                    |
-|                                                                       |
-| return rc; }                                                          |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      rc = aws_iot_shadow_init(gpclient, sp);
+          if (SUCCESS != rc) {
+              hapi_free(sp);
+              hapi_free(gpclient);
+              printf("Shadow Connection Error ret:%d\n", rc);
+              return rc;   }
+
 
 Expected Output
 ===============
@@ -275,11 +239,11 @@ creates a shadow service and prepares a JSON document to update the
 device's sensor value every 5 seconds.
 
 On successful execution, the following console output can be observed as
-shown in Figure 10:
+shown in Figure 9:
 
-|image4|
+|image18|
 
-Figure 10: Expected output
+Figure 9: Expected output
 
 Application Files and Functions
 ===============================
@@ -332,33 +296,30 @@ Application Files and Functions
 
 Table 1: Application files and functions
 
-.. |A diagram of a cost and cost Description automatically generated with medium confidence| image:: media/image1.png
+.. |image10| image:: media/image10.png
    :width: 4.72441in
    :height: 2.65052in
-.. |A close-up of a white background Description automatically generated| image:: media/image2.png
+.. |image11| image:: media/image11.png
    :width: 4.725in
    :height: 1.75833in
-.. |A screenshot of a computer code Description automatically generated| image:: media/image3.png
+.. |image12| image:: media/image12.png
    :width: 4.725in
    :height: 1.8in
-.. |A screenshot of a computer Description automatically generated| image:: media/image4.png
+.. |image13| image:: media/image13.png
    :width: 4.725in
    :height: 1.99167in
-.. |Text Description automatically generated| image:: media/image5.png
+.. |image14| image:: media/image14.png
    :width: 4.725in
    :height: 2.19167in
-.. |image1| image:: media/image6.png
+.. |image15| image:: media/image15.png
    :width: 4.725in
    :height: 1.91667in
-.. |image2| image:: media/image7.png
+.. |image16| image:: media/image16.png
    :width: 4.725in
    :height: 2.75in
-.. |image3| image:: media/image8.png
+.. |image17| image:: media/image17.png
    :width: 4.725in
    :height: 1.91667in
-.. |A screenshot of a computer screen Description automatically generated| image:: media/image9.png
+.. |image18| image:: media/image18.png
    :width: 4.725in
    :height: 2.50833in
-.. |image4| image:: media/image10.png
-   :width: 7.48031in
-   :height: 3.74342in

@@ -1,3 +1,5 @@
+.. _cv28 package and contents:
+
 Package and Contents
 ====================
 
@@ -10,7 +12,7 @@ below steps
 1. Go to the InnoPhase IoT website (https://innophaseiot.com/) and click
    on Register.
 
-|A screenshot of a computer Description automatically generated|
+|image1|
 
 Figure 1: InnoPhase IoT website
 
@@ -24,7 +26,7 @@ Customer Portal.
 3. On successfully registering to the Customer Portal, the following
    screen will appear:
 
-|image1|\ |image2|
+|image2|
 
 Figure 2: Customer portal registration
 
@@ -38,7 +40,7 @@ Figure 3: Software tab
 **Package Contents**:
 
 The package includes dual_stack folder (Path:
-*freertos*\ \_\ *sdk_x.y\\solutions\\dual_stack*).
+*freertos_sdk_x.y\\solutions\\dual_stack*).
 
 **Note**: x and y in freertos_sdk_x.y refers to the SDK release version.
 
@@ -117,15 +119,12 @@ solution to communicate with the Talaria TWO Wi-Fi module.
    folder structure. Follow individual readme files present in the
    sub-folders for more information.
 
-.. |A screenshot of a computer Description automatically generated| image:: media/image1.png
+.. |image1| image:: media/image1.png
    :width: 6.69291in
    :height: 2.90745in
-.. |image1| image:: media/image2.png
-   :width: 0.53778in
-   :height: 0.12222in
-.. |image2| image:: media/image3.png
+.. |image2| image:: media/image2.png
    :width: 6.69291in
    :height: 2.89991in
-.. |image3| image:: media/image4.png
+.. |image3| image:: media/image3.png
    :width: 6.69291in
    :height: 3.00439in

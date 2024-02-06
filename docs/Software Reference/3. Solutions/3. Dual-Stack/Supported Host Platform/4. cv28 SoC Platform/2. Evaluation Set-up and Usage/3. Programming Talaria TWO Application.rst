@@ -1,3 +1,5 @@
+.. _cv28 prog t2:
+
 Programming Talaria TWO Application
 -----------------------------------
 
@@ -15,13 +17,10 @@ Launch the Download tool and configure the following in the GUI window:
 3. Boot Arguments: For SPI interface, use the following boot argument
    for programming the image:
 
-+-----------------------------------------------------------------------+
-| hio.transport=spi,hio.maxsize=8192                                    |
-| ,wifi.outq_max=32,wifi.listen_interval=1,wifi.traffic_timeout=0,wifi. |
-| debug.mask=-1,hio.irq_min_gap=60,krn.coredump=1,krn.cop_error_fatal=1 |
-| ,krn.trace=R:0x3ff,hio.irq_retry_time=200,wifi.rts=2,wifi.pmode_cts=1 |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      hio.transport=spi,hio.maxsize=8192,wifi.outq_max=32,wifi.listen_interval=1,wifi.traffic_timeout=0,wifi.debug.mask=-1,hio.irq_min_gap=60,krn.coredump=1,krn.cop_error_fatal=1,krn.trace=R:0x3ff,hio.irq_retry_time=200,wifi.rts=2,wifi.pmode_cts=1
+
 
 **Note**: The values for the boot arguments hio.irq_min_gap=60 and
 hio.irq_retry_time=200 are calculated for a SPI clock frequency of
@@ -34,52 +33,28 @@ For more details on using the Download tool, refer to the document:
 UG_Download_Tool.pdf (path:
 *freertos_sdk_x.y/pc_tools/Download_Tool/doc*).
 
-**Note**: x and y refer to the SDK release version. For example:
-freertos_sdk_2.4/doc.
 
 Console output
 
-+-----------------------------------------------------------------------+
-| Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7                   |
-|                                                                       |
-| ROM yoda-h0-rom-16-0-gd5a8e586                                        |
-|                                                                       |
-| FLASH:PWAE                                                            |
-|                                                                       |
-| WWWWWAE                                                               |
-|                                                                       |
-| Build $Id: git-e3686d72 $                                             |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-00c0-0095-ffffffffffff   |
-|                                                                       |
-| Build                                                                 |
-|                                                                       |
-| Flash detected. flash.hw.uuid: 39483937-3207-00c0-0095-ffffffffffff   |
-|                                                                       |
-| Bootargs: vm.flash_location=0x00041000 hio.irq_retry_time=200         |
-| hio.irq_min_gap=60 krn.cop_error_fatal=1 krn.trace=R:0x3ff            |
-| krn.coredump=1 hio.sdio_mhz=10 hio.maxsize=4096 hio.transport=1       |
-|                                                                       |
-| $App:git-d7c1f6d                                                      |
-|                                                                       |
-| SDK Ver: FREERTOS_SDK_3.0                                             |
-|                                                                       |
-| DualStack App                                                         |
-|                                                                       |
-| Serial-to-Wireless: Ready                                             |
-|                                                                       |
-| Registering dual stack apis                                           |
-|                                                                       |
-| Standard HIOs Enabled: fota fos prov                                  |
-|                                                                       |
-| Custom HIOs Enabled:                                                  |
-|                                                                       |
-| gpio_ctrl custom_echo pir Registering pir apis                        |
-|                                                                       |
-| chip_mon custom_mqtt custom_n/w custom_wifi_connect                   |
-|                                                                       |
-| pir_thread rssi_monitor                                               |
-|                                                                       |
-| DualStack: Ready...                                                   |
-+=======================================================================+
-+-----------------------------------------------------------------------+
+.. code:: shell
+
+      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+      ROM yoda-h0-rom-16-0-gd5a8e586
+      FLASH:PWAE
+      WWWWWAE
+      Build $Id: git-e3686d72 $
+      Flash detected. flash.hw.uuid: 39483937-3207-00c0-0095-ffffffffffff
+      Build 
+      Flash detected. flash.hw.uuid: 39483937-3207-00c0-0095-ffffffffffff
+      Bootargs: vm.flash_location=0x00041000 hio.irq_retry_time=200 hio.irq_min_gap=60 krn.cop_error_fatal=1 krn.trace=R:0x3ff krn.coredump=1 hio.sdio_mhz=10 hio.maxsize=4096 hio.transport=1
+      $App:git-d7c1f6d
+      SDK Ver: FREERTOS_SDK_3.0
+      DualStack App
+      Serial-to-Wireless: Ready
+      Registering dual stack apis
+      Standard HIOs Enabled: fota fos prov
+      Custom HIOs Enabled:
+      	 gpio_ctrl 	 custom_echo 	 pir Registering pir apis
+             chip_mon 	 custom_mqtt 	 custom_n/w 	 custom_wifi_connect 
+      pir_thread	 rssi_monitor
+      DualStack: Ready...

@@ -184,6 +184,7 @@ regulatory domain is enabled.
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Low power Wi-Fi smart scan - Otti log
 
 **Note:** Following are some of the use cases that can be configured

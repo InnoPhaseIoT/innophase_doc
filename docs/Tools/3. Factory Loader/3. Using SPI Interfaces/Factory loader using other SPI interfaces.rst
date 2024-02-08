@@ -8,6 +8,7 @@ Connecting INP101x using SPI
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Connecting to other SPI interfaces
 
 Programming using SPI

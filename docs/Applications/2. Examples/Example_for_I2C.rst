@@ -45,6 +45,7 @@ prototyping/testing:
 
 |image21|
 
+.. rst-class:: imagefiguesclass
 Figure 1: On-board I2C sensors
 
 **Note :** To use the sensors on I2C bus the jumpers J7, J8 and pins 1 &
@@ -53,6 +54,7 @@ the I2C clock, I2C data and power connection to the sensors on board.
 
 |image22|
 
+.. rst-class:: imagefiguesclass
 Figure 2: I2C sensor jumper connection
 
 This application enables I2C supported sensors available on the EVB. It
@@ -67,6 +69,7 @@ Directory Structure
 
 |image23|
 
+.. rst-class:: imagefiguesclass
 Figure 3: File directory tree
 
 1. **i2c_sensor**: The i2c_sensor.c file present in this directory

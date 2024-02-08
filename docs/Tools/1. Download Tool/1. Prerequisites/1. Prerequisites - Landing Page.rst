@@ -69,6 +69,7 @@ application.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Error message for missing Microsoft Visual C++ Redistributable
 Software Package
 
@@ -114,6 +115,7 @@ driver installation (as shown in Figure 4).
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Update device driver for Talaria TWO Evaluation Board
 
 b. No device found: Manually install the driver using instructions from
@@ -124,6 +126,7 @@ b. No device found: Manually install the driver using instructions from
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Talaria TWO Evaluation board under "libusbk USB Devices”
 driver
 

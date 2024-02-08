@@ -7,6 +7,7 @@ Git clone: https://github.com/aws-samples/amazon-kinesis-video-streams-media-int
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 30: Clone ADK from the cloud
 
 2. Run the following command for MIPS GCC5.40
@@ -28,11 +29,13 @@ Figure 31: Export - MIPS GCC5.40
 
 .. code:: shell
 
-    cp -rf /home/xxx/INP3201_A WS_DEMO/T31_SNIPE_XXXXXXXX/FREERTOS_SDK_XXXXXXXX/ISVP-T31-1.1.5-XXXXX XXX/software/sdk/Ingenic-SDK-T31-1.1.5-XXXXXXXX/freertos_sdk/5.4.0/\* /home/xxxx/INPIOT_GIT/A WS_KINESIS/amazon-kinesis-video-streams-media-interface/3rdparty/T31/
+    cp -rf /home/xxx/INP3201_A WS_DEMO/T31_SNIPE_XXXXXXXX/FREERTOS_SDK_XXXXXXXX/ISVP-T31-1.1.5-XXXXX XXX/software/sdk/Ingenic-SDK-T31-1.1.5-XXXXXXXX/freertos_sdk/5.4.0/\*
+    /home/xxxx/INPIOT_GIT/A WS_KINESIS/amazon-kinesis-video-streams-media-interface/3rdparty/T31/
 
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 32: Copy dependent files
 
 4. Enter path: amazon-kinesis-video-streams-media-interface. Create a folder ‘build’ and enter the folder.
@@ -46,6 +49,7 @@ Figure 32: Copy dependent files
 
 |image12|
 
+.. rst-class:: imagefiguesclass
 Figure 33: Create build folder
 
 5. Check the cmake version installed. Run cmake to generate - makefile.
@@ -63,6 +67,7 @@ user path and not the system path.
 
 |image18|
 
+.. rst-class:: imagefiguesclass
 Figure 34: Generate makefile
 
 6. Execute make to generate the executed file.
@@ -73,6 +78,7 @@ Figure 34: Generate makefile
 
 |image24|
 
+.. rst-class:: imagefiguesclass
 Figure 35: Execute make
 
 7. Copy kvswebrtcmaster-static to the T31z filesystem, insmod the

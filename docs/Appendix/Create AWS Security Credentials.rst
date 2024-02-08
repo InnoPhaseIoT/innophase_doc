@@ -9,24 +9,28 @@ required to enable video streaming:
 
 |image50|
 
+.. rst-class:: imagefiguesclass
 Figure 17: Login to AWS kinesis portal
 
 2. Create a user group.
 
 |image51|
 
+.. rst-class:: imagefiguesclass
 Figure 18: Create user group
 
 3. Click on Create user.
 
 |image52|
 
+.. rst-class:: imagefiguesclass
 Figure 19: Create user
 
 4. Provide the new user name and click on Next.
 
 |image53|
 
+.. rst-class:: imagefiguesclass
 Figure 20: Enter user name
 
 5. Add the user to the user group created in step 2 and click Next.
@@ -50,12 +54,14 @@ Figure 20: Enter user name
 
 |image54|
 
+.. rst-class:: imagefiguesclass
 Figure 21: Extend permissions
 
 6. Select the user created previously and click on Create access key.
 
 |image55|
 
+.. rst-class:: imagefiguesclass
 Figure 22: Create access key for the user
 
 7. Select the option Application running on an AWS compute service,
@@ -63,18 +69,21 @@ Figure 22: Create access key for the user
 
 |image56|
 
+.. rst-class:: imagefiguesclass
 Figure 23: Application running on AWS compute service
 
 8. Click on Create access key.
 
 |image57|
 
+.. rst-class:: imagefiguesclass
 Figure 24: Create access key
 
 9. Copy the generated access key, secret access key and click Done.
 
 |image60|
 
+.. rst-class:: imagefiguesclass
 Figure 25: Access and secret access key
 
 10. Click on the Kinesis Video Streams (search for Kinesis Video Streams
@@ -82,12 +91,14 @@ Figure 25: Access and secret access key
 
 |image61|
 
+.. rst-class:: imagefiguesclass
 Figure 26: Kinesis video streams
 
 11. Click on Create signaling channel.
 
 |image62|
 
+.. rst-class:: imagefiguesclass
 Figure 27: Create signaling channel
 
 12. Provide a name to the new signaling channel and click on Create
@@ -95,6 +106,7 @@ Figure 27: Create signaling channel
 
 |image63|
 
+.. rst-class:: imagefiguesclass
 Figure 28: Enter signaling channel name
 
 13. A new signaling channel will be created. Copy the Signaling channel
@@ -102,6 +114,7 @@ Figure 28: Enter signaling channel name
 
 |image64|
 
+.. rst-class:: imagefiguesclass
 Figure 29: Signaling channel ARN
 
 14. Upon successfully initiating video streaming from the Host, video

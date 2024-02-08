@@ -11,6 +11,7 @@ than 125%, GUI window might go out of screen.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Demo Tool GUI
 
 1. **Boot Target**: Connected EVKs appear in the EVK serial number

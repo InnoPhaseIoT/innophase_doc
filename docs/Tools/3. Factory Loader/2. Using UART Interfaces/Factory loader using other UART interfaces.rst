@@ -8,6 +8,7 @@ Connecting INP101x using UART
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Connecting to other UART interfaces
 
 Programming using UART

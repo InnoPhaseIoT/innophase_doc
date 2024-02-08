@@ -1101,6 +1101,7 @@ Ensure the note in section 0 is followed and the binary is generated.
 
 |image24|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Non-secure - Command prompt window
 
 Programming the Talaria TWO module
@@ -1122,6 +1123,7 @@ Programming the Talaria TWO module
 
 |image25|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Flashing the certificates to Talaria TWO file system by
 loading from a directory
 
@@ -1133,6 +1135,7 @@ loading from a directory
 
 |image26|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Certificates along with size displayed
 
 2. Program mqtt.elf (*freertos_sdk_x.y/examples/mqtt/bin*) using the
@@ -1623,6 +1626,7 @@ Publishing the Message
 
 |image27|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Talaria TWO’s Published messages
 
 Subscribing to a Topic 
@@ -1642,11 +1646,13 @@ Subscribing to a Topic
 
 |image28|
 
+.. rst-class:: imagefiguesclass
 Figure 5: The published message will be displayed on Talaria TWO’s
 console
 
 |image29|
 
+.. rst-class:: imagefiguesclass
 Figure 6: Message received by Talaria TWO for the topic subscribed
 
 Evaluating LWT Feature
@@ -1666,6 +1672,7 @@ topics after 90 seconds.
 
 |image30|
 
+.. rst-class:: imagefiguesclass
 Figure 7: MQTT client subscriber for LWT Topic
 
 Server-side console:
@@ -1674,6 +1681,7 @@ Server sends the LWT message to all the clients subscribed to LWT topic.
 
 |image31|
 
+.. rst-class:: imagefiguesclass
 Figure 8: LWT publish message published to all the clients
 
 Evaluating Websocket Feature
@@ -1686,6 +1694,7 @@ google extension.
 
 |image32|
 
+.. rst-class:: imagefiguesclass
 Figure 9: MQTTBox Extension
 
 To test the websocket client, launch the MQTT Box Extension and create a
@@ -1693,6 +1702,7 @@ new MQTT over websocket client.
 
 |image33|
 
+.. rst-class:: imagefiguesclass
 Figure 10: MQTTBox Extension settings
 
 1. Add client name.
@@ -1711,6 +1721,7 @@ subscribe window.
 
 |image34|
 
+.. rst-class:: imagefiguesclass
 Figure 11: MQTTBox Extension publish subscribe window
 
 1. Add Talaria TWO subscribe topic as a publish topic.
@@ -1730,6 +1741,7 @@ subscribed at the subscription window.
 
 |image35|
 
+.. rst-class:: imagefiguesclass
 Figure 12: MQTTBox Extension publish subscribe window
 
 After successfully publishing, the published message will be printed
@@ -1737,6 +1749,7 @@ over Talaria TWO console.
 
 |image36|
 
+.. rst-class:: imagefiguesclass
 Figure 13: Published message over the Talaria TWO console
 
 Evaluating the Application using Mosquitto Local Server
@@ -1765,6 +1778,7 @@ to set up a local Mosquitto server and evaluate the example application.
 
 |image37|
 
+.. rst-class:: imagefiguesclass
 Figure 14: Password file generation using mosquito_passwd
 
 3. Append the following configuration to mosquito.conf file (open the
@@ -1785,6 +1799,7 @@ Figure 14: Password file generation using mosquito_passwd
 
 |image38|
 
+.. rst-class:: imagefiguesclass
 Figure 15: mosquito configuration file
 
 4. Start the Mosquitto broker by issuing the following command:
@@ -1799,6 +1814,7 @@ Figure 15: mosquito configuration file
 
 |image39|
 
+.. rst-class:: imagefiguesclass
 Figure 16: Starting the mosquito broker
 
 5. Issue the following command in command prompt and check if the active
@@ -1813,6 +1829,7 @@ Figure 16: Starting the mosquito broker
 
 |image40|
 
+.. rst-class:: imagefiguesclass
 Figure 17: Output of netstat command
 
 6. In another command prompt window, execute the following command to
@@ -1947,6 +1964,7 @@ Figure 17: Output of netstat command
 
 |image41|
 
+.. rst-class:: imagefiguesclass
 Figure 18: Command prompt output
 
    The message gets published every two seconds and the count keeps
@@ -1969,6 +1987,7 @@ Figure 18: Command prompt output
 
 |image42|
 
+.. rst-class:: imagefiguesclass
 Figure 19: Download Tool Output
 
 Secured 
@@ -2000,7 +2019,8 @@ Install OpenSSL
 
 |image43|
 
-   Figure 20: Environment variables
+.. rst-class:: imagefiguesclass
+Figure 20: Environment variables
 
 3. In the window that pops-up, click on Environment variables.
 
@@ -2008,6 +2028,7 @@ Install OpenSSL
 
 |image44|
 
+.. rst-class:: imagefiguesclass
 Figure 21: System properties
 
 4. This pops-up a window showing User variables and System variables. In
@@ -2017,7 +2038,8 @@ Figure 21: System properties
 
 |image45|
 
-   Figure 22: Environment variables - User variables
+.. rst-class:: imagefiguesclass
+Figure 22: Environment variables - User variables
 
 5. Click on Browse.
 
@@ -2025,6 +2047,7 @@ Figure 21: System properties
 
 |image46|
 
+.. rst-class:: imagefiguesclass
 Figure 23: Edit Environment Variable
 
 6. This will already have some automatically added paths for other
@@ -2038,15 +2061,16 @@ Figure 23: Edit Environment Variable
 
 |image47|
 
-   Figure 24: Edit Environment Variables
+.. rst-class:: imagefiguesclass
+Figure 24: Edit Environment Variables
 
 8. This will be added at the top. Ensure to click OK on this screen and
    the subsequent screens.
 
-..
 
-   |image48|
+|image48|
 
+.. rst-class:: imagefiguesclass
 Figure 25: Modified Environment Variables
 
 Generate Certificates
@@ -2070,7 +2094,8 @@ certificates.
 
 |image49|
 
-   Figure 26: CA key generation
+.. rst-class:: imagefiguesclass
+Figure 26: CA key generation
 
 2. Create a certificate for the CA using the CA key created in step 1.
 
@@ -2083,7 +2108,8 @@ certificates.
 
 |image50|
 
-   Figure 27: CA Certificate generation
+.. rst-class:: imagefiguesclass
+Figure 27: CA Certificate generation
 
 3. Now we create a server key pair which will be used by the broker.
 
@@ -2095,7 +2121,8 @@ certificates.
 
 |image51|
 
-   Figure 28: Server key generation
+.. rst-class:: imagefiguesclass
+Figure 28: Server key generation
 
 4. Now, create a certificate request .csr. When filling out the form,
       the common name is important and is usually the domain name of the
@@ -2112,9 +2139,10 @@ certificates.
 
 ..
 
-   |image52|
+|image52|
 
-   Figure 29: Server.csr generation
+.. rst-class:: imagefiguesclass
+Figure 29: Server.csr generation
 
 5. Now, the CA key is used to verify and sign the server certificate.
       This creates the server.crt file.
@@ -2128,7 +2156,8 @@ certificates.
 
 |image53|
 
-   Figure 30: Server certificate generation
+.. rst-class:: imagefiguesclass
+Figure 30: Server certificate generation
 
    **Client Certificates**
 
@@ -2143,7 +2172,8 @@ certificates.
 
 |image54|
 
-   Figure 31: Creating client key
+.. rst-class:: imagefiguesclass
+Figure 31: Creating client key
 
 2. Next, create a certificate request and use the client’s private key
       to sign it.
@@ -2157,7 +2187,8 @@ certificates.
 
 |image55|
 
-   Figure 32: Creating client csr
+.. rst-class:: imagefiguesclass
+Figure 32: Creating client csr
 
 3. Execute the following command to complete the request and create a
       client certificate.
@@ -2171,7 +2202,8 @@ certificates.
 
 |image56|
 
-   Figure 33: Client.crt generation
+.. rst-class:: imagefiguesclass
+Figure 33: Client.crt generation
 
    **Mosquitto Configuration File**:
 
@@ -2193,7 +2225,8 @@ certificates.
 
 |image57|
 
-   Figure 34: mosquitto.conf file
+.. rst-class:: imagefiguesclass
+Figure 34: mosquitto.conf file
 
    Start the Mosquitto broker by issuing the following command:
 
@@ -2208,7 +2241,8 @@ certificates.
 
 |image58|
 
-   Figure 35: Starting the mosquito broker
+.. rst-class:: imagefiguesclass
+Figure 35: Starting the mosquito broker
 
    Issue the following command in command prompt and check if the active
    connection with the listener port number is listed as shown in Figure
@@ -2223,6 +2257,7 @@ certificates.
 
 |image59|
 
+.. rst-class:: imagefiguesclass
 Figure 36: Output - netstat command
 
    Post executing these steps, update the file system of the Talaria TWO
@@ -2231,11 +2266,13 @@ Figure 36: Output - netstat command
 
 |image60|
 
-   Figure 37: Newly generated certificates to file system
+.. rst-class:: imagefiguesclass
+Figure 37: Newly generated certificates to file system
 
 |image61|
 
-   Figure 38: Certificates available in File System
+.. rst-class:: imagefiguesclass
+Figure 38: Certificates available in File System
 
 Programing Talaria TWO 
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -2355,6 +2392,7 @@ Programing Talaria TWO
 
 |image62|
 
+.. rst-class:: imagefiguesclass
 Figure 39: Secure MQTT - server – Console
 
 Certificates Validity Assessment
@@ -2374,6 +2412,7 @@ certificates:
 
 |image63|
 
+.. rst-class:: imagefiguesclass
 Figure 40: Certificates verification
 
 .. |image24| image:: media/image24.png

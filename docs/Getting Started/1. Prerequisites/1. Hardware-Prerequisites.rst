@@ -17,7 +17,9 @@ The package contains:
     - 4. Battery box
 
 |image4|
-            Figure 1: INP301x EVB-A Board with INP101x module board installed
+
+.. rst-class:: imagefiguesclass
+Figure 1: INP301x EVB-A Board with INP101x module board installed
 
 Description of the Board
 ========================
@@ -27,7 +29,9 @@ Block Diagram
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Block diagram of INP301x Evaluation Board
+
 
 
 The block diagram of the INP301x Evaluation board is shown in Figure 2.

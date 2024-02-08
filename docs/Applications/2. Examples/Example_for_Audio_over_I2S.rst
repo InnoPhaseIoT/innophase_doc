@@ -19,6 +19,7 @@ I2S-to-Analog convertor used,as indicated in Figure 1.
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Block Diagram
 
 Application Reference Diagram: DAC used MAX98357A along with Talaria TWO
@@ -61,6 +62,7 @@ Directory Structure
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Directory structure
 
 1. **i2s_audio_flash.c -** The i2s_audio_flash.c file present in this

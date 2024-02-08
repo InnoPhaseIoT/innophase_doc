@@ -20,6 +20,7 @@ In Windows
 
 |image23|
 
+.. rst-class:: imagefiguesclass
 Figure 1: JTAG - Resetting the device in boot loader mode- console
 output (Windows)
 
@@ -35,6 +36,7 @@ The following output is seen on command prompt console:
 
 |image24|
 
+.. rst-class:: imagefiguesclass
 Figure 2: JTAG - Starting OpenOCD – console output
 
 3. Flash the default partition table by executing the following command:
@@ -49,6 +51,7 @@ Following output is observed after flashing the default partition table:
 
 |image25|
 
+.. rst-class:: imagefiguesclass
 Figure 3: JTAG - Flashing the default partition table – console output
 
 4. In the same terminal, execute the following command from the FreeRTOS SDK
@@ -66,6 +69,7 @@ The following output is observed after flashing the data image:
 
 |image26|
 
+.. rst-class:: imagefiguesclass
 Figure 4: JTAG - Flashing the data image - console output
 
 5. In a separate command prompt window, execute the following command
@@ -80,6 +84,7 @@ The following output is observed after flashing the application image:
 
 |image27|
 
+.. rst-class:: imagefiguesclass
 Figure 5: JTAG - Flashing the application image - console output
 
 6. In the same terminal, flash the VM image of the application by
@@ -94,6 +99,7 @@ Following output is observed after flashing the application’s VM image:
 
 |image28|
 
+.. rst-class:: imagefiguesclass
 Figure 6: JTAG - Flashing application's VM image – console output
 
 The application is successfully flashed over JTAG. Now, OpenOCD needs to
@@ -113,6 +119,7 @@ In Linux
 
 |image29|
 
+.. rst-class:: imagefiguesclass
 Figure 7: JTAG - Resetting the device in boot loader mode- console
 output (Windows)
 
@@ -127,6 +134,7 @@ The following output is seen on command prompt console:
 
 |image30|
 
+.. rst-class:: imagefiguesclass
 Figure 8: JTAG - Starting OpenOCD – console output
 
 3. Flash the default partition table by executing the following command:
@@ -140,6 +148,7 @@ Following output is observed after flashing the default partition table:
 
 |image31|
 
+.. rst-class:: imagefiguesclass
 Figure 9: JTAG - Flashing the default partition table – console output
 
 4. In the same terminal, execute the following command from the FreeRTOS SDK
@@ -156,6 +165,7 @@ The following output is observed after flashing the data image:
 
 |image32|
 
+.. rst-class:: imagefiguesclass
 Figure 10: JTAG - Flashing the data image - console output
 
 5. In a separate command prompt window, execute the following command
@@ -169,6 +179,7 @@ The following output is observed after flashing the application image:
 
 |image33|
 
+.. rst-class:: imagefiguesclass
 Figure 11: JTAG - Flashing the application image - console output
 
 6. In the same terminal, flash the VM image of the application by
@@ -182,6 +193,7 @@ Following output is observed after flashing the application’s VM image:
 
 |image34|
 
+.. rst-class:: imagefiguesclass
 Figure 12: JTAG - Flashing application's VM image – console output
 
 The application is successfully flashed over JTAG. Now, OpenOCD needs to

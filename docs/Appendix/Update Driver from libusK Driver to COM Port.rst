@@ -9,6 +9,7 @@ To update and retrieve COM ports, follow the following steps:
 
 |A screenshot of a social media post Description automatically generated|
 
+.. rst-class:: imagefiguesclass
 Figure 22: Device Manager
 
 2. On the new window, click on Let me pick from a list of available
@@ -16,6 +17,7 @@ Figure 22: Device Manager
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 23: Update Devices
 
 3. Select USB Composite Device and install the same for reinstalling COM
@@ -23,6 +25,7 @@ Figure 23: Update Devices
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 24: Select the device driver
 
 .. |A screenshot of a social media post Description automatically generated| image:: media/images72.png

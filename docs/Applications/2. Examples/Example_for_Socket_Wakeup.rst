@@ -224,6 +224,7 @@ with the IP address and send the data.
 
 |image73|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Hercules Tool - Data transfer
 
 Expected Output

@@ -995,6 +995,7 @@ Figure 1 shows the command prompt window:
 
 |image7|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Command prompt window
 
 Programming the Talaria TWO Module
@@ -1090,31 +1091,36 @@ Publishing a Topic and Sending Data from BLE to Wi-Fi
 
 |image8|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Publishing a topic - Connecting to inno_mqtt
 
 3. Click on GENRIC ACCESS->WRITE as shown in Figure 3.
 
 |image9|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Publishing a topic - Generic Access - W
 
 4. Sending a message using the nRF Connect app: Select the message type
    from the drop-down, write a message and click SEND.
 
 
-   |image10|
+|image10|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Selecting message type
 
-   |image11|
+|image11|
 
+.. rst-class:: imagefiguesclass
 Figure 5: Sending a message
 
 5. If message size is more than 30bytes, it is required to change the
       MTU size in nRF Connect Mobile application.
 
-   |image12|
+|image12|
 
+.. rst-class:: imagefiguesclass
 Figure 6: Changing MTU size
 
 6. The message will be published by Talaria TWO and the same is observed
@@ -1122,8 +1128,9 @@ Figure 6: Changing MTU size
       message was successfully published.
 
 
-   |image13|
+|image13|
 
+.. rst-class:: imagefiguesclass
 Figure 7: Publishing a topic - Output
 
 7. The published message by Talaria TWO can be seen on the subscriber’s
@@ -1132,6 +1139,7 @@ Figure 7: Publishing a topic - Output
 
 |image14|
 
+.. rst-class:: imagefiguesclass
 Figure 8: Publishing a topic - Command prompt output
 
 Subscribing to a Topic and Sending Data from Wi-Fi to BLE
@@ -1152,6 +1160,7 @@ Subscribing to a Topic and Sending Data from Wi-Fi to BLE
 
 |image15|
 
+.. rst-class:: imagefiguesclass
 Figure 9: Subscribing to a topic - Connecting to inno_mqtt
 
 3. Click on Unknown Service (Download symbol) as shown in Figure 10.
@@ -1159,6 +1168,7 @@ Figure 9: Subscribing to a topic - Connecting to inno_mqtt
 
 |image16|
 
+.. rst-class:: imagefiguesclass
 Figure 10: Subscribing to a topic - Generic Access - I
 
 4. Publish a message from any MQTT client to the topic
@@ -1173,6 +1183,7 @@ Figure 10: Subscribing to a topic - Generic Access - I
 
 |image17|
 
+.. rst-class:: imagefiguesclass
 Figure 11: Publishing a message from MQTT client
 
 5. Since Talaria TWO device has subscribed to the topic
@@ -1186,6 +1197,7 @@ Figure 11: Publishing a message from MQTT client
 
 |image18|
 
+.. rst-class:: imagefiguesclass
 Figure 12: Subscribing to a topic - output
 
 6. Talaria TWO sends the received message over BLE to the BLE client.
@@ -1194,6 +1206,7 @@ Figure 12: Subscribing to a topic - output
 
 |image19|
 
+.. rst-class:: imagefiguesclass
 Figure 13: Message sent to BLE Client over BLE
 
 

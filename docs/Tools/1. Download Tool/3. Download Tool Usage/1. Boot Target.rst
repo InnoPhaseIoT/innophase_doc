@@ -8,6 +8,7 @@ appropriate EVK can be selected.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Boot target - EVK selection
 
 **Note**:
@@ -33,6 +34,7 @@ MAC address found in the device.
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Boot target – Serial number update
 
 Since a new serial number is generated from the MAC address of the

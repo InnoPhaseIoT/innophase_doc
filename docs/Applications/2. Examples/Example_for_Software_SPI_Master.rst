@@ -75,6 +75,7 @@ shown.
 
 |image74|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Timing diagram illustrating SSM operation, 5-bit transfer shown
 
 Data is set up on the MOSI and MISO lines at the times indicated by
@@ -124,6 +125,7 @@ Talaria TWO EVK and the IIS2DLPC looks as shown in Figure 2.
 
 |image75|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Sample connection of IIS2DLPC to Talaria TWO EVK
 
 Once the IIS2DPLC has been connected to Talaria TWO, flash the sample
@@ -200,6 +202,7 @@ Directory structure
 ~~~~~~~~~~~~~~~~~~~
 |image76|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Directory Structure
 
 1. **IISDLPC**

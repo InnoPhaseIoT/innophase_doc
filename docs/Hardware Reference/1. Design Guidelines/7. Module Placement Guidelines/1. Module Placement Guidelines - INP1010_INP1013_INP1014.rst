@@ -15,6 +15,7 @@ application PCB as indicated in Figure 1.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Antenna Keep Out Area
 
 **Note**: No metal layer or metal blocking is allowed in the area
@@ -23,14 +24,17 @@ antenna X, Y and Z directions.
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2:Module placement
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3: INP1013 module with antenna portion outside application PCB
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 4: INP1014 module with antenna portion outside application PCB
 
 .. |image1| image:: media/image1.png

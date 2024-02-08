@@ -36,9 +36,9 @@ Cloning talaria_two_aws Repository
 Create a new folder in any location and clone the talaria_two_aws
 repository using the following command:
 
-. code:: shell
+.. code:: shell
 
-      git clone --recursive https://github.com/InnoPhaseIoT/talaria_two_aws.git
+    git clone --recursive https://github.com/InnoPhaseIoT/talaria_two_aws.git
 
 
 **Note**: This repository uses `Git
@@ -58,7 +58,7 @@ Go to (cd) the following directory:
 and execute the following command to patch AWS IoT Device SDK for
 Talaria TWO compatibility.
 
-..code:: shell
+.. code:: shell
 
       <freertos_sdk_path>/apps/talaria_two_aws/aws-iot-device-sdk-embedded-C$ git apply ../patches/t2_compatibility.patch
 
@@ -172,13 +172,13 @@ messages which will be visible on the Talaria TWO console.
 Following JSON formatted text should be used for publishing to Talaria
 TWO:
 
-..code:: shell
+.. code:: shell
 
-      {
- "from": "AWS IoT console"
- "to": "T2"
- "msg": "Hello from AWS IoT console"
- }
+    {
+    "from": "AWS IoT console"
+    "to": "T2"
+    "msg": "Hello from AWS IoT console"
+    }
 
 
 The application takes SSID, passphrase, aws host name, aws port and
@@ -230,14 +230,15 @@ follows:
 
 .. code:: shell
 
-      {   "reported": {
-     "temperature": 32,
-     "windowOpen": false
-   },
-   "desired": {
-     "windowOpen": false
-   }
- }
+    {
+        "reported": {
+        "temperature": 32,
+        "windowOpen": false
+        },
+    "desired": {
+        "windowOpen": false
+        }
+    }
 
 The device opens or closes the window based on json object windowOpen
 data (true/false) received as part of shadow delta callback. Hence, a
@@ -265,18 +266,17 @@ reported.
 
 .. code:: shell
 
-      "desired": 
-{
-     "windowOpen": false
-   }
+    "desired":{
+        "windowOpen": false
+    }
 
 Received Delta message
 
 .. code:: shell
 
-      "delta": {
-     "windowOpen": true
-   }
+    "delta": {
+    "windowOpen": true
+    }
 
 
 This delta message implies that the desired windowOpen variable has
@@ -287,11 +287,11 @@ is reported.
 
 .. code:: shell
 
-      "reported": 
-   {
-     "temperature": 28,
-     "windowOpen": true
-   }
+    "reported":
+    {
+        "temperature": 28,
+        "windowOpen": true
+    }
 
 
 This update reported message will remove the delta that was created, as
@@ -436,16 +436,16 @@ and write it into Talaria TWO using the download tool:
 
 .. code:: shell
 
-      {
-  "Version": "2012-10-17",
-  "Statement": [
     {
-      "Effect": "Allow",
-      "Action": "iot:*",
-      "Resource": "*"
+    "Version": "2012-10-17",
+    "Statement": [
+    {
+    "Effect": "Allow",
+    "Action": "iot:*",
+    "Resource": "*"
     }
-  ]
-}
+    ]
+    }
 
 
 Programming VM-based applications
@@ -555,12 +555,14 @@ Subscribe
 
 |image34|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Subscribe to topic
 
 3. In the Publish to a topic tab, click on inno_test/data.
 
 |image35|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Subscriptions – inno_test/data
 
 Running the Sample Application 
@@ -574,111 +576,112 @@ Running the Sample Application
 
 .. code:: shell
 
-      UART:SNWWWWAE
-4 DWT comparators, range 0x8000
-Build $Id: git-ef87896f9 $
-hio.baudrate=921600
-flash: Gordon ready!
-[8.538,997] partitions mounted
-UART:SNWWWWAE
-4 DWT comparators, range 0x8000
-Build $Id: git-ef87896f9 $
-hio.baudrate=921600
-flash: Gordon ready!
+    UART:SNWWWWAE
+    4 DWT comparators, range 0x8000
+    Build $Id: git-ef87896f9 $
+    hio.baudrate=921600
+    flash: Gordon ready!
+    [8.538,997] partitions mounted
+    UART:SNWWWWAE
+    4 DWT comparators, range 0x8000
+    Build $Id: git-ef87896f9 $
+    hio.baudrate=921600
+    flash: Gordon ready!
 
-Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
-ROM yoda-h0-rom-16-0-gd5a8e586
-FLASH:PNWWWWWWAE
-Build $Id: git-831e563 $
-Flash detected. flash.hw.uuid: 394b3437-3802-004d-00e2-ffffffffffff
-Bootargs: aws_host=a3th11zq4plemm-ats.iot.us-east-2.amazonaws.com aws_port=8883 thing_name=ble_new np_conf_path=/data/nprofile.json ssid=FASTFIBER passphrase=MD123456
+    Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+    ROM yoda-h0-rom-16-0-gd5a8e586
+    FLASH:PNWWWWWWAE
+    Build $Id: git-831e563 $
+    Flash detected. flash.hw.uuid: 394b3437-3802-004d-00e2-ffffffffffff
+    Bootargs: aws_host=a3th11zq4plemm-ats.iot.us-east-2.amazonaws.com aws_port=8883 thing_name=ble_new np_conf_path=/data/nprofile.json ssid=FASTFIBER passphrase=MD123456
 
-AWS IoT SDK Version 3.1.5-
-Mounting file system
-read_certs() success
-[0.083,964] rfdrv: unknown module type (0)
-addr 02:03:04:57:4d:04
-added network profile successfully, will try connecting..
-[2.787,785] CONNECT:8c:c7:c3:50:31:3f Channel:1 rssi:-81 dBm
-wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
-wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
-[3.007,860] MYIP 192.168.1.34
-[3.008,025] IPv6 [fe80::3:4ff:fe57:4d04]-link
-wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
-Connecting...
-heap[230488] max contentlen[16384] sizeof IoT_Publish_Message_Params (16)
+    AWS IoT SDK Version 3.1.5-
+    Mounting file system
+    read_certs() success
+    [0.083,964] rfdrv: unknown module type (0)
+    addr 02:03:04:57:4d:04
+    added network profile successfully, will try connecting..
+    [2.787,785] CONNECT:8c:c7:c3:50:31:3f Channel:1 rssi:-81 dBm
+    wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+    wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+    [3.007,860] MYIP 192.168.1.34
+    [3.008,025] IPv6 [fe80::3:4ff:fe57:4d04]-link
+    wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
+    Connecting...
+    heap[230488] max contentlen[16384] sizeof IoT_Publish_Message_Params (16)
 
-  . Seeding the random number generator...
-  . Loading the CA root certificate...
-  Root Done (0 skipped)
-  . Loading the client cert and key. size TLSDataParams:2080
-  Loading the client cert done.... ret[0]
-  Loading the client pkey done.... ret[0]
-  ok
-  . Connecting to a3th11zq4plemm-ats.iot.us-east-2.amazonaws.com/8883...
-  ok
-  . Setting up the SSL/TLS structure...
-  SSL state connect : 0 
-  ok
-  SSL state connect : 0 
-  . Performing the SSL/TLS handshake... 
-  Verify requested for (Depth 2):
-    This certificate has no flags
-  Verify requested for (Depth 1):
-    This certificate has no flags
-  Verify requested for (Depth 0):
-    This certificate has no flags
-  SSL/TLS Handshake DONE.. ret:0
-  ok
-    [ Protocol is TLSv1.2 ]
-    [ Ciphersuite is TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256 ]
-    [ Record expansion is 29 ]
-  . Verifying peer X.509 certificate...
-  ok
-Subscribing...
-Subscribed to topic [inno_test/ctrl] ret[0] qos[0]
-sleep
----> Publishing with 'Message QoS0' to Topic [inno_test/data]
-msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":1}]
-QoS0 Message Publish Successful for "msg_id":1. Return Status [0]
----> Publishing with 'Message QoS1' to Topic [inno_test/data]
-msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":2}]
-QoS1 Message Publish Successful for "msg_id":2. Return Status [0]
-sleep
----> Publishing with 'Message QoS0' to Topic [inno_test/data]
-msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":3}]
-QoS0 Message Publish Successful for "msg_id":3. Return Status [0]
----> Publishing with 'Message QoS1' to Topic [inno_test/data]
-msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":4}]
-QoS1 Message Publish Successful for "msg_id":4. Return Status [0]
-sleep
----> Publishing with 'Message QoS0' to Topic [inno_test/data]
-msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":5}]
-QoS0 Message Publish Successful for "msg_id":5. Return Status [0]
----> Publishing with 'Message QoS1' to Topic [inno_test/data]
-msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":6}]
-QoS1 Message Publish Successful for "msg_id":6. Return Status [0]
-sleep
----> Publishing with 'Message QoS0' to Topic [inno_test/data]
-msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":7}]
-QoS0 Message Publish Successful for "msg_id":7. Return Status [0]
----> Publishing with 'Message QoS1' to Topic [inno_test/data]
-msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":8}]
-QoS1 Message Publish Successful for "msg_id":8. Return Status [0]
-sleep
----> Publishing with 'Message QoS0' to Topic [inno_test/data]
-msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":9}]
-QoS0 Message Publish Successful for "msg_id":9. Return Status [0]
----> Publishing with 'Message QoS1' to Topic [inno_test/data]
-msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":10}]
-QoS1 Message Publish Successful for "msg_id":10. Return Status [0]
-sleep
+      . Seeding the random number generator...
+      . Loading the CA root certificate...
+      Root Done (0 skipped)
+      . Loading the client cert and key. size TLSDataParams:2080
+      Loading the client cert done.... ret[0]
+      Loading the client pkey done.... ret[0]
+      ok
+      . Connecting to a3th11zq4plemm-ats.iot.us-east-2.amazonaws.com/8883...
+      ok
+      . Setting up the SSL/TLS structure...
+      SSL state connect : 0
+      ok
+      SSL state connect : 0
+      . Performing the SSL/TLS handshake...
+      Verify requested for (Depth 2):
+        This certificate has no flags
+      Verify requested for (Depth 1):
+        This certificate has no flags
+      Verify requested for (Depth 0):
+        This certificate has no flags
+      SSL/TLS Handshake DONE.. ret:0
+      ok
+        [ Protocol is TLSv1.2 ]
+        [ Ciphersuite is TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256 ]
+        [ Record expansion is 29 ]
+      . Verifying peer X.509 certificate...
+      ok
+    Subscribing...
+    Subscribed to topic [inno_test/ctrl] ret[0] qos[0]
+    sleep
+    ---> Publishing with 'Message QoS0' to Topic [inno_test/data]
+    msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":1}]
+    QoS0 Message Publish Successful for "msg_id":1. Return Status [0]
+    ---> Publishing with 'Message QoS1' to Topic [inno_test/data]
+    msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":2}]
+    QoS1 Message Publish Successful for "msg_id":2. Return Status [0]
+    sleep
+    ---> Publishing with 'Message QoS0' to Topic [inno_test/data]
+    msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":3}]
+    QoS0 Message Publish Successful for "msg_id":3. Return Status [0]
+    ---> Publishing with 'Message QoS1' to Topic [inno_test/data]
+    msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":4}]
+    QoS1 Message Publish Successful for "msg_id":4. Return Status [0]
+    sleep
+    ---> Publishing with 'Message QoS0' to Topic [inno_test/data]
+    msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":5}]
+    QoS0 Message Publish Successful for "msg_id":5. Return Status [0]
+    ---> Publishing with 'Message QoS1' to Topic [inno_test/data]
+    msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":6}]
+    QoS1 Message Publish Successful for "msg_id":6. Return Status [0]
+    sleep
+    ---> Publishing with 'Message QoS0' to Topic [inno_test/data]
+    msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":7}]
+    QoS0 Message Publish Successful for "msg_id":7. Return Status [0]
+    ---> Publishing with 'Message QoS1' to Topic [inno_test/data]
+    msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":8}]
+    QoS1 Message Publish Successful for "msg_id":8. Return Status [0]
+    sleep
+    ---> Publishing with 'Message QoS0' to Topic [inno_test/data]
+    msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":9}]
+    QoS0 Message Publish Successful for "msg_id":9. Return Status [0]
+    ---> Publishing with 'Message QoS1' to Topic [inno_test/data]
+    msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":10}]
+    QoS1 Message Publish Successful for "msg_id":10. Return Status [0]
+    sleep
 
 
 3. The AWS IoT dashboard will appear as in Figure 3.
 
 |image36|
 
+.. rst-class:: imagefiguesclass
 Figure 3: AWS IoT Dashboard
 
 Publish
@@ -693,6 +696,7 @@ Publish
 
 |image37|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Publish to topic
 
 4. Copy and paste the following json formatted text into the colored
@@ -700,11 +704,11 @@ Figure 4: Publish to topic
 
 .. code:: shell
 
-      {
-  "from": "AWS IoT console"
-  "to": "T2"
-  "msg": "Hello from AWS IoT console"
-}
+    {
+    "from": "AWS IoT console"
+    "to": "T2"
+    "msg": "Hello from AWS IoT console"
+    }
 
 
 5. On clicking Publish to topic, the following output is displayed in
@@ -712,127 +716,127 @@ Figure 4: Publish to topic
 
 .. code:: shell
 
-      UART:SNWWWWAE
-4 DWT comparators, range 0x8000
-Build $Id: git-ef87896f9 $
-hio.baudrate=921600
-flash: Gordon ready!
+    UART:SNWWWWAE
+    4 DWT comparators, range 0x8000
+    Build $Id: git-ef87896f9 $
+    hio.baudrate=921600
+    flash: Gordon ready!
 
-Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
-ROM yoda-h0-rom-16-0-gd5a8e586
-FLASH:PNWWWWWWAE
-Build $Id: git-831e563 $
-Flash detected. flash.hw.uuid: 394b3437-3802-004d-00e2-ffffffffffff
-Bootargs: aws_host=a3th11zq4plemm-ats.iot.us-east-2.amazonaws.com aws_port=8883 thing_name=ble_new np_conf_path=/data/nprofile.json ssid=FASTFIBER passphrase=MD123456
+    Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+    ROM yoda-h0-rom-16-0-gd5a8e586
+    FLASH:PNWWWWWWAE
+    Build $Id: git-831e563 $
+    Flash detected. flash.hw.uuid: 394b3437-3802-004d-00e2-ffffffffffff
+    Bootargs: aws_host=a3th11zq4plemm-ats.iot.us-east-2.amazonaws.com aws_port=8883 thing_name=ble_new np_conf_path=/data/nprofile.json ssid=FASTFIBER passphrase=MD123456
 
-AWS IoT SDK Version 3.1.5-
-Mounting file system
-read_certs() success
-[0.083,964] rfdrv: unknown module type (0)
-addr 02:03:04:4a:8d:6c
-added network profile successfully, will try connecting..
-[2.884,395] CONNECT:8c:c7:c3:50:31:3f Channel:1 rssi:-80 dBm
-wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
-wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
-[3.127,409] MYIP 192.168.1.40
-[3.127,457] IPv6 [fe80::3:4ff:fe4a:8d6c]-link
-wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
-Connecting...
-heap[230440] max contentlen[16384] sizeof IoT_Publish_Message_Params (16)
+    AWS IoT SDK Version 3.1.5-
+    Mounting file system
+    read_certs() success
+    [0.083,964] rfdrv: unknown module type (0)
+    addr 02:03:04:4a:8d:6c
+    added network profile successfully, will try connecting..
+    [2.884,395] CONNECT:8c:c7:c3:50:31:3f Channel:1 rssi:-80 dBm
+    wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+    wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+    [3.127,409] MYIP 192.168.1.40
+    [3.127,457] IPv6 [fe80::3:4ff:fe4a:8d6c]-link
+    wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
+    Connecting...
+    heap[230440] max contentlen[16384] sizeof IoT_Publish_Message_Params (16)
 
-  . Seeding the random number generator...
-  . Loading the CA root certificate...
-  Root Done (0 skipped)
-  . Loading the client cert and key. size TLSDataParams:2080
-  Loading the client cert done.... ret[0]
-  Loading the client pkey done.... ret[0]
-  ok
-  . Connecting to a3th11zq4plemm-ats.iot.us-east-2.amazonaws.com/8883...
-  ok
-  . Setting up the SSL/TLS structure...
-  SSL state connect : 0 
-  ok
-  SSL state connect : 0 
-  . Performing the SSL/TLS handshake... 
-  Verify requested for (Depth 2):
-    This certificate has no flags
-  Verify requested for (Depth 1):
-    This certificate has no flags
-  Verify requested for (Depth 0):
-    This certificate has no flags
-  SSL/TLS Handshake DONE.. ret:0
-  ok
-    [ Protocol is TLSv1.2 ]
-    [ Ciphersuite is TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256 ]
-    [ Record expansion is 29 ]
-  . Verifying peer X.509 certificate...
-  ok
-Subscribing...
-Subscribed to topic [inno_test/ctrl] ret[0] qos[0]
+      . Seeding the random number generator...
+      . Loading the CA root certificate...
+      Root Done (0 skipped)
+      . Loading the client cert and key. size TLSDataParams:2080
+      Loading the client cert done.... ret[0]
+      Loading the client pkey done.... ret[0]
+      ok
+      . Connecting to a3th11zq4plemm-ats.iot.us-east-2.amazonaws.com/8883...
+      ok
+      . Setting up the SSL/TLS structure...
+      SSL state connect : 0
+      ok
+      SSL state connect : 0
+      . Performing the SSL/TLS handshake...
+      Verify requested for (Depth 2):
+        This certificate has no flags
+      Verify requested for (Depth 1):
+        This certificate has no flags
+      Verify requested for (Depth 0):
+        This certificate has no flags
+      SSL/TLS Handshake DONE.. ret:0
+      ok
+        [ Protocol is TLSv1.2 ]
+        [ Ciphersuite is TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256 ]
+        [ Record expansion is 29 ]
+      . Verifying peer X.509 certificate...
+      ok
+    Subscribing...
+    Subscribed to topic [inno_test/ctrl] ret[0] qos[0]
 
-<--- Message Received on Subscribed Topic [inno_test/ctrl]
-- from: AWS IoT console
-- to: T2
-- message: Hello from AWS IoT
-sleep
+    <--- Message Received on Subscribed Topic [inno_test/ctrl]
+    - from: AWS IoT console
+    - to: T2
+    - message: Hello from AWS IoT
+    sleep
 
----> Publishing with 'Message QoS0' to Topic [inno_test/data]
-msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":1}]
+    ---> Publishing with 'Message QoS0' to Topic [inno_test/data]
+    msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":1}]
 
-QoS0 Message Publish Successful for "msg_id":1. Return Status [0]
+    QoS0 Message Publish Successful for "msg_id":1. Return Status [0]
 
----> Publishing with 'Message QoS1' to Topic [inno_test/data]
-msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":2}]
+    ---> Publishing with 'Message QoS1' to Topic [inno_test/data]
+    msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":2}]
 
-<--- Message Received on Subscribed Topic [inno_test/ctrl]
-- from: AWS IoT console
-- to: T2
-- message: HelloWorld from AWS IoT console Team_BLE1
+    <--- Message Received on Subscribed Topic [inno_test/ctrl]
+    - from: AWS IoT console
+    - to: T2
+    - message: HelloWorld from AWS IoT console Team_BLE1
 
-<--- Message Received on Subscribed Topic [inno_test/ctrl]
-- from: AWS IoT console
-- to: T2
-- message: HelloWorld from AWS IoT console Team_BLE2
+    <--- Message Received on Subscribed Topic [inno_test/ctrl]
+    - from: AWS IoT console
+    - to: T2
+    - message: HelloWorld from AWS IoT console Team_BLE2
 
-<--- Message Received on Subscribed Topic [inno_test/ctrl]
-- from: AWS IoT console
-- to: T2
-- message: HelloWorld from AWS IoT console Team_BLE3
+    <--- Message Received on Subscribed Topic [inno_test/ctrl]
+    - from: AWS IoT console
+    - to: T2
+    - message: HelloWorld from AWS IoT console Team_BLE3
 
-QoS1 Message Publish Successful for "msg_id":2. Return Status [0]
-sleep
+    QoS1 Message Publish Successful for "msg_id":2. Return Status [0]
+    sleep
 
----> Publishing with 'Message QoS0' to Topic [inno_test/data]
-msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":3}]
+    ---> Publishing with 'Message QoS0' to Topic [inno_test/data]
+    msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":3}]
 
-QoS0 Message Publish Successful for "msg_id":3. Return Status [0]
+    QoS0 Message Publish Successful for "msg_id":3. Return Status [0]
 
----> Publishing with 'Message QoS1' to Topic [inno_test/data]
-msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":4}]
+    ---> Publishing with 'Message QoS1' to Topic [inno_test/data]
+    msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":4}]
 
-<--- Message Received on Subscribed Topic [inno_test/ctrl]
-- from: AWS IoT console
-- to: T2
-- message: HelloWorld from AWS IoT console Team_BLE4
+    <--- Message Received on Subscribed Topic [inno_test/ctrl]
+    - from: AWS IoT console
+    - to: T2
+    - message: HelloWorld from AWS IoT console Team_BLE4
 
-<--- Message Received on Subscribed Topic [inno_test/ctrl]
-- from: AWS IoT console
-- to: T2
-- message: HelloWorld from AWS IoT console Team_BLE5
+    <--- Message Received on Subscribed Topic [inno_test/ctrl]
+    - from: AWS IoT console
+    - to: T2
+    - message: HelloWorld from AWS IoT console Team_BLE5
 
-QoS1 Message Publish Successful for "msg_id":4. Return Status [0]
-sleep
+    QoS1 Message Publish Successful for "msg_id":4. Return Status [0]
+    sleep
 
----> Publishing with 'Message QoS0' to Topic [inno_test/data]
-msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":5}]
+    ---> Publishing with 'Message QoS0' to Topic [inno_test/data]
+    msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":5}]
 
-QoS0 Message Publish Successful for "msg_id":5. Return Status [0]
+    QoS0 Message Publish Successful for "msg_id":5. Return Status [0]
 
----> Publishing with 'Message QoS1' to Topic [inno_test/data]
-msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":6}]
+    ---> Publishing with 'Message QoS1' to Topic [inno_test/data]
+    msg[{"from":"Talaria T2","to":"AWS","msg":"Howdy Ho","msg_id":6}]
 
-QoS1 Message Publish Successful for "msg_id":6. Return Status [0]
-sleep
+    QoS1 Message Publish Successful for "msg_id":6. Return Status [0]
+    sleep
 
 Device Shadow
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -853,111 +857,112 @@ Running the Sample Application
 
 .. code:: shell
 
-      UART:SNWWWWAE
-4 DWT comparators, range 0x8000
-Build $Id: git-ef87896f9 $
-hio.baudrate=921600
-flash: Gordon ready!
+    UART:SNWWWWAE
+    4 DWT comparators, range 0x8000
+    Build $Id: git-ef87896f9 $
+    hio.baudrate=921600
+    flash: Gordon ready!
 
-Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
-ROM yoda-h0-rom-16-0-gd5a8e586
-FLASH:PNWWWWWWAE
-Build $Id: git-831e563 $
-Flash detected. flash.hw.uuid: 394b3437-3802-004d-00e2-ffffffffffff
-Bootargs: aws_host=a3th11zq4plemm-ats.iot.us-east-2.amazonaws.com aws_port=8883 thing_name=ble_new np_conf_path=/data/nprofile.json ssid=FASTFIBER passphrase=MD123456
+    Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+    ROM yoda-h0-rom-16-0-gd5a8e586
+    FLASH:PNWWWWWWAE
+    Build $Id: git-831e563 $
+    Flash detected. flash.hw.uuid: 394b3437-3802-004d-00e2-ffffffffffff
+    Bootargs: aws_host=a3th11zq4plemm-ats.iot.us-east-2.amazonaws.com aws_port=8883 thing_name=ble_new np_conf_path=/data/nprofile.json ssid=FASTFIBER passphrase=MD123456
 
-AWS IoT SDK Version 3.1.5-
-Mounting file system
-read_certs() success
-[0.083,925] rfdrv: unknown module type (0)
-addr 02:03:04:63:1c:50
-added network profile successfully, will try connecting..
-[2.786,471] CONNECT:8c:c7:c3:50:31:3f Channel:1 rssi:-77 dBm
-wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
-wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
-[3.022,963] MYIP 192.168.1.41
-[3.023,127] IPv6 [fe80::3:4ff:fe63:1c50]-link
-wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
-Shadow InitShadow Connect
-  . Seeding the random number generator...
-  . Loading the CA root certificate...
-  Root Done (0 skipped)
-  . Loading the client cert and key. size TLSDataParams:2080
-  Loading the client cert done.... ret[0]
-  Loading the client pkey done.... ret[0]
-  ok
-  . Connecting to a3th11zq4plemm-ats.iot.us-east-2.amazonaws.com/8883...
-  ok
-  . Setting up the SSL/TLS structure...
-  SSL state connect : 0 
-  ok
-  SSL state connect : 0 
-  . Performing the SSL/TLS handshake... 
-  Verify requested for (Depth 2):
-    This certificate has no flags
-  Verify requested for (Depth 1):
-    This certificate has no flags
-  Verify requested for (Depth 0):
-    This certificate has no flags
-  SSL/TLS Handshake DONE.. ret:0
-  ok
-    [ Protocol is TLSv1.2 ]
-    [ Ciphersuite is TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256 ]
-    [ Record expansion is 29 ]
-  . Verifying peer X.509 certificate...
-  ok
+    AWS IoT SDK Version 3.1.5-
+    Mounting file system
+    read_certs() success
+    [0.083,925] rfdrv: unknown module type (0)
+    addr 02:03:04:63:1c:50
+    added network profile successfully, will try connecting..
+    [2.786,471] CONNECT:8c:c7:c3:50:31:3f Channel:1 rssi:-77 dBm
+    wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+    wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+    [3.022,963] MYIP 192.168.1.41
+    [3.023,127] IPv6 [fe80::3:4ff:fe63:1c50]-link
+    wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
+    Shadow InitShadow Connect
+      . Seeding the random number generator...
+      . Loading the CA root certificate...
+      Root Done (0 skipped)
+      . Loading the client cert and key. size TLSDataParams:2080
+      Loading the client cert done.... ret[0]
+      Loading the client pkey done.... ret[0]
+      ok
+      . Connecting to a3th11zq4plemm-ats.iot.us-east-2.amazonaws.com/8883...
+      ok
+      . Setting up the SSL/TLS structure...
+      SSL state connect : 0
+      ok
+      SSL state connect : 0
+      . Performing the SSL/TLS handshake...
+      Verify requested for (Depth 2):
+        This certificate has no flags
+      Verify requested for (Depth 1):
+        This certificate has no flags
+      Verify requested for (Depth 0):
+        This certificate has no flags
+      SSL/TLS Handshake DONE.. ret:0
+      ok
+        [ Protocol is TLSv1.2 ]
+        [ Ciphersuite is TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256 ]
+        [ Record expansion is 29 ]
+      . Verifying peer X.509 certificate...
+      ok
 
-On Device: window state false
-Update Shadow: {"state":{"reported":{"temperature":25.500000,"windowOpen":false}}, "clientToken":"ble_new-0"}
-Update Accepted !!
+    On Device: window state false
+    Update Shadow: {"state":{"reported":{"temperature":25.500000,"windowOpen":false}}, "clientToken":"ble_new-0"}
+    Update Accepted !!
 
-On Device: window state false
-Update Shadow: {"state":{"reported":{"temperature":26.000000,"windowOpen":false}}, "clientToken":"ble_new-1"}
-Update Accepted !!
+    On Device: window state false
+    Update Shadow: {"state":{"reported":{"temperature":26.000000,"windowOpen":false}}, "clientToken":"ble_new-1"}
+    Update Accepted !!
 
-On Device: window state false
-Update Shadow: {"state":{"reported":{"temperature":26.500000,"windowOpen":false}}, "clientToken":"ble_new-2"}
-Update Accepted !!
+    On Device: window state false
+    Update Shadow: {"state":{"reported":{"temperature":26.500000,"windowOpen":false}}, "clientToken":"ble_new-2"}
+    Update Accepted !!
 
-On Device: window state false
-Update Shadow: {"state":{"reported":{"temperature":27.000000,"windowOpen":false}}, "clientToken":"ble_new-3"}
-Update Accepted !!
+    On Device: window state false
+    Update Shadow: {"state":{"reported":{"temperature":27.000000,"windowOpen":false}}, "clientToken":"ble_new-3"}
+    Update Accepted !!
 
-On Device: window state false
-Update Shadow: {"state":{"reported":{"temperature":27.500000,"windowOpen":false}}, "clientToken":"ble_new-4"}
-Update Accepted !!
+    On Device: window state false
+    Update Shadow: {"state":{"reported":{"temperature":27.500000,"windowOpen":false}}, "clientToken":"ble_new-4"}
+    Update Accepted !!
 
-On Device: window state false
-Update Shadow: {"state":{"reported":{"temperature":28.000000,"windowOpen":false}}, "clientToken":"ble_new-5"}
-Update Accepted !!
+    On Device: window state false
+    Update Shadow: {"state":{"reported":{"temperature":28.000000,"windowOpen":false}}, "clientToken":"ble_new-5"}
+    Update Accepted !!
 
-On Device: window state false
-Update Shadow: {"state":{"reported":{"temperature":28.500000,"windowOpen":false}}, "clientToken":"ble_new-6"}
-Update Accepted !!
+    On Device: window state false
+    Update Shadow: {"state":{"reported":{"temperature":28.500000,"windowOpen":false}}, "clientToken":"ble_new-6"}
+    Update Accepted !!
 
-On Device: window state false
-Update Shadow: {"state":{"reported":{"temperature":29.000000,"windowOpen":false}}, "clientToken":"ble_new-7"}
-Update Accepted !!
+    On Device: window state false
+    Update Shadow: {"state":{"reported":{"temperature":29.000000,"windowOpen":false}}, "clientToken":"ble_new-7"}
+    Update Accepted !!
 
-On Device: window state false
-Update Shadow: {"state":{"reported":{"temperature":29.500000,"windowOpen":false}}, "clientToken":"ble_new-8"}
-Update Accepted !!
+    On Device: window state false
+    Update Shadow: {"state":{"reported":{"temperature":29.500000,"windowOpen":false}}, "clientToken":"ble_new-8"}
+    Update Accepted !!
 
-On Device: window state false
-Update Shadow: {"state":{"reported":{"temperature":30.000000,"windowOpen":false}}, "clientToken":"ble_new-9"}
-Update Accepted !!
+    On Device: window state false
+    Update Shadow: {"state":{"reported":{"temperature":30.000000,"windowOpen":false}}, "clientToken":"ble_new-9"}
+    Update Accepted !!
 
-On Device: window state false
-Update Shadow: {"state":{"reported":{"temperature":30.500000,"windowOpen":false}}, "clientToken":"ble_new-10"}
-Update Accepted !!
+    On Device: window state false
+    Update Shadow: {"state":{"reported":{"temperature":30.500000,"windowOpen":false}}, "clientToken":"ble_new-10"}
+    Update Accepted !!
 
-On Device: window state false
-Update Shadow: {"state":{"reported":{"temperature":31.000000,"windowOpen":false}}, "clientToken":"ble_new-11"}
+    On Device: window state false
+    Update Shadow: {"state":{"reported":{"temperature":31.000000,"windowOpen":false}}, "clientToken":"ble_new-11"}
 
 4. The AWS IoT dashboard will appear as shown in Figure 5.
 
 |image38|
 
+.. rst-class:: imagefiguesclass
 Figure 5: AWS IoT Dashboard
 
 Running Jobs
@@ -988,6 +993,7 @@ Figure 6: Creating a bucket to store files on Amazon S3
 
 |image40|
 
+.. rst-class:: imagefiguesclass
 Figure 7: Uploading .json file onto the Amazon S3 bucket
 
 4. In the AWS IoT Console, go to Manage -> Jobs.
@@ -996,6 +1002,7 @@ Figure 7: Uploading .json file onto the Amazon S3 bucket
 
 |image41|
 
+.. rst-class:: imagefiguesclass
 Figure 8: Creating a custom job
 
 6. Fill the Job ID and Description as per your requirement.
@@ -1009,6 +1016,7 @@ IoT console.
 
 |image42|
 
+.. rst-class:: imagefiguesclass
 Figure 9: Selecting devices to update
 
 8. In Add a job file, go ahead, and select the job file uploaded into
@@ -1016,6 +1024,7 @@ Figure 9: Selecting devices to update
 
 |image43|
 
+.. rst-class:: imagefiguesclass
 Figure 10: Adding a job file
 
 9.  Click on Next. In the next window, click on Create.
@@ -1024,6 +1033,7 @@ Figure 10: Adding a job file
 
 |image44|
 
+.. rst-class:: imagefiguesclass
 Figure 11: AWS IoT Console – new job created
 
 .. _running-the-sample-application-2:
@@ -1041,91 +1051,91 @@ Running the Sample Application
 
 .. code:: shell
 
-      UART:SNWWWWAE
-4 DWT comparators, range 0x8000
-Build $Id: git-ef87896f9 $
-hio.baudrate=921600
-flash: Gordon ready!
+    UART:SNWWWWAE
+    4 DWT comparators, range 0x8000
+    Build $Id: git-ef87896f9 $
+    hio.baudrate=921600
+    flash: Gordon ready!
 
-Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
-ROM yoda-h0-rom-16-0-gd5a8e586
-FLASH:PNWWWWWWAE
-Build $Id: git-831e563 $
-Flash detected. flash.hw.uuid: 394b3437-3802-004d-00e2-ffffffffffff
-Bootargs: aws_host=a3th11zq4plemm-ats.iot.us-east-2.amazonaws.com aws_port=8883 thing_name=ble_new np_conf_path=/data/nprofile.json ssid=FASTFIBER passphrase=MD123456
-Mounting file system
-read_certs() success
-[0.083,832] rfdrv: unknown module type (0)
-addr 02:03:04:92:c7:65
-added network profile successfully, will try connecting..
-[2.787,325] CONNECT:8c:c7:c3:50:31:3f Channel:1 rssi:-79 dBm
-wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
-wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
-[3.078,714] MYIP 192.168.1.42
-[3.078,879] IPv6 [fe80::3:4ff:fe92:c765]-link
-wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
+    Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+    ROM yoda-h0-rom-16-0-gd5a8e586
+    FLASH:PNWWWWWWAE
+    Build $Id: git-831e563 $
+    Flash detected. flash.hw.uuid: 394b3437-3802-004d-00e2-ffffffffffff
+    Bootargs: aws_host=a3th11zq4plemm-ats.iot.us-east-2.amazonaws.com aws_port=8883 thing_name=ble_new np_conf_path=/data/nprofile.json ssid=FASTFIBER passphrase=MD123456
+    Mounting file system
+    read_certs() success
+    [0.083,832] rfdrv: unknown module type (0)
+    addr 02:03:04:92:c7:65
+    added network profile successfully, will try connecting..
+    [2.787,325] CONNECT:8c:c7:c3:50:31:3f Channel:1 rssi:-79 dBm
+    wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+    wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+    [3.078,714] MYIP 192.168.1.42
+    [3.078,879] IPv6 [fe80::3:4ff:fe92:c765]-link
+    wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
 
-AWS IoT SDK Version 3.1.5-
-Connecting...
-heap[228688] max contentlen[16384] sizeof IoT_Publish_Message_Params (16)
+    AWS IoT SDK Version 3.1.5-
+    Connecting...
+    heap[228688] max contentlen[16384] sizeof IoT_Publish_Message_Params (16)
 
-  . Seeding the random number generator...
-  . Loading the CA root certificate...
-  Root Done (0 skipped)
-  . Loading the client cert and key. size TLSDataParams:2080
-  Loading the client cert done.... ret[0]
-  Loading the client pkey done.... ret[0]
-  ok
-  . Connecting to a3th11zq4plemm-ats.iot.us-east-2.amazonaws.com/8883...
-  ok
-  . Setting up the SSL/TLS structure...
-  SSL state connect : 0 
-  ok
-  SSL state connect : 0 
-  . Performing the SSL/TLS handshake... 
-  Verify requested for (Depth 2):
-    This certificate has no flags
-  Verify requested for (Depth 1):
-    This certificate has no flags
-  Verify requested for (Depth 0):
-    This certificate has no flags
-  SSL/TLS Handshake DONE.. ret:0
-  ok
-    [ Protocol is TLSv1.2 ]
-    [ Ciphersuite is TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256 ]
-    [ Record expansion is 29 ]
-  . Verifying peer X.509 certificate...
-  ok
-Success subscribing JOB_GET_PENDING_TOPIC: 0
-Success subscribing JOB_NOTIFY_NEXT_TOPIC: 0
-Success subscribing JOB_DESCRIBE_TOPIC ($next): 0
-Success subscribing JOB_UPDATE_TOPIC/accepted: 0
-Success subscribing JOB_UPDATE_TOPIC/rejected: 0
-Success calling aws_iot_jobs_send_query: 0
-Success aws_iot_jobs_describe: 0
+      . Seeding the random number generator...
+      . Loading the CA root certificate...
+      Root Done (0 skipped)
+      . Loading the client cert and key. size TLSDataParams:2080
+      Loading the client cert done.... ret[0]
+      Loading the client pkey done.... ret[0]
+      ok
+      . Connecting to a3th11zq4plemm-ats.iot.us-east-2.amazonaws.com/8883...
+      ok
+      . Setting up the SSL/TLS structure...
+      SSL state connect : 0
+      ok
+      SSL state connect : 0
+      . Performing the SSL/TLS handshake...
+      Verify requested for (Depth 2):
+        This certificate has no flags
+      Verify requested for (Depth 1):
+        This certificate has no flags
+      Verify requested for (Depth 0):
+        This certificate has no flags
+      SSL/TLS Handshake DONE.. ret:0
+      ok
+        [ Protocol is TLSv1.2 ]
+        [ Ciphersuite is TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256 ]
+        [ Record expansion is 29 ]
+      . Verifying peer X.509 certificate...
+      ok
+    Success subscribing JOB_GET_PENDING_TOPIC: 0
+    Success subscribing JOB_NOTIFY_NEXT_TOPIC: 0
+    Success subscribing JOB_DESCRIBE_TOPIC ($next): 0
+    Success subscribing JOB_UPDATE_TOPIC/accepted: 0
+    Success subscribing JOB_UPDATE_TOPIC/rejected: 0
+    Success calling aws_iot_jobs_send_query: 0
+    Success aws_iot_jobs_describe: 0
 
-JOB_GET_PENDING_TOPIC callback
-topic: $aws/things/ble_new/jobs/get/accepted
-payload: {"timestamp":1697702118,"inProgressJobs":[],"queuedJobs":[{"jobId":"AWS_IoT_Job","queuedAt":1697633280,"lastUpdatedAt":1697633280,"executionNumber":1,"versionNumber":1}]}
-inProgressJobs: []
-queuedJobs: [{"jobId":"AWS_IoT_Job","queuedAt":1697633280,"lastUpdatedAt":1697633280,"executionNumber":1,"versionNumber":1}]
+    JOB_GET_PENDING_TOPIC callback
+    topic: $aws/things/ble_new/jobs/get/accepted
+    payload: {"timestamp":1697702118,"inProgressJobs":[],"queuedJobs":[{"jobId":"AWS_IoT_Job","queuedAt":1697633280,"lastUpdatedAt":1697633280,"executionNumber":1,"versionNumber":1}]}
+    inProgressJobs: []
+    queuedJobs: [{"jobId":"AWS_IoT_Job","queuedAt":1697633280,"lastUpdatedAt":1697633280,"executionNumber":1,"versionNumber":1}]
 
-JOB_NOTIFY_NEXT_TOPIC / JOB_DESCRIBE_TOPIC($next) callback
-topic: $aws/things/ble_new/jobs/$next/get/accepted
-payload: {"timestamp":1697702118,"execution":{"jobId":"AWS_IoT_Job","status":"QUEUED","queuedAt":1697633280,"lastUpdatedAt":1697633280,"versionNumber":1,"executionNumber":1,"jobDocument":{"operation":"customJob","otherInfo":"someValue"}}}
-execution: {"jobId":"AWS_IoT_Job","status":"QUEUED","queuedAt":1697633280,"lastUpdatedAt":1697633280,"versionNumber":1,"executionNumber":1,"jobDocument":{"operation":"customJob","otherInfo":"someValue"}}
-jobId: AWS_IoT_Job
-jobDocument: {"operation":"customJob","otherInfo":"someValue"}
+    JOB_NOTIFY_NEXT_TOPIC / JOB_DESCRIBE_TOPIC($next) callback
+    topic: $aws/things/ble_new/jobs/$next/get/accepted
+    payload: {"timestamp":1697702118,"execution":{"jobId":"AWS_IoT_Job","status":"QUEUED","queuedAt":1697633280,"lastUpdatedAt":1697633280,"versionNumber":1,"executionNumber":1,"jobDocument":{"operation":"customJob","otherInfo":"someValue"}}}
+    execution: {"jobId":"AWS_IoT_Job","status":"QUEUED","queuedAt":1697633280,"lastUpdatedAt":1697633280,"versionNumber":1,"executionNumber":1,"jobDocument":{"operation":"customJob","otherInfo":"someValue"}}
+    jobId: AWS_IoT_Job
+    jobDocument: {"operation":"customJob","otherInfo":"someValue"}
 
-JOB_UPDATE_TOPIC / accepted callback
-topic: $aws/things/ble_new/jobs/AWS_IoT_Job/update/accepted
-payload: {"timestamp":1697702119}
+    JOB_UPDATE_TOPIC / accepted callback
+    topic: $aws/things/ble_new/jobs/AWS_IoT_Job/update/accepted
+    payload: {"timestamp":1697702119}
 
-JOB_NOTIFY_NEXT_TOPIC / JOB_DESCRIBE_TOPIC($next) callback
-topic: $aws/things/ble_new/jobs/notify-next
-payload: {"timestamp":1697702119}
-execution property not found, nothing to do
-aws_iot_mqtt_yield: 0
+    JOB_NOTIFY_NEXT_TOPIC / JOB_DESCRIBE_TOPIC($next) callback
+    topic: $aws/things/ble_new/jobs/notify-next
+    payload: {"timestamp":1697702119}
+    execution property not found, nothing to do
+    aws_iot_mqtt_yield: 0
 
 
 4. The AWS IoT Console will display as completed once the job is
@@ -1133,6 +1143,7 @@ aws_iot_mqtt_yield: 0
 
 |image45|
 
+.. rst-class:: imagefiguesclass
 Figure 12: AWS IoT Console – Job Completed
 
 5. You can continue creating new jobs which will be executed by your
@@ -1176,96 +1187,96 @@ Running the Sample Application
 
 .. code:: shell
 
-      UART:SNWWWWAE
-4 DWT comparators, range 0x8000
-Build $Id: git-ef87896f9 $
-hio.baudrate=921600
-flash: Gordon ready!
-[8.354,841] partitions mounted
-UART:SNWWWWAE
-4 DWT comparators, range 0x8000
-Build $Id: git-ef87896f9 $
-hio.baudrate=921600
-flash: Gordon ready!
+    UART:SNWWWWAE
+    4 DWT comparators, range 0x8000
+    Build $Id: git-ef87896f9 $
+    hio.baudrate=921600
+    flash: Gordon ready!
+    [8.354,841] partitions mounted
+    UART:SNWWWWAE
+    4 DWT comparators, range 0x8000
+    Build $Id: git-ef87896f9 $
+    hio.baudrate=921600
+    flash: Gordon ready!
 
-Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
-ROM yoda-h0-rom-16-0-gd5a8e586
-FLASH:PNWWWWWWAE
-Build $Id: git-831e563 $
-Flash detected. flash.hw.uuid: 39483937-3207-00a6-00ad-ffffffffffff
-Bootargs: aws_host=a3t0o11ohwlo2h-ats.iot.us-east-2.amazonaws.com aws_port=8883 thing_name=InnoAWS2023 suspend=1 wifi.cloud_pm=1 cloudpm.cpm_period=60 sensor_poll_interval=20 np_conf_path=/data/nprofile.json ssid=Xiaomi_Ax6000_iop passphrase=InnoQA2023$
-Mounting file system
-read_certs() success
-Initializing bmp388...
-Initializing opt3002...
-Initializing shtc3...
-bmp388 ID: 0x50
-opt3002 ID: 0x5449
-shtc3 ID: 0x803C01D7
+    Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+    ROM yoda-h0-rom-16-0-gd5a8e586
+    FLASH:PNWWWWWWAE
+    Build $Id: git-831e563 $
+    Flash detected. flash.hw.uuid: 39483937-3207-00a6-00ad-ffffffffffff
+    Bootargs: aws_host=a3t0o11ohwlo2h-ats.iot.us-east-2.amazonaws.com aws_port=8883 thing_name=InnoAWS2023 suspend=1 wifi.cloud_pm=1 cloudpm.cpm_period=60 sensor_poll_interval=20 np_conf_path=/data/nprofile.json ssid=Xiaomi_Ax6000_iop passphrase=InnoQA2023$
+    Mounting file system
+    read_certs() success
+    Initializing bmp388...
+    Initializing opt3002...
+    Initializing shtc3...
+    bmp388 ID: 0x50
+    opt3002 ID: 0x5449
+    shtc3 ID: 0x803C01D7
 
-addr e0:69:3a:00:16:e6
-Connecting to WiFi...
-added network profile successfully, will try connecting..
-connecting to network status: 0
-[2.248,021] Trying to connect in 1 seconds
-[4.631,119] CONNECT:d4:da:21:54:d3:c6 Channel:11 rssi:-35 dBm
-wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
-wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
-[6.999,336] MYIP 192.168.31.172
-[6.999,424] IPv6 [fe80::e269:3aff:fe00:16e6]-link
-wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
------Timestamp: 7000716 uS-----
-Pressure: 91387.7109 Pa
-Temperature (bmp): 31.7900 C
-Optical power: 239462.4062 nW/cm2
-Humidity: 35.5169 %
-Temperature (shtc): 32.1599 C
-Shadow Connect
+    addr e0:69:3a:00:16:e6
+    Connecting to WiFi...
+    added network profile successfully, will try connecting..
+    connecting to network status: 0
+    [2.248,021] Trying to connect in 1 seconds
+    [4.631,119] CONNECT:d4:da:21:54:d3:c6 Channel:11 rssi:-35 dBm
+    wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_LINK_UP
+    wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_ADDRESS
+    [6.999,336] MYIP 192.168.31.172
+    [6.999,424] IPv6 [fe80::e269:3aff:fe00:16e6]-link
+    wcm_notify_cb to App Layer - WCM_NOTIFY_MSG_CONNECTED
+    -----Timestamp: 7000716 uS-----
+    Pressure: 91387.7109 Pa
+    Temperature (bmp): 31.7900 C
+    Optical power: 239462.4062 nW/cm2
+    Humidity: 35.5169 %
+    Temperature (shtc): 32.1599 C
+    Shadow Connect
 
-  . Seeding the random number generator...
-  . Loading the CA root certificate...
-  Root Done (0 skipped)
-  . Loading the client cert and key. size TLSDataParams:2080
-  Loading the client cert done.... ret[0]
-  Loading the client pkey done.... ret[0]
-  ok
-  . Connecting to a3t0o11ohwlo2h-ats.iot.us-east-2.amazonaws.com/8883...
-  ok
-  . Setting up the SSL/TLS structure...
-  SSL state connect : 0 
-  ok
-  SSL state connect : 0 
-  . Performing the SSL/TLS handshake... 
-  Verify requested for (Depth 2):
-    This certificate has no flags
-  Verify requested for (Depth 1):
-    This certificate has no flags
-  Verify requested for (Depth 0):
-    This certificate has no flags
-  SSL/TLS Handshake DONE.. ret:0
-  ok
-    [ Protocol is TLSv1.2 ]
-    [ Ciphersuite is TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256 ]
-    [ Record expansion is 29 ]
-  . Verifying peer X.509 certificate...
-  ok
-Shadow Connected
-init_and_connect_aws_iot. ret:0
-Update Shadow: {"state":{"desired":{"sensorSwitch":true}}, "clientToken":"InnoAWS2023-0"}
-Update Timeout--
-Update Shadow: {"state":{"desired":{"sensorPollInterval":20}}, "clientToken":"InnoAWS2023-1"}
-Registering for Delta callbacks on shadow attributes :sensorPollInterval
-Update Accepted !!
-Registering for Delta callbacks on shadow attributes :sensorSwitch
-Update Shadow: {"state":{"reported":{"temperature":32.009998,"pressure":91384.617188,"humidity":35.054001,"opticalPower":244531.203125}}, "clientToken":"InnoAWS2023-2"}
-Recieved Delta Callback for shadow attribute: sensorPollInterval, with desired state: 20
-Update Accepted !!
-Update Shadow: {"state":{"reported":{"sensorPollInterval":20}}, "clientToken":"InnoAWS2023-3"}
-Update Accepted !!
-Update Shadow: {"state":{"reported":{"temperature":32.080002,"pressure":91383.273438,"humidity":34.840000,"opticalPower":241152.000000}}, "clientToken":"InnoAWS2023-4"}
-Update Accepted !!
-Update Shadow: {"state":{"reported":{"temperature":32.099998,"pressure":91387.031250,"humidity":34.584000,"opticalPower":246067.203125}}, "clientToken":"InnoAWS2023-5"}
-Update Accepted !!
+      . Seeding the random number generator...
+      . Loading the CA root certificate...
+      Root Done (0 skipped)
+      . Loading the client cert and key. size TLSDataParams:2080
+      Loading the client cert done.... ret[0]
+      Loading the client pkey done.... ret[0]
+      ok
+      . Connecting to a3t0o11ohwlo2h-ats.iot.us-east-2.amazonaws.com/8883...
+      ok
+      . Setting up the SSL/TLS structure...
+      SSL state connect : 0
+      ok
+      SSL state connect : 0
+      . Performing the SSL/TLS handshake...
+      Verify requested for (Depth 2):
+        This certificate has no flags
+      Verify requested for (Depth 1):
+        This certificate has no flags
+      Verify requested for (Depth 0):
+        This certificate has no flags
+      SSL/TLS Handshake DONE.. ret:0
+      ok
+        [ Protocol is TLSv1.2 ]
+        [ Ciphersuite is TLS-ECDHE-RSA-WITH-AES-128-GCM-SHA256 ]
+        [ Record expansion is 29 ]
+      . Verifying peer X.509 certificate...
+      ok
+    Shadow Connected
+    init_and_connect_aws_iot. ret:0
+    Update Shadow: {"state":{"desired":{"sensorSwitch":true}}, "clientToken":"InnoAWS2023-0"}
+    Update Timeout--
+    Update Shadow: {"state":{"desired":{"sensorPollInterval":20}}, "clientToken":"InnoAWS2023-1"}
+    Registering for Delta callbacks on shadow attributes :sensorPollInterval
+    Update Accepted !!
+    Registering for Delta callbacks on shadow attributes :sensorSwitch
+    Update Shadow: {"state":{"reported":{"temperature":32.009998,"pressure":91384.617188,"humidity":35.054001,"opticalPower":244531.203125}}, "clientToken":"InnoAWS2023-2"}
+    Recieved Delta Callback for shadow attribute: sensorPollInterval, with desired state: 20
+    Update Accepted !!
+    Update Shadow: {"state":{"reported":{"sensorPollInterval":20}}, "clientToken":"InnoAWS2023-3"}
+    Update Accepted !!
+    Update Shadow: {"state":{"reported":{"temperature":32.080002,"pressure":91383.273438,"humidity":34.840000,"opticalPower":241152.000000}}, "clientToken":"InnoAWS2023-4"}
+    Update Accepted !!
+    Update Shadow: {"state":{"reported":{"temperature":32.099998,"pressure":91387.031250,"humidity":34.584000,"opticalPower":246067.203125}}, "clientToken":"InnoAWS2023-5"}
+    Update Accepted !!
 
 
 .. |image34| image:: media/image34.png

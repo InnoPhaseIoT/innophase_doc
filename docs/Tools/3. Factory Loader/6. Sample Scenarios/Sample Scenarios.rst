@@ -26,6 +26,7 @@ Normal Boot + Single application without backup (demo mode)
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: SSBL + User Application
 
 Figure 1 shows the flash layout when using SSBL with a simple
@@ -71,6 +72,7 @@ Normal Boot + FOTA Application + Application + Backup Application
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Normal Boot + FOTA + User Application
 
 Figure 2 shows the flash layout when using SSBL with FOTA and a

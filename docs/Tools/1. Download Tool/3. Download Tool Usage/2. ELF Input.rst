@@ -10,6 +10,7 @@ Load the application as per requirement by selecting an appropriate ELF.
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 1: ELF input - Standard programming
 
 SSBL Programming
@@ -30,6 +31,7 @@ Files <#_Write_Files>`.
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 2: ELF input - SSBL programming
 
 .. |image3| image:: media/image3.png

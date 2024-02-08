@@ -26,10 +26,12 @@ application PCB.
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Antenna placement diagram
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 2: INP1012 module antenna connector placement
 
 .. |image5| image:: media/image5.png

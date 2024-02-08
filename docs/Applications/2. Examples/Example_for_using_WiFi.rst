@@ -13,6 +13,7 @@ Topology
 
 |image124|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Wi-Fi Connection Manager – Topology
 
 Wi-Fi Connection Manager Functionalities
@@ -235,10 +236,12 @@ reconnection method.
 
 |image125|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Sniffer Capture – Wi-Fi Reconnection
 
 |image126|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Talaria TWO Console Logs – Wi-Fi Reconnection
 
 Sample Code Walkthrough
@@ -512,12 +515,14 @@ whereas during the scan period, the average Rx current remains at ~33mA.
 
 |image127|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Talaria TWO naps during uninteresting frames
 
 Rx nap scan mode disabled is as shown in Figure 5.
 
 |image128|
 
+.. rst-class:: imagefiguesclass
 Figure 5: Rx nap scan mode disabled
 
 Wifi_Connect_Disconnect
@@ -542,21 +547,21 @@ This example code initializes two semaphores and creates two tasks.
 
 .. code:: shell
 
-          /* initializes the semaphores */
-          my_sem1 = xSemaphoreCreateCounting(1, 0);
-          my_sem2 = xSemaphoreCreateCounting(1, 0);
-      
-          /* creates a task */
-          xTaskCreate(my_app_task_func1, "task1", MY_APP_THREAD_STACK_SIZE,
-              (void *)my_arg1, MY_APP_THREAD_PRIO, &task1);
-      
-          /* creates a task */
-          xTaskCreate(my_app_task_func2, "task2", MY_APP_THREAD_STACK_SIZE,
-              (void *)my_arg2, MY_APP_THREAD_PRIO, &task2);
-      
-          vTaskSuspend(NULL);
-      
-          return 0;
+    /* initializes the semaphores */
+    my_sem1 = xSemaphoreCreateCounting(1, 0);
+    my_sem2 = xSemaphoreCreateCounting(1, 0);
+
+    /* creates a task */
+    xTaskCreate(my_app_task_func1, "task1", MY_APP_THREAD_STACK_SIZE,
+      (void *)my_arg1, MY_APP_THREAD_PRIO, &task1);
+
+    /* creates a task */
+    xTaskCreate(my_app_task_func2, "task2", MY_APP_THREAD_STACK_SIZE,
+      (void *)my_arg2, MY_APP_THREAD_PRIO, &task2);
+
+    vTaskSuspend(NULL);
+
+    return 0;
 
 
 

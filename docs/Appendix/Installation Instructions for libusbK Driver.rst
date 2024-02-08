@@ -9,6 +9,7 @@ Composite Parents as shown in Figure 8.
 
 |A screenshot of a computer Description automatically generated|
 
+.. rst-class:: imagefiguesclass
 Figure 8: Listing devices in Zadig
 
 To establish communication with Talaria TWO module via the FTDI device
@@ -19,6 +20,7 @@ drivers to libusbK.
 
 |Graphical user interface, text, application, Word Description automatically generated|
 
+.. rst-class:: imagefiguesclass
 Figure 9: Updating Talaria TWO USB driver to libusbK
 
 .. |A screenshot of a computer Description automatically generated| image:: media/images65.png

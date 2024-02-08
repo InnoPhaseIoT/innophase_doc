@@ -7,10 +7,12 @@ Program Talaria TWO’s ELF to Flash by clicking on PROG Flash.
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 1: PROG Flash
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Console Output – PROG Flash
 
 .. |image5| image:: media/image5.png

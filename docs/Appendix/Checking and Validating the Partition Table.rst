@@ -29,6 +29,7 @@ action (i.e., correct the deviation manually and try again).
 
 |image26|
 
+.. rst-class:: imagefiguesclass
 Figure 34: Deviation from the standard programming partition – matches
 SSBL programming partition
 
@@ -38,6 +39,7 @@ deviation to proceed further.
 
 |image28|
 
+.. rst-class:: imagefiguesclass
 Figure 35: Standard programming - action terminated
 
 **Case 2: Existing partition neither satisfies Standard programming
@@ -51,6 +53,7 @@ the deviation manually and try again).
 
 |image31|
 
+.. rst-class:: imagefiguesclass
 Figure 36: Deviation from the standard programming partition - no match
 
 **Note**: In case the user-defined partition table meets the condition
@@ -60,6 +63,7 @@ option of overwriting existing partition with default partition table.
 
 |image32|
 
+.. rst-class:: imagefiguesclass
 Figure 37: VM image does not fit in partition
 
 1. If the user chooses to flash the default partition (option: Yes):
@@ -80,6 +84,7 @@ a. In case the backed-up contents of SYSFS does not fit into the
 
    |image34|
 
+.. rst-class:: imagefiguesclass
 Figure 38: Backed-up contents of SYSFS
 
 i. If the user chooses to back-up to local system (option: Yes):
@@ -89,9 +94,10 @@ i. If the user chooses to back-up to local system (option: Yes):
    The contents will be saved in the local system and the user will be
    notified with the folder path through a popup message.
 
-   |image36|
+|image36|
 
-   Figure 39: Contents saved in the local system
+.. rst-class:: imagefiguesclass
+Figure 39: Contents saved in the local system
 
 ii. If the user does not choose to back-up to local system (option: No):
 
@@ -100,10 +106,11 @@ ii. If the user does not choose to back-up to local system (option: No):
    The action will be terminated, and user will be required to correct
    the deviation manually to proceed further.
 
-   |image38|
+|image38|
 
-   Figure 40: Action terminated requiring to correct the deviation
-   manually
+.. rst-class:: imagefiguesclass
+Figure 40: Action terminated requiring to correct the deviation
+manually
 
 b. In case the back-up contents of DATA partition do not fit the
    corresponding location in the default partition, the contents will be
@@ -116,6 +123,7 @@ b. In case the back-up contents of DATA partition do not fit the
 
    |image40|
 
+.. rst-class:: imagefiguesclass
 Figure 41: Back-up contents of DATA partition
 
 c. However, if the user does not choose to flash the default partition
@@ -128,6 +136,7 @@ c. However, if the user does not choose to flash the default partition
 
    |image42|
 
+.. rst-class:: imagefiguesclass
 Figure 42: User does not choose to flash default partition – action
 terminated
 
@@ -170,6 +179,7 @@ correct the deviation to proceed further.
 
 |image48|
 
+.. rst-class:: imagefiguesclass
 Figure 44: SSBL programming - action terminated
 
 

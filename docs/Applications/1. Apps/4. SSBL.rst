@@ -42,6 +42,7 @@ Figure 1 shows the memory layout when using SSBL.
 
 |image46|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Memory layout on loading the SSBL application
 
 1. There is a total of 512KB RAM in Talaria TWO
@@ -65,6 +66,7 @@ Figure 1: Memory layout on loading the SSBL application
 
 |image47|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Memory layout after loading the application
 
 Figure 3 shows the signed and encrypted ELF memory layout when using
@@ -72,6 +74,7 @@ SSBL in secureboot mode.
 
 |image48|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Signed and encrypted ELF memory layout
 
 1. In this case, only the .text and .data sections of the application
@@ -105,12 +108,14 @@ one application.
 
 |image49|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Flash layout when using the SSBL
 
 Figure 5 shows the layout of flash memory when using secure SSBL.
 
 |image50|
 
+.. rst-class:: imagefiguesclass
 Figure 5: Flash layout for SSBL with secureboot
 
 SSBL Operation Flow
@@ -124,6 +129,7 @@ Secureboot SSBL
 
 |image51|
 
+.. rst-class:: imagefiguesclass
 Figure 6: Secureboot SSBL Flow Diagram
 
 SSBL Configuration 
@@ -160,31 +166,31 @@ encrypted.
 
 .. code:: shell
 
-      {
-  "image"   : [
     {
-      "name"  : "iperf_vm",
-      "version" : "1.0",
-      "start_sector"  : 32,
-      "bootargs_start": 1,
-      "ssid" : "innotest",
-      "passphrase" : "123467890",
-      "bootargs_end" : 1
-    },
-    {
-      "name"  : "hello_world",
-      "version" : "1.0",
-      "start_sector"  : 232,
-      "bootargs_start": 1,
-      "ssid" : "innotest",
-      "passphrase" : "123467890",
-      "bootargs_end" : 1
-    }
+    "image"   : [
+        {
+            "name"  : "iperf_vm",
+            "version" : "1.0",
+            "start_sector"  : 32,
+            "bootargs_start": 1,
+            "ssid" : "innotest",
+            "passphrase" : "123467890",
+            "bootargs_end" : 1
+        },
+        {
+            "name"  : "hello_world",
+            "version" : "1.0",
+            "start_sector"  : 232,
+            "bootargs_start": 1,
+            "ssid" : "innotest",
+            "passphrase" : "123467890",
+            "bootargs_end" : 1
+        }
     ],
-    "baudrate"    : 2560000,
-    "timeout" : 0,
-    "verbose" : 1
-}
+        "baudrate": 2560000,
+        "timeout" : 0,
+        "verbose" : 1
+    }
 
 
 1. General parameters:
@@ -213,9 +219,9 @@ encrypted.
 
 .. code:: shell
 
-      boot.json
-{    image : 0    
-}
+    boot.json
+    {    image : 0
+    }
 
 where,
 
@@ -233,6 +239,7 @@ stored in memory.
 
 |image52|
 
+.. rst-class:: imagefiguesclass
 Figure 7: SSBL Bootargs stored in memory
 
 Building Components
@@ -269,8 +276,8 @@ For the purpose of this application note, the root.img is created at:
 
 .. code:: shell
 
-      cd <freertos_sdk>
-python3 ./script/build_rootfs_generic.py --folder_path apps/ssbl
+    cd <freertos_sdk>
+    python3 ./script/build_rootfs_generic.py --folder_path apps/ssbl
 
 
 **Note:**
@@ -298,8 +305,8 @@ demonstrated for the application example/secure_files.
 
 .. code:: shell
 
-      cd <sdk>
-python3 ./script/build_rootfs_generic.py --folder_path examples/secure_files/ --secure True --keyfile ./apps/ssbl/enroll.json
+    cd <sdk>
+    python3 ./script/build_rootfs_generic.py --folder_path examples/secure_files/ --secure True --keyfile ./apps/ssbl/enroll.json
 
 
 **Note:**
@@ -324,9 +331,9 @@ Non-secure SSBL
 
 .. code:: shell
 
-      cd <freertos_sdk>/apps/ssbl/
-make clean
-make
+    cd <freertos_sdk>/apps/ssbl/
+    make clean
+    make
 
 
 .. _secureboot-ssbl-2:
@@ -339,9 +346,9 @@ Secureboot SSBL
 
 .. code:: shell
 
-      cd <freertos_sdk>/apps/ssbl/
-make clean
-make KEY=enroll.json SECUREBOOT=1 DEBUGSECURE=1
+    cd <freertos_sdk>/apps/ssbl/
+    make clean
+    make KEY=enroll.json SECUREBOOT=1 DEBUGSECURE=1
 
 ..
 
@@ -352,9 +359,9 @@ make KEY=enroll.json SECUREBOOT=1 DEBUGSECURE=1
 
 .. code:: shell
 
-      cd <freertos_sdk>/apps/ssbl/
-make clean
-make KEY=enroll.json SECUREBOOT=1
+    cd <freertos_sdk>/apps/ssbl/
+    make clean
+    make KEY=enroll.json SECUREBOOT=1
 
 
 ..
@@ -392,41 +399,41 @@ flash. Run the commands from the <freertos_sdk> directory:
 
 .. code:: shell
 
-      cd <freertos_sdk>
-./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl ./apps/gordon.elf
+    cd <freertos_sdk>
+    ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl ./apps/gordon.elf
 
 
 **Invalidate the boot Image**
 
 .. code:: shell
 
-      cd <freertos_sdk>
-dd if=/dev/zero of=./empty.img bs=1K count=1
-./script/flash.py --device /dev/ttyUSB2 write 0x1000 ./empty.img
+    cd <freertos_sdk>
+    dd if=/dev/zero of=./empty.img bs=1K count=1
+    ./script/flash.py --device /dev/ttyUSB2 write 0x1000 ./empty.img
 
 
 **Write partition**
 
 .. code:: shell
 
-      cd <freertos_sdk>
-./script/flash.py --device /dev/ttyUSB2 from_json ./tools/partition_files/ssbl_part_table.json
+    cd <freertos_sdk>
+    ./script/flash.py --device /dev/ttyUSB2 from_json ./tools/partition_files/ssbl_part_table.json
 
 
 **Flash SSBL**
 
 .. code:: shell
 
-      cd <freertos_sdk>
-./script/flash.py --device /dev/ttyUSB2 write 0x1000 ./apps/ssbl/fast_ssbl.img
+    cd <freertos_sdk>
+    ./script/flash.py --device /dev/ttyUSB2 write 0x1000 ./apps/ssbl/fast_ssbl.img
 
 
 **Flash filesystem**
 
 .. code:: shell
 
-      cd <freertos_sdk>
-./script/flash.py --device /dev/ttyUSB2 write 0x180000 ./apps/ssbl/root.img
+    cd <freertos_sdk>
+    ./script/flash.py --device /dev/ttyUSB2 write 0x180000 ./apps/ssbl/root.img
 
 
 **Flash apps**
@@ -440,9 +447,9 @@ Use following commands to strip the application ELFs
 
 .. code:: shell
 
-      cd <freertos_sdk>
-arm-none-eabi-strip --strip-all ./bins/iperf3.elf -o ./bins/iperf3.elf.strip
-arm-none-eabi-strip --strip-all ./apps/hello_world/bin/hello_world.elf -o ./apps/hello_world/bin/hello_world.elf.strip
+    cd <freertos_sdk>
+    arm-none-eabi-strip --strip-all ./bins/iperf3.elf -o ./bins/iperf3.elf.strip
+    arm-none-eabi-strip --strip-all ./apps/hello_world/bin/hello_world.elf -o ./apps/hello_world/bin/hello_world.elf.strip
 
 
 iPerf3 should be flashed to 0x2000 (which is start_sector 32 as
@@ -451,10 +458,10 @@ mentioned in part.json), while hello_world.elf should be flashed to
 
 .. code:: shell
 
-      cd <freertos_sdk>
-./script/flash.py --device /dev/ttyUSB2 write 0x20000 ./bins/iperf3.elf.strip
+    cd <freertos_sdk>
+    ./script/flash.py --device /dev/ttyUSB2 write 0x20000 ./bins/iperf3.elf.strip
 
-./script/flash.py --device /dev/ttyUSB2 write 0xE8000 ./apps/hello_world/bin/hello_world.elf.strip
+    ./script/flash.py --device /dev/ttyUSB2 write 0xE8000 ./apps/hello_world/bin/hello_world.elf.strip
 
 
 ..
@@ -463,9 +470,9 @@ mentioned in part.json), while hello_world.elf should be flashed to
 
 .. code:: shell
 
-      osboxes@osboxes:~$ miniterm.py /dev/ttyUSB3 2457600
---- Miniterm on /dev/ttyUSB3  2457600,8,N,1 ---
---- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+    osboxes@osboxes:~$ miniterm.py /dev/ttyUSB3 2457600
+    --- Miniterm on /dev/ttyUSB3  2457600,8,N,1 ---
+    --- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
 
 
 Reset the board either by executing the following command or by pressing
@@ -473,37 +480,36 @@ the reset button on the EVB to run the iPerf3 application.
 
 .. code:: shell
 
-      cd <freertos_sdk>
-./script/boot.py --device /dev/ttyUSB2 --reset=evk42
+    cd <freertos_sdk>
+    ./script/boot.py --device /dev/ttyUSB2 --reset=evk42
 
 Expected Output
 ~~~~~~~~~~~~~~~
 
 .. code:: shell
 
-      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
-ROM yoda-h0-rom-16-0-gd5a8e586
-FLASH:PWAEWWWWAE Build $Id: git-a74c874 $
-Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff
+    Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+    ROM yoda-h0-rom-16-0-gd5a8e586
+    FLASH:PWAEWWWWAE Build $Id: git-a74c874 $
+    Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff
 
-Build $Id: git-a74c874 $
-Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff
-Bootargs: vm.flash_location=0x00034c00 sys.reset_reason=1 passphrase=1234567890 ssid=innotest
-[0.024,055] rfdrv: unknown module type (0)
-addr f8:e9:43:d2:00:e7
-network profile created for ssid: innotest
-[1.535,586] CONNECT:60:32:b1:33:b5:7b Channel:11 rssi:-37 dBm
-[4.370,448] MYIP 192.168.0.107
-[4.370,495] IPv6 [fe80::fae9:43ff:fed2:e7]-link
-IPerf3 server @ 192.168.0.107
+    Build $Id: git-a74c874 $
+    Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff
+    Bootargs: vm.flash_location=0x00034c00 sys.reset_reason=1 passphrase=1234567890 ssid=innotest
+    [0.024,055] rfdrv: unknown module type (0)
+    addr f8:e9:43:d2:00:e7
+    network profile created for ssid: innotest
+    [1.535,586] CONNECT:60:32:b1:33:b5:7b Channel:11 rssi:-37 dBm
+    [4.370,448] MYIP 192.168.0.107
+    [4.370,495] IPv6 [fe80::fae9:43ff:fed2:e7]-link
+    IPerf3 server @ 192.168.0.107
 
-Iperf3 TCP/UDP server listening on 5201
-
-
-Run iPerf3 client for this application.
+    Iperf3 TCP/UDP server listening on 5201
+    Run iPerf3 client for this application.
 
 |image63|
 
+.. rst-class:: imagefiguesclass
 Figure 9: iPerf3 Client
 
 Changing root.img to Run the Other Application
@@ -514,8 +520,8 @@ To run the hello_world application, make changes in
 
 .. code:: shell
 
-      boot.json
-{    image : 1    }
+    boot.json
+    {    image : 1    }
 
 
 Execute the following command to regenerate the root.img at:
@@ -523,16 +529,16 @@ Execute the following command to regenerate the root.img at:
 
 .. code:: shell
 
-      cd <freertos_sdk>
-python3 ./script/build_rootfs_generic.py --folder_path apps/ssbl
+    cd <freertos_sdk>
+    python3 ./script/build_rootfs_generic.py --folder_path apps/ssbl
 
 
 Flash the newly generated root.img
 
 .. code:: shell
 
-      cd <freertos_sdk>
-./script/flash.py --device /dev/ttyUSB2 write 0x180000 ./apps/ssbl/root.img
+    cd <freertos_sdk>
+    ./script/flash.py --device /dev/ttyUSB2 write 0x180000 ./apps/ssbl/root.img
 
 On reboot, the hello_world application will be loaded.
 
@@ -554,17 +560,17 @@ flash. Run the commands from the <freertos_sdk> directory:
 
 .. code:: shell
 
-      cd <freertos_sdk>
-./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl ./apps/gordon.elf
+    cd <freertos_sdk>
+    ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl ./apps/gordon.elf
 
 
 2. Invalidate boot image
 
 .. code:: shell
 
-      cd <freertos_sdk>
-dd if=/dev/zero of=./empty.img bs=1K count=1
-./script/flash.py --device /dev/ttyUSB2 write 0x1000 ./empty.img
+    cd <freertos_sdk>
+    dd if=/dev/zero of=./empty.img bs=1K count=1
+    ./script/flash.py --device /dev/ttyUSB2 write 0x1000 ./empty.img
 
 
 3. Enroll keys
@@ -574,8 +580,8 @@ dd if=/dev/zero of=./empty.img bs=1K count=1
 
 .. code:: shell
 
-      cd <freertos_sdk>/apps/ssbl/
-../../script/flash.py enroll --keyfile=enroll.json --secureboot puf --fuse-location emulated
+    cd <freertos_sdk>/apps/ssbl/
+    ../../script/flash.py enroll --keyfile=enroll.json --secureboot puf --fuse-location emulated
 
 
 b. For production SecureSSBL and burning the fuse
@@ -583,16 +589,16 @@ b. For production SecureSSBL and burning the fuse
 
 .. code:: shell
 
-      cd <freertos_sdk>/apps/ssbl/
-../../script/flash.py enroll --keyfile=enroll.json --secureboot puf --fuse-location one-time-programmable-fuses
+    cd <freertos_sdk>/apps/ssbl/
+    ../../script/flash.py enroll --keyfile=enroll.json --secureboot puf --fuse-location one-time-programmable-fuses
 
 
 4. Flash SSBL partition table
 
 .. code:: shell
 
-      cd <freertos_sdk>
-./script/flash.py from_json tools/partition_files/ssbl_part_table.json
+    cd <freertos_sdk>
+    ./script/flash.py from_json tools/partition_files/ssbl_part_table.json
 
 
 5. Flash SSBL image at 0x1000
@@ -601,16 +607,16 @@ b. For production SecureSSBL and burning the fuse
 
 .. code:: shell
 
-      cd <freertos_sdk>
-./script/flash.py --device /dev/ttyUSB2 write 0x1000 ./apps/ssbl/out/both.img
+    cd <freertos_sdk>
+    ./script/flash.py --device /dev/ttyUSB2 write 0x1000 ./apps/ssbl/out/both.img
 
 
 b. For production SecureSSBL
 
 .. code:: shell
 
-      cd <freertos_sdk>
-./script/flash.py --device /dev/ttyUSB2 write 0x1000 ./apps/ssbl/out/ssbl_secure.img
+    cd <freertos_sdk>
+    ./script/flash.py --device /dev/ttyUSB2 write 0x1000 ./apps/ssbl/out/ssbl_secure.img
 
 
 6. Build application and filesystem
@@ -624,9 +630,9 @@ a. Build the example/secure_files application
 
 .. code:: shell
 
-      cd <freertos_sdk>/examples/secure_files/
-make clean
-make KEY=../../apps/ssbl/enroll.json
+    cd <freertos_sdk>/examples/secure_files/
+    make clean
+    make KEY=../../apps/ssbl/enroll.json
 
 
 ..
@@ -640,8 +646,8 @@ b. Filesystem image for this application is created using following
 
 .. code:: shell
 
-      cd <freertos_sdk> 
-python ./script/build_rootfs_generic.py --folder_path examples/secure_files/ --secure True --keyfile ./apps/ssbl/enroll.json
+    cd <freertos_sdk>
+    python ./script/build_rootfs_generic.py --folder_path examples/secure_files/ --secure True --keyfile ./apps/ssbl/enroll.json
 
 
 ..
@@ -654,8 +660,8 @@ python ./script/build_rootfs_generic.py --folder_path examples/secure_files/ --s
 
 .. code:: shell
 
-      cd <freertos_sdk>
-./script/flash.py --device /dev/ttyUSB2 write 0x20000 ./examples/secure_files/out/secure_files.elf.enc
+    cd <freertos_sdk>
+    ./script/flash.py --device /dev/ttyUSB2 write 0x20000 ./examples/secure_files/out/secure_files.elf.enc
 
 
 8. Flash filesystem at 0x180000
@@ -663,8 +669,8 @@ python ./script/build_rootfs_generic.py --folder_path examples/secure_files/ --s
 
 .. code:: shell
 
-      cd <freertos_sdk>
-./script/flash.py --device /dev/ttyUSB2 write 0x180000 ./examples/secure_files/root_secure.img
+    cd <freertos_sdk>
+    ./script/flash.py --device /dev/ttyUSB2 write 0x180000 ./examples/secure_files/root_secure.img
 
 
 9. Reset the board
@@ -677,8 +683,8 @@ python ./script/build_rootfs_generic.py --folder_path examples/secure_files/ --s
 
 .. code:: shell
 
-      cd <freertos_sdk>
-./script/boot.py --device /dev/ttyUSB2 --reset=evk42
+    cd <freertos_sdk>
+    ./script/boot.py --device /dev/ttyUSB2 --reset=evk42
 
 
 .. _expected-output-1:
@@ -691,25 +697,25 @@ When DEBUGSECURE=1
 
 .. code:: shell
 
-      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
-ROM yoda-h0-rom-16-0-gd5a8e586
-FLASH:PNWWAE
-FIRST:SWWWWAHE
-Si
-Build $Id: git-a74c874 $
-Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff
+    Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+    ROM yoda-h0-rom-16-0-gd5a8e586
+    FLASH:PNWWAE
+    FIRST:SWWWWAHE
+    Si
+    Build $Id: git-a74c874 $
+    Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff
 
-***Warning! Make sure to remove this code section once in production***
-secureboot_secret:
-8b5678a045ba66b7ea956d3292aae8dc29ded8de9010efd40980a091734b786b11000000
+    ***Warning! Make sure to remove this code section once in production***
+    secureboot_secret:
+    8b5678a045ba66b7ea956d3292aae8dc29ded8de9010efd40980a091734b786b11000000
 
-***Warning! Make sure to remove this code section once in production***
-cipher key: 4e3b0b9792183c53ecc78a38c64a45c071b97bc40b0baba308ed76db8a46cef1
-public key: 20b003d2f297be2c5e2c83a7e9f9a5b9eff49111acf4fddbcc0301480e359de6dc809c49652aeb6d63329abf5a52155c766345c28fed3024741c8ed01589d28b
-Build $Id: git- a74c874 $
-Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff
-Bootargs: vm.flash_location=0x0002d900 passphrase=12346789ssid=innotest
-sys.reset_reason=1
+    ***Warning! Make sure to remove this code section once in production***
+    cipher key: 4e3b0b9792183c53ecc78a38c64a45c071b97bc40b0baba308ed76db8a46cef1
+    public key: 20b003d2f297be2c5e2c83a7e9f9a5b9eff49111acf4fddbcc0301480e359de6dc809c49652aeb6d63329abf5a52155c766345c28fed3024741c8ed01589d28b
+    Build $Id: git- a74c874 $
+    Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff
+    Bootargs: vm.flash_location=0x0002d900 passphrase=12346789ssid=innotest
+    sys.reset_reason=1
 
 Application Information:
 ------------------------

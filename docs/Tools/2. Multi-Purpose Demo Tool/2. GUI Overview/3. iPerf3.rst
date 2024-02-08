@@ -16,6 +16,7 @@ https://iperf.fr/iperf-download.php
 
 |image7|
 
+.. rst-class:: imagefiguesclass
 Figure 7: Selecting iPerf3
 
 **Note**:

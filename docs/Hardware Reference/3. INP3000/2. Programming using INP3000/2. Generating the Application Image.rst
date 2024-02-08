@@ -32,10 +32,12 @@ directory.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Generating the application image – Windows
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Application image and its VM image – Windows
 
 In Linux
@@ -62,10 +64,12 @@ directory.
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Generating the application image – Linux
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Application image and its VM image – Linux
 
 .. |image1| image:: media/image1.png

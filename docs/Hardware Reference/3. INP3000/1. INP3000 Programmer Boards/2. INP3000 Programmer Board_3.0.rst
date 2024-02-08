@@ -8,6 +8,7 @@ VERSION 3.0
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 1: INP3000 programmer kit contents - version 3.0
 
 Table 2 provides the description of each Connector on the board:
@@ -125,6 +126,7 @@ SW1 Switch settings for SPI and UART:
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Switch settings to select between SPI and UART
 
 J6 JTAG Connector Pin-out:
@@ -147,6 +149,7 @@ J6 JTAG Connector Pin-out:
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Connectors for application board
 
 Use the mating connector on the Molex cable connected to FTDI board

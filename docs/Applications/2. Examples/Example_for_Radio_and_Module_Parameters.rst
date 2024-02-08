@@ -325,6 +325,7 @@ is as follows:
 
 |image72|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Console output
 
 .. |image72| image:: media/image72.png

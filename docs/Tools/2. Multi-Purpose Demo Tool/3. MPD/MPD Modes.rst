@@ -26,6 +26,7 @@ radio wakes up to listen beacon for every 1 second.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Base mode: Otii log
 
 Console output:
@@ -80,6 +81,7 @@ packet is observed.
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Keep alive: Wireshark log
 
 **Otii log**: Shows an average current consumption of 64.4µA for 30s. In
@@ -87,6 +89,7 @@ idle cases, the average current consumption is 55.3µA.
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Keep alive - Otii logs
 
 Console output:
@@ -234,6 +237,7 @@ Message_Send Interval.
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 4: TCP - Wireshark log
 
 **Otii log**: Shows an average current consumption of 109µA for 30s. In
@@ -241,6 +245,7 @@ idle cases, the average current consumption is 58.1µA.
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 5: TCP - Otii log
 
 
@@ -343,6 +348,7 @@ configured port number in MPD tool, every configured interval (10s).
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 6: UDP - Wireshark log
 
 **Otii log**: Shows an average current consumption of 107µA for 30s. In
@@ -350,6 +356,7 @@ idle cases, the average current consumption is 59.1µA.
 
 |image7|
 
+.. rst-class:: imagefiguesclass
 Figure 7: UDP - Otii log
 
 HTTP
@@ -370,6 +377,7 @@ to URL, performs HTTP Get and hexdumps the page.
 
 |image8|
 
+.. rst-class:: imagefiguesclass
 Figure 8: HTTP - Wireshark log
 
 **Otii log:** Shows an average current consumption of 171µA for 30s. In
@@ -377,6 +385,7 @@ idle cases, the average current consumption is 58.4µA.
 
 |image9|
 
+.. rst-class:: imagefiguesclass
 Figure 9: HTTP - Otii log
 
 Console output:

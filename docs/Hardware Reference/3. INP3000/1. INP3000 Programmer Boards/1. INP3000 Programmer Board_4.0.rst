@@ -8,10 +8,12 @@ VERSION 4.0
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: INP3000 programmer kit contents - version 4.0
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: INP3000 programmer board – version 4.0
 
 J6 SWD Connector Pin-out:

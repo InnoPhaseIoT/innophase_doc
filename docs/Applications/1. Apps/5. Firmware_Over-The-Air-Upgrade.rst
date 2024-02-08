@@ -106,6 +106,7 @@ application.
 
 |image56|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Flash layout when using the SSBL
 
 The Boot Image is the default application that Talaria TWO’s boot ROM
@@ -132,40 +133,40 @@ Following is the basic content:
 
 .. code:: shell
 
-      {
-  "image"   : [
     {
-      "name"  : "fota",
-      "version" : "1.0",
-      "start_sector"  : 32,
-      "bootargs_start": 1,
-      "ssid" : "inno_test",
-      "passphrase" : "1234567890",
-      "bootargs_end" : 1
+    "image"   : [
+    {
+    "name"  : "fota",
+    "version" : "1.0",
+    "start_sector"  : 32,
+    "bootargs_start": 1,
+    "ssid" : "inno_test",
+    "passphrase" : "1234567890",
+    "bootargs_end" : 1
     },
     {
-      "name"  : "test_app",
-      "version" : "1.0",
-      "start_sector"  : 154,
-      "bootargs_start": 1,
-      "ssid" : "inno_test",
-      "passphrase" : "1234567890",
-      "bootargs_end" : 1
+    "name"  : "test_app",
+    "version" : "1.0",
+    "start_sector"  : 154,
+    "bootargs_start": 1,
+    "ssid" : "inno_test",
+    "passphrase" : "1234567890",
+    "bootargs_end" : 1
     },
     {
-      "name"  : "test_app",
-      "version" : "0.0",
-      "start_sector"  : 230,
-      "bootargs_start": 1,
-      "ssid" : "inno_test",
-      "passphrase" : "1234567890",
-      "bootargs_end" : 1
+    "name"  : "test_app",
+    "version" : "0.0",
+    "start_sector"  : 230,
+    "bootargs_start": 1,
+    "ssid" : "inno_test",
+    "passphrase" : "1234567890",
+    "bootargs_end" : 1
     }
     ],
     "baudrate"    : 2560000,
     "timeout" : 0,
     "verbose" : 1
-}
+    }
 
 
 In the part.json file from the above example, the start sector
@@ -196,9 +197,9 @@ Following is the content:
 
 .. code:: shell
 
-      { 
-   image : 0 
-}
+    {
+    image : 0
+    }
 
 
 FOTA Configuration File (fota_config.json)
@@ -232,29 +233,29 @@ Following is the basic content of the file:
 
 .. code:: shell
 
-      {
-  "package_version"    : "1.0",    
-  "files"   : [
-     {
-        "type" : "configuration",
-        "name" : "fota.config",
-        "hostname" : "innotestota.s3.us-east-2.amazonaws.com",
-        "port" : 443,
-        "secured" : 2,      
-        "uri" : "/fota_config.json",
-        "ca_cert" : "/data/fota_ca_cert.pem"
+    {
+    "package_version"    : "1.0",
+    "files"   : [
+    {
+    "type" : "configuration",
+    "name" : "fota.config",
+    "hostname" : "innotestota.s3.us-east-2.amazonaws.com",
+    "port" : 443,
+    "secured" : 2,
+    "uri" : "/fota_config.json",
+    "ca_cert" : "/data/fota_ca_cert.pem"
     },
     {
-        "type" : "firmware",
-        "name" : "test_app",
-        "hostname" : "innotestota.s3.us-east-2.amazonaws.com",
-        "port" : 443,
-        "secured" : 2,
-        "uri" : "/test_app.elf",
-        "ca_cert" : "/data/fota_ca_cert.pem"
-    }    
-    ] 
-}
+    "type" : "firmware",
+    "name" : "test_app",
+    "hostname" : "innotestota.s3.us-east-2.amazonaws.com",
+    "port" : 443,
+    "secured" : 2,
+    "uri" : "/test_app.elf",
+    "ca_cert" : "/data/fota_ca_cert.pem"
+    }
+    ]
+    }
 
 The group of Firmware and files and its information present in this file
 is considered as a package. Each fota_config.json file will have a
@@ -408,12 +409,14 @@ Flow Diagram
 
 |image57|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Flow Diagram
 
 Continued from the previous flow diagram:
 
 |image58|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Flow Diagram - continued
 
 Code Walkthrough
@@ -431,9 +434,9 @@ fota_init_param:
 
 .. code:: shell
 
-      typedef struct {
+    typedef struct {
     uint32_t *cipher_key; /**cipher key used with secureboot*/
-}fota_init_param_t;
+    }fota_init_param_t;
 
 
 cipher_key in fota_init_param will be NULL in case of non-secureboot. In
@@ -441,9 +444,9 @@ case of secureboot, this should be initialized appropriately.
 
 .. code:: shell
 
-      fota_handle_t *handle;
-fota_init_param_t *fota_init_param;
-handle=fota_init(&fota_init_param);
+    fota_handle_t *handle;
+    fota_init_param_t *fota_init_param;
+    handle=fota_init(&fota_init_param);
 
 
 FOTA Perform
@@ -456,38 +459,38 @@ version on the cloud is higher than the one present on device.
 
 .. code:: shell
 
-      int
-fota_perform(fota_handle_t *f_handle, int check_for_update,
-             int flags)
-{
+    int
+    fota_perform(fota_handle_t *f_handle, int check_for_update,
+         int flags)
+    {
     fota_files_info_t *files_info;
     int ret = FOTA_ERROR_NONE;
     int update_available;
 
     os_printf("\n%s check_for_update = %d",
-                    __FUNCTION__, check_for_update);
+                __FUNCTION__, check_for_update);
     if(check_for_update == 1)
     {
-        ret = fota_update_check(f_handle, &update_available);
-        if(ret){
-            os_printf("\nError: fota_update_check");
-            return ret;
-        }
-        if(!update_available){
-            os_printf("\nError: No new update available");
-            return FOTA_ERROR_NO_NEW_UPDATE;
-         }
+    ret = fota_update_check(f_handle, &update_available);
+    if(ret){
+        os_printf("\nError: fota_update_check");
+        return ret;
+    }
+    if(!update_available){
+        os_printf("\nError: No new update available");
+        return FOTA_ERROR_NO_NEW_UPDATE;
+     }
 
 The fota_perform() API parameter check_for_update==2 downloads the
 remote fota_config.json file and no check is performed.
 
 .. code:: shell
 
-      else if(check_for_update == 2){
-        ret = fota_config_file_download(f_handle);
-        if(!ret){
-            return ret;
-        }
+    else if(check_for_update == 2){
+    ret = fota_config_file_download(f_handle);
+    if(!ret){
+        return ret;
+    }
 
 
 Based on the type of the file files_info->type, FOTA is performed as
@@ -495,29 +498,29 @@ needed.
 
 .. code:: shell
 
-      /* Loop through the files list*/
+    /* Loop through the files list*/
     while(files_info){
-        os_printf(“\n type = %s”, files_info->type);
-        if(!strcmp (files_info->type, “configuration")){
-            files_info = files_info->next;
-            continue;
-        }else if(!strcmp(files_info->type, "firmware")){
-
-            ret = fota_firmware_download(f_handle, files_info);
-            if(ret){
-                break;
-            }
-        }else if(!strcmp(files_info->type, "file")){
-            ret = fota_file_download(f_handle, files_info);
-            if(!ret){
-                break;
-            }
-        }
+    os_printf(“\n type = %s”, files_info->type);
+    if(!strcmp (files_info->type, “configuration")){
         files_info = files_info->next;
+        continue;
+    }else if(!strcmp(files_info->type, "firmware")){
+
+        ret = fota_firmware_download(f_handle, files_info);
+        if(ret){
+            break;
+        }
+    }else if(!strcmp(files_info->type, "file")){
+        ret = fota_file_download(f_handle, files_info);
+        if(!ret){
+            break;
+        }
+    }
+    files_info = files_info->next;
     }
 
     return ret;
-}
+    }
 
 
 FOTA Commit
@@ -531,35 +534,35 @@ boot.json file is updated successfully and resets the device.
 
 .. code:: shell
 
-      fota_commit(fota_handle_t *f_handle, int do_reset)
-{
+    fota_commit(fota_handle_t *f_handle, int do_reset)
+    {
     int rval;
     /*Mark that fota was in progress*/
     os_printf("\n%s", __FUNCTION__);
     if(utils_file_touch(FOTA_IN_PROGRESS_FILE_PATH) < 0){
-        return -1;
+    return -1;
     }
 
     if(FOTA_ERROR_NONE != (rval = fota_update_config_file(f_handle))){
-        os_printf("\nError: updating config file failed");
-        return rval;
+    os_printf("\nError: updating config file failed");
+    return rval;
     }
     if(FOTA_ERROR_NONE != (rval = fota_update_part_file(f_handle))){
-        os_printf("\nError: updating part file failed");
-        return rval;
+    os_printf("\nError: updating part file failed");
+    return rval;
     }
 
     if(FOTA_ERROR_NONE != (rval = fota_set_boot_index(f_handle))){
-        os_printf("\nError: updating boot.json failed");
-        return rval;
+    os_printf("\nError: updating boot.json failed");
+    return rval;
     }
     /*Fota is success*/
     unlink(FOTA_IN_PROGRESS_FILE_PATH);
     os_printf("\n\n\n\n");
     /*Reboot the device*/
     if(do_reset == 1) {
-        reset_device();
-     }
+    reset_device();
+    }
 
 
 Deinitialize FOTA
@@ -576,23 +579,23 @@ download. (f_handle->image_info_list).
 
 .. code:: shell
 
-      void fota_deinit(fota_handle_t * f_handle)
-{
+    void fota_deinit(fota_handle_t * f_handle)
+    {
     fota_image_info_t *img_p, *prev_img;
     fota_files_info_t *p, *prev;
 
     if(NULL == f_handle)
-        return;
+    return;
 
     sector_cache_deinit();
     vPortFree(f_handle->recv_buff);
     if (f_handle->cipher_key != NULL)
-        vPortFree(f_handle->cipher_key);
+    vPortFree(f_handle->cipher_key);
     img_p =  f_handle->image_info_list;
     while(img_p){
-        prev_img = img_p;
-        img_p = img_p->next;
-        vPortFree(prev_img);
+    prev_img = img_p;
+    img_p = img_p->next;
+    vPortFree(prev_img);
     }
 
 
@@ -601,14 +604,14 @@ Frees up memory used to store the local fota_config.json
 
 .. code:: shell
 
-      if(f_handle->cfg){
-        p = f_handle->cfg->files_info_list;
-        while(p){
-            prev = p;
-            p = p->next;
-            vPortFree(prev);
-        }
-        vPortFree(f_handle->cfg);  }
+    if(f_handle->cfg){
+    p = f_handle->cfg->files_info_list;
+    while(p){
+        prev = p;
+        p = p->next;
+        vPortFree(prev);
+    }
+    vPortFree(f_handle->cfg);  }
 
 
 Frees up memory used to store remote fota_config.json
@@ -616,16 +619,16 @@ Frees up memory used to store remote fota_config.json
 
 .. code:: shell
 
-      if(f_handle->cfg_remote){
-        p = f_handle->cfg_remote->files_info_list;
-        while(p){
-            prev = p;
-            p = p->next;
-            vPortFree(prev);
-        }
-        vPortFree(f_handle->cfg_remote);
+    if(f_handle->cfg_remote){
+    p = f_handle->cfg_remote->files_info_list;
+    while(p){
+        prev = p;
+        p = p->next;
+        vPortFree(prev);
     }
-}
+    vPortFree(f_handle->cfg_remote);
+    }
+    }
 
 
 Decrement the JSON reference count of part.json, fota_cofig.json and
@@ -633,11 +636,11 @@ remote fota_config.json and free up FOTA handle.
 
 .. code:: shell
 
-      json_decref(f_handle->json_part);
-json_decref(f_handle->json_cfg);
-json_decref(f_handle->json_cfg_remote);
-/* free f_handle*/
-vPortFree(f_handle);
+    json_decref(f_handle->json_part);
+    json_decref(f_handle->json_cfg);
+    json_decref(f_handle->json_cfg_remote);
+    /* free f_handle*/
+    vPortFree(f_handle);
 
 
 Block Diagram 
@@ -647,6 +650,7 @@ Figure 5 block diagram represents memory layout before SSBL executes.
 
 |image59|
 
+.. rst-class:: imagefiguesclass
 Figure 5: Flash layout
 
 SSBL will initially load FOTA application present at image index=0 of
@@ -654,6 +658,7 @@ boot.json file as shown in Figure 6.
 
 |image60|
 
+.. rst-class:: imagefiguesclass
 Figure 6: Before FOTA
 
 
@@ -666,6 +671,7 @@ will boot the application at index=2.
 
 |image61|
 
+.. rst-class:: imagefiguesclass
 Figure 7: After FOTA
 
 
@@ -691,9 +697,9 @@ command:
 
 .. code:: shell
 
-      cd <freertos_sdk>
-cp ./apps/fota/bin/fota.elf.strip ./apps/fota/bin/fota_stripped.elf
-python3 ./script/program_flash.py -i apps/fota/bin/fota_stripped.elf -spt tools/partition_files/ssbl_part_table.json 
+    cd <freertos_sdk>
+    cp ./apps/fota/bin/fota.elf.strip ./apps/fota/bin/fota_stripped.elf
+    python3 ./script/program_flash.py -i apps/fota/bin/fota_stripped.elf -spt tools/partition_files/ssbl_part_table.json
 
 where,
 
@@ -724,8 +730,9 @@ After successful programming, open miniterm at baud rate of 2457600 and
 reset the EVB either by using the above command or by pressing the reset
 button on the EVB.
 
-   |image62|
+|image62|
 
+.. rst-class:: imagefiguesclass
 Figure 8: Miniterm console output
 
 **Note**:
@@ -753,14 +760,15 @@ Build
 
 .. code:: shell
 
-      cd <freertos_sdk>/apps/fota 
-make
+    cd <freertos_sdk>/apps/fota
+    make
 
 
 Expected output:
 
 |image63|
 
+.. rst-class:: imagefiguesclass
 Figure 9: Build fota.img file – Output
 
 
@@ -769,8 +777,8 @@ Create Root Filesystem Image
 
 .. code:: shell
 
-      cd <freertos_sdk>
-python3 ./script/build_rootfs_generic.py --folder_path apps/fota/
+    cd <freertos_sdk>
+    python3 ./script/build_rootfs_generic.py --folder_path apps/fota/
 
 
 Flash Required Images
@@ -783,23 +791,23 @@ Load Flash Helper
 
 .. code:: shell
 
-      cd <freertos_sdk>
-./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl ./apps/gordon.elf
+    cd <freertos_sdk>
+    ./script/boot.py --device /dev/ttyUSB2 --reset=evk42_bl ./apps/gordon.elf
 
 
 Invalidate the boot image
 
 .. code:: shell
 
-      dd if=/dev/zero of=./empty.img bs=1K count=1
-./script/flash.py --device /dev/ttyUSB2 write 0x1000 ./empty.img
+    dd if=/dev/zero of=./empty.img bs=1K count=1
+    ./script/flash.py --device /dev/ttyUSB2 write 0x1000 ./empty.img
 
 
 Write Partition
 
 .. code:: shell
 
-      ./script/flash.py --device /dev/ttyUSB2 from_json ./tools/partition_files/ssbl_part_table.json
+    ./script/flash.py --device /dev/ttyUSB2 from_json ./tools/partition_files/ssbl_part_table.json
 
 Download root fs image
 
@@ -825,6 +833,7 @@ Open a miniterm at baud rate of 2457600 and reset the EVB:
 
 |image64|
 
+.. rst-class:: imagefiguesclass
 Figure 10: Miniterm console output
 
 Reset the board either by giving the following command or by pressing
@@ -838,8 +847,6 @@ the reset button on the EVB:
 **Note**: Since GDB does not work with SSBL, it is not possible to use
 GDB for debugging as of now.
 
-**
-**
 
 Expected Output
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -865,15 +872,15 @@ Console output:
 
 .. code:: shell
 
-      Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
-ROM yoda-h0-rom-16-0-gd5a8e586
-FLASH:PWAE
-WWWWAE4 DWT comparators, range 0x8000
-Build $Id: git- adea113 $
-Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff
-Build $Id: git- adea113 $
-Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff
-Bootargs: vm.flash_location=0x0003ba00 passphrase=1234567890 ssid=innotest
+    Y-BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+    ROM yoda-h0-rom-16-0-gd5a8e586
+    FLASH:PWAE
+    WWWWAE4 DWT comparators, range 0x8000
+    Build $Id: git- adea113 $
+    Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff
+    Build $Id: git- adea113 $
+    Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff
+    Bootargs: vm.flash_location=0x0003ba00 passphrase=1234567890 ssid=innotest
 
 Application Information:
 ------------------------
@@ -1072,33 +1079,33 @@ Flashing and Testing
 
 .. code:: shell
 
-      cd <freertos_sdk>
-python ./script/build_rootfs_generic.py --folder_path apps/fota --secure True --keyfile ./apps/ssbl/enroll.json
+    cd <freertos_sdk>
+    python ./script/build_rootfs_generic.py --folder_path apps/fota --secure True --keyfile ./apps/ssbl/enroll.json
 
 
 3. Create signed and encrypted ELF (fota.elf.enc)
 
 .. code:: shell
 
-      cd <freertos_sdk>/apps/fota
-make clean
-make SECUREBOOT=1 KEY=<freertos_sdk>/apps/ssbl/enroll.json
+    cd <freertos_sdk>/apps/fota
+    make clean
+    make SECUREBOOT=1 KEY=<freertos_sdk>/apps/ssbl/enroll.json
 
 
 4. Flash application at 0x20000
 
 .. code:: shell
 
-      cd <freertos_sdk>
-./script/flash.py write 0x20000 apps/fota/out/fota.elf.enc
+    cd <freertos_sdk>
+    ./script/flash.py write 0x20000 apps/fota/out/fota.elf.enc
 
 
 5. Flash the filesystem
 
 .. code:: shell
 
-      cd <freertos_sdk>
-./script/flash.py write 0x180000 apps/fota/root_secure.img
+    cd <freertos_sdk>
+    ./script/flash.py write 0x180000 apps/fota/root_secure.img
 
 
 .. _expected-output-1:
@@ -1108,22 +1115,22 @@ Expected Output
 
 .. code:: shell
 
-      -BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
-ROM yoda-h0-rom-16-0-gd5a8e586
-FLASH:PNWWAE
-FIRST:SWWWWAHE
-Si Build $Id: git-adea113 $
-Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff
-*** Warning! Make sure to remove this code section once in production ***
-secureboot_secret:
-6cd7d2c0c1f5820b83a69b0c1bb961a3a01502ae21b198236a3013b3456bc661ac000000
+    -BOOT 208ef13 2019-07-22 12:26:54 -0500 790da1-b-7
+    ROM yoda-h0-rom-16-0-gd5a8e586
+    FLASH:PNWWAE
+    FIRST:SWWWWAHE
+    Si Build $Id: git-adea113 $
+    Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff
+    *** Warning! Make sure to remove this code section once in production ***
+    secureboot_secret:
+    6cd7d2c0c1f5820b83a69b0c1bb961a3a01502ae21b198236a3013b3456bc661ac000000
 
-*** Warning! Make sure to remove this code section once in production ***
-cipher key: 4e3b0b9792183c53ecc78a38c64a45c071b97bc40b0baba308ed76db8a46cef1
-public key: 20b003d2f297be2c5e2c83a7e9f9a5b9eff49111acf4fddbcc0301480e359de6dc809c49652aeb6d63329abf5a52155c766345c28fed3024741c8ed01589d28b
-Build $Id: git-adea113 $
-Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff
-Bootargs: vm.flash_location= 0x0003be00 passphrase=1234567890 ssid=innotest
+    *** Warning! Make sure to remove this code section once in production ***
+    cipher key: 4e3b0b9792183c53ecc78a38c64a45c071b97bc40b0baba308ed76db8a46cef1
+    public key: 20b003d2f297be2c5e2c83a7e9f9a5b9eff49111acf4fddbcc0301480e359de6dc809c49652aeb6d63329abf5a52155c766345c28fed3024741c8ed01589d28b
+    Build $Id: git-adea113 $
+    Flash detected. flash.hw.uuid: 39483937-3207-0051-002a-ffffffffffff
+    Bootargs: vm.flash_location= 0x0003be00 passphrase=1234567890 ssid=innotest
 
 Application Information:
 

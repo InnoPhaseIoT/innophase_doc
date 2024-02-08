@@ -45,10 +45,12 @@ This command generates data.img in the current directory.
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Generating the data image - Windows
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Generated data image – Windows
 
 In Linux
@@ -75,10 +77,12 @@ This command generates data.img in the current directory.
 
 |image7|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Generating the data image - Linux
 
 |image8|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Generated data image -Linux
 
 .. |image5| image:: media/image5.png

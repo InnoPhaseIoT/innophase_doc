@@ -11,6 +11,7 @@ conduction.
 
 |image17|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Thermal ground pads
 
 .. |image17| image:: media/image17.png

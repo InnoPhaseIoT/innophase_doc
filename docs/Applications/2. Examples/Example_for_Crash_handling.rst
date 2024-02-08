@@ -42,6 +42,7 @@ crash handler:
 
 |image20|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Crash printout with crash handler
 
 As shown in Figure 1, the function registered using

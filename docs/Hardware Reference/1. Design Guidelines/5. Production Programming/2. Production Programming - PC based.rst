@@ -53,14 +53,17 @@ Friction Lock, 6 Circuits*).
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Molex cable part number 151340601
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Mating connector part number 532610671
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Programming Cable PIN-OUTs J7
 
 SWD-based Programming
@@ -71,6 +74,7 @@ in Figure 5.
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 5: SWD-based programming
 
 In case of a custom application board, it is recommended to use the
@@ -111,6 +115,7 @@ following connector details:
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 6: SWD Connector on the application board
 
 .. |image1| image:: media/image1.png

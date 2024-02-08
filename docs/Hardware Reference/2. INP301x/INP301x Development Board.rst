@@ -8,6 +8,7 @@ Jumpers on the Board
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: INP301x EVB-A control and connectivity points
 
 .. table:: Table 1: Jumper Information
@@ -56,6 +57,7 @@ following ways:
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Power supply section
 
 The power supply section is shown in Figure 2. The INP101x module
@@ -74,6 +76,7 @@ this header is shown in Figure 3. To work with on board sensor, pins 1 &
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3: IO Header
 
 
@@ -98,6 +101,7 @@ shield header connections are as shown in JP2 of Figure 4.
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Arduino UNO shield compatible jumpers
 
 
@@ -107,6 +111,7 @@ On Board Sensors
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 5: On board sensors
 
 The INP301x board has following sensors available on board for quick
@@ -202,6 +207,7 @@ to send data/notification to ST.
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 6: INP3010 EVB-A as Wi-Fi Shield
 
 Antenna

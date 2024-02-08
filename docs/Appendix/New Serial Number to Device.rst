@@ -14,6 +14,7 @@ subsequent steps:
 
    |image67|
 
+.. rst-class:: imagefiguesclass
 Figure 25: Device Manager – Composite Device
 
 2. In case the device is not detected under COM Port, follow the
@@ -32,6 +33,7 @@ Figure 25: Device Manager – Composite Device
 
 |image68|
 
+.. rst-class:: imagefiguesclass
 Figure 26: FT_Prog - Device detected
 
 5. To update the serial number, click on USB String Descriptor. Add the
@@ -40,6 +42,7 @@ Figure 26: FT_Prog - Device detected
 
 |image69|
 
+.. rst-class:: imagefiguesclass
 Figure 27: FT_Prog - Update Serial Number
 
 6. To upload the changes to the device, right click on FT EEPROM and
@@ -47,6 +50,7 @@ Figure 27: FT_Prog - Update Serial Number
 
 |image70|
 
+.. rst-class:: imagefiguesclass
 Figure 28: FT_Prog - Program Device
 
 7. The device will now be updated with the new serial number as shown in
@@ -54,6 +58,7 @@ Figure 28: FT_Prog - Program Device
 
 |image71|
 
+.. rst-class:: imagefiguesclass
 Figure 29: FT_Prog - Updated Serial Number
 
 8. In case the new serial number is not updated in Device Manager,

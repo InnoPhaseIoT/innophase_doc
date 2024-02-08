@@ -13,6 +13,7 @@ modules’ power pins VCC and GND as depicted in Figure 1.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Decoupling Capacitors on VCC pins 2 and 3 VCC and GND pins 1
 and 4
 

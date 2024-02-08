@@ -25,6 +25,7 @@ being the default baudrate.
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Host with UART Interface
 
 .. table:: Table 2: UART PINS
@@ -62,6 +63,7 @@ purposes.
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Console for debug messages
 
 Layout Considerations:
@@ -123,6 +125,7 @@ n: Function supported on GPIO
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 3: MCU/MPU SPI Master Host
 
 Layout Considerations:
@@ -172,12 +175,14 @@ on the 5 GPIOs specified in Table 5.
 
 |image7|
 
+.. rst-class:: imagefiguesclass
 Figure 4: MPU/MCU SDIO Interface host
 
 Talaria TWO SDIO interface schematics reference is as shown in Figure 8.
 
 |image8|
 
+.. rst-class:: imagefiguesclass
 Figure 5: SDIO Block Diagram
 
 To enable the sleep and wakeup mechanism, two additional GPIOs are
@@ -264,6 +269,7 @@ design circuit in Figure 9.
 
 |image9|
 
+.. rst-class:: imagefiguesclass
 Figure 6: ADC Signal Conditioning
 
 For low power consumption during ADC measurement, circuit in Figure 10
@@ -272,6 +278,7 @@ during ADC measurement.
 
 |image10|
 
+.. rst-class:: imagefiguesclass
 Figure 7: ADC with Low power
 
 PWM Interface
@@ -322,10 +329,12 @@ functions which are set as default on power-up.
 
 |image11|
 
+.. rst-class:: imagefiguesclass
 Figure 8: SWD connector on the Talaria TWO
 
 |image12|
 
+.. rst-class:: imagefiguesclass
 Figure 9: JTAG Connector on Talaria TWO
 
 .. |image4| image:: media/image4.png

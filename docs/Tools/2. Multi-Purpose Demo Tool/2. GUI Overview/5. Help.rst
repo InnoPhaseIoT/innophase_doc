@@ -9,10 +9,12 @@ with default Jumper/Switch settings information as shown in Figure 2.
 
 |image9|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Help Frame
 
 |image10|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Default Jumper/Switch setting Window
 
 **Note**: Default Jumper/Switch setting window will appear every time
@@ -21,6 +23,7 @@ permanently, check the Do not show again option and close the window.
 
 |image11|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Default Jumper/Switch setting Window during Tool Launch
 
 .. |image9| image:: media/image9.png

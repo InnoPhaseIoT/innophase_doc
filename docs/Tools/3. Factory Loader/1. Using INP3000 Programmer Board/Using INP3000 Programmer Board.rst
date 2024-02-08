@@ -17,14 +17,17 @@ application.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Connecting INP3000 programmer board using UART
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Connecting INP3000 programmer board using SPI
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Connecting INP3000 programmer board using SWD
 
    To program the Talaria TWO module using SWD, TAG connector available
@@ -41,6 +44,7 @@ Figure 3: Connecting INP3000 programmer board using SWD
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Factory loader application output
 
 3. Connect the Talaria TWO module as described in

@@ -34,6 +34,7 @@ building the filesystem and programming the Talaria TWO.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Factory Loader block diagram
 
 **Prerequisites:**
@@ -48,6 +49,7 @@ Test the factory loading process using the EV boards prior to production deploym
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 9: Flash Layout using SSBL
 
 **Boot Sector**
@@ -93,6 +95,7 @@ sector.
 |Graphical user interface Description automatically generated with
 medium confidence|
 
+.. rst-class:: imagefiguesclass
 Figure 10: ELF Layout
 
 Each application in the application sector is stored as shown in Figure

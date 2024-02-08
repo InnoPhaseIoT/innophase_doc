@@ -65,6 +65,7 @@ a layered architecture as shown in Figure 1.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: SDK architecture & modules
 
 MQTT Connection 
@@ -215,11 +216,11 @@ each shadow type.
 
 After subscribing to the messages in the preceding table for each
 shadow, the device tests to see if the shadows that it supports have
-already been created by publishing a /get topic to each shadow. If
-a /get/accepted message is received, the message body contains the
+already been created by publishing a/get topic to each shadow. If
+a/get/accepted message is received, the message body contains the
 shadow document, which the device uses to initialize its state. If
-a /get/rejected message is received, the shadow is created by publishing
-an /update message with the current device state.
+a/get/rejected message is received, the shadow is created by publishing
+an/update message with the current device state.
 
 Processing messages while the device is connected to AWS IoT Core
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -381,23 +382,24 @@ pContextData is the void\* data passed in during the action call
 
 .. code:: shell
 
-      typedef void (*fpActionCallback_t)(const char *pThingName, ShadowActions_t action, Shadow_Ack_Status_t status, const char *pReceivedJsonDocument, void *pContextData);
+    typedef void (*fpActionCallback_t)(const char *pThingName, ShadowActions_t action, Shadow_Ack_Status_t status,
+    const char *pReceivedJsonDocument, void *pContextData);
 
 .. code:: shell
 
-      /**
- * @brief Thing Shadow Acknowledgment enum
-*/
-typedef enum {
-	SHADOW_ACK_TIMEOUT, SHADOW_ACK_REJECTED, SHADOW_ACK_ACCEPTED
-} Shadow_Ack_Status_t;
+    /**
+    * @brief Thing Shadow Acknowledgment enum
+    */
+    typedef enum {
+    SHADOW_ACK_TIMEOUT, SHADOW_ACK_REJECTED, SHADOW_ACK_ACCEPTED
+    } Shadow_Ack_Status_t;
 
-/**
- * @brief Thing Shadow Action type enum
-*/
-typedef enum {
-	SHADOW_GET, SHADOW_UPDATE, SHADOW_DELETE
-} ShadowActions_t;
+    /**
+    * @brief Thing Shadow Action type enum
+    */
+    typedef enum {
+    SHADOW_GET, SHADOW_UPDATE, SHADOW_DELETE
+    } ShadowActions_t;
 
 
 
@@ -459,7 +461,8 @@ Returns an IoT Error Type defining successful/failed Update action.
 
 .. code:: shell
 
-      IoT_Error_t aws_iot_shadow_update(AWS_IoT_Client *pClient, const char *pThingName, char *pJsonString, fpActionCallback_t callback, void *pContextData, uint8_t timeout_seconds, bool isPersistentSubscribe);
+    IoT_Error_t aws_iot_shadow_update(AWS_IoT_Client *pClient, const char *pThingName, char *pJsonString,
+    fpActionCallback_t callback, void *pContextData, uint8_t timeout_seconds, bool isPersistentSubscribe);
 
 
 aws_iot_shadow_get()
@@ -733,7 +736,7 @@ string was not filled up.
 
 .. code:: shell
 
-      IoT_Error_t aws_iot_shadow_add_reported(char *pJsonDocument, size_t maxSizeOfJsonDocument, uint8_t count, ...);
+    IoT_Error_t aws_iot_shadow_add_reported(char *pJsonDocument, size_t maxSizeOfJsonDocument, uint8_t count, ...);
 
 
 aws_iot_shadow_add_desired()
@@ -990,6 +993,7 @@ skill, and search for innophase alexa skill as shown in Figure 2.
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Locating and enabling skill via amazon.com in browser -- 1
 
 Click the link of the skill and look for Enable. Once enabled from here,
@@ -997,6 +1001,7 @@ this skill will show up in Alexa App logged in to same account as well.
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Locating and enabling skill via amazon.com in browser -- 2
 
 Method 2 - Enabling Via Amazon Alexa App
@@ -1008,6 +1013,7 @@ shown in Figure 4.
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Locating and enabling skill via Alexa phone app
 
 Linking the Alexa account to the Skill
@@ -1021,6 +1027,7 @@ next screen) where it asks for an Amazon account, as shown in Figure 5.
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 5: Amazon account – credentials asked for account linking
 
 Ensure you use the same account you have used for Alexa app to login.
@@ -1033,6 +1040,7 @@ Provide permission for accessing email address and name by the Skill.
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 6: Permissions asked to access profile for Account Linking
 
 **Note**: This permission is asked only for the first time of account
@@ -1047,6 +1055,7 @@ appear. This completes the Alexa skill setup in your Amazon account.
 
 |image7|
 
+.. rst-class:: imagefiguesclass
 Figure 7: Amazon Alexa Account Successfully linked to the InnoPhase Smart
 Home Demo Alexa Skill
 
@@ -1312,11 +1321,13 @@ either an Android or iOS device.
 
 |image8|
 
+.. rst-class:: imagefiguesclass
 Figure 8: Android - Scanning for Talaria TWO BLE Server for Wi-Fi
 Provisioning
 
 |image9|
 
+.. rst-class:: imagefiguesclass
 Figure 9: iOS - Scanning for Talaria TWO BLE Server for Wi-Fi
 Provisioning
 
@@ -1328,10 +1339,12 @@ stage.
 
 |image10|
 
+.. rst-class:: imagefiguesclass
 Figure 10: Android - Available Wi-Fi networks as scanned by Android Phone
 
 |image11|
 
+.. rst-class:: imagefiguesclass
 Figure 11: iOS - Available Wi-Fi networks as scanned by Android Phone
 
 4. Select the SSID of the AP you want to connect to. A passphrase needs
@@ -1339,10 +1352,12 @@ Figure 11: iOS - Available Wi-Fi networks as scanned by Android Phone
 
 |image12|
 
+.. rst-class:: imagefiguesclass
 Figure 12: Android - Providing the passphrase
 
 |image13|
 
+.. rst-class:: imagefiguesclass
 Figure 13: iOS - Providing the passphrase
 
 5. Once the passphrase is entered, click on Done. If the provided
@@ -1351,18 +1366,22 @@ Figure 13: iOS - Providing the passphrase
 
 |image14|
 
+.. rst-class:: imagefiguesclass
 Figure 14: Android - Connecting successful
 
 |image15|
 
+.. rst-class:: imagefiguesclass
 Figure 15: iOS - Connecting successful
 
 |image16|
 
+.. rst-class:: imagefiguesclass
 Figure 16: Android - Error in connection
 
 |image17|
 
+.. rst-class:: imagefiguesclass
 Figure 17: iOS - Error in connection
 
 6. On establishing the connection successfully, the android application
@@ -1371,10 +1390,12 @@ Figure 17: iOS - Error in connection
 
 |image18|
 
+.. rst-class:: imagefiguesclass
 Figure 18: Android - Connection successful
 
 |image19|
 
+.. rst-class:: imagefiguesclass
 Figure 19: iOS - Connection successful
 
 Talaria TWO will try to connect to the provisioned network and provide
@@ -1460,6 +1481,7 @@ page if the Inno Switch is not found here.
 
 |image20|
 
+.. rst-class:: imagefiguesclass
 Figure 20: Devices – Switches -- InnoSwitch
 
 Tap on Inno Switch to find power on/off control. The switch can be
@@ -1468,6 +1490,7 @@ will be reflected in LED status and Console of Talaria TWO EVB.
 
 |image21|
 
+.. rst-class:: imagefiguesclass
 Figure 21: InnoSwitch power on-off control
 
 Optionally, for controlling the device with Voice Interaction, you will

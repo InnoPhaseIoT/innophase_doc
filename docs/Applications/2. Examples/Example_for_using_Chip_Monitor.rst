@@ -166,23 +166,23 @@ By default ,all the services are subscribed.
 
 .. code:: shell
 
-         if(os_get_boot_arg_int("adc_service", 1) == 1)
-          {
-      	os_printf("Enabling ADC service\r\n");
-      	enable_chip_monitor_service(CHIP_MSOURCE_ADC, true);
-          }
-      
-          if(os_get_boot_arg_int("vbat_service", 1) == 1)
-          {
-      	os_printf("Enabling VBAT service\r\n");
-      	enable_chip_monitor_service(CHIP_MSOURCE_VBAT, true);
-          }
-      
-          if(os_get_boot_arg_int("temperature_service", 1) == 1)
-          {
-      	os_printf("Enabling Temperature service\r\n");
-      	enable_chip_monitor_service(CHIP_MSOURCE_CORE_TEMP, true);
-          }
+    if(os_get_boot_arg_int("adc_service", 1) == 1)
+    {
+    os_printf("Enabling ADC service\r\n");
+    enable_chip_monitor_service(CHIP_MSOURCE_ADC, true);
+    }
+
+    if(os_get_boot_arg_int("vbat_service", 1) == 1)
+    {
+    os_printf("Enabling VBAT service\r\n");
+    enable_chip_monitor_service(CHIP_MSOURCE_VBAT, true);
+    }
+
+    if(os_get_boot_arg_int("temperature_service", 1) == 1)
+    {
+    os_printf("Enabling Temperature service\r\n");
+    enable_chip_monitor_service(CHIP_MSOURCE_CORE_TEMP, true);
+    }
 
 
 The enable_chip_monitor_service() API subscribes or unsubscribes the
@@ -227,11 +227,11 @@ wcm_auto_connect() starts the auto connection with Wi-Fi network.
 
 .. code:: shell
 
-          rval = wcm_add_network_profile(wcm_handle, profile);
-          if (rval <  0) {
-      	pr_err("could not associate network profile to wcm %d\n", rval);
-      	return 0;    }
-          if(wcm_auto_connect(my_wcm_handle, 1) == 0)
+    rval = wcm_add_network_profile(wcm_handle, profile);
+    if (rval <  0) {
+    pr_err("could not associate network profile to wcm %d\n", rval);
+    return 0;    }
+    if(wcm_auto_connect(my_wcm_handle, 1) == 0)
 
 
 After the Wi-Fi connection is successful, the system is triggered to
@@ -251,8 +251,8 @@ The os_suspend_enable()API triggers Talaria TWO into suspend state.
 
 .. code:: shell
 
-      if (os_get_boot_arg_int("suspend", 0) != 0)
-         os_suspend_enable();
+    if (os_get_boot_arg_int("suspend", 0) != 0)
+     os_suspend_enable();
 
 
 Similarly, the gratuitous ARP can either be disabled or enabled based on
@@ -604,6 +604,7 @@ required information. The following are the steps to be executed:
 
 |image107|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Talaria TWO - Command Line Output
 
 3. In the Talaria CLI, create a WCM handle and connect to a network.
@@ -620,6 +621,7 @@ Figure 1: Talaria TWO - Command Line Output
 
 |image108|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Creating a WCM handle and connecting to a network
 
 4. Enable device suspend
@@ -652,24 +654,28 @@ Internal temperature and VBAT are as follows:
 
 |image109|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Estimated current measurement
 
 2. ADC:
 
 |image110|
 
+.. rst-class:: imagefiguesclass
 Figure 4: ADC
 
 3. Internal Temperature:
 
 |image111|
 
+.. rst-class:: imagefiguesclass
 Figure 5: Internal temperature
 
 4. VBAT:
 
 |image112|
 
+.. rst-class:: imagefiguesclass
 Figure 6: VBAT
 
 Measured Current Values for multiple DTIM Intervals
@@ -680,17 +686,18 @@ chip_monitor app for various DTIM intervals (clean environment current
 numbers) are provided in Table 1.
 
 .. table:: Table 1: DTIM intervals
-+----------------------------------+-----------------------------------+
-| **DTIM**                         | **Current consumption (µA)**      |
-+==================================+===================================+
-| 1                                | ~395                              |
-+----------------------------------+-----------------------------------+
-| 3                                | ~140                              |
-+----------------------------------+-----------------------------------+
-| 10                               | ~52                               |
-+----------------------------------+-----------------------------------+
-| 100                              | ~22                               |
-+----------------------------------+-----------------------------------+
+
+    +----------------------------------+-----------------------------------+
+    | **DTIM**                         | **Current consumption (µA)**      |
+    +==================================+===================================+
+    | 1                                | ~395                              |
+    +----------------------------------+-----------------------------------+
+    | 3                                | ~140                              |
+    +----------------------------------+-----------------------------------+
+    | 10                               | ~52                               |
+    +----------------------------------+-----------------------------------+
+    | 100                              | ~22                               |
+    +----------------------------------+-----------------------------------+
 
 .. |image107| image:: media/image107.png
    :width: 6.29931in

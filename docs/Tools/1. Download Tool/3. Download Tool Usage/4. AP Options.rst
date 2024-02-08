@@ -13,6 +13,7 @@ path as a boot argument, while loading the application.
 
 |image11|
 
+.. rst-class:: imagefiguesclass
 Figure 1: AP Options
 
 .. |image11| image:: media/image11.png

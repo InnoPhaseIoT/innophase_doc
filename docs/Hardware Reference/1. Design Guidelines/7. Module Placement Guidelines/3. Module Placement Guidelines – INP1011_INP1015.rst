@@ -14,6 +14,7 @@ antenna manufacturer while placing the antenna onto the application PCB.
 
 |image7|
 
+.. rst-class:: imagefiguesclass
 Figure 1: u.fl to SMA connector for INP1011/INP1015
 
 
@@ -24,6 +25,7 @@ Talaria TWO modules have thermal ground pads placed in the middle of the footpri
 
 |image8|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Thermal ground pads
 
 

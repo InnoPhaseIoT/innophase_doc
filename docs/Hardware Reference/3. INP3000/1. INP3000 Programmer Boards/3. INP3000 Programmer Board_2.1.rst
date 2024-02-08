@@ -8,6 +8,7 @@ VERSION 2.1
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 1: INP3000 programmer board – version 2.1
 
 Table 1 provides the description of each jumper:
@@ -39,6 +40,7 @@ connected using a 20-pin ribbon cable as shown in Figure 2.
 
 |image7|
 
+.. rst-class:: imagefiguesclass
 Figure 2: INP3000 programmer board with Talaria TWO module
 
 Connecting via UART interface
@@ -46,6 +48,7 @@ Connecting via UART interface
 
 |image8|
 
+.. rst-class:: imagefiguesclass
 Figure 3: UART connection diagram
 
 Figure 3 is the connection diagram showing the connection of INP3000
@@ -72,6 +75,7 @@ Figure 3.
 
 |image9|
 
+.. rst-class:: imagefiguesclass
 Figure 4: INP3000 programmer board version 2.1 - UART jumper setting
 
 Once connected as shown in Figure 3 and Figure 4, Talaria TWO module can
@@ -83,6 +87,7 @@ Connecting via SPI interface
 
 |image10|
 
+.. rst-class:: imagefiguesclass
 Figure 5: SPI connection diagram
 
 Figure 5 is the connection diagram showing the connection of INP3000
@@ -112,6 +117,7 @@ To use SPI, ensure that the J7 jumpers are as shown in Figure 6.
 
 |image11|
 
+.. rst-class:: imagefiguesclass
 Figure 6: INP3000 programmer board version 2.1 - SPI jumper setting
 
 .. |image6| image:: media/image6.png

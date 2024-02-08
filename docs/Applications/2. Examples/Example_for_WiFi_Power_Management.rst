@@ -323,6 +323,7 @@ Console output:
 
 |image77|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Otti capture
 
 The console output comprises of the different power management
@@ -527,8 +528,9 @@ Console output:
    Talaria TWO turns the receiver OFF (*takes a nap*) in Rx nap enabled
    case, the current consumption dips to 8mA as shown in Figure 2.
 
-   |image78|
+|image78|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Power Analyzer- Rx Nap enabled mode
 
 2. Rx nap disabled
@@ -538,8 +540,9 @@ Figure 2: Power Analyzer- Rx Nap enabled mode
    When Rx nap gets disabled, Talaria TWO does not take naps for any
    uninteresting frames.
 
-   |image79|
+|image79|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Power Analyzer- RX Nap disabled mode
 
 Only Broadcast (WIFI_PM_STA_ONLY_BROADCAST)
@@ -697,15 +700,17 @@ Console output:
 
 ..
 
-   |image80|
+|image80|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Multicast ping output – only broadcast enabled
 
    Wireshark capture for the multicast ping: Here, the ping request is
    sent, but the response is not received as shown in Figure 5.
 
-   |image81|
+|image81|
 
+.. rst-class:: imagefiguesclass
 Figure 5: Wireshark output - only_broadcast enabled
 
 2. only_broadcast mode is disabled.
@@ -716,15 +721,17 @@ Figure 5: Wireshark output - only_broadcast enabled
    address from a Host (laptop/PC) is sent. Multicast ping goes through
    successfully as shown in Figure 6.
 
-   |image82|
+|image82|
 
+.. rst-class:: imagefiguesclass
 Figure 6: Multicast ping output – only broadcast disabled
 
    Wireshark captures for the multicast ping: Here, the ping request is
    sent and a response is received as shown in Figure 7.
 
-   |image83|
+|image83|
 
+.. rst-class:: imagefiguesclass
 Figure 7: Wireshark output - only_broadcast disabled
 
 Dynamic listen Interval (WIFI_PM_DYN_LISTEN_INT)
@@ -855,14 +862,16 @@ Console output:
    application is enabled for dynamic listen interval and observe the
    output as shown in Figure 8.
 
-   |image84|
+|image84|
 
+.. rst-class:: imagefiguesclass
 Figure 8: Ping output-CMD
 
    Following is the OTTI capture of one ping traffic:
 
-   |image85|
+|image85|
 
+.. rst-class:: imagefiguesclass
 Figure 9: OTII capture-Dynamic listen Interval enabled
 
 2. Dynamic Listen Interval disabled
@@ -873,15 +882,17 @@ Figure 9: OTII capture-Dynamic listen Interval enabled
    application is disabled for dynamic listen interval and observe the
    output as shown in Figure 10.
 
-   |image86|
+|image86|
 
+.. rst-class:: imagefiguesclass
 Figure 10: Ping output - CMD
 
    Since dynamic listen interval is disabled, the modules listen for
    every 1s irrespective of any extra traffic as shown in Figure 11.
 
-   |image87|
+|image87|
 
+.. rst-class:: imagefiguesclass
 Figure 11: OTII capture-Dynamic listen Interval disabled
 
 Multicast Don’t Care (WIFI_PM_MCAST_DONT_CARE)
@@ -1012,6 +1023,7 @@ Console output:
 
    |image88|
 
+.. rst-class:: imagefiguesclass
 Figure 12: UDP multicast traffic
 
    The following Wireshark logs show the UDP data sent in multicast
@@ -1020,6 +1032,7 @@ Figure 12: UDP multicast traffic
 
    |image89|
 
+.. rst-class:: imagefiguesclass
 Figure 13: Wireshark capture-Multicast don't care enabled
 
    Since the Multicast don't care is enabled, the Rx current duration is
@@ -1027,6 +1040,7 @@ Figure 13: Wireshark capture-Multicast don't care enabled
 
    |image90|
 
+.. rst-class:: imagefiguesclass
 Figure 14: Multicast don't care enabled-OTII log
 
 2. Multicast don’t care disabled
@@ -1039,6 +1053,7 @@ Figure 14: Multicast don't care enabled-OTII log
 
    |image91|
 
+.. rst-class:: imagefiguesclass
 Figure 15: UDP musticast traffic
 
    The following Wireshark logs show the UDP data sent in multicast
@@ -1047,6 +1062,7 @@ Figure 15: UDP musticast traffic
 
    |image92|
 
+.. rst-class:: imagefiguesclass
 Figure 16: Wireshark capture-Multicast don't care disabled
 
    Since the Multicast don't care is disabled, Rx current duration is
@@ -1054,6 +1070,7 @@ Figure 16: Wireshark capture-Multicast don't care disabled
 
    |image93|
 
+.. rst-class:: imagefiguesclass
 Figure 17: Multicast don't care disabled-OTII log
 
 *
@@ -1196,6 +1213,7 @@ Expected output:
 
    |image94|
 
+.. rst-class:: imagefiguesclass
 Figure 18: Wireshark capture-ps_poll enabled
 
    ps_poll spike is observed. Here, the transmitting current window size
@@ -1203,6 +1221,7 @@ Figure 18: Wireshark capture-ps_poll enabled
 
    |image95|
 
+.. rst-class:: imagefiguesclass
 Figure 19: OTII logs- Power save poll enabled
 
 2. Power-save mode disabled
@@ -1214,6 +1233,7 @@ Figure 19: OTII logs- Power save poll enabled
 
    |image96|
 
+.. rst-class:: imagefiguesclass
 Figure 20: Wireshark capture-ps_poll disabled
 
    No ps_poll is sent. Hence, Tx current spike is not observed as shown
@@ -1221,6 +1241,7 @@ Figure 20: Wireshark capture-ps_poll disabled
 
    |image97|
 
+.. rst-class:: imagefiguesclass
 Figure 21: OTII logs- Power save poll disabled
 
 Transmit Power Save (WIFI_PM_TX_PS)
@@ -1356,6 +1377,7 @@ Console output:
 
    |image98|
 
+.. rst-class:: imagefiguesclass
 Figure 22: Wireshark capture- Transmit power save
 
 2. Transmit power save disabled
@@ -1366,7 +1388,8 @@ Figure 22: Wireshark capture- Transmit power save
 
    |image99|
 
-Figure : Wireshark capture- Transmit power save disabled
+.. rst-class:: imagefiguesclass
+Figure 23: Wireshark capture- Transmit power save disabled
 
 Traffic Timeout (traffic_tmo)
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -1500,6 +1523,7 @@ Console output:
 
    |image100|
 
+.. rst-class:: imagefiguesclass
 Figure 24: Power Analyzer- Traffic timeout switched from 0 to 12ms
 
    To test this, ping from host machine to Talaria TWO to observe device
@@ -1507,6 +1531,7 @@ Figure 24: Power Analyzer- Traffic timeout switched from 0 to 12ms
 
    |image101|
 
+.. rst-class:: imagefiguesclass
 Figure 25: Power Analyzer- Talaria TWO stays awake for 12ms after traffic
 
 DTIM Only (WIFI_PM_DTIM_ONLY)
@@ -1635,6 +1660,7 @@ Console output:
 
    |image102|
 
+.. rst-class:: imagefiguesclass
 Figure 26: DTIM ONLY mode disabled
 
 2. DTIM ONLY mode enabled.
@@ -1647,6 +1673,7 @@ Figure 26: DTIM ONLY mode disabled
 
    |image103|
 
+.. rst-class:: imagefiguesclass
 Figure 27: DTIM ONLY mode enabled
 
 Power Management Boot Arguments
@@ -1705,10 +1732,12 @@ ARP Cache Update on Access Point
 
    |image104|
 
+.. rst-class:: imagefiguesclass
 Figure 28: Wireshark sniffer- ICMP packet exchange
 
    |image105|
 
+.. rst-class:: imagefiguesclass
 Figure 29: OTII logs- cloud power mode enabled
 
 Wake Time After Keepalive 
@@ -1789,6 +1818,7 @@ Console output:
 
 |image106|
 
+.. rst-class:: imagefiguesclass
 Figure 30: Power analyzer- wake time after keepalive
 
 .. |image77| image:: media/image77.png

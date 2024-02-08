@@ -41,6 +41,7 @@ INP_T2_Demo_Linux is for the Linux OS.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Folder Contents
 
 .. |image1| image:: media/image1.png

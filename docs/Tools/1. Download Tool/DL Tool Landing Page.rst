@@ -18,6 +18,7 @@ Operating Systems.
    :width: 6.26806in
    :height: 2.51746in
 
+.. rst-class:: imagefiguesclass
 Figure 1: Block Diagram
 
 

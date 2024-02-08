@@ -38,6 +38,7 @@ Block Diagram
 
 |image64|
 
+.. rst-class:: imagefiguesclass
 Figure 1: PWM - Block Diagram
 
 Building
@@ -317,6 +318,7 @@ released from Reset, the waveforms can be observed on the oscilloscope.
 
 |image65|
 
+.. rst-class:: imagefiguesclass
 Figure 2: PWM Test Setup
 
 Waveforms captured for 1MHz frequency with less than 5% duty cycle is as
@@ -324,6 +326,7 @@ shown in Figure 3.
 
 |image66|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Waveforms for 1MHz frequency with less than 5% duty cycle
 
 Waveforms captured for 1MHz frequency with 50% duty cycle is as shown in
@@ -331,6 +334,7 @@ Figure 4.
 
 |image67|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Waveforms for 1MHz frequency with 50% duty cycle
 
 Waveforms captured for 2MHz frequency with 50% duty cycle is as shown in
@@ -338,6 +342,7 @@ Figure 5.
 
 |image68|
 
+.. rst-class:: imagefiguesclass
 Figure 5: Waveforms for 2MHz frequency with 50% duty cycle
 
 Waveforms captured for 4MHz frequency with 50% duty cycle is as shown in
@@ -345,6 +350,7 @@ Figure 6.
 
 |image69|
 
+.. rst-class:: imagefiguesclass
 Figure 6: Waveforms for 4MHz frequency with 50% duty cycle
 
 Waveforms captured for 10MHz frequency with 50% duty cycle is as shown
@@ -352,6 +358,7 @@ in Figure 7.
 
 |image70|
 
+.. rst-class:: imagefiguesclass
 Figure 7: Waveforms for 10MHz frequency with 50% duty cycle
 
 Waveforms captured for 25KHz frequency with more than 50% duty cycle is
@@ -359,6 +366,7 @@ as shown in Figure 8.
 
 |image71|
 
+.. rst-class:: imagefiguesclass
 Figure 8: Waveforms for 25KHz frequency with more than 50% duty cycle
 
 .. |image64| image:: media/image64.png

@@ -69,6 +69,7 @@ the FTDI serial number.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Programming multiple Talaria TWO modules using SWD
 
 **Programming using INP3000(SWD) on Windows**:

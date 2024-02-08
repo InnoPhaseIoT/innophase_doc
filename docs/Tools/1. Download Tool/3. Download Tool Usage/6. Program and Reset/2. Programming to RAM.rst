@@ -7,10 +7,12 @@ Program Talaria TWO’s ELF to RAM by clicking on PROG RAM.
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Programming to RAM
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Console Output – PROG RAM
 
 PROG RAM will clear the application from Flash. The user is alerted of
@@ -20,6 +22,7 @@ message from appearing the next time.
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 3: PROG RAM alert message
 
 .. |image2| image:: media/image2.png

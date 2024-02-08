@@ -7,6 +7,7 @@ The Scan tab allows the user to actively scan for nearby Access Points.
 
 |image8|
 
+.. rst-class:: imagefiguesclass
 Figure 8: Scan tab
 
 **Choose the Scheme**: User can choose Standard Wi-Fi Scan or Low-Power

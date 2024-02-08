@@ -122,6 +122,7 @@ i. Load gordon.elf onto the Talaria TWO module.
 
 |image113|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Loading gordon.elf
 
 ii. Flash the image file to the desired location on the filesystem.
@@ -134,19 +135,21 @@ ii. Flash the image file to the desired location on the filesystem.
 
 |image114|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Flashing the image
 
 iii. Fetch the file(s) which was flashed.
 
 .. code:: shell
 
-      ./script/storage.py ls /data/ 
+    ./script/storage.py ls /data/
 
 
 ..
 
 |image115|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Fetching files from data partition
 
 Writing into the Filesystem Programmatically
@@ -210,10 +213,12 @@ pop-up window displays the file written by the application.
 
 |image116|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Download Tool - Show File System Contents
 
 |image117|
 
+.. rst-class:: imagefiguesclass
 Figure 5: Filename and size
 
 The file size is also equal to the read value from the application.
@@ -223,12 +228,14 @@ the files and check the contents.
 
 |image118|
 
+.. rst-class:: imagefiguesclass
 Figure 6: Download Tool - File System: Read files
 
 Contents are extracted into the folder specified in the Download Tool.
 
 |image119|
 
+.. rst-class:: imagefiguesclass
 Figure 7: Extracted files
 
 .. |image113| image:: media/image113.png

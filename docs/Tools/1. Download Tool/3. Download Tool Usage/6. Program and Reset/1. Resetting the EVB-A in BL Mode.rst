@@ -13,6 +13,7 @@ observed in the console for this command, the board is reset.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Reset in BL mode
 
 .. |image1| image:: media/image1.png

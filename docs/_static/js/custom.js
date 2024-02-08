@@ -10,12 +10,13 @@ const ModulesList = {
     "Modules": "#"
 };
 
-$(document).ready(function() {
-    $("p:contains('Figure ')").css({
-        "text-align": "center",
-        "font": "italic 85%/1 arial, sans-serif"
-    });
-});
+let elements = document.querySelectorAll(".imagefiguesclass")
+for (let i=0; i<elements.length; i++){
+        let elem = elements[i];
+        elem.style.textAlign = "center";
+        elem.style.font = 'italic 85%/1 arial, sans-serif';
+
+}
 // ---------------------------------------------------------------------------------------------------------------------
 // hide Prerequisites/evaluation-and-development/power-measurement section:
 var prerequisitesSection = document.getElementById('prerequisites');
@@ -160,7 +161,7 @@ downloadLink.href = "#";
 downloadLink.onclick = downloadPDF;
 
 var imgElement = document.createElement("img");
-imgElement.src = "https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/latest/_static/download_icon.png";
+imgElement.src = "https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/freertos-3.0/_static/download_icon.png";
 
 var textNode = document.createTextNode(" Download");
 
@@ -194,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var originalLi = document.querySelector('li.wy-breadcrumbs-aside');
     var newImg = document.createElement('img');
     // newImg.src = '_static/logo.png';
-    newImg.src = 'https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/latest/_static/logo.png';
+    newImg.src = 'https://innophase-iot-innophase-doc.readthedocs-hosted.com/en/freertos-3.0/_static/logo.png';
     newImg.alt = 'Logo';
     newImg.className = 'headerimage';
     originalLi.parentNode.replaceChild(newImg, originalLi);

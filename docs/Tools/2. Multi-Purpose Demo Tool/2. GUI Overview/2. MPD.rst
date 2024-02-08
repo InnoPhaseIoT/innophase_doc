@@ -15,6 +15,7 @@ MPD
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 6: MPD tab
 
 **Note**: Check the Show checkbox to see the passphrase value.

@@ -9,10 +9,12 @@ is as shown in Figure 1.
 
 |image7|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Host Programming UART/SPI Slave
 
 |image8|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Evaluation board connector details
 
 The cable part number: 161340801 as shown in Figure 2 will be provided
@@ -23,6 +25,7 @@ application to program the modules.
 
 |image9|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Programming Connector
 
 Ensure to isolate the programming header from the host communication

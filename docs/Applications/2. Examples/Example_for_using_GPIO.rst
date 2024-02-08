@@ -19,6 +19,7 @@ Use jumper on J3 header to connect LED D1 to GPIO14.
 
 |image120|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Talaria TWO EVB-A
 
 Building
@@ -521,6 +522,7 @@ analyzer’s output.
 
 |image121|
 
+.. rst-class:: imagefiguesclass
 Figure 2: GPIO suspend mask demo- Block diagram
 
 As shown in Figure 3, GPIO 5 is set to HIGH when in suspend and previous
@@ -528,6 +530,7 @@ GPIO level is restored for every configure interval (5 seconds).
 
 |image122|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Logic Analyzer output
 
 **Console output**:
@@ -944,6 +947,7 @@ interrupt pins.
 
 |image123|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Otii capture for gpio_interrupt_awake application
 
 .. |image120| image:: media/image120.png

@@ -19,9 +19,10 @@ the application image to Talaria TWO over JTAG/SWD:
    *Node.js Installation* to *OpenOCD Installation* of the document:
    UG_Eclipse_Setup_Windows.pdf
 
-   |image9|
+|image9|
 
-   Figure 1: Python application path to environment variables path
+.. rst-class:: imagefiguesclass
+Figure 1: Python application path to environment variables path
 
 2. Pyserial, pyelftools
 

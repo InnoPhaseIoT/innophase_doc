@@ -13,6 +13,7 @@ loader:
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: factory_loader help - console output
 
 .. |image1| image:: media/image1.png

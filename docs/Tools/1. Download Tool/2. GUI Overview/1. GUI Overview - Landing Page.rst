@@ -15,14 +15,17 @@ On launching the Download Tool application, the following come into view:
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Download Tool GUI – Standard Programming
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Download Tool GUI – SSBL Programming
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Download Tool Console
 
 The console window has the following icons (with Hover Text):
@@ -64,6 +67,7 @@ Note: Only upcoming data after starting the Save Logs is saved in the file.
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Error communicating with FTDI device
 
 .. |image1| image:: media/image1.png

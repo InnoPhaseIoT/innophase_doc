@@ -15,6 +15,7 @@ Figure 1 depicts the power-up sequence for Talaria TWO.
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Power-up sequence
 
 Figure 2 depicts the suggested reset circuit which can be used in the
@@ -23,6 +24,7 @@ delay to settle down after power-up or after a reset.
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Reset circuit
 
 .. |image2| image:: media/image2.png

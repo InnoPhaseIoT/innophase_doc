@@ -29,18 +29,20 @@ ADC block diagram
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 1: ADC - Block Diagram
 
 VBAT Voltage
 ~~~~~~~~~~~~~~~~~~~
 
-VBat is the Voltage of the Battery. It could be used to power a
+VBat is the Voltage of the Battery. It could be used to power a
 component that takes Battery Voltage.
 
 Header J4 will switch between VBat and Vm_3.3V.
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 2: J10 Battery connection
 
 When using a battery as a power source, there will be an additional
@@ -67,6 +69,7 @@ VBAT block diagram
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 3: VBAT-Block Diagram
 
 Source Code Walkthrough

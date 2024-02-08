@@ -156,6 +156,7 @@ at_custom_cmd.elf is loaded on to the Talaria TWO EVB.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Minicom output
 
 .. |image1| image:: media/image1.png

@@ -50,12 +50,14 @@ CV28.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Start tunadapter
 
 3. Connect Talaria TWO to an Access Point.
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Connect to AP
 
 4. To following kernel modules need to be inserted for enabling video
@@ -81,12 +83,14 @@ Figure 2: Connect to AP
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Insert ko modules and start RTSP server - console logs
 
 5. Get the IP address of tun interface using ifconfig command:
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 4: ifconfig -output
 
 6. Open VLC application and enter the RTSP URL in the network settings
@@ -100,6 +104,7 @@ Figure 4: ifconfig -output
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 5: VLC player
 
 .. |image1| image:: media/image1.png

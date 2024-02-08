@@ -37,6 +37,7 @@ Figure 1: Demo Tool GUI
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Boot target – Serial number update
 
 Since a new serial number is generated from the MAC address of the
@@ -100,12 +101,14 @@ message from appearing next time.
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3: PROG RAM alert message
 
 The console window is as shown in Figure 4.
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Console window
 
 The console window has the following icons (with Hover Text):
@@ -145,6 +148,7 @@ Workaround for this is as follows:
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 5: Error communicating with FTDI device
 
 .. |image1| image:: media/image1.png

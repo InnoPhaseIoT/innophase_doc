@@ -57,8 +57,7 @@ Connection Manager commands are in the following format:
 scan - Performs Wi-Fi Scan
 ---------------------------
 
-.. table:: Table 1: Scan - command, parameters and
-responses
+.. table:: Table 1: Scan - command, parameters and responses
 
    +---------+------------------------------------------------------------+
    | **Co    | conmgr scan                                                |
@@ -84,6 +83,7 @@ Example: ./conmgr scan.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: ./conmgr scan – Wi-Fi scan
 
 connect – Connects to Wi-Fi Network 
@@ -91,8 +91,7 @@ connect – Connects to Wi-Fi Network
 
 Enterprise security type: Personal
 
-.. table:: Table 2: Connect (Personal) - command, parameters and
-responses
+.. table:: Table 2: Connect (Personal) - command, parameters and responses
 
    +---------+------------------------------------------------------------+
    | **Co    | conmgr connect <ssid> <passphrase>[PMK_PATH]               |
@@ -119,12 +118,12 @@ passphrase 123456789:
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: ./conmgr connect (Personal) – Connect to Wi-Fi network
 
 Enterprise security type: EAP-PSK
 
-.. table:: Table 3: Connect (EAP-PSK) - command, parameters and
-responses
+.. table:: Table 3: Connect (EAP-PSK) - command, parameters and responses
 
    +---------+------------------------------------------------------------+
    | **Co    | conmgr connect <ssid> <passphrase><2> <identity>           |
@@ -144,6 +143,7 @@ responses
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3: ./conmgr connect (EAP-PSK) – Connect to Wi-Fi network
 
 Enterprise security type: EAP-TLS
@@ -176,6 +176,7 @@ Enterprise security type: EAP-TLS
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 4: ./conmgr connect (EAP-TLS) – Connect to Wi-Fi network
 
 Enterprise security type: EAP-PEAP
@@ -206,18 +207,19 @@ Enterprise security type: EAP-PEAP
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 5: ./conmgr connect (EAP-PEAP) – Connect to Wi-Fi network
 
 **Certificate Storing Method for Enterprise Security Certificates**
 
 .. code:: shell
 
-      sudo openocd -s conf/ -f ftdi_swd.cfg -f t2_swd.cfg 
-sudo ./script/arden.py ./apps/gordon-jtag/bin/gordon-jtag.elf 
-sudo python3 ./script/gdbrun.py  ./apps/gordon-jtag/bin/gordon-jtag.elf --noconsole –nowait
-./script/storage.py --device localhost:10000 write ~/Downloads/rootCACert.pem /data/ca.pem
-./script/storage.py --device localhost:10000 write ~/Downloads/client_cert.pem /data/client.pem
-./script/storage.py --device localhost:10000 write ~/Downloads/client_key.pem /data/client.key
+    sudo openocd -s conf/ -f ftdi_swd.cfg -f t2_swd.cfg
+    sudo ./script/arden.py ./apps/gordon-jtag/bin/gordon-jtag.elf
+    sudo python3 ./script/gdbrun.py  ./apps/gordon-jtag/bin/gordon-jtag.elf --noconsole –nowait
+    ./script/storage.py --device localhost:10000 write ~/Downloads/rootCACert.pem /data/ca.pem
+    ./script/storage.py --device localhost:10000 write ~/Downloads/client_cert.pem /data/client.pem
+    ./script/storage.py --device localhost:10000 write ~/Downloads/client_key.pem /data/client.key
 
 
 disconnect – Disconnects from Wi-Fi Network
@@ -240,6 +242,7 @@ Example: ./conmgr disconnect.
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 6: ./conmgr disconnect – Disconnect from Wi-Fi network
 
 IP – Get/Set ipv4 Address 
@@ -281,6 +284,7 @@ Gateway 192.168.1.1 and DNS serverip 192.168.1.1:
 
 |image7|
 
+.. rst-class:: imagefiguesclass
 Figure 7: ./conmgr ip – Set/Get Static IP Address
 
 kaconfig – Configures keepalive/shadow Service
@@ -326,6 +330,7 @@ up.
 
 |image8|
 
+.. rst-class:: imagefiguesclass
 Figure 8: kaconfig: Configure Keepalive Send
 
 kaconfigget – Gets keepalive/shadow Service Configuration
@@ -372,6 +377,7 @@ Example: ./conmgr kaconfigget.
 
 |image9|
 
+.. rst-class:: imagefiguesclass
 Figure 9: kaconfigget - Read Keepalive Configuration
 
 kastart – Starts keepalive/shadow Service
@@ -394,6 +400,7 @@ Example: ./conmgr kastart.
 
 |image10|
 
+.. rst-class:: imagefiguesclass
 Figure 10: kastart - Start Sending Keepalive to Server
 
 kastop – Stops keepalive/shadow Service
@@ -416,6 +423,7 @@ Example: ./conmgr kastop.
 
 |image11|
 
+.. rst-class:: imagefiguesclass
 Figure 11: kastop - Stop Sending Keepalive to Server
 
 kadel – Deletes keepalive/shadow Service Configuration
@@ -438,6 +446,7 @@ Example: ./conmgr kadel.
 
 |image12|
 
+.. rst-class:: imagefiguesclass
 Figure 12: kadel - Delete Keepalive Configuration
 
 status – Gets Dual-Stack Status
@@ -487,6 +496,7 @@ Example: ./conmgr status.
 
 |image13|
 
+.. rst-class:: imagefiguesclass
 Figure 13: status: Get Status Information
 
 wakeupconfig – Configures Host Wakeup PIN
@@ -542,6 +552,7 @@ state.
 
 |image14|
 
+.. rst-class:: imagefiguesclass
 Figure 14: wakeupconfig - Configure Host Wakeup using GPIO
 
 getwakeupreason – Gets Host Wakeup Reason
@@ -585,6 +596,7 @@ Example: ./conmgr getwakeupreason
 
 |image15|
 
+.. rst-class:: imagefiguesclass
 Figure 15: getwakeupreason - Get Wakeup Reason
 
 wakeupreasoncls – Clears Host Wakeup Reason
@@ -607,6 +619,7 @@ Example: ./conmgr wakeupreasoncls
 
 |image16|
 
+.. rst-class:: imagefiguesclass
 Figure 16: wakeupreasoncls - Clear Wakeup Reason
 
 autoscanenable – Enables Autoscan Operation
@@ -635,6 +648,7 @@ Example: Set the scan interval to 1 second for ssid ct_asus.
 
 |image17|
 
+.. rst-class:: imagefiguesclass
 Figure 17: autoscanenable - Enable Autoscan
 
 autoscandisable – Disables Autoscan Operation
@@ -657,6 +671,7 @@ Example: ./conmgr autoscandisable.
 
 |image18|
 
+.. rst-class:: imagefiguesclass
 Figure 18: autoscandisable - Disable Autoscan
 
 shutdown – Triggers Host Shutdown
@@ -676,6 +691,7 @@ Example: ./conmgr shutdown.
 
 |image19|
 
+.. rst-class:: imagefiguesclass
 Figure 19: shutdown - Host shutdown
 
 kasecconfig – Configures Keepalive Security Parameters
@@ -709,6 +725,7 @@ cert.pem.
 
 |image20|
 
+.. rst-class:: imagefiguesclass
 Figure 20: kasecconfig - Enable Keepalive TLS
 
 **Certificate storing method for kasecconfig:**
@@ -770,6 +787,7 @@ enable ps-poll.
 
 |image21|
 
+.. rst-class:: imagefiguesclass
 Figure 21: wpmconfig – Configure WLAN power management
 
 powersave – Suspend Enable/Disable on Talaria TWO
@@ -799,6 +817,7 @@ Example: Disable and enable suspend mode on Talaria TWO.
 
 |image22|
 
+.. rst-class:: imagefiguesclass
 Figure 22: powersave – Suspend disable/enable on Talaria TWO
 
 version – Gets Version Information
@@ -823,6 +842,7 @@ Example: ./conmgr version.
 
 |image23|
 
+.. rst-class:: imagefiguesclass
 Figure 23: version - Get Version Information
 
 cbenable – Enable Connect/Disconnect Callback
@@ -845,6 +865,7 @@ Example: ./conmgr cbenable.
 
 |image24|
 
+.. rst-class:: imagefiguesclass
 Figure 24: cbenable – Enable connect/disconnect callback
 
 fos – Upgrade the WLAN firmware from Host
@@ -875,6 +896,7 @@ Example: Upgrading WLAN firmware from Host
 
 |image25|
 
+.. rst-class:: imagefiguesclass
 Figure 25: fos – Upgrade the WLAN firmware from Host
 
 **Note**: Once the firmware upgrade is successfully completed, reset the
@@ -903,6 +925,7 @@ Example: ./conmgr hcidevname.
 
 |image26|
 
+.. rst-class:: imagefiguesclass
 Figure 26: hcidevname – Device name
 
 kasecconfigget – Get Keepalive Security Parameters
@@ -932,6 +955,7 @@ Example: ./conmgr kaseccconfigget.
 
 |image27|
 
+.. rst-class:: imagefiguesclass
 Figure 27: kasecconfigget - Get keepalive security parameters
 
 wakeupcfgget – Get Wakeup Configuration 
@@ -954,6 +978,7 @@ Example: ./ conmgr wakeupcfgget.
 
 |image28|
 
+.. rst-class:: imagefiguesclass
 Figure 28: wakeupcfgget - Get wakeup configuration
 
 autoscancfgget – Get autoscan Configuration Status
@@ -980,6 +1005,7 @@ Example: ./conmgr autoscancfgget.
 
 |image29|
 
+.. rst-class:: imagefiguesclass
 Figure 29: autoscancfgget - Get autoscan configuration status
 
 wpmconfigget – Get WLAN Power Management Configuration
@@ -1027,6 +1053,7 @@ Example : ./ conmgr wpmconfigget.
 
 |image30|
 
+.. rst-class:: imagefiguesclass
 Figure 30: wpmconfigget - Get WLAN power management configuration
 
 tos – Set TOS Parameter for Network Packets
@@ -1034,29 +1061,30 @@ tos – Set TOS Parameter for Network Packets
 
 .. table:: Table 31: tos - command, parameters and responses
 
-+----------+-----------------------------------------------------------+
-| **C      | conmgr tos <tos_value>                                    |
-| ommand** |                                                           |
-+==========+===========================================================+
-| **Para   | tos_value: Following are the values which can be used for |
-| meters** | setting tos:                                              |
-|          |                                                           |
-|          |    tos=160 → Video                                        |
-|          |                                                           |
-|          |    tos=192 → Voice                                        |
-|          |                                                           |
-|          |    tos=0 → Best Effort                                    |
-|          |                                                           |
-|          |    tos=32 → BK (Background)                               |
-+----------+-----------------------------------------------------------+
-| **Re     | TOS set: success                                          |
-| sponse** |                                                           |
-+----------+-----------------------------------------------------------+
+    +----------+-----------------------------------------------------------+
+    | **C      | conmgr tos <tos_value>                                    |
+    | ommand** |                                                           |
+    +==========+===========================================================+
+    | **Para   | tos_value: Following are the values which can be used for |
+    | meters** | setting tos:                                              |
+    |          |                                                           |
+    |          |    tos=160 → Video                                        |
+    |          |                                                           |
+    |          |    tos=192 → Voice                                        |
+    |          |                                                           |
+    |          |    tos=0 → Best Effort                                    |
+    |          |                                                           |
+    |          |    tos=32 → BK (Background)                               |
+    +----------+-----------------------------------------------------------+
+    | **Re     | TOS set: success                                          |
+    | sponse** |                                                           |
+    +----------+-----------------------------------------------------------+
 
 Example : ./ conmgr tos 160.
 
 |image31|
 
+.. rst-class:: imagefiguesclass
 Figure 31: tos - Set tos parameter for network packets
 
 disp_pkt_info – Display Incoming and Outgoing Packet Information
@@ -1064,29 +1092,30 @@ disp_pkt_info – Display Incoming and Outgoing Packet Information
 
 .. table:: Table 32: disp_pkt_info - command, parameters and responses
 
-+----------+-----------------------------------------------------------+
-| **C      | conmgr disp_pkt_info<disp_option>                         |
-| ommand** |                                                           |
-+==========+===========================================================+
-| **Para   | disp_option: Following are the values for different       |
-| meters** | display options:                                          |
-|          |                                                           |
-|          | 0=Do not display                                          |
-|          |                                                           |
-|          | 1=Display at Host only                                    |
-|          |                                                           |
-|          | 2=Display at Talaria TWO only                             |
-|          |                                                           |
-|          | 3=Display at Host and Talaria TWO                         |
-+----------+-----------------------------------------------------------+
-| **Re     | disp_pkt_info: success                                    |
-| sponse** |                                                           |
-+----------+-----------------------------------------------------------+
+    +----------+-----------------------------------------------------------+
+    | **C      | conmgr disp_pkt_info<disp_option>                         |
+    | ommand** |                                                           |
+    +==========+===========================================================+
+    | **Para   | disp_option: Following are the values for different       |
+    | meters** | display options:                                          |
+    |          |                                                           |
+    |          | 0=Do not display                                          |
+    |          |                                                           |
+    |          | 1=Display at Host only                                    |
+    |          |                                                           |
+    |          | 2=Display at Talaria TWO only                             |
+    |          |                                                           |
+    |          | 3=Display at Host and Talaria TWO                         |
+    +----------+-----------------------------------------------------------+
+    | **Re     | disp_pkt_info: success                                    |
+    | sponse** |                                                           |
+    +----------+-----------------------------------------------------------+
 
 Example : ./ conmgr disp_pkt_info 0
 
 |image32|
 
+.. rst-class:: imagefiguesclass
 Figure 32: disp_pkt_info: Display incoming and outgoing packet
 information
 
@@ -1095,21 +1124,22 @@ kill-tun – Gracefully Kills the Tunadapter
 
 .. table:: Table 33: kill-tun - command, parameters and responses
 
-+----------+-----------------------------------------------------------+
-| **C      | conmgr kill-tun                                           |
-| ommand** |                                                           |
-+==========+===========================================================+
-| **Para   | None                                                      |
-| meters** |                                                           |
-+----------+-----------------------------------------------------------+
-| **Re     | tun-kill: success                                         |
-| sponse** |                                                           |
-+----------+-----------------------------------------------------------+
+    +----------+-----------------------------------------------------------+
+    | **C      | conmgr kill-tun                                           |
+    | ommand** |                                                           |
+    +==========+===========================================================+
+    | **Para   | None                                                      |
+    | meters** |                                                           |
+    +----------+-----------------------------------------------------------+
+    | **Re     | tun-kill: success                                         |
+    | sponse** |                                                           |
+    +----------+-----------------------------------------------------------+
 
 Example : ./ conmgr kill-tun
 
 |image33|
 
+.. rst-class:: imagefiguesclass
 Figure 33: kill-tun: Gracefully kills the tunadapter
 
 provstart – Wi-Fi Provisioning over BLE
@@ -1117,28 +1147,28 @@ provstart – Wi-Fi Provisioning over BLE
 
 .. table:: Table 34: provstart - command, parameters and responses
 
-+----------+-----------------------------------------------------------+
-| **C      | ./conmgr provstart <device_name> <manufacturer_name>      |
-| ommand** |                                                           |
-+==========+===========================================================+
-| **Para   | *device_name*: Name of the device for provisioning        |
-| meters** |                                                           |
-|          | *manufacturer_name*: Device manufacturer name             |
-|          |                                                           |
-|          | **Note**:                                                 |
-|          |                                                           |
-|          | -  device_name and manufacturer_name are mandatory        |
-|          |    arguments, without providing which the BLE             |
-|          |    advertisement or scanning feature will not work.       |
-|          |                                                           |
-|          | -  If the device is connected to another Wi-Fi network    |
-|          |    previously, ensure it is disconnected from the network |
-|          |    before running provstart.                              |
-+----------+-----------------------------------------------------------+
-| **Re     | Success: Prov_success                                     |
-| sponse** |                                                           |
-|          | Failure: Prov_fail                                        |
-+----------+-----------------------------------------------------------+
+    +----------+-----------------------------------------------------------+
+    | **C      | ./conmgr provstart <device_name> <manufacturer_name>      |
+    | ommand** |                                                           |
+    +==========+===========================================================+
+    | **Para   | *device_name*: Name of the device for provisioning        |
+    | meters** |                                                           |
+    |          | *manufacturer_name*: Device manufacturer name             |
+    |          |                                                           |
+    |          | **Note**:                                                 |
+    |          |                                                           |
+    |          | -  device_name and manufacturer_name are mandatory        |
+    |          |    arguments, without providing which the BLE             |
+    |          |    advertisement or scanning feature will not work.       |
+    |          |                                                           |
+    |          | -  If the device is connected to another Wi-Fi network    |
+    |          |    previously, ensure it is disconnected from the network |
+    |          |    before running provstart.                              |
+    +----------+-----------------------------------------------------------+
+    | **Re     | Success: Prov_success                                     |
+    | sponse** |                                                           |
+    |          | Failure: Prov_fail                                        |
+    +----------+-----------------------------------------------------------+
 
 Once the provstart command is passed, the specified device begins
 advertising which can be observed using the BLE provisioning mobile
@@ -1160,6 +1190,7 @@ Example : ./ conmgr provstart Inno_provisioning Innophase
 
 |image34|
 
+.. rst-class:: imagefiguesclass
 Figure 34: provstart – Wi-Fi provisioning over BLE
 
 add - Adds packet forward configuration and prints rule ID
@@ -1167,51 +1198,52 @@ add - Adds packet forward configuration and prints rule ID
 
 .. table:: Table 35: pfcadd - command, parameters and responses
 
-+---------+------------------------------------------------------------+
-| **Co    | conmgr pfcadd <ip_type> <remote_ip> <remote_port>          |
-| mmand** | <remote_port_start> <remote_port_end>                      |
-|         | <local_port><local_port_start> <local_port_end> <protocol> |
-|         | <direction>                                                |
-+=========+============================================================+
-| **Param | -  ip type : IP type (0-ipv4, 1-ipv6)                      |
-| eters** |                                                            |
-|         | -  remote_ip : Remote IP address                           |
-|         |                                                            |
-|         | -  remote_port : Remote port address                       |
-|         |                                                            |
-|         | -  remote_port_start : Remote port start address. Used to  |
-|         |    specify the port range                                  |
-|         |                                                            |
-|         | -  remote_port_end : Remote port end address. Used to      |
-|         |    specify the port range                                  |
-|         |                                                            |
-|         | -  local_port : Local (source) port address                |
-|         |                                                            |
-|         | -  local_port_start : Local port start address. Used to    |
-|         |    specify the port range                                  |
-|         |                                                            |
-|         | -  local_port_end : Local port end address. Used to        |
-|         |    specify the port range                                  |
-|         |                                                            |
-|         | -  protocol : Protocol to apply the rule. Standard         |
-|         |    protocol values are used                                |
-|         |                                                            |
-|         | (0-ignore protocol filter, 1- ICMP, 2- IGMP, 6-TCP,        |
-|         | 17-UDP)                                                    |
-|         |                                                            |
-|         | -  direction : The direction to forward the packet.        |
-|         |                                                            |
-|         | Whether to Talaria TWO (0) or Host (1)                     |
-+---------+------------------------------------------------------------+
-| **Res   | rule-id: 6                                                 |
-| ponse** |                                                            |
-|         | Success/Failure                                            |
-+---------+------------------------------------------------------------+
+    +---------+------------------------------------------------------------+
+    | **Co    | conmgr pfcadd <ip_type> <remote_ip> <remote_port>          |
+    | mmand** | <remote_port_start> <remote_port_end>                      |
+    |         | <local_port><local_port_start> <local_port_end> <protocol> |
+    |         | <direction>                                                |
+    +=========+============================================================+
+    | **Param | -  ip type : IP type (0-ipv4, 1-ipv6)                      |
+    | eters** |                                                            |
+    |         | -  remote_ip : Remote IP address                           |
+    |         |                                                            |
+    |         | -  remote_port : Remote port address                       |
+    |         |                                                            |
+    |         | -  remote_port_start : Remote port start address. Used to  |
+    |         |    specify the port range                                  |
+    |         |                                                            |
+    |         | -  remote_port_end : Remote port end address. Used to      |
+    |         |    specify the port range                                  |
+    |         |                                                            |
+    |         | -  local_port : Local (source) port address                |
+    |         |                                                            |
+    |         | -  local_port_start : Local port start address. Used to    |
+    |         |    specify the port range                                  |
+    |         |                                                            |
+    |         | -  local_port_end : Local port end address. Used to        |
+    |         |    specify the port range                                  |
+    |         |                                                            |
+    |         | -  protocol : Protocol to apply the rule. Standard         |
+    |         |    protocol values are used                                |
+    |         |                                                            |
+    |         | (0-ignore protocol filter, 1- ICMP, 2- IGMP, 6-TCP,        |
+    |         | 17-UDP)                                                    |
+    |         |                                                            |
+    |         | -  direction : The direction to forward the packet.        |
+    |         |                                                            |
+    |         | Whether to Talaria TWO (0) or Host (1)                     |
+    +---------+------------------------------------------------------------+
+    | **Res   | rule-id: 6                                                 |
+    | ponse** |                                                            |
+    |         | Success/Failure                                            |
+    +---------+------------------------------------------------------------+
 
 Example: ./conmgr pfcadd 0 0 0 0 0 0 0 0 6 1
 
 |image35|
 
+.. rst-class:: imagefiguesclass
 Figure 35: add - Adds packet forward configuration and prints rule ID
 
 del - Deletes packet forward configuration
@@ -1219,49 +1251,50 @@ del - Deletes packet forward configuration
 
 .. table:: Table 36: pfcdel - command, parameters and responses
 
-+---------+------------------------------------------------------------+
-| **Co    | conmgr pfcdel <ip_type> <remote_ip> <remote_port>          |
-| mmand** | <remote_port_start> <remote_port_end> <local_port>         |
-|         | <local_port_start> <local_port_end> <protocol> <direction> |
-+=========+============================================================+
-| **Param | -  ip type : IP type (0-ipv4, 1-ipv6)                      |
-| eters** |                                                            |
-|         | -  remote_ip : Remote IP address                           |
-|         |                                                            |
-|         | -  remote_port : Remote port address                       |
-|         |                                                            |
-|         | -  remote_port_start : Remote port start address. Used to  |
-|         |    specify the port range                                  |
-|         |                                                            |
-|         | -  remote_port_end : Remote port end address. Used to      |
-|         |    specify the port range                                  |
-|         |                                                            |
-|         | -  local_port : Local (source) port address                |
-|         |                                                            |
-|         | -  local_port_start : Local port start address. Used to    |
-|         |    specify the port range                                  |
-|         |                                                            |
-|         | -  local_port_end : Local port end address. Used to        |
-|         |    specify the port range                                  |
-|         |                                                            |
-|         | -  protocol : Protocol to apply the rule. Standard         |
-|         |    protocol values are used                                |
-|         |                                                            |
-|         | (0-ignore protocol filter, 1- ICMP, 2- IGMP, 6-TCP,        |
-|         | 17-UDP)                                                    |
-|         |                                                            |
-|         | -  direction : The direction to forward the packet.        |
-|         |                                                            |
-|         | Whether to Talaria TWO(0) or host(1)                       |
-+---------+------------------------------------------------------------+
-| **Res   | Success/Failure                                            |
-| ponse** |                                                            |
-+---------+------------------------------------------------------------+
+    +---------+------------------------------------------------------------+
+    | **Co    | conmgr pfcdel <ip_type> <remote_ip> <remote_port>          |
+    | mmand** | <remote_port_start> <remote_port_end> <local_port>         |
+    |         | <local_port_start> <local_port_end> <protocol> <direction> |
+    +=========+============================================================+
+    | **Param | -  ip type : IP type (0-ipv4, 1-ipv6)                      |
+    | eters** |                                                            |
+    |         | -  remote_ip : Remote IP address                           |
+    |         |                                                            |
+    |         | -  remote_port : Remote port address                       |
+    |         |                                                            |
+    |         | -  remote_port_start : Remote port start address. Used to  |
+    |         |    specify the port range                                  |
+    |         |                                                            |
+    |         | -  remote_port_end : Remote port end address. Used to      |
+    |         |    specify the port range                                  |
+    |         |                                                            |
+    |         | -  local_port : Local (source) port address                |
+    |         |                                                            |
+    |         | -  local_port_start : Local port start address. Used to    |
+    |         |    specify the port range                                  |
+    |         |                                                            |
+    |         | -  local_port_end : Local port end address. Used to        |
+    |         |    specify the port range                                  |
+    |         |                                                            |
+    |         | -  protocol : Protocol to apply the rule. Standard         |
+    |         |    protocol values are used                                |
+    |         |                                                            |
+    |         | (0-ignore protocol filter, 1- ICMP, 2- IGMP, 6-TCP,        |
+    |         | 17-UDP)                                                    |
+    |         |                                                            |
+    |         | -  direction : The direction to forward the packet.        |
+    |         |                                                            |
+    |         | Whether to Talaria TWO(0) or host(1)                       |
+    +---------+------------------------------------------------------------+
+    | **Res   | Success/Failure                                            |
+    | ponse** |                                                            |
+    +---------+------------------------------------------------------------+
 
 Example: ./conmgr pfcdel 0 0 0 0 0 0 0 0 6 1
 
 |image36|
 
+.. rst-class:: imagefiguesclass
 Figure 36: del - Deletes packet forward configuration
 
 del-id - Deletes packet forward configuration by providing rule ID
@@ -1269,23 +1302,24 @@ del-id - Deletes packet forward configuration by providing rule ID
 
 .. table:: Table 37: pfc-del - command, parameters and responses
 
-+---------+------------------------------------------------------------+
-| **Co    | conmgr pfc-del-id <ip_type> <rule_id>                      |
-| mmand** |                                                            |
-+=========+============================================================+
-| **Param | -  ip type : IP type (0-ipv4, 1-ipv6)                      |
-| eters** |                                                            |
-|         | -  rule_id : Rule ID to delete. This is provided by        |
-|         |    configuration **add** operation.                        |
-+---------+------------------------------------------------------------+
-| **Res   | Success/Failure                                            |
-| ponse** |                                                            |
-+---------+------------------------------------------------------------+
+    +---------+------------------------------------------------------------+
+    | **Co    | conmgr pfc-del-id <ip_type> <rule_id>                      |
+    | mmand** |                                                            |
+    +=========+============================================================+
+    | **Param | -  ip type : IP type (0-ipv4, 1-ipv6)                      |
+    | eters** |                                                            |
+    |         | -  rule_id : Rule ID to delete. This is provided by        |
+    |         |    configuration **add** operation.                        |
+    +---------+------------------------------------------------------------+
+    | **Res   | Success/Failure                                            |
+    | ponse** |                                                            |
+    +---------+------------------------------------------------------------+
 
 Example: ./conmgr pfc-del-id 0 0
 
 |image37|
 
+.. rst-class:: imagefiguesclass
 Figure 37: del-id - Deletes packet forward configuration by providing
 rule ID
 
@@ -1294,22 +1328,23 @@ query - Prints forward configurations
 
 .. table:: Table 38: query - command, parameters and responses
 
-+---------+------------------------------------------------------------+
-| **Co    | conmgr pfcquery <ip_type>                                  |
-| mmand** |                                                            |
-+=========+============================================================+
-| **Param | 1. ip type : IP type (0-ipv4, 1-ipv6)                      |
-| eters** |                                                            |
-+---------+------------------------------------------------------------+
-| **Res   | Packet forward configurations                              |
-| ponse** |                                                            |
-|         | JSON format                                                |
-+---------+------------------------------------------------------------+
+    +---------+------------------------------------------------------------+
+    | **Co    | conmgr pfcquery <ip_type>                                  |
+    | mmand** |                                                            |
+    +=========+============================================================+
+    | **Param | 1. ip type : IP type (0-ipv4, 1-ipv6)                      |
+    | eters** |                                                            |
+    +---------+------------------------------------------------------------+
+    | **Res   | Packet forward configurations                              |
+    | ponse** |                                                            |
+    |         | JSON format                                                |
+    +---------+------------------------------------------------------------+
 
 Example: ./conmgr pfcquery 0
 
 |image38|
 
+.. rst-class:: imagefiguesclass
 Figure 38: query - Prints forward configurations
 
 dirset/dirget - Sets/Gets packet forward direction
@@ -1317,20 +1352,20 @@ dirset/dirget - Sets/Gets packet forward direction
 
 .. table:: Table 39: pfcdirset - command, parameters and responses
 
-+---------+------------------------------------------------------------+
-| **Co    | conmgr pfcdirset [direction]                               |
-| mmand** |                                                            |
-|         | conmgr pfcdirget                                           |
-+=========+============================================================+
-| **Param | -  direction: The direction to forward the packet. Whether |
-| eters** |    to Talaria TWO (0) or Host (1). This parameter is valid |
-|         |    for GET operation.                                      |
-+---------+------------------------------------------------------------+
-| **Res   | pfcdirset: Success/Failure                                 |
-| ponse** |                                                            |
-|         | pfcdirget: Packet forwarding direction (Talaria TWO or     |
-|         | Host)                                                      |
-+---------+------------------------------------------------------------+
+    +---------+------------------------------------------------------------+
+    | **Co    | conmgr pfcdirset [direction]                               |
+    | mmand** |                                                            |
+    |         | conmgr pfcdirget                                           |
+    +=========+============================================================+
+    | **Param | -  direction: The direction to forward the packet. Whether |
+    | eters** |    to Talaria TWO (0) or Host (1). This parameter is valid |
+    |         |    for GET operation.                                      |
+    +---------+------------------------------------------------------------+
+    | **Res   | pfcdirset: Success/Failure                                 |
+    | ponse** |                                                            |
+    |         | pfcdirget: Packet forwarding direction (Talaria TWO or     |
+    |         | Host)                                                      |
+    +---------+------------------------------------------------------------+
 
 Example:
 
@@ -1340,6 +1375,7 @@ Example:
 
 |image39|
 
+.. rst-class:: imagefiguesclass
 Figure 39: dirset/dirget - Sets/Gets packet forward direction
 
 .. |image1| image:: media/image1.jpeg

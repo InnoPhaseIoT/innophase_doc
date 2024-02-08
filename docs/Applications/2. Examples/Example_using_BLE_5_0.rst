@@ -20,6 +20,7 @@ Topology
 
 |image129|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Using BLE – Topology
 
 BT Protocol Stack Structure, APIs & Event Mechanism
@@ -829,22 +830,26 @@ Following are the screenshots from the mobile application:
 
 |image130|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Android application as BLE Client, Discovering InnoServer
 
 BLE 1M Advertisement:
 
 |image131|
 
+.. rst-class:: imagefiguesclass
 Figure 3: BLE 1M advertisement
 
 BLE 2M Advertisement:
 
 |image132|
 
+.. rst-class:: imagefiguesclass
 Figure 4: BLE 2M advertisement
 
 |image133|
 
+.. rst-class:: imagefiguesclass
 Figure 5: Successful connection and Read from Attribute
 
 Secure Server and Client Applications

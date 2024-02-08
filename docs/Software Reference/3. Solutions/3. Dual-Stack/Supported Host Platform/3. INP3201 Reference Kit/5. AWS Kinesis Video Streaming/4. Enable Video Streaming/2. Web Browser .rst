@@ -10,12 +10,14 @@ Web browser
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 1: AWS KINESIS Login
 
 2. Select the AWS Cloud region from the top-right drop-down menu
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 2: AWS Region selection
 
 3. Click on [Signaling channels] on the left panel and select [T2_VIDEO]
@@ -23,6 +25,7 @@ Figure 2: AWS Region selection
 
 |image7|
 
+.. rst-class:: imagefiguesclass
 Figure 3: AWS KINESIS Dashboard – signaling channels
 
 4. Click on [Media playback viewer] and click the center Play button to
@@ -30,6 +33,7 @@ Figure 3: AWS KINESIS Dashboard – signaling channels
 
 |image8|
 
+.. rst-class:: imagefiguesclass
 Figure 4: AWS KINESIS Dashboard – video streaming
 
 5. Click on [Viewer statistics] link below the Media playback viewer to

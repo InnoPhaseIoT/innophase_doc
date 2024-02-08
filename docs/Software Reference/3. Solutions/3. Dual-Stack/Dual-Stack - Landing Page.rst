@@ -24,6 +24,7 @@ network stack on the Linux host is used to transfer high bandwidth data.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Software architecture block diagram
 
 Following are the key advantages of the Dual-Stack solution:

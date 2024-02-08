@@ -39,6 +39,7 @@ Console output:
 
 |image12|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Ubuntu version
 
 For GNU GDB version:
@@ -60,6 +61,7 @@ Console output:
 
 |image13|
 
+.. rst-class:: imagefiguesclass
 Figure 2 GNU GDB version
 
 Installing necessary packages
@@ -151,6 +153,7 @@ Following is the procedure to debug the VM-based applications using GDB:
 
    |image14|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Starting openOCD
 
 2. In a separate terminal, flash the virtual image from the SDK
@@ -178,6 +181,7 @@ Figure 3: Starting openOCD
 
    |image15|
 
+.. rst-class:: imagefiguesclass
 Figure 4: make command output for using_wifi
 
    Following is the output for a sample application wifi_connect.elf.
@@ -186,6 +190,7 @@ Figure 4: make command output for using_wifi
 
    |image16|
 
+.. rst-class:: imagefiguesclass
 Figure 5: Flashing the application from SDK directory
 
    .gdbinit initialization file contains the information on Talaria
@@ -211,6 +216,7 @@ Figure 5: Flashing the application from SDK directory
 
 |image17|
 
+.. rst-class:: imagefiguesclass
 Figure 6: Warning for .gdbinit file
 
    In the created gdbinit file add the following path:
@@ -223,6 +229,7 @@ Figure 6: Warning for .gdbinit file
 
 |image18|
 
+.. rst-class:: imagefiguesclass
 Figure 7: Configuring the gdbinit file
 
 Start the GDB Session 
@@ -242,6 +249,7 @@ Console output:
 
 |image19|
 
+.. rst-class:: imagefiguesclass
 Figure 8: Running GDB
 
 1. Connect to OpenOCD by running ocd in the GDB prompt.
@@ -423,6 +431,7 @@ for JTAG.
 
 |image20|
 
+.. rst-class:: imagefiguesclass
 Figure 9: Hardware connections - JTAG
 
 Pins 18,19,20 and 21 of Talaria TWO module are used for JTAG. However,
@@ -434,6 +443,7 @@ TWO but with a reduced hardware connection as shown in Figure 10.
 
 |image21|
 
+.. rst-class:: imagefiguesclass
 Figure 10: Hardware connections - SWD
 
 For more information on GDB commands, refer:
@@ -457,6 +467,7 @@ Console output:
 
 |image22|
 
+.. rst-class:: imagefiguesclass
 Figure 11: Running OpenOCD for JTAG
 
 2. In a separate terminal, run the following command from the apps
@@ -471,6 +482,7 @@ Console output:
 
 |image23|
 
+.. rst-class:: imagefiguesclass
 Figure 12: Running GDB for JTAG
 
 Follow the procedure mentioned in section: *Start the GDB Session* to
@@ -495,6 +507,7 @@ Console output:
 
 |image24|
 
+.. rst-class:: imagefiguesclass
 Figure 13: Running OpenOCD for SWD
 
 2. In a separate terminal, run the following command from the apps
@@ -510,6 +523,7 @@ Console output:
 
 |image25|
 
+.. rst-class:: imagefiguesclass
 Figure 14: Running GDB for SWD
 
 3. Follow the procedure mentioned in section: *Start the GDB Session* to
@@ -554,6 +568,7 @@ for MSYS2 CMD line interface.
 
 |image26|
 
+.. rst-class:: imagefiguesclass
 Figure 15: Running MSYS2
 
 Run the following command in MSYS2 terminal and proceed with
@@ -566,6 +581,7 @@ installation.
 
 |image27|
 
+.. rst-class:: imagefiguesclass
 Figure 16: Installing mingw setup
 
 Once the installation is complete, the window will be automatically
@@ -590,6 +606,7 @@ Enter a selection number, for GDB-Multiarch.
 
 |image28|
 
+.. rst-class:: imagefiguesclass
 Figure 17: Iinstalling gdb-multiarch
 
 Add MSYS2 path in environmental variable to access GDB-Multiarch in
@@ -599,6 +616,7 @@ document for MSYS2: UG_Eclipse_Setup_Windows.pdf.
 
 |image29|
 
+.. rst-class:: imagefiguesclass
 Figure 18: Adding environment variable
 
 .. _procedure-to-debug-using-gdb-1:
@@ -620,6 +638,7 @@ Console output:
 
 |image30|
 
+.. rst-class:: imagefiguesclass
 Figure 19: Running Openocd in windows CMD
 
 2. Use the Download Tool to flash the virtual image from the SDK
@@ -643,6 +662,7 @@ folder.
 
 |image31|
 
+.. rst-class:: imagefiguesclass
 Figure 20: Running make command in windows CMD
 
 .gdbinit initialization file contains the information on Talaria TWO’s
@@ -657,6 +677,7 @@ Hence, create a file named gdbinit in the home directory to allow auto-load.
 
 |image32|
 
+.. rst-class:: imagefiguesclass
 Figure 21: Warning for .gdbinit file
 
 In the created gdbinit file, add the following path:
@@ -667,6 +688,7 @@ In the created gdbinit file, add the following path:
 
 |image33|
 
+.. rst-class:: imagefiguesclass
 Figure 22: Configuring the gdbinit file
 
 
@@ -679,6 +701,7 @@ configures the GDB. Here, the RAM portion of the ELF gets loaded.
 
 |image34|
 
+.. rst-class:: imagefiguesclass
 Figure 23: Running GDB
 
 1. Connect to OpenOCD by running ocd in the GDB prompt.

@@ -49,6 +49,7 @@ Host Console Logs
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: custom_echo – host serial log
 
 Host console log – text output:

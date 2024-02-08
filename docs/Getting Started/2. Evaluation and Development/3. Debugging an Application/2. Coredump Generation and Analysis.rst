@@ -71,6 +71,7 @@ Generate Coredump from within GDB
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Terminal output
 
 5. Execute the following command from apps folder
@@ -111,6 +112,7 @@ Output for the sample elf is as shown in Figure 2.
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Opening the coredump file
 
 Analyzing the Coredump
@@ -130,6 +132,7 @@ and the GDB will start listening on port 3333.
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3: GDB listening on port 3333
 
 2. Start GDB to inspect the coredump in a separate terminal from the SDK
@@ -151,6 +154,7 @@ The following output is observed once the remote debugging has started.
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Remote debugging
 
 Capturing a Back Trace 
@@ -174,18 +178,21 @@ The bt instructions prints the content of the stack.
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 5: Contents of the stack
 
 2. Execute the instruction list_thread to display the address of the thread and the last thread executed prior to the crash. In the sample app sensor.elf, a thread with the name app is executed prior to the crash. The thread app is indicated with * mark as shown in Figure 6 when the list_thread instruction is executed.
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 6: app - list_thread instruction
 
 3. The address of the app thread of the sensor application as shown in Figure 6 is 0xb9738. Now, resolve thread <address of the thread> instruction is executed to point  to the location of the instruction in the code that was executed just before the crash. 
 
 |image7|
 
+.. rst-class:: imagefiguesclass
 Figure 7: Resolve thread instruction
 
 4.	Last instruction executed was from the file sensor/main.c at line number 525. An assert function was called to crash the application at this point.
@@ -199,24 +206,28 @@ This helps identify the problem by pointing to the last instruction executed pri
 
 |image8|
 
+.. rst-class:: imagefiguesclass
 Figure 8: list_threads output
 
 3.	The last thread executed just before the crash is wifi as shown in Figure 8. However, when the restore_thread command is executed, the following output is observed:
 
 |image9|
 
+.. rst-class:: imagefiguesclass
 Figure 9: restore_thread output
 
 Looking back at the crash log captured in the download tool’s console, The PC and BFAR values shows that address 0x60dbc (callback from the app) tries to access address 0xc0073 (outside RAM area). This is done in an interrupt context and is the reason why the list_threads do not provide the right information running in process context. 
 
 |image10|
 
+.. rst-class:: imagefiguesclass
 Figure 10: Download tool - crash log
 
 4.	When the restore_thread is executed for a different thread – mqttcli, the following output is observed:
 
 |image11|
 
+.. rst-class:: imagefiguesclass
 Figure 11: restore_thread for - mqttcli
 
 It is observed that there is no message Thread stack does not seem to have a pushed exception frame when the restore_thread command is executed. This is checked on the mqttcli thread as this thread is receiving the data from a callouts handler that is executing in the interrupt context.  After checking the mqttcli thread, it is observed that the reason for the crash is because a pointer is accessed and freed without allocating any memory for it.

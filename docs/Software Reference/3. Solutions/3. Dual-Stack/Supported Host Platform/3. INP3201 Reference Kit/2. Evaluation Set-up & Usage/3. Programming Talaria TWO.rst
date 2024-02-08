@@ -8,6 +8,7 @@ Hardware Set-up
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Hardware set-up
 
 **Note**:

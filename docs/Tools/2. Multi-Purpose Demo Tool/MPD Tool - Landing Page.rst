@@ -23,11 +23,6 @@ evaluations.
 
 |image1|
 
-.. |image1| image:: media/image1.png
-   :width: 6.26806in
-   :height: 2.47731in
-
-
 **MPD Tool – Prerequisites**
 
 Each release of the Demo Tool is equipped with binaries for Windows and

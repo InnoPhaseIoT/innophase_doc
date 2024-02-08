@@ -39,6 +39,7 @@ b. AT+WSTATUS=0 parameter is used to get the IP address
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 1: AT Commands - Tera Term output
 
 

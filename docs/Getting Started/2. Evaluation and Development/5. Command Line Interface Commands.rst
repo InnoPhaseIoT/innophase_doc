@@ -161,7 +161,8 @@ Type in the Ls command in Linux to list the USB ports:
 
 |image2|
 
-                        Figure 1: USB ports
+.. rst-class:: imagefiguesclass
+Figure 1: USB ports
 
 From the ports listed, identify the following ports:
 
@@ -193,6 +194,7 @@ through the console port.
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Debug messages displayed through console port
 
 If there are multiple Talaria TWO devices where each of them has their
@@ -203,6 +205,7 @@ For instance, two Talaria TWO devices with USB connected.
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 3: 2 Talaria TWO devices with USB connected
 
 Figure 4 and Figure 5 show that the miniterm app is run on two separate
@@ -211,10 +214,12 @@ respective device.
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 4: /dev/ttyUSB3
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 5: /dev/ttyUSB7
 
 Device Port Identification on Windows OS
@@ -251,6 +256,7 @@ Windows Device Manager display.
 
 |image7|
 
+.. rst-class:: imagefiguesclass
 Figure 6: libusbK driver installation
 
 If there are multiple Talaria TWO devices connected, the Windows Device
@@ -258,6 +264,7 @@ Manager appears:
 
 |image8|
 
+.. rst-class:: imagefiguesclass
 Figure 7: Multiple Talaria TWO devices connected
 
 With this setup in place, all CLI commands should use the following
@@ -284,7 +291,8 @@ line:
 
 |image9|
 
-    Figure 8: Flashing to Talaria TWO
+.. rst-class:: imagefiguesclass
+Figure 8: Flashing to Talaria TWO
 
 This command loads the helloworld app provided in SDK to Talaria TWO
 memory.
@@ -312,7 +320,8 @@ the following steps:
 
 |image10|
 
-    Figure 9: Expanding the device specifier
+.. rst-class:: imagefiguesclass
+Figure 9: Expanding the device specifier
 
 <device_serial_id>:
 
@@ -329,6 +338,7 @@ Example of a device with serial ID 00166d4:
 
 |image11|
 
+.. rst-class:: imagefiguesclass
 Figure 10: Device with serial ID 0016d4
 
 **On Windows Platform using COM port (without the libusbK installed)**
@@ -336,8 +346,9 @@ Figure 10: Device with serial ID 0016d4
 On this serial communication environment, Windows host is communicating
 with the device using the standard (default) USB/Serial driver.
 
-|imaeg12|
+|image12|
 
+.. rst-class:: imagefiguesclass
 Figure 11: Standard (default) USB/serial driver
 
 In the listed ports, identify the following ports:
@@ -425,7 +436,8 @@ Examples:
 
 |image13|
 
-    Figure 12: Single Talaria TWO device with USB interface
+.. rst-class:: imagefiguesclass
+Figure 12: Single Talaria TWO device with USB interface
 
 2. If there are multiple Talaria TWO devices connected:
 
@@ -438,7 +450,8 @@ Examples:
 
 |image14|
 
-    Figure 13: Multiple Talaria TWO devices connected
+.. rst-class:: imagefiguesclass
+Figure 13: Multiple Talaria TWO devices connected
 
 List Parameters (Manual in Script)
 
@@ -446,7 +459,8 @@ Type boot.py --help to bring up the manual of the boot.py command list:
 
 |image15|
 
-    Figure 14: boot.py - command list
+.. rst-class:: imagefiguesclass
+Figure 14: boot.py - command list
 
 Using flash.py
 ^^^^^^^^^^^^^^^^^^^
@@ -489,6 +503,7 @@ list:
 
 |image16|
 
+.. rst-class:: imagefiguesclass
 Figure 15: flash.py - command list
 
 Using storage.py
@@ -530,6 +545,7 @@ list:
 
 |image17|
 
+.. rst-class:: imagefiguesclass
 Figure 16: storage.py command script
 
 Use Cases
@@ -553,6 +569,7 @@ Reset the device.
 
 |image18|
 
+.. rst-class:: imagefiguesclass
 Figure 17: Normal device reset - terminal output
 
 1. **Device Reset with Inhibiting-flash-boot (Boot loader mode)**
@@ -575,6 +592,7 @@ Figure 17: Normal device reset - terminal output
 
    |image19|
 
+.. rst-class:: imagefiguesclass
 Figure 18: inhibiting-flash-boot - terminal output
 
    This reset will trigger Talaria TWO to abort from device port link
@@ -582,12 +600,14 @@ Figure 18: inhibiting-flash-boot - terminal output
 
    |image20|
 
+.. rst-class:: imagefiguesclass
 Figure 19: Abort from device port link
 
    Launch miniterm to resume the device port connection.
 
-   |image21|
+|image21|
 
+.. rst-class:: imagefiguesclass
 Figure 20: Resume device port connection
 
 2. **Reset with Inhibiting-flash-boot with booting Gordon**
@@ -609,6 +629,7 @@ Figure 20: Resume device port connection
 
 |image22|
 
+.. rst-class:: imagefiguesclass
 Figure 21: Inhibiting-flash-boot with booting Gordon - terminal output
 
 Program App in Memory
@@ -625,6 +646,7 @@ Program app in Talaria TWO memory.
 
 |image23|
 
+.. rst-class:: imagefiguesclass
 Figure 22: Programming app in Talaria TWO memory - terminal output
 
 Erase Image or Program New Image in Flash
@@ -648,12 +670,14 @@ b. Flash empty.img
 
 |image24|
 
+.. rst-class:: imagefiguesclass
 Figure 23: Flash empty.img
 
 Button reset to confirm the erase operation is a success.
 
 |image25|
 
+.. rst-class:: imagefiguesclass
 Figure 24: Erase operation success
 
 2. Program New Image in Flash
@@ -668,12 +692,14 @@ Figure 24: Erase operation success
 
 |image26|
 
+.. rst-class:: imagefiguesclass
 Figure 25: Program new image to flash
 
 Button reset to confirm the flash operation a success.
 
 |image27|
 
+.. rst-class:: imagefiguesclass
 Figure 26: Flash operation success
 
 Storage Data and File: Read/Write
@@ -698,12 +724,14 @@ b. Run the flash.py with the command: to_json
 
 |image28|
 
+.. rst-class:: imagefiguesclass
 Figure 27: Inhibiting-flash-boot and load gordon.elf
 
 Display of the board_356.json file
 
 |image29|
 
+.. rst-class:: imagefiguesclass
 Figure 28: Display of the board_356.json file
 
 2. **Write Partition Table in Device (from_json)**
@@ -743,6 +771,7 @@ b. Run the storage.py with the command: tree
 
 |image30|
 
+.. rst-class:: imagefiguesclass
 Figure 29: Show file system contents
 
 4. **Read File and Store to Location on Host**
@@ -765,6 +794,7 @@ The file is created:
 
 |image31|
 
+.. rst-class:: imagefiguesclass
 Figure 30: File creation
 
 5. **Write File to Device**
@@ -786,12 +816,14 @@ b. Run the storage.py with the command: write
 
 |image32|
 
+.. rst-class:: imagefiguesclass
 Figure 31: Running storage.py - write
 
 Use ./script/storage.py tree command to check the new file on Talaria TWO file system:
 
 |image33|
 
+.. rst-class:: imagefiguesclass
 Figure 32: Check new file on Talaria TWO file system
 
 Example: Load certificates
@@ -1072,6 +1104,7 @@ are connecting to a WPA2-PSK network):
 
 |image34|
 
+.. rst-class:: imagefiguesclass
 Figure 33: Starting gordon.elf
 
 3. Use **storage.py** to write the network config file
@@ -1087,6 +1120,7 @@ Command Log:
 
 |image35|
 
+.. rst-class:: imagefiguesclass
 Figure 34: Writing network config file
 
 4. Program (RAM/FLASH) application to connect to the Access Point
@@ -1106,6 +1140,7 @@ Figure 34: Writing network config file
 
    |image36|
 
+.. rst-class:: imagefiguesclass
 Figure 35: Program RAM to connect to AP
 
 b. Program FLASH:
@@ -1120,8 +1155,9 @@ b. Program FLASH:
 
    Command Log:
 
-   |image37|
+|image37|
 
+.. rst-class:: imagefiguesclass
 Figure 36: Program Flash to connect to AP
 
 Windows Platform – libusbK Installed
@@ -1145,6 +1181,7 @@ Reset the device.
 
 |image38|
 
+.. rst-class:: imagefiguesclass
 Figure 37: Device reset
 
 2. **Device Reset with Inhibiting-flash-boot**
@@ -1164,6 +1201,7 @@ new app code.
 
 |image39|
 
+.. rst-class:: imagefiguesclass
 Figure 38: Device Reset with Inhibiting-flash-boot
 
 The device has been put into the programming mode
@@ -1185,6 +1223,7 @@ storage on Talaria TWO and operate read/write data.
 
 |image40|
 
+.. rst-class:: imagefiguesclass
 Figure 39: Reset with Inhibiting-flash-boot with booting Gordon
 
 .. _program-app-in-memory-1:
@@ -1204,6 +1243,7 @@ stored in flash to boot from.
 
 |image41|
 
+.. rst-class:: imagefiguesclass
 Figure 40: Program app in Talaria TWO memory
 
 .. _erase-image-or-program-new-image-in-flash-1:
@@ -1228,6 +1268,7 @@ b. Flash empty.img
 
 |image42|
 
+.. rst-class:: imagefiguesclass
 Figure 41: Erase image in flash
 
 **Program New Image in Flash**
@@ -1242,7 +1283,8 @@ Figure 41: Erase image in flash
 
 |image43|
 
-    Figure 42: Program new image in flash
+.. rst-class:: imagefiguesclass
+Figure 42: Program new image in flash
 
 .. _storage-data-file-readwrite-1:
 
@@ -1268,12 +1310,14 @@ b. Run the flash.py with the command: to_json
 
 |image44|
 
+.. rst-class:: imagefiguesclass
 Figure 43: Read Partition Table from device
 
 Display of the board_0183.json file
 
 |image45|
 
+.. rst-class:: imagefiguesclass
 Figure 44: Display of the board_0183.json file
 
 2. **Write Partition Table in Device (from_json)**
@@ -1295,6 +1339,7 @@ b. Run the flash.py with the command: from_json
 
 |image46|
 
+.. rst-class:: imagefiguesclass
 Figure 45: Write Partition Table in device
 
 3. **Show File System Contents**
@@ -1315,6 +1360,7 @@ b. Run the storage.py with the command: tree
 
 |image47|
 
+.. rst-class:: imagefiguesclass
 Figure 46: Show file system contents
 
 4. **Read File and Store to Location on Host**
@@ -1336,12 +1382,14 @@ b. Run the storage.py with the command: read
 
 |image48|
 
+.. rst-class:: imagefiguesclass
 Figure 47: Read file and store to location on host
 
 The file is created as per user entry:
 
 |image49|
 
+.. rst-class:: imagefiguesclass
 Figure 48: File creation
 
 5. **Write File to Device**
@@ -1364,6 +1412,7 @@ b. Run the storage.py with the command: write
 
 |image50|
 
+.. rst-class:: imagefiguesclass
 Figure 49: Write file to device
 
 Use the ./script/storage.py tree command to check the new file on
@@ -1371,6 +1420,7 @@ Talaria TWO file system:
 
 |image51|
 
+.. rst-class:: imagefiguesclass
 Figure 50: Check new file on Talaria TWO file system
 
 Windows Platform – With COM Port
@@ -1442,6 +1492,7 @@ The following command erases the app code in flash.
 
 |image52|
 
+.. rst-class:: imagefiguesclass
 Figure 51: Erase image
 
 Button reset to confirm the erase operation is a success.
@@ -1472,6 +1523,7 @@ Display of the board_0407.json file
 
 |image53|
 
+.. rst-class:: imagefiguesclass
 Figure 52: Display of the board_0407.json file
 
 2. **Write Partition Table in Device (from_json)**
@@ -1509,6 +1561,7 @@ b. Run the storage.py with the command: tree
 
 |image54|
 
+.. rst-class:: imagefiguesclass
 Figure 53: Show file system contents
 
 4. **Read File and Store to Location on Host**
@@ -1533,12 +1586,14 @@ b. Run the storage.py with the command: read
 
 |image55|
 
+.. rst-class:: imagefiguesclass
 Figure 54: Read file and store to location on host
 
 The file is created per user entry:
 
 |image56|
 
+.. rst-class:: imagefiguesclass
 Figure 55: File creation
 
 3. **Write File to Device**
@@ -1562,6 +1617,7 @@ b. Run the storage.py with the command: write
 
 |image57|
 
+.. rst-class:: imagefiguesclass
 Figure 56: Write file to device
 
 Use the ./script/storage.py tree command to check the new file on
@@ -1569,6 +1625,7 @@ Talaria TWO file system:
 
 |image58|
 
+.. rst-class:: imagefiguesclass
 Figure 57: Check new file on Talaria TWO filesystem
 
 Sequence of CLI Commands

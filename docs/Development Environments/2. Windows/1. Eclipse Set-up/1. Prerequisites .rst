@@ -17,6 +17,7 @@ https://www.oracle.com/in/java/technologies/javase/jdk11-archive-downloads.html.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: JDK installer for Windows
 
 **Note**:
@@ -41,6 +42,7 @@ install it with administrative rights: https://nodejs.org/en/.
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Node.js installation
 
 Installation results in a folder similar to: C:\\Program Files\\nodejs
@@ -58,6 +60,7 @@ steps:
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Node command prompt
 
 2. To install latest version of NPM through node.js command line,
@@ -70,6 +73,7 @@ Figure 3: Node command prompt
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 4: NPM latest version installation
 
 XPM Installation 
@@ -89,6 +93,7 @@ execute the following command:
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 5: XPM installation
 
 Windows-Build-Tools Installation
@@ -109,6 +114,7 @@ execute the following command:
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 6: Windows-build-tools installation
 
 Arm Tool Chain Installation
@@ -129,6 +135,7 @@ command:
 
 |image7|
 
+.. rst-class:: imagefiguesclass
 Figure 7: ARM tool chain installation
 
 OpenOCD Installation
@@ -144,6 +151,7 @@ the following command to install OpenOCD (For example: version 0.10.0):
 
 |image8|
 
+.. rst-class:: imagefiguesclass
 Figure 8: OpenOCD installation
 
 All xPacks are installed in a central folder similar to the one in the

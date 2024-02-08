@@ -28,6 +28,7 @@ executing the command java-version in command line as shown in Figure 1.
 
 |image27|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Verifying the java version
 
 Prerequisites for Eclipse

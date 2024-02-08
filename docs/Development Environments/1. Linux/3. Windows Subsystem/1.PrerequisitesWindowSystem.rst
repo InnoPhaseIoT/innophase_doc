@@ -16,6 +16,7 @@ binary executables natively on Windows OS.
 
    |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Programs and features
 
 2. Tick for Virtual Machine Platform and Windows Subsystem for Linux ->
@@ -25,12 +26,14 @@ Figure 1: Programs and features
 
    |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Turn Windows features ON or OFF
 
 3. Restart the system at this stage by clicking on Restart now.
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Restart the system
 
 Installing Linux
@@ -46,6 +49,7 @@ Install the latest version of Linux:
 
    |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Open Microsoft store to install Ubuntu
 
 2. Once the download is complete, open Ubuntu from the Menu tab and
@@ -61,6 +65,7 @@ Figure 4: Open Microsoft store to install Ubuntu
 
    |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 5: Username and password
 
 3. This will open a terminal window in the directory in which commands
@@ -70,6 +75,7 @@ Figure 5: Username and password
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 6: Terminal window
 
 Installing Necessary Packages
@@ -99,6 +105,7 @@ Console output:
 
 |image7|
 
+.. rst-class:: imagefiguesclass
 Figure 7: Installing necessary packages
 
 Accessing WSL Files from Windows
@@ -133,6 +140,7 @@ Console output:
 
 |image8|
 
+.. rst-class:: imagefiguesclass
 Figure 8: GCC compiler packages
 
 Install Python3 and packages
@@ -159,6 +167,7 @@ Console output:
 
 |image9|
 
+.. rst-class:: imagefiguesclass
 Figure 9: Installing Python3 & packages
 
 Setting Execute Permissions for SDK Scripts
@@ -185,6 +194,7 @@ Compile the InnoPhase SDK
 
 |image10|
 
+.. rst-class:: imagefiguesclass
 Figure 10: Compiling the InnoPhase SDK
 
 Programming Talaria TWO using Download Tool

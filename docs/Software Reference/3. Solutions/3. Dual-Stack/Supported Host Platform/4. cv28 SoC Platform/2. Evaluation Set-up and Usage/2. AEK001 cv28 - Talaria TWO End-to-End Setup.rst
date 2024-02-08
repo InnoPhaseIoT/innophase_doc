@@ -28,6 +28,7 @@ AEK001 cv28 - Talaria TWO End-to-End Setup
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: tunadapter output
 
 5. For serial logging on AEK001 cv28, connect the GPIO from AEK001 cv28
@@ -81,6 +82,7 @@ iii. -r: Remote file
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Starting tunadapter
 
 10. Now use the conmgr command to scan, connect etc.

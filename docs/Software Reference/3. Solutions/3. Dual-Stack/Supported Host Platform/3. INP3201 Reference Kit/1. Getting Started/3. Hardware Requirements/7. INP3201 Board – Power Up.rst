@@ -22,6 +22,7 @@ steps:
 
 |image10|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Console with INP3000 board
 
 6. Connector J8 on INP3201 can also be used for T31 console instead of
@@ -29,6 +30,7 @@ Figure 1: Console with INP3000 board
 
 |image11|
 
+.. rst-class:: imagefiguesclass
 Figure 2: T31 console on J8 connector
 
 Serial port setup for INP3201 T31 console on J9:

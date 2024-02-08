@@ -414,6 +414,7 @@ testing this example.
 
 |image134|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Eddystone URI beacon as seen in BLE Scanner Application
 
 Sample Application 2 – Eddystone UID Application
@@ -629,6 +630,7 @@ testing this example.
 
 |image135|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Eddystone UID beacon as seen in BLE Scanner Application
 
 Sample Application 3 – Eddystone TLM Application
@@ -968,6 +970,7 @@ testing this example:
 
 |image136|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Eddystone TLM beacon as seen in BLE Scanner Application
 
 .. |image134| image:: media/image134.png

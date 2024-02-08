@@ -21,6 +21,7 @@ Configuring the Eclipse Project
 
 |image43|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Select Properties
 
 2. Select Settings under C/C++ build and click on Toolchains. Add the
@@ -31,6 +32,7 @@ Figure 1: Select Properties
 
 |image44|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Settings Window
 
 3. Click on ARM Toolchains Path option available under MCU.
@@ -45,6 +47,7 @@ Figure 2: Settings Window
 
 |image45|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Adding ARM Tool Chain Path
 
 7.  Click on Build Tools Path option available under MCU.
@@ -59,6 +62,7 @@ Figure 3: Adding ARM Tool Chain Path
 
 |image46|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Adding Buildtools Path
 
 11. Click on OpenOCD Path, provide the OpenOCD as the executable.
@@ -71,6 +75,7 @@ Figure 4: Adding Buildtools Path
 
 |image47|
 
+.. rst-class:: imagefiguesclass
 Figure 5: Adding OpenOCD Path
 
 14. Includes directory of the project is added.
@@ -79,6 +84,7 @@ Figure 5: Adding OpenOCD Path
 
 |image48|
 
+.. rst-class:: imagefiguesclass
 Figure 6: Includes directory of the project
 
 Building Application in Eclipse
@@ -90,6 +96,7 @@ Building Application in Eclipse
 
 |image49|
 
+.. rst-class:: imagefiguesclass
 Figure 7: Building the Application
 
 2. On successfully building the application, an out directory containing
@@ -99,6 +106,7 @@ Figure 7: Building the Application
 
 |image50|
 
+.. rst-class:: imagefiguesclass
 Figure 8: Build console
 
 Debug Configuration Set-up in Eclipse
@@ -111,6 +119,7 @@ Debug Configuration Set-up in Eclipse
 
 |image51|
 
+.. rst-class:: imagefiguesclass
 Figure 9: Debug configuration settings
 
 2. Double click on GDB OpenOCD Debugging and the debug configuration of
@@ -121,6 +130,7 @@ Figure 9: Debug configuration settings
 
 |image52|
 
+.. rst-class:: imagefiguesclass
 Figure 10: GDB OpenOCD Debugging settings
 
 3. Under Debugger Settings, select the executable path as an OpenOCD
@@ -130,6 +140,7 @@ Figure 10: GDB OpenOCD Debugging settings
 
 |image53|
 
+.. rst-class:: imagefiguesclass
 Figure 11: Debugger settings – OpenOCD installed path
 
    In Config options, enter the path of configuration files available in
@@ -151,10 +162,9 @@ Figure 11: Debugger settings – OpenOCD installed path
       -s C:/<PATH TO SDK>/sdk_x.y/conf -f ftdi_swd.cfg -f t2_swd.cfg      
 
 
-..
-
 |image54|
 
+.. rst-class:: imagefiguesclass
 Figure 12: Debugger config window for SWD Configuration
 
 4. In GDB client setup, Select the actual executable arm-none-eabi-gdb
@@ -174,6 +184,7 @@ Figure 12: Debugger config window for SWD Configuration
 
 |image55|
 
+.. rst-class:: imagefiguesclass
 Figure 13: Debugger settings
 
 5. Click on Apply.
@@ -189,6 +200,7 @@ Flash on the Download Tool and program the elf onto Talaria TWO again.
 
 |image56|
 
+.. rst-class:: imagefiguesclass
 Figure 14: Download Tool Console
 
 Debugging in Eclipse
@@ -214,6 +226,7 @@ through the code and examining the contents of variables.
 
 |image57|
 
+.. rst-class:: imagefiguesclass
 Figure 15: Debug start-up settings
 
 2. On being prompted to switch to the Debug perspective, click Switch.
@@ -222,6 +235,7 @@ Figure 15: Debug start-up settings
 
 |image58|
 
+.. rst-class:: imagefiguesclass
 Figure 16: Confirm Perspective Switch
 
 3. The Debug perspective appears with the application window open.
@@ -231,6 +245,7 @@ Figure 16: Confirm Perspective Switch
 
 |image59|
 
+.. rst-class:: imagefiguesclass
 Figure 17: Debug perspective
 
 4. Breakpoints can be set by double-clicking to
@@ -242,6 +257,7 @@ Figure 17: Debug perspective
 
 |image60|
 
+.. rst-class:: imagefiguesclass
 Figure 18: Setting breakpoint
 
 5. The execution will stop at the first breakpoint added to the c file.
@@ -261,6 +277,7 @@ Figure 18: Setting breakpoint
 
 |image61|
 
+.. rst-class:: imagefiguesclass
 Figure 19: Step run output in console
 
 .. |image43| image:: media/image43.png

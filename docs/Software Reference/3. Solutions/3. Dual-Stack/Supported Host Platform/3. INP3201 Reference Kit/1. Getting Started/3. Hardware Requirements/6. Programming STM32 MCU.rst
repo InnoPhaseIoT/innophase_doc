@@ -8,6 +8,7 @@ J3:
 
 |image9|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Programming STM32 MCU
 
 The bin file for STM32L010F4P6 is provided as part of the software

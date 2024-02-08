@@ -12,6 +12,7 @@ flow control.
 
 |image137|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Talaria TWO device and HOST device serial communication
 diagram
 
@@ -198,6 +199,7 @@ Power-ON
 
 |image138|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Recommended Talaria TWO protocol for power-ON case
 
 UART APIs
@@ -351,6 +353,7 @@ string.
 
 |image139|
 
+.. rst-class:: imagefiguesclass
 Figure 3: UART - RX Minicom Output
 
 UART-TX
@@ -452,6 +455,7 @@ output string.
 
 |image140|
 
+.. rst-class:: imagefiguesclass
 Figure 4: UART – TX Minicom Output
 
 UART Suspend/Wakeup
@@ -472,10 +476,10 @@ down.
 
 .. code:: shell
 
-          enum uart_link_state {
-          UART_LINK_UP = 0,
-          UART_LINK_DOWN,
-      } link
+    enum uart_link_state {
+    UART_LINK_UP = 0,
+    UART_LINK_DOWN,
+    } link
 
 
 handle_event() handles the UART events and checks if the type is
@@ -824,6 +828,7 @@ using the required wires and breadboard as shown in Figure 5.
 
 |image141|
 
+.. rst-class:: imagefiguesclass
 Figure 5: UART suspend/wakeup - hardware connection
 
 .. _running-the-application-2:
@@ -952,6 +957,7 @@ To wake up Talaria TWO from sleep and re-enable the UART interface,
 
 |image142|
 
+.. rst-class:: imagefiguesclass
 Figure 6: UART suspend/wakeup - Wakeup from UART_BREAK
 
 uart_wakeup example follows the subsequent protocol:
@@ -983,6 +989,7 @@ c. Talaria TWO optionally waits (~10 ms) for more incoming packets.
 
 |image143|
 
+.. rst-class:: imagefiguesclass
 Figure 7: Wakeup from UART_BREAK and IPC communication with HOST
 
 .. |image137| image:: media/image137.png

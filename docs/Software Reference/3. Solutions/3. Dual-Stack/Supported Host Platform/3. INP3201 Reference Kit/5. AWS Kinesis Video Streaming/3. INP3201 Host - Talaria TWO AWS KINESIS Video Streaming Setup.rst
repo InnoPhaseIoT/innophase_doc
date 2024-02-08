@@ -31,6 +31,7 @@ web connection/browser at a given time.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Start tunadapter
 
 3. Connect Talaria TWO to an Access Point. This can be achieved using
@@ -61,6 +62,7 @@ Figure 1: Start tunadapter
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Enabling Wi-Fi provisioning over BLE
 
    **Note**: <device_name> will be visible in the BLE scan list on the
@@ -86,6 +88,7 @@ c. **Alternate method**: Pass the SSID and passphrase of the appropriate
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Connect to AP
 
 4. Run the NTP service from T31z host:
@@ -97,6 +100,7 @@ Figure 3: Connect to AP
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Run NTP service
 
 5. To start the video streaming, insert kernel modules and start RTSP
@@ -112,6 +116,7 @@ Figure 4: Run NTP service
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 5: Insert ko modules
 
 6. The following script configures the AWS access key, secret access
@@ -119,6 +124,7 @@ Figure 5: Insert ko modules
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 6: Start kinesis video streaming
 
    **Note**: For information on creating the AWS security credentials
@@ -251,6 +257,7 @@ b. Initiate Host shutdown:
 
    |image7|
 
+.. rst-class:: imagefiguesclass
 Figure 7: Script to configure AWS access parameters
 
 **Note**: For information on creating the AWS security credentials

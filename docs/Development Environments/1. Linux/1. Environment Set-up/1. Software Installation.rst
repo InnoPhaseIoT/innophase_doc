@@ -14,6 +14,7 @@ Navigate to https://www.osboxes.org/ubuntu/ and download the Ubuntu
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Ubuntu VirtualBox image
 
 Installing 7-Zip
@@ -28,6 +29,7 @@ Navigate to https://www.7-zip.org/ and download the 7-Zip installer:
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: 7-Zip installer download
 
 Run the downloaded .exe and follow the prompts to install 7-Zip.
@@ -40,6 +42,7 @@ downloads within Windows Explorer and select 7-Zip –> Extract Files:
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3:To extract the vdi files
 
 Create a path in the D drive to store the VDI file and add the path from
@@ -48,6 +51,7 @@ D:\\Innophase\\VirtualBox VMs
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Extracting the Ubuntu VirtualBox image to D drive path
 
 This will create a folder containing Ubuntu 20.04 (64bit), the Ubuntu
@@ -55,6 +59,7 @@ This will create a folder containing Ubuntu 20.04 (64bit), the Ubuntu
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 5: Extracted VDI file
 
 Installing VirtualBox
@@ -67,6 +72,7 @@ Installing VirtualBox
 
    |image7|
 
+.. rst-class:: imagefiguesclass
 Figure 6: VirtualBox binary download
 
 2. Run the downloaded.exe and follow the prompts to install VirtualBox.
@@ -76,6 +82,7 @@ Figure 6: VirtualBox binary download
 
    |image8|
 
+.. rst-class:: imagefiguesclass
 Figure 7: Leave VirtualBox USB Support enabled
 
 3. Follow the rest of the prompts to complete installation.
@@ -90,6 +97,7 @@ Setting up the Virtual Machine
 
    |image9|
 
+.. rst-class:: imagefiguesclass
 Figure 8: The VirtualBox Manager
 
 2. Give the virtual machine a descriptive name, for example, Ubuntu
@@ -100,6 +108,7 @@ Figure 8: The VirtualBox Manager
 
    |image10|
 
+.. rst-class:: imagefiguesclass
 Figure 9: Creating a new virtual machine
 
 3. You will now be prompted to allocate memory to the virtual machine.
@@ -109,6 +118,7 @@ Figure 9: Creating a new virtual machine
 
    |image11|
 
+.. rst-class:: imagefiguesclass
 Figure 10: Virtual machine memory allocation
 
 4. Before proceeding with virtual machine creation, see if the Ubuntu
@@ -132,12 +142,14 @@ drive.
 
    |image12|
 
+.. rst-class:: imagefiguesclass
 Figure 11: Virtual machine hard disk selection
 
 6. In the dialog that appears, click the Add button.
 
 |image13|
 
+.. rst-class:: imagefiguesclass
 Figure 12: Adding an existing virtual hard disk
 
 7. Navigate to the VDI file you just moved and select it.
@@ -146,6 +158,7 @@ Figure 12: Adding an existing virtual hard disk
 
    |image14|
 
+.. rst-class:: imagefiguesclass
 Figure 13: Selecting the existing virtual hard disk
 
 8. Accept this virtual hard disk as the disk for the virtual machine in
@@ -157,6 +170,7 @@ Figure 13: Selecting the existing virtual hard disk
 
 |image15|
 
+.. rst-class:: imagefiguesclass
 Figure 14: Press the Start button to start the virtual machine
 
 10. The virtual machine should now start. If it does not, you may be
@@ -165,6 +179,7 @@ Figure 14: Press the Start button to start the virtual machine
 
 |image16|
 
+.. rst-class:: imagefiguesclass
 Figure 15: Error message reporting that VT-x is disabled
 
 11. Hardware virtualization (VT-x / AMD-V) is required to run a 64-bit
@@ -194,6 +209,7 @@ Installing Guest Additions
 
    |image17|
 
+.. rst-class:: imagefiguesclass
 Figure 16: Inserting the guest additions CD
 
 When prompted, select Run to run the software from the Guest Additions
@@ -212,6 +228,7 @@ virtual machine.
 
    |image18|
 
+.. rst-class:: imagefiguesclass
 Figure 17: Virtual machine shared clipboard
 
 It will now be possible to copy and paste text between the host
@@ -226,6 +243,7 @@ Opening a Terminal
 
 |image19|
 
+.. rst-class:: imagefiguesclass
 Figure 18: Opening a terminal in Ubuntu
 
 This will open a terminal window in that directory in which commands can
@@ -233,6 +251,7 @@ be typed.
 
    |image20|
 
+.. rst-class:: imagefiguesclass
 Figure 19: A terminal window
 
 Installing Necessary Packages
@@ -359,7 +378,8 @@ Connecting the EVK board
 
    |image21|
 
-   Figure 20: Transferring port access rights to the Ubuntu virtual
+.. rst-class:: imagefiguesclass
+Figure 20: Transferring port access rights to the Ubuntu virtual
    machine
 
 2. In any terminal window, execute the following commands to ensure
@@ -374,6 +394,7 @@ The following USB device should be listed in the output:
 
    |Text Description automatically generated|
 
+.. rst-class:: imagefiguesclass
 Figure 21: Verifying that Ubuntu recognizes the EVK board
 
 To ensure atleast four USB serial devices are listed, execute the
@@ -388,6 +409,7 @@ At least four USB serial devices should be listed:
 
    |image22|
 
+.. rst-class:: imagefiguesclass
 Figure 22: USB serial devices
 
 **Note:** This output should contain 4 entries. In some cases, the
@@ -411,6 +433,7 @@ The connection should be established without errors.
 
 |image23|
 
+.. rst-class:: imagefiguesclass
 Figure 23: Establishment of a CONSOLE to the T2
 
 Hardware setup is now complete.
@@ -439,6 +462,7 @@ Expected output:
 
 |image24|
 
+.. rst-class:: imagefiguesclass
 Figure 24: Load the flash helper
 
 **Invalidate the boot image**:
@@ -452,6 +476,7 @@ Expected output:
 
 |image25|
 
+.. rst-class:: imagefiguesclass
 Figure 25: Invalidate the boot image
 
 **Clear the flash**:
@@ -465,6 +490,7 @@ Expected output:
 
 |image26|
 
+.. rst-class:: imagefiguesclass
 Figure 26: Clear flash
 
 **Program the application**:
@@ -478,6 +504,7 @@ Expected output:
 
 |image27|
 
+.. rst-class:: imagefiguesclass
 Figure 27: Program the application
 
 **Note**:
@@ -498,13 +525,15 @@ Expected output:
 
 |image28|
 
+.. rst-class:: imagefiguesclass
 Figure 28: Downloading the Serial to Wi-Fi application
 
 Console output:
 
 |image29|
 
-   Figure 29: CONSOLE output when downloading the Serial to Wi-Fi
+.. rst-class:: imagefiguesclass
+Figure 29: CONSOLE output when downloading the Serial to Wi-Fi
    application
 
 2. From within your terminal window, start the host side script to
@@ -522,6 +551,7 @@ Console output:
 
    |image30|
 
+.. rst-class:: imagefiguesclass
 Figure 30: Execution of the CLI application on the host
 
 Console output:
@@ -530,6 +560,7 @@ Console output:
 
    |image31|
 
+.. rst-class:: imagefiguesclass
 Figure 31: CONSOLE output when executing the "create" command
 
 A Wi-Fi interface has been created. Now, other commands available in the

@@ -21,6 +21,7 @@ Configuring the Eclipse Project
 
 |image35|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Select Properties
 
 2. Select Settings under C/C++ build and click on Toolchains. Add the
@@ -31,6 +32,7 @@ Figure 1: Select Properties
 
    |image36|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Include toolchain properties
 
 3. Click on OpenOCD Path, provide the OpenOCD as the executable, click
@@ -40,6 +42,7 @@ Figure 2: Include toolchain properties
 
    |image37|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Add OpenOCD path
 
 Building Application in Eclipse
@@ -51,6 +54,7 @@ Building Application in Eclipse
 
    |image38|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Building the Application
 
 2. On successfully building the application, an out directory containing
@@ -60,6 +64,7 @@ Figure 4: Building the Application
 
    |image39|
 
+.. rst-class:: imagefiguesclass
 Figure 5: Build Console
 
 Debug Configuration Setting up in Eclipse
@@ -72,6 +77,7 @@ Debug Configuration Setting up in Eclipse
 
    |image40|
 
+.. rst-class:: imagefiguesclass
 Figure 6: Selecting debug configuration
 
 2. Double click on GDB OpenOCD Debugging and the debug configuration of
@@ -83,6 +89,7 @@ Figure 6: Selecting debug configuration
 
    |image41|
 
+.. rst-class:: imagefiguesclass
 Figure 7: Changing debug configuration
 
 3. Under Debugger Settings, select the executable path as an OpenOCD
@@ -92,6 +99,7 @@ Figure 7: Changing debug configuration
 
    |image42|
 
+.. rst-class:: imagefiguesclass
 Figure 8: Debugger config window
 
    In Config options, enter the path of configuration files available in
@@ -116,6 +124,7 @@ Figure 8: Debugger config window
 
    |image43|
 
+.. rst-class:: imagefiguesclass
 Figure 9: Debugger config window for SWD Configuration
 
 4. In GDB client setup, select the variable and select the project_loc.
@@ -127,6 +136,7 @@ Figure 9: Debugger config window for SWD Configuration
 
    |image44|
 
+.. rst-class:: imagefiguesclass
 Figure 10: Selecting the variable
 
    Using project_path variable, locate the gdb-multiarch for the GDB
@@ -153,6 +163,7 @@ shown in Figure 11.
 
 |image45|
 
+.. rst-class:: imagefiguesclass
 Figure 11: Download Tool Console
 
 Debugging in Eclipse
@@ -178,6 +189,7 @@ and examining the contents of variables.
 
    |image46|
 
+.. rst-class:: imagefiguesclass
 Figure 12: Debug startup window
 
 2. On being prompted to switch to the Debug perspective, click Switch.
@@ -186,6 +198,7 @@ Figure 12: Debug startup window
 
    |image47|
 
+.. rst-class:: imagefiguesclass
 Figure 13: Confirm Perspective Switch
 
 3. The Debug perspective appears with the iperf3.elf application window
@@ -195,6 +208,7 @@ Figure 13: Confirm Perspective Switch
 
    |image48|
 
+.. rst-class:: imagefiguesclass
 Figure 14: GDB OpenOCD Debugging – Start-up
 
 4. Break Points:
@@ -203,6 +217,7 @@ Figure 14: GDB OpenOCD Debugging – Start-up
 
 |image49|
 
+.. rst-class:: imagefiguesclass
 Figure 15: Setting breakpoints
 
 5. Execution will stop at the first breakpoint added to the c file. As
@@ -222,6 +237,7 @@ Figure 15: Setting breakpoints
 
    |image50|
 
+.. rst-class:: imagefiguesclass
 Figure :16 Application prints in the Download Tool console
 
 .. |image35| image:: media/image35.png

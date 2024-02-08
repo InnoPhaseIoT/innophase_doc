@@ -45,6 +45,7 @@ message as shown in Figure 1 is printed on the console.
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Signature failed window
 
 The Talaria TWO evaluation board uses FT4323h, which is a 4-port USB to
@@ -109,6 +110,7 @@ complete the driver installation (as shown in Figure 4).
 
    |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Update device driver for Talaria TWO Evaluation Board
 
 b. No device found: Manually install the driver using instructions from
@@ -119,6 +121,7 @@ b. No device found: Manually install the driver using instructions from
 
  |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Talaria TWO Evaluation board under "libusbk USB Devices”
 driver
 
@@ -130,6 +133,7 @@ driver
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 4: User Account Control authentication to complete driver
 installation
 
@@ -152,6 +156,7 @@ Image 6: Pop-up message, in case of user chooses No.
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 5: User Account Control authentication to delete unwanted libusbk
 drivers
 

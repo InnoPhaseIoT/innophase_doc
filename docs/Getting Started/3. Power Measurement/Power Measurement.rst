@@ -12,6 +12,7 @@ Arc.
 
 |image1| 
 
+.. rst-class:: imagefiguesclass
 Figure 1: Current measurement setup using Otti Arc
 
 Using Battery as Power Source
@@ -22,6 +23,7 @@ connection.
 
 |image2| 
 
+.. rst-class:: imagefiguesclass
 Figure 2: J10 Battery connection
 
 **Note**: When using a battery as a power source there will be an

@@ -8,6 +8,7 @@ appear. Select a workspace directory and click on Launch.
 
 |image34|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Selecting a workspace directory
 
 It is recommended to create a unique workspace that will be used

@@ -11,6 +11,7 @@ FTDI InnoPhase T2 Evaluation Board [0800] as shown in Figure 1.
 
 |image33|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Transferring port access rights to Ubuntu virtual machine
 
 .. |image33| image:: media/image33.png

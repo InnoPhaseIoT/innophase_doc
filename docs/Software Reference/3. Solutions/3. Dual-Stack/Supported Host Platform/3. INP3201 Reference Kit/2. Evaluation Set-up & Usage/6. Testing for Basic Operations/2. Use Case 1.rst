@@ -43,30 +43,35 @@ Console outputs:
 
 |image1|
 
+.. rst-class:: imagefiguesclasse
 Figure 1: ./conmgr scan – output
 
 2. ./conmgr connect innotest 123456789
 
 |image2|
 
+.. rst-class:: imagefiguesclasse
 Figure 2: ./conmgr connect - output
 
 3. ./conmgr ip
 
 |image3|
 
+.. rst-class:: imagefiguesclasse
 Figure 3: ./conmgr ip – output
 
 4. ./conmgr status
 
 |image4|
 
+.. rst-class:: imagefiguesclasse
 Figure 4: ./conmgr status – output
 
 5. ./conmgr disconnect
 
 |image5|
 
+.. rst-class:: imagefiguesclasse
 Figure 5: ./conmgr disconnect – output
 
 .. |image1| image:: media/image1.png

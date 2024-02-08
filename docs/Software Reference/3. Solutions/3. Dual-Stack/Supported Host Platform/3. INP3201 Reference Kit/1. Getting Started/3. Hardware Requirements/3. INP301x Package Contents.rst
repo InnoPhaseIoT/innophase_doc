@@ -15,6 +15,7 @@ INP3201 Package Contents
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: INP301x package contents
 
 .. |image1| image:: media/image1.png

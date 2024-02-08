@@ -15,6 +15,7 @@ Eclipse IDE Version: 2021-12 (4.22). However, Eclipse IDE Version of
 
 |image10|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Windows-Eclipse IDE installer
 
 .. |image10| image:: media/image10.png

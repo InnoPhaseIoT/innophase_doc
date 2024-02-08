@@ -35,6 +35,7 @@ argument in Talaria TWO during firmware ELF programming:
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: SPI interface for host communication
 
 2. With SDIO interface, Talaria TWO module runs as SDIO device with the
@@ -42,24 +43,26 @@ Figure 1: SPI interface for host communication
    Talaria TWO module are fixed. Table 2 provides the details:
 
 .. table:: Table 2: SDIO interface - PIN details
-+-----------------------+-----------------------+-----------------------+
-| **PIN NUMBER@T2**     | **PIN NAME@T2**       | **PINAME@HOST**       |
-+=======================+=======================+=======================+
-| GPIO_1                | CMD                   | SD-CMD                |
-+-----------------------+-----------------------+-----------------------+
-| GPIO_2                | DATA0                 | SD-DATA0              |
-+-----------------------+-----------------------+-----------------------+
-| GPIO_3                | DATA1                 | SD-DATA1              |
-+-----------------------+-----------------------+-----------------------+
-| GPIO_0                | SD_CLK                | SDIO_CLK              |
-+-----------------------+-----------------------+-----------------------+
-| GPIO_4                | DATA2                 | SD-DATA2              |
-+-----------------------+-----------------------+-----------------------+
-| GPIO_5                | DATA3                 | SD-DATA3              |
-+-----------------------+-----------------------+-----------------------+
+
+    +-----------------------+-----------------------+-----------------------+
+    | **PIN NUMBER@T2**     | **PIN NAME@T2**       | **PINAME@HOST**       |
+    +=======================+=======================+=======================+
+    | GPIO_1                | CMD                | SD-CMD                |
+    +-----------------------+-----------------------+-----------------------+
+    | GPIO_2                | DATA0              | SD-DATA0              |
+    +-----------------------+-----------------------+-----------------------+
+    | GPIO_3                | DATA1                 | SD-DATA1              |
+    +-----------------------+-----------------------+-----------------------+
+    | GPIO_0                | SD_CLK             | SDIO_CLK              |
+    +-----------------------+-----------------------+-----------------------+
+    | GPIO_4                | DATA2                 | SD-DATA2              |
+    +-----------------------+-----------------------+-----------------------+
+    | GPIO_5                | DATA3                 | SD-DATA3              |
+    +-----------------------+-----------------------+-----------------------+
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: SDIO interface for Host communication
 
 3. Two additional GPIOs are required for the following functionalities:

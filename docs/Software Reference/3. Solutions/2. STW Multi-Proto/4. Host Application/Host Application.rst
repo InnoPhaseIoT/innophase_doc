@@ -31,6 +31,7 @@ Talaria TWO.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Talaria TWO HAPI SW Stack
 
 The host application follows a protocol to exchange the commands/data
@@ -59,6 +60,7 @@ generate a frame in the following format:
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Frame format of a request packet
 
 Each frame will contain the following fields.

@@ -168,6 +168,7 @@ and reset the EVB:
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Miniterm console output
 
 Reset the board either by giving the following command or by pressing

@@ -179,6 +179,7 @@ application is illustrated in Figure 1.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Exchange of request-response packets between Host and Talaria
 TWO
 
@@ -191,6 +192,7 @@ period of about 100 ms and then high for a period of about 100 ms.
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Talaria TWO reset sequence block diagram
 
 Code Walkthrough
@@ -513,6 +515,7 @@ Talaria TWO is ready. The packet contains the following fields:
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Packet contents
 
 The host sends a message: “Hello from host”.

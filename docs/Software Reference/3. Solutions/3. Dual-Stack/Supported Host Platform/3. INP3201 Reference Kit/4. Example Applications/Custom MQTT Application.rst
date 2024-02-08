@@ -119,6 +119,7 @@ Host Console Logs
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 1: custom_mqtt - Host console logs
 
 .. code:: shell

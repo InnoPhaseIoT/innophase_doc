@@ -363,6 +363,7 @@ discovery:
 
 |image163|
 
+.. rst-class:: imagefiguesclass
 Figure 1: mDNS Discovery app
 
 2. Add the service type i.e., HTTP in the search option, enable TCP
@@ -370,6 +371,7 @@ Figure 1: mDNS Discovery app
 
 |image164|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Add service type
 
 3. Now the announced service from Talaria TWO can be found as shown in
@@ -379,6 +381,7 @@ Figure 2: Add service type
 
 |image165|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Discovered service
 
 **Option 2**: Command line on Windows OS
@@ -395,6 +398,7 @@ https://hobbyistsoftware.com/bonjourbrowser.
 
 |image166|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Service discovery from Windows command line
 
 **Option 3**: User can also use two Talaria TWO modules: One for service

@@ -45,30 +45,35 @@ Console outputs:
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: ./conmgr scan – output
 
 2. ./conmgr connect innotest 123456789
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: ./conmgr connect - output
 
 3. ./conmgr ip
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3: ./conmgr ip – output
 
 4. ./conmgr status
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 4: ./conmgr status – output
 
 5. ./conmgr disconnect
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 5: ./conmgr disconnect – output
 
 Use Case 2: Performance Test using iPerf Application
@@ -113,12 +118,14 @@ Console outputs:
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 6: ./conmgr connect - output
 
 2. ./conmgr status
 
 |image7|
 
+.. rst-class:: imagefiguesclass
 Figure 7: ./conmgr status – output
 
 **Step 2**: From the Linux host machine, start the UDP client using the
@@ -134,6 +141,7 @@ Output:
 
 |image8|
 
+.. rst-class:: imagefiguesclass
 Figure 8: Starting UDP Client
 
 .. |image1| image:: media/image1.png

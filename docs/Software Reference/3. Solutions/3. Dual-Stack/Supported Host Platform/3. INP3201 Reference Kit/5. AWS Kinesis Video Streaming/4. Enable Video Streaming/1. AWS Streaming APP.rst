@@ -21,6 +21,7 @@ section: `Create AWS Security Credentials <#_Create_AWS_Security>`__.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: AWS_Streaming APP
 
 3. Enter the AWS credentials in the mobile app.
@@ -30,6 +31,7 @@ drop-down. Enter the Talaria TWO MAC ID in the device Mac field.
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Enter AWS credentials
 
 4. On providing the AWS credentials, the video streaming channel appears
@@ -38,10 +40,12 @@ Figure 2: Enter AWS credentials
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3: AWS_Streaming APP - T2_VIDEO
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 4: AWS_Streaming app- video streaming
 
 .. |image1| image:: media/image1.png

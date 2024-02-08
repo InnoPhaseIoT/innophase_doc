@@ -16,8 +16,7 @@ are shown in Table 1. Depending on the user’s choice of the scanning
 scheme, respective default values will be set to corresponding
 parameters.
 
-.. table:: Table 1: Default values for Standard Wi-Fi and Low-Power
-Wi-Fi Scan
+.. table:: Table 1: Default values for Standard Wi-Fi and Low-Power Wi-Fi Scan
 
    +---------------------+---------------+---------------+---------------+
    | **Default Value**   |               |               |               |
@@ -104,6 +103,7 @@ networks are identified and displayed.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Case 1 - Standard scan - Otti log
 
 Case 2: Low Power Wi-Fi Smart Scan

@@ -542,6 +542,7 @@ application connects to URL, performs HTTPs Get and hexdumps the page.
 
 |image10|
 
+.. rst-class:: imagefiguesclass
 Figure 10: HTTPS - Wireshark log
 
 **Otii log**: Shows an average current consumption of 640µA for 30s. In
@@ -549,6 +550,7 @@ idle cases, the average current consumption is 58.1µA.
 
 |image11|
 
+.. rst-class:: imagefiguesclass
 Figure 11: HTTPS - Otii log
 
 Console output:
@@ -927,6 +929,7 @@ Console output:
 
 |image12|
 
+.. rst-class:: imagefiguesclass
 Figure 12: MQTT connection flow - Wireshark log
 
 2. The Connect command is sent from Talaria TWO to MQTT broker,
@@ -935,6 +938,7 @@ Figure 12: MQTT connection flow - Wireshark log
 
 |image13|
 
+.. rst-class:: imagefiguesclass
 Figure 13: MQTT connection packet - Wireshark log
 
 3. SUBMSG1 and SUBMSG2 are the two configured topic to subscribe,
@@ -943,6 +947,7 @@ Figure 13: MQTT connection packet - Wireshark log
 
 |image14|
 
+.. rst-class:: imagefiguesclass
 Figure 14: MQTT subscribe package - Wireshark log
 
 4. Publish message is observed from Talaria TWO for the configured
@@ -950,6 +955,7 @@ Figure 14: MQTT subscribe package - Wireshark log
 
 |image15|
 
+.. rst-class:: imagefiguesclass
 Figure 15: MQTT publish packet - Wireshark log
 
 5. At configured interval of seconds (60s) a ping request and response
@@ -957,12 +963,14 @@ Figure 15: MQTT publish packet - Wireshark log
 
 |image16|
 
+.. rst-class:: imagefiguesclass
 Figure 16: MQTT ping - Wireshark log
 
 6. Data is sent from MQTT broker to Talaria TWO with the subscribed
    topic SUBMSG1.
 
 |image17|
+.. rst-class:: imagefiguesclass
 
 Figure 17: MQTT subscribe packet - Wireshark log
 
@@ -976,6 +984,7 @@ MQTT subscribe. In idle cases, the average current consumption is
 
 |image18|
 
+.. rst-class:: imagefiguesclass
 Figure 18: MQTT subscribe - Otii log
 
 **Case 2**: Shows an average current consumption of 173µA for 30s for
@@ -983,6 +992,7 @@ MQTT publish. In idle cases, the average current consumption is 59.3µA.
 
 |image19|
 
+.. rst-class:: imagefiguesclass
 Figure 19: MQTT publish - Otii log
 
 Multicast Reception OFF GRAT ARP ON
@@ -1060,6 +1070,7 @@ Windows console output:
 
 |image20|
 
+.. rst-class:: imagefiguesclass
 Figure 20: Multicast Reception OFF GRAT ARP ON - Wireshark log
 
 **Multicast OFF**:
@@ -1069,6 +1080,7 @@ if the Multicast flag is set to false as shown in Figure 21.
 
 |image21|
 
+.. rst-class:: imagefiguesclass
 Figure 21: Multicast Reception OFF GRAT ARP ON - Multicast disabled
 Wireshark log
 
@@ -1077,6 +1089,7 @@ idle cases, the average current consumption is 58.5µA.
 
 |image22|
 
+.. rst-class:: imagefiguesclass
 Figure 22: Multicast Reception OFF GRAT ARP ON - Otii log
 
 .. |image1| image:: media/image1.png

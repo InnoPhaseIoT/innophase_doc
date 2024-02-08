@@ -62,6 +62,7 @@ function calls necessary.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Editing the Makefile
 
 **Note**: For Windows OS users navigate till SDK conf folder, open file

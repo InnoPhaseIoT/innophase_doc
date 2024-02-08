@@ -8,6 +8,7 @@ appear.
 
 |image14|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Workspace directory
 
 Select a workspace directory and click on Launch.

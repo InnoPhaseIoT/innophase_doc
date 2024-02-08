@@ -10,6 +10,7 @@ Path -> Edit -> New.
 
 |image9|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Adding environment variables
 
 Add the tool chain and build tools path to the environment variable

@@ -13,6 +13,7 @@ Topology
 
 |image161|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Topology
 
 Wi-Fi Unassociated Mode Functionalities
@@ -442,6 +443,7 @@ configured SSID for interval of 1500ms.
 
 |image162|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Probe requests sent to configured SSID – Wireshark output
 
 .. |image161| image:: media/image161.png

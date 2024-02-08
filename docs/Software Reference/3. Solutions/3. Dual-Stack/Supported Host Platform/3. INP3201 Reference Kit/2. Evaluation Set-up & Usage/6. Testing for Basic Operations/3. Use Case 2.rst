@@ -42,12 +42,14 @@ Console outputs:
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 1: ./conmgr connect - output
 
 2. ./conmgr status
 
 |image7|
 
+.. rst-class:: imagefiguesclass
 Figure 2: ./conmgr status – output
 
 **Step 2**: From the Linux host machine, start the UDP client using the
@@ -63,6 +65,7 @@ Output:
 
 |image8|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Starting UDP Client
 
 .. |image6| image:: media/image6.png

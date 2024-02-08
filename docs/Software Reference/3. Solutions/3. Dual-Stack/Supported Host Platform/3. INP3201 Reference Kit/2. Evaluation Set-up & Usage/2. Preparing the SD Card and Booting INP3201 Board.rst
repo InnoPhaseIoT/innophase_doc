@@ -35,6 +35,7 @@ for the very first time.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Create a new FAT partition
 
 3. Create FAT filesystem on this new partition
@@ -46,6 +47,7 @@ Figure 1: Create a new FAT partition
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Create FAT filesystem
 
 4. Copy the pre-built MMC u-boot image given in the T31ZX SDK to SDCARD
@@ -58,6 +60,7 @@ SDK u-boot path: *T31ZX_files/T31ZX-Battery-Camera/NDA/SDK/firmware/sdcard_uboot
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Pre-build MMC u-boot image
 
 5. Insert the SD card into the SD card slot of INP3201. Power ON the

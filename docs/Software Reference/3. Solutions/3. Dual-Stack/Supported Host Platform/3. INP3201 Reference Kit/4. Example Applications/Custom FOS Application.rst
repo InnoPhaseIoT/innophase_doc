@@ -58,6 +58,7 @@ Host Console Logs
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 1: custom_fos - host console logs
 
 Host serial log – text output:

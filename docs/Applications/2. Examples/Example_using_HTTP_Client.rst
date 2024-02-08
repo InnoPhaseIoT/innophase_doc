@@ -44,8 +44,8 @@ This is performed using the following API:
 
 .. code:: shell
 
-      http_client_handle_t
-      http_client_open(http_client_config_t *cfg)
+    http_client_handle_t
+    http_client_open(http_client_config_t *cfg)
 
 
 This API connects to the remote HTTP server. The configuration needed

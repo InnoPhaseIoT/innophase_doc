@@ -17,6 +17,7 @@ Eclipse IDE Version: 2021-09 (4.25). However, Eclipse IDE Version of
 
 |image28|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Download Eclipse Installer
 
 .. |image28| image:: media/image28.png

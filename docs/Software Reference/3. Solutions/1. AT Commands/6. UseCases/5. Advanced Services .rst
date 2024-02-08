@@ -147,6 +147,7 @@ AT Command Sequence
 
 |image94|
 
+.. rst-class:: imagefiguesclass
 Figure 1: BLE Provisioning- serial log
 
 **Step 2**: Launch BLE Scanner app from the Android device and connect
@@ -154,6 +155,7 @@ to Talaria TWO GATT Server with the BLE name: InnoPhase_Prov.
 
 |image95|
 
+.. rst-class:: imagefiguesclass
 Figure 2: InnoPhase_Prov-GATT server
 
 **Step 3**: Once the BLE connection is established successfully, send
@@ -162,6 +164,7 @@ and passphrase of the network.
 
 |image96|
 
+.. rst-class:: imagefiguesclass
 Figure 3: BLE write to add the SSID and Passphrase
 
 Data received from the BLE central app on Talaria TWO. Send an
@@ -174,6 +177,7 @@ command on serial terminal:
 
 |image97|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Acknowledgment of Write request
 
 **Step 4**: Connect to the network with SSID=IP and
@@ -187,6 +191,7 @@ Passphrase=Inno@9070.
 
 |image98|
 
+.. rst-class:: imagefiguesclass
 Figure 5: WLAN connection
 
 Secure BLE Provisioning Passkey method
@@ -361,6 +366,7 @@ Procedure
 
 |image99|
 
+.. rst-class:: imagefiguesclass
 Figure 6: BLE Provisioning- serial log
 
 **Step 2**: Launch nRF Connect app from the iOS device and scan. Talaria
@@ -369,6 +375,7 @@ connect.
 
 |image100|
 
+.. rst-class:: imagefiguesclass
 Figure 7: innophase-GATT server
 
 The passkey for pairing will be generated and shown on the AT command
@@ -376,6 +383,7 @@ line.
 
 |image101|
 
+.. rst-class:: imagefiguesclass
 Figure 8: Randomly generated 6-digit Passkey
 
 **Step 3**: Add the 6-digit passkey “707476” to the app and click on
@@ -383,6 +391,7 @@ Pair. Now the BLE GATT connection is created.
 
 |image102|
 
+.. rst-class:: imagefiguesclass
 Figure 9: Pairing request
 
 **Step 4:** Once the BLE connection is established successfully, send
@@ -391,6 +400,7 @@ and passphrase of the network.
 
 |image103|
 
+.. rst-class:: imagefiguesclass
 Figure 10: BLE write to add the SSID and Passphrase
 
 An asynchronous message on Talaria TWO will be displayed for the Write
@@ -398,6 +408,7 @@ Request sent from the BLE central app.
 
 |image104|
 
+.. rst-class:: imagefiguesclass
 Figure 11: Async data reception from mobile app
 
 Send an acknowledgment of the write request from Talaria TWO using
@@ -409,6 +420,7 @@ following command:
 
 |image105|
 
+.. rst-class:: imagefiguesclass
 Figure 12: Acknowledgment of Write request
 
 **Step 4**: Connect to the network with SSID= InnoPhase_AE and
@@ -420,6 +432,7 @@ Passphrase= Inno@1234.
 
 |image106|
 
+.. rst-class:: imagefiguesclass
 Figure 13: WLAN connection
 
 Secure BLE Provisioning Just Works Method
@@ -585,6 +598,7 @@ following commands:
 
 |image107|
 
+.. rst-class:: imagefiguesclass
 Figure 14: BLE Peripheral- serial log
 
 **Step 2**: Configure the second Talaria TWO board as BLE central. Scan
@@ -611,6 +625,7 @@ using at+blecharw command.
 
 |image108|
 
+.. rst-class:: imagefiguesclass
 Figure 15: BLE central- serial log
 
 For the data received from the BLE central device, Send an
@@ -622,6 +637,7 @@ acknowledgment of the write request from peripheral.
 
 |image109|
 
+.. rst-class:: imagefiguesclass
 Figure 16: Acknowledgement of Write request
 
 **Step 4**: Issue at+wcon command to connect to an AP with SSID
@@ -633,6 +649,7 @@ Figure 16: Acknowledgement of Write request
 
 |image110|
 
+.. rst-class:: imagefiguesclass
 Figure 17: WLAN connection
 
 FOTA
@@ -719,6 +736,7 @@ generate the hash value:
 
 |image111|
 
+.. rst-class:: imagefiguesclass
 Figure 18: Generate the hash value
 
 **Modification of fota_config.json file**:
@@ -794,6 +812,7 @@ Change the following fields in the fota_config.json
 
 |image112|
 
+.. rst-class:: imagefiguesclass
 Figure 19: Apache server setup link
 
 c. Place the modified fota_config.json and t2_atcmds.elf under the
@@ -806,7 +825,8 @@ c. Place the modified fota_config.json and t2_atcmds.elf under the
 
    |image113|
 
-   Figure 20: Folder to add the JSON and elf file
+.. rst-class:: imagefiguesclass
+Figure 20: Folder to add the JSON and elf file
 
    **Note**: If using hash to verify the image integrity, ensure to
    place the same t2_atcmds.elf in *\\Apache24\\htdocs\\FOTA* folder for
@@ -821,7 +841,8 @@ c. Place the modified fota_config.json and t2_atcmds.elf under the
 
    |image114|
 
-   Figure 21: HTTP File Server setup link
+.. rst-class:: imagefiguesclass
+Figure 21: HTTP File Server setup link
 
 b. Open the HFS tool and create a folder (for example: FOTA) and to
    this, copy the modified fota_config.json and t2_atcmds.elf. Same path
@@ -831,7 +852,8 @@ b. Open the HFS tool and create a folder (for example: FOTA) and to
 
    |image115|
 
-   Figure 22: Folder to add the JSON and elf file
+.. rst-class:: imagefiguesclass
+Figure 22: Folder to add the JSON and elf file
 
 c. Check the server accessibility by sending HTTP GET from the browser
    as shown:
@@ -845,7 +867,8 @@ c. Check the server accessibility by sending HTTP GET from the browser
 
    |image116|
 
-   Figure 23: HTTP get from browser to verify server accessibility
+.. rst-class:: imagefiguesclass
+Figure 23: HTTP get from browser to verify server accessibility
 
 **Programming and running the application**:
 
@@ -860,10 +883,12 @@ c. Check the server accessibility by sending HTTP GET from the browser
 
 |image117|
 
+.. rst-class:: imagefiguesclass
 Figure 24: Generated root image
 
 |image118|
 
+.. rst-class:: imagefiguesclass
 Figure 25: Flashing the AT command ELF
 
 2. In any terminal window, open miniterm at baud rate of 2457600 to view
@@ -876,6 +901,7 @@ Figure 25: Flashing the AT command ELF
 
 |image119|
 
+.. rst-class:: imagefiguesclass
 Figure 26: Miniterm console
 
 **Note:** After programming Talaria TWO, it is recommended to reset the
@@ -888,6 +914,7 @@ the reset button on the EVB.
 
 |image120|
 
+.. rst-class:: imagefiguesclass
 Figure 27: Talaria TWO reset – console
 
 3. The module boots up with the programmed at command ELF. Issue the
@@ -931,13 +958,15 @@ d. Transfer the updated config file from minicom.
 
    |image121|
 
-   Figure 28: Updated file received - Talaria TWO console
+.. rst-class:: imagefiguesclass
+Figure 28: Updated file received - Talaria TWO console
 
 Serial Log
 ~~~~~~~~~~
 
 |image122|
 
+.. rst-class:: imagefiguesclass
 Figure 29: FOTA - serial log
 
 Talaria TWO console output when at+fota command is issued on the serial

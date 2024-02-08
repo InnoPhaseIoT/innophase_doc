@@ -71,6 +71,7 @@ Host Console Logs
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Heartbeat monitor - Host console logs
 
 Host serial log – text output:
@@ -125,6 +126,7 @@ console:
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Heartbeat failure hexdump
 
 .. code:: shell

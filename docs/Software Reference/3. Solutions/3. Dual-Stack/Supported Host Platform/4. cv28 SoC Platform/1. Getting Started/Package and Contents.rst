@@ -14,6 +14,7 @@ below steps
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: InnoPhase IoT website
 
 2. Provide the appropriate details to register onto the InnoPhase
@@ -28,6 +29,7 @@ Customer Portal.
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Customer portal registration
 
 4. Navigate to the Software Tab and download the appropriate software
@@ -35,6 +37,7 @@ Figure 2: Customer portal registration
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Software tab
 
 **Package Contents**:

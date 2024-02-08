@@ -12,12 +12,14 @@ programmer:
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: MCU ST-Link programmer connection
 
 1. On launching the STM32Cube programmer, the following window pops-up.
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: STM32Cube programmer board
 
 2. To load the binary file, click on ‘Open File’ tab in the main window,
@@ -26,6 +28,7 @@ Figure 2: STM32Cube programmer board
 
 |image3|
 
+.. rst-class:: imagefiguesclasse
 Figure 3: Load the binary file
 
 The selected .elf or .bin file will be loaded in the STM32Cube
@@ -50,12 +53,14 @@ g. Shared: Disabled
 
 |image4|
 
+.. rst-class:: imagefiguesclasse
 Figure 4: Target window – device connected
 
 4. Click on the Download button to program the STM32 MCU:
 
 |image5|
 
+.. rst-class:: imagefiguesclasse
 Figure 5: Target -> Program & Verify
 
 Once the programming is complete, a pop-up window with the following

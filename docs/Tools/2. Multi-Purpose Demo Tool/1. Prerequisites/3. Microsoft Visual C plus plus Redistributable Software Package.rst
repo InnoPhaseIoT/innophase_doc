@@ -16,6 +16,7 @@ relaunch the application.
 
 |image7|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Error message for missing Microsoft Visual C++ Redistributable
 Software Package
 

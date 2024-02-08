@@ -31,6 +31,7 @@ Boot Arguments field, in a comma-separated form, as shown in Figure 1.
 
 |image59|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Boot arguments for Download Tool
 
 2. Used in CLI/command line
@@ -358,8 +359,8 @@ Configuring host interface transport type as UART.
 
 |image60|
 
-Figure 2: Configuring host interface transport type as UART\ **
-**
+.. rst-class:: imagefiguesclass
+Figure 2: Configuring host interface transport type as UART
 
 Host Interface Baudrate
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -398,6 +399,7 @@ Set the baudrate for the HIO interface at 921600.
 
 |image61| 
 
+.. rst-class:: imagefiguesclass
 Figure 3: Setting host interface baudrate
 
 Host Interface Max Message Size
@@ -435,6 +437,7 @@ Set the maximum size of a host message 1024 (bytes).
 
 |image62| 
 
+.. rst-class:: imagefiguesclass
 Figure 4: Set maximum size of host message
 
 Default MAC Address for the Device
@@ -472,6 +475,7 @@ Set the default MAC address of the device as 01:02:03:04:05:06.
 
 |image63| 
 
+.. rst-class:: imagefiguesclass
 Figure 5: Set default MAC address of the device
 
 Console Baudrate
@@ -510,6 +514,7 @@ Set the baudrate for device console output at 115200.
 
 |image64| 
 
+.. rst-class:: imagefiguesclass
 Figure 6: Set baudrate for device console output
 
 Coredump
@@ -546,6 +551,7 @@ Enable the coredump via UART after a crash.
 
 |image65| 
 
+.. rst-class:: imagefiguesclass
 Figure 7: Enable coredump via UART after crash
 
 PIN Configuration
@@ -592,6 +598,7 @@ Set the GPIO 13 pin as input with pull up:
 
 |image66| 
 
+.. rst-class:: imagefiguesclass
 Figure 8: Set the GPIO 13 pin as input with pull up
 
 Gratuitous ARP Period
@@ -629,6 +636,7 @@ Set the ARP period to 90 (s).
 
 |image67| 
 
+.. rst-class:: imagefiguesclass
 Figure 9: Set the ARP period to 90 (s)
 
 Wi-Fi Channels
@@ -666,6 +674,7 @@ Set the Wi-Fi to use channels 1 to 6 and 11.
 
 |image68| 
 
+.. rst-class:: imagefiguesclass
 Figure 10: Set the Wi-Fi to use channels 1 to 6 and 11
 
 Wi-Fi Dynamic Listen Interval
@@ -704,6 +713,7 @@ Turn dynamic listening ON.
 
 |image69| 
 
+.. rst-class:: imagefiguesclass
 Figure 11: Turning dynamic listening ON
 
 Wi-Fi Beacon Listen Interval
@@ -741,6 +751,7 @@ Set the beacon listening interval to 10.
 
 |image70| 
 
+.. rst-class:: imagefiguesclass
 Figure 12: Set the beacon listening interval to 10
 
 Wi-Fi Max Idle Period
@@ -779,6 +790,7 @@ Set the max idle time to 300 (s).
 
 |image71| 
 
+.. rst-class:: imagefiguesclass
 Figure 13: Set the max idle time to 300 (s)
 
 Wi-Fi Traffic Timeout
@@ -819,6 +831,7 @@ Set the traffic timeout value to 24 (ms).
 
 |image72| 
 
+.. rst-class:: imagefiguesclass
 Figure 14: Set the traffic timeout value to 24 (ms)
 
 Wi-Fi Tx Power Save
@@ -858,6 +871,7 @@ Turn ON the Wi-Fi Tx power save mode.
 
 |image73| 
 
+.. rst-class:: imagefiguesclass
 Figure 15: Turn ON the Wi-Fi Tx power save mode
 
 Wi-Fi DTIM Only Listening
@@ -898,6 +912,7 @@ Turn DTIM only ON.
 
 |image74| 
 
+.. rst-class:: imagefiguesclass
 Figure 16: Turn ON the Wi-Fi DTIM only listening mode
 
 

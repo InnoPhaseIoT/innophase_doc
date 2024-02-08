@@ -92,8 +92,7 @@ sector.
 
 **InnoPhase ELF Layout**
 
-|Graphical user interface Description automatically generated with
-medium confidence|
+|Graphical user interface Description automatically generated with medium confidence|
 
 .. rst-class:: imagefiguesclass
 Figure 10: ELF Layout

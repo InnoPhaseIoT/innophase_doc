@@ -8,6 +8,7 @@ Figure 1 describes the construction of the INP3201 evaluation board.
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 1: INP3201 block diagram
 
 This block diagram has three major components:
@@ -36,14 +37,17 @@ INP3201 Board Description
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 2: INP3201 Board - with MCU
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 3: INP3201 board – without MCU
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 4: INP3201 board components
 
 .. table:: Table 1: INP3201 components

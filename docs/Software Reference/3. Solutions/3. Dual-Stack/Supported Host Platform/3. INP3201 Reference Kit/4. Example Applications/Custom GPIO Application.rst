@@ -70,6 +70,7 @@ Host Console Logs
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 1: custom_gpio – host serial log
 
 Host console log – text output:

@@ -64,6 +64,7 @@ Serial Log
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Station Mode – Serial log
 
 Power Management
@@ -92,6 +93,7 @@ Basic Terminology in 802.11 Power Save:
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Sleep state machine
 
 Hardware Power Save Mode
@@ -154,12 +156,14 @@ at+wstatus command. Put the module into deep sleep mode for about 10 sec
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Suspend/Deep sleep Mode - Serial log
 
 **OTTI Log**
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Suspend/Deep sleep Mode - OTTI log
 
 IEEE Power Save Mode
@@ -249,12 +253,14 @@ command.
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 5: Always Active Mode - Serial log
 
 **OTTI Log**
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 6: Always Active Mode - OTTI log
 
 Listen Interval Based Wakeup
@@ -355,23 +361,25 @@ at+wstatus command. Put the module into deep sleep mode for about 60 sec
 
 .. code:: shell
 
-      at 
-at+wpmcfg=10,12,0,0
-at+wcon=InnoPhase,Inno@1020
-at+wstatus=0
-at+syssleep=60000
+   at
+   at+wpmcfg=10,12,0,0
+   at+wcon=InnoPhase,Inno@1020
+   at+wstatus=0
+   at+syssleep=60000
 
 
 **Serial Log**
 
 |image7|
 
+.. rst-class:: imagefiguesclass
 Figure 7: Listen Interval based Wakeup - Serial log
 
 **OTTI Log**
 
 |image8|
 
+.. rst-class:: imagefiguesclass
 Figure 8: Listen Interval based Wakeup - OTTI log
 
 Dynamic Listen Interval 
@@ -477,6 +485,7 @@ mode for about 60 sec (60000ms).
 
 |image9|
 
+.. rst-class:: imagefiguesclass
 Figure 9: Dynamic Listen Interval - Serial log
 
 Connect the laptop to the same Access Point “InnoPhase” to which the
@@ -484,6 +493,7 @@ Talaria TWO is connected.
 
 |image10|
 
+.. rst-class:: imagefiguesclass
 Figure 10: Connect to InnoPhase AP
 
 Ping from laptop to the Talaria TWO module (192.168.2.115 is the IP
@@ -495,12 +505,14 @@ Prompt.
 
 |image11|
 
+.. rst-class:: imagefiguesclass
 Figure 11: Connect to InnoPhase AP Command Prompt
 
 **OTTI Log**
 
 |image12|
 
+.. rst-class:: imagefiguesclass
 Figure 12: Dynamic Listen Interval - OTTI log
 
 Low Power Optimization
@@ -617,12 +629,14 @@ module into deep sleep mode for about 60 sec (60000ms).
 
 |image13|
 
+.. rst-class:: imagefiguesclass
 Figure 13: Low Power Optimization - Serial log
 
 **OTTI Log**
 
 |image14|
 
+.. rst-class:: imagefiguesclass
 Figure 14: Low Power Optimization - OTTI log
 
 Wakeup from Hardware Power Save Mode
@@ -683,12 +697,14 @@ example).
 
 |image15|
 
+.. rst-class:: imagefiguesclass
 Figure 15: Upon suspend mode timeout - Serial log
 
 **OTII Log**
 
 |image16|
 
+.. rst-class:: imagefiguesclass
 Figure 16: Upon suspend mode timeout – OTII log
 
 Upon GPIO Interrupt
@@ -768,12 +784,14 @@ level).
 
 |image17|
 
+.. rst-class:: imagefiguesclass
 Figure 17: GPIO Interrupt - Serial log
 
 **OTTI Log**
 
 |image18|
 
+.. rst-class:: imagefiguesclass
 Figure 18: GPIO Interrupt - OTTI log
 
 Upon Network Data Reception
@@ -842,6 +860,7 @@ which the Talaria TWO is connected.
 
 |image19|
 
+.. rst-class:: imagefiguesclass
 Figure 19: Connect to InnoPhase
 
 **Step 3**: Using Hercules tool create TCP client and connect to server
@@ -849,12 +868,14 @@ of IP 192.1681.18 server socket and port 9000.
 
 |image20|
 
+.. rst-class:: imagefiguesclass
 Figure 20: Hercules tool - create TCP client
 
 **Serial Log**
 
 |image21|
 
+.. rst-class:: imagefiguesclass
 Figure 21: Network data reception - Serial log
 
 BLE Peripheral 
@@ -891,11 +912,11 @@ AT Command Sequence
 
 .. table:: Table 10: BLE Peripheral - AT Commands
 
-+------------------------------------------+---------------------------+
-| **AT Command**                           | **Description**           |
-+==========================================+===========================+
-| *at*                                     | Checks the connection     |
-|                                          | state                     |
+   +------------------------------------------+---------------------------+
+   | **AT Command**                           | **Description**           |
+   +==========================================+===========================+
+   | *at*                                     | Checks the connection     |
+   |                                          | state                     |
    +------------------------------------------+---------------------------+
    | *at+btinit*                              | Initializes the BLE stack |
    +------------------------------------------+---------------------------+
@@ -1010,6 +1031,7 @@ Procedure
 
 |image22|
 
+.. rst-class:: imagefiguesclass
 Figure 22: BLE Peripheral - serial log
 
 **Step 2**: Launch the BLE Scanner app from the Android device and
@@ -1017,6 +1039,7 @@ connect to Talaria TWO GATT Server with the BLE name InnoPhase.
 
 |image23|
 
+.. rst-class:: imagefiguesclass
 Figure 23: Talaria TWO GATT Server
 
 **Step 3**: Once the BLE connection is established successfully send
@@ -1024,6 +1047,7 @@ data/Write Request by pressing W from BLE central.
 
 |image24|
 
+.. rst-class:: imagefiguesclass
 Figure 24: Write request
 
 **Step 4**: An asynchronous message on Talaria TWO will be displayed for
@@ -1036,12 +1060,14 @@ write request from Talaria TWO using following command:
 
 |image25|
 
+.. rst-class:: imagefiguesclass
 Figure 25: Write request from Talaria TWO
 
 Write request acknowledgement displayed on the device:
 
 |image26|
 
+.. rst-class:: imagefiguesclass
 Figure 26: Write request acknowledgment on device
 
 **Step 5**: Send Read request from device BLE central and send
@@ -1049,6 +1075,7 @@ acknowledgement Read request data 6162636465 from Talaria TWO. 
 
 |image27|
 
+.. rst-class:: imagefiguesclass
 Figure 27: Read request on device
 
 **Step 6**: An asynchronous message will be displayed on Talaria TWO for
@@ -1062,12 +1089,14 @@ the received read request from Talaria TWO:
 
 |image28|
 
+.. rst-class:: imagefiguesclass
 Figure 28: Send data as an acknowledgement to Talaria TWO
 
 Acknowledgment of Read request displayed on the device.
 
 |image29|
 
+.. rst-class:: imagefiguesclass
 Figure 29: Read request acknowledgment on device
 
 BLE IO capabilities
@@ -1229,6 +1258,7 @@ Procedure
 
 |image30|
 
+.. rst-class:: imagefiguesclass
 Figure 30: BLE IO capability - serial log
 
 **Step 2**: Launch BLE Scanner app from the Android device and connect
@@ -1236,6 +1266,7 @@ to Talaria TWO GATT server with the BLE name InnoPhase_Secure
 
 |image31|
 
+.. rst-class:: imagefiguesclass
 Figure 31: Talaria TWO GATT Server
 
 **Step 3**: For the BLE GATT connection app requests for pairing as a
@@ -1243,6 +1274,7 @@ pairing request, click on pair & connect.
 
 |image32|
 
+.. rst-class:: imagefiguesclass
 Figure 32: Pair request on the device
 
 **Step 4**: App requests for a confirmation Pair with InnoPhase_secure
@@ -1250,6 +1282,7 @@ here click on Pair.
 
 |image33|
 
+.. rst-class:: imagefiguesclass
 Figure 33: Confirmation to pair
 
 Now, the passkey for pairing is shown on the AT command line. Add the
@@ -1258,10 +1291,12 @@ created.
 
 |image34|
 
+.. rst-class:: imagefiguesclass
 Figure 34: Pass key for pairing
 
 |image35|
 
+.. rst-class:: imagefiguesclass
 Figure 35: Add the passkey
 
 **Step 5**: Once the BLE connection is established successfully send
@@ -1269,6 +1304,7 @@ data/Write Request by pressing W from BLE central.
 
 |image36|
 
+.. rst-class:: imagefiguesclass
 Figure 36: Write request- SMP
 
 An asynchronous message on Talaria TWO will be displayed for the Write
@@ -1281,12 +1317,14 @@ request from Talaria TWO using following command:
 
 |image37|
 
+.. rst-class:: imagefiguesclass
 Figure 37: Acknowledgment of Write request-SMP
 
 Write request acknowledgement displayed on the device:
 
 |image38|
 
+.. rst-class:: imagefiguesclass
 Figure 38: Write request acknowledgment on device-SMP
 
 **Step 6**: Send Read request from device BLE central and send
@@ -1294,6 +1332,7 @@ acknowledgement Read request data 6162636465 from Talaria TWO. 
 
 |image39|
 
+.. rst-class:: imagefiguesclass
 Figure 39: Read Request- SMP
 
 An asynchronous message will be displayed on Talaria TWO for the
@@ -1306,12 +1345,14 @@ received read request from Talaria TWO:
 
 |image40|
 
+.. rst-class:: imagefiguesclass
 Figure 40: Read request acknowledgment
 
 Acknowledgment of Read request displayed on the device:
 
 |image41|
 
+.. rst-class:: imagefiguesclass
 Figure 41: Read request acknowledgment on device
 
 .. |image1| image:: media/image1.png

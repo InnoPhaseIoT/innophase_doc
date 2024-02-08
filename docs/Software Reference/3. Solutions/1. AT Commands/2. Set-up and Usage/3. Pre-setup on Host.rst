@@ -12,6 +12,7 @@ is uninstalled, check the driver from the device manager.
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Device Manager
 
 .. |image2| image:: media/image2.png

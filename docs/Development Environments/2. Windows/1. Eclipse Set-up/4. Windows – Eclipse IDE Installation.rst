@@ -11,6 +11,7 @@ Windows – Eclipse IDE Installation
 
 |image11|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Selecting the Eclipse IDE for Embedded C/C++ developers
 
 2. Clicking on Eclipse IDE for Embedded C/C++ developers redirects to
@@ -20,6 +21,7 @@ Figure 1: Selecting the Eclipse IDE for Embedded C/C++ developers
 
 |image12|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Installation of Eclipse IDE for Embedded C/C++ developers
 
 3. The installer takes the default JDK path of the user’s machine as
@@ -30,6 +32,7 @@ Figure 2: Installation of Eclipse IDE for Embedded C/C++ developers
 
 |image13|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Eclipse IDE for Embedded C/C++ developers launch window
 
 4. After completing the installation, the Eclipse installer prompts for
@@ -41,6 +44,6 @@ Figure 3: Eclipse IDE for Embedded C/C++ developers launch window
 .. |image12| image:: media/image12.png
    :width: 3.93681in
    :height: 3.2125in
-.. |imaeg13| image:: media/image13.png
+.. |image13| image:: media/image13.png
    :width: 3.93681in
    :height: 3.03125in

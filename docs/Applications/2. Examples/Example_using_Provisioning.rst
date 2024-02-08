@@ -18,6 +18,7 @@ Topology
 
 |image144|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Topology
 
 
@@ -239,16 +240,16 @@ Characteristics
 
 .. table:: Table 1: Potential values of the connection state
 
-+--------------------------+-------------------------------------------+
-| **Value**                | **Description**                           |
-+==========================+===========================================+
-| Failure                  | Unable to connect to the provisioned      |
-|                          | Wi-Fi network                             |
-+--------------------------+-------------------------------------------+
-| Success                  | Connected                                 |
-+--------------------------+-------------------------------------------+
-| Waiting                  | Connection in Progress                    |
-+--------------------------+-------------------------------------------+
+    +--------------------------+-------------------------------------------+
+    | **Value**                | **Description**                           |
+    +==========================+===========================================+
+    | Failure                  | Unable to connect to the provisioned      |
+    |                          | Wi-Fi network                             |
+    +--------------------------+-------------------------------------------+
+    | Success                  | Connected                                 |
+    +--------------------------+-------------------------------------------+
+    | Waiting                  | Connection in Progress                    |
+    +--------------------------+-------------------------------------------+
 
 2. Connect:
 
@@ -273,15 +274,15 @@ Characteristics
 
 .. table:: Table 2: Potential values of the scan state
 
-+--------------------+-------------------------------------------------+
-| **Value**          | **Description**                                 |
-+====================+=================================================+
-| 0                  | Not Scanning                                    |
-+--------------------+-------------------------------------------------+
-| 1                  | Scanning Complete                               |
-+--------------------+-------------------------------------------------+
-| 2                  | Scanning in Progress                            |
-+--------------------+-------------------------------------------------+
+    +--------------------+-------------------------------------------------+
+    | **Value**          | **Description**                                 |
+    +====================+=================================================+
+    | 0                  | Not Scanning                                    |
+    +--------------------+-------------------------------------------------+
+    | 1                  | Scanning Complete                               |
+    +--------------------+-------------------------------------------------+
+    | 2                  | Scanning in Progress                            |
+    +--------------------+-------------------------------------------------+
 
 4.  Scan:
 
@@ -622,6 +623,7 @@ Running the Application using Android or iOS App
 
 |image145|
 
+.. rst-class:: imagefiguesclass
 Figure 2: BLE Provisioning home screen
 
 6. To check the version of the Talaria TWO Provisioning App and other
@@ -631,6 +633,7 @@ Figure 2: BLE Provisioning home screen
 
 |image148|
 
+.. rst-class:: imagefiguesclass
 Figure 3: About Us
 
 Talaria TWO Provisioning Mobile App version is displayed as shown in
@@ -645,12 +648,14 @@ InnoPhase support team.
 
 |image149|
 
+.. rst-class:: imagefiguesclass
 Figure 4: About Us - App version and other related details
 
 7. Click on BLE Scan if there are no services listed.
 
 |image150|
 
+.. rst-class:: imagefiguesclass
 Figure 5: BLE Scan
 
 8. If the user needs to scan for unknown devices, then the highlighted
@@ -660,12 +665,14 @@ Figure 5: BLE Scan
 
 |image151|
 
+.. rst-class:: imagefiguesclass
 Figure 6: Show/List ‘Unknown’ devices
 
 9. Click on the Inno_Provisioning service.
 
 |image152|
 
+.. rst-class:: imagefiguesclass
 Figure 7: Starting Inno_Provisioning
 
 Console output: **non-secured**
@@ -793,6 +800,7 @@ a. secured_prov=1,pass_key=0
 
 |image153|
 
+.. rst-class:: imagefiguesclass
 Figure 8: Pairing - open networks
 
 b. secured_prov=1,pass_key=1
@@ -804,10 +812,12 @@ b. secured_prov=1,pass_key=1
 
   |image154|
 
+.. rst-class:: imagefiguesclass
 Figure 9: passkey (PIN) from the console log
 
 |image155|
 
+.. rst-class:: imagefiguesclass
 Figure 10: Pairing - with pass_key
 
    Once the pairing is complete, the screen with a list of available APs
@@ -820,6 +830,7 @@ Figure 10: Pairing - with pass_key
 
 |image156|
 
+.. rst-class:: imagefiguesclass
 Figure 11: Selecting the appropriate AP from the list
 
 12. Provide the passphrase for the secured AP and click on Submit. User
@@ -832,6 +843,7 @@ Figure 11: Selecting the appropriate AP from the list
 
 |image157|
 
+.. rst-class:: imagefiguesclass
 Figure 12: Connecting to InnoPhase_AE network by providing passphrase
 
 13. On successfully connecting to the AP, the following output is
@@ -841,6 +853,7 @@ Figure 12: Connecting to InnoPhase_AE network by providing passphrase
 
 |image158|
 
+.. rst-class:: imagefiguesclass
 Figure 13: Successfully connected to InnoPhase network
 
 Console output:
@@ -1468,6 +1481,7 @@ procedure described in section 7.1.
 
 |image159|
 
+.. rst-class:: imagefiguesclass
 Figure 14: Incorrect or minimum length or open security password
 
 2. Wrong password:
@@ -1482,9 +1496,13 @@ Figure 14: Incorrect or minimum length or open security password
 
 |image160|
 
+.. rst-class:: imagefiguesclass
 Figure 15: Alert message in case of a wrong passphrase
 
 .. |image144| image:: media/image144.png
+   :width: 2.75591in
+   :height: 5.94634in
+.. |image145| image:: media/image145.png
    :width: 2.75591in
    :height: 5.94634in
 .. |image147| image:: media/image147.png

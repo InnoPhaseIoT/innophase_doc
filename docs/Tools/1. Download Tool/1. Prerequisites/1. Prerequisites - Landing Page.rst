@@ -138,11 +138,13 @@ driver
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 4: User Account Control authentication to complete driver
 installation
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 5: User Account Control authentication to delete the unwanted
 Libusbk drivers
 

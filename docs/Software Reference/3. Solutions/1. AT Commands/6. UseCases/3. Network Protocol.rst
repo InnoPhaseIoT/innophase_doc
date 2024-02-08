@@ -59,6 +59,7 @@ Serial Log
 
 |image42|
 
+.. rst-class:: imagefiguesclass
 Figure 42: Static IP Configuration – Serial log
 
 Ping and Reset Functionality
@@ -119,6 +120,7 @@ which the Talaria TWO is connected.
 
 |image43|
 
+.. rst-class:: imagefiguesclass
 Figure 43: Connecting to AP
 
 **Step 2**: Check the IP address of the Windows laptop using ipconfig
@@ -126,6 +128,7 @@ command.
 
 |image44|
 
+.. rst-class:: imagefiguesclass
 Figure 44: Checking IP address
 
 **Step 3**: Execute the following commands on Talaria TWO:
@@ -149,6 +152,7 @@ Serial Log
 
 |image45|
 
+.. rst-class:: imagefiguesclass
 Figure 45: Ping and Reset Functionality - Serial log
 
 
@@ -221,6 +225,7 @@ Procedure
 
 |image46|
 
+.. rst-class:: imagefiguesclass
 Figure 46: TCP Server – Serial log
 
 **Step 2**: Connect your laptop to the same access point “InnoPhase” to
@@ -228,6 +233,7 @@ which the Talaria TWO is connected.
 
 |image47|
 
+.. rst-class:: imagefiguesclass
 Figure 47: Connecting to AP
 
 **Step 3**: Start TCP client using Hercules and connect to Talaria TWO
@@ -235,6 +241,7 @@ TCP server.
 
 |image48|
 
+.. rst-class:: imagefiguesclass
 Figure 48: Starting TCP client
 
 **Step 4**: Log for data communication between application endpoints.
@@ -244,11 +251,13 @@ at+socsend=1,ASCII,5,Hello.
 
 |image49|
 
+.. rst-class:: imagefiguesclass
 Figure 49: Log for data communication between application endpoints –
 Tera Term
 
 |image50|
 
+.. rst-class:: imagefiguesclass
 Figure 50: Log for data communication between application endpoints -
 Hercules
 
@@ -311,12 +320,14 @@ which the Talaria TWO is connected.
 
 |image51|
 
+.. rst-class:: imagefiguesclass
 Figure 51: Connecting to AP
 
 **Step 2**: Using Hercules tool create TCP server socket.
 
 |image52|
 
+.. rst-class:: imagefiguesclass
 Figure 52: Creating TCP server socket
 
 **Step 3**: Get IP address of the server/laptop using the command
@@ -324,6 +335,7 @@ ipconfig.
 
 |image53|
 
+.. rst-class:: imagefiguesclass
 Figure 53: Getting the IP address
 
 **Step 4**: Execute the following commands on Talaria TWO:
@@ -341,10 +353,12 @@ Figure 53: Getting the IP address
 
 |image54|
 
+.. rst-class:: imagefiguesclass
 Figure 54: Data communication – Tera Term
 
 |image55|
 
+.. rst-class:: imagefiguesclass
 Figure 55: Data communication - Hercules
 
 UDP Server
@@ -407,6 +421,7 @@ which the Talaria TWO is connected.
 
 |image56|
 
+.. rst-class:: imagefiguesclass
 Figure 56: Connecting to AP
 
 **Step 2**: Start UDP client using Hercules and connect to Talaria TWO
@@ -414,6 +429,7 @@ UDP server of IP address 192.168.1.2 and port 9000.
 
 |image57|
 
+.. rst-class:: imagefiguesclass
 Figure 57: Starting UDP Client
 
 **Step 3**: Get IP address of the server/laptop using the command
@@ -421,6 +437,7 @@ ipconfig.
 
 |image58|
 
+.. rst-class:: imagefiguesclass
 Figure 58: ipconfig output
 
 **Step 4**: Execute the following commands to associate to an Access
@@ -442,10 +459,12 @@ created if data needs to be sent.
 
 |image59|
 
+.. rst-class:: imagefiguesclass
 Figure 59: Data communication – Tera Term
 
 |image60|
 
+.. rst-class:: imagefiguesclass
 Figure 60: Data communication - Hercules
 
 UDP Client
@@ -506,12 +525,14 @@ which the Talaria TWO is connected.
 
 |image61|
 
+.. rst-class:: imagefiguesclass
 Figure 61: Connecting to AP
 
 **Step 2**: Using Hercules tool create UDP socket.
 
 |image62|
 
+.. rst-class:: imagefiguesclass
 Figure 62: Creating TCP server socket
 
 **Step 3**: Get IP address of the server/laptop using the command
@@ -519,6 +540,7 @@ ipconfig.
 
 |image63|
 
+.. rst-class:: imagefiguesclass
 Figure 63: Getting the IP address
 
 **Step 4**: Execute the following commands on Talaria TWO:
@@ -536,10 +558,12 @@ Figure 63: Getting the IP address
 
 |image64|
 
+.. rst-class:: imagefiguesclass
 Figure 64: Data communication – Tera Term
 
 |image65|
 
+.. rst-class:: imagefiguesclass
 Figure 65: Data communication – Hercules
 
 HTTP Client
@@ -604,13 +628,15 @@ which the Talaria TWO is connected.
 
 |image66|
 
-   Figure 66: Connecting to AP
+.. rst-class:: imagefiguesclass
+Figure 66: Connecting to AP
 
 **Step 2**: Start HFS server and add data.txt file into the data path,
 as shown in Figure 67.
 
 |image67|
 
+.. rst-class:: imagefiguesclass
 Figure 67: Starting HFS server
 
 **Step 3**: Execute the following commands on Talaria TWO:
@@ -633,6 +659,7 @@ Serial Log
 
 |image68|
 
+.. rst-class:: imagefiguesclass
 Figure 68: HTTP Client (non-secured) - Serial Log
 
 Secured HTTP Client without Server Certificate Validation
@@ -708,6 +735,7 @@ Serial Log
 
 |image69|
 
+.. rst-class:: imagefiguesclass
 Figure 69: HTTP Client (secured without server certificate validation) -
 Serial log
 
@@ -790,6 +818,7 @@ Serial Log
 
 |image70|
 
+.. rst-class:: imagefiguesclass
 Figure 70: HTTP Client (secured with server certificate validation) -
 Serial log
 
@@ -859,6 +888,7 @@ which the Talaria TWO is connected.
 
 |image71|
 
+.. rst-class:: imagefiguesclass
 Figure 71: Connecting to AP
 
 **Step 2**: Start another MQTT client in the PC using MQTT.fx tool to
@@ -871,6 +901,7 @@ settings button:
 
 |image72|
 
+.. rst-class:: imagefiguesclass
 Figure 72: MQTT.fx – settings
 
 |image73|
@@ -887,6 +918,7 @@ data sent from Talaria TWO MQTT client.
 
 |image74|
 
+.. rst-class:: imagefiguesclass
 Figure 74: MQTT.fx – Subscribe
 
 **Step 5**: Execute the following commands on Talaria TWO:
@@ -908,6 +940,7 @@ Figure 74: MQTT.fx – Subscribe
 
 |image75|
 
+.. rst-class:: imagefiguesclass
 Figure 75: MQTT Client - Serial log
 
 **Step 6**: Click on Publish and enter topic as SUBMSG to send the data
@@ -915,12 +948,14 @@ to Talaria TWO MQTT client.
 
 |image76|
 
+.. rst-class:: imagefiguesclass
 Figure 76: MQTT.fx – Publish
 
 **Step 7**: Data communication between two application end points.
 
 |image77|
 
+.. rst-class:: imagefiguesclass
 Figure 77: Data communication
 
 Secure MQTT
@@ -978,6 +1013,7 @@ b. Once the command is issued, Talaria TWO will send “<” as response to
 
    |image78|
 
+.. rst-class:: imagefiguesclass
 Figure 78: Command Validation
 
 c. Send the certificate after receiving the command response (<).
@@ -989,10 +1025,12 @@ d. Go to File -> Send file… from the Tera Term and browse the
 
    |image79|
 
+.. rst-class:: imagefiguesclass
 Figure 79: Send Certificate
 
    |image80|
 
+.. rst-class:: imagefiguesclass
 Figure 80: Browse to add the Certificates
 
 e. Execute this step to add all three certificates:
@@ -1001,6 +1039,7 @@ e. Execute this step to add all three certificates:
 
    |image81|
 
+.. rst-class:: imagefiguesclass
 Figure 81: AT Commands- To add the certificate
 
 .. code-block:: shell
@@ -1016,6 +1055,7 @@ AT Command Sequence
 ~~~~~~~~~~~~~~~~~~~~
 
 .. table:: Table 22: Secure MQTT - AT Commands
+
     +-----------------------+----------------------------------------------+
     | **AT Command**        | **Description**                              |
     +=======================+==============================================+
@@ -1055,6 +1095,7 @@ Procedure
 
 |image82|
 
+.. rst-class:: imagefiguesclass
 Figure 82: Secure MQTT- serial log
 
 **Step 2**: To observe Publish messages and to Subscribe any message,
@@ -1072,6 +1113,7 @@ execute the following commands on the command prompt:
 
    |image83|
 
+.. rst-class:: imagefiguesclass
 Figure 83: Command Prompt Output (Publish message)
 
 b. Issue the following command to publish message to the subscribed
@@ -1086,6 +1128,7 @@ b. Issue the following command to publish message to the subscribed
 
    |image84|
 
+.. rst-class:: imagefiguesclass
 Figure 84: To publish
 
 2. To subscribe
@@ -1101,6 +1144,7 @@ Figure 84: To publish
 
    |image85|
 
+.. rst-class:: imagefiguesclass
 Figure 85: Command Prompt Output (Subscribe message)
 
 b. Issue the following command to subscribe to inno/test topic on the
@@ -1114,6 +1158,7 @@ b. Issue the following command to subscribe to inno/test topic on the
 
    |image86|
 
+.. rst-class:: imagefiguesclass
 Figure 86: To subscribe
 
 DNS Lookup – Get host IP by name
@@ -1138,11 +1183,10 @@ Access Point configured with WPA/WPA2 personal security.
 AT Command Sequence
 ~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: Table 23: DNS Lookup – Get host IP by name - AT Commands
+.. table:: Table 23: DNS Lookup – Get host IP by name - AT Commands
 
     +--------------+-------------------------------------------------------+
-    | **AT         | **Description**                                       |
-    | Command**    |                                                       |
+    | **ATCommand**| **Description**                                       |
     +==============+=======================================================+
     | *at*         | Check communication state                             |
     +--------------+-------------------------------------------------------+
@@ -1181,6 +1225,7 @@ Serial Log
 
 |image87|
 
+.. rst-class:: imagefiguesclass
 Figure 87: DNS Lookup – Get host IP by name - Serial log
 
 Service Discovery using mDNS
@@ -1257,6 +1302,7 @@ which the Talaria TWO is connected.
 
 |image88|
 
+.. rst-class:: imagefiguesclass
 Figure 88: Connecting to an Access Point
 
 **Step 2**: Issue the following commands to advertise the services on
@@ -1282,6 +1328,7 @@ announced by Talaria TWO.
 
 |image89|
 
+.. rst-class:: imagefiguesclass
 Figure 89: Starting Bonjour Browser and Scanning for the services
 
 Alternate way of Service discovery can be done from a Windows command
@@ -1290,12 +1337,14 @@ broadcast on the local network by Talaria TWO.
 
 |image90|
 
+.. rst-class:: imagefiguesclass
 Figure 90: Service discovery from Windows command line
 
 Serial Log:
 
 |image91|
 
+.. rst-class:: imagefiguesclass
 Figure 91: Service Discovery using mDNS - Serial log
 
 **Step 3**: De-register mDNS service, registered using command
@@ -1308,6 +1357,7 @@ AT+MDNSREG and stop the mDNS service using the following commands:
 
 |image92|
 
+.. rst-class:: imagefiguesclass
 Figure 92: De-registering from mDNS service
 
 Get Time from NTP Server
@@ -1377,6 +1427,7 @@ Serial Log
 
 |image93|
 
+.. rst-class:: imagefiguesclass
 Figure 93: Get Time from NTP Server - Serial log
 
 .. |image42| image:: media/image42.png

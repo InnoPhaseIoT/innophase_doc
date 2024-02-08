@@ -8,6 +8,7 @@ The overall architecture of the atcmds application interface is shown in Figure 
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Architecture of atcmds application
 
 Host CPU uses serial commands to interface and configure the Wi-Fi module. This approach off- loads WLAN, TCP/IP stack and network management to the Wi-Fi chip (Talaria TWO), allowing a small, embedded host to communicate with other hosts on the network using the Wi-Fi link.
@@ -56,6 +57,7 @@ AT Command Response is formatted as:
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Command response format
 
 1.	Each filed in command response message is separated with “:”.

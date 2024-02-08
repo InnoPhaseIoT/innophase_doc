@@ -49,60 +49,70 @@ using following steps:
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Plugin installation – Eclipse Marketplace
 
 2. *Find* -> search for *innophaseiot* -> identify *InnoPhase IoT Software Development Tool* and click *Install*
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Plugin installation – Install Plugin from Eclipse Marketplace
 
 3.3.	Eclipse marketplace will begin *Calculating requirements and dependencies*
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Plugin installation – Calculating requirements and dependencies
 
 4. Accept terms -> Finish.
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Plugin installation – Review Licenses
 
 5. Software installation is indicated in the status bar
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 5: Plugin installation – Begin to Install software
 
 6. Select the check box *Authority / Update Site* and *Always trust all authorities* and click on *Trust Selected -> Yes, I Accept the Risk*.
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 6: Plugin installation – Trust Authorities
 
 7. Select the check box *Unsigned & Always trust all content* and click on *Trust Selected -> Yes, I Accept the Risk*.
 
 |image7|
 
+.. rst-class:: imagefiguesclass
 Figure 7: Plugin installation – Trust unsigned content
 
 8. Software installation resumes, which is indicated in the status bar
 
 |image8|
 
+.. rst-class:: imagefiguesclass
 Figure 8: Plugin installation – Software resume to install
 
 9. Once software installation is complete, a pop-up message for restarting appears. Click on *Restart Now*.
 
 |image9|
 
+.. rst-class:: imagefiguesclass
 Figure 9: Plugin installation – Restart Now after installation
 
 10. On successful installation, Eclipse IDE will have a tab for InnoPhase IoT on restarting.
 
 |image10|
 
+.. rst-class:: imagefiguesclass
 Figure 10: Plugin installation – InnoPhase IoT menu
 
 
@@ -119,6 +129,7 @@ steps to configure the supporting files:
 
    |image11|
 
+.. rst-class:: imagefiguesclass
 Figure 11: Download and configure support files menu
 
 2. Browse and choose a directory to download and configure support files
@@ -126,6 +137,7 @@ Figure 11: Download and configure support files menu
 
 |image12|
 
+.. rst-class:: imagefiguesclass
 Figure 12: Download and configure support files - Input window
 
 **Note**: If the plugin support files are already available, then check
@@ -138,6 +150,7 @@ choose the existing folder.
 
 |image13|
 
+.. rst-class:: imagefiguesclass
 Figure 13: Download and Configure Support Files – Status message
 
 Import Talaria TWO Example Project
@@ -155,6 +168,7 @@ Import Talaria TWO Example Project
 
    |image14|
 
+.. rst-class:: imagefiguesclass
 Figure 14: Import an existing example in Eclipse
 
 2. Under C/C++, Click Existing code as Makefile Project and then click
@@ -164,6 +178,7 @@ Figure 14: Import an existing example in Eclipse
 
    |image15|
 
+.. rst-class:: imagefiguesclass
 Figure 15: Import existing code as makefile project
 
 3. Enter the project name, select any of the applications or examples
@@ -180,6 +195,7 @@ Figure 15: Import existing code as makefile project
 
    |image16|
 
+.. rst-class:: imagefiguesclass
 Figure 16: Project imported
 
 Run Configuration Set-up 
@@ -195,6 +211,7 @@ Steps for setting up the run configuration is as follows:
 
    |image17|
 
+.. rst-class:: imagefiguesclass
 Figure 17: Eclipse Run As – Select Run Configuration
 
 2. Right click on InnoPhase IoT Application Run configuration and select
@@ -204,6 +221,7 @@ Figure 17: Eclipse Run As – Select Run Configuration
 
    |image18|
 
+.. rst-class:: imagefiguesclass
 Figure 18: InnoPhase IoT Software Development Tool – New Run
 Configuration
 
@@ -215,6 +233,7 @@ Configuration
 
    |image19|
 
+.. rst-class:: imagefiguesclass
 Figure 19: InnoPhase IoT Software Development Tool – Run configuration
 input window
 
@@ -273,6 +292,7 @@ h. **Boot Arguments:** Is empty by default. Add the boot argument
 
    |image20|
 
+.. rst-class:: imagefiguesclass
 Figure 20: Console Window – CDT build console
 
    **Note**: Use Display Selected Console to select the required console
@@ -286,6 +306,7 @@ b. In case the device is connected to the system, the application flash
 
    |image21|
 
+.. rst-class:: imagefiguesclass
 Figure 21: InnoPhase IoT T2 Device Monitor Console Window – Run
 configuration
 
@@ -293,8 +314,6 @@ configuration
    device. In case more than one device is connected, the plugin may not
    function as expected.
 
-   **
-   **
 
 Debug Configuration Set-up
 --------------------------
@@ -311,6 +330,7 @@ Steps to set-up the debug configuration settings are as follows:
 
    |image22|
 
+.. rst-class:: imagefiguesclass
 Figure 22: Eclipse Debug As – Select debug configuration
 
 2. Right click on InnoPhase IoT Application Debug configuration and
@@ -320,6 +340,7 @@ Figure 22: Eclipse Debug As – Select debug configuration
 
    |image23|
 
+.. rst-class:: imagefiguesclass
 Figure 23: InnoPhase IoT Software Development Tool – New debug
 configuration
 
@@ -331,6 +352,7 @@ configuration
 
    |image24|
 
+.. rst-class:: imagefiguesclass
 Figure 24: InnoPhase IoT Software Development Tool – Debug configuration
 input window
 
@@ -392,7 +414,8 @@ f. **Boot Arguments:** Is empty by default. Add the boot argument
 
    |image25|
 
-   Figure 25: InnoPhase IoT Software Development Tool – Debug
+.. rst-class:: imagefiguesclass
+Figure 25: InnoPhase IoT Software Development Tool – Debug
    perspective switch
 
 c. Eclipse will begin to debug and the same is displayed in Debug
@@ -402,6 +425,7 @@ c. Eclipse will begin to debug and the same is displayed in Debug
 
    |image26|
 
+.. rst-class:: imagefiguesclass
 Figure 26: InnoPhase IoT Software Development Tool – Debug start
 
 1. Debug the application with Eclipse’s general debugging procedure

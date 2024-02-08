@@ -48,6 +48,7 @@ Serial Log
 
 |image123|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Echo enable/disable - Serial log
 
 .. |image123| image:: media/image123.png

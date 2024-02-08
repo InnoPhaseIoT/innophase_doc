@@ -28,6 +28,7 @@ to 511, where each sector is 4096 bytes.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Memory mapping - standard application
 
 Flash Layout – Development
@@ -79,6 +80,7 @@ single application.
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Flash layout
 
 Memory Mapping – VM based application
@@ -91,6 +93,7 @@ application.
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3: Memory mapping - VM based application
 
 Flash Layout 
@@ -155,10 +158,12 @@ b. Without SSBL, the application which is flashed is loaded onto Virtual
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Flash layout - when using SSBL
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 5: Flash layout - without using SSBL
 
 Program RAM
@@ -179,10 +184,12 @@ Command:
 
 |image6|
 
+.. rst-class:: imagefiguesclass
 Figure 6: Program RAM – Terminal
 
 |image7|
 
+.. rst-class:: imagefiguesclass
 Figure 7: Program RAM - Console output
 
 Program Flash
@@ -202,12 +209,14 @@ Command:
 
 |image8|
 
+.. rst-class:: imagefiguesclass
 Figure 8: Program Flash - Terminal
 
 Expected output:
 
 |image9|
 
+.. rst-class:: imagefiguesclass
 Figure 9: Program Flash - Console output
 
 Erase Flash
@@ -240,6 +249,7 @@ Loading gordon.elf:
 
 |image10|
 
+.. rst-class:: imagefiguesclass
 Figure 10: Loading gordon.elf - Terminal
 
 Erasing the boot sector:
@@ -251,12 +261,14 @@ Erasing the boot sector:
 
 |image11|
 
+.. rst-class:: imagefiguesclass
 Figure 11: Erasing the boot sector – Terminal
 
 Expected output:
 
 |image12|
 
+.. rst-class:: imagefiguesclass
 Figure 12: Erase Flash - Console output
 
 Write Filesystem to Flash
@@ -293,6 +305,7 @@ Write image to flash:
 
 |image13|
 
+.. rst-class:: imagefiguesclass
 Figure 13: Sector number
 
 .. |image1| image:: media/image1.png

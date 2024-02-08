@@ -8,10 +8,12 @@ Topology
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Block diagram
 
 |image5|
 
+.. rst-class:: imagefiguesclass
 Figure 2: Topology
 
 PIN Configuration

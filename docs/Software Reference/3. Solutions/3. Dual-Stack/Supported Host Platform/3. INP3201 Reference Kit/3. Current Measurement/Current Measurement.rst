@@ -16,6 +16,7 @@ Figure 1 depicts the current measurement setup for Talaria TWO.
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: Talaria TWO current measurement on INP3201
 
 T31
@@ -28,10 +29,12 @@ and J13 PIN 2 and 3 when powersave is disabled.
 
 |image2|
 
+.. rst-class:: imagefiguesclass
 Figure 2: T31 current measurement - powersave enabled
 
 |image3|
 
+.. rst-class:: imagefiguesclass
 Figure 3: T31 current measurement - powersave disabled
 
 INP3201 Board
@@ -43,6 +46,7 @@ connected between the J11 as indicated in Figure 15.
 
 |image4|
 
+.. rst-class:: imagefiguesclass
 Figure 4: Complete INP3201 board current measurement
 
 .. |image1| image:: media/image1.png

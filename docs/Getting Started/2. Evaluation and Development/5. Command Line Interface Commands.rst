@@ -1700,14 +1700,14 @@ Re-launch the console terminal app and reset Talaria TWO device.
    :width: 7.48031in
    :height: 1.0419in
 .. |image7| image:: media/image7.png
-   :width: 3in
-   :height: 0.18333in
+   :width: 7.48031in
+   :height: 1.6598in
 .. |image8| image:: media/image8.png
    :width: 7.48031in
-   :height: 1.50444in
+   :height: 2.50444in
 .. |image9| image:: media/image9.png
    :width: 7.48031in
-   :height: 1.0419in
+   :height: 2.10419in
 .. |image10| image:: media/image10.png
    :width: 7.48031in
    :height: 1.35847in
@@ -1716,68 +1716,71 @@ Re-launch the console terminal app and reset Talaria TWO device.
    :height: 1.41522in
 .. |image12| image:: media/image12.png
    :width: 7.48031in
-   :height: 1.62708in
+   :height: 2.62708in
 .. |image13| image:: media/image13.png
    :width: 7.48031in
-   :height: 1.21901in
+   :height: 2.51901in
 .. |image14| image:: media/image14.png
    :width: 7.48031in
-   :height: 1.15114in
+   :height: 2.55114in
 .. |image15| image:: media/image15.png
    :width: 7.48031in
-   :height: 1.21001in
+   :height: 9.21001in
 .. |image16| image:: media/image16.png
    :width: 7.48031in
-   :height: 1.21901in
+   :height: 7.21901in
 .. |image17| image:: media/image17.png
-   :width: 1.475in
-   :height: 0.14167in
+   :width: 7.475in
+   :height: 6.14167in
 .. |image18| image:: media/image18.png
-   :width: 6.69291in
-   :height: 2.31306in
+   :width: 7.69291in
+   :height: 1.31306in
 .. |image19| image:: media/image19.png
-   :width: 1.475in
-   :height: 0.14167in
+   :width: 7.475in
+   :height: 1.14167in
 .. |image20| image:: media/image20.png
-   :width: 6.69291in
-   :height: 2.46249in
+   :width: 7.69291in
+   :height: 1.46249in
 .. |image21| image:: media/image21.png
    :width: 7.475in
-   :height: 7.14167in
+   :height: 1.14167in
 .. |image22| image:: media/image22.png
    :width: 7.48031in
-   :height: 2.58782in
+   :height: 1.58782in
 .. |image23| image:: media/image23.png
    :width: 7.48031in
    :height: 1.98832in
 .. |image24| image:: media/image24.png
-   :width: 0.7in
+   :width: 7.48031in
+   :height: 0.98832in
 .. |image25| image:: media/image25.png
-   :width: 7.08661in
-   :height: 2.87927in
+   :width: 8in
+   :height: 1.87927in
 .. |image26| image:: media/image26.png
-   :width: 7.08661in
-   :height: 1.01438in
+   :width: 8in
+   :height: 2.01438in
 .. |image27| image:: media/image27.png
-   :height: 1.01438in
-   :width: 0.86765in
+   :width: 8in
+   :height: 2in
 .. |image28| image:: media/image28.png
-   :width: 7.475in
-   :height: 3.49869in
+   :width: 8in
+   :height: 2in
 .. |image29| image:: media/image29.png
-   :width: 7.475in
-   :height: 1.49869in
+   :class: .image-resizing
+   :width: 4in
+   :height: 8in
 .. |image30| image:: media/image30.png
    :width: 7.475in
-   :height: 2.49869in
+   :height: 5in
 .. |image31| image:: media/image31.png
-   :width: 7.08661in
-   :height: 0.83109in
+   :width: 8in
+   :height: 2in
 .. |image32| image:: media/image32.png
-   :width: 0.91667in
+   :width: 8in
+   :height: 0.5in
 .. |image33| image:: media/image33.png
-   :width: 7.90551in
-   :height: 0.50449in
+   :width: 8in
+   :height: 2.5in
 .. |image34| image:: media/image34.png
    :width: 7.90551in
    :height: 1.05263in
@@ -1785,71 +1788,57 @@ Re-launch the console terminal app and reset Talaria TWO device.
    :width: 7.90551in
    :height: 0.59042in
 .. |image36| image:: media/image36.png
-   :width: 7.90551in
-   :height: 0.59042in
+   :width: 8in
+   :height: 3in
 .. |image37| image:: media/image37.png
-   :width: 7.90551in
-   :height: 1.59042in
+   :width: 8in
+   :height: 2.5in
 .. |image38| image:: media/image38.png
-   :width: 7.90551in
-   :height: 1.87719in
+   :width: 8in
+   :height: 0.9in
 .. |image39| image:: media/image39.png
-   :width: 7.90551in
-   :height: 1.87719in
+   :width: 8in
+   :height: 0.9in
 .. |image40| image:: media/image40.png
-   :width: 7.90551in
+   :width: 8in
    :height: 1.21486in
 .. |image41| image:: media/image41.png
-   :width: 7.90551in
-   :height: 0.73377in
+   :width: 8in
+   :height: 3.5in
 .. |image42| image:: media/image42.png
-   :width: 7.90551in
-   :height: 2.44596in
+   :width: 8in
 .. |image43| image:: media/image43.png
-   :width: 7.90551in
-   :height: 1.73377in
+   :width: 8in
 .. |image44| image:: media/image44.png
-   :width: 7.90551in
-   :height: 2.73377in
+   :width: 8in
 .. |image45| image:: media/image45.png
-   :width: 7.90551in
-   :height: 1.21783in
+   :class: .image-resizing
+   :width: 4in
 .. |image46| image:: media/image46.png
-   :width: 6.88976in
+   :width: 8in
    :height: 1.53348in
 .. |image47| image:: media/image47.png
-   :width: 3.93701in
-   :height: 8.27202in
+   :width: 8in
 .. |image48| image:: media/image48.png
-   :width: 7.93701in
-   :height: 2.27202in
+   :width: 8in
 .. |image49| image:: media/image49.png
-   :width: 4.72441in
-   :height: 1.99213in
+   :width: 8in
 .. |image50| image:: media/image50.png
-   :width: 7.93701in
-   :height: 1.53348in
+   :width: 8in
 .. |image51| image:: media/image51.png
-   :width: 7.88976in
-   :height: 1.91034in
+   :width: 8in
 .. |image52| image:: media/image52.png
-   :width: 6.88976in
-   :height: 3.34672in
+   :width: 8in
 .. |image53| image:: media/image53.png
-   :width: 7.88976in
-   :height: 1.34672in
+   :class: .image-resizing
+   :width: 4in
 .. |image54| image:: media/image54.png
-   :width: 7.88976in
-   :height: 1.34672in
+   :width: 8in
 .. |image55| image:: media/image55.png
-   :width: 7.88976in
-   :height: 1.34672in
+   :width: 8in
 .. |image56| image:: media/image56.png
-   :width: 7.88976in
-   :height: 1.34672in
+   :width: 8in
 .. |image57| image:: media/image57.png
-   :width: 7.88976in
-   :height: 1.34672in
+   :width: 8in
 .. |image58| image:: media/image58.png
-   :width: 7.88976in
-   :height: 1.34672in
+   :width: 8in

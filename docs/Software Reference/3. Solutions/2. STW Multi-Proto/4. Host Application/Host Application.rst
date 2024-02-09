@@ -82,8 +82,7 @@ receiving the response, the receive thread unblocks and sends the
 response to the user application.
 
 .. |image1| image:: media/image1.png
-   :width: 3.93701in
-   :height: 4.42702in
+   :class: .image-resizing
+   :width: 4in
 .. |image2| image:: media/image2.png
-   :width: 5.90551in
-   :height: 1.21873in
+   :width: 8in

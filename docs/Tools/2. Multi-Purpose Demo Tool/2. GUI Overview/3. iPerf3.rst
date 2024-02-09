@@ -31,5 +31,4 @@ Figure 7: Selecting iPerf3
    clicking on CLEAR Flash again.
 
 .. |image7| image:: media/image7.png
-   :width: 7.48031in
-   :height: 2.03816in
+   :width: 8in

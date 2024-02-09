@@ -1,7 +1,7 @@
-.. _programming over jtag:
+.. _programming over jtag on INP3000:
 
-Programming Talaria TWO over JTAG
-----------------------------------
+Programming Talaria TWO over JTAG ON INP000
+---------------------------------------------
 
 The INP3000 Programmer Board version 3.0 has the JTAG interface to
 program Talaria TWO modules.
@@ -201,38 +201,26 @@ be terminated before debugging using Eclipse. Close all the command
 prompt windows to terminate OpenOCD.
 
 .. |image23| image:: media/image23.png
-   :width: 6.69291in
-   :height: 0.79597in
+   :width: 8in
 .. |image24| image:: media/image24.png
-   :width: 6.69291in
-   :height: 2.47494in
+   :width: 8in
 .. |image25| image:: media/image25.png
-   :width: 6.69291in
-   :height: 2.4272in
+   :width: 8in
 .. |image26| image:: media/image26.png
-   :width: 6.69291in
-   :height: 3.53706in
+   :width: 8in
 .. |image27| image:: media/image27.png
-   :width: 6.69291in
-   :height: 3.58143in
+   :width: 8in
 .. |image28| image:: media/image28.png
-   :width: 6.69291in
-   :height: 4.52193in
+   :width: 8in
 .. |image29| image:: media/image29.png
-   :width: 6.69291in
-   :height: 0.82298in
+   :width: 8in
 .. |image30| image:: media/image30.png
-   :width: 6.69291in
-   :height: 3.05694in
+   :width: 8in
 .. |image31| image:: media/image31.png
-   :width: 6.69291in
-   :height: 3.17864in
+   :width: 8in
 .. |image32| image:: media/image32.png
-   :width: 6.69291in
-   :height: 4.20087in
+   :width: 8in
 .. |image33| image:: media/image33.png
-   :width: 6.69291in
-   :height: 4.1976in
+   :width: 8in
 .. |image34| image:: media/image34.png
-   :width: 6.69291in
-   :height: 4.19529in
+   :width: 8in

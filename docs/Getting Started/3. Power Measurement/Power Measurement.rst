@@ -36,8 +36,6 @@ For more information on the Wi-Fi Connection Manager’s power management
 APIs, refer: the Wi-Fi Power Management application note.
 
 .. |image1| image:: media/image1.png
-   :width: 7.48031in
-   :height: 3.65708in
+   :width: 8in
 .. |image2| image:: media/image2.png
-   :width: 7.48031in
-   :height: 3.65708in
+   :width: 8in

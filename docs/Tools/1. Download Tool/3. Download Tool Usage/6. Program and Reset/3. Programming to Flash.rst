@@ -16,8 +16,6 @@ Figure 1: PROG Flash
 Figure 2: Console Output – PROG Flash
 
 .. |image5| image:: media/image5.png
-   :width: 7.48031in
-   :height: 2.1064in
+   :width: 8in
 .. |image6| image:: media/image6.png
-   :width: 7.48031in
-   :height: 7.44524in
+   :width: 8in

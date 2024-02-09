@@ -324,20 +324,15 @@ for FCC/ISED and TELEC.
    +-----------+----------------+-----------+----------------------------+
 
 .. |image1| image:: media/image1.png
-   :width: 7.92153in
-   :height: 3.14861in
+   :class: .image-resizing
+   :width: 6in
 .. |image2| image:: media/image2.png
-   :width: 7.92153in
-   :height: 3.60625in
+   :width: 8in
 .. |image3| image:: media/image3.png
-   :width: 4.92153in
-   :height: 2.20833in
+   :width: 8in
 .. |image4| image:: media/image4.png
-   :width: 4.92126in
-   :height: 5.16986in
+   :width: 8in
 .. |image5| image:: media/image5.png
-   :width: 4.92153in
-   :height: 3.51042in
+   :width: 8in
 .. |image6| image:: media/image6.png
-   :width: 7.92153in
-   :height: 5.14861in
+   :width: 8in

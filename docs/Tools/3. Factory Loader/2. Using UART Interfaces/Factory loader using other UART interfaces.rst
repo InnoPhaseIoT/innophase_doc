@@ -20,5 +20,4 @@ Programming using UART
 
 
 .. |image1| image:: media/image1.png
-   :width: 3.35417in
-   :height: 2in
+   :width: 8in

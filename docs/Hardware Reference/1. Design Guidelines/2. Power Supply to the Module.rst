@@ -18,5 +18,4 @@ Figure 1: Decoupling Capacitors on VCC pins 2 and 3 VCC and GND pins 1
 and 4
 
 .. |image1| image:: media/image1.png
-   :width: 6.69291in
-   :height: 3.57437in
+   :width: 8in

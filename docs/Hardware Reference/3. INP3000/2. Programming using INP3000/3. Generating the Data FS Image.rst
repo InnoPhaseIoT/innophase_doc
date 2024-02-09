@@ -86,14 +86,10 @@ Figure 3: Generating the data image - Linux
 Figure 4: Generated data image -Linux
 
 .. |image5| image:: media/image5.png
-   :width: 6.69291in
-   :height: 0.39898in
+   :width: 8in
 .. |image6| image:: media/image6.png
-   :width: 5.90551in
-   :height: 4.77165in
+   :width: 8in
 .. |image7| image:: media/image7.png
-   :width: 6.69291in
-   :height: 0.22747in
+   :width: 8in
 .. |image8| image:: media/image8.png
-   :width: 6.69291in
-   :height: 0.38683in
+   :width: 8in

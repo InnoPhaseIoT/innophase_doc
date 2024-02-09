@@ -68,5 +68,4 @@ The tunadapter has the following optional command line arguments:
 
 
 .. |image1| image:: media/image1.png
-   :width: 7.1in
-   :height: 4.1in
+   :width: 8in

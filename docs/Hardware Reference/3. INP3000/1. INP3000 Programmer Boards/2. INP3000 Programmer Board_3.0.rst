@@ -156,11 +156,8 @@ Use the mating connector on the Molex cable connected to FTDI board
 version 3.0 in Figure 3 to independently program the Talaria TWO module.
 
 .. |image3| image:: media/image3.png
-   :width: 5.11811in
-   :height: 4.9996in
+   :width: 8in
 .. |image4| image:: media/image4.png
-   :width: 4.72441in
-   :height: 3.80687in
+   :width: 8in
 .. |image5| image:: media/image5.png
-   :width: 5.90551in
-   :height: 2.74984in
+   :width: 8in

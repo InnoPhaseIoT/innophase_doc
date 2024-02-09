@@ -1,7 +1,7 @@
 .. _dl help:
 
-Help
-----
+DL Help
+--------
 
 Help provides information about the default jumper/switch setting.
 Clicking on Default Jumper Setting as shown in Figure 31 will pop-up a
@@ -28,11 +28,8 @@ permanently, check the Do not show again box and close the window.
 Figure 3: Default Jumper/Switch setting Window during Tool Launch
 
 .. |image13| image:: media/image13.png
-   :width: 7.48031in
-   :height: 2.13227in
+   :width: 8in
 .. |image14| image:: media/image14.png
-   :width: 5.11811in
-   :height: 7.87571in
+   :width: 8in
 .. |image15| image:: media/image15.png
-   :width: 5.11811in
-   :height: 7.97395in
+   :width: 8in

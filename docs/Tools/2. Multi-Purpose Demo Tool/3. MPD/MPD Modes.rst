@@ -1093,68 +1093,46 @@ idle cases, the average current consumption is 58.5µA.
 Figure 22: Multicast Reception OFF GRAT ARP ON - Otii log
 
 .. |image1| image:: media/image1.png
-   :width: 6.29921in
-   :height: 4.71059in
+   :width: 8in
 .. |image2| image:: media/image2.png
-   :width: 5.90551in
-   :height: 5.87934in
+   :width: 8in
 .. |image3| image:: media/image3.png
-   :width: 6.29921in
-   :height: 4.65883in
+   :width: 8in
 .. |image4| image:: media/image4.png
-   :width: 6.29921in
-   :height: 3.85952in
+   :width: 8in
 .. |image5| image:: media/image5.png
-   :width: 6.29921in
-   :height: 4.66295in
+   :width: 8in
 .. |image6| image:: media/image6.png
-   :width: 5.51181in
-   :height: 2.79245in
+   :width: 8in
 .. |image7| image:: media/image7.png
-   :width: 5.51181in
-   :height: 4.06927in
+   :width: 8in
 .. |image8| image:: media/image8.png
-   :width: 5.90551in
-   :height: 3.62436in
+   :width: 8in
 .. |image9| image:: media/image9.png
-   :width: 5.90551in
-   :height: 3.98002in
+   :width: 8in
 .. |image10| image:: media/image10.png
-   :width: 6.29921in
-   :height: 3.66954in
+   :width: 8in
 .. |image11| image:: media/image11.png
-   :width: 6.29921in
-   :height: 4.25006in
+   :width: 8in
 .. |image12| image:: media/image12.png
-   :width: 6.29921in
-   :height: 1.61745in
+   :width: 8in
 .. |image13| image:: media/image13.png
-   :width: 6.29921in
-   :height: 3.00021in
+   :width: 8in
 .. |image14| image:: media/image14.png
-   :width: 6.29921in
-   :height: 3.04374in
+   :width: 8in
 .. |image15| image:: media/image15.png
-   :width: 6.29921in
-   :height: 3.49427in
+   :width: 8in
 .. |image16| image:: media/image16.png
-   :width: 6.29921in
-   :height: 3.05491in
+   :width: 8in
 .. |image17| image:: media/image17.png
-   :width: 6.29921in
-   :height: 3.90964in
+   :width: 8in
 .. |image18| image:: media/image18.png
-   :width: 5.11811in
-   :height: 3.4589in
+   :width: 8in
 .. |image19| image:: media/image19.png
-   :width: 5.11811in
-   :height: 3.47083in
+   :width: 8in
 .. |image20| image:: media/image20.png
-   :width: 6.29921in
-   :height: 3.40663in
+   :width: 8in
 .. |image21| image:: media/image21.png
-   :width: 6.29921in
-   :height: 4.59272in
+   :width: 8in
 .. |image22| image:: media/image22.png
-   :width: 6.29921in
-   :height: 4.24535in
+   :width: 8in

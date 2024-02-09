@@ -1,7 +1,7 @@
 .. ds conmgr commands:
 
 Connection Manager Commands
-=========
+===========================
 
 Connection manager provides the user interface and the supported
 commands are described in the subsequent sections.
@@ -113,7 +113,7 @@ passphrase 123456789:
 
 .. code:: shell
 
-      ./conmgr connect innotest 123456789
+    ./conmgr connect innotest 123456789
 
 
 |image2|
@@ -250,30 +250,24 @@ IP – Get/Set ipv4 Address
 
 .. table:: Table 7: IP - command, parameters and responses
 
-   +---------+------------------------------------------------------------+
-   | **Co    | conmgr ip <ipaddr4> <net mask> <gateway ip> <dns server    |
-   | mmand** | ip>                                                        |
-   +=========+============================================================+
-   | **Param | *ipaddr4*: IP address, as big-endian integer               |
-   | eters** |                                                            |
-   |         | *netmask*: Netmask, as big-endian integer                  |
-   |         |                                                            |
-   |         | *gateway ip*: Default-route address, as big-endian         |
-   |         | integer.                                                   |
-   |         |                                                            |
-   |         | *dns server ip*: DNS server address, as big-endian         |
-   |         | integer.                                                   |
-   |         |                                                            |
-   |         | Execute the following to get current ipv4 address          |
-   |         | information:                                               |
-   |         |                                                            |
-   |         | .. code:: shell                                            |
-   |         |                                                            |
-   |         |        conmgr ip                                           |
-   +---------+------------------------------------------------------------+
-   | **Res   | Gets the IP configuration status.                          |
-   | ponse** |                                                            |
-   +---------+------------------------------------------------------------+
+   +----------------+------------------------------------------------------------+
+   | **Command**    | conmgr ip <ipaddr4> <net mask> <gateway ip> <dns serverip> |
+   +================+============================================================+
+   | **Parameters** | *ipaddr4*: IP address, as big-endian integer               |
+   |                | *netmask*: Netmask, as big-endian integer                  |
+   |                | *gateway ip*: Default-route address, as big-endian         |
+   |                | integer.                                                   |
+   |                | *dns server ip*: DNS server address, as big-endian         |
+   |                | integer.                                                   |
+   |                | Execute the following to get current ipv4 address          |
+   |                | information:                                               |
+   |                |                                                            |
+   |                | .. code:: shell                                            |
+   |                |                                                            |
+   |                |        conmgr ip                                           |
+   +----------------+------------------------------------------------------------+
+   | **Response**   | Gets the IP configuration status.                          |
+   +----------------+------------------------------------------------------------+
 
 Example: Set static IP address 192.168.1.174, subnetmask 255.255.255.0,
 Gateway 192.168.1.1 and DNS serverip 192.168.1.1:
@@ -1379,119 +1373,80 @@ Example:
 Figure 39: dirset/dirget - Sets/Gets packet forward direction
 
 .. |image1| image:: media/image1.jpeg
-   :width: 7.42847in
-   :height: 4.0625in
+   :width: 8in
 .. |image2| image:: media/image2.png
-   :width: 1.76234in
-   :height: 0.16667in
+   :width: 8in
 .. |image3| image:: media/image3.png
-   :width: 1.14167in
-   :height: 0.175in
+   :width: 8in
 .. |image4| image:: media/image4.png
-   :width: 7.48031in
-   :height: 0.94197in
+   :width: 8in
 .. |image5| image:: media/image5.png
-   :width: 1.76234in
-   :height: 0.16667in
+   :width: 8in
 .. |image6| image:: media/image6.png
-   :width: 1.76234in
-   :height: 0.16667in
+   :width: 8in
 .. |image7| image:: media/image7.png
-   :width: 7.48031in
-   :height: 4.11625in
+   :width: 8in
 .. |image8| image:: media/image8.png
-   :width: 1.76234in
-   :height: 0.16667in
+   :width: 8in
 .. |image9| image:: media/image9.png
-   :width: 7.48031in
-   :height: 4.33373in
+   :width: 8in
 .. |image10| image:: media/image10.png
-   :width: 1.76234in
-   :height: 0.16667in
+   :width: 8in
 .. |image11| image:: media/image11.png
-   :width: 1.76181in
-   :height: 0.16667in
+   :width: 8in
 .. |image12| image:: media/image12.png
-   :width: 7.48031in
-   :height: 4.21668in
+   :width: 8in
 .. |image13| image:: media/image13.png
-   :width: 1.14177in
-   :height: 0.21669in
+   :width: 8in
 .. |image14| image:: media/image14.png
-   :width: 7.48031in
-   :height: 0.9198in
+   :width: 8in
 .. |image15| image:: media/image15.png
-   :width: 7.40764in
-   :height: 2.80694in
+   :width: 8in
 .. |image16| image:: media/image16.png
-   :width: 7.40417in
-   :height: 1.78125in
+   :width: 8in
 .. |image17| image:: media/image17.jpeg
-   :width: 7.42847in
-   :height: 4.76597in
+   :width: 8in
 .. |image18| image:: media/image18.jpeg
-   :width: 7.42222in
-   :height: 1.84861in
+   :width: 8in
 .. |image19| image:: media/image19.jpeg
-   :width: 7.37708in
-   :height: 1.76458in
+   :width: 8in
 .. |image20| image:: media/image20.jpeg
-   :width: 7.42847in
-   :height: 1.93403in
+   :width: 8in
 .. |image21| image:: media/image21.png
-   :width: 0.8in
-   :height: 0.125in
+   :width: 8in
 .. |image22| image:: media/image22.png
-   :width: 7.39792in
-   :height: 2.42014in
+   :width: 8in
 .. |image23| image:: media/image23.png
-   :width: 7.44375in
-   :height: 2.26875in
+   :width: 8in
 .. |image24| image:: media/image24.png
-   :width: 7.38125in
-   :height: 2.36944in
+   :width: 8in
 .. |image25| image:: media/image25.png
-   :width: 7.38125in
-   :height: 1.89097in
+   :width: 8in
 .. |image26| image:: media/image26.png
-   :width: 7.43056in
-   :height: 1.88194in
+   :width: 8in
 .. |image27| image:: media/image27.png
-   :width: 7.39028in
-   :height: 1.93472in
+   :width: 8in
 .. |image28| image:: media/image28.png
-   :width: 7.38958in
-   :height: 1.88194in
+   :width: 8in
 .. |image29| image:: media/image29.png
-   :width: 7.41111in
-   :height: 1.68889in
+   :width: 8in
 .. |image30| image:: media/image30.png
-   :width: 0.8in
-   :height: 0.125in
+   :width: 8in
 .. |image31| image:: media/image31.png
-   :width: 0.8in
-   :height: 0.125in
+   :width: 8in
 .. |image32| image:: media/image32.png
-   :width: 7.40764in
-   :height: 3.27778in
+   :width: 8in
 .. |image33| image:: media/image33.png
-   :width: 7.42917in
-   :height: 5.07569in
+   :width: 8in
 .. |image34| image:: media/image34.png
-   :width: 7.35556in
-   :height: 2.63056in
+   :width: 8in
 .. |image35| image:: media/image35.png
-   :width: 7.30625in
-   :height: 2.4625in
+   :width: 8in
 .. |image36| image:: media/image36.png
-   :width: 1.93819in
-   :height: 0.16181in
+   :width: 8in
 .. |image37| image:: media/image37.png
-   :width: 1.93819in
-   :height: 0.16181in
+   :width: 8in
 .. |image38| image:: media/image38.png
-   :width: 7.48056in
-   :height: 1.74028in
+   :width: 8in
 .. |image39| image:: media/image39.png
-   :width: 0.8in
-   :height: 0.125in
+   :width: 8in

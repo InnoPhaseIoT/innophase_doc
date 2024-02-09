@@ -224,44 +224,30 @@ For more details on using the Download tool, refer document: UG_Download_Tool.pd
 
 
 .. |image10| image:: media/image10.png
-   :width: 5.90551in
-   :height: 0.70233in
+   :width: 8in
 .. |image11| image:: media/image11.png
-   :width: 5.90551in
-   :height: 2.6999in
+   :width: 8in
 .. |image12| image:: media/image12.png
-   :width: 5.90551in
-   :height: 2.15267in
+   :width: 8in
 .. |image13| image:: media/image13.png
-   :width: 5.90551in
-   :height: 3.13031in
+   :width: 8in
 .. |image14| image:: media/image14.png
-   :width: 5.11811in
-   :height: 2.60875in
+   :width: 8in
 .. |image15| image:: media/image15.png
-   :width: 5.11811in
-   :height: 3.43884in
+   :width: 8in
 .. |image16| image:: media/image16.png
-   :width: 5.51181in
-   :height: 7.43752in
+   :width: 8in
 .. |image17| image:: media/image35.png
-   :width: 5.90551in
-   :height: 0.72616in
+   :width: 8in
 .. |image18| image:: media/image18.png
-   :width: 5.90833in
-   :height: 2.89167in
+   :width: 8in
 .. |image19| image:: media/image19.png
-   :width: 6.69291in
-   :height: 3.17864in
+   :width: 8in
 .. |image20| image:: media/image20.png
-   :width: 6.69291in
-   :height: 4.20087in
+   :width: 8in
 .. |image21| image:: media/image21.png
-   :width: 6.69291in
-   :height: 4.1976in
+   :width: 8in
 .. |image22| image:: media/image22.png
-   :width: 6.69291in
-   :height: 4.19529in
+   :width: 8in
 .. |image36| image:: media/image36.png
-   :width: 7.69291in
-   :height: 4.19529in
+   :width: 8in

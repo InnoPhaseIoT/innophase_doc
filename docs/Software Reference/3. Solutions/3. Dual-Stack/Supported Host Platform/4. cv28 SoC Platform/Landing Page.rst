@@ -80,3 +80,4 @@ Solution with FreeRTOS support using AEK001 cv28 host.
     :maxdepth: 1
 
     4. Testing for Basic Operations/Testing for Basic Operations
+    4. Testing for Basic Operations/Testing for Basic Operations.rst

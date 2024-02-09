@@ -152,19 +152,15 @@ Workaround for this is as follows:
 Figure 5: Error communicating with FTDI device
 
 .. |image1| image:: media/image1.png
-   :width: 7.64643in
+   :width: 8in
 .. |image2| image:: media/image2.png
-   :width: 7.48031in
-   :height: 1.17899in
+   :width: 8in
 .. |image3| image:: media/image3.png
-   :width: 7.69291in
-   :height: 2.12372in
+   :width: 8in
 .. |image4| image:: media/image4.png
-   :width: 7.48031in
-   :height: 2.54634in
+   :width: 8in
 .. |image5| image:: media/image5.png
-   :width: 7.48031in
-   :height: 2.33833in
+   :width: 8in
 
 
 .. toctree::

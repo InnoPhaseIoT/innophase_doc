@@ -228,8 +228,6 @@ creates the wireless network. To set the BSSID of a network, enter the
 BSSID in the provided field and click on Start.
 
 .. |image1| image:: media/image1.png
-   :width: 6.29921in
-   :height: 4.22183in
+   :width: 8in
 .. |image2| image:: media/image2.png
-   :width: 6.29921in
-   :height: 4.34133in
+   :width: 8in

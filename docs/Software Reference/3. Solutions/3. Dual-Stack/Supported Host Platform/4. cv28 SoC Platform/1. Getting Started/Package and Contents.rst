@@ -49,30 +49,14 @@ The package includes dual_stack folder (Path:
 
 The dual_stack folder contains the following:
 
-1. doc:
-
-Readme which includes details of files and folders of Talaria TWO
+1. doc: Readme which includes details of files and folders of Talaria TWO
 Dual-Stack solution.
 
-2. bin:
-
-Pre-built binaries (dualstack.elf and dual_stack_sdio.elf).
-
-3. src:
-
-Source code of Dual-Stack and custom applications.
-
-4. lib:
-
-Dual-Stack library.
-
-5. fs:
-
-Contains json files
-
-6. firmware_upgrade_images:
-
-Root files
+2. bin: Pre-built binaries (dualstack.elf and dual_stack_sdio.elf).
+3. src: Source code of Dual-Stack and custom applications.
+4. lib: Dual-Stack library.
+5. fs: Contains json files
+6. firmware_upgrade_images: Root files
 
 Host Package 
 -------------
@@ -89,16 +73,10 @@ The package includes talaria_two_dual_stack_vx.y folder (Path:
 The talaria_two_dual_stack_vx.y folder contains the following:
 
 1. Quick Start Guide: This document.
-
-2. apps
-
-Contains the optional binary images of common applications like bt,
+2. apps: Contains the optional binary images of common applications like bt,
 iPerf and video. These applications can be executed once the Dual-Stack
 solution is up and running.
-
-3. doc
-
-Contains documents which can be referred to for evaluating and working
+3. doc: Contains documents which can be referred to for evaluating and working
 with the Dual-Stack solution:
 
 a. firmware-upgrade-via-serial: Contains the Readme to flash the
@@ -123,11 +101,8 @@ solution to communicate with the Talaria TWO Wi-Fi module.
    sub-folders for more information.
 
 .. |image1| image:: media/image1.png
-   :width: 6.69291in
-   :height: 2.90745in
+   :width: 8in
 .. |image2| image:: media/image2.png
-   :width: 6.69291in
-   :height: 2.89991in
+   :width: 8in
 .. |image3| image:: media/image3.png
-   :width: 6.69291in
-   :height: 3.00439in
+   :width: 8in

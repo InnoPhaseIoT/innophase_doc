@@ -40,6 +40,7 @@ https://innophaseiot.com/wp-content/uploads/modules/INP301x-EVB-A-Schematics.pdf
 
 |image1|
 
+.. rst-class:: imagefiguesclass
 Figure 1: UART-based Programming
 
 In case of a custom application board, it is recommended to use the
@@ -119,20 +120,14 @@ following connector details:
 Figure 6: SWD Connector on the application board
 
 .. |image1| image:: media/image1.png
-   :width: 7.48031in
-   :height: 3.4863in
+   :width: 8in
 .. |image2| image:: media/image2.png
-   :width: 3.14961in
-   :height: 1.87549in
+   :width: 8in
 .. |image3| image:: media/image3.png
-   :width: 3.14961in
-   :height: 1.87549in
+   :width: 8in
 .. |image4| image:: media/image4.png
-   :width: 3.14961in
-   :height: 2.11003in
+   :width: 8in
 .. |image5| image:: media/image5.png
-   :width: 7.48031in
-   :height: 3.4863in
+   :width: 8in
 .. |image6| image:: media/image6.png
-   :width: 7.48031in
-   :height: 4.26392in
+   :width: 8in

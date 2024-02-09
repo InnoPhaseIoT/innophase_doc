@@ -118,8 +118,6 @@ Following is the sample json config file for this scenario:
 
 
 .. |image1| image:: media/image1.png
-   :width: 7.87402in
-   :height: 0.72785in
+   :width: 8in
 .. |image2| image:: media/image2.png
-   :width: 7.87402in
-   :height: 0.72785in
+   :width: 8in

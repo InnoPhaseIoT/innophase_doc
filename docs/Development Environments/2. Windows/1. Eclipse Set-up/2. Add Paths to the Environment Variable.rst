@@ -25,18 +25,15 @@ Steps to add the Environment Variable:
 
 3. Add the Path of the built tools bin directory.
 
-[For Ex:
-C:\\Users\\innop\\AppData\\Roaming\\xPacks\\@xpack-dev-tools\\windows-build-tools\\4.3.0-1.1\\.content\\bin]
+[For Ex: C:\\Users\\innop\\AppData\\Roaming\\xPacks\\@xpack-dev-tools\\windows-build-tools\\4.3.0-1.1\\.content\\bin]
 
 4. After adding the build tools path, click on New.
 
 5. Add the Path of the ARM tool chain bin directory.
 
-[For Ex:
-C:\\Users\\innop\\AppData\\Roaming\\xPacks\\@xpack-dev-tools\\arm-none-eabi-gcc\\11.2.1-1.1.1\\.content\\bin]
+[For Ex: C:\\Users\\innop\\AppData\\Roaming\\xPacks\\@xpack-dev-tools\\arm-none-eabi-gcc\\11.2.1-1.1.1\\.content\\bin]
 
 6. Click OK.
 
 .. |image9| image:: media/image9.png
-   :width: 7.48031in
-   :height: 3.4072in
+   :width: 8in

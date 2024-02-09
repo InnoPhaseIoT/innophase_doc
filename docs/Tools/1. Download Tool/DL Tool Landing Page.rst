@@ -15,8 +15,7 @@ Operating Systems.
 |image1|
 
 .. |image1| image:: media/image1.png
-   :width: 6.26806in
-   :height: 2.51746in
+   :width: 8in
 
 .. rst-class:: imagefiguesclass
 Figure 1: Block Diagram

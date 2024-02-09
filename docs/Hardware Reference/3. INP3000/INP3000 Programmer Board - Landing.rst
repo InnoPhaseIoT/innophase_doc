@@ -18,12 +18,12 @@ INP 3000 Programmer Boards
 Programming Using INP 3000
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-   2. Programming using INP3000/1. Prerequisites.rst
-   2. Programming using INP3000/2. Generating the Application Image.rst
-   2. Programming using INP3000/3. Generating the Data FS Image.rst
-   2. Programming using INP3000/4. Installing Dependencies for JTAG_SWD Programming.rst
-   2. Programming using INP3000/5. Programming Talaria TWO over UART.rst
-   2. Programming using INP3000/6. Programming Talaria TWO over SWD.rst
-   2. Programming using INP3000/7. Programming Talaria TWO over JTAG.rst
+    2. Programming using INP3000/1. Prerequisites.rst
+    2. Programming using INP3000/2. Generating the Application Image.rst
+    2. Programming using INP3000/3. Generating the Data FS Image.rst
+    2. Programming using INP3000/4. Installing Dependencies for JTAG_SWD Programming.rst
+    2. Programming using INP3000/5. Programming Talaria TWO over UART.rst
+    2. Programming using INP3000/6. Programming Talaria TWO over SWD.rst
+    2. Programming using INP3000/7. Programming Talaria TWO over JTAG

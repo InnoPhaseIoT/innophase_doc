@@ -918,50 +918,34 @@ Figure 16: Turn ON the Wi-Fi DTIM only listening mode
 
 
 .. |image59| image:: media/image59.png
-   :width: 7.08661in
-   :height: 1.49772in
+   :width: 8in
 .. |image60| image:: media/image60.png
-   :width: 1.59167in
-   :height: 0.225in
+   :width: 8in
 .. |image61| image:: media/image61.png
-   :width: 7.48031in
-   :height: 1.65708in
+   :width: 8in
 .. |image62| image:: media/image62.png
-   :width: 7.48031in
-   :height: 1.65708in
+   :width: 8in
 .. |image63| image:: media/image63.png
-   :width: 7.48031in
-   :height: 1.71595in
+   :width: 8in
 .. |image64| image:: media/image64.png
-   :width: 7.48031in
-   :height: 1.71595in
+   :width: 8in
 .. |image65| image:: media/image65.png
-   :width: 7.48031in
-   :height: 1.5167in
+   :width: 8in
 .. |image66| image:: media/image66.png
-   :width: 7.48031in
-   :height: 1.71595in
+   :width: 8in
 .. |image67| image:: media/image67.png
-   :width: 7.48031in
-   :height: 1.71595in
+   :width: 8in
 .. |image68| image:: media/image68.png
-   :width: 7.48031in
-   :height: 1.91595in
+   :width: 8in
 .. |image69| image:: media/image69.png
-   :width: 7.48031in
-   :height: 1.91595in
+   :width: 8in
 .. |image70| image:: media/image70.png
-   :width: 7.48031in
-   :height: 1.91595in
+   :width: 8in
 .. |image71| image:: media/image71.png
-   :width: 7.48031in
-   :height: 1.91595in
+   :width: 8in
 .. |image72| image:: media/image72.png
-   :width: 7.48031in
-   :height: 1.91595in
+   :width: 8in
 .. |image73| image:: media/image73.png
-   :width: 7.48031in
-   :height: 1.91595in
+   :width: 8in
 .. |image74| image:: media/image74.png
-   :width: 7.48031in
-   :height: 1.91595in
+   :width: 8in

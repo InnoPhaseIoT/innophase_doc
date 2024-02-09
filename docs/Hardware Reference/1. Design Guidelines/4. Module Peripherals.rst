@@ -338,41 +338,29 @@ Figure 8: SWD connector on the Talaria TWO
 Figure 9: JTAG Connector on Talaria TWO
 
 .. |image4| image:: media/image4.png
-   :width: 7.48031in
-   :height: 4.72079in
+   :width: 8in
 .. |image5| image:: media/image5.png
-   :width: 7.48031in
-   :height: 3.72079in
+   :width: 8in
 .. |image6| image:: media/image6.png
-   :width: 7.48031in
-   :height: 3.72079in
+   :width: 8in
 .. |image7| image:: media/image7.png
-   :width: 7.48031in
-   :height: 3.29018in
+   :width: 8in
 .. |image8| image:: media/image8.png
-   :width: 7.48031in
-   :height: 3.72079in
+   :width: 8in
 .. |image9| image:: media/image9.png
-   :width: 7.4696in
-   :height: 4.72441in
+   :width: 8in
 .. |image10| image:: media/image10.png
-   :width: 4.48031in
-   :height: 7.72079in
+   :class: .image-resizing
+   :width: 4in
 .. |image11| image:: media/image11.png
-   :width: 7.28346in
-   :height: 3.7237in
+   :width: 8in
 .. |image12| image:: media/image12.png
-   :width: 7.48031in
-   :height: 3.05582in
+   :width: 8in
 .. |image13| image:: media/image13.emf
-   :width: 4.72441in
-   :height: 3.03837in
+   :width: 8in
 .. |image14| image:: media/image14.emf
-   :width: 3.54331in
-   :height: 4.18874in
+   :width: 8in
 .. |image15| image:: media/image15.png
-   :width: 7.48031in
-   :height: 3.51456in
+   :width: 8in
 .. |image16| image:: media/image16.png
-   :width: 7.48031in
-   :height: 2.4243in
+   :width: 8in

@@ -51,5 +51,4 @@ The following scan parameters can be configured from the tool:
    the scan will only be passive.
 
 .. |image8| image:: media/image8.png
-   :width: 7.48031in
-   :height: 2.39143in
+   :width: 8in

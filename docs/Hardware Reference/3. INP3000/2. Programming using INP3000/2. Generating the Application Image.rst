@@ -73,14 +73,10 @@ Figure 3: Generating the application image – Linux
 Figure 4: Application image and its VM image – Linux
 
 .. |image1| image:: media/image1.png
-   :width: 6.69291in
-   :height: 0.68991in
+   :width: 8in
 .. |image2| image:: media/image2.png
-   :width: 6.69291in
-   :height: 4.51229in
+   :width: 8in
 .. |image3| image:: media/image3.png
-   :width: 6.69291in
-   :height: 0.70429in
+   :width: 8in
 .. |image4| image:: media/image4.png
-   :width: 6.69291in
-   :height: 0.64857in
+   :width: 8in

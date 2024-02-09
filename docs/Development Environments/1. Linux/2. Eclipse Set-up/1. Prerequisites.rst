@@ -1,14 +1,14 @@
 .. _eclipse setup prerequisites:
 
-Prerequisites 
-==============
+Prerequisites Linux
+=====================
 
 1. Talaria TWO FreeRTOS SDK.
 
 2. Ubuntu 20.04 or higher versions.
 
-JDK Installation 
-=================
+JDK Installation
+----------------
 
 Eclipse IDE requires Java JRE as a prerequisite. JDK includes the JRE
 plus command-line development tools such as compiler and debuggers that
@@ -32,7 +32,7 @@ executing the command java-version in command line as shown in Figure 1.
 Figure 1: Verifying the java version
 
 Prerequisites for Eclipse
-=========================
+--------------------------
 
 Installing Necessary Packages
 -----------------------------
@@ -140,5 +140,4 @@ In a terminal window, execute the following command to install OpenOCD:
     sudo apt install openocd -y
 
 .. |image27| image:: media/image27.png
-   :width: 7.48031in
-   :height: 0.77681in
+   :width: 8in

@@ -63,6 +63,7 @@ source_parsers = {'.md': CommonMarkParser}
 
 source_suffix = ['.rst', '.md']
 html_static_path = ['_static']
+html_js_files = ['js/image_sizing.js']
 
 html_sidebars = {
     '**': [

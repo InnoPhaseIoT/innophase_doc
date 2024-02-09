@@ -17,5 +17,4 @@ loader:
 Figure 1: factory_loader help - console output
 
 .. |image1| image:: media/image1.png
-   :width: 7.48031in
-   :height: 3.47543in
+   :width: 8in

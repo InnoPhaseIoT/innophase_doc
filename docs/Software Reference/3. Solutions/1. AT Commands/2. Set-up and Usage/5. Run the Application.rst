@@ -44,5 +44,4 @@ Figure 1: AT Commands - Tera Term output
 
 
 .. |image4| image:: media/image4.png
-   :width: 7.48031in
-   :height: 3.91168in
+   :width: 8ini

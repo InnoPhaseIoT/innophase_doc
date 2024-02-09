@@ -19,5 +19,4 @@ the following boot arguments are passed:
 Figure 1: Passing Boot Arguments
 
 .. |image12| image:: media/image12.png
-   :width: 6.48031in
-   :height: 7.11117in
+   :width: 8in

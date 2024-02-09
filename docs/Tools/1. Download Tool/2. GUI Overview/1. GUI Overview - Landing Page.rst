@@ -71,14 +71,10 @@ Note: Only upcoming data after starting the Save Logs is saved in the file.
 Figure 4: Error communicating with FTDI device
 
 .. |image1| image:: media/image1.png
-   :width: 7.48031in
-   :height: 3.89075in
+   :width: 8in
 .. |image2| image:: media/image2.png
-   :width: 0.56352in
-   :height: 0.12153in
+   :width: 8in
 .. |image3| image:: media/image3.png
-   :width: 7.48031in
-   :height: 3.89841in
+   :width: 8in
 .. |image4| image:: media/image4.png
-   :width: 7.48031in
-   :height: 2.35769in
+   :width: 8in

@@ -35,8 +35,6 @@ Files <#_Write_Files>`.
 Figure 2: ELF input - SSBL programming
 
 .. |image3| image:: media/image3.png
-   :width: 7.48031in
-   :height: 1.33061in
+   :width: 8in
 .. |image4| image:: media/image4.png
-   :width: 7.48031in
-   :height: 1.53136in
+   :width: 8in

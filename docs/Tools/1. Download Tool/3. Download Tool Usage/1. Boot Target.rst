@@ -46,8 +46,6 @@ the instructions mentioned in section: `New Serial Number to Device –
 Manual Method <#_New_Serial_Number>`.
 
 .. |image1| image:: media/image1.png
-   :width: 7.26736in
-   :height: 1.29375in
+   :width: 8in
 .. |image2| image:: media/image2.png
-   :width: 7.48031in
-   :height: 0.70955in
+   :width: 8in

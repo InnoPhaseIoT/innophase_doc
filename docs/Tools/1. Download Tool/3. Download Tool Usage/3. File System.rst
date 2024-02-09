@@ -109,20 +109,14 @@ Figure 6: Delete File
 not the file system contents.
 
 .. |image5| image:: media/image5.png
-   :width: 7.48031in
-   :height: 3.72305in
+   :width: 8in
 .. |image6| image:: media/image6.png
-   :width: 1.03333in
-   :height: 0.25347in
+   :width: 8in
 .. |image7| image:: media/image7.png
-   :width: 0.21319in
-   :height: 0.2in
+   :width: 8in
 .. |image8| image:: media/image8.png
-   :width: 7.48031in
-   :height: 3.72907in
+   :width: 8in
 .. |image9| image:: media/image9.png
-   :width: 7.48031in
-   :height: 3.70206in
+   :width: 8in
 .. |image10| image:: media/image10.png
-   :width: 7.48031in
-   :height: 3.71637in
+   :width: 8in

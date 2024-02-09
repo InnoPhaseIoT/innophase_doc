@@ -20,5 +20,4 @@ Programming using SPI
 
 
 .. |image1| image:: media/image1.png
-   :width: 3.35417in
-   :height: 2.51042in
+   :width: 8in

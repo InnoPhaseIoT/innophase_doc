@@ -140,5 +140,6 @@ Console output
 
 
 .. |image1| image:: media/image1.png
+   :class: .image-resizing
    :width: 4.72441in
    :height: 4.22083in

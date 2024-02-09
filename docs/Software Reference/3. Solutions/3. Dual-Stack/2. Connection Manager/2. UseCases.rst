@@ -1086,71 +1086,48 @@ Console Logs
 
 
 .. |image40| image:: media/image40.png
-   :width: 6.69291in
-   :height: 3.34681in
+   :width: 8in
 .. |image41| image:: media/image41.png
-   :width: 1.14167in
-   :height: 0.175in
+   :width: 8in
 .. |image42| image:: media/image42.png
-   :width: 6.69291in
-   :height: 0.84281in
+   :width: 8in
 .. |image43| image:: media/image43.png
-   :width: 5.51181in
-   :height: 1.86657in
+   :width: 8in
 .. |image44| image:: media/image44.png
-   :width: 5.51181in
-   :height: 4.06408in
+   :width: 8in
 .. |image45| image:: media/image45.png
-   :width: 1.14167in
-   :height: 0.175in
+   :width: 8in
 .. |image46| image:: media/image46.png
-   :width: 5.51181in
-   :height: 0.67775in
+   :width: 8in
 .. |image47| image:: media/image47.png
-   :width: 0.7in
-   :height: 0.11667in
+   :width: 8in
 .. |image48| image:: media/image48.png
-   :width: 0.7in
-   :height: 0.11667in
+   :width: 8in
 .. |image49| image:: media/image49.png
-   :width: 0.7in
-   :height: 0.25in
+   :width: 8in
 .. |image50| image:: media/image50.png
-   :width: 0.7in
-   :height: 0.25in
+   :width: 8in
 .. |image51| image:: media/image51.png
-   :width: 0.7in
-   :height: 0.33333in
+   :width: 8in
 .. |image52| image:: media/image52.png
-   :width: 0.8in
-   :height: 0.24167in
+   :width: 8in
 .. |image53| image:: media/image53.png
-   :width: 0.71667in
-   :height: 0.33333in
+   :width: 8in
 .. |image54| image:: media/image54.png
-   :width: 0.71667in
-   :height: 0.33333in
+   :width: 8in
 .. |image55| image:: media/image55.png
-   :width: 7.48031in
-   :height: 6.13055in
+   :width: 8in
 .. |image56| image:: media/image56.png
-   :width: 0.7in
-   :height: 0.33333in
+   :width: 8in
 .. |image57| image:: media/image57.png
-   :width: 0.7in
-   :height: 0.33333in
+   :width: 8in
 .. |image58| image:: media/image58.png
-   :width: 0.7in
-   :height: 0.33333in
+   :width: 8in
 .. |image59| image:: media/image59.png
-   :width: 0.7in
-   :height: 0.3in
+   :width: 8in
 .. |image60| image:: media/image60.png
-   :width: 0.7in
-   :height: 0.31667in
+   :width: 8in
 .. |image61| image:: media/image61.png
-   :width: 0.7in
-   :height: 0.34167in
+   :width: 8in
 .. |image62| image:: media/image62.png
-   :width: 0.7in
-   :height: 0.11667in
+   :width: 8in

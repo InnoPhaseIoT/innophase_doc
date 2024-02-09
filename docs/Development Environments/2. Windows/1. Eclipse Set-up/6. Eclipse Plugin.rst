@@ -24,7 +24,6 @@ using following steps:
 
 1. Help -> Install New Software
 
-..
 
 |image15|
 
@@ -34,18 +33,16 @@ Figure 1: Plugin installation – Install new software
 2. Add -> Location to https://www.innophaseiot.com/eclipse-plugins ->
       Add
 
-..
 
-   |image16|
+|image16|
 
 .. rst-class:: imagefiguesclass
 Figure 2: Plugin installation – Add Repository Location
 
 3. Select the check box: InnoPhase IoT -> Next
 
-..
 
-   |image17|
+|image17|
 
 .. rst-class:: imagefiguesclass
 Figure 3: Plugin installation – Choose available software to install
@@ -62,17 +59,13 @@ dependencies
 4. Select radial button “\ *Keep my installation the same and modify the
       items being installed to be compatible*\ ” -> Next
 
-..
-
-   |image19|
+|image19|
 
 Figure 5: Plugin installation – Install remediation page
 
 5. Press Next to continue.
 
-..
-
-   |image20|
+|image20|
 
 .. rst-class:: imagefiguesclass
 Figure 6: Plugin installation – Install details
@@ -89,9 +82,8 @@ Figure 7: Plugin installation – Review licenses
 7. Select the check box Unsigned & Always trust all content and Click on
       Trust Selected -> Yes, I Accept the Risk
 
-..
 
-   |image22|
+|image22|
 
 .. rst-class:: imagefiguesclass
 Figure 8: Plugin installation – Trust unsigned content
@@ -103,9 +95,7 @@ Figure 9: Plugin installation – Trust unsigned content
 
 8. Software begins to install, which is indicated in the status bar.
 
-..
-
-   |image24|
+|image24|
 
 .. rst-class:: imagefiguesclass
 Figure 10: Plugin installation – Installing software status
@@ -113,9 +103,7 @@ Figure 10: Plugin installation – Installing software status
 9. Once software installation is complete, a pop-up message for
       restarting appears. Click on Restart Now.
 
-..
-
-   |image25|
+|image25|
 
 .. rst-class:: imagefiguesclass
 Figure 11: Plugin installation – Restart after installation
@@ -123,9 +111,7 @@ Figure 11: Plugin installation – Restart after installation
 10. On successful installation, Eclipse IDE will have a tab for
        InnoPhase IoT on restarting.
 
-..
-
-   |image26|
+|image26|
 
 .. rst-class:: imagefiguesclass
 Figure 12: Plugin installation – InnoPhase IoT tab
@@ -139,9 +125,7 @@ steps to configure the supporting files:
 
 1. InnoPhase IoT -> Download and Configure Support Files
 
-..
-
-   |image27|
+|image27|
 
 .. rst-class:: imagefiguesclass
 Figure 13: Download and configure support files menu
@@ -149,9 +133,7 @@ Figure 13: Download and configure support files menu
 2. Browse and choose a directory to download and configure support files
    for *InnoPhase IoT Software Development Tool* plugin.
 
-..
-
-   |image28|
+|image28|
 
 .. rst-class:: imagefiguesclass
 Figure 14: Download and configure support files - Input window
@@ -164,9 +146,7 @@ Figure 14: Download and configure support files - Input window
    selected folder. A pop-up message will confirm once the download is
    completed.
 
-..
-
-   |image29|
+|image29|
 
 .. rst-class:: imagefiguesclass
 Figure 15: Download and configure support files – Status message
@@ -182,9 +162,7 @@ Import Talaria TWO Example Project
 
    c. Click on File -> Import
 
-..
-
-   |image30|
+|image30|
 
 .. rst-class:: imagefiguesclass
 Figure 16: Import an existing example in Eclipse
@@ -192,9 +170,7 @@ Figure 16: Import an existing example in Eclipse
 2. Under C/C++, Click Existing code as Makefile Project and then click
    Next.
 
-..
-
-   |image31|
+|image31|
 
 .. rst-class:: imagefiguesclass
 Figure 17: Import existing code as makefile project
@@ -205,9 +181,7 @@ Figure 17: Import existing code as makefile project
 
 4. Project is imported with the source code and existing make file.
 
-..
-
-   |image32|
+|image32|
 
 .. rst-class:: imagefiguesclass
 Figure 18: Project imported
@@ -221,9 +195,7 @@ Steps for setting up the run configuration is as follows:
 
 1. Right click on Project and select Run As ->Run Configurations.
 
-..
-
-   |image33|
+|image33|
 
 .. rst-class:: imagefiguesclass
 Figure 19: Eclipse Run As – Select Run Configuration
@@ -231,9 +203,7 @@ Figure 19: Eclipse Run As – Select Run Configuration
 2. Right click on InnoPhase IoT Application Run configuration and select
    New Configuration.
 
-..
-
-   |image34|
+|image34|
 
 .. rst-class:: imagefiguesclass
 Figure 20: InnoPhase IoT Software Development Tool – New run
@@ -243,9 +213,7 @@ configuration
       required default values. Other values are required to be filled by
       the user as per the required the application.
 
-..
-
-   |image35|
+|image35|
 
 .. rst-class:: imagefiguesclass
 Figure 21: InnoPhase IoT Software Development Tool – Run configuration
@@ -302,9 +270,7 @@ g. **Boot Arguments:** Is empty by default. Add the boot argument
       application is built. Application build output can be seen on the
       console window CDT Build Console.
 
-..
-
-   |image36|
+|image36|
 
 .. rst-class:: imagefiguesclass
 Figure 22: Console window – CDT build console
@@ -316,9 +282,7 @@ b. In case the device is connected to the system, the application flash
    and device console output can be seen on the console window InnoPhase
    IoT T2 Device Monitor.
 
-..
-
-   |image37|
+|image37|
 
 .. rst-class:: imagefiguesclass
 Figure 23: InnoPhase IoT T2 Device Monitor console window – Run
@@ -335,9 +299,7 @@ Steps to set-up the debug configuration settings are as follows:
 
 1. Right click on Project and select Debug As ->Debug Configurations.
 
-..
-
-   |image38|
+|image38|
 
 .. rst-class:: imagefiguesclass
 Figure 24: Eclipse Debug – Select debug configuration
@@ -345,9 +307,7 @@ Figure 24: Eclipse Debug – Select debug configuration
 2. Right click on InnoPhase IoT Application Debug configuration and
    select New Configuration.
 
-..
-
-   |image39|
+|image39|
 
 .. rst-class:: imagefiguesclass
 Figure 25: InnoPhase IoT Software Development Tool – New debug
@@ -357,9 +317,7 @@ configuration
       required default values for debugging. As required, the user can
       fill in the other values.
 
-..
-
-   |image40|
+|image40|
 
 .. rst-class:: imagefiguesclass
 Figure 26: InnoPhase IoT Software Development Tool – Debug configuration
@@ -419,9 +377,7 @@ f. **Boot Arguments:** Is empty by default. Add the boot argument
           EVB, Eclipse may prompt to switch to Debug Perspective. Press
           Switch to continue debugging.
 
-..
-
-   |image41|
+|image41|
 
 .. rst-class:: imagefiguesclass
 Figure 27: InnoPhase IoT Software Development Tool – Debug perspective switch
@@ -429,9 +385,8 @@ Figure 27: InnoPhase IoT Software Development Tool – Debug perspective switch
 c. Eclipse will begin to debug and the same is displayed in Debug
    Perspective as shown in Figure 28.
 
-..
 
-   |image42|
+|image42|
 
 .. rst-class:: imagefiguesclass
 Figure 28: InnoPhase IoT Software Development Tool – Debug begins
@@ -444,86 +399,63 @@ Figure 28: InnoPhase IoT Software Development Tool – Debug begins
    shown in Figure 23.
 
 .. |image15| image:: media/image15.png
-   :width: 3.93701in
-   :height: 5.11811in
+   :class: .image-resizing
+   :width: 4in
 .. |image16| image:: media/image16.png
-   :width: 6.49606in
-   :height: 4.6531in
+   :width: 8in
 .. |image17| image:: media/image17.png
-   :width: 6.49606in
-   :height: 5.67924in
+   :width: 8in
 .. |image18| image:: media/image18.png
-   :width: 6.49606in
-   :height: 5.69428in
+   :width: 8in
 .. |image19| image:: media/image19.png
-   :width: 5.90551in
-   :height: 4.06277in
+   :width: 8in
 .. |image20| image:: media/image20.png
-   :width: 5.90551in
-   :height: 3.15836in
+   :width: 8in
 .. |image21| image:: media/image21.png
-   :width: 6.49606in
-   :height: 3.46577in
+   :width: 8in
 .. |image22| image:: media/image22.png
-   :width: 6.49606in
-   :height: 4.20502in
+   :width: 8in
 .. |image23| image:: media/image23.png
-   :width: 6.49606in
-   :height: 2.50445in
+   :width: 8in
 .. |image24| image:: media/image24.png
-   :width: 6.49606in
-   :height: 1.07029in
+   :width: 8in
 .. |image25| image:: media/image25.png
-   :width: 6.49606in
-   :height: 1.65081in
+   :width: 8in
 .. |image26| image:: media/image26.png
-   :width: 6.49606in
-   :height: 1.64596in
+   :width: 8in
 .. |image27| image:: media/image27.png
-   :width: 3.14961in
-   :height: 1.19436in
+   :width: 8in
 .. |image28| image:: media/image28.png
-   :width: 6.69291in
-   :height: 2.70257in
+   :width: 8in
 .. |image29| image:: media/image29.png
-   :width: 4.72441in
-   :height: 1.43594in
+   :width: 8in
 .. |image30| image:: media/image30.png
-   :width: 3.93701in
-   :height: 4.04292in
+   :class: .image-resizing
+   :width: 4in
 .. |image31| image:: media/image31.png
-   :width: 3.93701in
-   :height: 3.61753in
+   :class: .image-resizing
+   :width: 4in
 .. |image32| image:: media/image32.png
-   :width: 3.93701in
-   :height: 3.57847in
+   :width: 8in
 .. |image33| image:: media/image33.png
-   :width: 5.90551in
-   :height: 6.62073in
+   :width: 8in
 .. |image34| image:: media/image34.png
-   :width: 4.72441in
-   :height: 3.84033in
+   :width: 8in
 .. |image35| image:: media/image35.png
-   :width: 6.29921in
-   :height: 4.06766in
+   :width: 8in
 .. |image36| image:: media/image36.png
-   :width: 5.90551in
-   :height: 1.4027in
+   :width: 8in
 .. |image37| image:: media/image37.png
-   :width: 6.29921in
-   :height: 1.70604in
+   :width: 8in
 .. |image38| image:: media/image38.png
-   :width: 6.29921in
-   :height: 7.17585in
+   :class: .image-resizing
+   :width: 4in
 .. |image39| image:: media/image39.png
-   :width: 6.49606in
-   :height: 7.07229in
+   :class: .image-resizing
+   :width: 4in
 .. |image40| image:: media/image40.png
-   :width: 6.29921in
-   :height: 3.6028in
+   :width: 8in
 .. |image41| image:: media/image41.png
-   :width: 4.72441in
-   :height: 2.08334in
+   :width: 8in
 .. |image42| image:: media/image42.png
-   :width: 6.10236in
-   :height: 2.30025in
+   :width: 8in

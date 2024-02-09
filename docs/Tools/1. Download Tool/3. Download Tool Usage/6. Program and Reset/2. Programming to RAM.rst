@@ -26,11 +26,8 @@ message from appearing the next time.
 Figure 3: PROG RAM alert message
 
 .. |image2| image:: media/image2.png
-   :width: 7.48031in
-   :height: 2.1078in
+   :width: 8in
 .. |image3| image:: media/image3.png
-   :width: 7.72506in
-   :height: 7.18335in
+   :width: 8in
 .. |image4| image:: media/image4.png
-   :width: 7.48031in
-   :height: 1.63025in
+   :width: 8in

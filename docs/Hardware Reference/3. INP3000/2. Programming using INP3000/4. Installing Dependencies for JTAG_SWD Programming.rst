@@ -1,7 +1,7 @@
 .. _installing dependencies for jtag and swd:
 
-Installing Dependencies for JTAG_SWD Programming
-----------------------------------------------------------------
+Installing Dependencies for JTAG_SWD
+-------------------------------------
 
 The following dependencies need to be installed on the host PC to flash
 the application image to Talaria TWO over JTAG/SWD:
@@ -35,5 +35,4 @@ Figure 1: Python application path to environment variables path
 
 
 .. |image9| image:: media/image9.png
-   :width: 3.14961in
-   :height: 2.99213in
+   :width: 8in

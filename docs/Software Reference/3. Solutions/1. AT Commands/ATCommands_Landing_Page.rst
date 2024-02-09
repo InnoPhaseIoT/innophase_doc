@@ -144,8 +144,6 @@ UseCases
 
 
 .. |image1| image:: media/image1.png
-   :width: 7.48031in
-   :height: 0.43019in
+   :width: 8in
 .. |image2| image:: media/image2.png
-   :width: 7.48031in
-   :height: 0.43019in
+   :width: 8in

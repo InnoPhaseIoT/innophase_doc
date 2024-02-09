@@ -90,8 +90,6 @@ Figure 2: Starting tunadapter
 For example: ./conmgr connect <AP SSID> <AP PWD>
 
 .. |image1| image:: media/image1.png
-   :width: 6.9685in
-   :height: 5.92514in
+   :width: 8in
 .. |image2| image:: media/image2.png
-   :width: 7.48031in
-   :height: 4.9683in
+   :width: 8in

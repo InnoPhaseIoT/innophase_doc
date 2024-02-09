@@ -108,17 +108,12 @@ Figure 4: ifconfig -output
 Figure 5: VLC player
 
 .. |image1| image:: media/image1.png
-   :width: 6.88976in
-   :height: 7.37142in
+   :width: 8in
 .. |image2| image:: media/image2.png
-   :width: 6.88976in
-   :height: 1.14659in
+   :width: 8in
 .. |image3| image:: media/image3.png
-   :width: 6.69291in
-   :height: 1.67979in
+   :width: 8in
 .. |image4| image:: media/image4.png
-   :width: 6.69291in
-   :height: 3.86004in
+   :width: 8in
 .. |image5| image:: media/image5.png
-   :width: 6.69291in
-   :height: 2.38126in
+   :width: 8in

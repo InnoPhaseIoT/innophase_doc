@@ -1356,125 +1356,99 @@ Acknowledgment of Read request displayed on the device:
 Figure 41: Read request acknowledgment on device
 
 .. |image1| image:: media/image1.png
-   :width: 7.48031in
-   :height: 3.89265in
+   :width: 8in
 .. |image2| image:: media/image2.png
-   :width: 7.48031in
-   :height: 5.36428in
+   :width: 8in
 .. |image3| image:: media/image3.png
-   :width: 6.69291in
-   :height: 3.48682in
+   :width: 8in
 .. |image4| image:: media/image4.png
-   :width: 6.69291in
-   :height: 3.94784in
+   :width: 8in
 .. |image5| image:: media/image5.png
-   :width: 7.48031in
-   :height: 4.18375in
+   :width: 8in
 .. |image6| image:: media/image6.png
-   :width: 7.48031in
-   :height: 4.81503in
+   :width: 8in
 .. |image7| image:: media/image7.png
-   :width: 7.48031in
-   :height: 5.55829in
+   :width: 8in
 .. |image8| image:: media/image8.png
-   :width: 7.48031in
-   :height: 4.22563in
+   :width: 8in
 .. |image9| image:: media/image9.png
-   :width: 7.48031in
-   :height: 4.53538in
+   :width: 8in
 .. |image10| image:: media/image10.png
-   :width: 3.14961in
-   :height: 5.09226in
+   :class: .image-resizing
+   :width: 4in
 .. |image11| image:: media/image11.png
-   :width: 7.48031in
-   :height: 5.7985in
+   :width: 8in
 .. |image12| image:: media/image12.png
-   :width: 7.48031in
-   :height: 4.23315in
+   :width: 8in
 .. |image13| image:: media/image13.png
-   :width: 7.48031in
-   :height: 2.9188in
+   :width: 8in
 .. |image14| image:: media/image14.png
-   :width: 7.48031in
-   :height: 4.23041in
+   :width: 8in
 .. |image15| image:: media/image15.png
-   :width: 6.29921in
-   :height: 3.6165in
+   :width: 8in
 .. |image16| image:: media/image16.png
-   :width: 6.29921in
-   :height: 3.65419in
+   :width: 8in
 .. |image17| image:: media/image17.png
-   :width: 7.48031in
-   :height: 4.29542in
+   :width: 8in
 .. |image18| image:: media/image18.png
-   :width: 7.48031in
-   :height: 2.93047in
+   :width: 8in
 .. |image19| image:: media/image19.png
-   :width: 0.64172in
-   :height: 0.30836in
+   :class: .image-resizing
+   :width: 4in
 .. |image20| image:: media/image20.png
-   :width: 7.75591in
-   :height: 5.61993in
+   :width: 8in
 .. |image21| image:: media/image21.png
-   :width: 7.90551in
-   :height: 4.15162in
+   :width: 8in
 .. |image22| image:: media/image22.png
-   :width: 7.48031in
-   :height: 3.90727in
+   :width: 8in
 .. |image23| image:: media/image23.png
-   :width: 7.48031in
-   :height: 9.93599in
+   :class: .image-resizing
+   :width: 4in
 .. |image24| image:: media/image24.png
-   :width: 3.14961in
-   :height: 6.54325in
+   :class: .image-resizing
+   :width: 4in
 .. |image25| image:: media/image25.png
-   :width: 7.14961in
-   :height: 3.32579in
+   :width: 8in
 .. |image26| image:: media/image26.png
-   :width: 7.48031in
-   :height: 9.56205in
+   :class: .image-resizing
+   :width: 4in
 .. |image27| image:: media/image27.png
-   :width: 3.14961in
-   :height: 6.32579in
+   :class: .image-resizing
+   :width: 4in
 .. |image28| image:: media/image28.png
-   :width: 7.14961in
-   :height: 3.32554in
+   :width: 8in
 .. |image29| image:: media/image29.png
-   :width: 7.48031in
-   :height: 9.83405in
+   :class: .image-resizing
+   :width: 4in
 .. |image30| image:: media/image30.png
-   :width: 7.14961in
-   :height: 4.43829in
+   :width: 8in
 .. |image31| image:: media/image31.png
-   :width: 7.48031in
-   :height: 9.26928in
+   :class: .image-resizing
+   :width: 4in
 .. |image32| image:: media/image32.png
-   :width: 3.14961in
-   :height: 6.10576in
+   :class: .image-resizing
+   :width: 4in
 .. |image33| image:: media/image33.png
-   :width: 3.14961in
-   :height: 6.36891in
+   :class: .image-resizing
+   :width: 4in
 .. |image34| image:: media/image34.png
-   :width: 7.14961in
-   :height: 4.50534in
+   :width: 8in
 .. |image35| image:: media/image35.png
-   :width: 7.48031in
-   :height: 9.63958in
+   :class: .image-resizing
+   :width: 4in
 .. |image36| image:: media/image36.png
-   :width: 3.14961in
-   :height: 6.53958in
+   :class: .image-resizing
+   :width: 4in
 .. |image37| image:: media/image37.png
-   :width: 7.14961in
-   :height: 4.36466in
+   :width: 8in
 .. |image38| image:: media/image38.png
-   :width: 7.48031in
-   :height: 9.0887in
+   :class: .image-resizing
+   :width: 4in
 .. |image39| image:: media/image39.png
-   :width: 3.14961in
-   :height: 6.38897in
+   :class: .image-resizing
+   :width: 4in
 .. |image40| image:: media/image40.png
-   :width: 7.14961in
-   :height: 4.38957in
+   :width: 8in
 .. |image41| image:: media/image41.png
-   :width: 7.48031in
-   :height: 9.47003in
+   :class: .image-resizing
+   :width: 4in

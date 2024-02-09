@@ -28,8 +28,6 @@ delay to settle down after power-up or after a reset.
 Figure 2: Reset circuit
 
 .. |image2| image:: media/image2.png
-   :width: 6.69291in
-   :height: 2.1992in
+   :width: 8in
 .. |image3| image:: media/image3.png
-   :width: 3.52083in
-   :height: 3.37917in
+   :width: 8in

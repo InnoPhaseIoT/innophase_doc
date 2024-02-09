@@ -87,3 +87,7 @@ h1 {
 .rst-content table.docutils caption {
     text-align: left;
 }
+img.image-resizing {
+    display: block;
+    margin: 0 auto;
+}

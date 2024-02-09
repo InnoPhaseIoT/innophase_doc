@@ -15,5 +15,4 @@ FTDI InnoPhase T2 Evaluation Board [0800] as shown in Figure 1.
 Figure 1: Transferring port access rights to Ubuntu virtual machine
 
 .. |image33| image:: media/image33.png
-   :width: 7.48031in
-   :height: 6.77973in
+   :width: 8in

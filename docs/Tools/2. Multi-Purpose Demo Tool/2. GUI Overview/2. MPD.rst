@@ -21,5 +21,4 @@ Figure 6: MPD tab
 **Note**: Check the Show checkbox to see the passphrase value.
 
 .. |image6| image:: media/image6.png
-   :width: 7.48031in
-   :height: 2.03661in
+   :width: 8in

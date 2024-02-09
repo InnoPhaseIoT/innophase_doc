@@ -121,20 +121,15 @@ To use SPI, ensure that the J7 jumpers are as shown in Figure 6.
 Figure 6: INP3000 programmer board version 2.1 - SPI jumper setting
 
 .. |image6| image:: media/image6.png
-   :width: 5.11811in
-   :height: 4.06154in
+   :class: .image-resizing
+   :width: 6in
 .. |image7| image:: media/image7.png
-   :width: 4.72441in
-   :height: 3.14077in
+   :width: 8in
 .. |image8| image:: media/image8.png
-   :width: 3.34375in
-   :height: 2.30208in
+   :width: 8in
 .. |image9| image:: media/image9.png
-   :width: 4.72441in
-   :height: 3.44826in
+   :width: 8in
 .. |image10| image:: media/image10.png
-   :width: 3.34375in
-   :height: 3.03125in
+   :width: 8in
 .. |image11| image:: media/image11.jpg
-   :width: 4.72441in
-   :height: 2.92874in
+   :width: 8in

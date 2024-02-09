@@ -281,59 +281,40 @@ Figure 18: Setting breakpoint
 Figure 19: Step run output in console
 
 .. |image43| image:: media/image43.png
-   :width: 6.49606in
-   :height: 3.48102in
+   :width: 8in
 .. |image44| image:: media/image44.png
-   :width: 5.90556in
-   :height: 3.77292in
+   :width: 8in
 .. |image45| image:: media/image45.png
-   :width: 5.90551in
-   :height: 2.53479in
+   :width: 8in
 .. |image46| image:: media/image46.png
-   :width: 6.49606in
-   :height: 2.78827in
+   :width: 8in
 .. |image47| image:: media/image47.png
-   :width: 6.49606in
-   :height: 2.78827in
+   :width: 8in
 .. |image48| image:: media/image48.png
-   :width: 3.93681in
-   :height: 2.92083in
+   :width: 8in
 .. |image49| image:: media/image49.png
-   :width: 6.29921in
-   :height: 3.07599in
+   :width: 8in
 .. |image50| image:: media/image50.png
-   :width: 6.29921in
-   :height: 3.37775in
+   :width: 8in
 .. |image51| image:: media/image51.png
-   :width: 6.29921in
-   :height: 3.39331in
+   :width: 8in
 .. |image52| image:: media/image52.png
-   :width: 6.29921in
-   :height: 3.5096in
+   :width: 8in
 .. |image53| image:: media/image53.png
-   :width: 6.69291in
-   :height: 3.30845in
+   :width: 8in
 .. |image54| image:: media/image54.png
-   :width: 6.69291in
-   :height: 0.96168in
+   :width: 8in
 .. |image55| image:: media/image55.png
-   :width: 6.69291in
-   :height: 3.75807in
+   :width: 8in
 .. |image56| image:: media/image56.png
-   :width: 7.47888in
-   :height: 2.4875in
+   :width: 8in
 .. |image57| image:: media/image57.png
-   :width: 6.29921in
-   :height: 4.63552in
+   :width: 8in
 .. |image58| image:: media/image58.png
-   :width: 4.72441in
-   :height: 2.01427in
+   :width: 8in
 .. |image59| image:: media/image59.png
-   :width: 6.29921in
-   :height: 3.37775in
+   :width: 8in
 .. |image60| image:: media/image60.png
-   :width: 0.14792in
-   :height: 0.2in
+   :width: 8in
 .. |image61| image:: media/image61.png
-   :width: 0.16667in
-   :height: 0.12639in
+   :width: 8in

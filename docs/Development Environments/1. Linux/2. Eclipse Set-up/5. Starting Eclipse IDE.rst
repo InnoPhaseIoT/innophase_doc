@@ -17,5 +17,4 @@ selected should not have a path name that is excessively long, and it is
 best to avoid spaces in the path name.
 
 .. |image34| image:: media/image34.png
-   :width: 7.90551in
-   :height: 5.57755in
+   :width: 8in

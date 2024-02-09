@@ -17,5 +17,4 @@ path as a boot argument, while loading the application.
 Figure 1: AP Options
 
 .. |image11| image:: media/image11.png
-   :width: 6.48031in
-   :height: 7.29184in
+   :width: 8in

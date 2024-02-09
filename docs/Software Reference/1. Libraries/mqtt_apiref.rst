@@ -65,8 +65,7 @@ Parameter
 .. table:: Table 2: MQTTNetworkConnect - parameters
 
    +------------+---------------------------------------------------------+
-   | **P        | **Description**                                         |
-   | arameter** |                                                         |
+   | **Params** | **Description**                                         |
    +============+=========================================================+
    | *handle*   | Pointer to connection handle data structure of type     |
    |            | MQTTNetwork                                             |

@@ -37,10 +37,9 @@ Procedure
 
 .. code:: shell
 
-      at
-at+echo=1
-at
-at+echo=0
+    at
+    at+echo=1
+    at+echo=0
 
 
 Serial Log
@@ -52,5 +51,4 @@ Serial Log
 Figure 1: Echo enable/disable - Serial log
 
 .. |image123| image:: media/image123.png
-   :width: 6.29921in
-   :height: 2.04972in
+   :width: 8in

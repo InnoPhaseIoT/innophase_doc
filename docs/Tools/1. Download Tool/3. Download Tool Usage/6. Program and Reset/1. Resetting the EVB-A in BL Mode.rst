@@ -17,5 +17,4 @@ observed in the console for this command, the board is reset.
 Figure 1: Reset in BL mode
 
 .. |image1| image:: media/image1.png
-   :width: 7.48031in
-   :height: 2.12135in
+   :width: 8in

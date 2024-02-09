@@ -158,17 +158,12 @@ COM Port <#_Uninstall_Instructions_for>`__.
 **Installation instructions for libusbK driver**
 
 .. |image1| image:: media/image1.png
-   :width: 4.72441in
-   :height: 1.80695in
+   :width: 8in
 .. |image2| image:: media/image2.png
-   :width: 2.09167in
-   :height: 0.21085in
+   :width: 8in
 .. |image3| image:: media/image3.png
-   :width: 4.72441in
-   :height: 2.50085in
+   :width: 8in
 .. |image4| image:: media/image4.png
-   :width: 4.72441in
-   :height: 0.55425in
+   :width: 8in
 .. |image5| image:: media/image5.png
-   :width: 4.85458in
-   :height: 3.70417in
+   :width: 8in

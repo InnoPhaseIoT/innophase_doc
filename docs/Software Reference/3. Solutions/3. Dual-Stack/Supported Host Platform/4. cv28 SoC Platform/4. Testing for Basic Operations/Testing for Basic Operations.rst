@@ -145,26 +145,18 @@ Output:
 Figure 8: Starting UDP Client
 
 .. |image1| image:: media/image1.png
-   :width: 7.08661in
-   :height: 3.53569in
+   :width: 8in
 .. |image2| image:: media/image2.png
-   :width: 7.08661in
-   :height: 2.89239in
+   :width: 8in
 .. |image3| image:: media/image3.png
-   :width: 7.08661in
-   :height: 2.39694in
+   :width: 8in
 .. |image4| image:: media/image4.png
-   :width: 7.08661in
-   :height: 5.30445in
+   :width: 8in
 .. |image5| image:: media/image5.png
-   :width: 7.08661in
-   :height: 2.87139in
+   :width: 8in
 .. |image6| image:: media/image6.png
-   :width: 7.48031in
-   :height: 2.63642in
+   :width: 8in
 .. |image7| image:: media/image7.png
-   :width: 7.48031in
-   :height: 2.63642in
+   :width: 8in
 .. |image8| image:: media/image8.png
-   :width: 7.48031in
-   :height: 2.63642in
+   :width: 8in

@@ -39,8 +39,6 @@ support JTAG programming. JTAG is supported in versions 3.0 and lower.
 All the other connectors are same as version 3.0 board.
 
 .. |image1| image:: media/image1.png
-   :width: 5.11811in
-   :height: 5.46412in
+   :width: 8in
 .. |image2| image:: media/image2.png
-   :width: 5.11811in
-   :height: 3.9166in
+   :width: 8in

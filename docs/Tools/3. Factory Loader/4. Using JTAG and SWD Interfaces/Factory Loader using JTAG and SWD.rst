@@ -129,5 +129,4 @@ In the above example,
 
 
 .. |image1| image:: media/image1.png
-   :width: 7.08661in
-   :height: 4.96424in
+   :width: 8in

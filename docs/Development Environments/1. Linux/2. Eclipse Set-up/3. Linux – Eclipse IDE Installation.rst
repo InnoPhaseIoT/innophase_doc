@@ -42,14 +42,10 @@ to launch. Click on LAUNCH.
 Figure 32: Eclipse IDE for Embedded C/C++ developers launch window
 
 .. |image29| image:: media/image29.png
-   :width: 7.48031in
-   :height: 5.70487in
+   :width: 8in
 .. |image30| image:: media/image30.png
-   :width: 4.7239in
-   :height: 2.52917in
+   :width: 8in
 .. |image31| image:: media/image31.png
-   :width: 4.72441in
-   :height: 4.79563in
+   :width: 8in
 .. |image32| image:: media/image32.png
-   :width: 4.72441in
-   :height: 3.63925in
+   :width: 8in

@@ -180,17 +180,12 @@ driver is available in section: `Update Driver from libusK Driver to COM
 Port <#_Update_Driver_from>`__.
 
 .. |image2| image:: media/image2.png
-   :width: 1.9685in
-   :height: 1.50692in
+   :width: 8in
 .. |image3| image:: media/image3.png
-   :width: 2.13333in
-   :height: 0.21505in
+   :width: 8in
 .. |image4| image:: media/image4.png
-   :width: 4.72441in
-   :height: 2.50085in
+   :width: 8in
 .. |image5| image:: media/image5.png
-   :width: 4.72441in
-   :height: 0.55425in
+   :width: 8in
 .. |image6| image:: media/image6.png
-   :width: 6.29921in
-   :height: 5.77694in
+   :width: 8in

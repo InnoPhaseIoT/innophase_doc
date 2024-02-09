@@ -26,5 +26,4 @@ is configured with baudrate=9600.
 Figure 1: Tera Term Setup
 
 .. |image3| image:: media/image3.png
-   :width: 7.48031in
-   :height: 5.93921in
+   :width: 8in

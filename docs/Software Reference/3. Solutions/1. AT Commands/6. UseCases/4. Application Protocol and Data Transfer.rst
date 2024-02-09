@@ -1206,146 +1206,104 @@ Access Point configured with WPA/WPA2 personal security.
 Figure 48: Get Time from NTP Server - Serial log
 
 .. |image46| image:: media/image46.png
-   :width: 7.48031in
-   :height: 5.0487in
+   :width: 8in
 .. |image47| image:: media/image47.png
-   :width: 7.48031in
-   :height: 2.37106in
+   :width: 8in
 .. |image48| image:: media/image48.png
-   :width: 0.64172in
-   :height: 0.30836in
+   :width: 8in
 .. |image49| image:: media/image49.png
-   :width: 5.51181in
-   :height: 4.82421in
+   :width: 8in
 .. |image50| image:: media/image50.png
-   :width: 6.29921in
-   :height: 3.71379in
+   :width: 8in
 .. |image51| image:: media/image51.png
-   :width: 6.29921in
-   :height: 3.85857in
+   :class: .image-resizing
+   :width: 4in
 .. |image52| image:: media/image52.png
-   :width: 0.64172in
-   :height: 0.30836in
+   :width: 8in
 .. |image53| image:: media/image53.png
-   :width: 5.51181in
-   :height: 4.80772in
+   :width: 8in
 .. |image54| image:: media/image54.png
-   :width: 7.48031in
-   :height: 3.44512in
+   :width: 8in
 .. |image55| image:: media/image55.png
-   :width: 7.48031in
-   :height: 3.75291in
+   :width: 8in
 .. |image56| image:: media/image56.png
-   :width: 5.90551in
-   :height: 5.64058in
+   :class: .image-resizing
+   :width: 4in
 .. |image57| image:: media/image57.png
-   :width: 0.64172in
-   :height: 0.30836in
+   :width: 8in
 .. |image58| image:: media/image58.png
-   :width: 3.14961in
-   :height: 5.25593in
+   :width: 8in
 .. |image59| image:: media/image59.png
-   :width: 4.72441in
-   :height: 4.14591in
+   :width: 8in
 .. |image60| image:: media/image60.png
-   :width: 7.08661in
-   :height: 3.15095in
+   :width: 8in
 .. |image61| image:: media/image61.png
-   :width: 7.48031in
-   :height: 4.34277in
+   :class: .image-resizing
+   :width: 4in
 .. |image62| image:: media/image62.png
-   :width: 5.90551in
-   :height: 5.19685in
+   :width: 8in
 .. |image63| image:: media/image63.png
-   :width: 0.64172in
-   :height: 0.30836in
+   :width: 8in
 .. |image64| image:: media/image64.png
-   :width: 5.90551in
-   :height: 5.17486in
+   :width: 8in
 .. |image65| image:: media/image65.png
-   :width: 1.49167in
-   :height: 0.27014in
+   :width: 8in
 .. |image66| image:: media/image66.png
-   :width: 7.48031in
-   :height: 3.97424in
+   :class: .image-resizing
+   :width: 4in
 .. |image67| image:: media/image67.png
-   :width: 7.08661in
-   :height: 3.56599in
+   :width: 8in
 .. |image68| image:: media/image68.png
-   :width: 4.72441in
-   :height: 4.14882in
+   :width: 8in
 .. |image69| image:: media/image69.png
-   :width: 0.64172in
-   :height: 0.30836in
+   :width: 8in
 .. |image70| image:: media/image70.png
-   :width: 5.51181in
-   :height: 4.14182in
+   :width: 8in
 .. |image71| image:: media/image71.png
-   :width: 7.48031in
-   :height: 3.91585in
+   :class: .image-resizing
+   :width: 4in
 .. |image72| image:: media/image72.png
-   :width: 7.48031in
-   :height: 3.98215in
+   :width: 8in
 .. |image73| image:: media/image73.png
-   :width: 7.48031in
-   :height: 4.00536in
+   :width: 8in
 .. |image74| image:: media/image74.png
-   :width: 0.64172in
-   :height: 0.30836in
+   :width: 8in
 .. |image75| image:: media/image75.png
-   :width: 7.48031in
-   :height: 5.61397in
+   :width: 8in
 .. |image76| image:: media/image76.png
-   :width: 7.48031in
-   :height: 5.43661in
+   :width: 8in
 .. |image77| image:: media/image77.png
-   :width: 7.48031in
-   :height: 2.54427in
+   :width: 8in
 .. |image78| image:: media/image78.png
-   :width: 7.48031in
-   :height: 3.90259in
+   :width: 8in
 .. |image79| image:: media/image79.png
-   :width: 7.48031in
-   :height: 2.59068in
+   :width: 8in
 .. |image80| image:: media/image80.png
-   :width: 7.48031in
-   :height: 3.41114in
+   :width: 8in
 .. |image81| image:: media/image81.png
-   :width: 6.49606in
-   :height: 1.03387in
+   :width: 8in
 .. |image82| image:: media/image82.png
-   :width: 6.49606in
-   :height: 4.69706in
+   :width: 8in
 .. |image83| image:: media/image83.png
-   :width: 6.49606in
-   :height: 2.78269in
+   :width: 8in
 .. |image84| image:: media/image84.png
-   :width: 6.49606in
-   :height: 1.48467in
+   :width: 8in
 .. |image85| image:: media/image85.png
-   :width: 7.48031in
-   :height: 2.49344in
+   :width: 8in
 .. |image86| image:: media/image86.png
-   :width: 6.29921in
-   :height: 1.46864in
+   :width: 8in
 .. |image87| image:: media/image87.png
-   :width: 6.29921in
-   :height: 0.29098in
+   :width: 8in
 .. |image88| image:: media/image88.png
-   :width: 6.29921in
-   :height: 0.68122in
+   :class: .image-resizing
+   :width: 4in
 .. |image89| image:: media/image89.png
-   :width: 6.29921in
-   :height: 0.83501in
+   :width: 8in
 .. |image90| image:: media/image90.png
-   :width: 7.48031in
-   :height: 2.62119in
+   :width: 8in
 .. |image91| image:: media/image91.png
-   :width: 3.14961in
-   :height: 5.09205in
+   :width: 8in
 .. |image92| image:: media/image92.png
-   :width: 3.14961in
-   :height: 4.63583in
+   :width: 8in
 .. |image93| image:: media/image93.png
-   :width: 7.48031in
-   :height: 2.23763in
+   :width: 8in

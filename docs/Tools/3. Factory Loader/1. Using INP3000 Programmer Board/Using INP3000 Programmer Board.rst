@@ -68,14 +68,10 @@ Reset Talaria TWO. It should now boot into SSBL and load the helloworld
 application as before.
 
 .. |image1| image:: media/image1.png
-   :width: 3.34375in
-   :height: 2.30208in
+   :width: 8in
 .. |image2| image:: media/image2.png
-   :width: 3.34375in
-   :height: 3.03125in
+   :width: 8in
 .. |image3| image:: media/image3.png
-   :width: 3.93701in
-   :height: 2.45085in
+   :width: 8in
 .. |image4| image:: media/image4.png
-   :width: 7.11811in
-   :height: 2.42648in
+   :width: 8in

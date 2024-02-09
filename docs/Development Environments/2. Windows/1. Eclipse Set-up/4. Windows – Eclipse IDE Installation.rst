@@ -7,7 +7,6 @@ Windows – Eclipse IDE Installation
    executing the installer file. On executing eclipse-inst-jre-win64.exe
    application file, the following window pops-up:
 
-..
 
 |image11|
 
@@ -17,7 +16,6 @@ Figure 1: Selecting the Eclipse IDE for Embedded C/C++ developers
 2. Clicking on Eclipse IDE for Embedded C/C++ developers redirects to
    the installation window.
 
-..
 
 |image12|
 
@@ -28,7 +26,6 @@ Figure 2: Installation of Eclipse IDE for Embedded C/C++ developers
    Eclipse uses externally installed JDKs to run itself. Select the
    installation folder for eclipse and click INSTALL.
 
-..
 
 |image13|
 
@@ -39,11 +36,8 @@ Figure 3: Eclipse IDE for Embedded C/C++ developers launch window
    permission to launch. Click on LAUNCH.
 
 .. |image11| image:: media/image11.png
-   :width: 3.93681in
-   :height: 3.00486in
+   :width: 8in
 .. |image12| image:: media/image12.png
-   :width: 3.93681in
-   :height: 3.2125in
+   :width: 8in
 .. |image13| image:: media/image13.png
-   :width: 3.93681in
-   :height: 3.03125in
+   :width: 8in

@@ -17,9 +17,7 @@ relaunch the application.
 |image7|
 
 .. rst-class:: imagefiguesclass
-Figure 1: Error message for missing Microsoft Visual C++ Redistributable
-Software Package
+Figure 1: Error message for missing Microsoft Visual C++ Redistributable Software Package
 
 .. |image7| image:: media/image7.png
-   :width: 4.72441in
-   :height: 1.80695in
+   :width: 8in

@@ -1,7 +1,7 @@
 .. _mpd gui help:
 
-Help
-----
+Guide Help
+----------
 
 Help provides information about default Jumper/Switch settings. Clicking
 on Default Jumper Setting as shown in Figure 1 will pop-up new window
@@ -27,11 +27,8 @@ permanently, check the Do not show again option and close the window.
 Figure 3: Default Jumper/Switch setting Window during Tool Launch
 
 .. |image9| image:: media/image9.png
-   :width: 7.48031in
-   :height: 2.05726in
+   :width: 8in
 .. |image10| image:: media/image10.png
-   :width: 5.11811in
-   :height: 7.88711in
+   :width: 8in
 .. |image11| image:: media/image11.png
-   :width: 5.11811in
-   :height: 7.94745in
+   :width: 8in

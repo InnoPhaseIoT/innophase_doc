@@ -16,5 +16,4 @@ is uninstalled, check the driver from the device manager.
 Figure 1: Device Manager
 
 .. |image2| image:: media/image2.png
-   :width: 7.48031in
-   :height: 3.6434in
+   :width: 8in

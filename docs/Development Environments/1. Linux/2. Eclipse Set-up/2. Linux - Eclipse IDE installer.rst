@@ -21,5 +21,4 @@ Eclipse IDE Version: 2021-09 (4.25). However, Eclipse IDE Version of
 Figure 1: Download Eclipse Installer
 
 .. |image28| image:: media/image28.png
-   :width: 7.48031in
-   :height: 4.67467in
+   :width: 8in

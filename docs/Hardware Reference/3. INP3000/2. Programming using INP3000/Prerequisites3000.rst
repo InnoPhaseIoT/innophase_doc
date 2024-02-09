@@ -1,7 +1,7 @@
 .. _prerequisites inp3000:
 
-Prerequisites
---------------
+Prerequisites INP3000
+---------------------
 
 1. Talaria TWO SDK
 2. PC with Windows 10 or higher

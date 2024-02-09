@@ -81,8 +81,11 @@ different applications:
 
 
 .. |image4| image:: media/image4.png
+   :class: .image-resizing
    :width: 4.90551in
    :height: 4.25375in
+
 .. |image5| image:: media/image5.png
+   :class: .image-resizing
    :width: 4.92153in
    :height: 2.91528in

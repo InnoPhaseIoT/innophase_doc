@@ -1,14 +1,14 @@
 .. _eclipse setup windows prerequisites:
 
-Prerequisites 
-==============
+Prerequisites Windows
+=====================
 
 1. Talaria TWO SDK.
 
 2. PC with Windows 10 or higher.
 
 JDK Installation 
-=================
+---------------
 
 Eclipse requires JDK as a prerequisite since Eclipse is running in
 externally installed JDKs. Download and install the JDK 11 installer
@@ -30,7 +30,7 @@ Figure 1: JDK installer for Windows
    installer.
 
 Prerequisites for Eclipse
-=========================
+---------------
 
 Node.js Installation 
 ---------------------
@@ -160,26 +160,18 @@ following location: C:\\Users\\<User name>\\AppData\\Roaming.
 Ensure to check the XPM output for the actual location.
 
 .. |image1| image:: media/image1.png
-   :width: 7.48031in
-   :height: 4.02342in
+   :width: 8in
 .. |image2| image:: media/image2.png
-   :width: 7.48031in
-   :height: 3.98117in
+   :width: 8in
 .. |image3| image:: media/image3.png
-   :width: 7.08661in
-   :height: 0.92499in
+   :width: 8in
 .. |image4| image:: media/image4.png
-   :width: 7.08661in
-   :height: 4.90749in
+   :width: 8in
 .. |image5| image:: media/image5.png
-   :width: 7.48031in
-   :height: 1.70106in
+   :width: 8in
 .. |image6| image:: media/image6.png
-   :width: 7.48031in
-   :height: 1.36545in
+   :width: 8in
 .. |image7| image:: media/image7.png
-   :width: 7.48031in
-   :height: 1.10424in
+   :width: 8in
 .. |image8| image:: media/image8.png
-   :width: 7.48031in
-   :height: 1.5886in
+   :width: 8in

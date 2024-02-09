@@ -46,8 +46,9 @@ downloads within Windows Explorer and select 7-Zip –> Extract Files:
 Figure 3:To extract the vdi files
 
 Create a path in the D drive to store the VDI file and add the path from
-drop down menu or from the tab (|image4|), in this case the path is
+drop down menu or from the tab, in this case the path is
 D:\\Innophase\\VirtualBox VMs
+|image4|
 
 |image5|
 
@@ -374,13 +375,11 @@ Connecting the EVK board
    virtual machine menu select Devices –> USB -> InnoPhase EVB[0800] or
    FTDI InnoPhase T2 Evaluation Board [0800].
 
-..
 
-   |image21|
+|image21|
 
 .. rst-class:: imagefiguesclass
-Figure 20: Transferring port access rights to the Ubuntu virtual
-   machine
+Figure 20: Transferring port access rights to the Ubuntu virtual machine
 
 2. In any terminal window, execute the following commands to ensure
    Ubuntu recognizes the EVK board
@@ -392,7 +391,7 @@ Figure 20: Transferring port access rights to the Ubuntu virtual
 
 The following USB device should be listed in the output:
 
-   |Text Description automatically generated|
+|Text Description automatically generated|
 
 .. rst-class:: imagefiguesclass
 Figure 21: Verifying that Ubuntu recognizes the EVK board
@@ -566,99 +565,68 @@ Figure 31: CONSOLE output when executing the "create" command
 A Wi-Fi interface has been created. Now, other commands available in the
 CLI prompt can be tried for further use.
 
-.. |image1| image:: media/image1.tmp
-   :width: 4.72441in
-   :height: 1.75325in
+.. |image1| image:: media/image1.png
+   :width: 8in
 .. |image2| image:: media/image2.png
-   :width: 4.72655in
-   :height: 1.53003in
+   :width: 8in
 .. |image3| image:: media/image3.png
-   :width: 4.72441in
-   :height: 2.95684in
+   :width: 8in
 .. |image4| image:: media/image4.png
-   :width: 0.1in
-   :height: 0.1in
+   :width: 8in
 .. |image5| image:: media/image5.png
-   :width: 3.93701in
-   :height: 2.33401in
+   :width: 8in
 .. |image6| image:: media/image6.png
-   :width: 5.51181in
-   :height: 1.12758in
+   :width: 8in
 .. |image7| image:: media/image7.png
-   :width: 4.74172in
-   :height: 2.82146in
+   :width: 8in
 .. |image8| image:: media/image8.png
-   :width: 4.73769in
-   :height: 3.4598in
+   :width: 8in
 .. |image9| image:: media/image9.png
-   :width: 4.72441in
-   :height: 2.49762in
+   :width: 8in
 .. |image10| image:: media/image10.png
-   :width: 3.93701in
-   :height: 3.77953in
+   :width: 8in
 .. |image11| image:: media/image11.png
-   :width: 4.72441in
-   :height: 4.4685in
+   :width: 8in
 .. |image12| image:: media/image12.png
-   :width: 4.73808in
-   :height: 3.97318in
+   :width: 8in
 .. |image13| image:: media/image13.png
-   :width: 4.72441in
-   :height: 2.90448in
+   :width: 8in
 .. |image14| image:: media/image14.png
-   :width: 5.11811in
-   :height: 1.04704in
+   :width: 8in
 .. |image15| image:: media/image15.png
-   :width: 2.3622in
-   :height: 0.65731in
+   :class: .image-resizing
+   :width: 4in
 .. |image16| image:: media/image16.png
-   :width: 2.3622in
-   :height: 3.4557in
+   :width: 8in
 .. |image17| image:: media/image17.png
-   :width: 5.51181in
-   :height: 3.75843in
+   :width: 8in
 .. |image18| image:: media/image18.png
-   :width: 5.52647in
-   :height: 3.76842in
+   :width: 8in
 .. |image19| image:: media/image19.png
-   :width: 5.11811in
-   :height: 3.17027in
+   :width: 8in
 .. |image20| image:: media/image20.png
-   :width: 5.11811in
-   :height: 3.17027in
+   :width: 8in
 .. |image21| image:: media/image21.png
-   :width: 5.51181in
-   :height: 3.75843in
+   :width: 8in
 .. |Text Description automatically generated| image:: media/image22.png
-   :width: 4.72387in
-   :height: 1.02755in
+   :width: 8in
 .. |image22| image:: media/image22.png
-   :width: 4.72441in
-   :height: 0.60007in
+   :width: 8in
 .. |image23| image:: media/image23.png
-   :width: 4.72441in
-   :height: 0.42746in
+   :width: 8in
 .. |image24| image:: media/image24.png
-   :width: 5.70866in
-   :height: 1.2955in
+   :width: 8in
 .. |image25| image:: media/image24.png
-   :width: 5.70866in
-   :height: 0.72137in
+   :width: 8in
 .. |image26| image:: media/image24.png
-   :width: 5.70866in
-   :height: 0.58971in
+   :width: 8in
 .. |image27| image:: media/image24.png
-   :width: 5.70866in
-   :height: 2.1432in
+   :width: 8in
 .. |image28| image:: media/image25.png
-   :width: 5.70866in
-   :height: 1.05551in
+   :width: 8in
 .. |image29| image:: media/image26.png
-   :width: 5.70866in
-   :height: 2.73375in
+   :width: 8in
 .. |image30| image:: media/image27.png
-   :width: 5.70866in
-   :height: 4.08475in
+   :width: 8in
 .. |image31| image:: media/image28.png
-   :width: 5.70866in
-   :height: 1.72916in
+   :width: 8in

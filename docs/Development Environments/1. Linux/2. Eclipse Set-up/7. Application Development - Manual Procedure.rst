@@ -241,51 +241,35 @@ Figure 15: Setting breakpoints
 Figure :16 Application prints in the Download Tool console
 
 .. |image35| image:: media/image35.png
-   :width: 6.49606in
-   :height: 3.6317in
+   :width: 8in
 .. |image36| image:: media/image36.png
-   :width: 6.49606in
-   :height: 5.04522in
+   :width: 8in
 .. |image37| image:: media/image37.tmp
-   :width: 6.49606in
-   :height: 6.47371in
+   :width: 8in
 .. |image38| image:: media/image38.tmp
-   :width: 4.72441in
-   :height: 3.4609in
+   :width: 8in
 .. |image39| image:: media/image39.png
-   :width: 6.69291in
-   :height: 1.50219in
+   :width: 8in
 .. |image40| image:: media/image40.tmp
-   :width: 6.29921in
-   :height: 3.98774in
+   :width: 8in
 .. |image41| image:: media/image41.png
-   :width: 6.88976in
-   :height: 3.9227in
+   :width: 8in
 .. |image42| image:: media/image42.png
-   :width: 6.69291in
-   :height: 2.93559in
+   :width: 8in
 .. |image43| image:: media/image43.png
-   :width: 6.69291in
-   :height: 0.77402in
+   :width: 8in
 .. |image44| image:: media/image44.png
-   :width: 6.88976in
-   :height: 4.01456in
+   :width: 8in
 .. |image45| image:: media/image45.png
-   :width: 7.08661in
-   :height: 6.66709in
+   :width: 8in
 .. |image46| image:: media/image46.png
-   :width: 6.69291in
-   :height: 4.36774in
+   :width: 8in
 .. |image47| image:: media/image47.tmp
-   :width: 4.72441in
-   :height: 2.18109in
+   :width: 8in
 .. |image48| image:: media/image48.tmp
-   :width: 6.69291in
-   :height: 4.24259in
+   :width: 8in
 .. |image49| image:: media/image49.png
-   :width: 6.16667in
-   :height: 3.12639in
+   :width: 8in
 .. |image50| image:: media/image50.png
-   :width: 6.14861in
-   :height: 3.20054in
+   :width: 8in
 

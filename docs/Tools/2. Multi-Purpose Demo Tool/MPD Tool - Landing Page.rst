@@ -40,9 +40,7 @@ INP_T2_Demo_Linux is for the Linux OS.
 Figure 1: Folder Contents
 
 .. |image1| image:: media/image1.png
-   :width: 7.48031in
-   :height: 2.05864in
-
+   :width: 8in
 
 Using MDP Tool
 -------------

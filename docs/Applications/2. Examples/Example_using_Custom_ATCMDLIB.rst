@@ -160,5 +160,4 @@ at_custom_cmd.elf is loaded on to the Talaria TWO EVB.
 Figure 1: Minicom output
 
 .. |image1| image:: media/image1.png
-   :width: 7.08661in
-   :height: 2.56528in
+   :width: 8in

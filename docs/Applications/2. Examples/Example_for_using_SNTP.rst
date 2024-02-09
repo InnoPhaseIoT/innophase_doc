@@ -1,7 +1,7 @@
 .. _ex sntp:
 
-SNTP
----------------
+Example using SNTP
+------------------
 
 
 This application note provides details on the sntpapplication to fetch

@@ -184,38 +184,26 @@ Figure 44: SSBL programming - action terminated
 
 
 .. |image26| image:: media/images26.png
-   :width: 7.48031in
-   :height: 3.69722in
-
+   :width: 8in
 .. |image28| image:: media/images28.png
-   :width: 7.48031in
-   :height: 3.69722in
+   :width: 8in
 .. |image31| image:: media/images31.png
-   :width: 7.48031in
-   :height: 3.69722in
+   :width: 8in
 .. |image32| image:: media/images32.png
-   :width: 7.48031in
-   :height: 3.69722in
+   :width: 8in
 .. |image34| image:: media/images34.png
-   :width: 7.48031in
-   :height: 3.69722in
+   :width: 8in
 .. |image36| image:: media/images36.png
-   :width: 7.48031in
-   :height: 3.69722in
+   :width: 8in
 .. |image38| image:: media/images38.png
-   :width: 7.48031in
-   :height: 3.69722in
+   :width: 8in
 .. |image40| image:: media/images40.png
-   :width: 7.48031in
-   :height: 3.69722in
+   :width: 8in
 .. |image42| image:: media/images42.png
-   :width: 7.48031in
-   :height: 3.69722in
+   :width: 8in
 .. |image45| image:: media/images45.png
-   :width: 7.48031in
-   :height: 3.69722in
+   :width: 8in
 .. |image48| image:: media/images48.png
-   :width: 7.48031in
-   :height: 3.69722in
+   :width: 8in
 
 

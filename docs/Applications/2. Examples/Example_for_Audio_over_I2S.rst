@@ -819,8 +819,6 @@ Console output:
 
 
 .. |image5| image:: media/image5.png
-   :width: 6.69291in
-   :height: 3.30947in
+   :width: 8in
 .. |image6| image:: media/image6.png
-   :width: 6.69291in
-   :height: 3.30947in
+   :width: 8in

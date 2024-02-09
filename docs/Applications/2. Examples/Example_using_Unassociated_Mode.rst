@@ -447,8 +447,6 @@ configured SSID for interval of 1500ms.
 Figure 2: Probe requests sent to configured SSID – Wireshark output
 
 .. |image161| image:: media/image161.png
-   :width: 6.29921in
-   :height: 1.34808in
+   :width: 8in
 .. |image162| image:: media/image162.png
-   :width: 6.29921in
-   :height: 5.34808in
+   :width: 8in

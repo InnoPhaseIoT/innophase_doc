@@ -888,11 +888,8 @@ flashing spi_throughput.elf.
 
 
 .. |image74| image:: media/image74.png
-   :width: 7.08661in
-   :height: 6.99788in
+   :width: 8in
 .. |image75| image:: media/image75.png
-   :width: 3.93701in
-   :height: 3.25023in
+   :width: 8in
 .. |image76| image:: media/image76.png
-   :width: 7.08661in
-   :height: 6.99788in
+   :width: 8in

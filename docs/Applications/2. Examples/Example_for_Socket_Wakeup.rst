@@ -274,5 +274,4 @@ console output when the ELF is programmed onto Talaria TWO.
 
 
 .. |image73| image:: media/image73.png
-   :width: 6.29921in
-   :height: 5.47816in
+   :width: 8in

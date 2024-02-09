@@ -960,11 +960,8 @@ Expected Output
 
 
 .. |image21| image:: media/image21.png
-   :width: 5.90551in
-   :height: 4.24709in
+   :width: 8in
 .. |image22| image:: media/image22.png
-   :width: 3.93661in
-   :height: 5.46339in
+   :width: 8in
 .. |image23| image:: media/image23.png
-   :width: 3.93661in
-   :height: 5.46339in
+   :width: 8in

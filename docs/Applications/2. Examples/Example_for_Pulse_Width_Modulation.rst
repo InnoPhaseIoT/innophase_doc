@@ -370,26 +370,18 @@ as shown in Figure 8.
 Figure 8: Waveforms for 25KHz frequency with more than 50% duty cycle
 
 .. |image64| image:: media/image64.png
-   :width: 6.69291in
-   :height: 3.92505in
+   :width: 8in
 .. |image65| image:: media/image65.png
-   :width: 4.72441in
-   :height: 5.98346in
+   :width: 8in
 .. |image66| image:: media/image66.png
-   :width: 5.90551in
-   :height: 3.51684in
+   :width: 8in
 .. |image67| image:: media/image67.png
-   :width: 5.90551in
-   :height: 3.51243in
+   :width: 8in
 .. |image68| image:: media/image68.png
-   :width: 5.90551in
-   :height: 3.53338in
+   :width: 8in
 .. |image69| image:: media/image69.png
-   :width: 5.90551in
-   :height: 3.52566in
+   :width: 8in
 .. |image70| image:: media/image70.png
-   :width: 5.90551in
-   :height: 3.53669in
+   :width: 8in
 .. |image71| image:: media/image71.png
-   :width: 5.90551in
-   :height: 3.53228in
+   :width: 8in

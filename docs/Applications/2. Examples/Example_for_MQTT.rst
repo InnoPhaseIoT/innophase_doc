@@ -1,7 +1,7 @@
 .. _ex mqtt:
 
-MQTT
----------
+EXAMPLE MQTT
+------------
 
 
 
@@ -2416,122 +2416,82 @@ certificates:
 Figure 40: Certificates verification
 
 .. |image24| image:: media/image24.png
-   :width: 6.69306in
-   :height: 0.28056in
+   :width: 8in
 .. |image25| image:: media/image25.png
-   :width: 5.90551in
-   :height: 1.71396in
+   :width: 8in
 .. |image26| image:: media/image26.png
-   :width: 5.90551in
-   :height: 1.28172in
+   :width: 8in
 .. |image27| image:: media/image27.png
-   :width: 6.29921in
-   :height: 0.71462in
+   :width: 8in
 .. |image28| image:: media/image28.png
-   :width: 6.29921in
-   :height: 0.5017in
+   :width: 8in
 .. |image29| image:: media/image29.png
-   :width: 6.29921in
-   :height: 0.79637in
+   :width: 8in
 .. |image30| image:: media/image30.png
-   :width: 6.49606in
-   :height: 0.40941in
+   :width: 8in
 .. |image31| image:: media/image31.png
-   :width: 6.49606in
-   :height: 0.76728in
+   :width: 8in
 .. |image32| image:: media/image32.png
-   :width: 3.14961in
-   :height: 1.19198in
+   :width: 8in
 .. |image33| image:: media/image33.png
-   :width: 6.69291in
-   :height: 2.49419in
+   :width: 8in
 .. |image34| image:: media/image34.png
-   :width: 6.29921in
-   :height: 4.23535in
+   :width: 8in
 .. |image35| image:: media/image35.png
-   :width: 6.69291in
-   :height: 4.54131in
+   :width: 8in
 .. |image36| image:: media/image36.png
-   :width: 5.90551in
-   :height: 2.79027in
+   :width: 8in
 .. |image37| image:: media/image37.png
-   :width: 6.29931in
-   :height: 0.66389in
+   :width: 8in
 .. |image38| image:: media/image38.png
-   :width: 6.29921in
-   :height: 1.18477in
+   :width: 8in
 .. |image39| image:: media/image39.png
-   :width: 6.29931in
-   :height: 1.30764in
+   :width: 8in
 .. |image40| image:: media/image40.png
-   :width: 6.29921in
-   :height: 3.15452in
+   :width: 8in
 .. |image41| image:: media/image41.png
-   :width: 5.90551in
-   :height: 0.66995in
+   :width: 8in
 .. |image42| image:: media/image42.png
-   :width: 6.29921in
-   :height: 0.77314in
+   :width: 8in
 .. |image43| image:: media/image43.png
-   :width: 5.11811in
-   :height: 4.15298in
+   :width: 8in
 .. |image44| image:: media/image44.png
-   :width: 3.14961in
-   :height: 3.59007in
+   :width: 8in
 .. |image45| image:: media/image45.png
-   :width: 3.14961in
-   :height: 3.49108in
+   :width: 8in
 .. |image46| image:: media/image46.png
-   :width: 3.14961in
-   :height: 3.49195in
+   :width: 8in
 .. |image47| image:: media/image47.png
-   :width: 3.14961in
-   :height: 3.64467in
+   :width: 8in
 .. |image48| image:: media/image48.png
-   :width: 3.14961in
-   :height: 3.47452in
+   :width: 8in
 .. |image49| image:: media/image49.png
-   :width: 5.51181in
-   :height: 1.35733in
+   :width: 8in
 .. |image50| image:: media/image50.png
-   :width: 5.51181in
-   :height: 2.38165in
+   :width: 8in
 .. |image51| image:: media/image51.png
-   :width: 5.51181in
-   :height: 1.96044in
+   :width: 8in
 .. |image52| image:: media/image52.png
-   :width: 5.51181in
-   :height: 3.26837in
+   :width: 8in
 .. |image53| image:: media/image53.png
-   :width: 5.51181in
-   :height: 0.65205in
+   :width: 8in
 .. |image54| image:: media/image54.png
-   :width: 5.7874in
-   :height: 0.95916in
+   :width: 8in
 .. |image55| image:: media/image55.png
-   :width: 5.7874in
-   :height: 3.35239in
+   :width: 8in
 .. |image56| image:: media/image56.png
-   :width: 5.7874in
-   :height: 0.51552in
+   :width: 8in
 .. |image57| image:: media/image57.png
-   :width: 5.90486in
-   :height: 2.30417in
+   :width: 8in
 .. |image58| image:: media/image58.png
-   :width: 5.7874in
-   :height: 1.63313in
+   :width: 8in
 .. |image59| image:: media/image59.png
-   :width: 5.7874in
-   :height: 3.43555in
+   :width: 8in
 .. |image60| image:: media/image60.png
-   :width: 5.7874in
-   :height: 1.67968in
+   :width: 8in
 .. |image61| image:: media/image61.png
-   :width: 5.7874in
-   :height: 1.30505in
+   :width: 8in
 .. |image62| image:: media/image62.png
-   :width: 5.90551in
-   :height: 4.20719in
+   :width: 8in
 .. |image63| image:: media/image63.png
-   :width: 7.07577in
-   :height: 0.33958in
+   :width: 8in

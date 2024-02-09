@@ -246,11 +246,8 @@ Expected Output
 
 
 .. |image2| image:: media/image2.png
-   :width: 6.69291in
-   :height: 4.09563in
+   :width: 8in
 .. |image3| image:: media/image3.png
-   :width: 6.69291in
-   :height: 3.27808in
+   :width: 8in
 .. |image4| image:: media/image4.png
-   :width: 6.69291in
-   :height: 3.28989in
+   :width: 8in

@@ -1,7 +1,7 @@
 .. _ex using mdns:
 
-mDNS
-----------------
+Example using mDNS
+-------------------
 
 This document describes using the mDNS APIs provided by the mDNS module
 in: freertos_sdk_x.y/components/mdns. This application demonstrates
@@ -470,14 +470,13 @@ Console output:
 
 
 .. |image163| image:: media/image163.png
-   :width: 3.14961in
-   :height: 6.39128in
+   :class: .image-resizing
+   :width: 4in
 .. |image164| image:: media/image164.png
-   :width: 3.14961in
-   :height: 6.54135in
+   :class: .image-resizing
+   :width: 4in
 .. |image165| image:: media/image165.png
-   :width: 3.14961in
-   :height: 6.0702in
+   :class: .image-resizing
+   :width: 4in
 .. |image166| image:: media/image166.png
-   :width: 5.90551in
-   :height: 1.65893in
+   :width: 8in

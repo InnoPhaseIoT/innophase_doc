@@ -1211,41 +1211,34 @@ Figure 13: Message sent to BLE Client over BLE
 
 
 .. |image7| image:: media/image7.png
-   :width: 6.51736in
-   :height: 0.24236in
+   :width: 8in
 .. |image8| image:: media/image8.png
-   :width: 3.14931in
-   :height: 5.42014in
+   :class: .image-resizing
+   :width: 4in
 .. |image9| image:: media/image9.png
-   :width: 3.14931in
-   :height: 5.6in
+   :class: .image-resizing
+   :width: 4in
 .. |image10| image:: media/image10.png
-   :width: 1.57431in
-   :height: 2.72431in
+   :width: 8in
 .. |image11| image:: media/image11.png
-   :width: 1.575in
-   :height: 2.72431in
+   :class: .image-resizing
+   :width: 4in
 .. |image12| image:: media/image12.png
-   :width: 2.75556in
-   :height: 4.23542in
+   :width: 8in
 .. |image13| image:: media/image13.png
-   :width: 2.75591in
-   :height: 2.78108in
+   :width: 8in
 .. |image14| image:: media/image14.png
-   :width: 2.75591in
-   :height: 2.74355in
+   :width: 8in
 .. |image15| image:: media/image15.png
-   :width: 6.29921in
-   :height: 0.67756in
+   :class: .image-resizing
+   :width: 4in
 .. |image16| image:: media/image16.png
-   :width: 6.29921in
-   :height: 7.24723in
+   :class: .image-resizing
+   :width: 4in
 .. |image17| image:: media/image17.png
-   :width: 3.14931in
-   :height: 5.42431in
+   :width: 8in
 .. |image18| image:: media/image18.png
-   :width: 3.14931in
-   :height: 2.89792in
+   :width: 8in
 .. |image19| image:: media/image19.png
-   :width: 6.29921in
-   :height: 7.48836in
+   :class: .image-resizing
+   :width: 4in

@@ -974,11 +974,11 @@ testing this example:
 Figure 3: Eddystone TLM beacon as seen in BLE Scanner Application
 
 .. |image134| image:: media/image134.png
-   :width: 3.14961in
-   :height: 6.60739in
+   :class: .image-resizing
+   :width: 4in
 .. |image135| image:: media/image135.png
-   :width: 3.14961in
-   :height: 6.54638in
+   :class: .image-resizing
+   :width: 4in
 .. |image136| image:: media/image136.png
-   :width: 3.14961in
-   :height: 6.55424in
+   :class: .image-resizing
+   :width: 4in

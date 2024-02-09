@@ -1500,50 +1500,47 @@ Figure 14: Incorrect or minimum length or open security password
 Figure 15: Alert message in case of a wrong passphrase
 
 .. |image144| image:: media/image144.png
-   :width: 2.75591in
-   :height: 5.94634in
+   :width: 8in
 .. |image145| image:: media/image145.png
-   :width: 2.75591in
-   :height: 5.94634in
+   :class: .image-resizing
+   :width: 4in
 .. |image147| image:: media/image147.png
-   :width: 2.75591in
-   :height: 5.94634in
+   :width: 8in
 .. |image148| image:: media/image148.png
-   :width: 2.75591in
-   :height: 5.94634in
+   :class: .image-resizing
+   :width: 4in
 .. |image149| image:: media/image149.png
-   :width: 2.75591in
-   :height: 5.94634in
+   :class: .image-resizing
+   :width: 4in
 .. |image150| image:: media/image150.png
-   :width: 2.75591in
-   :height: 5.94634in
+   :class: .image-resizing
+   :width: 4in
 .. |image151| image:: media/image151.png
-   :width: 2.75591in
-   :height: 5.94634in
+   :class: .image-resizing
+   :width: 4in
 .. |image152| image:: media/image152.png
-   :width: 2.75591in
-   :height: 5.94634in
+   :class: .image-resizing
+   :width: 4in
 .. |image153| image:: media/image153.png
-   :width: 2.75591in
-   :height: 5.94634in
+   :class: .image-resizing
+   :width: 4in
 .. |image154| image:: media/image154.png
-   :width: 2.7294in
-   :height: 5.16667in
+   :width: 8in
 .. |image155| image:: media/image155.png
-   :width: 2.59167in
-   :height: 5.21667in
+   :class: .image-resizing
+   :width: 4in
 .. |image156| image:: media/image156.png
-   :width: 2.75591in
-   :height: 5.81682in
+   :class: .image-resizing
+   :width: 4in
 .. |image157| image:: media/image157.png
-   :width: 2.75591in
-   :height: 5.81964in
+   :class: .image-resizing
+   :width: 4in
 .. |image158| image:: media/image158.png
-   :width: 2.75591in
-   :height: 5.94634in
+   :class: .image-resizing
+   :width: 4in
 .. |image159| image:: media/image159.png
-   :width: 2.75591in
-   :height: 5.94634in
+   :class: .image-resizing
+   :width: 4in
 .. |image160| image:: media/image160.png
-   :width: 2.75591in
-   :height: 5.94634in
+   :class: .image-resizing
+   :width: 4in

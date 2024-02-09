@@ -734,29 +734,20 @@ Plain text message: Hello! This is a plain text file.
 
 
 .. |image46| image:: media/image46.png
-   :width: 6.29921in
-   :height: 1.27297in
+   :width: 8in
 .. |image47| image:: media/image47.png
-   :width: 6.69291in
-   :height: 0.71515in
+   :width: 8in
 .. |image48| image:: media/image48.png
-   :width: 6.69291in
-   :height: 0.89239in
+   :width: 8in
 .. |image49| image:: media/image49.png
-   :width: 6.44792in
-   :height: 4.05681in
+   :width: 8in
 .. |image50| image:: media/image50.png
-   :width: 6.69291in
-   :height: 1.06485in
+   :width: 8in
 .. |image51| image:: media/image51.png
-   :width: 6.49606in
-   :height: 3.36403in
+   :width: 8in
 .. |image52| image:: media/image52.png
-   :width: 6.49606in
-   :height: 3.36403in
+   :width: 8in
 .. |image53| image:: media/image53.png
-   :width: 6.49606in
-   :height: 3.36403in
+   :width: 8in
 .. |image54| image:: media/image54.png
-   :width: 6.49606in
-   :height: 3.36403in
+   :width: 8in

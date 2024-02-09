@@ -329,5 +329,4 @@ is as follows:
 Figure 1: Console output
 
 .. |image72| image:: media/image72.png
-   :width: 7.48031in
-   :height: 5.48906in
+   :width: 8in

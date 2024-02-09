@@ -122,42 +122,29 @@ Figure 29: Signaling channel ARN
 
 
 .. |image50| image:: media/images50.png
-   :width: 7.00764in
-   :height: 3.62639in
+   :width: 8in
 .. |image51| image:: media/images51.png
-   :width: 7.00764in
-   :height: 3.62639in
+   :width: 8in
 .. |image52| image:: media/images52.png
-   :width: 7.00764in
-   :height: 3.62639in
+   :width: 8in
 .. |image53| image:: media/images53.png
-   :width: 7.00764in
-   :height: 3.62639in
+   :width: 8in
 .. |image54| image:: media/images54.png
-   :width: 7.00764in
-   :height: 3.62639in
+   :width: 8in
 .. |image55| image:: media/images55.png
-   :width: 7.00764in
-   :height: 3.62639in
+   :width: 8in
 .. |image56| image:: media/images56.png
-   :width: 7.00764in
-   :height: 3.62639in
+   :width: 8in
 .. |image57| image:: media/images57.png
-   :width: 7.00764in
-   :height: 3.62639in
+   :width: 8in
 .. |image60| image:: media/images60.png
-   :width: 7.00764in
-   :height: 3.62639in
+   :width: 8in
 .. |image61| image:: media/images61.png
-   :width: 7.00764in
-   :height: 3.62639in
+   :width: 8in
 .. |image62| image:: media/images62.png
-   :width: 7.00764in
-   :height: 3.62639in
+   :width: 8in
 .. |image63| image:: media/images63.png
-   :width: 7.00764in
-   :height: 3.62639in
+   :width: 8in
 .. |image64| image:: media/images64.png
-   :width: 7.00764in
-   :height: 3.62639in
+   :width: 8in
 

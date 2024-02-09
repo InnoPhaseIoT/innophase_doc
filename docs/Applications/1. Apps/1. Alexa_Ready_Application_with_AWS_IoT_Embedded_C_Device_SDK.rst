@@ -1584,68 +1584,58 @@ Console log while interacting with the device is as follows:
 
 
 .. |image1| image:: media/image1.png
-   :width: 7.48031in
-   :height: 5.78469in
+   :width: 8in
 .. |image2| image:: media/image2.png
-   :width: 5.90551in
-   :height: 3.65398in
+   :width: 8in
 .. |image3| image:: media/image3.png
-   :width: 5.90551in
-   :height: 2.77155in
+   :width: 8in
 .. |image4| image:: media/image4.png
-   :width: 5.90551in
-   :height: 2.53424in
+   :width: 8in
 .. |image5| image:: media/image5.png
-   :width: 3.14961in
-   :height: 4.17991in
+   :class: .image-resizing
+   :width: 4in
 .. |image6| image:: media/image6.png
-   :width: 1.87932in
-   :height: 0.46667in
+   :width: 8in
 .. |image7| image:: media/image7.png
-   :width: 5.90551in
-   :height: 3.41619in
+   :width: 8in
 .. |image8| image:: media/image8.png
-   :width: 5.90551in
-   :height: 3.17269in
+   :class: .image-resizing
+   :width: 4in
 .. |image9| image:: media/image9.jpeg
-   :width: 2.3622in
-   :height: 4.97907in
+   :class: .image-resizing
+   :width: 4in
 .. |image10| image:: media/image10.png
-   :width: 2.3622in
-   :height: 4.05258in
+   :class: .image-resizing
+   :width: 4in
 .. |image11| image:: media/image11.png
-   :width: 2.3622in
-   :height: 4.98826in
+   :width: 8in
 .. |image12| image:: media/image12.png
-   :width: 2.36172in
-   :height: 3.9875in
+   :class: .image-resizing
+   :width: 4in
 .. |image13| image:: media/image13.png
-   :width: 2.3622in
-   :height: 4.98102in
+   :class: .image-resizing
+   :width: 4in
 .. |image14| image:: media/image14.png
-   :width: 2.36181in
-   :height: 4.05293in
+   :class: .image-resizing
+   :width: 4in
 .. |image15| image:: media/image15.png
-   :width: 2.3622in
-   :height: 4.98826in
+   :class: .image-resizing
+   :width: 4in
 .. |image16| image:: media/image16.png
-   :width: 2.36181in
-   :height: 4.05293in
+   :class: .image-resizing
+   :width: 4in
 .. |image17| image:: media/image17.png
-   :width: 2.3622in
-   :height: 5.0124in
+   :class: .image-resizing
+   :width: 4in
 .. |image18| image:: media/image18.png
-   :width: 2.36181in
-   :height: 4.06127in
+   :class: .image-resizing
+   :width: 4in
 .. |image19| image:: media/image19.png
-   :width: 2.3622in
-   :height: 4.9593in
+   :class: .image-resizing
+   :width: 4in
 .. |image20| image:: media/image20.png
-   :width: 2.3622in
-   :height: 4.05258in
+   :width: 8in
 .. |image21| image:: media/image21.png
-   :width: 5.90551in
-   :height: 4.58502in
+   :width: 8in
 .. |image22| image:: media/image22.png
-   :width: 5.90551in
-   :height: 3.23342in
+   :width: 8in

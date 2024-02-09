@@ -700,20 +700,14 @@ numbers) are provided in Table 1.
     +----------------------------------+-----------------------------------+
 
 .. |image107| image:: media/image107.png
-   :width: 6.29931in
-   :height: 2.73611in
+   :width: 8in
 .. |image108| image:: media/image108.png
-   :width: 6.19583in
-   :height: 2.17014in
+   :width: 8in
 .. |image109| image:: media/image109.png
-   :width: 6.32788in
-   :height: 2.61026in
+   :width: 8in
 .. |image110| image:: media/image110.png
-   :width: 6.06446in
-   :height: 2.0297in
+   :width: 8in
 .. |image111| image:: media/image111.png
-   :width: 6.00885in
-   :height: 2.10018in
+   :width: 8in
 .. |image112| image:: media/image112.png
-   :width: 6.17334in
-   :height: 2.19167in
+   :width: 8in

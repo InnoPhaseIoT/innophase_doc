@@ -951,14 +951,10 @@ interrupt pins.
 Figure 4: Otii capture for gpio_interrupt_awake application
 
 .. |image120| image:: media/image120.png
-   :width: 6.49606in
-   :height: 4.54969in
+   :width: 8in
 .. |image121| image:: media/image121.png
-   :width: 5.90551in
-   :height: 3.52683in
+   :width: 8in
 .. |image122| image:: media/image122.png
-   :width: 6.29921in
-   :height: 2.4958in
+   :width: 8in
 .. |image123| image:: media/image123.png
-   :width: 6.10236in
-   :height: 3.51897in
+   :width: 8in

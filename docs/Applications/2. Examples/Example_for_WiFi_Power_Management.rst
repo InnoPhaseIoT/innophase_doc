@@ -1822,92 +1822,62 @@ Console output:
 Figure 30: Power analyzer- wake time after keepalive
 
 .. |image77| image:: media/image77.png
-   :width: 6.10236in
-   :height: 2.62612in
+   :width: 8in
 .. |image78| image:: media/image78.png
-   :width: 5.11811in
-   :height: 2.87254in
+   :width: 8in
 .. |image79| image:: media/image79.png
-   :width: 5.11811in
-   :height: 3.28494in
+   :width: 8in
 .. |image80| image:: media/image80.png
-   :width: 5.90551in
-   :height: 0.75746in
+   :width: 8in
 .. |image81| image:: media/image81.png
-   :width: 5.90551in
-   :height: 2.15059in
+   :width: 8in
 .. |image82| image:: media/image82.png
-   :width: 5.90551in
-   :height: 1.34983in
+   :width: 8in
 .. |image83| image:: media/image83.png
-   :width: 5.90551in
-   :height: 1.08053in
+   :width: 8in
 .. |image84| image:: media/image84.png
-   :width: 5.90551in
-   :height: 2.16156in
+   :width: 8in
 .. |image85| image:: media/image85.png
-   :width: 5.90551in
-   :height: 2.72044in
+   :width: 8in
 .. |image86| image:: media/image86.png
-   :width: 5.90551in
-   :height: 2.13875in
+   :width: 8in
 .. |image87| image:: media/image87.png
-   :width: 5.90551in
-   :height: 2.87485in
+   :width: 8in
 .. |image88| image:: media/image88.png
-   :width: 5.90551in
-   :height: 3.10324in
+   :width: 8in
 .. |image89| image:: media/image89.png
-   :width: 5.90551in
-   :height: 3.08492in
+   :width: 8in
 .. |image90| image:: media/image90.png
-   :width: 5.90551in
-   :height: 3.09735in
+   :width: 8in
 .. |image91| image:: media/image91.png
-   :width: 5.90551in
-   :height: 3.27204in
+   :width: 8in
 .. |image92| image:: media/image92.png
-   :width: 5.90551in
-   :height: 2.98351in
+   :width: 8in
 .. |image93| image:: media/image93.png
-   :width: 5.90551in
-   :height: 3.10053in
+   :width: 8in
 .. |image94| image:: media/image94.png
-   :width: 5.90551in
-   :height: 3.31409in
+   :width: 8in
 .. |image95| image:: media/image95.png
-   :width: 5.90551in
-   :height: 3.08344in
+   :width: 8in
 .. |image96| image:: media/image96.png
-   :width: 5.90486in
-   :height: 3.62426in
+   :width: 8in
 .. |image97| image:: media/image97.png
-   :width: 5.90551in
-   :height: 3.04994in
+   :width: 8in
 .. |image98| image:: media/image98.png
-   :width: 5.90551in
-   :height: 1.32777in
+   :width: 8in
 .. |image99| image:: media/image99.png
-   :width: 5.90551in
-   :height: 2.47882in
+   :width: 8in
 .. |image100| image:: media/image100.png
-   :width: 5.90551in
-   :height: 2.95496in
+   :width: 8in
 .. |image101| image:: media/image101.png
-   :width: 5.90551in
-   :height: 2.95937in
+   :width: 8in
 .. |image102| image:: media/image102.png
-   :width: 5.90551in
-   :height: 2.49892in
+   :width: 8in
 .. |image103| image:: media/image103.png
-   :width: 5.90551in
-   :height: 3.42502in
+   :width: 8in
 .. |image104| image:: media/image104.png
-   :width: 5.90551in
-   :height: 0.87287in
+   :width: 8in
 .. |image105| image:: media/image105.png
-   :width: 5.90551in
-   :height: 3.63358in
+   :width: 8in
 .. |image106| image:: media/image106.png
-   :width: 5.90551in
-   :height: 3.63358in
+   :width: 8in

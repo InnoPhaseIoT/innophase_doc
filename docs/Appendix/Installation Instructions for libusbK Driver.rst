@@ -24,8 +24,6 @@ drivers to libusbK.
 Figure 9: Updating Talaria TWO USB driver to libusbK
 
 .. |A screenshot of a computer Description automatically generated| image:: media/images65.png
-   :width: 4.72441in
-   :height: 2.08666in
+   :width: 8in
 .. |Graphical user interface, text, application, Word Description automatically generated| image:: media/images66.png
-   :width: 4.92083in
-   :height: 2.15556in
+   :width: 8in

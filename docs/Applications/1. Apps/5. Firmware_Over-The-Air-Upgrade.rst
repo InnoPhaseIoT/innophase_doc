@@ -1326,32 +1326,22 @@ b0:39:56:93:83:31 on channel 6 @ -62 'innotest_open123' 'OPEN'
 
 
 .. |image55| image:: media/image55.png
-   :width: 6.69291in
-   :height: 0.85424in
+   :width: 8in
 .. |image56| image:: media/image56.png
-   :width: 5.90551in
-   :height: 8.10291in
+   :width: 8in
 .. |image57| image:: media/image57.png
-   :width: 5.90551in
-   :height: 7.88474in
+   :width: 8in
 .. |image58| image:: media/image58.png
-   :width: 6.49606in
-   :height: 0.37358in
+   :width: 8in
 .. |image59| image:: media/image59.png
-   :width: 6.29921in
-   :height: 0.34912in
+   :width: 8in
 .. |image60| image:: media/image60.png
-   :width: 6.23702in
-   :height: 0.36226in
+   :width: 8in
 .. |image61| image:: media/image61.png
-   :width: 6.23702in
-   :height: 0.36226in
+   :width: 8in
 .. |image62| image:: media/image62.png
-   :width: 6.23702in
-   :height: 0.36226in
+   :width: 8in
 .. |image63| image:: media/image63.png
-   :width: 6.23702in
-   :height: 0.36226in
+   :width: 8in
 .. |image64| image:: media/image64.png
-   :width: 6.23702in
-   :height: 0.36226in
+   :width: 8in

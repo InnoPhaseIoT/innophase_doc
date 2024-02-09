@@ -29,11 +29,8 @@ Figure 23: Update Devices
 Figure 24: Select the device driver
 
 .. |A screenshot of a social media post Description automatically generated| image:: media/images72.png
-   :width: 6.88976in
-   :height: 5.03998in
+   :width: 8in
 .. |image1| image:: media/images73.png
-   :width: 6.88976in
-   :height: 5.10022in
+   :width: 8in
 .. |image2| image:: media/images74.png
-   :width: 6.88976in
-   :height: 5.09244in
+   :width: 8in

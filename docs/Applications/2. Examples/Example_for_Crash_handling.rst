@@ -258,5 +258,4 @@ debugging share the same with InnoPhase at the contact information
 provided in section 7.
 
 .. |image20| image:: media/image20.png
-   :width: 7.08661in
-   :height: 6.3016in
+   :width: 8in

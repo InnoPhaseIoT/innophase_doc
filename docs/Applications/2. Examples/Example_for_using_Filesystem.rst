@@ -239,23 +239,16 @@ Contents are extracted into the folder specified in the Download Tool.
 Figure 7: Extracted files
 
 .. |image113| image:: media/image113.png
-   :width: 5.29167in
-   :height: 4.14167in
+   :width: 8in
 .. |image114| image:: media/imag114.png
-   :width: 5.7874in
-   :height: 4.17818in
+   :width: 8in
 .. |image115| image:: media/image115.png
-   :width: 5.29167in
-   :height: 4.14167in
+   :width: 8in
 .. |image116| image:: media/image116.png
-   :width: 5.43307in
-   :height: 4.58212in
+   :width: 8in
 .. |image117| image:: media/image117.png
-   :width: 5.29167in
-   :height: 4.14167in
+   :width: 8in
 .. |image118| image:: media/image118.png
-   :width: 5.43307in
-   :height: 4.81091in
+   :width: 8in
 .. |image119| image:: media/image119.png
-   :width: 5.90551in
-   :height: 4.02902in
+   :width: 8in

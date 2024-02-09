@@ -1319,17 +1319,16 @@ attribute permission can be set to use only encrypted, authenticated,
 and authorized read and write.
 
 .. |image129| image:: media/image129.png
-   :width: 5.90551in
-   :height: 2.17949in
+   :width: 8in
 .. |image130| image:: media/image130.png
-   :width: 3.14961in
-   :height: 6.2023in
+   :class: .image-resizing
+   :width: 4in
 .. |image131| image:: media/image131.png
-   :width: 3.14961in
-   :height: 4.71121in
+   :class: .image-resizing
+   :width: 4in
 .. |image132| image:: media/image132.png
-   :width: 3.14961in
-   :height: 4.19948in
+   :class: .image-resizing
+   :width: 4in
 .. |image133| image:: media/image133.png
-   :width: 3.14961in
-   :height: 6.18378in
+   :class: .image-resizing
+   :width: 4in

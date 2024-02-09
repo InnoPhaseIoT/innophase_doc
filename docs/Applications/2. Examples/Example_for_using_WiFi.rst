@@ -867,17 +867,12 @@ Later, AP is switched ON, connect success, alternate connect disconnect and add 
 
 
 .. |image124| image:: media/image124.png
-   :width: 6.69291in
-   :height: 2.22128in
+   :width: 8in
 .. |image125| image:: media/image125.png
-   :width: 5.90556in
-   :height: 1.47292in
+   :width: 8in
 .. |image126| image:: media/image126.png
-   :width: 4.33071in
-   :height: 3.39239in
+   :width: 8in
 .. |image127| image:: media/image127.png
-   :width: 6.29921in
-   :height: 3.14738in
+   :width: 8in
 .. |image128| image:: media/image128.png
-   :width: 6.29921in
-   :height: 3.13183in
+   :width: 8in

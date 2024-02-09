@@ -65,17 +65,12 @@ Figure 29: FT_Prog - Updated Serial Number
    unplug and re-plug the device to refresh the connection.
 
 .. |image67| image:: media/images67.png
-   :width: 7.48031in
-   :height: 2.45741in
+   :width: 8in
 .. |image68| image:: media/images68.png
-   :width: 7.48031in
-   :height: 5.83939in
+   :width: 8in
 .. |image69| image:: media/images69.png
-   :width: 7.08661in
-   :height: 2.17321in
+   :width: 8in
 .. |image70| image:: media/images70.png
-   :width: 7.08661in
-   :height: 2.7815in
+   :width: 8in
 .. |image71| image:: media/images71.png
-   :width: 7.08661in
-   :height: 1.82677in
+   :width: 8in

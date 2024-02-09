@@ -92,38 +92,26 @@ Figure 35: Execute make
    :width: 7.08681in
    :height: 3.63056in
 .. |image3| image:: media/image3.jpg
-   :width: 7.08681in
-   :height: 3.63056in
+   :width: 8in
 .. |image4| image:: media/image1.jpg
-   :width: 7.08681in
-   :height: 3.63056in
+   :width: 8in
 .. |image5| image:: media/image5.jpg
-   :width: 7.08681in
-   :height: 3.63056in
+   :width: 8in
 .. |image6| image:: media/image1.jpg
-   :width: 1.39444in
-   :height: 0.19653in
+   :width: 8in
 .. |image8| image:: media/image5.jpg
-   :width: 2.01684in
-   :height: 0.16668in
+   :width: 8in
 .. |image9| image:: media/image1.jpg
-   :width: 1.36875in
-   :height: 0.16944in
+   :width: 8in
 .. |image10| image:: media/image1.jpg
-   :width: 1.36875in
-   :height: 0.16944in
+   :width: 8in
 .. |image11| image:: media/image1.jpg
-   :width: 1.36875in
-   :height: 0.16944in
+   :width: 8in
 .. |image12| image:: media/image12.jpg
-   :width: 7.08681in
-   :height: 3.63056in
+   :width: 8in
 .. |image13| image:: media/image1.jpg
-   :width: 1.36944in
-   :height: 0.85278in
+   :width: 8in
 .. |image18| image:: media/image18.jpg
-   :width: 7.08681in
-   :height: 3.63056in
+   :width: 8in
 .. |image24| image:: media/image24.jpg
-   :width: 7.08681in
-   :height: 3.63056in
+   :width: 8in

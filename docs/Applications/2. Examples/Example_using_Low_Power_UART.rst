@@ -993,23 +993,16 @@ c. Talaria TWO optionally waits (~10 ms) for more incoming packets.
 Figure 7: Wakeup from UART_BREAK and IPC communication with HOST
 
 .. |image137| image:: media/image137.png
-   :width: 6.69291in
-   :height: 3.80479in
+   :width: 8in
 .. |image138| image:: media/image138.png
-   :width: 6.29921in
-   :height: 2.43161in
+   :width: 8in
 .. |image139| image:: media/image139.png
-   :width: 6.10833in
-   :height: 3.15833in
+   :width: 8in
 .. |image140| image:: media/image140.png
-   :width: 6.29921in
-   :height: 3.98425in
+   :width: 8in
 .. |image141| image:: media/image141.png
-   :width: 6.87932in
-   :height: 3.14236in
+   :width: 8in
 .. |image142| image:: media/image142.png
-   :width: 6.29921in
-   :height: 2.07258in
+   :width: 8in
 .. |image143| image:: media/image143.png
-   :width: 5.90551in
-   :height: 2.46587in
+   :width: 8in
